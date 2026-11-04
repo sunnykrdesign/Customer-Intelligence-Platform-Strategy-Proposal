@@ -22,6 +22,22 @@ The working dashboard starts at sign-in and walks through the full journey:
 
 Authentication is simulated in the browser for the prototype; there is no real login or backend. The session lasts until the tab is closed or you sign out.
 
+## Preview and share
+
+- **Preview without signing in** (link under the sign-in panel) opens the dashboard as a guest, seen as the central data team. A dark bar at the top says it's a preview, with **Share** and **Sign in**.
+- **Share** (in the sidebar, the preview bar and under the sign-in panel) opens a sheet that builds a link:
+  - **Skip sign-in:** the link opens straight into preview mode.
+  - **See it as:** central data team, or an Internshala, Working Professionals or Unacademy counselor.
+  - **Open on this screen:** the link lands on the screen you're on (or that team's home screen, if they can't see it).
+  - **Copy link**, **Open preview**, the device's own share menu where available, and **Embed on a website** (copyable `<iframe>` code).
+
+Preview links look like this:
+
+- Central team overview: `…/?preview=1#/overview`
+- Working Professionals counselor on the lookup screen: `…/?preview=1&team=wp#/lookup`
+
+`team` can be `central`, `internshala`, `wp` or `unacademy`.
+
 ## Screens
 
 | File | Screen | What it answers |

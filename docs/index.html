@@ -252,6 +252,54 @@ table.compare thead th{text-align:left;padding:0 0 14px;font-size:13px;font-weig
 table.compare tbody th{text-align:left;font-weight:400;font-size:13px;color:var(--muted);padding:14px 0;border-top:1px solid var(--line);width:22%}
 table.compare td{padding:14px 16px 14px 0;border-top:1px solid var(--line)}
 table.compare td.diff{color:var(--red-text)}
+
+/* Auth footer links */
+.auth-foot{display:flex;justify-content:center;align-items:center;gap:10px}
+.auth-foot button{border:none;background:transparent;padding:0 2px;min-height:36px;font-size:13px;color:#C7C7CC;text-decoration:underline;text-decoration-color:rgba(255,255,255,.3);text-underline-offset:3px}
+.auth-foot button:hover{color:#fff;text-decoration-color:#fff}
+
+/* Preview bar */
+.preview-bar{max-width:1040px;margin:0 auto 32px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:#1D1D1F;color:#F5F5F7;border-radius:14px;padding:8px 8px 8px 18px;font-size:14px}
+.preview-bar b{font-weight:600}
+.preview-bar .grow{flex:1}
+.preview-bar button{border:none;border-radius:999px;height:34px;padding:0 14px;font-size:13px;font-weight:500;background:rgba(255,255,255,.12);color:#fff}
+.preview-bar button:last-child{background:#F5F5F7;color:#1D1D1F}
+@media (max-width:520px){.preview-bar .opt,.preview-bar [data-action="share"]{display:none}.preview-bar{font-size:13px;flex-wrap:nowrap}}
+
+/* Share sheet */
+dialog.sheet{border:none;padding:0;border-radius:22px;width:min(480px,calc(100vw - 32px));max-height:calc(100vh - 32px);background:#fff;color:var(--text);box-shadow:0 30px 80px rgba(0,0,0,.3)}
+dialog.sheet::backdrop{background:rgba(0,0,0,.4);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.sheet-body{padding:24px;display:flex;flex-direction:column;gap:20px}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sheet-head h2{margin:0;font-size:22px;font-weight:700;letter-spacing:-0.025em}
+.sheet-head .x{width:32px;height:32px;border-radius:50%;border:none;background:var(--fill);color:var(--text);display:flex;align-items:center;justify-content:center}
+.sheet-note{margin:-12px 0 0;font-size:14px;color:var(--muted)}
+.opts{background:var(--bg);border-radius:14px;padding:0 16px}
+.opt-row{display:flex;align-items:center;gap:16px;min-height:64px;box-shadow:0 1px 0 var(--line);cursor:pointer}
+.opt-row:last-child{box-shadow:none}
+.opt-row .txt{flex:1;display:flex;flex-direction:column;gap:2px;padding:10px 0}
+.opt-row .t{font-size:15px;font-weight:500}
+.opt-row .d{font-size:13px;color:var(--muted)}
+.opt-row.off{opacity:.45;cursor:default}
+.switch{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:46px;height:28px;border-radius:999px;background:#E5E5EA;position:relative;margin:0;cursor:pointer;transition:background .2s}
+.switch::after{content:"";position:absolute;top:2px;left:2px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .2s}
+.switch:checked{background:#34C759}
+.switch:checked::after{transform:translateX(18px)}
+.fselect{flex:0 1 auto;max-width:52%;height:36px;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--text);font:inherit;font-size:14px;padding:0 10px}
+.fselect:disabled{opacity:.5}
+.field-light{display:flex;flex-direction:column;gap:8px}
+.field-light label{font-size:13px;color:var(--muted)}
+.finput{width:100%;min-width:0;border:1px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text);font:inherit;font-size:14px;padding:0 12px;height:40px;outline:none}
+.finput:focus{border-color:var(--focus);box-shadow:0 0 0 3px rgba(0,113,227,.18)}
+textarea.finput{height:auto;padding:10px 12px;resize:none;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12px;line-height:1.5}
+.copyrow{display:flex;gap:8px}
+.copyrow .btn{white-space:nowrap;flex:0 0 auto}
+.sheet-actions{display:flex;gap:8px;flex-wrap:wrap}
+.embed summary{cursor:pointer;font-size:14px;font-weight:500;min-height:32px;display:flex;align-items:center}
+.embed[open] summary{margin-bottom:12px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#1D1D1F;color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:100}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion: reduce){.toast,.switch,.switch::after{transition:none}}
 .status{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--bg);border-radius:14px;padding:8px 8px 8px 16px;font-size:14px}
 .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .actions .grow{flex:1}
@@ -358,7 +406,11 @@ table.compare td.diff{color:var(--red-text)}
     </div>
   </div>
 
-  <footer class="auth-foot">Unacademy · Internshala · Working Professionals</footer>
+  <footer class="auth-foot">
+    <button type="button" data-action="preview">Preview without signing in</button>
+    <span aria-hidden="true">·</span>
+    <button type="button" data-action="share">Share</button>
+  </footer>
 </div>
 <!-- =========================================================
      APP
@@ -384,13 +436,20 @@ table.compare td.diff{color:var(--red-text)}
         <span class="nm"><b id="meName"></b><span id="meTeam"></span></span>
       </div>
       <div class="acts">
+        <button type="button" data-action="share">Share</button>
         <button type="button" data-action="switch-team">Switch team</button>
-        <button type="button" data-action="signout">Sign out</button>
+        <button type="button" data-action="signout" id="signoutBtn">Sign out</button>
       </div>
     </div>
   </aside>
 
   <main class="main">
+    <div class="preview-bar" id="previewBar" hidden>
+      <span>You're previewing with sample data<span class="opt">, seen as <b id="previewTeam"></b></span>.</span>
+      <span class="grow"></span>
+      <button type="button" data-action="share">Share</button>
+      <button type="button" data-action="signout">Sign in</button>
+    </div>
 
     <!-- ============ OVERVIEW ============ -->
     <div class="wrap view" data-view="overview" hidden>
@@ -632,6 +691,55 @@ table.compare td.diff{color:var(--red-text)}
   </main>
 </div>
 
+<!-- =========================================================
+     SHARE SHEET
+     ========================================================= -->
+<dialog class="sheet" id="shareDlg" aria-labelledby="shareTitle">
+  <div class="sheet-body">
+    <div class="sheet-head">
+      <h2 id="shareTitle">Share this prototype</h2>
+      <button type="button" class="x" id="shareClose" aria-label="Close"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1l10 10M11 1L1 11"/></svg></button>
+    </div>
+    <p class="sheet-note">Anyone with the link can open it. It only contains sample data.</p>
+
+    <div class="opts">
+      <label class="opt-row"><span class="txt"><span class="t">Skip sign-in</span><span class="d">Opens straight into preview mode</span></span><input type="checkbox" class="switch" id="sharePreview" checked></label>
+      <label class="opt-row" for="shareTeam"><span class="txt"><span class="t">See it as</span><span class="d">Each team sees different screens</span></span>
+        <select id="shareTeam" class="fselect">
+          <option value="central">Central data team</option>
+          <option value="internshala">Internshala counselor</option>
+          <option value="wp">WP counselor</option>
+          <option value="unacademy">Unacademy counselor</option>
+        </select>
+      </label>
+      <label class="opt-row" id="shareScreenRow"><span class="txt"><span class="t">Open on this screen</span><span class="d" id="shareScreenName"></span></span><input type="checkbox" class="switch" id="shareScreen" checked></label>
+    </div>
+
+    <div class="field-light">
+      <label for="shareUrl">Link</label>
+      <div class="copyrow">
+        <input id="shareUrl" class="finput" type="text" readonly>
+        <button type="button" class="btn dark sm" id="copyLink">Copy link</button>
+      </div>
+    </div>
+
+    <div class="sheet-actions">
+      <a class="btn soft sm" id="openPreview" href="#" target="_blank" rel="noopener">Open preview</a>
+      <button type="button" class="btn soft sm" id="nativeShare" hidden>More options…</button>
+    </div>
+
+    <details class="embed">
+      <summary>Embed on a website</summary>
+      <div class="field-light">
+        <label for="embedCode">Paste this into any web page</label>
+        <textarea id="embedCode" class="finput code" rows="3" readonly></textarea>
+        <button type="button" class="btn soft sm" id="copyEmbed" style="align-self:flex-start">Copy embed code</button>
+      </div>
+    </details>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 <script>
 (function () {
   "use strict";
@@ -654,6 +762,17 @@ table.compare td.diff{color:var(--red-text)}
   };
   var ALLOWED = /@(upgrad|unacademy|internshala)\.com$/i;
 
+  /* ---------- Preview links: ?preview=1&team=wp#/lookup ---------- */
+  function startPreview(team) {
+    S = { step: "app", preview: true, name: "Guest preview", email: "", team: TEAMS[team] ? team : "central", acked: true };
+    save();
+  }
+  (function () {
+    var q = new URLSearchParams(location.search);
+    if (q.get("preview") === "1") { startPreview(q.get("team")); clearQuery(); }
+  })();
+  function clearQuery() { if (location.search) history.replaceState(null, "", location.pathname + location.hash); }
+
   function nameFrom(email) {
     var local = email.split("@")[0].replace(/[0-9]+/g, "");
     var parts = local.split(/[._-]+/).filter(Boolean);
@@ -664,7 +783,7 @@ table.compare td.diff{color:var(--red-text)}
 
   /* ---------- Top-level render ---------- */
   function render() {
-    var signedIn = S.step === "app" && S.email && S.team && TEAMS[S.team];
+    var signedIn = S.step === "app" && (S.email || S.preview) && S.team && TEAMS[S.team];
     $("#auth").hidden = !!signedIn;
     $("#app").hidden = !signedIn;
     if (signedIn) { Burst.stop(); renderApp(); return; }
@@ -674,7 +793,7 @@ table.compare td.diff{color:var(--red-text)}
     var titles = { signin: "Sign in", otp: "Check your email", team: "Choose your team", ack: "Before you start" };
     document.title = (titles[S.step] || "Sign in") + " · upGrad Customer Intelligence";
     if (S.step === "otp") { $("#otpEmail").textContent = S.email; startResend(); focusSoon("#code"); }
-    if (S.step === "team") { $("#teamEmail").textContent = S.email; renderTeams(); }
+    if (S.step === "team") { $("#teamEmail").textContent = S.preview ? "a guest (preview)" : S.email; renderTeams(); }
     if (S.step === "ack") { $("#ackBox").checked = false; $("#ackBtn").disabled = true; }
     if (S.step === "signin") focusSoon("#email");
   }
@@ -760,9 +879,11 @@ table.compare td.diff{color:var(--red-text)}
   document.addEventListener("click", function (e) {
     var a = e.target.closest("[data-action]"); if (!a) return;
     var act = a.getAttribute("data-action");
-    if (act === "restart" || act === "signout") { S = { step: "signin" }; save(); clearInterval(timer); $("#email").value = ""; render(); }
+    if (act === "restart" || act === "signout") { S = { step: "signin" }; save(); clearInterval(timer); clearQuery(); $("#email").value = ""; render(); }
     if (act === "back-team") go("team");
     if (act === "switch-team") { S.step = "team"; save(); render(); }
+    if (act === "preview") { startPreview("central"); location.hash = "#/overview"; render(); }
+    if (act === "share") openShare();
   });
 
   /* ---------- App ---------- */
@@ -771,7 +892,10 @@ table.compare td.diff{color:var(--red-text)}
     var team = TEAMS[S.team];
     $("#meName").textContent = S.name;
     $("#meTeam").textContent = team.label;
-    $("#meAv").textContent = initials(S.name);
+    $("#meAv").textContent = S.preview ? "G" : initials(S.name);
+    $("#previewBar").hidden = !S.preview;
+    $("#previewTeam").textContent = team.label;
+    $("#signoutBtn").textContent = S.preview ? "Sign in" : "Sign out";
     $$(".nav a").forEach(function (a) { a.hidden = team.routes.indexOf(a.getAttribute("data-route")) < 0; });
     $(".nav").hidden = team.routes.length < 2;
     $(".later").hidden = !!team.bu;
@@ -878,6 +1002,66 @@ table.compare td.diff{color:var(--red-text)}
     return '<div class="row"><span class="txt"><span class="title">' + esc(l.who) + '</span><span class="desc">' + esc(l.action) + " · " + esc(l.rule) +
       '</span></span><span class="desc">' + esc(l.when) + '</span><button type="button" class="textbtn">' + esc(l.reverse) + "</button></div>";
   }).join("");
+
+  /* ---------- Share sheet ---------- */
+  var dlg = $("#shareDlg");
+  var toastTimer = null;
+  function toast(msg) {
+    var t = $("#toast"); t.textContent = msg; t.classList.add("show");
+    clearTimeout(toastTimer); toastTimer = setTimeout(function () { t.classList.remove("show"); }, 2000);
+  }
+  function currentRoute() {
+    if (S.step !== "app") return "";
+    return (location.hash.replace(/^#\/?/, "") || "").split("/")[0] || TEAMS[S.team].home;
+  }
+  function shareUrl() {
+    var preview = $("#sharePreview").checked, team = $("#shareTeam").value;
+    var route = (preview && !$("#shareScreenRow").hidden && $("#shareScreen").checked) ? currentRoute() : "";
+    if (route && TEAMS[team].routes.indexOf(route) < 0) route = TEAMS[team].home;
+    var q = preview ? "?preview=1" + (team !== "central" ? "&team=" + team : "") : "";
+    return location.href.split(/[?#]/)[0] + q + (route ? "#/" + route : "");
+  }
+  function refreshShare() {
+    var preview = $("#sharePreview").checked;
+    $("#shareTeam").disabled = !preview;
+    $("#shareTeam").closest(".opt-row").classList.toggle("off", !preview);
+    $("#shareScreen").disabled = !preview;
+    $("#shareScreenRow").classList.toggle("off", !preview);
+    var r = currentRoute(), team = TEAMS[$("#shareTeam").value];
+    if (r) $("#shareScreenName").textContent = team.routes.indexOf(r) < 0 ? titles[team.home] + " (this team can't see " + titles[r] + ")" : titles[r];
+    var url = shareUrl();
+    $("#shareUrl").value = url;
+    $("#openPreview").href = url;
+    $("#embedCode").value = '<iframe src="' + url + '" title="upGrad Customer Intelligence prototype" width="100%" height="900" style="border:0;border-radius:16px" loading="lazy"></iframe>';
+  }
+  function openShare() {
+    var route = currentRoute();
+    $("#shareScreenRow").hidden = !route;
+    $("#shareScreenName").textContent = route ? titles[route] : "";
+    $("#shareTeam").value = S.step === "app" && S.team ? S.team : "central";
+    $("#nativeShare").hidden = !navigator.share;
+    refreshShare();
+    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
+    setTimeout(function () { $("#copyLink").focus(); }, 30);
+  }
+  function copy(text, input, msg) {
+    var done = function () { toast(msg); };
+    var fallback = function () {
+      input.focus(); input.select();
+      try { document.execCommand("copy"); done(); } catch (e) { toast("Select the text and copy it"); }
+    };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  ["#sharePreview", "#shareTeam", "#shareScreen"].forEach(function (s) { $(s).addEventListener("change", refreshShare); });
+  $("#copyLink").addEventListener("click", function () { copy($("#shareUrl").value, $("#shareUrl"), "Link copied"); });
+  $("#copyEmbed").addEventListener("click", function () { copy($("#embedCode").value, $("#embedCode"), "Embed code copied"); });
+  $("#shareUrl").addEventListener("focus", function () { this.select(); });
+  $("#nativeShare").addEventListener("click", function () {
+    navigator.share({ title: "upGrad Customer Intelligence", text: "Phase 1 prototype (sample data)", url: $("#shareUrl").value }).catch(function () {});
+  });
+  $("#shareClose").addEventListener("click", function () { dlg.close ? dlg.close() : dlg.removeAttribute("open"); });
+  dlg.addEventListener("click", function (e) { if (e.target === dlg && dlg.close) dlg.close(); });
 
   /* ---------- Sign-in background: many touchpoints converging on one learner ---------- */
   var Burst = (function () {
