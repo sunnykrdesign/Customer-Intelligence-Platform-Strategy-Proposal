@@ -10,6 +10,18 @@ The working dashboard is a single self-contained file, `docs/index.html` (plain 
 
 All numbers, names and people in the screens are sample data for design review.
 
+## Sign-in flow
+
+The working dashboard starts at sign-in and walks through the full journey:
+
+1. **Sign in** with Google or a work email. Only `@upgrad.com`, `@unacademy.com` and `@internshala.com` addresses are accepted.
+2. **Check your email** for a 6-digit code (in the prototype, any 6 digits work).
+3. **Choose your team.** The central data team sees Overview, person lookup and identity audits. Counseling teams (Internshala, Working Professionals, Unacademy) only see person lookup.
+4. **Before you start.** A one-time agreement to the data-use rules: contact details are hidden until a purpose is given, consent is checked before contact, and data on minors is restricted.
+5. **Dashboard.** You land on your team's home screen. Counselors from a business the learner hasn't consented to are told not to contact them, and the link to the owning business's CRM is hidden.
+
+Authentication is simulated in the browser for the prototype; there is no real login or backend. The session lasts until the tab is closed or you sign out.
+
 ## Screens
 
 | File | Screen | What it answers |
