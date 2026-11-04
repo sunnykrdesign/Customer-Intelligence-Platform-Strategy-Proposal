@@ -2,7 +2,11 @@
 
 Design prototype for the Phase 1 of the Customer Intelligence Platform: identity resolution and the unified user database across Unacademy, Internshala and Working Professionals.
 
-**Live canvas:** https://claude.ai/artifact/5uSQYgSmss3X2D4Zu1XahK
+**Working dashboard (GitHub Pages):** https://sunnykrdesign.github.io/customer-intelligence-platform-strategy-proposal/
+
+**Design canvas:** https://claude.ai/artifact/5uSQYgSmss3X2D4Zu1XahK
+
+The working dashboard is a single self-contained file, `docs/index.html` (plain HTML, CSS and JavaScript, no build step or dependencies apart from the Inter web font). Open it in any browser, host it on any static site, or embed it in an `<iframe>`. Screens are linked by URL: `#/overview`, `#/lookup`, `#/identity`.
 
 All numbers, names and people in the screens are sample data for design review.
 
