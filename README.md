@@ -2,7 +2,7 @@
 
 Design prototype for the Phase 1 of the Customer Intelligence Platform: identity resolution and the unified user database across Unacademy, Internshala and Working Professionals.
 
-**Working dashboard (GitHub Pages):** https://sunnykrdesign.github.io/customer-intelligence-platform-strategy-proposal/
+**Working dashboard (GitHub Pages):** https://sunnykrdesign.github.io/Customer-Intelligence-Platform-Strategy-Proposal/
 
 **Design canvas:** https://claude.ai/artifact/5uSQYgSmss3X2D4Zu1XahK
 
