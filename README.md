@@ -49,6 +49,7 @@ A **Review** button in the bottom-right corner opens the review controls. They'r
   - **Minimum:** a light bar with a hairline.
   - **Mid:** a white card bar with a soft shadow and a larger name.
   - **High:** a raised two-row card with photo, name, key facts, owner and completeness chips and the CRM button, with the tabs below.
+- **Pin the search bar** (on by default): keeps "Who's on the line?" at the top of Look up a person while you scroll, with the pinned person and tabs sitting just below it. A new search opens the person at the top.
 - **Locked sections:** shows the demo team password.
 - **Sidebar menu:** an on/off switch for each sidebar item: Overview, People, Look up a person, Identity & audits, Data dictionary and Later phases.
   - Hidden items leave the sidebar, and links to them open the next visible page.

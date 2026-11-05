@@ -1054,7 +1054,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
 /* Left panel: the person card stays pinned while you scroll */
 @media (min-width:1100px){
   #lookupResult[data-layout="rail"] .playout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:28px;align-items:start}
-  #lookupResult[data-layout="rail"] .prail{position:sticky;top:16px;display:flex;flex-direction:column;gap:16px;max-height:calc(100vh - 32px);overflow-y:auto;scrollbar-width:none}
+  #lookupResult[data-layout="rail"] .prail{position:sticky;top:calc(var(--sbar,0px) + 16px);display:flex;flex-direction:column;gap:16px;max-height:calc(100vh - 32px - var(--sbar,0px));overflow-y:auto;scrollbar-width:none}
   #lookupResult[data-layout="rail"] .prail::-webkit-scrollbar{display:none}
   #lookupResult[data-layout="rail"] .prail .pcard{padding:24px 22px 20px;gap:0}
   #lookupResult[data-layout="rail"] .prail .pcard-top{flex-direction:column;align-items:flex-start;gap:14px}
@@ -1076,7 +1076,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
   #lookupResult[data-layout="top"] .prail{position:static}
 }
 /* One set of section tabs, kept in view */
-.pbar{position:sticky;top:0;z-index:12;display:flex;align-items:center;gap:16px;padding:12px 0;margin-top:-12px;background:var(--bg);transition:box-shadow .25s}
+.pbar{position:sticky;top:var(--sbar,0px);z-index:12;display:flex;align-items:center;gap:16px;padding:12px 0;margin-top:-12px;background:var(--bg);transition:box-shadow .25s}
 #lookupResult.hdr-off .pbar{box-shadow:0 1px 0 var(--line)}
 .pbar .tabs{flex:1 1 auto;min-width:0}
 .pmini{display:flex;align-items:center;gap:10px;min-width:0;max-width:0;opacity:0;overflow:hidden;white-space:nowrap;transition:max-width .4s var(--ease),max-height .4s var(--ease),opacity .25s,padding .3s}
@@ -1085,13 +1085,13 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
 .pmini b{font-size:14px;font-weight:600;overflow:hidden;text-overflow:ellipsis}
 .pmini small{font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis}
 .vcol{display:flex;flex-direction:column;gap:12px;min-width:0}
-.dv .vcol{position:sticky;top:16px}
+.dv .vcol{position:sticky;top:calc(var(--sbar,0px) + 16px)}
 .dv-right .vcol{order:2}
 .vcol .pmini{max-width:none;max-height:0;padding:0 14px;background:var(--card);border-radius:16px}
 #lookupResult.hdr-off .vcol .pmini{max-width:none;max-height:72px;padding:12px 14px}
 @media (max-width:1099px){
   .dv-right .vcol{order:0}
-  .dv .vcol{position:sticky;top:0;z-index:12;background:var(--bg);padding:8px 0}
+  .dv .vcol{position:sticky;top:var(--sbar,0px);z-index:12;background:var(--bg);padding:8px 0}
 }
 .acount{font-size:13px;color:var(--muted)}
 .afilter select{appearance:none;-webkit-appearance:none;height:34px;padding:0 32px 0 12px;border:1px solid var(--border);border-radius:10px;font:inherit;font-size:13px;color:var(--text);cursor:pointer;background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236E6E73' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 11px center}
@@ -1129,7 +1129,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
 .pm-chip{display:inline-flex;align-items:center;height:28px;padding:0 11px;border-radius:999px;background:var(--fill);font-size:12px;font-weight:500;color:var(--text);white-space:nowrap}
 .pm-more .btn{height:36px;padding:0 16px;font-size:13px}
 /* Mid */
-#lookupResult:is([data-stick="mid"],[data-stick="high"]) .pbar{top:12px;margin:0;padding:10px 12px 10px 16px;background:var(--card);border-radius:18px;box-shadow:0 0 0 1px var(--line),0 2px 6px rgba(16,16,24,.04)}
+#lookupResult:is([data-stick="mid"],[data-stick="high"]) .pbar{top:calc(var(--sbar,0px) + 12px);margin:0;padding:10px 12px 10px 16px;background:var(--card);border-radius:18px;box-shadow:0 0 0 1px var(--line),0 2px 6px rgba(16,16,24,.04)}
 #lookupResult:is([data-stick="mid"],[data-stick="high"]) .pbar .tabs{border-bottom:none}
 #lookupResult[data-stick="mid"].hdr-off .pbar{box-shadow:0 0 0 1px var(--line),0 12px 32px rgba(16,16,24,.12)}
 #lookupResult[data-stick="mid"] .pmini .mini-av{flex:0 0 40px;height:40px;font-size:13px}
@@ -1157,6 +1157,10 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
 #lookupResult[data-stick="high"] .vcol .pm-more .btn{width:100%;height:auto;min-height:38px;padding:8px 14px;line-height:1.3;white-space:normal;text-align:center}
 #lookupResult:is([data-stick="mid"],[data-stick="high"]) .pnav.vtabs{box-shadow:0 0 0 1px var(--line),0 2px 6px rgba(16,16,24,.04)}
 @media (max-width:620px){#lookupResult[data-stick="high"] .pbar .pm-more{display:none}}
+/* Optional pinned search bar (Review panel) */
+.view[data-view="lookup"][data-ssearch="on"] #lookupForm{position:sticky;top:0;z-index:16;padding:12px 0;margin:-12px 0;background:var(--bg);transition:box-shadow .25s}
+.view[data-view="lookup"][data-ssearch="on"] #lookupResult:is([data-stick="mid"],[data-stick="high"]) .pbar{top:var(--sbar,0px)}
+.view[data-view="lookup"][data-ssearch="on"] #lookupForm.ss-stuck{box-shadow:0 1px 0 var(--line),0 10px 24px -18px rgba(16,16,24,.25)}
 </style>
 </head>
 <body>
@@ -1719,6 +1723,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
       <span class="rv-sub">Person card</span><div class="rv-seg" id="rvPerson" role="group" aria-label="Person card position"></div>
       <span class="rv-sub">Section tabs</span><div class="rv-seg" id="rvTabs" role="group" aria-label="Section tabs position"></div>
       <span class="rv-sub">Sticky bar</span><div class="rv-seg" id="rvStick" role="group" aria-label="Sticky bar prominence"></div>
+      <div class="rv-rows"><label class="rv-row"><span>Pin the search bar</span><input type="checkbox" class="switch rv-switch" id="rvSSearch" aria-label="Pin the search bar at the top"></label></div>
       <p class="rv-note" id="rvLayoutNote"></p>
     </div>
     <div class="rv-sec"><span class="rv-k">Locked sections</span>
@@ -1940,12 +1945,14 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
   } catch (e) {}
   if (["rail", "top"].indexOf(PERSON) < 0) PERSON = "rail";
   if (["top", "left", "right"].indexOf(TABS) < 0) TABS = "top";
+  var SSEARCH = true;
+  try { SSEARCH = localStorage.getItem("cip-ssearch") !== "off"; } catch (e) {}
   var STICKS = [["min", "Minimum"], ["mid", "Mid"], ["high", "High"]], STICK = "mid";
   try { STICK = localStorage.getItem("cip-stick") || STICK; } catch (e) {}
   if (["min", "mid", "high"].indexOf(STICK) < 0) STICK = "mid";
   var NAVHIDE = [];
   try { NAVHIDE = JSON.parse(localStorage.getItem("cip-navhide") || "[]") || []; } catch (e) { NAVHIDE = []; }
-  function applyLookupLayout() { var r = $("#lookupResult"); if (r) { r.setAttribute("data-layout", PERSON); r.setAttribute("data-tabs", TABS); r.setAttribute("data-stick", STICK); } }
+  function applyLookupLayout() { var r = $("#lookupResult"); if (r) { r.setAttribute("data-layout", PERSON); r.setAttribute("data-tabs", TABS); r.setAttribute("data-stick", STICK); } syncSbar(); }
   var CATS = { A: "Attribution", M: "Marketing", E: "Enquiries", X: "Interactions", P: "Payments", L: "Learning", S: "Support", C: "Consent" };
 
   var PEOPLE = {
@@ -2163,6 +2170,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
       V = freshView();
       if (hits.length === 1) { L.person = hits[0].id; L.how = hits[0].how; }
       renderLookup();
+      if (window.scrollY > 0) window.scrollTo(0, 0);
     };
     clearTimeout(lookupTimer);
     if (instant) return done();
@@ -2202,9 +2210,19 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
   }
   // Once the person card scrolls out of view, the sticky bar shows a slim copy of it.
   function hdrCheck() {
-    var r = $("#lookupResult"), card = r && r.querySelector(".prail .pcard");
-    if (r) r.classList.toggle("hdr-off", !!card && card.getBoundingClientRect().bottom < 72);
+    var r = $("#lookupResult"), card = r && r.querySelector(".prail .pcard"), sb = syncSbar();
+    if (r) r.classList.toggle("hdr-off", !!card && card.getBoundingClientRect().bottom < 72 + sb);
   }
+  // Optional pinned search bar: everything else that is pinned sits just below it.
+  function syncSbar() {
+    var view = $('.view[data-view="lookup"]'), form = $("#lookupForm"); if (!view || !form) return 0;
+    var h = SSEARCH ? form.offsetHeight : 0;
+    view.setAttribute("data-ssearch", SSEARCH ? "on" : "off");
+    view.style.setProperty("--sbar", h + "px");
+    form.classList.toggle("ss-stuck", SSEARCH && window.scrollY > 8 && form.getBoundingClientRect().top <= 1);
+    return h;
+  }
+  window.addEventListener("resize", function () { syncSbar(); });
   window.addEventListener("scroll", hdrCheck, { passive: true });
 
   function manyHTML() {
@@ -2972,6 +2990,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
   function rvSync() {
     var v = document.documentElement.getAttribute("data-v");
     $$("#rvPerson button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-person-at") === PERSON); });
+    $("#rvSSearch").checked = SSEARCH;
     $$("#rvStick button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-stick-at") === STICK); });
     $$("#rvTabs button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-tabs-at") === TABS); });
     $("#rvThumb").innerHTML = rvThumb(PERSON, TABS);
@@ -3000,6 +3019,10 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
   $("#rvPerson").addEventListener("click", function (e) { var b = e.target.closest("[data-person-at]"); if (b) { PERSON = b.getAttribute("data-person-at"); rvApply(); } });
   $("#rvTabs").addEventListener("click", function (e) { var b = e.target.closest("[data-tabs-at]"); if (b) { TABS = b.getAttribute("data-tabs-at"); rvApply(); } });
   $("#rvStick").innerHTML = STICKS.map(function (x) { return '<button type="button" data-stick-at="' + x[0] + '" aria-pressed="false">' + esc(x[1]) + "</button>"; }).join("");
+  $("#rvSSearch").addEventListener("change", function () {
+    SSEARCH = this.checked; try { localStorage.setItem("cip-ssearch", SSEARCH ? "on" : "off"); } catch (er) {}
+    hdrCheck(); requestAnimationFrame(slideAll);
+  });
   $("#rvStick").addEventListener("click", function (e) {
     var b = e.target.closest("[data-stick-at]"); if (!b) return;
     STICK = b.getAttribute("data-stick-at"); try { localStorage.setItem("cip-stick", STICK); } catch (er) {}
