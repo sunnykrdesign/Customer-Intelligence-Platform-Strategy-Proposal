@@ -876,12 +876,6 @@ html[data-v="3"] .v3ov{display:grid;grid-template-columns:minmax(0,1fr) 300px;ga
 .scard.flash{animation:flash 1.3s var(--ease)}
 @keyframes flash{0%{box-shadow:0 0 0 5px rgba(29,29,31,.10)}100%{box-shadow:0 0 0 0 rgba(29,29,31,0)}}
 /* Section bar */
-.jump{position:sticky;top:12px;z-index:6;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;padding:5px;background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(14px) saturate(160%);backdrop-filter:blur(14px) saturate(160%);border-radius:14px;box-shadow:0 0 0 1px var(--line),0 8px 24px rgba(16,16,24,.06)}
-.jump::-webkit-scrollbar{display:none}
-.jump button{flex:0 0 auto;border:none;background:transparent;height:34px;padding:0 14px;border-radius:10px;font-size:13px;font-weight:500;color:var(--muted);transition:color .25s,background .25s}
-.jump button:hover{color:var(--text)}
-.jump button[aria-current="location"]{background:var(--text);color:#fff}
-html[data-v="3"] .jump{background:rgba(228,228,232,.9);box-shadow:inset 0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(16,16,24,.06)}
 html[data-v="3"] [data-slide] > button[aria-current="location"]{color:var(--text) !important}
 @media (min-width:1181px){html[data-v="3"] .v3rail{position:sticky;top:20px}}
 /* Profile cards: one column on every screen size */
@@ -960,6 +954,174 @@ html[data-v="3"] .dm-head{font-family:var(--mono);font-size:10.5px;letter-spacin
 .eng[open] summary svg{transform:rotate(180deg)}
 .eng .tgrid{padding:0 24px 24px}
 .eng .tcard:not(.core){background:var(--track);box-shadow:none}
+/* ================= V3 profile layouts ================= */
+
+/* Layout 2: top header (horizontal) */
+@media (min-width:1100px){
+  #lookupResult[data-layout="top"] .playout{display:flex;flex-direction:column;align-items:stretch;gap:28px}
+  #lookupResult[data-layout="top"] .prail{position:static}
+  #lookupResult[data-layout="top"] .prail .pcard{padding:26px 28px 22px;gap:0}
+  #lookupResult[data-layout="top"] .prail .pcard-top{flex-direction:row;align-items:center;gap:20px}
+  #lookupResult[data-layout="top"] .prail .pcard .avatar{width:68px;height:68px}
+  #lookupResult[data-layout="top"] .prail .pcard .who{flex:1 1 auto;gap:4px}
+  #lookupResult[data-layout="top"] .prail .pcard .who h1{font-size:24px}
+  #lookupResult[data-layout="top"] .prail .btn{width:auto;flex:0 0 auto;margin:0}
+  #lookupResult[data-layout="top"] .prail .facts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:22px;padding-top:0;border-top:1px solid var(--line)}
+  #lookupResult[data-layout="top"] .prail .fact{flex-direction:column;align-items:flex-start;gap:4px;padding:16px 20px 2px 0;box-shadow:none}
+  #lookupResult[data-layout="top"] .prail .fact + .fact{padding-left:20px;box-shadow:inset 1px 0 0 var(--line)}
+  #lookupResult[data-layout="top"] .prail .fact .v{text-align:left}
+  #lookupResult[data-layout="top"] .prail .fact .meter{flex:0 0 auto;width:100%;height:3px;margin-top:6px}
+  #lookupResult[data-layout="top"] .prail .reach{flex-direction:row;align-items:center;gap:12px;margin-top:18px;padding-top:16px}
+  #lookupResult[data-layout="top"] .pmain .snap{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+
+/* Vertical section list */
+.pnav{display:flex;flex-direction:column;gap:1px;background:#fff;border-radius:20px;padding:8px;box-shadow:0 1px 2px rgba(16,16,24,.03),0 10px 30px rgba(16,16,24,.045)}
+.pnav .ngh{display:block;padding:12px 12px 6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#9C9CA4}
+.pnav .ngh:first-child{padding-top:6px}
+.pnav button{display:flex;align-items:center;height:38px;padding:0 12px;border:none;border-radius:10px;background:transparent;text-align:left;font-size:14px;color:#5C5C63}
+.pnav button:hover{color:var(--text)}
+html[data-v="3"] .pnav .slider{background:#F1F1F4;box-shadow:none;border-radius:10px}
+html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
+@media (max-width:1099px){
+  .pnav{flex-direction:row;overflow-x:auto;scrollbar-width:none}
+  .pnav::-webkit-scrollbar{display:none}
+  .pnav .ngh{display:none}
+  .pnav button{flex:0 0 auto}
+}
+/* ================= Review panel (not part of the product) ================= */
+.review{position:fixed;z-index:60;right:16px;bottom:16px;display:flex;flex-direction:column;align-items:flex-end;gap:10px;font-family:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;letter-spacing:-0.01em}
+.rv-toggle{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px 0 12px;border:none;border-radius:999px;background:rgba(20,20,24,.9);color:#fff;font-size:13px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.rv-toggle span{font-weight:400;color:#C7C7CC}
+.rv-toggle:hover{background:#000;color:#fff}
+.rv-panel{width:344px;max-height:min(72vh,680px);overflow:auto;background:rgba(24,24,28,.97);color:#F5F5F7;border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:18px;box-shadow:0 24px 60px rgba(0,0,0,.35);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);transform-origin:bottom right;animation:rvIn .28s var(--ease);scrollbar-width:thin}
+.rv-panel:focus{outline:none}
+@keyframes rvIn{from{opacity:0;transform:translateY(8px) scale(.98)}}
+.rv-head{display:flex;align-items:center;gap:8px}
+.rv-head b{font-size:15px;font-weight:600}
+.rv-head span{flex:1;font-size:12px;color:#8E8E93}
+.rv-x{width:28px;height:28px;flex:0 0 28px;border-radius:50%;border:none;background:rgba(255,255,255,.08);color:#D1D1D6;display:flex;align-items:center;justify-content:center}
+.rv-x:hover{background:rgba(255,255,255,.16);color:#fff}
+.rv-sec{display:flex;flex-direction:column;gap:8px}
+.rv-k{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#8E8E93}
+.rv-seg{display:flex;gap:2px;padding:3px;border-radius:12px;background:rgba(255,255,255,.08)}
+.rv-seg button{flex:1 1 0;min-width:0;height:32px;padding:0 8px;border:none;border-radius:9px;background:transparent;color:#D1D1D6;font-size:12.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rv-seg button:hover{color:#fff}
+.rv-seg button[aria-pressed="true"]{background:#fff;color:#111}
+.rv-note{margin:0;font-size:12px;line-height:1.45;color:#8E8E93}
+@media (max-width:520px){
+  .review{left:12px;right:12px;bottom:12px}
+  .rv-panel{width:100%;max-height:70vh}
+}
+/* V3: section tabs as one vertical list (left or right) */
+.dv{display:grid;gap:24px;align-items:start}
+.dv-left{grid-template-columns:220px minmax(0,1fr)}
+.dv-right{grid-template-columns:minmax(0,1fr) 220px}
+.vpanel{display:flex;flex-direction:column;gap:16px;min-width:0}
+.vpanel.fresh > *{animation:rise .4s var(--ease) backwards}
+@media (min-width:1100px){
+}
+@media (max-width:1099px){
+  .dv-left,.dv-right{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion: reduce){.vpanel.fresh > *{animation:none}}
+/* Review panel: layout wireframe */
+.rv-panel > *,.rv-sec > *{flex-shrink:0}
+.rv-thumb{height:104px;padding:8px;border-radius:12px;background:rgba(255,255,255,.06);display:flex;transition:opacity .25s}
+.rv-thumb.off{opacity:.4}
+.rv-thumb b{display:flex;gap:4px;flex:1 1 0;min-width:0;min-height:0}
+.rv-thumb .w-col{flex-direction:column}
+.rv-thumb .w-row{flex-direction:row}
+.rv-thumb .w-side{flex:0 0 30%}
+.rv-thumb i{display:block;border-radius:3px;background:rgba(255,255,255,.12);flex:1 1 0;min-width:0;min-height:0}
+.rv-thumb i.w-p{background:rgba(255,255,255,.85)}
+.rv-thumb i.w-p.w-tall{flex:0 0 52%}
+.rv-thumb i.w-p.w-wide{flex:0 0 26%}
+.rv-thumb i.w-s{flex:0 0 20%;background:rgba(255,255,255,.28)}
+.rv-thumb i.w-t{background:#8FB1F5}
+.rv-thumb i.w-t.w-h{flex:0 0 12%}
+.rv-thumb .w-row > i.w-t.w-v{flex:0 0 26%}
+.rv-thumb .w-side > i.w-t.w-v{flex:1 1 0}
+.rv-legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:11px;color:#8E8E93}
+.rv-legend span{display:inline-flex;align-items:center;gap:5px}
+.rv-legend i{width:8px;height:8px;border-radius:2px;background:rgba(255,255,255,.12)}
+.rv-legend i.w-p{background:rgba(255,255,255,.85)}
+.rv-legend i.w-s{background:rgba(255,255,255,.28)}
+.rv-legend i.w-t{background:#8FB1F5}
+.rv-sub{font-size:12px;color:#C7C7CC;margin-top:2px}
+#panel.vpanel{padding-top:0}
+/* ================= Profile layouts, all versions ================= */
+/* Left panel: the person card stays pinned while you scroll */
+@media (min-width:1100px){
+  #lookupResult[data-layout="rail"] .playout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:28px;align-items:start}
+  #lookupResult[data-layout="rail"] .prail{position:sticky;top:16px;display:flex;flex-direction:column;gap:16px;max-height:calc(100vh - 32px);overflow-y:auto;scrollbar-width:none}
+  #lookupResult[data-layout="rail"] .prail::-webkit-scrollbar{display:none}
+  #lookupResult[data-layout="rail"] .prail .pcard{padding:24px 22px 20px;gap:0}
+  #lookupResult[data-layout="rail"] .prail .pcard-top{flex-direction:column;align-items:flex-start;gap:14px}
+  #lookupResult[data-layout="rail"] .prail .pcard .avatar{width:64px;height:64px;font-size:22px}
+  #lookupResult[data-layout="rail"] .prail .pcard .who{flex:none;gap:6px}
+  #lookupResult[data-layout="rail"] .prail .pcard .who h1{font-size:22px;font-weight:600;letter-spacing:-0.02em;line-height:1.2}
+  #lookupResult[data-layout="rail"] .prail .headline{font-size:14px;font-weight:400;color:#48484D;line-height:1.5}
+  #lookupResult[data-layout="rail"] .prail .matched{font-size:12.5px;line-height:1.55}
+  #lookupResult[data-layout="rail"] .prail .btn{width:100%;height:40px;font-size:14px;margin-top:4px}
+  #lookupResult[data-layout="rail"] .prail .facts{display:flex;flex-direction:column;gap:0;margin-top:20px;padding-top:2px;border-top:1px solid var(--line)}
+  #lookupResult[data-layout="rail"] .prail .fact{flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;padding:11px 0;box-shadow:0 1px 0 var(--line)}
+  #lookupResult[data-layout="rail"] .prail .fact:last-child{box-shadow:none}
+  #lookupResult[data-layout="rail"] .prail .fact .k{font-size:13px}
+  #lookupResult[data-layout="rail"] .prail .fact .v{font-size:14px;font-weight:500;text-align:right}
+  #lookupResult[data-layout="rail"] .prail .fact .meter{flex-basis:100%;margin-top:6px;height:3px}
+  #lookupResult[data-layout="rail"] .prail .reach{flex-direction:column;align-items:flex-start;gap:10px;margin-top:4px;padding-top:16px}
+  #lookupResult[data-layout="rail"] .prail .reach li{height:28px;padding:0 11px;font-size:12px}
+  #lookupResult[data-layout="rail"] .pmini{display:none}
+  #lookupResult[data-layout="top"] .prail{position:static}
+}
+/* One set of section tabs, kept in view */
+.pbar{position:sticky;top:0;z-index:12;display:flex;align-items:center;gap:16px;padding:12px 0;margin-top:-12px;background:var(--bg);transition:box-shadow .25s}
+#lookupResult.hdr-off .pbar{box-shadow:0 1px 0 var(--line)}
+.pbar .tabs{flex:1 1 auto;min-width:0}
+.pmini{display:flex;align-items:center;gap:10px;min-width:0;max-width:0;opacity:0;overflow:hidden;white-space:nowrap;transition:max-width .4s var(--ease),max-height .4s var(--ease),opacity .25s,padding .3s}
+#lookupResult.hdr-off .pmini{max-width:340px;opacity:1}
+.pmini .mini-av{flex:0 0 34px;height:34px;font-size:12px}
+.pmini span{display:flex;flex-direction:column;min-width:0}
+.pmini b{font-size:14px;font-weight:600;overflow:hidden;text-overflow:ellipsis}
+.pmini small{font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis}
+.vcol{display:flex;flex-direction:column;gap:12px;min-width:0}
+.dv .vcol{position:sticky;top:16px}
+.dv-right .vcol{order:2}
+.vcol .pmini{max-width:none;max-height:0;padding:0 14px;background:var(--card);border-radius:16px}
+#lookupResult.hdr-off .vcol .pmini{max-width:none;max-height:72px;padding:12px 14px}
+@media (max-width:1099px){
+  .dv-right .vcol{order:0}
+  .dv .vcol{position:sticky;top:0;z-index:12;background:var(--bg);padding:8px 0}
+}
+.acount{font-size:13px;color:var(--muted)}
+.afilter select{appearance:none;-webkit-appearance:none;height:34px;padding:0 32px 0 12px;border:1px solid var(--border);border-radius:10px;font:inherit;font-size:13px;color:var(--text);cursor:pointer;background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236E6E73' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 11px center}
+.afilter select:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.rv-rows{display:flex;flex-direction:column;padding:2px 12px;border-radius:12px;background:rgba(255,255,255,.06)}
+.rv-row{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:40px;font-size:13px;color:#F5F5F7;cursor:pointer;box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.rv-row:last-child{box-shadow:none}
+.rv-switch{width:38px;height:22px;background:rgba(255,255,255,.18)}
+.rv-switch::after{width:18px;height:18px}
+.rv-switch:checked::after{transform:translateX(16px)}
+/* Locked sections */
+.lockbar{display:flex;align-items:center;gap:14px;padding:16px 20px}
+.lock-ic{flex:0 0 38px;height:38px;border-radius:12px;background:var(--fill);color:var(--text);display:flex;align-items:center;justify-content:center;transition:background .25s,color .25s}
+.lockbar.open .lock-ic{background:#E3F6E8;color:#1D7A34}
+.lockbar > div{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:2px}
+.lockbar b{font-size:15px;font-weight:600}
+.lockbar > div span{font-size:13px;color:var(--muted);line-height:1.45}
+.eyebtn{flex:0 0 40px;height:40px;border:none;border-radius:12px;background:var(--fill);color:var(--text);display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}
+.eyebtn:hover{background:var(--border)}
+.eyebtn[aria-pressed="true"]{background:var(--text);color:#fff}
+.lockform{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:16px 20px;animation:reveal .35s var(--ease) backwards}
+.lockform input{flex:1 1 220px;min-width:0;height:40px;padding:0 14px;border:1px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text);font:inherit;font-size:14px;letter-spacing:.08em}
+.lockform input::placeholder{letter-spacing:0}
+.lockform input:focus{outline:2px solid var(--focus);outline-offset:1px}
+.lockform input[aria-invalid="true"]{border-color:var(--red)}
+.lock-err{flex-basis:100%;margin:0;font-size:13px;color:var(--red-text)}
+.tlock{margin-left:6px;vertical-align:-1px;opacity:.65}
+.rv-code{font-family:var(--mono);font-size:12px;padding:1px 6px;border-radius:5px;background:rgba(255,255,255,.12);color:#fff}
+@media (prefers-reduced-motion: reduce){.lockform{animation:none}}
 </style>
 </head>
 <body>
@@ -1512,7 +1674,27 @@ html[data-v="3"] .dm-head{font-family:var(--mono);font-size:10.5px;letter-spacin
     </details>
   </div>
 </dialog>
-<div class="vswitch" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="1" aria-pressed="false">V1</button><button type="button" data-v="2" aria-pressed="false">V2</button><button type="button" data-v="3" aria-pressed="false">V3</button></div>
+<div class="review" id="review">
+  <div class="rv-panel" id="rvPanel" role="dialog" aria-label="Review controls" tabindex="-1" hidden>
+    <div class="rv-head"><b>Review</b><span>For design review, not part of the product</span><button type="button" class="rv-x" id="rvClose" aria-label="Close review panel"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1l10 10M11 1L1 11"/></svg></button></div>
+    <div class="rv-sec"><span class="rv-k">Design version</span><div class="rv-seg" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="1" aria-pressed="false">V1</button><button type="button" data-v="2" aria-pressed="false">V2</button><button type="button" data-v="3" aria-pressed="false">V3</button></div></div>
+    <div class="rv-sec"><span class="rv-k">Look up a person · layout</span>
+      <div class="rv-thumb" id="rvThumb" aria-hidden="true"></div>
+      <div class="rv-legend" aria-hidden="true"><span><i class="w-p"></i>Person</span><span><i class="w-s"></i>Summary</span><span><i class="w-t"></i>Section tabs</span><span><i></i>Details</span></div>
+      <span class="rv-sub">Person card</span><div class="rv-seg" id="rvPerson" role="group" aria-label="Person card position"></div>
+      <span class="rv-sub">Section tabs</span><div class="rv-seg" id="rvTabs" role="group" aria-label="Section tabs position"></div>
+      <p class="rv-note" id="rvLayoutNote"></p>
+    </div>
+    <div class="rv-sec"><span class="rv-k">Locked sections</span>
+      <p class="rv-note">Financial details in Look up a person are locked. The demo team password is <code class="rv-code">upgrad2026</code>.</p>
+    </div>
+    <div class="rv-sec"><span class="rv-k">Sidebar menu</span>
+      <div class="rv-rows" id="rvNav"></div>
+      <p class="rv-note">Turn items off to review the product without them. Counsellor teams only ever see Look up a person.</p>
+    </div>
+  </div>
+  <button type="button" class="rv-toggle" id="rvToggle" aria-expanded="false" aria-controls="rvPanel"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12s3.5-6.5 9.5-6.5S21.5 12 21.5 12s-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></svg>Review <span id="rvSummary"></span></button>
+</div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script type="application/json" id="catalog">{"profile":[{"s":"Identity & contact","a":"Global person ID","q":"Who is this, across every upGrad system?","t":"ID","src":{},"m":"Minted by the layer; stable across reruns; never reused","st":"Raw","tier":"T0","p":"P0","ck":"Verified"},{"s":"Identity & contact","a":"Emails (all known)","q":"Which emails belong to this person?","t":"Email","src":{"LSQ":["EmailAddress","mx_Lead_email_id","mx_Backup_Email","mx_First_Email_ID","mx_SA_Profile_Alternate_Email","mx_Onboarding_Alt_Email"],"HubSpot":["email","hs_additional_emails","backup_email","work_email"],"Prism":["users.email","users.alternateEmail"],"OMS":["offline_payment.email","po_order_participant.email"]},"m":"Lowercase + trim; one row per email with source and first/last seen. Verified Prism email is primary","st":"Vault; hashed in analytics","tier":"T1","p":"P0","ck":"Verified"},{"s":"Identity & contact","a":"Email verified","q":"Is the email confirmed as theirs?","t":"Flag","src":{"LSQ":["mx_Email_Verification_status"],"HubSpot":["hs_email_bad_address","hs_email_quarantined"],"Prism":["users.isEmailVerified","users.isEmailVerify","users.verifiedAlternateEmail"]},"m":"Prism verified = strongest identity signal","st":"Flag","tier":"T0","p":"P0","ck":"Verified"},{"s":"Identity & contact","a":"Phones (all known)","q":"Which numbers belong to this person?","t":"Phone","src":{"LSQ":["Mobile","Phone","mx_Lead_phone_number","mx_Alternate_Phone_Number","mx_Prev_Phone","mx_First_Phone_number"],"HubSpot":["mobilephone","phone","hs_calculated_mobile_number","prev_phone","hs_whatsapp_phone_number"],"Prism":["users.mobile","users.isd","users.whatsAppMobile","users.whatsAppIsd"],"OMS":["po_order_participant.phone","po_order_participant.isd_code"]},"m":"Normalise to E.164; flag shared numbers (parent, family). Verified Prism mobile is primary","st":"Vault; hashed in analytics","tier":"T1","p":"P0","ck":"Verified"},{"s":"Identity & contact","a":"Phone verified","q":"Is the number confirmed as theirs?","t":"Flag","src":{"LSQ":["mx_Phone_Verification_status","mx_False_Phone"],"Prism":["users.isMobileVerify","users.isWhatsAppVerify"]},"m":"As above","st":"Flag","tier":"T0","p":"P0","ck":"Verified"},{"s":"Identity & contact","a":"Linked system IDs","q":"Where does this person live in each system?","t":"ID","src":{"LSQ":["ProspectAutoId","mx_LeadIdentifier"],"HubSpot":["hs_object_id","prospect_id","lead_identifier","upgrad_user_id"],"Prism":["users._id","users.keyCloakId","users.learningPartnerUserId"],"OMS":["billing.user_id","transaction.lead_identifier_id","tmp_user_lead_identifier.user_id","tmp_user_lead_identifier.lead_identifier"]},"m":"One row per system ID. LSQ ProspectID is a system ID not in the field export. See 'Identity keys' tab","st":"Raw","tier":"T1","p":"P0","ck":"Verified"},{"s":"Identity & contact","a":"Device and ad identifiers","q":"Which web visitor / ad click is this person?","t":"ID","src":{"LSQ":["mx_Google_Client_ID","mx_First_Google_Client_ID","mx_GCLID","mx_First_GCLID","mx_FBCLID","mx_Meta_Lead_ID"],"HubSpot":["google_client_id","gclid","first_gclid","fbclid"]},"m":"Joins Rudderstack/GA events and ad clicks to the person","st":"Raw","tier":"T1","p":"P1","ck":"Verified"},{"s":"Identity & contact","a":"Name","q":"Display name","t":"Text","src":{"LSQ":["FirstName","LastName"],"HubSpot":["firstname","lastname"],"Prism":["users.firstName","users.lastName"]},"m":"Prism > CRM; never a match key alone","st":"Vault","tier":"T1","p":"P0","ck":"Verified"},{"s":"Personal details","a":"Age band + is_minor","q":"Can we contact / profile them? Life stage","t":"Band + flag","src":{"LSQ":["mx_Date_Of_Birth","mx_SA_Profile_Date_of_Birth","mx_Age"],"HubSpot":["age","age_group","year_of_birth","date_of_birth__mm_dd_yyyy_"],"Prism":["users.dateOfBirth"],"SI":["SA: lead_insights.lead_profile.identity.age"]},"m":"Derive band and minor flag; raw DOB not stored","st":"Band + flag","tier":"T2","p":"P0","ck":"Verified"},{"s":"Personal details","a":"Life stage","q":"School, UG, final-year UG, recent graduate, working, gap year: the timing signal for cross-sell","t":"Category","src":{"SI":["SA: lead_insights.lead_profile.identity.current_status"]},"m":"Derived for WP from role + experience; dated, because it changes","st":"Canonical","tier":"T0","p":"P1","ck":"Verified"},{"s":"Personal details","a":"City / state","q":"Where they live","t":"Text","src":{"LSQ":["mx_City","mx_Lead_City","mx_State"],"HubSpot":["city","state"],"Prism":["users.city","users.stateId","users.state"],"SI":["SA: lead_insights.lead_profile.identity.city","SA: lead_insights.lead_profile.identity.city_tier","WP: payload.learner_facts.city"]},"m":"Prism > CRM; city level only","st":"Canonical","tier":"T0","p":"P1","ck":"Verified"},{"s":"Personal details","a":"Country of residence","q":"Market and regulation that applies","t":"Text","src":{"LSQ":["mx_Country","mx_Resident_Country","mx_Lead_Country"],"HubSpot":["country","country_of_residence"],"Prism":["users.country"]},"m":"Stated > detected","st":"Canonical","tier":"T0","p":"P0","ck":"Verified"},{"s":"Personal details","a":"Detected location","q":"Where they actually are (IP)","t":"Text","src":{"LSQ":["mx_Detected_Country","mx_Detected_State","mx_Detected_City"],"HubSpot":["ip_country","ip_state","ip_city"]},"m":"Secondary signal","st":"Raw","tier":"T0","p":"P2","ck":"Verified"},{"s":"Personal details","a":"Timezone","q":"When to reach them","t":"Text","src":{"LSQ":["TimeZone"],"HubSpot":["hs_timezone"],"Prism":["users.timezone"]},"m":"Prism > CRM","st":"Raw","tier":"T0","p":"P1","ck":"Verified"},{"s":"Personal details","a":"Language","q":"Which language to talk in","t":"Text","src":{"HubSpot":["hs_language","first_native_language"],"SI":["SA: lead_insights.lead_profile.identity.language_of_call"]},"m":"As captured","st":"Raw","tier":"T0","p":"P2","ck":"Verified"},{"s":"Personal details","a":"Nationality / citizenship","q":"Programme eligibility (International)","t":"Text","src":{"LSQ":["mx_Citizen"],"HubSpot":["country_of_citizenship"],"Prism":["users.nationality"]},"m":"Only where a programme rule needs it","st":"Raw","tier":"T2","p":"P2","ck":"Verified"},{"s":"Personal details","a":"Gender","q":"Only if a named use case needs it","t":"Text","src":{"LSQ":["mx_Gender"],"HubSpot":["gender"],"Prism":["users.gender"]},"m":"Ingest only with a use case and Legal sign-off","st":"Raw","tier":"T2","p":"P2","ck":"Verified"},{"s":"Personal details","a":"Platform account status","q":"Do they have an active upGrad learning account?","t":"Category","src":{"Prism":["users.status","users.registeredAt","users.hasCompletedProfile","users.isProfileVerified"]},"m":"As captured","st":"Raw","tier":"T0","p":"P1","ck":"Verified"},{"s":"Education (prior, outside upGrad)","a":"Highest qualification","q":"Eligibility and programme fit","t":"Category","src":{"LSQ":["mx_Highest_Qualification"],"HubSpot":["do_you_have_a_bachelor_s_degree_","do_you_have_a_postgraduate_degree_"],"Prism":["users.educations[].degree","users.educations[].recentEducation"],"SI":["SA: lead_insights.lead_profile.identity.qualification_bucket","WP: payload.learner_facts.highest_qualification"]},"m":"Prism declared > CRM; canonical list (reuse Redshift learner_database.norm_degree / norm_education_type)","st":"Canonical","tier":"T0","p":"P0","ck":"Verified"},{"s":"Education (prior, outside upGrad)","a":"Education history","q":"Institutions, fields, years","t":"List","src":{"LSQ":["mx_Field_of_Study_1","mx_Graduation_Year","mx_SA_Profile_Bachelors_Specialization","mx_SA_Profile_Bachelors_Completion_Year"],"HubSpot":["bachelors_degree","year_of_graduation"],"Prism":["users.educations[].university","users.educations[].field","users.educations[].fromYear","users.educations[].toYear","users.educations[].academicStream","users.educations[].intermediateBoard"],"SI":["SA: lead_insights.lead_profile.identity.university_name","WP: payload.learner_facts.degree","WP: payload.learner_facts.qualification_domain"]},"m":"One row per qualification","st":"Raw","tier":"T0","p":"P1","ck":"Verified"},{"s":"Education (prior, outside upGrad)","a":"Academic scores","q":"SA and degree eligibility","t":"Number","src":{"LSQ":["mx_SA_Profile_Bachelors_Score","mx_SA_Profile_12th_Score","mx_SA_Profile_10th_Score","mx_Degree_Marks"],"HubSpot":["percentage_scored_in_graduation"],"Prism":["users.educations[].percentage"],"SI":["SA: lead_insights.lead_profile.identity.academic_scores.tenth_percentage","SA: lead_insights.lead_profile.identity.academic_scores.twelth_percentage","SA: lead_insights.lead_profile.identity.academic_scores.ug_score_normalized","WP: payload.learner_facts.marks_percentage"]},"m":"Normalised to 0–100","st":"Raw","tier":"T0","p":"P2","ck":"Verified"},{"s":"Education (prior, outside upGrad)","a":"Language tests and English fluency","q":"IELTS / GRE / GMAT / TOEFL status and band; spoken English level","t":"Text","src":{"HubSpot":["english_language_proficiency_test_scorecard","your_foreign_language_proficiency"],"SI":["SA: call_insights.learner_identity.test_status.{ielts,gre,gmat,toefl}","SA: call_insights.learner_identity.ielts_band","SA: lead_insights.lead_profile.identity.english_fluency"]},"m":"Sales Insights is the only structured source for test status and band","st":"Raw","tier":"T0","p":"P1","ck":"Verified"},{"s":"Career / profession","a":"Current role and employer","q":"Seniority; employer link for B2B","t":"Text","src":{"LSQ":["mx_Designation","mx_Company_Designation","Company"],"HubSpot":["job_role__designation_","select_company"],"Prism":["users.workExperiences[].designation","users.workExperiences[].organization","users.workExperiences[].isWorking","users.employmentStatus","users.professionType"],"OMS":["po_customer.name"],"SI":["WP: payload.learner_facts.current_role_title","WP: payload.learner_facts.current_company"]},"m":"Prism declared > CRM; employer name normalised → employer account","st":"Canonical","tier":"T0","p":"P0","ck":"Verified"},{"s":"Career / profession","a":"Work history","q":"Career path so far","t":"List","src":{"Prism":["users.workExperiences[].startsAt","users.workExperiences[].endsAt","users.workExperiences[].noticePeriod"],"SI":["WP: payload.learner_facts.previous_role"]},"m":"One row per role","st":"Raw","tier":"T0","p":"P1","ck":"Verified"},{"s":"Career / profession","a":"Total experience","q":"Career stage","t":"Number","src":{"LSQ":["mx_Total_Work_Experience","mx_Work_Ex","mx_Job_Total_Experience"],"HubSpot":["total_years_of_work_experience","work_experience__dropdown_"],"Prism":["users.experience.year","users.experience.month"],"SI":["SA: lead_insights.lead_profile.identity.work_experience_years","WP: payload.learner_facts.total_experience_months"]},"m":"Banded; reuse learner_database.norm_work_exp","st":"Band","tier":"T0","p":"P0","ck":"Verified"},{"s":"Career / profession","a":"Industry / function","q":"Segment","t":"Category","src":{"LSQ":["mx_Work_Vertical","mx_Job_Domain"],"HubSpot":["select_industry"],"Prism":["users.workExperiences[].industry","users.workExperiences[].workDomain"],"SI":["SA: call_insights.learner_identity.work_domain.value","WP: payload.learner_facts.industry","WP: payload.learner_facts.function_domain"]},"m":"Mapped to one industry list","st":"Canonical","tier":"T0","p":"P1","ck":"Verified"},{"s":"Career / profession","a":"Professional profile link","q":"LinkedIn","t":"URL","src":{"Prism":["users.linkedIn"]},"m":"As declared","st":"Raw","tier":"T1","p":"P2","ck":"Verified"},{"s":"Aspiration","a":"Career goal","q":"What do they want to achieve?","t":"Text","src":{"LSQ":["mx_Desired_Outcome_of_the_Program","mx_SA_Profile_Outcome_Required"],"HubSpot":["career_goal","primary_goal","what_career_outcome_are_you_looking_for_after_this_course"],"Prism":["users.career"],"SI":["SA: lead_insights.lead_profile.intent.career_goal","WP: payload.learner_facts.stated_career_goal"]},"m":"Prism declared > CRM; keep every value with date","st":"Raw","tier":"T0","p":"P1","ck":"Verified"},{"s":"Aspiration","a":"Motivation and type of move","q":"Why now, and what kind of change they want","t":"Category","src":{"SI":["SA: lead_insights.lead_profile.intent.motivation","SA: lead_insights.lead_profile.intent.post_study_plan","SA: lead_insights.lead_profile.intent.pr_pathway_priority","WP: payload.learner_facts.primary_driver","WP: payload.learner_facts.secondary_driver","WP: payload.learner_facts.transition_type"]},"m":"SA and WP vocabularies mapped to one list","st":"Canonical","tier":"T0","p":"P1","ck":"Verified"},{"s":"Aspiration","a":"Dream role / company","q":"Where do they want to be?","t":"Text","src":{"Prism":["users.dreamRole","users.dreamCompany"]},"m":"Mapped to role and company lists","st":"Canonical","tier":"T0","p":"P1","ck":"Verified"},{"s":"Aspiration","a":"Programme of interest (first + latest)","q":"What brought them in; what they want now","t":"Programme","src":{"LSQ":["mx_First_POI","mx_First_POI_Vertical","mx_Program","mx_Program_Vertical","mx_Latest_Pitched_Program","mx_Key_of_POI"],"HubSpot":["first_poi","lsq_first_poi","recent_program_of_interest","latest_program_of_interest","program_package_key"],"SI":["SA: lead_insights.lead_profile.intent.program_bucket","SA: lead_insights.lead_profile.intent.preferred_degree_level","SA: lead_insights.lead_profile.intent.field_of_study","SA: lead_insights.lead_profile.intent.specific_programs_mentioned[]"]},"m":"Mapped to one programme dimension; every value kept with date","st":"Canonical","tier":"T0","p":"P0","ck":"Verified"},{"s":"Aspiration","a":"Interest areas","q":"Topics they told the platform they care about","t":"List","src":{"Prism":["users.interestAreas.certificationCourses","users.interestAreas.technicalCourses"]},"m":"As declared","st":"Raw","tier":"T0","p":"P1","ck":"Verified"},{"s":"Aspiration","a":"Study Abroad preferences","q":"Destination, backup and ruled-out countries, universities, intake, course wanted","t":"Text","src":{"LSQ":["mx_SA_Profile_Preferred_Country","mx_SA_Profile_Preferred_Intake_Session","mx_SA_Profile_Preferred_Course"],"SI":["SA: lead_insights.lead_profile.intent.primary_destination","SA: lead_insights.lead_profile.intent.secondary_destinations[]","SA: lead_insights.lead_profile.intent.ruled_out_countries[]","SA: lead_insights.lead_profile.intent.universities_mentioned[]"]},"m":"SA only","st":"Raw","tier":"T0","p":"P1","ck":"Verified"},{"s":"Aspiration","a":"Purchase timeline","q":"When will they buy?","t":"Category","src":{"LSQ":["mx_How_Soon_Are_You_Planning_to_Pursue_the_Program","mx_By_when_do_you_plan_to_enroll"],"SI":["SA: lead_insights.lead_profile.intent.target_intake.season / .year","SA: call_insights.demand_signals.target_intake.intake_stale","WP: payload.learner_facts.target_outcome_timeline"]},"m":"Mapped to 0–3 / 3–6 / 6+ months; SA 'intake passed' flags a re-activation moment","st":"Canonical","tier":"T0","p":"P1","ck":"Verified"},{"s":"Aspiration","a":"Study time available","q":"Programme format fit","t":"Text","src":{"LSQ":["mx_Call_Transcript_Weekly_Time_Commitment","mx_Call_Transcript_Preferred_Program_Duration"],"SI":["WP: payload.learner_facts.weekly_time_availability","WP: payload.learner_facts.travel_shift_pattern"]},"m":"As captured","st":"Raw","tier":"T0","p":"P2","ck":"Verified"},{"s":"Aspiration","a":"Concerns / objections","q":"What's stopping them, and is it resolved?","t":"Category","src":{"LSQ":["mx_Concerns","mx_Things_not_convinced_about"],"HubSpot":["concerns","pending_concerns","not_interested_concerns"],"SI":["SA: lead_insights.cumulative_objections[]","WP: wp_journeys.objections[]","WP: wp_journeys.objections[].final_status"]},"m":"One objection list across SA and WP; keep dealbreaker vs friction and resolution status (WP)","st":"Canonical","tier":"T0","p":"P1","ck":"Verified"},{"s":"Aspiration","a":"Competitors considered","q":"Who else are they looking at, and on what?","t":"List","src":{"SI":["SA: call_insights.learner_psychology.competing_consultancy_mentioned.names[]","SA: call_insights.learner_psychology.domestic_backup_mentioned.value","WP: wp_journeys.competitors[]","WP: payload.competitors[].comparison_basis[]","WP: payload.competitors[].lean"]},"m":"Mapped to one competitor list","st":"Canonical","tier":"T0","p":"P1","ck":"Verified"},{"s":"Financial profile","a":"Budget band","q":"What can they spend?","t":"Band","src":{"LSQ":["mx_SA_Profile_SA_Budget","mx_SA_Profile_SA_Budget_upGrad"],"HubSpot":["budget_range"],"SI":["SA: lead_insights.lead_profile.financial.budget_band","WP: payload.learner_facts.budget_stated"]},"m":"Band only; SA exact INR range and WP free text converted to band","st":"Band","tier":"T2","p":"P1","ck":"Verified"},{"s":"Financial profile","a":"Funding route / loan","q":"How would they pay, and are they open to a loan?","t":"Category","src":{"LSQ":["mx_SA_Profile_Loan_Type"],"HubSpot":["payment_method_preference"],"SI":["SA: lead_insights.lead_profile.financial.funding_source","SA: lead_insights.lead_profile.financial.loan_openness","WP: payload.learner_facts.funding_source"]},"m":"Type only; no income, collateral or credit data","st":"Raw","tier":"T2","p":"P1","ck":"Verified"},{"s":"Financial profile","a":"Scholarship need","q":"Must-have, nice-to-have, not needed","t":"Category","src":{"SI":["SA: lead_insights.lead_profile.financial.scholarship_need"]},"m":"As stated","st":"Raw","tier":"T0","p":"P2","ck":"Verified"},{"s":"Financial profile","a":"Employer sponsorship / reimbursement","q":"Could their employer pay? (also a B2B signal)","t":"Flag","src":{"LSQ":["mx_Onboarding_Company_Sponsored","mx_Onboarding_Company_Sponsored_Name"],"Prism":["users.workExperiences[].hasProgramFeeReimbursement","users.workExperiences[].hasReimbursementPolicy"],"OMS":["po_order_participant.po_order_id"],"SI":["WP: payload.learner_facts.employer_sponsorship_status"]},"m":"Declared policy (Prism) + actual sponsored enrolment (LSQ onboarding, OMS PO)","st":"Flag","tier":"T0","p":"P1","ck":"Verified"},{"s":"Financial profile","a":"Salary band","q":"Affordability segment","t":"Band","src":{"LSQ":["mx_Salary_Range"],"HubSpot":["salary_range"]},"m":"Band only; raw salary / CTC excluded","st":"Band","tier":"T2","p":"P2","ck":"Verified"},{"s":"Financial profile","a":"Decision maker","q":"Who decides: self, parent, spouse, employer, joint","t":"Category","src":{"SI":["SA: lead_insights.lead_profile.stakeholders.decision_maker","WP: payload.learner_facts.decision_unit"]},"m":"SA and WP vocabularies mapped to one list","st":"Canonical","tier":"T0","p":"P1","ck":"Verified"},{"s":"Financial profile","a":"Parent involvement and stance","q":"How involved are parents, and are they supportive?","t":"Category","src":{"SI":["SA: lead_insights.lead_profile.stakeholders.parent_involvement","SA: lead_insights.lead_profile.stakeholders.parent_stance"]},"m":"SA only","st":"Raw","tier":"T0","p":"P1","ck":"Verified"},{"s":"Financial profile","a":"Decision-maker clarity","q":"Is the decision maker aligned, informed, blocking?","t":"Category","src":{"SI":["SA: lead_insights.lead_profile.stakeholders.decision_maker_clarity"]},"m":"SA only","st":"Raw","tier":"T0","p":"P2","ck":"Verified"},{"s":"Consent & preferences","a":"Notification preferences","q":"How they want to hear from us","t":"Flags","src":{"Prism":["users.communicationSettings.enableNotifications","users.communicationSettings.enableUpdatesOnEMail"]},"m":"As captured","st":"Raw","tier":"T0","p":"P2","ck":"Verified"},{"s":"Consent & preferences","a":"Do not call / contact","q":"Can we call?","t":"Flag","src":{"LSQ":["DoNotCall","mx_DNC_disposition"],"HubSpot":["do_not_call"],"Prism":["users.communicationSettings.isDoNotContact"]},"m":"Most restrictive value across sources wins; each change logged in Activity","st":"Flag","tier":"T0","p":"P0","ck":"Verified"},{"s":"Consent & preferences","a":"Email opt-out / subscriptions","q":"Can we email, and for what?","t":"Flag","src":{"LSQ":["DoNotEmail","CurrentOptInStatus","OptInDate"],"HubSpot":["hs_email_optout","hs_email_communication_subscriptions_opted_out","do_not_email"],"Prism":["users.communicationSettings.isDoNotEmail"]},"m":"Most restrictive wins; keep per-subscription detail","st":"Flag","tier":"T0","p":"P0","ck":"Verified"},{"s":"Consent & preferences","a":"SMS opt-out","q":"Can we SMS?","t":"Flag","src":{"LSQ":["DoNotSMS"],"HubSpot":["hs_sms_mobilephone_communication_subscriptions_opted_out"]},"m":"Most restrictive wins","st":"Flag","tier":"T0","p":"P0","ck":"Verified"},{"s":"Consent & preferences","a":"WhatsApp","q":"Can we WhatsApp?","t":"Flag","src":{"LSQ":["mx_CT_Whatsapp_opt_in"],"Prism":["users.communicationSettings.isDoNotWhatsApp"]},"m":"Most restrictive wins","st":"Flag","tier":"T0","p":"P0","ck":"Verified"},{"s":"Consent & preferences","a":"Marketing consent","q":"Purpose consent for marketing","t":"Flag + date","src":{"LSQ":["mx_Marketing_Communications_Consent_Given","mx_Marketing_consent_Flag"],"HubSpot":["marketing_communications_consent___dnc","hs_data_privacy_ads_consent"]},"m":"Duplicates resolved; keep date and source","st":"Flag","tier":"T0","p":"P0","ck":"Verified"},{"s":"Consent & preferences","a":"Callback consent","q":"Agreed to be called back","t":"Flag","src":{"LSQ":["mx_Callback_Consent_Given","mx_Callback_Consent"],"HubSpot":["callback_consent_given"]},"m":"As above","st":"Flag","tier":"T0","p":"P1","ck":"Verified"},{"s":"Consent & preferences","a":"Legal basis + regulation","q":"Which law applies, on what basis","t":"Category","src":{"HubSpot":["hs_legal_basis","applicable_regulations"]},"m":"India default to be set by Legal (DPDP)","st":"Raw","tier":"T0","p":"P0","ck":"Verified"}],"learning":[{"s":"Skills","a":"Declared skills","q":"What they say they can do","t":"List","src":{"Prism":["users.skills"]},"m":"As declared","st":"Raw","tier":"T0","p":"P1","ck":"Verified"},{"s":"Skills","a":"Graded skills and competencies","q":"What upGrad assessed they can do","t":"List","src":{"Prism":["userprogramreports.skills","userprogramreports.competencies","userprogramreports.masterData.gradedSkills","userprogramreports.masterData.gradedCompetencies"]},"m":"Earned through programmes; each tied to the programme","st":"Raw","tier":"T0","p":"P1","ck":"Verified"},{"s":"Courses with upGrad","a":"Course","q":"Which upGrad programmes have they taken, in which business?","t":"Record","src":{"LSQ":["mx_Program_Paid_Lead","mx_Program_Vertical_Paid"],"HubSpot":["EC Enrollments.program","GGU Enrollments.academic_program"],"Prism":["userprograms.program","userprograms.pok","userprograms.meta.businessUnit","userprograms.registeredAt"],"OMS":["billing.id"]},"m":"One row per enrolment; programme mapped to the programme dimension","st":"Record","tier":"T0","p":"P0","ck":"Verified"},{"s":"Courses with upGrad","a":"Current status","q":"Enrolled / in progress / completed / deferred / expired / dropped","t":"Category","src":{"LSQ":["mx_Onboarding_Status"],"HubSpot":["EC Enrollments.enrollment_status","GGU Enrollments.enrollment_status"],"Prism":["userprograms.status","userprograms.progressStatus","userprograms.isExpired","userprograms.deferredAt"],"OMS":["deferral.status","refund_request.refund_request_status"]},"m":"Prism learning status, overridden by OMS refund / deferral where present; detail in Activity","st":"Canonical","tier":"T0","p":"P0","ck":"Verified"},{"s":"Courses with upGrad","a":"Progress","q":"How far along; how much time spent","t":"Number","src":{"Prism":["userprograms.progress","userprograms.userSpentLearningDuration","userprograms.startedAt","userprograms.firstAccessedAt"]},"m":"Latest value; milestones logged in Activity","st":"Raw","tier":"T0","p":"P0","ck":"Verified"},{"s":"Courses with upGrad","a":"Programme results","q":"How well they did","t":"Number","src":{"Prism":["userprogramreports.scoreCard.cgpa","userprogramreports.scoreCard.percentage"]},"m":"Per programme","st":"Raw","tier":"T0","p":"P1","ck":"Verified"},{"s":"Courses with upGrad","a":"Certificates earned","q":"Credentials from upGrad","t":"List","src":{"Prism":["usercoursecertificates.certificateUID","usercoursecertificates.skills","nsdccertificates.grade","nsdccertificates.percentage","nsdccertificates.issuedAt"]},"m":"The result; the issuing event sits in Activity","st":"Raw","tier":"T0","p":"P0","ck":"Verified"}],"activity":[{"s":"Attribution","a":"First touch","k":"Event (per lead)","q":"Source, medium, campaign, content, term, channel, landing page","src":{"LSQ":["mx_First_UTM_Source","mx_First_UTM_Medium","mx_First_UTM_Campaign","mx_First_UTM_Content","mx_First_UTM_Term","mx_First_Channel_New","mx_First_Platform_URL","mx_First_Page_Category"],"HubSpot":["hs_analytics_source","hs_analytics_source_data_1","hs_analytics_source_data_2","hs_analytics_first_url"]},"m":"Rudderstack / CMS going forward","p":"P0","ck":"Verified"},{"s":"Attribution","a":"Latest touch","k":"Event (per lead; snapshot daily)","q":"Source, medium, campaign, content, term, channel","src":{"LSQ":["Source","SourceMedium","SourceCampaign","SourceContent","mx_UTM_Term","mx_Latest_Channel_New","mx_platformUrl"],"HubSpot":["hs_latest_source","recent_utm_source","recent_utm_medium","recent_utm_campaign"]},"m":"LSQ overwrites this value, so it must be snapshotted","p":"P0","ck":"Verified"},{"s":"Attribution","a":"Ad click","k":"Event","q":"GCLID / FBCLID / Meta lead ID","src":{"LSQ":["mx_GCLID","mx_First_GCLID","mx_FBCLID","mx_Meta_Lead_ID"],"HubSpot":["gclid","first_gclid","fbclid"]},"m":"Ad platforms (cost)","p":"P1","ck":"Verified"},{"s":"Attribution","a":"Partner / affiliate referral","k":"Event","q":"Partner code, vendor","src":{"LSQ":["mx_Channel_Partner_Code","mx_International_Franchise_Vendor_Number"],"HubSpot":["affiliate_company"]},"m":"","p":"P1","ck":"Verified"},{"s":"Marketing engagement","a":"Web session / page view / high-intent action","k":"Event","q":"Page, action, client ID","src":{"HubSpot":["hs_analytics_num_visits","hs_analytics_num_page_views"]},"m":"Rudderstack / CMS; GA","p":"P1","ck":"Verified"},{"s":"Marketing engagement","a":"Marketing message sent / opened / clicked","k":"Event","q":"Channel, campaign","src":{"LSQ":["mx_Whatsapp_sent_Date_n_time"],"HubSpot":["hs_email_delivered","hs_email_open","hs_email_click","hs_email_last_open_date"]},"m":"CleverTap (Redshift ct_flatten)","p":"P1","ck":"Verified"},{"s":"Marketing engagement","a":"Webinar / event attended","k":"Event","q":"Event name, duration","src":{"LSQ":["mx_Webinar_Attendee_Status","mx_Webinar_Date","mx_Webinar_Attendee_Duration"],"HubSpot":["online_event_timestamp","event_name__online","offline_event_timestamp"]},"m":"Event tools","p":"P1","ck":"Verified"},{"s":"Marketing engagement","a":"Chat","k":"Event","q":"Channel, intent","src":{"LSQ":["mx_Drift_Chat_Intent"],"HubSpot":["chat_program_of_interest"]},"m":"","p":"P2","ck":"Verified"},{"s":"Enquiries & business relationships","a":"Lead created","k":"Record (lead, with stage)","q":"Business, programme, owner, created date","src":{"LSQ":["CreatedOn","mx_Business_Unit_Lead_Journey","mx_First_Tenant","mx_Latest_Tenant","mx_Lead_Section"],"HubSpot":["createdate","international_sales_team","is_international_lead"]},"m":"KH LSQ tenant","p":"P0","ck":"Verified"},{"s":"Enquiries & business relationships","a":"Form submitted","k":"Event","q":"Form, page, programme","src":{"LSQ":["mx_Count_of_Inbound_Form","mx_First_Platform_URL"],"HubSpot":["num_conversion_events","first_conversion_event_name","recent_conversion_event_name"]},"m":"Rudderstack / CMS","p":"P0","ck":"Verified"},{"s":"Enquiries & business relationships","a":"Opportunity / deal","k":"Record (with stage)","q":"Programme, stage, amount, close date","src":{"LSQ":["mx_Count_of_Opportunities"],"HubSpot":["Deals.dealstage","Deals.pipeline","Deals.amount","Deals.closedate"]},"m":"LSQ opportunity export (pending)","p":"P0","ck":"Verified"},{"s":"Interactions","a":"Call","k":"Event","q":"Direction, outcome, duration, agent; for analysed SA/WP calls: objections raised, questions asked, engagement","src":{"LSQ":["mx_First_Call_Date_and_Time","mx_First_Call_Status","mx_Last_call_date_and_time","mx_Last_call_status","mx_Reached_Out_Attempts","mx_Total_DNP"],"HubSpot":["first_call_date_and_time","first_call_status","aircall_last_call_at","last_aircall_call_outcome"],"SI":["SA: call_insights.call_quality.objections_raised[]","SA: call_insights.call_quality.questions_asked_by_learner[]","WP: payload.objections[]","WP: payload.learner_questions[]","WP: payload.engagement"]},"m":"Telephony; LSQ activity export (pending)","p":"P0","ck":"Verified"},{"s":"Interactions","a":"Counselling / meeting / visit","k":"Event","q":"Type (counselling, VC, F2F, walk-in), counsellor","src":{"LSQ":["mx_First_Counselling_Date","mx_Latest_Counselling_Date","mx_First_VC_Done_Date","mx_F2F_Done_on_Date","mx_COCO_First_Walkin_Date"],"HubSpot":["first_counselling_date","is_counselled_lead","Meeting Logs object"]},"m":"","p":"P0","ck":"Verified"},{"s":"Interactions","a":"Stage change","k":"Event (on lead record)","q":"From → to, raw + canonical stage","src":{"LSQ":["ProspectStage","mx_Lead_Status","mx_Application_Stage"],"HubSpot":["lifecyclestage","hs_lead_status","hs_v2_date_entered_* (lifecycle stages)"]},"m":"LSQ activity export (pending)","p":"P0","ck":"Verified"},{"s":"Interactions","a":"Owner change","k":"Event (on lead record)","q":"From → to owner","src":{"LSQ":["OwnerId","mx_Prev_Lead_Owner","mx_Owner_Changed_Count","mx_Assignment_Date_Current_Owner"],"HubSpot":["hubspot_owner_id","owner_changed_count","hs_all_owner_ids"]},"m":"","p":"P1","ck":"Verified"},{"s":"Interactions","a":"Follow-up scheduled","k":"Event","q":"Due date, owner","src":{"LSQ":["mx_Follow_Up_Date","mx_Last_Interaction_Date"],"HubSpot":["follow_up_date","notes_last_contacted"]},"m":"","p":"P1","ck":"Verified"},{"s":"Interactions","a":"Next step agreed / completed","k":"Record (with status)","q":"What, owner, target date, outcome (done / not done)","src":{"SI":["SA: call_insights.call_quality.next_step_committed.value","SA: call_insights.call_quality.next_step_committed.description","WP: payload.next_steps[]","WP: wp_journeys.commitments[]","WP: wp_journeys.commitments[].resolution"]},"m":"Follow-through is a behavioural signal","p":"P1","ck":"Verified"},{"s":"Payments & commerce","a":"Order placed","k":"Record (with status)","q":"Amount, discount, tax, SKU, bundle, business","src":{"OMS":["billing.id","billing.status","billing.amount","billing.payable_amount","billing.discount_amount","billing.user_id","billing.tenant_id","order_entity.sku_id","order_entity.bundle_program_key"]},"m":"","p":"P0","ck":"Verified"},{"s":"Payments & commerce","a":"Payment","k":"Event","q":"Amount, currency, status, mode, completed date, lead identifier","src":{"LSQ":["mx_Total_Amount_Paid","mx_First_Transaction_Date","mx_Last_Transaction_Date_Lead"],"HubSpot":["Payment Transactions.transaction_amount","Payment Transactions.transaction_currency","Payment Transactions.transaction_date","Payment Transactions.payment_status"],"OMS":["transaction.amount","transaction.status","transaction.payment_completed_date","transaction.user_id","transaction.lead_identifier_id","transaction.payment_mode_id","offline_payment.amount_paid","offline_payment.program_key"]},"m":"","p":"P0","ck":"Verified"},{"s":"Payments & commerce","a":"Instalment scheduled / paid","k":"Event","q":"Amount, plan date, status","src":{"OMS":["user_product_payment_schedule.amount","user_product_payment_schedule.plan_date","user_product_payment_schedule.payment_status"]},"m":"","p":"P1","ck":"Verified"},{"s":"Payments & commerce","a":"Subscription","k":"Record (with status)","q":"Plan, valid from/till, cancel reason","src":{"OMS":["user_subscription_plan.user_subscription_plan_status","user_subscription_plan.valid_from","user_subscription_plan.valid_till","user_subscription_plan.program_key","user_subscription_plan.cancel_reason"]},"m":"","p":"P1","ck":"Verified"},{"s":"Payments & commerce","a":"Refund","k":"Record (with status)","q":"Requested date, status, amount, refund date","src":{"OMS":["refund_request.refund_request_status","refund_request.request_date","refund_request.user_id","refund_transaction.amount","refund_transaction.refund_date"]},"m":"","p":"P0","ck":"Verified"},{"s":"Payments & commerce","a":"Deferral","k":"Record (with status)","q":"Type, reason, programme, from/to batch","src":{"Prism":["userprograms.deferredAt"],"OMS":["deferral.status","deferral.type","deferral.requester_reason","deferral.program_key","deferral.learner_user_id"]},"m":"","p":"P1","ck":"Verified"},{"s":"Payments & commerce","a":"Programme transfer","k":"Event","q":"Transfer type, status","src":{"OMS":["order_transfer.transfer_type","order_transfer.status","order_transfer.user_id"]},"m":"","p":"P1","ck":"Verified"},{"s":"Payments & commerce","a":"Coupon used","k":"Event","q":"Coupon, amount","src":{"OMS":["coupon_code_history.user_id","coupon_code_history.amount"]},"m":"","p":"P2","ck":"Verified"},{"s":"Payments & commerce","a":"Corporate (B2B) enrolment","k":"Record (with status)","q":"Employer, PO, programme","src":{"OMS":["po_order_participant.po_order_id","po_order_participant.enrollment_status","po_order_participant.user_id","po_customer.name"]},"m":"","p":"P1","ck":"Verified"},{"s":"Learning activity","a":"Enrolment","k":"Record (with status)","q":"Programme (POK), business unit, dates, OMS order code","src":{"LSQ":["mx_Program_Paid_Lead","mx_Onboarding_Status"],"HubSpot":["EC Enrollments.enrollment_status","GGU Enrollments.enrollment_status"],"Prism":["userprograms.status","userprograms.pok","userprograms.program","userprograms.registeredAt","userprograms.startedAt","userprograms.firstAccessedAt","userprograms.orderInfo.omsOrderCode","userprograms.meta.businessUnit"]},"m":"","p":"P0","ck":"Verified"},{"s":"Learning activity","a":"Progress milestone","k":"Event (on enrolment)","q":"Progress %, time spent, expired, upgraded","src":{"Prism":["userprograms.progress","userprograms.progressStatus","userprograms.userSpentLearningDuration","userprograms.isExpired","userprograms.upgradedAt"]},"m":"","p":"P0","ck":"Verified"},{"s":"Learning activity","a":"Live session attended","k":"Event","q":"Session, status, time spent","src":{"Prism":["sessionattendances.status","sessionattendances.timeSpent","sessionattendances.joinsAt","workshopsessionattendances.status","workshopsessionattendances.timeSpent"]},"m":"","p":"P1","ck":"Verified"},{"s":"Learning activity","a":"Recorded content watched","k":"Event","q":"Watch time","src":{"Prism":["usersessionactivities.totalWatchTime","usersessionactivities.maxWatchTime"]},"m":"","p":"P2","ck":"Verified"},{"s":"Learning activity","a":"Assignment / project submitted","k":"Event","q":"Score, evaluation status","src":{"Prism":["assignmentattempts.attemptedAt","assignmentattempts.attemptScore","assignmentattempts.evaluationStatus","projectattempts.attemptedAt","projectattempts.attemptScore"]},"m":"","p":"P1","ck":"Verified"},{"s":"Learning activity","a":"Assessment attempted","k":"Event","q":"Marks, submitted","src":{"Prism":["assessmentattempts.attemptedAt","assessmentattempts.marks","assessmentattempts.isSubmitted"]},"m":"","p":"P1","ck":"Verified"},{"s":"Learning activity","a":"Certificate issued","k":"Event","q":"Certificate, programme (result recorded in Skills)","src":{"Prism":["usercoursecertificates.createdAt","nsdccertificates.issuedAt"]},"m":"","p":"P0","ck":"Verified"},{"s":"Learning activity","a":"Platform login","k":"Event (latest only)","q":"Last login date","src":{"Prism":["users.lastLogin.createdAt","users.currentLogin.createdAt"]},"m":"Full login history not in Prism","p":"P2","ck":"Verified"},{"s":"Support, feedback & referrals","a":"Feedback / rating given","k":"Event","q":"Rating, response, session","src":{"HubSpot":["nps_rating_counselling"],"Prism":["feedbackresponses.instructorRating","feedbackresponses.response","feedbackresponses.createdAt"]},"m":"","p":"P1","ck":"Verified"},{"s":"Support, feedback & referrals","a":"Support ticket","k":"Record (with status)","q":"Category, status","src":{"HubSpot":["Tickets object"],"Prism":["users.upgradFreshdeskUserId"]},"m":"Freshdesk (Redshift freshdesk_student_support)","p":"P2","ck":"Verified"},{"s":"Support, feedback & referrals","a":"Referral made / received","k":"Event","q":"Referrer, referee, programme, paid?","src":{"LSQ":["mx_Referred_By_Email","mx_Referral_Code"],"HubSpot":["Referrals.referrer_user_id","Referrals.referee_email","Referrals.referee_payment_stage"]},"m":"OMS referrals table is offer config, not person-level","p":"P1","ck":"Verified"},{"s":"Consent changes","a":"Consent changed","k":"Event","q":"Channel, purpose, new value, source","src":{"LSQ":["OptInDate","DoNotCall","DoNotEmail"],"HubSpot":["hs_email_optout","do_not_call"],"Prism":["users.communicationSettings.isDoNotEmail","users.communicationSettings.isDoNotContact"]},"m":"Audit trail for consent","p":"P0","ck":"Verified"}],"insights":[{"a":"Lifecycle state per business","q":"Where are they with each business?","b":"Activity: lead created, stage change, order, payment, enrolment, progress, refund, deferral","src":{},"m":"Prospect → Lead → Counselled → Paid → Learning → Completed / Dropped / Deferred / Refunded → Alumni","p":"P0","ck":""},{"a":"Overall relationship state","q":"Where are they with upGrad as a whole?","b":"Lifecycle per business","src":{},"m":"Highest state across businesses + count of businesses touched","p":"P0","ck":""},{"a":"Cross-business flag","q":"Are they known to more than one business?","b":"Identity + lead/enrolment records","src":{},"m":"Count of distinct businesses with a record","p":"P0","ck":""},{"a":"First seen / last active","q":"How long have we known them; are they still around?","b":"All Activity","src":{},"m":"Earliest and latest event timestamp","p":"P0","ck":""},{"a":"Lifetime revenue","q":"What are they worth to upGrad?","b":"Activity: payments − refunds (OMS)","src":{},"m":"Sum in INR; original currencies kept","p":"P0","ck":""},{"a":"Programmes purchased / repeat buyer","q":"Have they bought more than once?","b":"Activity: orders, enrolments","src":{},"m":"Count of distinct programmes paid","p":"P0","ck":""},{"a":"Re-acquisition flag","q":"Did we pay to acquire someone we already knew?","b":"Activity: lead created vs first seen; acquisition source","src":{},"m":"True if the person existed before this lead's paid-channel creation","p":"P0","ck":""},{"a":"Reachable now (per channel)","q":"Can we lawfully contact them today, and how?","b":"Learner: consent + verified contact + minor flag; Activity: recency","src":{},"m":"Per channel: call / email / SMS / WhatsApp / ads","p":"P0","ck":""},{"a":"Intent level","q":"How likely to buy soon?","b":"Learner/Aspiration + Activity engagement; counsellor-captured: mx_Learner_Intent; mx_SA_Learner_Intent_Category; high_intent_leads","src":{},"m":"Rules first; counsellor value as input","p":"P1","ck":""},{"a":"Speed to lead","q":"How fast did we reach them?","b":"Activity: lead created → first call","src":{},"m":"Minutes/hours","p":"P1","ck":""},{"a":"Contact fatigue","q":"Are we over-contacting them across businesses?","b":"Activity: calls, messages","src":{},"m":"Outbound touches in last 7 / 30 days","p":"P1","ck":""},{"a":"Learning health","q":"Are they progressing or at risk of dropping?","b":"Activity: progress, attendance, submissions, deferrals","src":{},"m":"Rules first","p":"P1","ck":""},{"a":"Moments","q":"What just happened that we should act on?","b":"Activity","src":{},"m":"Near completion · certificate issued · deferral resolved · intake passed · new enquiry in another business · refund requested","p":"P1","ck":""},{"a":"Acquisition cost","q":"What did it cost to acquire / re-acquire them?","b":"Activity: lead source + ad-platform cost","src":{},"m":"Campaign cost allocated per lead","p":"P2","ck":""},{"a":"Next-best programme","q":"What should we offer next?","b":"Aspiration + Skills + Activity","src":{},"m":"Rules first, model later","p":"P2","ck":""},{"a":"Counselling lead score (SA)","q":"How strong is this SA lead, per the call analysis?","b":"Sales Insights","src":{"SI":["SA: lead_scores.final_score","SA: lead_scores.lead_tier","SA: lead_scores.intent_score.final_score","SA: lead_scores.eligibility_score.final_score"]},"m":"Shown with model version; SA only, not comparable with WP","p":"P2","ck":"Verified"},{"a":"Counselling sub-levels (WP)","q":"Driver, urgency, engagement, paying capacity, programme alignment …","b":"Sales Insights","src":{"SI":["WP: wp_scores.sub_levels","WP: wp_journeys.derived.commitment_follow_through","WP: wp_journeys.derived.direction_of_lean"]},"m":"Shown with model version; WP only, not comparable with SA","p":"P2","ck":"Verified"},{"a":"Momentum (SA)","q":"Is the lead accelerating, stable or stalling?","b":"Sales Insights","src":{"SI":["SA: lead_insights.momentum.value"]},"m":"SA only","p":"P2","ck":"Verified"},{"a":"Best-fit vertical (SA)","q":"Pathway, premium or direct","b":"Sales Insights","src":{"SI":["SA: lead_insights.vertical_fit.vertical_suggested"]},"m":"SA only","p":"P2","ck":"Verified"}]}</script>
@@ -1670,12 +1852,15 @@ html[data-v="3"] .dm-head{font-family:var(--mono);font-size:10.5px;letter-spacin
     $("#meAv").textContent = initials(S.name);
     $("#previewBar").hidden = !S.preview;
     $("#previewTeam").textContent = team.label;
-    $$(".nav a").forEach(function (a) { a.hidden = team.routes.indexOf(a.getAttribute("data-route")) < 0; });
-    $(".nav").hidden = team.routes.length < 2;
-    $(".later").hidden = !!team.bu;
+    // Pages hidden from the sidebar in the Review panel are skipped too.
+    var routes = team.routes.filter(function (r) { return NAVHIDE.indexOf(r) < 0; });
+    if (!routes.length) routes = team.routes;
+    $$(".nav a").forEach(function (a) { a.hidden = routes.indexOf(a.getAttribute("data-route")) < 0; });
+    $(".nav").hidden = routes.length < 2;
+    $(".later").hidden = !!team.bu || NAVHIDE.indexOf("later") >= 0;
 
     var name = (location.hash.replace(/^#\/?/, "") || team.home).split("/")[0];
-    if (team.routes.indexOf(name) < 0) { name = team.home; history.replaceState(null, "", "#/" + name); }
+    if (routes.indexOf(name) < 0) { name = routes.indexOf(team.home) >= 0 ? team.home : routes[0]; history.replaceState(null, "", "#/" + name); }
     $$(".view").forEach(function (v) { v.hidden = v.getAttribute("data-view") !== name; });
     $$(".nav a").forEach(function (a) {
       if (a.getAttribute("data-route") === name) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
@@ -1708,6 +1893,20 @@ html[data-v="3"] .dm-head{font-family:var(--mono);font-size:10.5px;letter-spacin
   var BUS = { U: "Unacademy", I: "Internshala", W: "WP", S: "Study Abroad" };
   var STAGES = ["Prospect", "Lead", "Counselled", "Paid", "Learning", "Completed", "Alumni"];
   var STAGE_AT = { Dropped: 5, Deferred: 5, Refunded: 5 };
+  // Profile layouts to compare in V3: side panel, top header, side navigation.
+  var PERSONS = [["rail", "Left panel"], ["top", "Top header"]];
+  var TABPOS = [["top", "Top"], ["left", "Left"], ["right", "Right"]];
+  var PERSON = "rail", TABS = "top";
+  try {
+    PERSON = localStorage.getItem("cip-person") || PERSON; TABS = localStorage.getItem("cip-tabs") || TABS;
+    var oldLayout = localStorage.getItem("cip-layout");
+    if (oldLayout && !localStorage.getItem("cip-person")) { PERSON = oldLayout === "top" ? "top" : "rail"; TABS = oldLayout === "nav" ? "left" : "top"; }
+  } catch (e) {}
+  if (["rail", "top"].indexOf(PERSON) < 0) PERSON = "rail";
+  if (["top", "left", "right"].indexOf(TABS) < 0) TABS = "top";
+  var NAVHIDE = [];
+  try { NAVHIDE = JSON.parse(localStorage.getItem("cip-navhide") || "[]") || []; } catch (e) { NAVHIDE = []; }
+  function applyLookupLayout() { var r = $("#lookupResult"); if (r) { r.setAttribute("data-layout", PERSON); r.setAttribute("data-tabs", TABS); } }
   var CATS = { A: "Attribution", M: "Marketing", E: "Enquiries", X: "Interactions", P: "Payments", L: "Learning", S: "Support", C: "Consent" };
 
   var PEOPLE = {
@@ -1909,7 +2108,7 @@ html[data-v="3"] .dm-head{font-family:var(--mono);font-size:10.5px;letter-spacin
   }
 
   var PAGE = 6;
-  function freshView() { return { tab: "profile", bu: "all", cat: "all", shown: PAGE, revealed: false, finRevealed: false }; }
+  function freshView() { return { tab: "personal", bu: "all", cat: "all", shown: PAGE, revealed: false, finOpen: false, finAsk: false, lockErr: "" }; }
   var L = { status: "idle", label: "", matches: [], person: null, how: "" };
   var V = freshView();
   var lookupTimer = null;
@@ -1938,7 +2137,7 @@ html[data-v="3"] .dm-head{font-family:var(--mono);font-size:10.5px;letter-spacin
     return ok ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'
       : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
   }
-  function srcChip(s) { return '<span class="src">' + esc(s) + "</span>"; }
+  function srcChip(s) { return s ? '<span class="src">' + esc(s) + "</span>" : ""; }
 
   function renderLookup() {
     var box = $("#lookupResult"); if (!box) return;
@@ -1960,7 +2159,14 @@ html[data-v="3"] .dm-head{font-family:var(--mono);font-size:10.5px;letter-spacin
     }
     if (L.status === "many" && !L.person) { box.innerHTML = manyHTML(); return; }
     box.innerHTML = profileHTML(PEOPLE[L.person], team);
+    hdrCheck();
   }
+  // Once the person card scrolls out of view, the sticky bar shows a slim copy of it.
+  function hdrCheck() {
+    var r = $("#lookupResult"), card = r && r.querySelector(".prail .pcard");
+    if (r) r.classList.toggle("hdr-off", !!card && card.getBoundingClientRect().bottom < 72);
+  }
+  window.addEventListener("scroll", hdrCheck, { passive: true });
 
   function manyHTML() {
     var rows = L.matches.map(function (m) {
@@ -2005,21 +2211,20 @@ html[data-v="3"] .dm-head{font-family:var(--mono);font-size:10.5px;letter-spacin
     var h = "";
     if (L.matches.length > 1) h += '<button type="button" class="textbtn backbtn" data-back>‹ Back to ' + L.matches.length + " people on this number</button>";
 
-    // Header card: photo, who they are, and whether we may reach them right now.
-    var chans = reach(p, team), back = h; h = "";
-    var rail = '<section class="pcard" aria-label="Profile"><div class="pcard-top">' + avatarHTML(p, "avatar") +
-      '<div class="who"><h1>' + esc(p.name) + '</h1><p class="headline">' + esc(p.headline) + "</p>" +
-      '<p class="matched">Known since ' + esc(p.since) + " · matched on " + esc(L.how) + ' · <code class="gid">' + esc(p.gid) + "</code></p></div>" +
-      (otherBu || p.restricted ? "" : '<button type="button" class="btn dark sm" data-crm="' + esc(p.owner) + '">Open in ' + esc(p.owner) + " CRM</button>") + "</div>" +
-      '<div class="facts">' +
-      '<div class="fact"><span class="k">Life stage</span><span class="v">' + esc(p.stage) + "</span></div>" +
-      '<div class="fact"><span class="k">Age band</span><span class="v">' + esc(p.ageBand) + (p.restricted ? ' <span class="tag red">Minor</span>' : "") + "</span></div>" +
-      '<div class="fact"><span class="k">City</span><span class="v">' + esc(p.city) + "</span></div>" +
-      '<div class="fact"><span class="k">Owned by</span><span class="v">' + esc(p.owner) + "</span></div>" +
-      (p.restricted ? "" : '<div class="fact"><span class="k">Profile complete</span><span class="v">' + p.complete + '%</span><span class="meter" aria-hidden="true"><i style="width:' + p.complete + '%"></i></span></div>') +
-      '</div><div class="reach"><span class="k">Reachable now' + (team.bu ? " by " + esc(team.bu === "Working Professionals" ? "WP" : team.bu) : "") + '</span><ul>' + chans.map(function (x) {
-        return '<li class="' + (x[1] ? "ok" : "no") + '">' + tick(x[1]) + esc(x[0]) + '<span class="sr">: ' + (x[1] ? "yes" : "no") + "</span></li>";
-      }).join("") + "</ul></div></section>";
+    // Header pieces: who they are, key facts, and whether we may reach them right now.
+    var back = h; h = "";
+    var part = {
+      who: '<div class="who"><h1>' + esc(p.name) + '</h1><p class="headline">' + esc(p.headline) + "</p>" +
+        '<p class="matched">Known since ' + esc(p.since) + " · matched on " + esc(L.how) + ' · <code class="gid">' + esc(p.gid) + "</code></p></div>",
+      crm: otherBu || p.restricted ? "" : '<button type="button" class="btn dark sm" data-crm="' + esc(p.owner) + '">Open in ' + esc(p.owner) + " CRM</button>",
+      facts: '<div class="facts">' +
+        '<div class="fact"><span class="k">Life stage</span><span class="v">' + esc(p.stage) + "</span></div>" +
+        '<div class="fact"><span class="k">Age band</span><span class="v">' + esc(p.ageBand) + (p.restricted ? ' <span class="tag red">Minor</span>' : "") + "</span></div>" +
+        '<div class="fact"><span class="k">City</span><span class="v">' + esc(p.city) + "</span></div>" +
+        '<div class="fact"><span class="k">Owned by</span><span class="v">' + esc(p.owner) + "</span></div>" +
+        (p.restricted ? "" : '<div class="fact"><span class="k">Profile complete</span><span class="v">' + p.complete + '%</span><span class="meter" aria-hidden="true"><i style="width:' + p.complete + '%"></i></span></div>') + "</div>"
+    };
+    var rail = '<section class="pcard" aria-label="Profile"><div class="pcard-top">' + avatarHTML(p, "avatar") + part.who + part.crm + "</div>" + part.facts + "</section>";
 
     if (p.restricted) {
       h += '<div class="banner" role="note">' + warn() + "<div><b>Restricted: " + esc(first(p)) + " is a minor</b>Only basics are shown until a guardian consents. No marketing, no profiling. If the guardian is on the line, " + esc(p.owner) + " can send them the consent request.</div></div>";
@@ -2027,39 +2232,61 @@ html[data-v="3"] .dm-head{font-family:var(--mono);font-size:10.5px;letter-spacin
     }
     if (noContact) h += '<div class="banner" role="note">' + warn() + "<div><b>Don't contact " + esc(first(p)) + " about " + esc(team.bu) + "</b>" + esc(first(p)) + " hasn't agreed to offers from other upGrad businesses. You can view this profile for context only.</div></div>";
 
-    if (p.moments.length) h += '<section class="section" aria-labelledby="mo"><h2 id="mo">Worth acting on</h2><div class="moments">' + p.moments.map(function (m) {
+    h += momentsHTML(p);
+
+
+    // Details in five sections: Personal, Education, Professional, Financial, Activity. One set of tabs, always in view.
+    // Layouts: person card on the left or across the top; tabs in a row on top, or a list on the left or right.
+    var tabsAt = TABS, personAt = PERSON, vert = tabsAt !== "top";
+    var cur = SECT.some(function (x) { return x[0] === V.tab; }) ? V.tab : "personal", fresh = cur !== V.seen; V.seen = cur; V.tab = cur;
+    var list = '<div class="' + (vert ? "pnav vtabs" : "tabs") + '" role="tablist" aria-label="Profile sections"' + (vert ? ' aria-orientation="vertical"' : "") + ' id="ptabs" data-slide>' + SECT.map(function (t) {
+      var on = t[0] === cur, locked = t[0] === "financial" && !otherBu && !V.finOpen;
+      return '<button type="button" role="tab" id="tab-' + t[0] + '" aria-controls="panel" aria-selected="' + on + '" tabindex="' + (on ? 0 : -1) + '" data-tab="' + t[0] + '">' + t[1] + (locked ? '<svg class="tlock" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg><span class="sr"> (locked)</span>' : "") + "</button>";
+    }).join("") + "</div>";
+    var panel = '<div id="panel" class="' + (vert ? "vpanel" : "") + (fresh ? " fresh" : "") + '" role="tabpanel" aria-labelledby="tab-' + cur + '">' + sectionBody(cur, p, team, otherBu, noContact) + "</div>";
+    // A slim copy of the person, shown in the sticky bar once the full card scrolls away.
+    var mini = '<div class="pmini" aria-hidden="true">' + avatarHTML(p, "mini-av") + "<span><b>" + esc(p.name) + "</b><small>" + esc(p.stage + " · " + p.ageBand + " · " + p.city) + "</small></span></div>";
+    var open = '<section class="section pdet" aria-label="Profile details">';
+    if (!vert) return playout(back, rail, h + open + '<div class="pbar">' + mini + list + "</div>" + panel + "</section>");
+    if (tabsAt === "left" && personAt === "rail") return playout(back, rail + list, h + open + panel + "</section>");
+    return playout(back, rail, h + open + '<div class="dv dv-' + tabsAt + '"><div class="vcol">' + mini + list + "</div>" + panel + "</div></section>");
+  }
+  var SECT = [["personal", "Personal"], ["education", "Education"], ["professional", "Professional"], ["financial", "Financial"], ["activity", "Activity"]];
+  function insightCard(id, title, rows, hide) {
+    return cardHTML(id, title, '<span class="tag">Derived</span>', rowsHTML(rows.filter(function (r) { return r[1]; }).map(function (r) { return [r[0], r[1], "", "", r[2] || ""]; }), { hide: !!hide }));
+  }
+  // Locked sections: Financial stays masked until someone turns it on with the team password.
+  // Prototype only: in the product the check runs on the server, against the viewer's role, and is logged.
+  var TEAM_PW = "upgrad2026", LOCKOUT = { tries: 0, until: 0 };
+  function lockbarHTML() {
+    var open = V.finOpen, ask = V.finAsk && !open;
+    var ic = open ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 017.5-2"/></svg>'
+      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>';
+    var status = open ? "Visible to you until you hide them or open another person. This access is logged." : ask ? "Enter the team password to view budget, funding, salary band and revenue." : "Hidden. Select the eye and enter the team password to view.";
+    var eye = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12s3.5-6.5 9.5-6.5S21.5 12 21.5 12s-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>' + (open ? "" : '<path d="M4 4l16 16"/>') + "</svg>";
+    var h = '<div class="card lockbar' + (open ? " open" : "") + '"><span class="lock-ic">' + ic + '</span><div><b>Financial details</b><span>' + status + '</span></div>' +
+      '<button type="button" class="eyebtn" data-fineye aria-pressed="' + open + '" aria-label="' + (open ? "Hide financial details" : "Show financial details") + '" title="' + (open ? "Hide financial details" : "Show financial details") + '">' + eye + "</button></div>";
+    if (ask) h += '<form class="card lockform" data-unlock novalidate><label for="lockPw" class="sr">Team password</label><input id="lockPw" type="password" placeholder="Team password" autocomplete="off"' + (V.lockErr ? ' aria-invalid="true" aria-describedby="lockErr"' : "") + '>' +
+      '<button type="submit" class="btn dark sm">Unlock</button><button type="button" class="textbtn" data-lockcancel>Cancel</button>' + (V.lockErr ? '<p class="lock-err" id="lockErr" role="alert">' + esc(V.lockErr) + "</p>" : "") + "</form>";
+    return h;
+  }
+  function sectionBody(key, p, team, otherBu, noContact) {
+    var i = p.ins || {};
+    if (key === "personal") return learnerHTML(p, team, otherBu, noContact, ["c-id", "c-personal", "c-consent"]);
+    if (key === "education") return learnerHTML(p, team, otherBu, noContact, ["c-edu"]) + learningHTML(p);
+    if (key === "professional") return learnerHTML(p, team, otherBu, noContact, ["c-career", "c-asp"]) +
+      insightCard("c-outlook", "Outlook", [["Intent", i.intent, i.intentD], ["Next-best programme", i.nbp, "Rules first, model later"]].concat((i.scores || []).map(function (sc) { return [sc[0], sc[1], "Model " + sc[2]]; })));
+    if (key === "financial") return (otherBu ? "" : lockbarHTML()) + learnerHTML(p, team, otherBu, noContact, ["c-fin"]) +
+      insightCard("c-money", "With upGrad", [["Lifetime revenue", otherBu ? "Owning business only" : i.revenue, otherBu ? "" : i.revenueD], ["Programmes purchased", i.bought], ["Re-acquired", i.reacq ? "Yes" : "No", i.reacqD]], !otherBu && !V.finOpen);
+    return lifecycleHTML(p) + insightCard("c-engage", "Engagement", [["Relationship", i.state + " · " + p.lifecycle.length + (p.lifecycle.length > 1 ? " businesses" : " business")], ["First seen · last active", i.first + " · " + i.last],
+      ["Speed to lead", i.speed, "Lead created → first call"], ["Contact fatigue", i.fatigue, "Outbound touches across businesses"], ["Learning health", i.health, i.healthD]]) + activityHTML(p, otherBu);
+  }
+  function momentsHTML(p) {
+    return p.moments.length ? '<section class="section" aria-labelledby="mo"><h2 id="mo">Worth acting on</h2><div class="moments">' + p.moments.map(function (m) {
       return '<div class="moment"><span class="dot" aria-hidden="true"></span><div><b>' + esc(m[0]) + "</b><span>" + esc(m[1]) + "</span></div></div>";
-    }).join("") + "</div></section>";
-
-    h += snapshotHTML(p, otherBu) + lifecycleHTML(p);
-
-    // Four parts of the profile, one tab each.
-    var tabs = [["profile", "Learner profile"], ["learning", "Learning & skills"], ["activity", "Activity"], ["insights", "Insights"]];
-    h += '<section class="section" aria-label="Profile details"><div class="tabs" role="tablist" aria-label="Profile parts" id="ptabs" data-slide>' + tabs.map(function (t) {
-      return '<button type="button" role="tab" id="tab-' + t[0] + '" aria-controls="panel" aria-selected="' + (V.tab === t[0]) + '" tabindex="' + (V.tab === t[0] ? 0 : -1) + '" data-tab="' + t[0] + '">' + t[1] + "</button>";
-    }).join("") + '</div><div id="panel" class="' + (V.tab !== V.seen ? "fresh" : "") + '" role="tabpanel" aria-labelledby="tab-' + V.tab + '">'; V.seen = V.tab;
-    if (V.tab === "profile") h += learnerHTML(p, team, otherBu, noContact);
-    else if (V.tab === "learning") h += learningHTML(p);
-    else if (V.tab === "activity") h += activityHTML(p, otherBu);
-    else h += insightsHTML(p, otherBu);
-    return playout(back, rail, h + "</div></section>");
+    }).join("") + "</div></section>" : "";
   }
   function playout(back, rail, main) { return back + '<div class="playout"><div class="prail">' + rail + '</div><div class="pmain">' + main + "</div></div>"; }
-
-  function snapshotHTML(p, otherBu) {
-    var i = p.ins;
-    var tiles = [
-      ["Relationship", i.state, p.lifecycle.length + (p.lifecycle.length > 1 ? " businesses" : " business")],
-      ["Lifetime revenue", otherBu ? "Hidden" : i.revenue, otherBu ? "Owning business only" : i.bought],
-      ["Intent", i.intent, i.intentD || "Rules first, counsellor input"],
-      ["Learning health", i.health, i.healthD || "—"],
-      ["Contact in 7 · 30 days", i.fatigue.split(" · ").map(function (x) { return x.split(" ")[0]; }).join(" · "), "Outbound touches, all businesses"],
-      ["Re-acquired", i.reacq ? "Yes" : "No", i.reacq ? "We paid for someone we knew" : "No paid lead for a known person"]
-    ];
-    return '<section class="section" aria-labelledby="sn"><h2 id="sn" class="sr">At a glance</h2><div class="snap">' + tiles.map(function (t, n) {
-      return '<div class="tile' + (n === 5 && i.reacq ? " warn" : "") + '"><span class="k">' + esc(t[0]) + '</span><span class="v">' + esc(t[1]) + '</span><span class="d">' + esc(t[2]) + "</span></div>";
-    }).join("") + "</div></section>";
-  }
 
   // Insight 1: lifecycle state per business.
   function lifecycleHTML(p) {
@@ -2072,7 +2299,7 @@ html[data-v="3"] .dm-head{font-family:var(--mono);font-size:10.5px;letter-spacin
       }).join("") + "</div></section>";
   }
 
-  function learnerHTML(p, team, otherBu, noContact) {
+  function learnerHTML(p, team, otherBu, noContact, only) { // only: list of card keys
     var c = p.consent;
     var contact = '<div class="attr-list">' +
       p.phones.map(function (x) { return idRow("Phone", V.revealed ? fmtPhone(x.d) : maskPhone(x.d), x.tag, x.v, x.src); }).join("") +
@@ -2086,9 +2313,8 @@ html[data-v="3"] .dm-head{font-family:var(--mono);font-size:10.5px;letter-spacin
       : '<button type="button" class="revealbtn" data-reveal>Show contact details for this call</button>';
     if (noContact) contact = '<div class="ids" style="border:none;padding-top:8px"><span class="k">Global person ID</span><code>' + esc(p.gid) + "</code></div>";
 
-    var fin = otherBu ? '<p class="note" style="padding:8px 0 4px">The financial profile isn\'t shared with other businesses.</p>' : rowsHTML(p.finance, { hide: !V.finRevealed });
-    var finFoot = otherBu ? "" : V.finRevealed ? '<p class="note" role="status">Shown to ' + esc(S.name || "you") + " for a fee or loan discussion. This access is logged.</p>"
-      : '<button type="button" class="revealbtn" data-fin>Show for a fee or loan discussion</button>';
+    var fin = otherBu ? '<p class="note" style="padding:8px 0 4px">The financial profile isn\'t shared with other businesses.</p>' : rowsHTML(p.finance, { hide: !V.finOpen });
+    var finFoot = "";
 
     var yes = function (k, label) {
       var ok = !!c[k];
@@ -2097,15 +2323,16 @@ html[data-v="3"] .dm-head{font-family:var(--mono);font-size:10.5px;letter-spacin
     var consent = '<div class="attr-list">' + yes("call", "Calls") + yes("email", "Email") + yes("sms", "SMS") + yes("whatsapp", "WhatsApp") + yes("ads", "Marketing and ads") + yes("callback", "Callback") + yes("cross", "Offers from other businesses") + "</div>";
     var consentFoot = '<p class="note">' + esc(c.basis) + (c.since ? " · recorded " + esc(c.since) : "") + ". Checked before any outreach; every change is logged in Activity.</p>";
 
-    return jumpHTML([["c-id", "Contact"], ["c-consent", "Consent"], ["c-personal", "Personal"], ["c-edu", "Education"], ["c-career", "Career"], ["c-asp", "Aspiration"], ["c-fin", "Financial"]]) + '<div class="sgrid">' +
-      cardHTML("c-id", "Identity & contact", '<span class="tag">T1 · vault</span>', contact, contactFoot) +
-      cardHTML("c-consent", "Consent & preferences", "", consent, consentFoot) +
-      cardHTML("c-personal", "Personal details", "", rowsHTML(p.personal, { otherBu: otherBu })) +
-      cardHTML("c-edu", "Education before upGrad", "", rowsHTML(p.education)) +
-      cardHTML("c-career", "Career", "", rowsHTML(p.career)) +
-      cardHTML("c-asp", "Aspiration", "", rowsHTML(p.aspiration)) +
-      cardHTML("c-fin", "Financial profile", '<span class="tag red">T2 · bands only</span>', fin, finFoot) +
-      "</div>";
+    var C = {
+      "c-id": function () { return cardHTML("c-id", "Identity & contact", '<span class="tag">T1 · vault</span>', contact, contactFoot); },
+      "c-consent": function () { return cardHTML("c-consent", "Consent & preferences", "", consent, consentFoot); },
+      "c-personal": function () { return cardHTML("c-personal", "Personal details", "", rowsHTML(p.personal, { otherBu: otherBu })); },
+      "c-edu": function () { return cardHTML("c-edu", "Education before upGrad", "", rowsHTML(p.education)); },
+      "c-career": function () { return cardHTML("c-career", "Career", "", rowsHTML(p.career)); },
+      "c-asp": function () { return cardHTML("c-asp", "Aspiration", "", rowsHTML(p.aspiration)); },
+      "c-fin": function () { return cardHTML("c-fin", "Financial profile", '<span class="tag red">T2 · bands only</span>', fin, finFoot); }
+    };
+    return (only || ["c-id"]).map(function (k) { return C[k] ? C[k]() : ""; }).join("");
   }
   function idRow(label, value, tag, verified, src) {
     return '<div class="row tight"><span class="txt"><span class="title plain">' + esc(value) + '</span><span class="desc">' + esc(label) + (tag ? " · " + esc(tag) : "") + "</span></span>" +
@@ -2133,41 +2360,18 @@ html[data-v="3"] .dm-head{font-family:var(--mono);font-size:10.5px;letter-spacin
     var cats = ["all"].concat(Object.keys(CATS).filter(function (k) { return evs.some(function (e) { return e[2] === k; }); }));
     var list = evs.filter(function (e) { return (V.bu === "all" || e[0] === V.bu) && (V.cat === "all" || e[2] === V.cat); });
     var shown = list.slice(0, V.shown), left = list.length - shown.length;
-    var h = '<div class="filters"><div class="fchips" role="group" aria-label="Filter by event type" id="aCat" data-slide>' + cats.map(function (k) {
-      return '<button type="button" class="fchip" data-cat="' + k + '" aria-pressed="' + (V.cat === k) + '">' + (k === "all" ? "All " + evs.length : esc(CATS[k])) + "</button>";
-    }).join("") + "</div>";
-    if (bus.length > 2) h += '<div class="seg sm" role="group" aria-label="Filter by business" id="aBu" data-slide>' + bus.map(function (b) {
-      return '<button type="button" data-bu="' + b + '" aria-pressed="' + (V.bu === b) + '">' + (b === "all" ? "All" : esc(BUS[b])) + "</button>";
-    }).join("") + "</div>";
+    // One small filter instead of a row of chips, so Activity doesn't add a second navigation.
+    var opt = function (val, label) {
+      var sel = val === "all" ? V.cat === "all" && V.bu === "all" : val === "c:" + V.cat || val === "b:" + V.bu;
+      return '<option value="' + val + '"' + (sel ? " selected" : "") + ">" + esc(label) + "</option>";
+    };
+    var h = '<div class="filters"><span class="acount">' + list.length + " of " + evs.length + ' events</span><label class="afilter"><span class="sr">Filter activity</span><select data-afilter>' + opt("all", "All activity") +
+      '<optgroup label="Type">' + cats.slice(1).map(function (k) { return opt("c:" + k, CATS[k]); }).join("") + "</optgroup>" +
+      (bus.length > 2 ? '<optgroup label="Business">' + bus.slice(1).map(function (b) { return opt("b:" + b, BU[b]); }).join("") + "</optgroup>" : "") + "</select></label>";
     h += '</div><div class="timeline">' + (shown.length ? shown.map(function (e) {
       return '<div class="event"><div class="when">' + esc(e[1]) + '</div><div class="body"><div class="title">' + esc(e[3]) + '</div><div class="desc">' + esc(e[4]) + '</div><div class="emeta"><span class="ecat">' + esc(CATS[e[2]]) + "</span>" + esc(BU[e[0]]) + " · " + srcChip(e[5]) + "</div></div></div>";
     }).join("") : '<p class="note" style="padding:16px 0">Nothing here for this filter.</p>') + (left > 0 ? '<div class="more-row"><button type="button" class="textbtn" data-more>Show ' + Math.min(PAGE, left) + " more · " + left + " older</button></div>" : "") +
       '</div><p class="note">Read-only. Every event carries the person ID, business, type, time, source system and source record ID.' + (otherBu ? " Payments are shown to the owning business only." : "") + "</p>";
-    return h;
-  }
-
-  function insightsHTML(p, otherBu) {
-    var i = p.ins;
-    var rows = [
-      ["Overall relationship", i.state + " · " + p.lifecycle.length + " businesses touched", "Highest state across businesses"],
-      ["Known to more than one business", p.lifecycle.length > 1 ? "Yes · " + p.lifecycle.map(function (r) { return BUS[r.bu]; }).join(", ") : "No", "Count of businesses with a record"],
-      ["First seen · last active", i.first + " · " + i.last, "Earliest and latest event"],
-      ["Lifetime revenue", otherBu ? "Owning business only" : i.revenue, otherBu ? "Payments minus refunds, in INR" : i.revenueD],
-      ["Programmes purchased", i.bought, "Distinct programmes paid for"],
-      ["Re-acquired", i.reacq ? "Yes" : "No", i.reacqD || "Did we pay to acquire someone we already knew?"],
-      ["Intent", i.intent, i.intentD || "Rules first, counsellor value as input"],
-      ["Speed to lead", i.speed, "Lead created → first call"],
-      ["Contact fatigue", i.fatigue, "Outbound touches across businesses"],
-      ["Learning health", i.health, i.healthD || "Progress, attendance, submissions"],
-      ["Next-best programme", i.nbp, "Rules first, model later"]
-    ];
-    var h = '<div class="list ins">' + rows.map(function (r) {
-      return '<div class="row"><span class="txt"><span class="title">' + esc(r[0]) + '</span><span class="desc">' + esc(r[2]) + '</span></span><span class="ival">' + esc(r[1]) + "</span></div>";
-    }).join("") + "</div>";
-    if (i.scores.length) h += '<div class="section-head" style="margin-top:12px"><h3 class="h3">From call analysis</h3><p class="sub" style="font-size:14px">Scores from Sales Insights. Study Abroad and WP scores use different models, so they can\'t be compared.</p></div>' +
-      '<div class="list ins">' + i.scores.map(function (r) {
-        return '<div class="row"><span class="txt"><span class="title">' + esc(r[0]) + '</span><span class="desc">Model ' + esc(r[2]) + '</span></span><span class="ival">' + esc(r[1]) + "</span></div>";
-      }).join("") + "</div>";
     return h;
   }
 
@@ -2184,7 +2388,6 @@ html[data-v="3"] .dm-head{font-family:var(--mono);font-size:10.5px;letter-spacin
     } else if (t.hasAttribute("data-back")) { L.person = null; renderLookup(); }
     else if (t.hasAttribute("data-tab")) { V.tab = t.getAttribute("data-tab"); renderLookup(); var f = $("#tab-" + V.tab); if (f) f.focus(); }
     else if (t.hasAttribute("data-reveal")) { V.revealed = true; renderLookup(); }
-    else if (t.hasAttribute("data-fin")) { V.finRevealed = true; renderLookup(); }
     else if (t.hasAttribute("data-more")) { V.shown += PAGE; renderLookup(); }
     else if (t.hasAttribute("data-bu")) { V.bu = t.getAttribute("data-bu"); V.shown = PAGE; renderLookup(); }
     else if (t.hasAttribute("data-cat")) { V.cat = t.getAttribute("data-cat"); V.shown = PAGE; renderLookup(); }
@@ -2192,45 +2395,49 @@ html[data-v="3"] .dm-head{font-family:var(--mono);font-size:10.5px;letter-spacin
     else if (t.hasAttribute("data-clear")) { L.status = "idle"; $("#lookup").value = ""; renderLookup(); $("#lookup").focus(); }
   });
   // Arrow keys move between profile tabs.
+  $("#lookupResult").addEventListener("change", function (e) {
+  });
+  // The eye: hidden -> ask for the team password; visible -> hide again.
+  $("#lookupResult").addEventListener("click", function (e) {
+    if (!e.target.closest("[data-fineye]")) return;
+    if (V.finOpen) { V.finOpen = false; V.finAsk = false; V.lockErr = ""; renderLookup(); toast("Financial details hidden"); var b = $("[data-fineye]"); if (b) b.focus(); return; }
+    V.finAsk = !V.finAsk; V.lockErr = ""; renderLookup();
+    var pw = $("#lockPw"); if (pw) pw.focus(); else { var b2 = $("[data-fineye]"); if (b2) b2.focus(); }
+  });
+  $("#lookupResult").addEventListener("submit", function (e) {
+    var form = e.target.closest("[data-unlock]"); if (!form) return;
+    e.preventDefault();
+    var now = Date.now(), val = ($("#lockPw") || {}).value || "";
+    if (LOCKOUT.until > now) { V.lockErr = "Too many tries. Try again in " + Math.ceil((LOCKOUT.until - now) / 1000) + " seconds."; renderLookup(); $("#lockPw").focus(); return; }
+    if (val === TEAM_PW) {
+      LOCKOUT.tries = 0; V.finOpen = true; V.finAsk = false; V.lockErr = ""; renderLookup();
+      toast("Financial details unlocked · logged"); var t = $("#tab-financial"); if (t) t.focus(); return;
+    }
+    LOCKOUT.tries += 1;
+    if (LOCKOUT.tries >= 3) { LOCKOUT.tries = 0; LOCKOUT.until = now + 30000; V.lockErr = "That's 3 wrong tries. Unlocking is paused for 30 seconds."; }
+    else V.lockErr = !val ? "Enter the team password." : "That password isn't right. Ask your team lead for the current one.";
+    renderLookup(); $("#lockPw").focus();
+  });
+  $("#lookupResult").addEventListener("click", function (e) {
+    if (!e.target.closest("[data-lockcancel]")) return;
+    V.finAsk = false; V.lockErr = ""; renderLookup();
+  });
+  $("#lookupResult").addEventListener("change", function (e) {
+    var sel = e.target.closest("[data-afilter]"); if (!sel) return;
+    var v = sel.value; V.cat = "all"; V.bu = "all"; V.shown = PAGE;
+    if (v.indexOf("c:") === 0) V.cat = v.slice(2); else if (v.indexOf("b:") === 0) V.bu = v.slice(2);
+    renderLookup(); var again = $("[data-afilter]"); if (again) again.focus();
+  });
   $("#lookupResult").addEventListener("keydown", function (e) {
-    var t = e.target.closest('[role="tab"]'); if (!t || (e.key !== "ArrowRight" && e.key !== "ArrowLeft")) return;
-    var all = $$('[role="tab"]', $("#lookupResult")), i = all.indexOf(t) + (e.key === "ArrowRight" ? 1 : -1);
+    var t = e.target.closest('[role="tab"]'); if (!t) return;
+    var list = t.closest('[role="tablist"]') || t.parentNode, vert = list.getAttribute("aria-orientation") === "vertical";
+    var fwd = vert ? "ArrowDown" : "ArrowRight", bwd = vert ? "ArrowUp" : "ArrowLeft";
+    if (e.key !== fwd && e.key !== bwd) return;
+    var all = $$('[role="tab"]', list), i = all.indexOf(t) + (e.key === fwd ? 1 : -1);
     all[(i + all.length) % all.length].click(); e.preventDefault();
   });
 
-  // Section bar on the Learner profile: jump to a card; the current one follows your scroll.
-  function jumpHTML(items) {
-    return '<nav class="jump" id="jump" data-slide aria-label="Jump to a section">' + items.map(function (it, i) {
-      return '<button type="button" data-jump="s-' + it[0] + '"' + (i === 0 ? ' aria-current="location"' : "") + ">" + esc(it[1]) + "</button>";
-    }).join("") + "</nav>";
-  }
-  var JUMPING = 0;
-  function setJump(id) {
-    var nav = $("#jump"); if (!nav) return;
-    $$("[data-jump]", nav).forEach(function (x) { if (x.getAttribute("data-jump") === id) x.setAttribute("aria-current", "location"); else x.removeAttribute("aria-current"); });
-    var a = nav.querySelector('[aria-current="location"]');
-    if (a && nav.scrollWidth > nav.clientWidth) nav.scrollTo({ left: Math.max(0, a.offsetLeft - 24), behavior: REDUCED ? "auto" : "smooth" });
-    slideAll();
-  }
-  $("#lookupResult").addEventListener("click", function (e) {
-    var b = e.target.closest("[data-jump]"); if (!b) return;
-    var id = b.getAttribute("data-jump"), el = document.getElementById(id); if (!el) return;
-    JUMPING = Date.now(); setJump(id);
-    el.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "start" });
-    el.classList.toggle("flash", false); void el.offsetWidth; el.classList.toggle("flash", true);
-  });
-  window.addEventListener("scroll", function () {
-    var nav = $("#jump"); if (!nav || !nav.offsetParent || Date.now() - JUMPING < 900) return;
-    var line = nav.getBoundingClientRect().bottom + 32, best = null, bestTop = -Infinity;
-    $$("[data-jump]", nav).forEach(function (b) {
-      var el = document.getElementById(b.getAttribute("data-jump")); if (!el) return;
-      var t = el.getBoundingClientRect().top;
-      if (t <= line && t > bestTop) { bestTop = t; best = b.getAttribute("data-jump"); }
-    });
-    best = best || nav.querySelector("[data-jump]").getAttribute("data-jump");
-    var cur = nav.querySelector('[aria-current="location"]');
-    if (!cur || cur.getAttribute("data-jump") !== best) setJump(best);
-  }, { passive: true });
+  applyLookupLayout();
 
   /* ---------- Data dictionary ---------- */
   var CAT = JSON.parse($("#catalog").textContent);
@@ -2487,7 +2694,7 @@ html[data-v="3"] .dm-head{font-family:var(--mono);font-size:10.5px;letter-spacin
     v3Enter((location.hash.replace(/^#\/?/, "") || "overview").split("/")[0]);
   }
   setVersion(document.documentElement.getAttribute("data-v") || "2");
-  $("#vswitch").addEventListener("click", function (e) { var b = e.target.closest("[data-v]"); if (b) setVersion(b.getAttribute("data-v"), true); });
+  $("#vswitch").addEventListener("click", function (e) { var b = e.target.closest("[data-v]"); if (!b) return; setVersion(b.getAttribute("data-v"), true); renderLookup(); requestAnimationFrame(slideAll); });
 
   /* ---------- V3: live overview and motion ---------- */
   var REDUCED = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -2702,6 +2909,70 @@ html[data-v="3"] .dm-head{font-family:var(--mono);font-size:10.5px;letter-spacin
     var g = row.getAttribute(x ? "data-xrow" : "data-row");
     P.open = P.open === g ? null : g; renderPeople();
   });
+
+  /* ---------- Review panel (for design review only, not part of the product) ---------- */
+  var RV = { open: false };
+  $("#rvPerson").innerHTML = PERSONS.map(function (x) { return '<button type="button" data-person-at="' + x[0] + '" aria-pressed="false">' + esc(x[1]) + "</button>"; }).join("");
+  $("#rvTabs").innerHTML = TABPOS.map(function (x) { return '<button type="button" data-tabs-at="' + x[0] + '" aria-pressed="false">' + esc(x[1]) + "</button>"; }).join("");
+  // A tiny wireframe of the current arrangement: person, summary, tabs, content.
+  function rvThumb(person, tabs) {
+    var T = '<i class="w-t ' + (tabs === "top" ? "w-h" : "w-v") + '"></i>', C = '<i class="w-c"></i>', S = '<i class="w-s"></i>';
+    var detail = tabs === "top" ? '<b class="w-col">' + T + C + "</b>" : tabs === "left" ? '<b class="w-row">' + T + C + "</b>" : '<b class="w-row">' + C + T + "</b>";
+    if (person === "rail") {
+      var inRail = tabs === "left";
+      return '<b class="w-row"><b class="w-col w-side"><i class="w-p w-tall"></i>' + (inRail ? T : "") + '</b><b class="w-col">' + S + (inRail ? C : detail) + "</b></b>";
+    }
+    return '<b class="w-col"><i class="w-p w-wide"></i>' + S + detail + "</b>";
+  }
+  function layoutLabel() {
+    var p = PERSONS.filter(function (x) { return x[0] === PERSON; })[0][1];
+    var t = { top: "tabs on top", left: "tabs on the left", right: "tabs on the right" }[TABS];
+    return p + " · " + t;
+  }
+  function rvSync() {
+    var v = document.documentElement.getAttribute("data-v");
+    $$("#rvPerson button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-person-at") === PERSON); });
+    $$("#rvTabs button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-tabs-at") === TABS); });
+    $("#rvThumb").innerHTML = rvThumb(PERSON, TABS);
+    $("#rvLayoutNote").textContent = describeLayout();
+    $("#rvSummary").textContent = "V" + v + " · " + layoutLabel() + (NAVHIDE.length ? " · " + NAVHIDE.length + " hidden" : "");
+    $$("#rvNav [data-navitem]").forEach(function (c) { c.checked = NAVHIDE.indexOf(c.getAttribute("data-navitem")) < 0; });
+  }
+  function describeLayout() {
+    var who = PERSON === "rail" ? "The person card stays pinned on the left" : "The person card runs across the top; once it scrolls away, a slim bar keeps their name in view";
+    var tabs = TABS === "top" ? "the section tabs stay pinned above the details" : TABS === "left" ? (PERSON === "rail" ? "the section tabs sit under the person card" : "the section tabs stay pinned on the left") : "the section tabs stay pinned on the right";
+    return who + ", and " + tabs + ".";
+  }
+  function rvOpen(open) {
+    RV.open = open; $("#rvPanel").hidden = !open; $("#rvToggle").setAttribute("aria-expanded", open);
+    if (open) { rvSync(); $("#rvPanel").focus(); }
+  }
+  function rvApply() {
+    try { localStorage.setItem("cip-person", PERSON); localStorage.setItem("cip-tabs", TABS); } catch (er) {}
+    applyLookupLayout();
+    renderLookup(); rvSync(); requestAnimationFrame(slideAll);
+  }
+  $("#rvToggle").addEventListener("click", function () { rvOpen(!RV.open); });
+  $("#rvClose").addEventListener("click", function () { rvOpen(false); $("#rvToggle").focus(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && RV.open) { rvOpen(false); $("#rvToggle").focus(); } });
+  $("#vswitch").addEventListener("click", function () { requestAnimationFrame(rvSync); });
+  $("#rvPerson").addEventListener("click", function (e) { var b = e.target.closest("[data-person-at]"); if (b) { PERSON = b.getAttribute("data-person-at"); rvApply(); } });
+  $("#rvTabs").addEventListener("click", function (e) { var b = e.target.closest("[data-tabs-at]"); if (b) { TABS = b.getAttribute("data-tabs-at"); rvApply(); } });
+  // Sidebar menu items that can be hidden for a review.
+  var NAVITEMS = [["overview", "Overview"], ["people", "People"], ["lookup", "Look up a person"], ["identity", "Identity & audits"], ["data", "Data dictionary"], ["later", "Later phases"]];
+  $("#rvNav").innerHTML = NAVITEMS.map(function (n) {
+    return '<label class="rv-row"><span>' + esc(n[1]) + '</span><input type="checkbox" class="switch rv-switch" data-navitem="' + n[0] + '" aria-label="Show ' + esc(n[1]) + ' in the sidebar"></label>';
+  }).join("");
+  $("#rvNav").addEventListener("change", function (e) {
+    var c = e.target.closest("[data-navitem]"); if (!c) return;
+    var k = c.getAttribute("data-navitem"), next = NAVHIDE.filter(function (x) { return x !== k; });
+    if (!c.checked) next.push(k);
+    if (!NAVITEMS.some(function (n) { return n[0] !== "later" && next.indexOf(n[0]) < 0; })) { c.checked = true; toast("Keep at least one page in the menu"); return; }
+    NAVHIDE = next; try { localStorage.setItem("cip-navhide", JSON.stringify(NAVHIDE)); } catch (er) {}
+    if (S && S.step === "app") renderApp();
+    rvSync();
+  });
+  rvSync();
 
   var V3READY = true;
   function v3Enter(name) {
