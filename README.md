@@ -93,7 +93,9 @@ Phone numbers work with or without `+91`, spaces or a leading `0`. Only verified
 
 ## Profile and data model
 
-The profile and data model follow the four data sheets (Learner Profile, Academic & Skill Profile, Activity Data, Insights).
+The profile and data model follow the Learner 360 Data Model v4 and its four sheets (Learner Profile, Academic & Skill Profile, Activity Data, Insights).
+
+The 12 Activity event types marked in yellow in v4 are left out of this phase: stage change, owner change, follow-up scheduled, next step agreed / completed, order placed, subscription, coupon used, progress milestone, live session attended, recorded content watched, platform login and support ticket. Nothing in the prototype shows or depends on them. For example, course progress is the latest value only, lifecycle state comes from the lead's current stage plus payments and enrolments, and learning health uses progress, submissions and assessments instead of attendance.
 
 - **Header card:** photo, life stage, age band (the date of birth isn't stored), city, owning business, profile completeness and the global person ID. Which channels are allowed is in **Personal › Consent & preferences**.
 - **Worth acting on:** moments such as an intake that has passed, a new enquiry in another business or a certificate issued.
@@ -119,7 +121,7 @@ The profile and data model follow the four data sheets (Learner Profile, Academi
 - **Card layout:** the detail cards stack in one column on every screen size. On wider cards each row reads label | value | source. In V2 and V3 the left profile column uses lighter type and lists its facts as label and value pairs.
 - Every value shows its source system (Prism, LSQ, HubSpot, OMS, SA/WP Sales Insights, CMS or a rule). Where sources conflicted, the merge rule that picked the value is shown.
 - **Sensitivity:** T1 contact details are hidden until the viewer gives a reason. T2 values are bands only: the financial profile needs a reason before it's shown. Other businesses never see T2 values, payments or revenue. Every reveal is logged.
-- **Data dictionary** (central data team only, `#/data`) lists all 117 items from the four sheets:
+- **Data dictionary** (central data team only, `#/data`) lists all 105 items in scope from the four sheets (the 12 yellow-marked events are left out):
   - **For each item:** sample coverage (share of profiles that have it), main source and its share of values, last sync, and whether its mapping is verified (from each sheet's "Check" column), plus its source fields, merge rule, storage, sensitivity tier and P0/P1/P2 priority.
   - **Across the page:** headline numbers (P0 coverage, weak P0 items, sources syncing, mappings verified), source health, who can see what and how a value is stored.
   - **Tables:** the tables behind the profile sit in a collapsed "For engineers" section.
