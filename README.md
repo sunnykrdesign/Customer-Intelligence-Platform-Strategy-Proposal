@@ -42,6 +42,7 @@ Preview links look like this:
 
 A **Review** button in the bottom-right corner opens the review controls. They're for design review only, not part of the product:
 
+- **Share this view:** **Copy link** gives a link that opens exactly what you're looking at: the design version, the profile layout, the sticky bar, the pinned search bar, the sidebar menu items you've left on, the screen you're on and, on Look up a person, the person who's open. It skips sign-in and hides the Review panel, so the person you send it to sees only that view. For example: `…/?preview=1&v=3&card=top&tabs=left&bar=high&pin=1&nav=overview,people,lookup&p=ananya&review=0#/lookup`
 - **Design version:** V1, V2 or V3. You can also add `?v=1`, `?v=2` or `?v=3` to the URL.
 - **Look up a person · layout** (all versions): pick where the **person card** sits (Left panel or Top header) and where the **section tabs** sit (Top, Left or Right). That makes six combinations, and a small diagram shows the current one.
 
