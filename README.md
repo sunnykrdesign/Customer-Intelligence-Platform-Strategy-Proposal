@@ -38,7 +38,66 @@ Preview links look like this:
 
 `team` can be `central`, `internshala`, `wp` or `unacademy`.
 
-## Screens
+## Design versions
+
+A switch in the bottom-right corner (or `?v=1`, `?v=2`, `?v=3` in the URL) changes the look of the whole prototype. The choice is remembered on that browser.
+
+- **V1:** the original layout, with generous spacing.
+- **V2:** a framed, light workspace. It is denser, with a bento-style Overview, a sticky profile rail, outlined cards and pastel avatars.
+- **V3:** a soft grey canvas with white cards, monospace table headers and status chips, and upGrad red as the accent colour. Its Overview is built for live monitoring:
+  - **Top numbers:** a row of six key figures. The numbers roll in digit by digit when the page opens, and the live counters keep ticking.
+  - **Trends:** a chart with a crosshair that follows the cursor (or the arrow keys). It shows a tooltip with every series for that day and a red date pill on the axis. Each series can be switched on or off from the legend.
+  - **Paid leads, checked against the profile:** a table of recent paid leads, filtered by business tabs with a sliding indicator. Clicking a row lifts it into a card with a red top edge, AI fields (next-best programme, intent) and actions.
+  - **Business cards:** one per business, with a live profile count and an animated consent ring, plus a bar chart of lookups this week.
+  - **Motion everywhere in V3:** tabs and segments use the same sliding indicator. Cards rise in with a stagger. People directory rows open into the same detail card.
+  - **Reduced motion:** all of this switches off when the system asks for reduced motion.
+
+## People directory
+
+**People** (`#/people`, central data team only) lists everyone upGrad knows: one row per person.
+
+- Each row shows life stage, the businesses that know them, lifecycle state, revenue, how many channels can reach them, and when they were last active.
+- Above the list: key numbers, segments (leads, learning, alumni, minors) and a filter.
+- **Open** takes you to the full 360 profile. The Overview also lists people recently looked up across teams.
+
+## Sample lookups
+
+The **Look up a person** screen searches sample data by exact phone or email (names are never used). The screen has no sample buttons, so type one of these:
+
+| Search | What it shows |
+| --- | --- |
+| `arjun.kumar88@gmail.com` | Arjun: learning with WP, alumnus of Internshala, re-acquired through a paid ad. Full profile with photo |
+| `+91 98234 41127` | Ananya: known to 3 businesses, no consent for cross-business offers, a "worth acting on" moment |
+| `rohan.mehta07@gmail.com` | Rohan: a Study Abroad lead with Sales Insights scores and an "intake passed" moment |
+| `+91 99001 22334` | A shared family phone: two linked people to choose from, one of them a minor (restricted) |
+| Any other valid number or email | New to upGrad |
+
+Phone numbers work with or without `+91`, spaces or a leading `0`. Only verified phones and emails are used to match.
+
+## Profile and data model
+
+The profile and data model follow the four data sheets (Learner Profile, Academic & Skill Profile, Activity Data, Insights).
+
+- **Header card:** photo, life stage, age band (the date of birth isn't stored), city, owning business, profile completeness, global person ID and **Reachable now** per channel (call, email, SMS, WhatsApp, ads).
+- **Worth acting on:** moments such as an intake that has passed, a new enquiry in another business or a certificate issued.
+- **At a glance:** relationship state, lifetime revenue, intent, learning health, contact fatigue and the re-acquisition flag.
+- **Where they are with each business:** lifecycle per business, Prospect → Lead → Counselled → Paid → Learning → Completed → Alumni.
+- **Four tabs:**
+  - **Learner profile:** identity & contact, consent & preferences, personal details, education, career (with LinkedIn), aspiration and financial profile.
+  - **Learning & skills:** courses with progress, results and certificates, plus graded and declared skills.
+  - **Activity:** events filtered by type and business, each with its source system.
+  - **Insights:** all derived insights, plus Sales Insights scores labelled with their model.
+- **Section bar:** a sticky bar at the top of the Learner profile (Contact · Consent · Personal · Education · Career · Aspiration · Financial). Clicking a section scrolls straight to that card, and the highlight follows you as you scroll.
+- **Card layout:** the detail cards stack in one column on every screen size. On wider cards each row reads label | value | source. In V2 and V3 the left profile column uses lighter type and lists its facts as label and value pairs.
+- Every value shows its source system (Prism, LSQ, HubSpot, OMS, SA/WP Sales Insights, CMS or a rule). Where sources conflicted, the merge rule that picked the value is shown.
+- **Sensitivity:** T1 contact details are hidden until the viewer gives a reason. T2 values are bands only: the financial profile needs a reason before it's shown. Other businesses never see T2 values, payments or revenue. Every reveal is logged.
+- **Data dictionary** (central data team only, `#/data`) lists all 117 items from the four sheets:
+  - **For each item:** sample coverage (share of profiles that have it), main source and its share of values, last sync, and whether its mapping is verified (from each sheet's "Check" column), plus its source fields, merge rule, storage, sensitivity tier and P0/P1/P2 priority.
+  - **Across the page:** headline numbers (P0 coverage, weak P0 items, sources syncing, mappings verified), source health, who can see what and how a value is stored.
+  - **Tables:** the tables behind the profile sit in a collapsed "For engineers" section.
+
+Sample photo: `assets/profile-arjun.jpg`.
+
 
 | File | Screen | What it answers |
 | --- | --- | --- |
