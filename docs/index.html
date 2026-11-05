@@ -1167,7 +1167,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
 .view[data-view="lookup"][data-ssearch="on"] #lookupForm::before{content:"";position:absolute;top:0;bottom:0;left:calc(-1 * var(--pin-l,0px));right:calc(-1 * var(--pin-r,0px));z-index:-1;background:var(--bg);pointer-events:none}
 .view[data-view="lookup"][data-ssearch="on"]:not(.pin-bar) #lookupForm.ss-stuck::before{background:linear-gradient(var(--line),var(--line)) var(--pin-l,0px) 100%/calc(100% - var(--pin-l,0px) - var(--pin-r,0px)) 1px no-repeat,var(--bg)}
 .view[data-view="lookup"][data-ssearch="on"] #lookupForm.ss-stuck .search{box-shadow:0 0 0 1px var(--line),0 4px 12px -8px rgba(16,16,24,.22)}
-.view[data-view="lookup"][data-ssearch="on"] #lookupResult:is([data-stick="mid"],[data-stick="high"]) .pbar{top:calc(var(--sbar,0px) + 12px)}
+.view[data-view="lookup"][data-ssearch="on"] #lookupResult:is([data-stick="mid"],[data-stick="high"]) .pbar{top:var(--sbar,0px)}
 /* Tab bar: while pinned, a square backdrop (::before) covers the gaps around the bar and whatever slides under it;
    the white card (::after) is drawn on top of that backdrop, so its rounded corners always sit on the page colour */
 .pbar::before,.pbar::after{content:"";position:absolute;pointer-events:none;z-index:-1}
@@ -1179,7 +1179,11 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
 #lookupResult:is([data-stick="mid"],[data-stick="high"]) .pbar::after{inset:0;border-radius:inherit;background:var(--card);box-shadow:0 0 0 1px var(--line),0 2px 6px rgba(16,16,24,.04);transition:box-shadow .25s}
 #lookupResult[data-stick="mid"].bar-stuck .pbar::after{box-shadow:0 0 0 1px var(--line),0 6px 16px -8px rgba(16,16,24,.22)}
 #lookupResult[data-stick="high"].bar-stuck .pbar::after{box-shadow:0 0 0 1px var(--line),0 8px 20px -10px rgba(16,16,24,.28)}
-@media (min-width:1100px){#lookupResult[data-layout="rail"] .pbar::before{left:-8px;--pin-l:8px}}
+@media (min-width:1100px){
+  #lookupResult[data-layout="rail"] .pbar::before{left:-8px;--pin-l:8px}
+  /* Left panel lines up with the tab bar, flush under the pinned search bar */
+  .view[data-view="lookup"][data-ssearch="on"] #lookupResult[data-layout="rail"] .prail{top:calc(var(--sbar,0px) - 6px)}
+}
 /* Side column card: tighter shadow so it doesn't spill onto the details */
 #lookupResult[data-stick="mid"].hdr-off .vcol .pmini{box-shadow:0 0 0 1px var(--line),0 6px 14px -8px rgba(16,16,24,.22)}
 #lookupResult[data-stick="high"].hdr-off .vcol .pmini{box-shadow:0 0 0 1px var(--line),0 8px 18px -10px rgba(16,16,24,.26)}
@@ -2240,16 +2244,21 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
     var panel = $("#panel"); if (!panel) return;
     var stack = SSEARCH ? $("#lookupForm").offsetHeight : 0, bar = $("#lookupResult .pbar");
     // Mid/High bars keep a 12px backdrop below them; the section starts 16px under its edge either way.
-    if (bar) stack = Math.max(stack, (parseFloat(getComputedStyle(bar).top) || 0) + bar.offsetHeight + (STICK === "min" ? 0 : 12));
+    if (bar) stack = Math.max(stack, barPinTop(bar, stack) + bar.offsetHeight + (STICK === "min" ? 0 : 12));
     var top = panel.getBoundingClientRect().top;
     if (top < stack + 12) window.scrollTo({ top: Math.max(0, window.scrollY + top - stack - 16), behavior: REDUCED ? "auto" : "smooth" });
+  }
+  // Where the tab bar pins: right under the search bar when that is pinned, else 12px from the top (Mid/High).
+  function barPinTop(bar, sb) {
+    var t = parseFloat(getComputedStyle(bar).top);
+    return isNaN(t) ? sb + (STICK !== "min" && !SSEARCH ? 12 : 0) : t;
   }
   // Once the person card scrolls out of view, the sticky bar shows a slim copy of it.
   function hdrCheck() {
     var r = $("#lookupResult"), card = r && r.querySelector(".prail .pcard"), sb = syncSbar();
     if (r) r.classList.toggle("hdr-off", !!card && card.getBoundingClientRect().bottom < 72 + sb);
     var bar = r && r.querySelector(".pbar"), view = $('.view[data-view="lookup"]');
-    if (r) r.classList.toggle("bar-stuck", !!bar && window.scrollY > 4 && bar.getBoundingClientRect().top <= (parseFloat(getComputedStyle(bar).top) || 0) + 1);
+    if (r) r.classList.toggle("bar-stuck", !!bar && window.scrollY > 4 && bar.getBoundingClientRect().top <= barPinTop(bar, sb) + 2);
     if (view) view.classList.toggle("pin-bar", !!r && r.classList.contains("bar-stuck"));
   }
   // Optional pinned search bar: everything else that is pinned sits just below it.
