@@ -45,6 +45,10 @@ A **Review** button in the bottom-right corner opens the review controls. They'r
 - **Design version:** V1, V2 or V3. You can also add `?v=1`, `?v=2` or `?v=3` to the URL.
 - **Look up a person · layout** (all versions): pick where the **person card** sits (Left panel or Top header) and where the **section tabs** sit (Top, Left or Right). That makes six combinations, and a small diagram shows the current one.
 
+- **Sticky bar:** how strongly the pinned person and tabs stand out once you scroll (default **Mid**):
+  - **Minimum:** a light bar with a hairline.
+  - **Mid:** a white card bar with a soft shadow and a larger name.
+  - **High:** a raised two-row card with photo, name, key facts, owner and completeness chips and the CRM button, with the tabs below.
 - **Locked sections:** shows the demo team password.
 - **Sidebar menu:** an on/off switch for each sidebar item: Overview, People, Look up a person, Identity & audits, Data dictionary and Later phases.
   - Hidden items leave the sidebar, and links to them open the next visible page.

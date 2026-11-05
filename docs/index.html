@@ -1082,7 +1082,6 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
 .pmini{display:flex;align-items:center;gap:10px;min-width:0;max-width:0;opacity:0;overflow:hidden;white-space:nowrap;transition:max-width .4s var(--ease),max-height .4s var(--ease),opacity .25s,padding .3s}
 #lookupResult.hdr-off .pmini{max-width:340px;opacity:1}
 .pmini .mini-av{flex:0 0 34px;height:34px;font-size:12px}
-.pmini span{display:flex;flex-direction:column;min-width:0}
 .pmini b{font-size:14px;font-weight:600;overflow:hidden;text-overflow:ellipsis}
 .pmini small{font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis}
 .vcol{display:flex;flex-direction:column;gap:12px;min-width:0}
@@ -1122,6 +1121,42 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
 .tlock{margin-left:6px;vertical-align:-1px;opacity:.65}
 .rv-code{font-family:var(--mono);font-size:12px;padding:1px 6px;border-radius:5px;background:rgba(255,255,255,.12);color:#fff}
 @media (prefers-reduced-motion: reduce){.lockform{animation:none}}
+/* Sticky bar prominence: Minimum (light bar), Mid (white card bar), High (raised two-row bar) */
+.pm-more{display:none}
+.pmini{visibility:hidden}
+#lookupResult.hdr-off .pmini{visibility:visible}
+.pm-id{display:flex;flex-direction:column;min-width:0}
+.pm-chip{display:inline-flex;align-items:center;height:28px;padding:0 11px;border-radius:999px;background:var(--fill);font-size:12px;font-weight:500;color:var(--text);white-space:nowrap}
+.pm-more .btn{height:36px;padding:0 16px;font-size:13px}
+/* Mid */
+#lookupResult:is([data-stick="mid"],[data-stick="high"]) .pbar{top:12px;margin:0;padding:10px 12px 10px 16px;background:var(--card);border-radius:18px;box-shadow:0 0 0 1px var(--line),0 2px 6px rgba(16,16,24,.04)}
+#lookupResult:is([data-stick="mid"],[data-stick="high"]) .pbar .tabs{border-bottom:none}
+#lookupResult[data-stick="mid"].hdr-off .pbar{box-shadow:0 0 0 1px var(--line),0 12px 32px rgba(16,16,24,.12)}
+#lookupResult[data-stick="mid"] .pmini .mini-av{flex:0 0 40px;height:40px;font-size:13px}
+#lookupResult[data-stick="mid"] .pmini b{font-size:15px}
+#lookupResult[data-stick="mid"].hdr-off .pbar .pmini{max-width:400px;padding-right:18px;box-shadow:inset -1px 0 0 var(--line)}
+/* High */
+#lookupResult[data-stick="high"] .pbar{flex-wrap:wrap;column-gap:16px;row-gap:0;padding:12px 14px 12px 18px;border-radius:20px}
+#lookupResult[data-stick="high"].hdr-off .pbar{box-shadow:0 0 0 1px var(--line),0 18px 44px rgba(16,16,24,.16)}
+#lookupResult[data-stick="high"] .pbar .pmini{flex:1 1 100%;max-width:none;max-height:0;transition:max-height .4s var(--ease),opacity .25s,visibility .25s,margin .4s var(--ease),padding .4s var(--ease)}
+#lookupResult[data-stick="high"].hdr-off .pbar .pmini{max-height:90px;margin-bottom:12px;padding:4px 0 14px;box-shadow:inset 0 -1px 0 var(--line)}
+#lookupResult[data-stick="high"] .pmini{gap:14px}
+#lookupResult[data-stick="high"] .pmini .mini-av{flex:0 0 48px;height:48px;font-size:15px}
+#lookupResult[data-stick="high"] .pmini b{font-size:17px;letter-spacing:-0.02em}
+#lookupResult[data-stick="high"] .pmini small{font-size:13px}
+#lookupResult[data-stick="high"] .pm-more{display:flex;align-items:center;gap:8px;margin-left:auto}
+/* Side column (tabs on the left or right) */
+#lookupResult[data-stick="mid"] .vcol .pmini .mini-av{flex:0 0 40px;height:40px}
+#lookupResult[data-stick="mid"] .vcol .pmini b{font-size:15px}
+#lookupResult[data-stick="mid"].hdr-off .vcol .pmini{max-height:84px;padding:14px 16px;box-shadow:0 0 0 1px var(--line),0 10px 28px rgba(16,16,24,.10)}
+#lookupResult[data-stick="high"] .vcol .pmini{flex-wrap:wrap;white-space:normal}
+#lookupResult[data-stick="high"].hdr-off .vcol .pmini{max-height:240px;padding:16px;box-shadow:0 0 0 1px var(--line),0 14px 36px rgba(16,16,24,.14)}
+#lookupResult[data-stick="high"] .vcol .pm-id{flex:1 1 0}
+#lookupResult[data-stick="high"] .vcol .pm-more{flex:1 1 100%;flex-wrap:wrap;margin:12px 0 0}
+#lookupResult[data-stick="high"] .vcol .pm-more{gap:6px}
+#lookupResult[data-stick="high"] .vcol .pm-more .btn{width:100%;height:auto;min-height:38px;padding:8px 14px;line-height:1.3;white-space:normal;text-align:center}
+#lookupResult:is([data-stick="mid"],[data-stick="high"]) .pnav.vtabs{box-shadow:0 0 0 1px var(--line),0 2px 6px rgba(16,16,24,.04)}
+@media (max-width:620px){#lookupResult[data-stick="high"] .pbar .pm-more{display:none}}
 </style>
 </head>
 <body>
@@ -1683,6 +1718,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
       <div class="rv-legend" aria-hidden="true"><span><i class="w-p"></i>Person</span><span><i class="w-s"></i>Summary</span><span><i class="w-t"></i>Section tabs</span><span><i></i>Details</span></div>
       <span class="rv-sub">Person card</span><div class="rv-seg" id="rvPerson" role="group" aria-label="Person card position"></div>
       <span class="rv-sub">Section tabs</span><div class="rv-seg" id="rvTabs" role="group" aria-label="Section tabs position"></div>
+      <span class="rv-sub">Sticky bar</span><div class="rv-seg" id="rvStick" role="group" aria-label="Sticky bar prominence"></div>
       <p class="rv-note" id="rvLayoutNote"></p>
     </div>
     <div class="rv-sec"><span class="rv-k">Locked sections</span>
@@ -1904,9 +1940,12 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
   } catch (e) {}
   if (["rail", "top"].indexOf(PERSON) < 0) PERSON = "rail";
   if (["top", "left", "right"].indexOf(TABS) < 0) TABS = "top";
+  var STICKS = [["min", "Minimum"], ["mid", "Mid"], ["high", "High"]], STICK = "mid";
+  try { STICK = localStorage.getItem("cip-stick") || STICK; } catch (e) {}
+  if (["min", "mid", "high"].indexOf(STICK) < 0) STICK = "mid";
   var NAVHIDE = [];
   try { NAVHIDE = JSON.parse(localStorage.getItem("cip-navhide") || "[]") || []; } catch (e) { NAVHIDE = []; }
-  function applyLookupLayout() { var r = $("#lookupResult"); if (r) { r.setAttribute("data-layout", PERSON); r.setAttribute("data-tabs", TABS); } }
+  function applyLookupLayout() { var r = $("#lookupResult"); if (r) { r.setAttribute("data-layout", PERSON); r.setAttribute("data-tabs", TABS); r.setAttribute("data-stick", STICK); } }
   var CATS = { A: "Attribution", M: "Marketing", E: "Enquiries", X: "Interactions", P: "Payments", L: "Learning", S: "Support", C: "Consent" };
 
   var PEOPLE = {
@@ -2245,7 +2284,8 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
     }).join("") + "</div>";
     var panel = '<div id="panel" class="' + (vert ? "vpanel" : "") + (fresh ? " fresh" : "") + '" role="tabpanel" aria-labelledby="tab-' + cur + '">' + sectionBody(cur, p, team, otherBu, noContact) + "</div>";
     // A slim copy of the person, shown in the sticky bar once the full card scrolls away.
-    var mini = '<div class="pmini" aria-hidden="true">' + avatarHTML(p, "mini-av") + "<span><b>" + esc(p.name) + "</b><small>" + esc(p.stage + " · " + p.ageBand + " · " + p.city) + "</small></span></div>";
+    var mini = '<div class="pmini" role="group" aria-label="Current person">' + avatarHTML(p, "mini-av") + '<span class="pm-id"><b>' + esc(p.name) + "</b><small>" + esc(p.stage + " · " + p.ageBand + " · " + p.city) + "</small></span>" +
+      '<span class="pm-more"><span class="pm-chip">Owned by ' + esc(p.owner === "Working Professionals" ? "WP" : p.owner) + '</span><span class="pm-chip">' + p.complete + "% complete</span>" + part.crm + "</span></div>";
     var open = '<section class="section pdet" aria-label="Profile details">';
     if (!vert) return playout(back, rail, h + open + '<div class="pbar">' + mini + list + "</div>" + panel + "</section>");
     if (tabsAt === "left" && personAt === "rail") return playout(back, rail + list, h + open + panel + "</section>");
@@ -2932,6 +2972,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
   function rvSync() {
     var v = document.documentElement.getAttribute("data-v");
     $$("#rvPerson button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-person-at") === PERSON); });
+    $$("#rvStick button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-stick-at") === STICK); });
     $$("#rvTabs button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-tabs-at") === TABS); });
     $("#rvThumb").innerHTML = rvThumb(PERSON, TABS);
     $("#rvLayoutNote").textContent = describeLayout();
@@ -2958,6 +2999,12 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
   $("#vswitch").addEventListener("click", function () { requestAnimationFrame(rvSync); });
   $("#rvPerson").addEventListener("click", function (e) { var b = e.target.closest("[data-person-at]"); if (b) { PERSON = b.getAttribute("data-person-at"); rvApply(); } });
   $("#rvTabs").addEventListener("click", function (e) { var b = e.target.closest("[data-tabs-at]"); if (b) { TABS = b.getAttribute("data-tabs-at"); rvApply(); } });
+  $("#rvStick").innerHTML = STICKS.map(function (x) { return '<button type="button" data-stick-at="' + x[0] + '" aria-pressed="false">' + esc(x[1]) + "</button>"; }).join("");
+  $("#rvStick").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-stick-at]"); if (!b) return;
+    STICK = b.getAttribute("data-stick-at"); try { localStorage.setItem("cip-stick", STICK); } catch (er) {}
+    applyLookupLayout(); hdrCheck(); rvSync(); requestAnimationFrame(slideAll);
+  });
   // Sidebar menu items that can be hidden for a review.
   var NAVITEMS = [["overview", "Overview"], ["people", "People"], ["lookup", "Look up a person"], ["identity", "Identity & audits"], ["data", "Data dictionary"], ["later", "Later phases"]];
   $("#rvNav").innerHTML = NAVITEMS.map(function (n) {
