@@ -104,7 +104,7 @@ The profile and data model follow the four data sheets (Learner Profile, Academi
   - **Financial:** financial profile, plus revenue and programmes bought with upGrad.
   - **Activity:** where they are with each business (Prospect → … → Alumni), an engagement summary, then the timeline. One filter narrows the timeline by type or business.
 
-  One section shows at a time, and the arrow keys move between them.
+  One section shows at a time, and the arrow keys move between them. Switching sections while scrolled down brings the new section to its top, just below the pinned bars, and its content fades in.
 - **Always in view:** the person and the section tabs stay on screen while you scroll, in every layout.
   - In the left-panel layouts, the person card stays pinned.
   - In the top-header layouts, a slim bar with the photo, name and key facts takes over once the card scrolls away.

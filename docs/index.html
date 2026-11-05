@@ -751,7 +751,8 @@ html[data-v="3"] :is(.view,.v3col,.v3rail) > :nth-child(2){animation-delay:.07s}
 html[data-v="3"] :is(.view,.v3col,.v3rail) > :nth-child(3){animation-delay:.14s}
 html[data-v="3"] :is(.view,.v3col,.v3rail) > :nth-child(4){animation-delay:.21s}
 html[data-v="3"] :is(.view,.v3col,.v3rail) > :nth-child(n+5){animation-delay:.28s}
-html[data-v="3"] #panel.fresh > *{animation:rise .5s var(--ease) backwards}
+#panel.fresh > *{animation:rise .45s var(--ease) backwards}
+@media (prefers-reduced-motion: reduce){#panel.fresh > *{animation:none}}
 html[data-v="3"] .stagger > *{animation:rise .5s var(--ease) backwards;animation-delay:calc(var(--i,0) * 35ms)}
 
 /* V3 overview */
@@ -2208,6 +2209,14 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
     box.innerHTML = profileHTML(PEOPLE[L.person], team);
     hdrCheck();
   }
+  // After switching sections, start the new one from its top, just below whatever is pinned.
+  function revealPanel() {
+    var panel = $("#panel"); if (!panel) return;
+    var stack = SSEARCH ? $("#lookupForm").offsetHeight : 0, bar = $("#lookupResult .pbar");
+    if (bar) stack = Math.max(stack, (parseFloat(getComputedStyle(bar).top) || 0) + bar.offsetHeight);
+    var top = panel.getBoundingClientRect().top;
+    if (top < stack + 12) window.scrollTo({ top: Math.max(0, window.scrollY + top - stack - 16), behavior: REDUCED ? "auto" : "smooth" });
+  }
   // Once the person card scrolls out of view, the sticky bar shows a slim copy of it.
   function hdrCheck() {
     var r = $("#lookupResult"), card = r && r.querySelector(".prail .pcard"), sb = syncSbar();
@@ -2444,7 +2453,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
       L.person = id; L.how = L.matches.filter(function (m) { return m.id === id; })[0].how; V = freshView();
       renderLookup(); window.scrollTo(0, 0);
     } else if (t.hasAttribute("data-back")) { L.person = null; renderLookup(); }
-    else if (t.hasAttribute("data-tab")) { V.tab = t.getAttribute("data-tab"); renderLookup(); var f = $("#tab-" + V.tab); if (f) f.focus(); }
+    else if (t.hasAttribute("data-tab")) { V.tab = t.getAttribute("data-tab"); renderLookup(); var f = $("#tab-" + V.tab); if (f) f.focus({ preventScroll: true }); revealPanel(); }
     else if (t.hasAttribute("data-reveal")) { V.revealed = true; renderLookup(); }
     else if (t.hasAttribute("data-more")) { V.shown += PAGE; renderLookup(); }
     else if (t.hasAttribute("data-bu")) { V.bu = t.getAttribute("data-bu"); V.shown = PAGE; renderLookup(); }
