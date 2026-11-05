@@ -1161,21 +1161,25 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
 /* Optional pinned search bar (Review panel) */
 .view[data-view="lookup"][data-ssearch="on"] #lookupForm{position:sticky;top:0;z-index:16;padding:12px 0;margin:-12px 0;background:var(--bg);transition:box-shadow .25s}
 .view[data-view="lookup"][data-ssearch="on"] #lookupForm.ss-stuck{box-shadow:0 1px 0 var(--line),0 10px 24px -18px rgba(16,16,24,.25)}
-/* ===== Pinned surfaces: soft edges, no overlapping shadows ===== */
-/* Search bar: content fades out underneath instead of being cut by a hard line */
-.view[data-view="lookup"][data-ssearch="on"] #lookupForm.ss-stuck{box-shadow:none}
-.view[data-view="lookup"][data-ssearch="on"] #lookupForm::after{content:"";position:absolute;left:-12px;right:-12px;top:100%;height:14px;background:linear-gradient(var(--bg),transparent);opacity:0;transition:opacity .2s;pointer-events:none}
-.view[data-view="lookup"][data-ssearch="on"] #lookupForm.ss-stuck::after{opacity:1}
+/* ===== Pinned surfaces: one square page-coloured backdrop, nothing layered on the content ===== */
+/* Search bar: the band runs out to the page edges; a hairline marks it once content slides underneath */
+.view[data-view="lookup"][data-ssearch="on"] #lookupForm,.view[data-view="lookup"][data-ssearch="on"] #lookupForm.ss-stuck{background:none;box-shadow:none}
+.view[data-view="lookup"][data-ssearch="on"] #lookupForm::before{content:"";position:absolute;top:0;bottom:0;left:calc(-1 * var(--pin-l,0px));right:calc(-1 * var(--pin-r,0px));z-index:-1;background:var(--bg);pointer-events:none}
+.view[data-view="lookup"][data-ssearch="on"]:not(.pin-bar) #lookupForm.ss-stuck::before{background:linear-gradient(var(--line),var(--line)) var(--pin-l,0px) 100%/calc(100% - var(--pin-l,0px) - var(--pin-r,0px)) 1px no-repeat,var(--bg)}
 .view[data-view="lookup"][data-ssearch="on"] #lookupForm.ss-stuck .search{box-shadow:0 0 0 1px var(--line),0 4px 12px -8px rgba(16,16,24,.22)}
 .view[data-view="lookup"][data-ssearch="on"] #lookupResult:is([data-stick="mid"],[data-stick="high"]) .pbar{top:calc(var(--sbar,0px) + 12px)}
-/* Tab bar: a page-coloured backing fills the gaps around it, and a fade softens what slides under */
-.pbar::after{content:"";position:absolute;left:-12px;right:-12px;pointer-events:none;z-index:-1}
-.pbar::after{top:100%;height:14px;background:linear-gradient(var(--bg),transparent);opacity:0;transition:opacity .2s}
-#lookupResult.bar-stuck .pbar::after{opacity:1}
-#lookupResult[data-stick="min"].bar-stuck .pbar{box-shadow:none}
-#lookupResult:is([data-stick="mid"],[data-stick="high"]) .pbar{box-shadow:0 0 0 1px var(--line)}
-#lookupResult[data-stick="mid"].bar-stuck .pbar{box-shadow:0 0 0 1px var(--line),0 8px 18px -12px rgba(16,16,24,.28),0 -12px 0 12px var(--bg)}
-#lookupResult[data-stick="high"].bar-stuck .pbar{box-shadow:0 0 0 1px var(--line),0 12px 24px -14px rgba(16,16,24,.32),0 -12px 0 12px var(--bg)}
+/* Tab bar: while pinned, a square backdrop (::before) covers the gaps around the bar and whatever slides under it;
+   the white card (::after) is drawn on top of that backdrop, so its rounded corners always sit on the page colour */
+.pbar::before,.pbar::after{content:"";position:absolute;pointer-events:none;z-index:-1}
+.pbar::before{top:0;bottom:0;left:calc(-1 * var(--pin-l,0px));right:calc(-1 * var(--pin-r,0px));background:var(--bg);visibility:hidden}
+#lookupResult.bar-stuck .pbar::before{visibility:visible;background:linear-gradient(var(--line),var(--line)) var(--pin-l,0px) 100%/calc(100% - var(--pin-l,0px) - var(--pin-r,0px)) 1px no-repeat,var(--bg)}
+#lookupResult[data-layout][data-stick="min"] .pbar{box-shadow:none}
+#lookupResult[data-layout]:is([data-stick="mid"],[data-stick="high"]) .pbar{background:none;box-shadow:none}
+#lookupResult:is([data-stick="mid"],[data-stick="high"]) .pbar::before{top:-12px;bottom:-12px}
+#lookupResult:is([data-stick="mid"],[data-stick="high"]) .pbar::after{inset:0;border-radius:inherit;background:var(--card);box-shadow:0 0 0 1px var(--line),0 2px 6px rgba(16,16,24,.04);transition:box-shadow .25s}
+#lookupResult[data-stick="mid"].bar-stuck .pbar::after{box-shadow:0 0 0 1px var(--line),0 6px 16px -8px rgba(16,16,24,.22)}
+#lookupResult[data-stick="high"].bar-stuck .pbar::after{box-shadow:0 0 0 1px var(--line),0 8px 20px -10px rgba(16,16,24,.28)}
+@media (min-width:1100px){#lookupResult[data-layout="rail"] .pbar::before{left:-8px;--pin-l:8px}}
 /* Side column card: tighter shadow so it doesn't spill onto the details */
 #lookupResult[data-stick="mid"].hdr-off .vcol .pmini{box-shadow:0 0 0 1px var(--line),0 6px 14px -8px rgba(16,16,24,.22)}
 #lookupResult[data-stick="high"].hdr-off .vcol .pmini{box-shadow:0 0 0 1px var(--line),0 8px 18px -10px rgba(16,16,24,.26)}
@@ -1183,7 +1187,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
 @media (min-width:1100px){
   #lookupResult[data-layout="rail"] .prail{padding:6px 12px 28px;margin:-6px -12px -28px;top:calc(var(--sbar,0px) + 10px);max-height:calc(100vh - 20px - var(--sbar,0px))}
 }
-@media (prefers-reduced-motion: reduce){.pbar::after,#lookupForm::after{transition:none}}
+@media (prefers-reduced-motion: reduce){.pbar::after{transition:none}}
 </style>
 </head>
 <body>
@@ -2235,7 +2239,8 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
   function revealPanel() {
     var panel = $("#panel"); if (!panel) return;
     var stack = SSEARCH ? $("#lookupForm").offsetHeight : 0, bar = $("#lookupResult .pbar");
-    if (bar) stack = Math.max(stack, (parseFloat(getComputedStyle(bar).top) || 0) + bar.offsetHeight);
+    // Mid/High bars keep a 12px backdrop below them; the section starts 16px under its edge either way.
+    if (bar) stack = Math.max(stack, (parseFloat(getComputedStyle(bar).top) || 0) + bar.offsetHeight + (STICK === "min" ? 0 : 12));
     var top = panel.getBoundingClientRect().top;
     if (top < stack + 12) window.scrollTo({ top: Math.max(0, window.scrollY + top - stack - 16), behavior: REDUCED ? "auto" : "smooth" });
   }
@@ -2243,8 +2248,9 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
   function hdrCheck() {
     var r = $("#lookupResult"), card = r && r.querySelector(".prail .pcard"), sb = syncSbar();
     if (r) r.classList.toggle("hdr-off", !!card && card.getBoundingClientRect().bottom < 72 + sb);
-    var bar = r && r.querySelector(".pbar");
-    if (bar) r.classList.toggle("bar-stuck", window.scrollY > 4 && bar.getBoundingClientRect().top <= (parseFloat(getComputedStyle(bar).top) || 0) + 1);
+    var bar = r && r.querySelector(".pbar"), view = $('.view[data-view="lookup"]');
+    if (r) r.classList.toggle("bar-stuck", !!bar && window.scrollY > 4 && bar.getBoundingClientRect().top <= (parseFloat(getComputedStyle(bar).top) || 0) + 1);
+    if (view) view.classList.toggle("pin-bar", !!r && r.classList.contains("bar-stuck"));
   }
   // Optional pinned search bar: everything else that is pinned sits just below it.
   function syncSbar() {
@@ -2252,6 +2258,9 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
     var h = SSEARCH ? form.offsetHeight : 0;
     view.setAttribute("data-ssearch", SSEARCH ? "on" : "off");
     view.style.setProperty("--sbar", h + "px");
+    var main = view.closest("main"), vr = view.getBoundingClientRect(), mr = main ? main.getBoundingClientRect() : vr;
+    view.style.setProperty("--pin-l", Math.max(0, Math.round(vr.left - mr.left)) + "px");
+    view.style.setProperty("--pin-r", Math.max(0, Math.round(mr.right - vr.right)) + "px");
     form.classList.toggle("ss-stuck", SSEARCH && window.scrollY > 8 && form.getBoundingClientRect().top <= 1);
     return h;
   }
