@@ -427,10 +427,11 @@ code{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.92em}
 .lname{display:flex;flex-direction:column;gap:2px}
 .lname b{font-size:15px;font-weight:600}
 .lname span{font-size:13px;color:var(--muted)}
-.steps{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin:0;padding:0;list-style:none}
-.steps li{height:8px;border-radius:999px;background:var(--track)}
-.steps li.done{background:#3A3A3C}
-.steps li.now{background:var(--red)}
+.steps{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin:0;padding:0;list-style:none}
+/* Lifecycle bars: thin and quiet. Done = soft grey, current = pastel green, still to come = track */
+.steps li{height:4px;border-radius:999px;background:var(--track)}
+.steps li.done{background:#D2D3D9}
+.steps li.now{background:#8CD3A4}
 @media (max-width:620px){.lrow{grid-template-columns:1fr}}
 .tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:1px solid var(--border);scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
@@ -735,7 +736,7 @@ html[data-v="3"] #pRows .prow.open{background:#fff;border-radius:18px;margin:12p
 @keyframes lift{from{box-shadow:0 0 0 1px rgba(16,16,24,0),0 0 0 rgba(16,16,24,0);margin:0;padding:16px 0}}
 html[data-v="3"] .snap{gap:0;background:#fff}
 html[data-v="3"] .tile{box-shadow:inset -1px 0 0 var(--line),inset 0 -1px 0 var(--line)}
-html[data-v="3"] .steps li.now{background:var(--red)}
+html[data-v="3"] .steps li.now{background:#8CD3A4}
 html[data-v="3"] .gid,html[data-v="3"] .src,html[data-v="3"] .tier{font-family:var(--mono)}
 /* sliding indicator */
 html[data-v="3"] .slider{display:block;position:absolute;left:0;top:0;border-radius:10px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.07);transition:transform .55s var(--ease),width .55s var(--ease),height .55s var(--ease);pointer-events:none;z-index:0}
