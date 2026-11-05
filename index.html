@@ -1121,6 +1121,10 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
 .lockform input[aria-invalid="true"]{border-color:var(--red)}
 .lock-err{flex-basis:100%;margin:0;font-size:13px;color:var(--red-text)}
 .tlock{margin-left:6px;vertical-align:-1px;opacity:.65}
+.rv-url{flex:1 1 auto;min-width:0;height:34px;padding:0 10px;border:none;border-radius:9px;background:rgba(255,255,255,.08);color:#F5F5F7;font:inherit;font-size:12px}
+.rv-url:focus{outline:2px solid #0A84FF;outline-offset:1px}
+.rv-copy{flex:0 0 auto;height:34px;padding:0 14px;border:none;border-radius:9px;background:#fff;color:#111;font-size:12.5px;font-weight:600}
+.rv-copy:hover{background:#E5E5EA}
 .rv-code{font-family:var(--mono);font-size:12px;padding:1px 6px;border-radius:5px;background:rgba(255,255,255,.12);color:#fff}
 @media (prefers-reduced-motion: reduce){.lockform{animation:none}}
 /* Sticky bar prominence: Minimum (light bar), Mid (white card bar), High (raised two-row bar) */
@@ -1758,6 +1762,10 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
       <div class="rv-rows"><label class="rv-row"><span>Pin the search bar</span><input type="checkbox" class="switch rv-switch" id="rvSSearch" aria-label="Pin the search bar at the top"></label></div>
       <p class="rv-note" id="rvLayoutNote"></p>
     </div>
+    <div class="rv-sec"><span class="rv-k">Share this view</span>
+      <div class="copyrow"><input id="rvShareUrl" class="rv-url" type="text" readonly aria-label="Link to this view"><button type="button" class="rv-copy" id="rvCopy">Copy link</button></div>
+      <p class="rv-note">Opens straight on this screen, with this version, layout and menu, and without this Review panel.</p>
+    </div>
     <div class="rv-sec"><span class="rv-k">Locked sections</span>
       <p class="rv-note">Financial details in Look up a person are locked. The demo team password is <code class="rv-code">upgrad2026</code>.</p>
     </div>
@@ -1798,9 +1806,15 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
     S = { step: "app", preview: true, name: "Demo User", email: "", team: TEAMS[team] ? team : "central", acked: true };
     save();
   }
+  // Shared review links carry the whole view: ?preview=1&v=3&card=rail&tabs=top&bar=mid&pin=1&nav=overview,people,lookup&p=arjun&review=0#/lookup
+  var Q = new URLSearchParams(location.search), SHARED = null;
+  try { SHARED = JSON.parse(sessionStorage.getItem("cip-shared")); } catch (e) { SHARED = null; }
+  if (Q.get("review") === "0") {
+    SHARED = { card: Q.get("card"), tabs: Q.get("tabs"), bar: Q.get("bar"), pin: Q.get("pin"), nav: Q.get("nav"), p: Q.get("p") };
+    try { sessionStorage.setItem("cip-shared", JSON.stringify(SHARED)); } catch (e) {}
+  }
   (function () {
-    var q = new URLSearchParams(location.search);
-    if (q.get("preview") === "1") { startPreview(q.get("team")); clearQuery(); }
+    if (Q.get("preview") === "1") { startPreview(Q.get("team")); clearQuery(); }
   })();
   function clearQuery() { if (location.search) history.replaceState(null, "", location.pathname + location.hash); }
 
@@ -1984,6 +1998,13 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
   if (["min", "mid", "high"].indexOf(STICK) < 0) STICK = "mid";
   var NAVHIDE = [];
   try { NAVHIDE = JSON.parse(localStorage.getItem("cip-navhide") || "[]") || []; } catch (e) { NAVHIDE = []; }
+  if (SHARED) {
+    if (["rail", "top"].indexOf(SHARED.card) >= 0) PERSON = SHARED.card;
+    if (["top", "left", "right"].indexOf(SHARED.tabs) >= 0) TABS = SHARED.tabs;
+    if (["min", "mid", "high"].indexOf(SHARED.bar) >= 0) STICK = SHARED.bar;
+    if (SHARED.pin === "0" || SHARED.pin === "1") SSEARCH = SHARED.pin === "1";
+    if (SHARED.nav) { var keep = SHARED.nav.split(","); NAVHIDE = ["overview", "people", "lookup", "identity", "data", "later"].filter(function (k) { return keep.indexOf(k) < 0; }); }
+  }
   function applyLookupLayout() { var r = $("#lookupResult"); if (r) { r.setAttribute("data-layout", PERSON); r.setAttribute("data-tabs", TABS); r.setAttribute("data-stick", STICK); } syncSbar(); }
   var CATS = { A: "Attribution", M: "Marketing", E: "Enquiries", X: "Interactions", P: "Payments", L: "Learning", S: "Support", C: "Consent" };
 
@@ -3044,6 +3065,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
     $("#rvLayoutNote").textContent = describeLayout();
     $("#rvSummary").textContent = "V" + v + " · " + layoutLabel() + (NAVHIDE.length ? " · " + NAVHIDE.length + " hidden" : "");
     $$("#rvNav [data-navitem]").forEach(function (c) { c.checked = NAVHIDE.indexOf(c.getAttribute("data-navitem")) < 0; });
+    if (typeof rvShareSync === "function") rvShareSync();
   }
   function describeLayout() {
     var who = PERSON === "rail" ? "The person card stays pinned on the left" : "The person card runs across the top; once it scrolls away, a slim bar keeps their name in view";
@@ -3100,8 +3122,32 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
     requestAnimationFrame(slideAll);
   }
 
-  // Start on a known caller so the screen isn't empty.
-  runLookup("arjun.kumar88@gmail.com", true);
+  // Start on a known caller so the screen isn't empty. A shared link can name the person.
+  (function () {
+    var p = SHARED && SHARED.p && PEOPLE[SHARED.p], key = null;
+    if (p) {
+      var em = p.emails.filter(function (x) { return x.v; })[0], ph = p.phones.filter(function (x) { return x.v; })[0];
+      key = em ? em.e : ph ? ph.d : null;
+    }
+    runLookup(key || "arjun.kumar88@gmail.com", true);
+  })();
+  if (SHARED) $("#review").hidden = true;
+
+  // Review panel: a link that opens exactly this view, without the Review panel.
+  function viewLink() {
+    var route = S.step === "app" ? ((location.hash.replace(/^#\/?/, "") || "").split("/")[0] || TEAMS[S.team].home) : "lookup";
+    var nav = NAVITEMS.filter(function (n) { return NAVHIDE.indexOf(n[0]) < 0; }).map(function (n) { return n[0]; }).join(",");
+    var q = ["preview=1"];
+    if (S.team && S.team !== "central") q.push("team=" + S.team);
+    q.push("v=" + document.documentElement.getAttribute("data-v"), "card=" + PERSON, "tabs=" + TABS, "bar=" + STICK, "pin=" + (SSEARCH ? 1 : 0), "nav=" + nav);
+    if (route === "lookup" && L.person) q.push("p=" + L.person);
+    q.push("review=0");
+    var base = location.href.split(/[?#]/)[0];
+    return base + "?" + q.join("&") + "#/" + route;
+  }
+  function rvShareSync() { var i = $("#rvShareUrl"); if (i) i.value = viewLink(); }
+  $("#rvCopy").addEventListener("click", function () { rvShareSync(); copy($("#rvShareUrl").value, $("#rvShareUrl"), "Link to this view copied"); });
+  $("#rvShareUrl").addEventListener("focus", function () { this.select(); });
 
   /* ---------- Identity: audit ---------- */
   var cases = [
