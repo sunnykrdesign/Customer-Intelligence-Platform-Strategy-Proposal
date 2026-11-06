@@ -2470,6 +2470,114 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
   .a6card,.a6hero,.a6stats div,.a6glow,.a6rp,.a6path::after,.a6n,.a6m.now .a6n::after,.a6sc .ln,.a6sc .ar,.a6sc .pt,.a6dots i,.a6inst i,.a6radar .sh,.a6radar circle,.a6sk li,.a6bar i,.a6cr,.j6seg,.j6dot,.j6c,.t6hb,.t6ev,.b6c,.b6mix i,.b6tl i,.r6stats div,.r6b i,.r6avg,.r6hm i,.r6busy i{animation:none !important}
   .a6sc .ln{stroke-dashoffset:0}
 }
+
+/* ================= V6 · Insights ================= */
+.i6{display:flex;flex-direction:column;gap:20px}
+.i6card,.i6k,.i6sig{position:relative;background:#fff;border-radius:22px;padding:20px 22px;box-shadow:0 0 0 1px rgba(16,16,24,.045),0 1px 2px rgba(16,16,24,.04),0 12px 32px -14px rgba(16,16,24,.08);min-width:0;animation:a6in .65s var(--v6e) backwards;animation-delay:calc(var(--i,0) * 60ms)}
+.i6sum{position:relative;border-radius:24px;padding:22px 24px;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(120deg,#FF6B71,#B59CF5 45%,#6F98F0) border-box;border:1.5px solid transparent;box-shadow:0 18px 40px -22px rgba(227,38,47,.35);animation:a6in .65s var(--v6e) backwards;overflow:hidden;isolation:isolate}
+.i6sum::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(40% 80% at 100% 0%,rgba(181,156,245,.14),transparent 70%),radial-gradient(30% 60% at 0% 100%,rgba(255,107,113,.08),transparent 70%)}
+.i6sh{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.i6sh h2{margin:0;font-size:18px !important;letter-spacing:-0.02em}
+.i6spark{width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(135deg,#FF6B71,#8B6CDB);box-shadow:0 6px 14px -6px rgba(139,108,219,.7)}
+.i6chip{margin-left:auto;font-size:11.5px;font-weight:600;color:#6A49B8;background:#F1ECFC;padding:3px 9px;border-radius:999px}
+.i6sum ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.i6sum li{position:relative;padding-left:18px;font-size:14px;line-height:1.5;color:#3A3A3F;animation:a6in .5s var(--v6e) backwards;animation-delay:calc(.2s + var(--i) * 80ms)}
+.i6sum li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:#C7C7CC}
+.i6sum li b{color:#1D1D1F;font-weight:600}
+.i6sum li b.w{color:#B25E09}
+.i6kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.i6kh{display:flex;align-items:center;gap:8px;min-height:24px}
+.i6kh small{font-size:12.5px;color:var(--muted)}
+.i6how{margin-left:auto;display:inline-flex;align-items:center;gap:4px;height:24px;padding:0 8px;border:none;border-radius:8px;background:#F4F4F6;color:#6E6E73;font-size:11.5px;font-weight:600;transition:background .2s,color .2s}
+.i6how:hover,.i6how[aria-expanded="true"]{background:#1D1D1F;color:#fff}
+.i6howt{margin:10px 0 0;padding:10px 12px;border-radius:12px;background:#F7F7F9;font-size:12.5px;line-height:1.45;color:#515154;animation:a6in .35s var(--v6e)}
+.i6v{display:block;margin-top:8px;font-size:24px;font-weight:600;letter-spacing:-0.03em;line-height:1.15}
+.i6v.t-ok{color:#1E7A43}.i6v.t-warn{color:#C01826}
+.i6n{display:block;margin-top:6px;font-size:12px;color:var(--muted)}
+.i6lock{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:18px;color:#6E6E73}
+.i6pay{height:8px;margin-top:12px;border-radius:6px;background:#F0F0F3;overflow:hidden}
+.i6pay i{display:block;height:100%;width:var(--w);border-radius:6px;background:linear-gradient(90deg,#5BD08C,#2BA55E);transform-origin:left;animation:a6fill 1.1s var(--v6e) backwards .3s}
+.i6hr{display:flex;align-items:center;gap:12px;margin-top:8px}
+.i6hr .i6v{margin:0}
+.i6dial{position:relative;width:44px;height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:center}
+.i6dial > svg:first-child{position:absolute;inset:0;width:100%;height:100%}
+.i6dial circle{fill:none;stroke:#F0F0F3;stroke-width:4}
+.i6dial circle.p{stroke-linecap:round;stroke-dasharray:var(--p) 100;animation:a6ring 1.2s var(--v6e) backwards .3s}
+.i6dial.t-ok{color:#1E7A43}.i6dial.t-ok circle.p{stroke:#34C759}
+.i6dial.t-warn{color:#C01826}.i6dial.t-warn circle.p{stroke:#E3262F}
+.i6dial.t-n{color:#6E6E73}.i6dial.t-n circle.p{stroke:#A1A1A8}
+.i6gauge{position:relative;height:8px;margin-top:14px;border-radius:6px;background:linear-gradient(90deg,#34C759,#F5C542 50%,#E3262F)}
+.i6gauge i{position:absolute;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px #1D1D1F,0 3px 8px rgba(0,0,0,.25);animation:i6slide 1s var(--v6s) backwards .4s}
+@keyframes i6slide{from{left:0}}
+.i6gl{display:flex;justify-content:space-between;margin-top:8px;font-size:11px;color:#8E8E93}
+.i6bus{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.i6bus span{display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:999px;background:color-mix(in srgb,var(--c) 12%,#fff);color:color-mix(in srgb,var(--c) 75%,#1D1D1F);font-size:12px;font-weight:600}
+.i6bus i{width:7px;height:7px;border-radius:50%;background:var(--c)}
+.i6two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+.i6src{font-size:10.5px;font-weight:700;font-family:var(--mono);color:#6E6E73;background:#F2F2F5;padding:2px 7px;border-radius:6px;letter-spacing:.02em}
+.i6sig{overflow:hidden}
+.i6sig .i6kh small{font-weight:600;color:#3A3A3F}
+.i6ic{width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:0 0 30px}
+.i6sig > b{display:block;margin-top:12px;font-size:17px;font-weight:600;letter-spacing:-0.02em;line-height:1.3}
+.i6sig > p{margin:6px 0 0;font-size:13px;color:#515154;line-height:1.45}
+.i6sig.warn{background:linear-gradient(160deg,#FFF7EC,#fff 60%)}
+.i6sig.warn .i6ic{background:#FCE7C8;color:#B25E09}
+.i6sig.ok .i6ic{background:#E6F6EC;color:#1E7A43}
+.i6sig.nbp{background:#0C0C0E;color:#F5F5F7}
+.i6sig.nbp::before{content:"";position:absolute;inset:-40%;z-index:0;background:radial-gradient(35% 45% at 85% 20%,rgba(139,108,219,.4),transparent 70%),radial-gradient(30% 40% at 10% 100%,rgba(227,38,47,.3),transparent 70%);animation:v6drift 18s ease-in-out infinite alternate;pointer-events:none}
+.i6sig.nbp > *{position:relative}
+.i6sig.nbp .i6ic{background:linear-gradient(135deg,#FFD66B,#F0A43A);color:#fff}
+.i6sig.nbp .i6kh small{color:#E5E5EA}
+.i6sig.nbp .i6src{background:rgba(255,255,255,.1);color:#C7C7CC}
+.i6sig.nbp .i6how{background:rgba(255,255,255,.1);color:#E5E5EA}
+.i6sig.nbp > b{color:#fff;font-size:19px}
+.i6sig.nbp > p{color:#A1A1A6}
+.i6sig.nbp .i6howt{background:rgba(255,255,255,.08);color:#D1D1D6}
+.i6go{position:absolute !important;right:18px;bottom:16px;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;color:#1D1D1F;animation:i6pulse 2.4s ease-in-out infinite}
+@keyframes i6pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.4)}50%{box-shadow:0 0 0 8px rgba(255,255,255,0)}}
+.i6h{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.i6h h3{margin:0;font-size:15px;font-weight:600}
+.i6ch{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-bottom:8px}
+.i6ch > div{display:flex;flex-direction:column;align-items:center;gap:3px;padding:12px 4px;border-radius:14px;text-align:center;animation:v6pop .45s var(--v6s) backwards;animation-delay:calc(.2s + var(--i) * 60ms)}
+.i6ch span{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+.i6ch b{font-size:12.5px;font-weight:600}
+.i6ch small{font-size:11px}
+.i6ch .on{background:#F1FAF4}.i6ch .on span{background:#34C759;color:#fff;box-shadow:0 6px 12px -6px #34C759}.i6ch .on small{color:#1E7A43}
+.i6ch .off{background:#F7F7F9}.i6ch .off span{background:#E5E5EA;color:#8E8E93}.i6ch .off small{color:#8E8E93}.i6ch .off b{color:#8E8E93}
+.i6row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 0 0;margin-top:12px;border-top:1px solid #F2F2F4}
+.i6row small{font-size:12.5px;color:var(--muted);flex:0 0 120px}
+.i6row b{font-size:13.5px;font-weight:600;flex:1;min-width:0}
+.i6fat{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.i6fat span{display:grid;grid-template-columns:56px minmax(0,1fr) 24px;align-items:center;gap:10px}
+.i6fat em{font-style:normal;font-size:11.5px;color:#8E8E93}
+.i6fat i{display:block;height:8px;width:var(--w);border-radius:6px;background:linear-gradient(90deg,#F5C542,#F0A43A);transform-origin:left;animation:a6fill 1s var(--v6e) backwards .3s}
+.i6fat b{font-size:12.5px;text-align:right;font-variant-numeric:tabular-nums}
+.i6sc{display:flex;align-items:center;gap:14px;padding:12px 0;border-top:1px solid #F2F2F4;animation:a6in .45s var(--v6e) backwards;animation-delay:calc(.15s + var(--i) * 60ms)}
+.i6sc:first-of-type{border-top:none;padding-top:0}
+.i6sc > span:first-child{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
+.i6sc small{font-size:12px;color:var(--muted)}
+.i6sc b{font-size:13.5px;font-weight:600}
+.i6lvl{display:flex;gap:3px}
+.i6lvl i{width:16px;height:16px;border-radius:5px;background:#F0F0F3}
+.i6lvl.l1 i:nth-child(-n+1),.i6lvl.l2 i:nth-child(-n+2),.i6lvl.l3 i:nth-child(-n+3){background:linear-gradient(135deg,#9D85F0,#7357D9)}
+.i6lvl.l1 i:first-child{background:linear-gradient(135deg,#F5C542,#F0A43A)}
+.i6num{display:block;width:90px;height:8px;border-radius:6px;background:#F0F0F3;overflow:hidden}
+.i6num i{display:block;height:100%;width:var(--w);background:linear-gradient(90deg,#9D85F0,#7357D9);border-radius:6px;transform-origin:left;animation:a6fill 1s var(--v6e) backwards .3s}
+.i6tag{color:#7357D9}
+.i6note{margin:12px 0 0;font-size:12px;color:var(--muted)}
+.i6more{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.i6m{padding:14px 16px;border-radius:16px;background:#F7F7F9;animation:a6in .45s var(--v6e) backwards;animation-delay:calc(var(--i) * 50ms)}
+.i6m > b{display:block;margin-top:6px;font-size:14px;font-weight:600}
+.i6m > b.mu{color:#8E8E93;font-weight:500}
+.i6m .i6howt{background:#fff}
+@media (max-width:1100px){.i6kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.i6two{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:760px){
+  .i6kpis{grid-template-columns:minmax(0,1fr)}
+  .i6ch{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .i6row small{flex-basis:100%}
+  .i6chip{margin-left:0}
+}
+@media (prefers-reduced-motion: reduce){.i6card,.i6k,.i6sig,.i6sum,.i6sum li,.i6pay i,.i6dial circle.p,.i6gauge i,.i6ch > div,.i6fat i,.i6sc,.i6num i,.i6m,.i6go,.i6sig.nbp::before{animation:none !important}}
 </style>
 </head>
 <body>
@@ -6166,6 +6274,107 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
   v4Academic = function (p, m) { return isV6() ? v6Academic(p, m) : _acad4(p, m); };
   v4Activity = function (p, otherBu) { return isV6() ? v6Activity(p, otherBu) : _act4(p, otherBu); };
   v4Life = function (m, opts) { return isV6() ? v6Life(m, opts) : _life4(m, opts); };
+
+  /* ================= V6 · Look up a person: Insights ================= */
+  function v6Insights(p, m, otherBu) {
+    var how = V.how || {}, used = {}, team = TEAMS[S.team] || TEAMS.central;
+    var all = [];
+    m.insights.forEach(function (c, ci) { c.items.forEach(function (it, ii) { all.push({ c: c, ci: ci, it: it, k: ci + "-" + ii }); }); });
+    var get = function (re) { var x = all.filter(function (a) { return !used[a.k] && re.test(a.it.k); })[0]; if (x) used[x.k] = 1; return x; };
+    var hid = function (x) { return x && x.it.fin && otherBu; };
+    var howB = function (x) { if (!x || !x.it.how || hid(x)) return ""; var o = !!how[x.k]; return '<button type="button" class="i6how" data-how="' + x.k + '" aria-expanded="' + o + '" title="How this is worked out">' + '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>' + "<span>" + (o ? "Hide" : "How") + "</span></button>"; };
+    var howT = function (x) { return x && how[x.k] && x.it.how && !hid(x) ? '<p class="i6howt">' + esc(x.it.how) + "</p>" : ""; };
+    var tone = function (x) { if (!x) return ""; if (x.it.tone) return x.it.tone; var v = x.it.v || ""; return /on track|completed|^low|^no\b/i.test(v) ? "ok" : /risk|stall|^high|^yes/i.test(v) ? "warn" : ""; };
+    var src = function (x) { return '<span class="i6src">' + esc(x.c.tag) + "</span>"; };
+
+    var rev = get(/revenue/i), health = get(/learning health/i), refund = get(/refund/i), cross = get(/cross-business/i);
+    var reacq = get(/re-acquisition/i), nbp = get(/next-best/i), reachI = get(/reachable/i), fat = get(/fatigue/i), speed = get(/speed to lead/i);
+    var scores = all.filter(function (a) { return /model scores/i.test(a.c.t); }); scores.forEach(function (a) { used[a.k] = 1; });
+    var first = p.name.split(" ")[0], ch = reach(p, team);
+
+    // Before you call: a plain summary built from the signals below.
+    var lines = [];
+    if (health && health.it.v) lines.push("<b>Learning:</b> " + esc(health.it.v) + (p.ins && p.ins.healthD ? " · " + esc(p.ins.healthD) : ""));
+    var on = ch.filter(function (c) { return c[1]; }).map(function (c) { return c[0]; }), off = ch.filter(function (c) { return !c[1]; }).map(function (c) { return c[0]; });
+    lines.push("<b>Reach:</b> " + (on.length ? esc(on.join(", ")) + (off.length ? " · not " + esc(off.join(", ")) : "") : "no channel open right now"));
+    var nFat = fat && /(\d+)/.exec(fat.it.v || ""); if (nFat) lines.push("<b>Already contacted:</b> " + nFat[1] + " outbound " + (+nFat[1] === 1 ? "touch" : "touches") + " in the last 7 days, across every business");
+    if (reacq && /^yes/i.test(reacq.it.v || "")) lines.push('<b class="w">Heads up:</b> ' + esc((reacq.it.v || "").replace(/^yes\s*·?\s*/i, "")) + ". upGrad already knew " + esc(first) + ".");
+    if (nbp && nbp.it.v) lines.push("<b>Best next step:</b> " + esc(nbp.it.v));
+    var sum = '<section class="i6sum"><div class="i6sh"><span class="i6spark">' + ic4("star", 16) + '</span><h2>Before you call ' + esc(first) + '</h2><span class="i6chip">From the signals below</span></div><ul>' + lines.map(function (l, i) { return '<li style="--i:' + i + '">' + l + "</li>"; }).join("") + "</ul></section>";
+
+    // Scorecards.
+    var cards = [];
+    if (rev) {
+      var v = rev.it.v || "", amt = (v.match(/₹[\d,]+/g) || []), paid = amt[0] ? +amt[0].replace(/[₹,]/g, "") : 0, due = /due/i.test(v) && amt[1] ? +amt[1].replace(/[₹,]/g, "") : 0;
+      cards.push('<div class="i6k" style="--i:0"><div class="i6kh"><small>Lifetime value</small>' + howB(rev) + "</div>" + (hid(rev) ? '<b class="i6lock">' + ic4("lock", 16) + 'Owner only</b><span class="i6n">Shown to the owning business</span>' :
+        '<b class="i6v">' + esc(amt[0] || v || "—") + "</b>" + (paid ? '<div class="i6pay" role="img" aria-label="' + esc(v) + '"><i style="--w:' + (paid / (paid + due) * 100).toFixed(1) + '%"></i></div><span class="i6n">' + (due ? "paid · " + esc(amt[1]) + " still due" : "paid") + "</span>" : '<span class="i6n">' + esc(v) + "</span>")) + howT(rev) + "</div>");
+    }
+    if (health) {
+      var t = tone(health), pc = t === "ok" ? 100 : t === "warn" ? 35 : 60;
+      cards.push('<div class="i6k" style="--i:1"><div class="i6kh"><small>Learning health</small>' + howB(health) + '</div><div class="i6hr"><span class="i6dial t-' + (t || "n") + '"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="18"/><circle class="p" cx="22" cy="22" r="18" pathLength="100" style="--p:' + pc + '" transform="rotate(-90 22 22)"/></svg>' + ic4(t === "warn" ? "alert" : "check", 15) + '</span><b class="i6v t-' + (t || "n") + '">' + esc(health.it.v || "—") + "</b></div>" + howT(health) + "</div>");
+    }
+    var risk = refund || (scores.length ? null : null);
+    if (refund) {
+      var rv = (refund.it.v || "").toLowerCase(), pos = /low/.test(rv) ? 16 : /medium/.test(rv) ? 50 : /high/.test(rv) ? 86 : 50;
+      cards.push('<div class="i6k" style="--i:2"><div class="i6kh"><small>Refund risk</small>' + howB(refund) + '</div><b class="i6v">' + esc(refund.it.v) + '</b><div class="i6gauge" role="img" aria-label="Refund risk ' + esc(refund.it.v) + '"><i style="left:' + pos + '%"></i></div><span class="i6gl"><span>Low</span><span>Medium</span><span>High</span></span>' + howT(refund) + "</div>");
+    } else if (speed) {
+      cards.push('<div class="i6k" style="--i:2"><div class="i6kh"><small>' + esc(speed.it.k) + "</small>" + howB(speed) + '</div><b class="i6v">' + esc(speed.it.v || "—") + '</b><span class="i6n">Lead created to first call</span>' + howT(speed) + "</div>");
+      speed = null;
+    }
+    if (cross) {
+      var bus = m.lanes.filter(function (l) { return !l.empty; });
+      cards.push('<div class="i6k" style="--i:3"><div class="i6kh"><small>Known to</small>' + howB(cross) + '</div><b class="i6v">' + bus.length + (bus.length === 1 ? " business" : " businesses") + '</b><div class="i6bus">' + bus.map(function (l) { return '<span style="--c:' + (BC6P[l.bu] || "#8E8E93") + '"><i></i>' + esc(buS6(l.bu)) + "</span>"; }).join("") + "</div>" + howT(cross) + "</div>");
+    }
+    var kp = '<div class="i6kpis">' + cards.join("") + "</div>";
+
+    // Signals: re-acquisition and next-best programme.
+    var sig = "";
+    if (reacq || nbp) {
+      var ry = reacq && /^yes/i.test(reacq.it.v || "");
+      sig = '<div class="i6two">' + (reacq ? '<section class="i6sig ' + (ry ? "warn" : "ok") + '"><div class="i6kh"><span class="i6ic">' + ic4(ry ? "alert" : "check", 16) + "</span><small>Re-acquisition</small>" + src(reacq) + howB(reacq) + "</div><b>" + (ry ? "Bought back someone we knew" : "No paid lead for someone we knew") + "</b><p>" + esc((reacq.it.v || "").replace(/^(yes|no)\s*·?\s*/i, "") || reacq.it.how || "") + "</p>" + howT(reacq) + "</section>" : "") +
+        (nbp ? '<section class="i6sig nbp"><div class="i6kh"><span class="i6ic">' + ic4("award", 16) + "</span><small>Next-best programme</small>" + src(nbp) + howB(nbp) + "</div><b>" + esc(nbp.it.v || "—") + '</b><p>Rules first: aspiration, skills and activity.</p><span class="i6go" aria-hidden="true">' + ic4("target", 14) + "</span>" + howT(nbp) + "</section>" : "") + "</div>";
+    }
+
+    // Reach and engagement.
+    var re = "";
+    if (reachI || fat || speed) {
+      var f7 = fat && /(\d+)[^\d]+7/.exec(fat.it.v || ""), f30 = fat && /(\d+)[^\d]+30/.exec(fat.it.v || "");
+      var mxf = Math.max(f7 ? +f7[1] : 0, f30 ? +f30[1] : 0, 1);
+      re = '<section class="i6card"><div class="i6h"><h3>Reach and engagement</h3>' + (reachI ? src(reachI) : "") + "</div>" +
+        '<div class="i6ch">' + ch.map(function (c, i) { return '<div class="' + (c[1] ? "on" : "off") + '" style="--i:' + i + '"><span>' + ic4(c[0] === "Call" ? "phone" : c[0] === "Email" ? "mail" : c[0] === "Ads" ? "ads" : c[0] === "SMS" ? "sms" : "chat", 16) + "</span><b>" + esc(c[0]) + "</b><small>" + (c[1] ? "Open" : "Closed") + "</small></div>"; }).join("") + "</div>" +
+        (reachI ? '<div class="i6row"><small>Reachable now</small><b>' + esc(reachI.it.v || "—") + "</b>" + howB(reachI) + "</div>" + howT(reachI) : "") +
+        (fat ? '<div class="i6row"><small>Contact fatigue</small><b>' + esc(fat.it.v || "—") + "</b>" + howB(fat) + "</div>" + (f7 || f30 ? '<div class="i6fat">' + (f7 ? '<span><em>7 days</em><i style="--w:' + (+f7[1] / mxf * 100) + '%"></i><b>' + f7[1] + "</b></span>" : "") + (f30 ? '<span><em>30 days</em><i style="--w:' + (+f30[1] / mxf * 100) + '%"></i><b>' + f30[1] + "</b></span>" : "") + "</div>" : "") + howT(fat) : "") +
+        (speed ? '<div class="i6row"><small>' + esc(speed.it.k) + "</small><b>" + esc(speed.it.v || "—") + "</b>" + howB(speed) + "</div>" + howT(speed) : "") + "</section>";
+    }
+
+    // Model scores, as meters.
+    var ms = "";
+    if (scores.length) {
+      var lvl = function (s) { s = s.toLowerCase(); return /high|strong|very/.test(s) ? 3 : /medium|mid|moderate/.test(s) ? 2 : /low|stall|weak/.test(s) ? 1 : 0; };
+      var rows = [];
+      scores.forEach(function (a) {
+        var parts = (a.it.v || "").split(" · ");
+        if (parts.length > 1 && parts.every(function (x) { return /:/.test(x); })) parts.forEach(function (x) { var q = x.split(":"); rows.push({ k: q[0].trim(), v: q.slice(1).join(":").trim(), a: a }); });
+        else rows.push({ k: a.it.k, v: a.it.v || "", a: a });
+      });
+      var seenHow = {};
+      ms = '<section class="i6card"><div class="i6h"><h3>' + esc(scores[0].c.t) + "</h3>" + src(scores[0]) + "</div>" + rows.map(function (r, i) {
+        var n = /^(\d+)/.exec(r.v), l = lvl(r.v), meter = n ? '<span class="i6num"><i style="--w:' + Math.min(100, +n[1]) + '%"></i></span>' : l ? '<span class="i6lvl l' + l + '"><i></i><i></i><i></i></span>' : '<span class="i6tag">' + ic4("check", 12) + "</span>";
+        var hb = seenHow[r.a.k] ? "" : howB(r.a); seenHow[r.a.k] = 1;
+        return '<div class="i6sc" style="--i:' + i + '"><span><small>' + esc(r.k.charAt(0).toUpperCase() + r.k.slice(1)) + "</small><b>" + esc(r.v.charAt(0).toUpperCase() + r.v.slice(1)) + "</b></span>" + meter + hb + "</div>" + (hb ? howT(r.a) : "");
+      }).join("") + '<p class="i6note">Scores belong to the business that made them and are not comparable across businesses.</p></section>';
+    }
+
+    // Everything else, so nothing is lost.
+    var rest = all.filter(function (a) { return !used[a.k]; });
+    var more = rest.length ? '<section class="i6card"><div class="i6h"><h3>More signals</h3></div><div class="i6more">' + rest.map(function (a, i) {
+      return '<div class="i6m" style="--i:' + i + '"><div class="i6kh"><small>' + esc(a.it.k) + "</small>" + src(a) + howB(a) + '</div><b class="' + (a.it.muted ? "mu" : "") + '">' + esc(hid(a) ? "Shown to the owning business" : a.it.v || "—") + "</b>" + howT(a) + "</div>";
+    }).join("") + "</div></section>" : "";
+
+    return '<div class="i6">' + sum + kp + sig + '<div class="i6two">' + re + ms + "</div>" + more + "</div>";
+  }
+  var _ins4 = v4Insights;
+  v4Insights = function (p, m, otherBu) { return isV6() ? v6Insights(p, m, otherBu) : _ins4(p, m, otherBu); };
   renderAudit();
   render();
 })();
