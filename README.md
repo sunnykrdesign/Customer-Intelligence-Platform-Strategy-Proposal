@@ -43,7 +43,7 @@ Preview links look like this:
 A **Review** button in the bottom-right corner opens the review controls. They're for design review only, not part of the product:
 
 - **Share this view:** **Copy link** gives a link that opens exactly what you're looking at: the design version, the profile layout, the sticky bar, the pinned search bar, the sidebar menu items you've left on, the screen you're on and, on Look up a person, the person who's open. It skips sign-in and hides the Review panel, so the person you send it to sees only that view. For example: `…/?preview=1&v=3&card=top&tabs=left&bar=high&pin=1&nav=overview,people,lookup&p=ananya&review=0#/lookup`
-- **Design version:** V1 to V5. You can also add `?v=1` to `?v=5` to the URL.
+- **Design version:** V1 to V6. V6 is the default for new visitors. You can also add `?v=1` to `?v=6` to the URL. A V6 link also keeps the trend style, for example `&tr=stack`.
 - **Look up a person · layout** (all versions): pick where the **person card** sits (Left panel or Top header) and where the **section tabs** sit (Top, Left or Right). That makes six combinations, and a small diagram shows the current one.
 
 - **Sticky bar:** how strongly the pinned person and tabs stand out once you scroll (default **Mid**):
@@ -90,6 +90,14 @@ Your choices are remembered on that browser.
   - **Nothing scrolls inside something else:** no panel has its own scroll bar, the section chips wrap instead of scrolling sideways, and the lanes timeline never needs a sideways scroll (on phones it switches to business cards).
   - **A good place to get data:** press **/** (or Find) to search every field you're allowed to see, and jump straight to it (it's highlighted). Hidden contact details and locked financial values are never shown in results. The ID and, once shown, emails, mobile and linked record IDs each have a copy button. Every profile says when it last synced and which sources its values came from.
   - **Life with upGrad, four ways** (Review → Life with upGrad): **Lanes** (one row per business over time), **Journey** (one path of milestones in order, with today's state underneath), **Businesses** (a card per business with its stage steps) and **Strip** (one line of chips).
+- **V6 (master, default):** everything from V5 (all three Look up layouts, the sticky bar, Find, copy buttons, Life with upGrad) plus a rebuilt Overview and a motion layer. References came from Mobbin: GitBook, Substack and Posh for area charts with a crosshair tooltip, Mixpanel and Monarch for stacked bars, Uxcel and Semrush for this-period versus last-period, Squarespace, Amplitude and Hotjar for funnels, and Mixpanel flows for the business-to-business chart.
+  - **Hero:** a dark card with a slow red glow, a live count of unified profiles, the Phase 1 track (identity graph, unified database, 360 view, merge audits, consent by purpose) and three activity rings (leads resolved against the 80% target, teams on the 360 view, audits done).
+  - **Measure cards:** leads resolved, known to 2+ businesses, wrong merges (with the 0.10% cap line) and paid leads already known. Each has a rolling number and a sparkline that draws in, and you can hover the sparkline to read any day.
+  - **Trends, three styles** (switch at the top right of the card): **Flow** shows smooth area curves for the three measures, with the three moments that moved them marked on the chart. **Stack** shows weekly paid leads split into already known, shared phone and new to upGrad, with the share already known drawn as a line. **Focus** shows one measure at a time, with last period as a ghost line, the target or cap, and a 30-day forecast with a range. Switching measures morphs the line. Every style has a crosshair tooltip and works with the arrow keys.
+  - **From lead to learner:** the funnel from paid leads to enrolment, as **Columns** (with step conversion chips) or **Taper**.
+  - **Where learners move:** the flow of the 727K people known to more than one business, from where they first met upGrad to where they joined next. Hover a ribbon or a business to isolate it.
+  - **Search (⌘K or Ctrl K, or Search in the sidebar):** jump to a screen, open a person, change the trend style, copy the link to this view, share, or switch design version.
+  - **Motion:** screens fade in as you open them, cards rise into view as you scroll, a soft spotlight follows the cursor on cards, and segmented controls slide with a spring. If reduced motion is turned on, all of this is switched off.
 
 ## People directory
 
