@@ -1206,7 +1206,6 @@ html[data-v4] .nav a[aria-current="page"]{background:#fff;color:var(--text);box-
 html[data-v4] .nav .count{font-family:inherit;font-size:13px}
 html[data-v4] .me{box-shadow:0 0 0 1px var(--line)}
 @media (max-width:820px){html[data-v4] .side{height:auto;border-right:none;border-bottom:1px solid var(--line)}}
-html[data-v4] .rv-pos{display:none}
 @media (min-width:821px){html[data-v4] .app{background:linear-gradient(90deg,#FBFBFC 239px,var(--line) 239px 240px,var(--bg) 240px)}}
 html[data-v4] .view[data-view="lookup"]{gap:20px !important}
 
@@ -1345,15 +1344,6 @@ html[data-v4] #lookupResult[data-stick="mid"].hdr-off .pbar .pmini{max-width:180
 .mini-av.v4mini{background:#1D1D1F;color:#fff;font-size:12px;font-weight:600}
 
 /* Learner profile */
-.v4tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.v4srcs{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
-.v4srcs > span:first-child{margin-right:4px}
-.v4tbtn{display:flex;gap:8px}
-.v4tbtn .btn.ghost.sm{height:34px;padding:0 14px;font-size:13px;background:#fff;color:var(--text);border:1px solid var(--border)}
-.v4tbtn .btn.ghost.sm:hover{border-color:var(--text)}
-.v4acc{padding:0;overflow:hidden}
-.v4acc-h{width:100%;display:grid;grid-template-columns:40px minmax(0,1fr) auto auto auto;gap:14px;align-items:center;padding:16px 20px;border:none;background:transparent;text-align:left;color:var(--text);font:inherit;cursor:pointer;transition:background .2s}
-.v4acc-h:hover{background:#FAFAFB}
 .v4acc-ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#EEF3FE;color:#3D63C9}
 .v4acc-ic.ic-personal{background:#E6F2FB;color:#1C6AA3}
 .v4acc-ic.ic-education{background:#E7F5EC;color:#23794A}
@@ -1368,10 +1358,6 @@ html[data-v4] #lookupResult[data-stick="mid"].hdr-off .pbar .pmini{max-width:180
 .v4fill small{font-size:12px;color:var(--muted);white-space:nowrap}
 .v4meter{width:92px;height:4px;border-radius:999px;background:var(--track)}
 .v4meter i{display:block;height:100%;border-radius:999px;background:#1D1D1F}
-.v4chev{color:#A1A1A8;display:grid;transition:transform .3s var(--ease)}
-.v4acc.open .v4chev{transform:rotate(180deg)}
-.v4lockic{color:#8E8E96;display:grid;width:15px}
-.v4acc-b{padding:0 20px 6px 74px;animation:rise .35s var(--ease) backwards}
 .v4row{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px;padding:14px 0;box-shadow:0 -1px 0 var(--line)}
 .v4rl{font-size:13.5px;color:var(--muted);padding-top:1px}
 .v4rv{min-width:0}
@@ -1533,6 +1519,54 @@ html[data-v4] #lookupResult[data-stick="mid"].hdr-off .pbar .pmini{max-width:180
 .v4it b.t-warn{color:#9A5B0F}
 .v4howt{margin:8px 0 0;padding:10px 12px;border-radius:10px;background:#F7F7F9;font-size:12.5px;color:#55555C;line-height:1.5;animation:rise .3s var(--ease) backwards}
 
+/* V4: one profile section at a time */
+.v4secnav{display:flex;flex-wrap:wrap;gap:8px}
+.v4sn{display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--border);background:#fff;font-size:13px;font-weight:500;color:var(--text);transition:background .2s,border-color .2s,color .2s}
+.v4sn:hover{border-color:var(--text)}
+.v4sn svg{color:var(--muted)}
+.v4snf{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.v4snl{display:grid;color:var(--muted)}
+.v4sn.on{background:#1D1D1F;border-color:#1D1D1F;color:#fff}
+.v4sn.on svg,.v4sn.on .v4snf,.v4sn.on .v4snl{color:rgba(255,255,255,.72)}
+.v4sec{padding:0}
+.v4sec-h{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:14px;align-items:center;padding:18px 22px;box-shadow:0 1px 0 var(--line)}
+.v4sec-b{padding:2px 22px 4px;animation:rise .35s var(--ease) backwards}
+.v4sec-b > .v4row:first-child{box-shadow:none}
+.v4sec-b > .v4lock{margin-top:14px}
+.v4pager{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;box-shadow:0 -1px 0 var(--line)}
+.v4pg{border:none;background:none;height:36px;padding:0 10px;border-radius:10px;font-size:13px;font-weight:500;color:var(--text)}
+.v4pg:hover{background:var(--fill)}
+.v4pgn{font-size:12px;color:var(--muted)}
+/* V4 layouts */
+html[data-v4] .pmini .mini-av{border-radius:50%}
+.v4tabl{white-space:nowrap}
+.v4vtabs button{justify-content:space-between;gap:10px;height:40px}
+.v4vtabs .v4tabl{overflow:hidden;text-overflow:ellipsis}
+html[data-v4] .dv{gap:16px}
+html[data-v4] .dv-left{grid-template-columns:208px minmax(0,1fr)}
+html[data-v4] .dv-right{grid-template-columns:minmax(0,1fr) 208px}
+.v4rail > .v4vtabs{flex:0 0 auto}
+.v4pcard{padding:18px;flex:0 0 auto}
+.v4pcard .v4id{gap:14px;align-items:center}
+.v4pcard .v4name{gap:2px 10px}
+.v4pcard .v4name h1{font-size:22px}
+.v4pcard .v4chips{margin-top:8px;gap:5px}
+.v4pcard .v4chips span{height:24px;font-size:12px;padding:0 9px}
+.v4pcard .v4matched{margin:12px 0 0}
+.v4pcard .v4kpis{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:14px}
+.v4pcard .v4kpi{padding:12px 14px}
+.v4pcard .v4kpi:nth-child(3){box-shadow:inset 0 1px 0 var(--line)}
+.v4pcard .v4kpi:nth-child(4){box-shadow:inset 1px 0 0 var(--line),inset 0 1px 0 var(--line)}
+.v4pcard .v4kpi .v{font-size:19px}
+@media (min-width:1100px){
+  /* The pinned tab bar stays inside the right-hand column: its backing never covers the left panel */
+  html[data-v4] #lookupResult .pbar::before{left:-8px;--pin-l:8px}
+  /* Left panel stays in view and scrolls on its own, so it never makes the page longer */
+  /* Its height leaves room for the page footer, so it never gets pushed up under the search bar at the end of the page */
+  .v4rail{position:sticky;top:6px;max-height:calc(100vh - 120px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#D2D2D8 transparent;padding:6px 8px 16px;margin:-6px -8px -16px}
+  .view[data-view="lookup"][data-ssearch="on"] .v4rail{top:calc(var(--sbar,0px) - 6px);max-height:calc(100vh - var(--sbar,0px) - 114px)}
+}
+@media (max-width:760px){.v4sn{height:34px;padding:0 10px}.v4sn > span:not(.v4snf):not(.v4snl){font-size:12.5px}}
 /* Smaller screens */
 @media (max-width:1320px){.v4hero{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:1100px){
@@ -1548,10 +1582,10 @@ html[data-v4] #lookupResult[data-stick="mid"].hdr-off .pbar .pmini{max-width:180
   .v4kpi:nth-child(3){box-shadow:inset 0 1px 0 var(--line)}
   .v4kpi:nth-child(4){box-shadow:inset 1px 0 0 var(--line),inset 0 1px 0 var(--line)}
   .v4life{padding:16px 16px 12px}
-  .v4acc-h{grid-template-columns:36px minmax(0,1fr) auto auto;gap:10px;padding:14px 16px}
+  .v4sec-h{grid-template-columns:36px minmax(0,1fr);gap:12px;padding:16px}
   .v4acc-ic{width:36px;height:36px}
   .v4fill{display:none}
-  .v4acc-b{padding:0 16px 6px}
+  .v4sec-b{padding:2px 16px 4px}
   .v4row{grid-template-columns:minmax(0,1fr);gap:4px}
   .v4ctop{grid-template-columns:auto minmax(0,1fr)}
   .v4stats{grid-column:1/-1;grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -1568,7 +1602,7 @@ html[data-v4] #lookupResult[data-stick="mid"].hdr-off .pbar .pmini{max-width:180
   .v4b small{font-size:9px}
   .v4course{padding:18px}
 }
-@media (prefers-reduced-motion: reduce){.v4acc-b,.v4howt{animation:none}.v4kpi .bar i,.v4chev{transition:none}}
+@media (prefers-reduced-motion: reduce){.v4sec-b,.v4howt{animation:none}.v4kpi .bar i{transition:none}}
 </style>
 </head>
 <body>
@@ -2481,40 +2515,48 @@ html[data-v4] #lookupResult[data-stick="mid"].hdr-off .pbar .pmini{max-width:180
     return '<span class="v4ring" style="width:' + size + "px;height:" + size + 'px"><svg viewBox="0 0 68 68" aria-hidden="true"><circle cx="34" cy="34" r="' + r + '" class="rt"/><circle cx="34" cy="34" r="' + r + '" class="rv" stroke-dasharray="' + (len * pct / 100).toFixed(1) + " " + len.toFixed(1) + '"/></svg>' + inner + "</span>";
   }
 
-  function profile4HTML(p, team) {
-    var m = v4Of(p), otherBu = !!team.bu && team.bu !== p.owner, noContact = otherBu && !p.consent.cross;
-    var back = L.matches.length > 1 ? '<button type="button" class="textbtn backbtn" data-back>‹ Back to ' + L.matches.length + " people on this number</button>" : "";
+  // V4 layouts mirror V3's review options: the person across the top or in the left panel, and the tabs on top, left or right.
+  // Below 1100px there's one layout (person on top, tabs on top), which reads best on small screens.
+  function v4Layout() { var narrow = window.innerWidth < 1100; return { p: narrow ? "top" : PERSON, t: narrow ? "top" : TABS }; }
+  function v4Hero(p, m, otherBu, compact) {
     var face = p.photo ? '<img class="v4face photo" src="' + esc(p.photo) + '" alt="Photo of ' + esc(p.name) + '">' : '<span class="v4face" aria-hidden="true">' + esc(m.initials) + "</span>";
-    var hero = '<section class="v4hero" aria-label="' + esc(p.name) + '"><div class="v4id">' + v4Ring(p.restricted ? 0 : p.complete, face, 76) +
-      '<div class="v4who"><div class="v4name"><h1>' + esc(p.name) + '</h1><code class="gid">' + esc(p.gid) + "</code></div>" +
-      '<div class="v4chips"><span>' + esc(p.stage) + "</span><span>" + esc(p.ageBand.replace("–", " to ")) + (p.restricted ? " · minor" : "") + "</span><span>" + esc(m.place) + "</span><span>" + esc(m.known) + "</span></div>" +
-      '<p class="v4matched">' + esc(p.headline) + "</p></div></div>";
-    if (!p.restricted) hero += '<div class="v4kpis">' + m.kpis.map(function (k) {
+    var kpis = p.restricted ? "" : '<div class="v4kpis">' + m.kpis.map(function (k) {
       var hide = k.fin && otherBu;
       return '<div class="v4kpi' + (k.tone ? " t-" + k.tone : "") + '"><span class="k">' + esc(k.k) + '</span><span class="v">' + esc(hide ? "Owner only" : k.v) + '</span><span class="bar" aria-hidden="true"><i style="width:' + (hide ? 0 : k.pct) + '%"></i></span><span class="d">' + esc(hide ? "Shown to the owning business" : k.d) + "</span></div>";
     }).join("") + "</div>";
-    hero += "</section>";
-
-    var top = back + hero + v4Life(m);
+    return '<section class="' + (compact ? "v4pcard card" : "v4hero") + '" aria-label="' + esc(p.name) + '"><div class="v4id">' + v4Ring(p.restricted ? 0 : p.complete, face, compact ? 64 : 76) +
+      '<div class="v4who"><div class="v4name"><h1>' + esc(p.name) + '</h1><code class="gid">' + esc(p.gid) + "</code></div>" +
+      '<div class="v4chips"><span>' + esc(p.stage) + "</span><span>" + esc(p.ageBand.replace("–", " to ")) + (p.restricted ? " · minor" : "") + "</span><span>" + esc(m.place) + "</span><span>" + esc(m.known) + "</span></div>" +
+      (compact ? "" : '<p class="v4matched">' + esc(p.headline) + "</p>") + "</div></div>" + (compact ? '<p class="v4matched">' + esc(p.headline) + "</p>" : "") + kpis + "</section>";
+  }
+  function profile4HTML(p, team) {
+    var m = v4Of(p), otherBu = !!team.bu && team.bu !== p.owner, noContact = otherBu && !p.consent.cross, lay = v4Layout();
+    var back = L.matches.length > 1 ? '<button type="button" class="textbtn backbtn" data-back>‹ Back to ' + L.matches.length + " people on this number</button>" : "";
     if (p.restricted) {
-      return '<div class="v4">' + top + '<div class="banner" role="note">' + warn() + "<div><b>Restricted: " + esc(first(p)) + " is a minor</b>Only basics are shown until a guardian consents. No marketing, no profiling. If the guardian is on the line, " + esc(p.owner) + " can send them the consent request.</div></div></div>";
+      return '<div class="v4">' + back + v4Hero(p, m, otherBu, false) + v4Life(m) + '<div class="banner" role="note">' + warn() + "<div><b>Restricted: " + esc(first(p)) + " is a minor</b>Only basics are shown until a guardian consents. No marketing, no profiling. If the guardian is on the line, " + esc(p.owner) + " can send them the consent request.</div></div></div>";
     }
     var banner = noContact ? '<div class="banner" role="note">' + warn() + "<div><b>Don't contact " + esc(first(p)) + " about " + esc(team.bu) + "</b>" + esc(first(p)) + " hasn't agreed to offers from other upGrad businesses. You can view this profile for context only.</div></div>" : "";
 
     var cur = TABS4.some(function (x) { return x[0] === V.tab; }) ? V.tab : "profile", fresh = cur !== V.seen; V.seen = cur; V.tab = cur;
     var counts = { profile: m.sections.reduce(function (a, s) { return a + s.filled[1]; }, 0), academic: (p.courses || []).length, activity: (p.events || []).length, insights: m.insights.reduce(function (a, c) { return a + c.items.length; }, 0) };
-    var list = '<div class="tabs v4tabs" role="tablist" aria-label="Learner 360 sections" id="ptabs" data-slide>' + TABS4.map(function (t) {
+    var vert = lay.t !== "top";
+    var list = '<div class="' + (vert ? "pnav vtabs v4vtabs" : "tabs v4tabs") + '" role="tablist" aria-label="Learner 360 sections" id="ptabs" data-slide' + (vert ? ' aria-orientation="vertical"' : "") + ">" + TABS4.map(function (t) {
       var on = t[0] === cur;
-      return '<button type="button" role="tab" id="tab-' + t[0] + '" aria-controls="panel" aria-selected="' + on + '" tabindex="' + (on ? 0 : -1) + '" data-tab="' + t[0] + '">' + t[1] + ' <span class="v4cnt">' + esc(String(counts[t[0]])) + "</span></button>";
+      return '<button type="button" role="tab" id="tab-' + t[0] + '" aria-controls="panel" aria-selected="' + on + '" tabindex="' + (on ? 0 : -1) + '" data-tab="' + t[0] + '"><span class="v4tabl">' + t[1] + '</span><span class="v4cnt">' + esc(String(counts[t[0]])) + "</span></button>";
     }).join("") + "</div>";
     var mini = '<div class="pmini" role="group" aria-label="Current person">' + (p.photo ? avatarHTML(p, "mini-av") : '<span class="mini-av v4mini" aria-hidden="true">' + esc(m.initials) + "</span>") + '<span class="pm-id"><b>' + esc(p.name) + "</b><small>" + esc(p.stage + " · " + p.ageBand + " · " + p.city) + "</small></span>" +
       '<span class="pm-more"><span class="pm-chip">Owned by ' + esc(p.owner === "Working Professionals" ? "WP" : p.owner) + '</span><span class="pm-chip">' + p.complete + "% filled</span></span></div>";
     var body = cur === "academic" ? v4Academic(p, m) : cur === "activity" ? v4Activity(p, otherBu) : cur === "insights" ? v4Insights(p, m, otherBu) : v4Profile(p, m, team, otherBu);
-    var panel = '<div id="panel" class="' + (fresh ? "fresh" : "") + '" role="tabpanel" aria-labelledby="tab-' + cur + '">' + body + "</div>";
-    var main = '<div class="v4main">' + banner + v4Act(m) + '<section class="section pdet" aria-label="Learner 360 details"><div class="pbar">' + mini + list + "</div>" + panel + "</section></div>";
-    return '<div class="v4">' + top + '<div class="v4grid"><aside class="v4rail" aria-label="Contact and records">' + v4Rail(p, m, team, otherBu, noContact) + "</aside>" + main + "</div></div>";
-  }
+    var panel = '<div id="panel" class="' + (vert ? "vpanel" : "") + (fresh ? " fresh" : "") + '" role="tabpanel" aria-labelledby="tab-' + cur + '">' + body + "</div>";
 
+    var tabsInRail = vert && lay.t === "left" && lay.p === "rail";
+    var work = '<section class="section pdet" aria-label="Learner 360 details">' + (!vert ? '<div class="pbar">' + mini + list + "</div>" + panel
+      : tabsInRail ? panel : '<div class="dv dv-' + lay.t + '"><div class="vcol">' + mini + list + "</div>" + panel + "</div>") + "</section>";
+    var rail = (lay.p === "rail" ? v4Hero(p, m, otherBu, true) : "") + (tabsInRail ? list : "") + v4Rail(p, m, team, otherBu, noContact);
+    var main = (lay.p === "rail" ? v4Life(m) : "") + banner + v4Act(m) + work;
+    return '<div class="v4">' + back + (lay.p === "top" ? v4Hero(p, m, otherBu, false) + v4Life(m) : "") +
+      '<div class="v4grid"><aside class="v4rail" aria-label="' + (lay.p === "rail" ? "Person, contact and records" : "Contact and records") + '">' + rail + '</aside><div class="v4main">' + main + "</div></div></div>";
+  }
   // Life with upGrad: one lane per business, from the first touch to today.
   function v4Life(m) {
     var all = [];
@@ -2589,26 +2631,23 @@ html[data-v4] #lookupResult[data-stick="mid"].hdr-off .pbar .pmini{max-width:180
     }).join("") + "</section>";
   }
 
-  // Learner profile: seven sections that open and close; each shows how much of it is filled.
+  // Learner profile: one section at a time. The chips show every section and how much of it is filled.
   function v4Profile(p, m, team, otherBu) {
-    var acc = V.acc || {}, used = {};
-    m.sections.forEach(function (s) { s.rows.forEach(function (r) { (r.src || []).forEach(function (x) { used[x] = 1; }); }); });
-    var tools = '<div class="v4tools"><div class="v4srcs"><span>Sources</span>' + ["Prism", "LSQ", "HubSpot", "OMS", "Sales Insights"].filter(function (s) { return used[s] || s === "HubSpot"; }).map(src4).join("") + "</div>" +
-      '<div class="v4tbtn"><button type="button" class="btn ghost sm" data-accall="1">Expand all</button><button type="button" class="btn ghost sm" data-accall="0">Collapse all</button></div></div>';
-    return tools + m.sections.map(function (s) {
-      var open = !!acc[s.key], locked = s.fin && !otherBu && !V.finOpen, hidden = s.fin && otherBu;
-      var pct = Math.round(s.filled[0] / s.filled[1] * 100);
-      var head = '<button type="button" class="v4acc-h" data-acc="' + s.key + '" aria-expanded="' + open + '" aria-controls="accb-' + s.key + '"><span class="v4acc-ic ic-' + s.key + '">' + ic4(s.ic, 18) + '</span><span class="v4acc-t"><b>' + esc(s.t) + "</b><small>" +
-        (hidden ? "Shown to the owning business only" : locked ? "Locked · team password needed" : esc(s.sum)) + '</small></span><span class="v4fill"><small>' + s.filled[0] + " of " + s.filled[1] + ' filled</small><span class="v4meter" aria-hidden="true"><i style="width:' + pct + '%"></i></span></span>' +
-        '<span class="v4lockic"' + (locked ? ' title="Locked">' + ic4("lock", 15) : ">") + "</span>" + '<span class="v4chev">' + ic4("chev", 18) + "</span></button>";
-      var body = "";
-      if (open) {
-        if (hidden) body = '<p class="v4note pad">Budget, funding and salary are shown to ' + esc(p.owner) + " only.</p>";
-        else if (s.fin) body = v4Lock() + (V.finOpen ? v4Rows(p, s, otherBu) : "");
-        else body = v4Rows(p, s, otherBu);
-      }
-      return '<section class="card v4acc' + (open ? " open" : "") + '" id="acc-' + s.key + '">' + head + '<div class="v4acc-b" id="accb-' + s.key + '"' + (open ? "" : " hidden") + ">" + body + "</div></section>";
-    }).join("");
+    var cur = m.sections.some(function (s) { return s.key === V.sec; }) ? V.sec : m.sections[0].key, s = m.sections.filter(function (x) { return x.key === cur; })[0];
+    var SHORT = { identity: "Identity", personal: "Personal", education: "Education", career: "Career", aspiration: "Aspiration", financial: "Financial", consent: "Consent" };
+    var nav = '<div class="v4secnav" role="tablist" aria-label="Profile sections">' + m.sections.map(function (x) {
+      var on = x.key === cur, locked = x.fin && !otherBu && !V.finOpen;
+      return '<button type="button" role="tab" id="sec-' + x.key + '" aria-controls="secp" aria-selected="' + on + '" tabindex="' + (on ? 0 : -1) + '" data-sec="' + x.key + '" class="v4sn' + (on ? " on" : "") + '">' + ic4(x.ic, 15) + "<span>" + esc(SHORT[x.key] || x.t) + "</span>" +
+        (locked ? '<span class="v4snl" title="Locked">' + ic4("lock", 12) + "</span>" : '<span class="v4snf" title="' + x.filled[0] + " of " + x.filled[1] + ' filled">' + x.filled[0] + "/" + x.filled[1] + "</span>") + "</button>";
+    }).join("") + "</div>";
+    var locked = s.fin && !otherBu && !V.finOpen, hidden = s.fin && otherBu, pct = Math.round(s.filled[0] / s.filled[1] * 100);
+    var head = '<div class="v4sec-h"><span class="v4acc-ic ic-' + s.key + '">' + ic4(s.ic, 18) + '</span><span class="v4acc-t"><b>' + esc(s.t) + "</b><small>" +
+      (hidden ? "Shown to the owning business only" : locked ? "Locked · team password needed" : esc(s.sum)) + '</small></span><span class="v4fill"><small>' + s.filled[0] + " of " + s.filled[1] + ' filled</small><span class="v4meter" aria-hidden="true"><i style="width:' + pct + '%"></i></span></span></div>';
+    var body = hidden ? '<p class="v4note pad">Budget, funding and salary are shown to ' + esc(p.owner) + " only.</p>" : s.fin ? v4Lock() + (V.finOpen ? v4Rows(p, s, otherBu) : "") : v4Rows(p, s, otherBu);
+    var i = m.sections.indexOf(s), prev = m.sections[i - 1], next = m.sections[i + 1];
+    var pager = '<div class="v4pager">' + (prev ? '<button type="button" class="v4pg" data-sec="' + prev.key + '">‹ ' + esc(SHORT[prev.key]) + "</button>" : "<span></span>") + '<span class="v4pgn">' + (i + 1) + " of " + m.sections.length + "</span>" +
+      (next ? '<button type="button" class="v4pg" data-sec="' + next.key + '">' + esc(SHORT[next.key]) + " ›</button>" : "<span></span>") + "</div>";
+    return nav + '<section class="card v4sec" id="secp" role="tabpanel" aria-labelledby="sec-' + s.key + '">' + head + '<div class="v4sec-b">' + body + "</div>" + pager + "</section>";
   }
   function v4Rows(p, s, otherBu) {
     return s.rows.filter(function (r) { return !(otherBu && r.t2); }).map(function (r) {
@@ -2674,8 +2713,8 @@ html[data-v4] #lookupResult[data-stick="mid"].hdr-off .pbar .pmini{max-width:180
     var subs = [["timeline", "Timeline"], ["business", "By business"], ["rhythm", "Learning rhythm"]];
     var buList = ["all"].concat(Object.keys(BU4).filter(function (k) { return evs.some(function (x) { return x.e[0] === k; }); }));
     var inBu = evs.filter(function (x) { return bu === "all" || x.e[0] === bu; });
-    var tools = '<div class="v4atools"><div class="seg" role="group" aria-label="Activity view" data-slide>' + subs.map(function (s) { return '<button type="button" data-sub="' + s[0] + '" aria-pressed="' + (s[0] === sub) + '">' + s[1] + "</button>"; }).join("") + "</div>" +
-      (sub === "rhythm" && v4Of(p).rhythm ? "" : '<div class="seg sm" role="group" aria-label="Business" data-slide>' + buList.map(function (k) { return '<button type="button" data-ebu="' + k + '" aria-pressed="' + (k === bu) + '">' + (k === "all" ? "All businesses" : esc(BU4[k][1])) + "</button>"; }).join("") + "</div>") + "</div>";
+    var tools = '<div class="v4atools"><div class="seg" role="group" aria-label="Activity view" id="v4sub" data-slide>' + subs.map(function (s) { return '<button type="button" data-sub="' + s[0] + '" aria-pressed="' + (s[0] === sub) + '">' + s[1] + "</button>"; }).join("") + "</div>" +
+      (sub === "rhythm" && v4Of(p).rhythm ? "" : '<div class="seg sm" role="group" aria-label="Business" id="v4bu" data-slide>' + buList.map(function (k) { return '<button type="button" data-ebu="' + k + '" aria-pressed="' + (k === bu) + '">' + (k === "all" ? "All businesses" : esc(BU4[k][1])) + "</button>"; }).join("") + "</div>") + "</div>";
     var body = "";
     if (sub === "timeline") {
       var cats = '<div class="v4cats" role="group" aria-label="Event type"><button type="button" class="v4cat' + (cat === "all" ? " on" : "") + '" data-ecat="all" aria-pressed="' + (cat === "all") + '"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>All <span>' + inBu.length + "</span></button>" +
@@ -2745,7 +2784,7 @@ html[data-v4] #lookupResult[data-stick="mid"].hdr-off .pbar .pmini{max-width:180
     if (SHARED.pin === "0" || SHARED.pin === "1") SSEARCH = SHARED.pin === "1";
     if (SHARED.nav) { var keep = SHARED.nav.split(","); NAVHIDE = ["overview", "people", "lookup", "identity", "data", "later"].filter(function (k) { return keep.indexOf(k) < 0; }); }
   }
-  function applyLookupLayout() { var r = $("#lookupResult"), v4 = isV4(); if (r) { r.setAttribute("data-layout", v4 ? "top" : PERSON); r.setAttribute("data-tabs", v4 ? "top" : TABS); r.setAttribute("data-stick", STICK); } syncSbar(); }
+  function applyLookupLayout() { var r = $("#lookupResult"), lay = isV4() ? v4Layout() : { p: PERSON, t: TABS }; if (r) { r.setAttribute("data-layout", lay.p); r.setAttribute("data-tabs", lay.t); r.setAttribute("data-stick", STICK); } syncSbar(); }
   var CATS = { A: "Attribution", M: "Marketing", E: "Enquiries", X: "Interactions", P: "Payments", L: "Learning", S: "Support", C: "Consent" };
 
   var PEOPLE = {
@@ -3097,7 +3136,7 @@ html[data-v4] #lookupResult[data-stick="mid"].hdr-off .pbar .pmini{max-width:180
   }
 
   var PAGE = 6;
-  function freshView() { return { tab: "personal", bu: "all", cat: "all", shown: PAGE, revealed: false, finOpen: false, finAsk: false, lockErr: "", acc: { identity: true }, sub: "timeline", ebu: "all", ecat: "all", evx: -1, how: {}, acted: {} }; }
+  function freshView() { return { tab: "personal", bu: "all", cat: "all", shown: PAGE, revealed: false, finOpen: false, finAsk: false, lockErr: "", sec: "identity", sub: "timeline", ebu: "all", ecat: "all", evx: -1, how: {}, acted: {} }; }
   var L = { status: "idle", label: "", matches: [], person: null, how: "" };
   var V = freshView();
   var lookupTimer = null;
@@ -3187,6 +3226,12 @@ html[data-v4] #lookupResult[data-stick="mid"].hdr-off .pbar .pmini{max-width:180
     return h;
   }
   window.addEventListener("resize", function () { syncSbar(); });
+  // V4 switches to its one small-screen layout below 1100px, and back.
+  var NARROW4 = window.innerWidth < 1100;
+  window.addEventListener("resize", function () {
+    var n = window.innerWidth < 1100; if (n === NARROW4) return; NARROW4 = n;
+    if (isV4()) { applyLookupLayout(); renderLookup(); requestAnimationFrame(slideAll); }
+  });
   window.addEventListener("scroll", hdrCheck, { passive: true });
 
   function manyHTML() {
@@ -3419,13 +3464,9 @@ html[data-v4] #lookupResult[data-stick="mid"].hdr-off .pbar .pmini{max-width:180
   // V4: sections that open and close, activity views and filters, insight explanations and actions.
   $("#lookupResult").addEventListener("click", function (e) {
     var t = e.target.closest("button"); if (!t || !isV4()) return;
-    if (t.hasAttribute("data-acc")) {
-      var k = t.getAttribute("data-acc"); V.acc = V.acc || {}; V.acc[k] = !V.acc[k]; renderLookup();
-      var again = $('[data-acc="' + k + '"]'); if (again) again.focus({ preventScroll: true });
-    } else if (t.hasAttribute("data-accall")) {
-      var on = t.getAttribute("data-accall") === "1"; V.acc = {};
-      if (on) v4Of(PEOPLE[L.person]).sections.forEach(function (x) { V.acc[x.key] = true; });
-      renderLookup(); toast(on ? "All sections open" : "All sections closed");
+    if (t.hasAttribute("data-sec")) {
+      V.sec = t.getAttribute("data-sec"); renderLookup();
+      var st = $("#sec-" + V.sec); if (st) st.focus({ preventScroll: true }); revealPanel();
     } else if (t.hasAttribute("data-sub")) { V.sub = t.getAttribute("data-sub"); renderLookup(); requestAnimationFrame(slideAll); }
     else if (t.hasAttribute("data-ebu")) { V.ebu = t.getAttribute("data-ebu"); V.ecat = "all"; V.evx = -1; V.shown = PAGE; renderLookup(); requestAnimationFrame(slideAll); }
     else if (t.hasAttribute("data-ecat")) { V.ecat = t.getAttribute("data-ecat"); V.evx = -1; V.shown = PAGE; renderLookup(); }
@@ -3980,12 +4021,16 @@ html[data-v4] #lookupResult[data-stick="mid"].hdr-off .pbar .pmini{max-width:180
     $$("#rvTabs button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-tabs-at") === TABS); });
     $("#rvThumb").innerHTML = rvThumb(PERSON, TABS);
     $("#rvLayoutNote").textContent = describeLayout();
-    $("#rvSummary").textContent = "V" + v + " · " + (v === "4" ? "Learner 360" : layoutLabel()) + (NAVHIDE.length ? " · " + NAVHIDE.length + " hidden" : "");
+    $("#rvSummary").textContent = "V" + v + " · " + layoutLabel() + (NAVHIDE.length ? " · " + NAVHIDE.length + " hidden" : "");
     $$("#rvNav [data-navitem]").forEach(function (c) { c.checked = NAVHIDE.indexOf(c.getAttribute("data-navitem")) < 0; });
     if (typeof rvShareSync === "function") rvShareSync();
   }
   function describeLayout() {
-    if (isV4()) return "V4 uses one layout, from the Learner 360 frames: the person and four headline figures, their life with upGrad, then contact and records on the left and four tabs on the right. The sticky bar and pinned search still apply.";
+    if (isV4()) {
+      var who4 = PERSON === "rail" ? "The person, their headline figures, contact and records stay pinned in the left panel" : "The person and headline figures run across the top, and contact and records stay pinned on the left";
+      var tabs4 = TABS === "top" ? "the four tabs stay pinned above the details" : TABS === "left" ? (PERSON === "rail" ? "the four tabs sit in the left panel, under the person" : "the four tabs stay pinned to the left of the details") : "the four tabs stay pinned to the right of the details";
+      return who4 + ", and " + tabs4 + ". Below 1100px wide, V4 always puts the person and tabs on top.";
+    }
     var who = PERSON === "rail" ? "The person card stays pinned on the left" : "The person card runs across the top; once it scrolls away, a slim bar keeps their name in view";
     var tabs = TABS === "top" ? "the section tabs stay pinned above the details" : TABS === "left" ? (PERSON === "rail" ? "the section tabs sit under the person card" : "the section tabs stay pinned on the left") : "the section tabs stay pinned on the right";
     return who + ", and " + tabs + ".";
