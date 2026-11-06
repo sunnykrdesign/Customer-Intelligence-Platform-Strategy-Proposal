@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<script>(function(){var v='2';try{var m=/[?&]v=([123])/.exec(location.search);v=m?m[1]:(localStorage.getItem('cip-version')||'2');if(m)localStorage.setItem('cip-version',v);}catch(e){}document.documentElement.setAttribute('data-v',v);})();</script>
+<script>(function(){var v='2';try{var m=/[?&]v=([1234])/.exec(location.search);v=m?m[1]:(localStorage.getItem('cip-version')||'2');if(m)localStorage.setItem('cip-version',v);}catch(e){}var d=document.documentElement;d.setAttribute('data-v',v==='4'?'3':v);if(v==='4')d.setAttribute('data-v4','');})();</script>
 <style>
 :root{
   --bg:#F5F5F7; --card:#FFFFFF; --text:#1D1D1F; --muted:#6E6E73; --line:#E5E5EA; --border:#D2D2D7;
@@ -1197,6 +1197,378 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
   #lookupResult[data-layout="rail"] .prail{padding:6px 12px 28px;margin:-6px -12px -28px;top:calc(var(--sbar,0px) + 10px);max-height:calc(100vh - 20px - var(--sbar,0px))}
 }
 @media (prefers-reduced-motion: reduce){.pbar::after{transition:none}}
+/* ================= V4: V3 design language, V2 sidebar, Learner 360 content ================= */
+/* Sidebar, as in V2 */
+html[data-v4] .side{background:#FBFBFC;border-right:1px solid var(--line);height:100vh;padding:24px 14px 18px;gap:24px;flex-basis:240px}
+html[data-v4] .nav a{border-radius:10px;min-height:40px;padding:0 12px;color:#55555C;font-weight:500;transition:background .2s,color .2s}
+html[data-v4] .nav a:hover{background:#F2F2F5;color:var(--text)}
+html[data-v4] .nav a[aria-current="page"]{background:#fff;color:var(--text);box-shadow:0 1px 2px rgba(20,20,40,.06),0 0 0 1px var(--line)}
+html[data-v4] .nav .count{font-family:inherit;font-size:13px}
+html[data-v4] .me{box-shadow:0 0 0 1px var(--line)}
+@media (max-width:820px){html[data-v4] .side{height:auto;border-right:none;border-bottom:1px solid var(--line)}}
+html[data-v4] .rv-pos{display:none}
+@media (min-width:821px){html[data-v4] .app{background:linear-gradient(90deg,#FBFBFC 239px,var(--line) 239px 240px,var(--bg) 240px)}}
+html[data-v4] .view[data-view="lookup"]{gap:20px !important}
+
+/* Learner 360 */
+.v4{display:flex;flex-direction:column;gap:16px;min-width:0}
+.v4 .backbtn{align-self:flex-start}
+.v4hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,600px);gap:24px;align-items:center;background:var(--card);border-radius:24px;padding:24px 26px;box-shadow:0 1px 2px rgba(16,16,24,.03),0 10px 30px rgba(16,16,24,.045)}
+.v4id{display:flex;align-items:center;gap:20px;min-width:0}
+.v4ring{position:relative;flex:0 0 auto;display:grid;place-items:center}
+.v4ring svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.v4ring .rt{fill:none;stroke:#EDEDF0;stroke-width:3.5}
+.v4ring .rv{fill:none;stroke:#4C7BE8;stroke-width:3.5;stroke-linecap:round}
+.v4face{width:calc(100% - 16px);height:calc(100% - 16px);border-radius:50%;background:#1D1D1F;color:#fff;display:grid;place-items:center;font-weight:600;font-size:20px;letter-spacing:-.01em;object-fit:cover}
+.v4who{min-width:0}
+.v4name{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.v4name h1{font-size:30px;font-weight:600;letter-spacing:-0.03em;margin:0;line-height:1.1}
+.v4name .gid{font-size:12px;color:var(--muted)}
+.v4chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.v4chips span{height:26px;padding:0 10px;border-radius:999px;background:var(--fill);font-size:12.5px;font-weight:500;display:inline-flex;align-items:center;white-space:nowrap}
+.v4matched{margin:8px 0 0;font-size:13px;color:var(--muted)}
+.v4kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-radius:18px;background:#F7F7F9;box-shadow:inset 0 0 0 1px var(--line)}
+.v4kpi{padding:14px 18px 15px;display:flex;flex-direction:column;gap:5px;min-width:0}
+.v4kpi + .v4kpi{box-shadow:inset 1px 0 0 var(--line)}
+.v4kpi .k{font-size:12px;color:var(--muted)}
+.v4kpi .v{font-size:23px;font-weight:600;letter-spacing:-0.025em;line-height:1.1;white-space:nowrap}
+.v4kpi .bar{display:block;height:4px;border-radius:999px;background:#E6E6EB;margin:3px 0 1px}
+.v4kpi .bar i{display:block;height:100%;border-radius:999px;background:#4C7BE8;transition:width .9s var(--ease)}
+.v4kpi.t-ok .bar i{background:#6FC28F}
+.v4kpi.t-warm .bar i{background:#E9B04A}
+.v4kpi.t-bad .bar i{background:#E57A80}
+.v4kpi .d{font-size:12px;color:var(--muted);line-height:1.35}
+
+/* Life with upGrad */
+.v4life{padding:20px 24px 16px}
+.v4life-head{display:flex;justify-content:space-between;align-items:center;gap:12px 20px;flex-wrap:wrap;margin-bottom:12px}
+.v4life-head h2{font-size:16px;font-weight:600;margin:0}
+.v4legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.v4legend span{display:inline-flex;align-items:center;gap:6px}
+.v4legend .lg{width:18px;height:8px;border-radius:999px;display:inline-block}
+.v4legend .lg-dot{width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px #1D1D1F;display:inline-block}
+.v4life-scroll{overflow-x:auto;scrollbar-width:thin;margin:0 -4px;padding:0 4px}
+.v4life-grid{min-width:760px}
+.v4lane{display:grid;grid-template-columns:196px minmax(0,1fr);align-items:center;min-height:42px;box-shadow:0 1px 0 #F0F0F3}
+.v4lane.v4stage{min-height:36px;box-shadow:none}
+.v4lane.v4axis{min-height:28px;box-shadow:none}
+.v4lname{display:flex;align-items:center;gap:10px;padding-right:12px;min-width:0}
+.v4lname i{width:8px;height:8px;border-radius:3px;flex:0 0 8px}
+.v4lname span{min-width:0}
+.v4lname b{display:block;font-size:13.5px;font-weight:600}
+.v4lname small{display:block;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v4track{position:relative;align-self:stretch;min-height:42px}
+.v4stage .v4track{min-height:36px}
+.v4axis .v4track{min-height:28px}
+.v4seg{position:absolute;top:50%;height:10px;margin-top:-5px;border-radius:999px}
+.k-lead{background:#fff;box-shadow:inset 0 0 0 1.5px #A8B4CC}
+.k-counselled{background:#B9CCF4}
+.k-paid{background:#4C7BE8}
+.k-done{background:#93B1EE}
+.k-lost{background:repeating-linear-gradient(135deg,#C7C7CE 0 3px,#EEEEF1 3px 6px)}
+.v4dot{position:absolute;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;border-radius:50%;background:#fff;box-shadow:0 0 0 2.5px #1D1D1F;z-index:1}
+.v4band{position:absolute;top:50%;height:24px;margin-top:-12px;border-radius:8px;background:#EDEDF1;color:var(--text);font-size:12px;font-weight:500;display:flex;align-items:center;padding:0 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box;box-shadow:inset 0 0 0 2px #fff}
+.v4band + .v4band{background:#E1E9FA;color:#2D4C99}
+.v4empty{position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:12px;color:#A1A1A8}
+.v4today{position:absolute;top:0;bottom:0;width:0;border-left:1.5px solid #E9B04A;pointer-events:none}
+.v4tick{position:absolute;top:8px;font-family:var(--mono);font-size:11px;color:#A1A1A8}
+.v4tick.now{transform:translateX(-50%);color:#B7791F;font-weight:600;background:var(--card);padding:0 4px}
+.v4lname i.bu-S{background:#3F9D6B}.v4lname i.bu-I{background:#9A9AA2}.v4lname i.bu-G{background:#5B6472}.v4lname i.bu-W{background:#4C7BE8}.v4lname i.bu-K{background:#8B6CDB}.v4lname i.bu-L{background:#D07A3A}.v4lname i.bu-U{background:#2BA59A}
+
+/* Two columns: contact and records on the left, the work on the right */
+.v4grid{display:grid;grid-template-columns:304px minmax(0,1fr);gap:16px;align-items:start}
+.v4rail,.v4main{display:flex;flex-direction:column;gap:16px;min-width:0}
+.v4rc{padding:18px 18px 16px}
+.v4rc h3{font-size:15px;font-weight:600;margin:0 0 10px}
+.v4rch{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:4px}
+.v4rch h3{margin:0}
+.v4rch small{font-size:12px;color:var(--muted)}
+.v4ch{display:grid;grid-template-columns:32px minmax(0,1fr) auto;gap:10px;align-items:center;padding:7px 0}
+.v4chic{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:#EEF3FE;color:#3D63C9}
+.v4chic.no{background:#F4F4F6;color:#A1A1A8}
+.v4cht b{display:block;font-size:13.5px;font-weight:600}
+.v4cht small{display:block;font-size:12px;color:var(--muted);overflow-wrap:anywhere;line-height:1.35}
+.v4st{font-size:11.5px;font-weight:600;height:22px;padding:0 9px;border-radius:999px;display:inline-flex;align-items:center;white-space:nowrap}
+.v4st.ok{background:#E7F5EC;color:#23794A}
+.v4st.no{background:#FCEBEC;color:#B4232C}
+.btn.ghost.sm.v4wide{width:100%;margin-top:10px;height:40px;background:#fff;color:var(--text);border:1px solid var(--border);font-weight:500}
+.btn.ghost.sm.v4wide:hover{border-color:var(--text)}
+.v4note{margin:10px 0 0;font-size:12px;color:var(--muted);line-height:1.45}
+.v4note.pad{padding:4px 0 16px;margin:0}
+.v4rec{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;box-shadow:0 1px 0 var(--line)}
+.v4rec:nth-last-child(2){box-shadow:none}
+.v4rec b{display:block;font-size:13.5px;font-weight:600}
+.v4rec small{display:block;font-size:11.5px;color:var(--muted);font-family:var(--mono);margin-top:1px}
+.v4link{color:var(--text);text-decoration:underline;text-underline-offset:2px;font-weight:500}
+.v4own{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;padding:7px 0}
+.v4own-n b{display:block;font-size:13.5px;font-weight:600}
+.v4own-n small{font-size:12px;color:var(--muted)}
+.v4open{width:30px;height:30px;border-radius:9px;border:none;background:var(--fill);color:var(--muted);display:grid;place-items:center}
+.v4open:hover{background:#E6E6EB;color:var(--text)}
+.v4srcbars{display:flex;flex-direction:column;gap:9px}
+.v4sb{display:grid;grid-template-columns:102px minmax(0,1fr) 22px;gap:10px;align-items:center}
+.v4sb .src4{justify-self:start}
+.v4sbt{height:6px;border-radius:999px;background:var(--track)}
+.v4sbt i{display:block;height:100%;border-radius:999px;background:#A8B4CC}
+.v4sb b{font-size:13px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.src4{display:inline-flex;align-items:center;height:20px;padding:0 7px;border-radius:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;white-space:nowrap;background:#F2F2F5;color:#6E6E73}
+.src4.s-pr{background:#ECEEFD;color:#3A49B8}
+.src4.s-lsq{background:#E6F2FB;color:#1C6AA3}
+.src4.s-hs{background:#FDF0E7;color:#A9531C}
+.src4.s-oms{background:#E7F5EC;color:#23794A}
+.src4.s-si{background:#F2ECFC;color:#6A3DB8}
+.v4bu{display:inline-flex;align-items:center;height:20px;padding:0 7px;border-radius:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;background:var(--fill);color:var(--text);white-space:nowrap}
+.v4bu.bu-S{background:#E7F4EC;color:#2B7A50}.v4bu.bu-W{background:#E6EEFC;color:#2D5BC4}.v4bu.bu-K{background:#EFEAFB;color:#6A49B8}.v4bu.bu-G{background:#ECEEF1;color:#48505E}.v4bu.bu-I{background:#F0F0F2;color:#5F5F66}.v4bu.bu-L{background:#FBEEE4;color:#A65A22}.v4bu.bu-U{background:#E3F4F2;color:#1E7D74}
+
+/* Things to act on */
+.v4act{padding:16px 20px 6px}
+.v4act-head{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.v4act-head h2{font-size:16px;font-weight:600;margin:0}
+.v4act-ic{width:28px;height:28px;border-radius:9px;background:#FDF3E1;color:#B7791F;display:grid;place-items:center}
+.v4act-item{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;box-shadow:0 -1px 0 var(--line)}
+.v4act-item:first-of-type{box-shadow:none}
+.v4act-item b{font-size:14.5px;font-weight:600}
+.v4act-item p{margin:3px 0 0;font-size:13px;color:var(--muted);line-height:1.45}
+.v4act-item .btn{flex:0 0 auto;height:36px;padding:0 16px;font-size:13px}
+.v4done{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:#23794A;flex:0 0 auto;text-align:right}
+.v4act-item.done b{color:var(--muted);font-weight:500}
+
+/* Tabs */
+.v4tabs{flex:1 1 auto}
+.v4tabs button{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:14px;padding:0 16px}
+.v4cnt{font-family:var(--mono);font-size:10.5px;font-weight:600;height:18px;padding:0 6px;border-radius:6px;background:rgba(0,0,0,.06);color:var(--muted);display:inline-flex;align-items:center}
+[aria-selected="true"] > .v4cnt{background:#1D1D1F;color:#fff}
+html[data-v4] .v4tabs button{flex:1 1 auto;white-space:nowrap}
+/* Mid bar: a compact person (photo and name) so the four tabs keep their room */
+html[data-v4] #lookupResult[data-stick="mid"] .pbar .pmini small{display:none}
+html[data-v4] #lookupResult[data-stick="mid"].hdr-off .pbar .pmini{max-width:180px;padding-right:14px}
+.mini-av.v4mini{background:#1D1D1F;color:#fff;font-size:12px;font-weight:600}
+
+/* Learner profile */
+.v4tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.v4srcs{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+.v4srcs > span:first-child{margin-right:4px}
+.v4tbtn{display:flex;gap:8px}
+.v4tbtn .btn.ghost.sm{height:34px;padding:0 14px;font-size:13px;background:#fff;color:var(--text);border:1px solid var(--border)}
+.v4tbtn .btn.ghost.sm:hover{border-color:var(--text)}
+.v4acc{padding:0;overflow:hidden}
+.v4acc-h{width:100%;display:grid;grid-template-columns:40px minmax(0,1fr) auto auto auto;gap:14px;align-items:center;padding:16px 20px;border:none;background:transparent;text-align:left;color:var(--text);font:inherit;cursor:pointer;transition:background .2s}
+.v4acc-h:hover{background:#FAFAFB}
+.v4acc-ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#EEF3FE;color:#3D63C9}
+.v4acc-ic.ic-personal{background:#E6F2FB;color:#1C6AA3}
+.v4acc-ic.ic-education{background:#E7F5EC;color:#23794A}
+.v4acc-ic.ic-career{background:#FDF0E7;color:#A9531C}
+.v4acc-ic.ic-aspiration{background:#FDF5E2;color:#9A6B0F}
+.v4acc-ic.ic-financial{background:#E7F5EC;color:#23794A}
+.v4acc-ic.ic-consent{background:#FCEDEF;color:#B4374A}
+.v4acc-t{min-width:0}
+.v4acc-t b{display:block;font-size:15.5px;font-weight:600}
+.v4acc-t small{display:block;font-size:13px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v4fill{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.v4fill small{font-size:12px;color:var(--muted);white-space:nowrap}
+.v4meter{width:92px;height:4px;border-radius:999px;background:var(--track)}
+.v4meter i{display:block;height:100%;border-radius:999px;background:#1D1D1F}
+.v4chev{color:#A1A1A8;display:grid;transition:transform .3s var(--ease)}
+.v4acc.open .v4chev{transform:rotate(180deg)}
+.v4lockic{color:#8E8E96;display:grid;width:15px}
+.v4acc-b{padding:0 20px 6px 74px;animation:rise .35s var(--ease) backwards}
+.v4row{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px;padding:14px 0;box-shadow:0 -1px 0 var(--line)}
+.v4rl{font-size:13.5px;color:var(--muted);padding-top:1px}
+.v4rv{min-width:0}
+.v4rv b{font-size:15px;font-weight:600;display:block;overflow-wrap:anywhere;line-height:1.4}
+.v4rv b.bad{color:#B4232C}
+.v4restr{font-size:15px;color:var(--muted)}
+.v4meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:6px;font-size:12.5px;color:var(--muted)}
+.v4meta > span:not(.src4){margin-left:2px}
+.v4conf{margin-top:8px;padding:8px 12px;border-radius:10px;background:#FDF6E7;color:#8A5A12;font-size:12.5px;line-height:1.45}
+.v4miss{margin:0;padding:12px 0 10px;font-size:12.5px;color:#A1A1A8;box-shadow:0 -1px 0 var(--line)}
+.v4lock{display:flex;align-items:center;gap:12px;padding:10px 10px 10px 14px;border-radius:12px;background:#F7F7F9;margin:2px 0 12px}
+.v4lock p{flex:1;margin:0;font-size:13px;color:var(--muted);line-height:1.45}
+.v4lock > span{color:var(--muted);display:grid}
+.v4lock.open{background:#EEF7F1}
+.v4lock.open > span{color:#23794A}
+.lockform.v4lockform{padding:0 0 14px}
+
+/* Academic and skills */
+.v4course{padding:24px}
+.v4course.empty4{padding:20px 24px}
+.v4ctop{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:22px;align-items:center}
+.v4pct{display:flex;flex-direction:column;align-items:center;line-height:1;position:relative}
+.v4pct b{font-size:24px;font-weight:600;letter-spacing:-.02em}
+.v4pct small{font-size:11px;color:var(--muted);margin-top:4px}
+.v4ctx{min-width:0}
+.v4ctx h2{font-size:20px;font-weight:600;letter-spacing:-.02em;margin:8px 0 6px}
+.v4ctx p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.5}
+.v4tags{display:flex;gap:6px}
+.v4tag{font-size:11.5px;font-weight:600;height:22px;padding:0 9px;border-radius:999px;background:#EEF3FE;color:#3D63C9;display:inline-flex;align-items:center;white-space:nowrap}
+.v4tag.bu{background:var(--fill);color:var(--text)}
+.v4stats{display:grid;grid-template-columns:repeat(3,auto);gap:8px}
+.v4stats div{background:#F7F7F9;border-radius:14px;padding:12px 16px;min-width:100px}
+.v4stats small{display:block;font-size:12px;color:var(--muted)}
+.v4stats b{display:block;font-size:20px;font-weight:600;margin-top:4px;letter-spacing:-.01em}
+.v4h3{font-size:13px;font-weight:600;margin:22px 0 10px}
+.v4course{container-type:inline-size}
+.v4mods{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;list-style:none;margin:0;padding:0}
+@container (min-width:860px){.v4mods{grid-template-columns:repeat(8,minmax(0,1fr))}}
+.v4mods li{border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:3px;min-height:96px;background:#F7F7F9}
+.v4mods .n{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:600;background:#fff;color:var(--muted);box-shadow:0 0 0 1px var(--border);margin-bottom:6px}
+.v4mods b{font-size:13px;font-weight:600;line-height:1.3}
+.v4mods small{font-size:11.5px;color:var(--muted)}
+.v4mods .m-done{background:#EEF3FE}
+.v4mods .m-done .n{background:#4C7BE8;color:#fff;box-shadow:none}
+.v4mods .m-now{background:#fff;box-shadow:inset 0 0 0 1.5px #4C7BE8}
+.v4mods .m-now .n{color:#3D63C9;box-shadow:0 0 0 1.5px #4C7BE8}
+.v4mods .m-next{background:transparent;box-shadow:inset 0 0 0 1px var(--border)}
+.v4mods .m-next b{color:#55555C}
+.v4minis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.v4mini{border-radius:16px;box-shadow:inset 0 0 0 1px var(--line);padding:14px 16px}
+.v4mh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:10px}
+.v4mh b{font-size:13.5px;font-weight:600}
+.v4mh small{font-size:12px;color:var(--muted)}
+.v4up{font-size:12px;font-weight:600;color:#23794A}
+.v4spark{width:100%;height:auto;display:block}
+.v4spark .ar{fill:#EEF3FE}
+.v4spark .ln{fill:none;stroke:#4C7BE8;stroke-width:1.5}
+.v4spark .pt{fill:#fff;stroke:#4C7BE8;stroke-width:1.5}
+.v4mf{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);margin-top:6px}
+.v4sq{display:grid;grid-template-columns:repeat(10,1fr);gap:5px}
+.v4sq i{aspect-ratio:1;border-radius:6px;box-shadow:inset 0 0 0 1.5px #DADAE0}
+.v4sq i.on{background:#A893E6;box-shadow:none}
+.v4inst{display:flex;flex-wrap:wrap;gap:6px}
+.v4inst i{width:18px;height:18px;border-radius:50%;box-shadow:inset 0 0 0 1.5px #DADAE0}
+.v4inst i.on{background:#6FC28F;box-shadow:none}
+.v4two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.v4skills,.v4creds{padding:20px 22px}
+.v4skills h2,.v4creds h2{font-size:16px;font-weight:600;margin:0 0 6px}
+.v4sk{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:11px 0;box-shadow:0 1px 0 var(--line)}
+.v4sk:last-child{box-shadow:none}
+.v4sk b{display:block;font-size:14px;font-weight:600}
+.v4sk small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.v4sk small.gr{color:#23794A}
+.v4lvl{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex:0 0 auto}
+.v4lvl small{margin:0}
+.v4segs{display:flex;gap:3px}
+.v4segs i{width:26px;height:6px;border-radius:999px;background:var(--track)}
+.v4segs i.on{background:#4C7BE8}
+.v4segs i.dec{background:#C3C6CE}
+.v4cred{display:flex;gap:12px;align-items:center;padding:14px;border-radius:14px;margin-top:10px}
+.v4cred.got{background:#EEF7F1}
+.v4cred.due{background:#FAFAFB;outline:1px dashed #D2D2D8;outline-offset:-1px}
+.v4cic{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;flex:0 0 38px}
+.v4cred.got .v4cic{background:#2F7A4F;color:#fff}
+.v4cred.due .v4cic{background:#ECECF0;color:#8E8E96}
+.v4cred b{display:block;font-size:14px;font-weight:600}
+.v4cred small{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+
+/* Activity */
+.v4actv{padding:20px 22px}
+.v4atools{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.v4cats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.v4cat{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px;border-radius:999px;border:1px solid var(--border);background:#fff;font-size:13px;font-weight:500;color:var(--text)}
+.v4cat span{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.v4cat:hover:not(:disabled){border-color:var(--text)}
+.v4cat.on{background:#1D1D1F;color:#fff;border-color:#1D1D1F}
+.v4cat.on span{color:rgba(255,255,255,.7)}
+.v4cat:disabled{opacity:.4;cursor:default}
+.v4month h3{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;margin:4px 0 12px}
+.v4month h3 small{font-size:12px;font-weight:400;color:var(--muted)}
+.v4month h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.v4tl{list-style:none;margin:0 0 18px;padding:0;display:flex;flex-direction:column;gap:10px}
+.v4ev{display:grid;grid-template-columns:44px 32px minmax(0,1fr);gap:12px;align-items:start;position:relative}
+.v4ev::before{content:"";position:absolute;left:71px;top:38px;bottom:-12px;width:1.5px;background:var(--line)}
+.v4ev:last-child::before{display:none}
+.v4when{text-align:center;padding-top:6px}
+.v4when b{display:block;font-size:15px;font-weight:600;line-height:1.2}
+.v4when small{display:block;font-size:11px;color:var(--muted)}
+.v4evic{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:#fff;background:#8E8E96;margin-top:4px;position:relative;z-index:1}
+.c-A .v4evic{background:#7C8AD6}.c-M .v4evic{background:#D49045}.c-E .v4evic{background:#3F9D6B}.c-X .v4evic{background:#4C7BE8}.c-P .v4evic{background:#2BA59A}.c-L .v4evic{background:#8B6CDB}.c-S .v4evic{background:#D06A8A}.c-C .v4evic{background:#6E6E73}
+.v4evc{border-radius:14px;box-shadow:inset 0 0 0 1px var(--line);padding:12px 14px;min-width:0}
+.v4evh{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.v4evh b{font-size:14px;font-weight:600}
+.v4evh .src4{margin-left:auto}
+.v4evc p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+.v4more,.v4how{border:none;background:none;padding:0;margin-top:8px;font-size:12.5px;font-weight:600;color:#3D63C9;min-height:24px}
+.v4more:hover,.v4how:hover{text-decoration:underline;text-underline-offset:2px}
+.v4dl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 16px;margin:10px 0 0;padding-top:10px;box-shadow:0 -1px 0 var(--line)}
+.v4dl dt{font-size:11.5px;color:var(--muted)}
+.v4dl dd{margin:2px 0 0;font-size:13px}
+.v4bys{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.v4by{border-radius:16px;box-shadow:inset 0 0 0 1px var(--line);padding:14px 16px}
+.v4byh{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.v4byh b{font-size:14px;font-weight:600}
+.v4byh small{font-size:12px;color:var(--muted)}
+.v4by ol{list-style:none;margin:0;padding:0}
+.v4by li{display:grid;grid-template-columns:78px minmax(0,1fr);gap:2px 10px;padding:9px 0;box-shadow:0 -1px 0 var(--line)}
+.v4by li span{font-family:var(--mono);font-size:11.5px;color:var(--muted);grid-row:span 2;padding-top:2px}
+.v4by li b{font-size:13.5px;font-weight:600}
+.v4by li small{font-size:12.5px;color:var(--muted)}
+.v4rhythm .v4note{margin:0}
+.btn.ghost.sm.v4older{margin-top:0}
+.v4bars{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:8px;align-items:end;height:180px;margin-top:16px}
+.v4b{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px;height:100%}
+.v4b i{display:block;width:100%;max-width:34px;border-radius:8px 8px 4px 4px;background:#C6D5F6}
+.v4b:last-child i{background:#4C7BE8}
+.v4b small{font-family:var(--mono);font-size:10px;color:var(--muted);white-space:nowrap}
+.v4rstats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}
+.v4rstats div{background:#F7F7F9;border-radius:14px;padding:12px 14px}
+.v4rstats small{display:block;font-size:12px;color:var(--muted)}
+.v4rstats b{display:block;font-size:15px;font-weight:600;margin-top:2px}
+
+/* Insights */
+.v4ins{columns:3 280px;column-gap:16px}
+.v4ic{break-inside:avoid;margin-bottom:16px;padding:18px 20px 4px;display:block}
+.v4ich{display:flex;justify-content:space-between;align-items:center;gap:8px;padding-bottom:12px;box-shadow:0 1px 0 var(--line)}
+.v4ich h2{font-size:15.5px;font-weight:600;margin:0}
+.v4ich .v4tag{background:var(--fill);color:var(--muted)}
+.v4ich .v4tag.t-oms{background:#E7F5EC;color:#23794A}
+.v4ich .v4tag.t-pr{background:#ECEEFD;color:#3A49B8}
+.v4ich .v4tag.t-si{background:#F2ECFC;color:#6A3DB8}
+.v4it{padding:14px 0;box-shadow:0 1px 0 var(--line)}
+.v4it:last-child{box-shadow:none}
+.v4it small{display:block;font-size:12.5px;color:var(--muted)}
+.v4it b{display:block;font-size:15px;font-weight:600;margin-top:4px;line-height:1.3}
+.v4it b.big{font-size:21px;letter-spacing:-.02em}
+.v4it b.muted{color:var(--muted);font-weight:500}
+.v4it b.t-ok{color:#23794A}
+.v4it b.t-warn{color:#9A5B0F}
+.v4howt{margin:8px 0 0;padding:10px 12px;border-radius:10px;background:#F7F7F9;font-size:12.5px;color:#55555C;line-height:1.5;animation:rise .3s var(--ease) backwards}
+
+/* Smaller screens */
+@media (max-width:1320px){.v4hero{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:1100px){
+  .v4grid{grid-template-columns:minmax(0,1fr)}
+  .v4rail{order:2;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+  .v4tabs button{padding:0 14px}
+}
+@media (max-width:760px){
+  .v4hero{padding:18px;border-radius:20px}
+  .v4id{align-items:flex-start;gap:14px}
+  .v4name h1{font-size:24px}
+  .v4kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .v4kpi:nth-child(3){box-shadow:inset 0 1px 0 var(--line)}
+  .v4kpi:nth-child(4){box-shadow:inset 1px 0 0 var(--line),inset 0 1px 0 var(--line)}
+  .v4life{padding:16px 16px 12px}
+  .v4acc-h{grid-template-columns:36px minmax(0,1fr) auto auto;gap:10px;padding:14px 16px}
+  .v4acc-ic{width:36px;height:36px}
+  .v4fill{display:none}
+  .v4acc-b{padding:0 16px 6px}
+  .v4row{grid-template-columns:minmax(0,1fr);gap:4px}
+  .v4ctop{grid-template-columns:auto minmax(0,1fr)}
+  .v4stats{grid-column:1/-1;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .v4stats div{min-width:0;padding:10px 12px}
+  .v4minis,.v4two{grid-template-columns:minmax(0,1fr)}
+  .v4dl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .v4act-item{flex-direction:column;align-items:flex-start}
+  .v4ev{grid-template-columns:34px 28px minmax(0,1fr);gap:8px}
+  .v4ev::before{left:55px;top:34px}
+  .v4evic{width:28px;height:28px}
+  .v4evh .src4{margin-left:0}
+  .v4rstats{grid-template-columns:minmax(0,1fr)}
+  .v4bars{gap:4px}
+  .v4b small{font-size:9px}
+  .v4course{padding:18px}
+}
+@media (prefers-reduced-motion: reduce){.v4acc-b,.v4howt{animation:none}.v4kpi .bar i,.v4chev{transition:none}}
 </style>
 </head>
 <body>
@@ -1752,12 +2124,14 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
 <div class="review" id="review">
   <div class="rv-panel" id="rvPanel" role="dialog" aria-label="Review controls" tabindex="-1" hidden>
     <div class="rv-head"><b>Review</b><span>For design review, not part of the product</span><button type="button" class="rv-x" id="rvClose" aria-label="Close review panel"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1l10 10M11 1L1 11"/></svg></button></div>
-    <div class="rv-sec"><span class="rv-k">Design version</span><div class="rv-seg" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="1" aria-pressed="false">V1</button><button type="button" data-v="2" aria-pressed="false">V2</button><button type="button" data-v="3" aria-pressed="false">V3</button></div></div>
+    <div class="rv-sec"><span class="rv-k">Design version</span><div class="rv-seg" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="1" aria-pressed="false">V1</button><button type="button" data-v="2" aria-pressed="false">V2</button><button type="button" data-v="3" aria-pressed="false">V3</button><button type="button" data-v="4" aria-pressed="false">V4</button></div></div>
     <div class="rv-sec"><span class="rv-k">Look up a person · layout</span>
+      <div class="rv-pos">
       <div class="rv-thumb" id="rvThumb" aria-hidden="true"></div>
       <div class="rv-legend" aria-hidden="true"><span><i class="w-p"></i>Person</span><span><i class="w-s"></i>Summary</span><span><i class="w-t"></i>Section tabs</span><span><i></i>Details</span></div>
       <span class="rv-sub">Person card</span><div class="rv-seg" id="rvPerson" role="group" aria-label="Person card position"></div>
       <span class="rv-sub">Section tabs</span><div class="rv-seg" id="rvTabs" role="group" aria-label="Section tabs position"></div>
+      </div>
       <span class="rv-sub">Sticky bar</span><div class="rv-seg" id="rvStick" role="group" aria-label="Sticky bar prominence"></div>
       <div class="rv-rows"><label class="rv-row"><span>Pin the search bar</span><input type="checkbox" class="switch rv-switch" id="rvSSearch" aria-label="Pin the search bar at the top"></label></div>
       <p class="rv-note" id="rvLayoutNote"></p>
@@ -1980,6 +2354,372 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
   var BUS = { U: "Unacademy", I: "Internshala", W: "WP", S: "Study Abroad" };
   var STAGES = ["Prospect", "Lead", "Counselled", "Paid", "Learning", "Completed", "Alumni"];
   var STAGE_AT = { Dropped: 5, Deferred: 5, Refunded: 5 };
+
+  /* ================= V4: the Learner 360 view (V3 design language, V2 sidebar) ================= */
+  BU.K = "KnowledgeHut"; BUS.K = "KH"; BU.G = "upGrad platform"; BUS.G = "upGrad"; STAGE_AT.Lost = 2;
+  var TODAY4 = new Date(2026, 10, 5);
+  // Every upGrad business, in the order the Learner 360 shows them.
+  var BU4 = { S: ["Study Abroad", "SA"], I: ["Internshala", "IS"], G: ["upGrad platform", "Platform"], W: ["Working Professionals", "WP"], K: ["KnowledgeHut", "KH"], L: ["International, LC", "LC"], U: ["Unacademy", "UA"] };
+  var LANES4 = ["S", "I", "G", "W", "K", "L"];
+  var CAT4 = [["A", "Attribution", "target"], ["M", "Marketing engagement", "mega"], ["E", "Enquiries", "inbox"], ["X", "Interactions", "phone"], ["P", "Payments", "card"], ["L", "Learning activity", "book"], ["S", "Support and referrals", "heart"], ["C", "Consent", "shield"]];
+  var MON4 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var MONL4 = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  var DAY4 = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  var TABS4 = [["profile", "Learner profile"], ["academic", "Academic and skills"], ["activity", "Activity"], ["insights", "Insights"]];
+  var ICON4 = {
+    user: '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/>',
+    home: '<path d="M4 11l8-7 8 7v9a1 1 0 01-1 1h-4v-6h-6v6H5a1 1 0 01-1-1z"/>',
+    cap: '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/>',
+    brief: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 13h18"/>',
+    star: '<path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/>',
+    money: '<path d="M7 5h10M7 9h10M12 5c3.5 0 3.5 8-1.5 8H7l7 7"/>',
+    shield: '<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/>',
+    phone: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/>',
+    mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+    chat: '<path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/>',
+    sms: '<path d="M4 5h16v11H9l-5 4z"/>',
+    ads: '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>',
+    target: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/>',
+    mega: '<path d="M4 10v4h3l6 4V6l-6 4z"/><path d="M17 9a4 4 0 010 6"/>',
+    inbox: '<path d="M3 13l3-8h12l3 8v6H3z"/><path d="M3 13h5l1 2h6l1-2h5"/>',
+    card: '<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h3"/>',
+    book: '<path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z"/><path d="M5 17a3 3 0 013-3h11"/>',
+    heart: '<path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/>',
+    alert: '<path d="M12 3.5l9 16H3z"/><path d="M12 10v4M12 17v.5"/>',
+    chev: '<path d="M6 9l6 6 6-6"/>',
+    award: '<circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 21l5-3 5 3-1.5-7.5"/>',
+    check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+    lock: '<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/>',
+    ext: '<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5"/>'
+  };
+  function ic4(name, size) { return '<svg width="' + (size || 18) + '" height="' + (size || 18) + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICON4[name] || "") + "</svg>"; }
+  function isV4() { return document.documentElement.hasAttribute("data-v4"); }
+  function curV() { return isV4() ? "4" : (document.documentElement.getAttribute("data-v") || "2"); }
+  function srcCls4(s) { return { Prism: "s-pr", LSQ: "s-lsq", HubSpot: "s-hs", OMS: "s-oms", "Sales Insights": "s-si", SA: "s-si", WP: "s-si" }[s] || "s-ot"; }
+  function src4(s) { return '<span class="src4 ' + srcCls4(s) + '">' + esc(s) + "</span>"; }
+
+  // Dates in the sample data look like "2026-10-28", "28 Oct", "16 Jun 2025", "Mar 2024", "Today" or "Since Sep 2025".
+  function d4(s, year) {
+    if (!s) return null;
+    var t = String(s).replace(/^Since\s+/i, "").trim(), m;
+    if ((m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(t))) return { d: new Date(+m[1], +m[2] - 1, +m[3]), day: true };
+    if (/^today/i.test(t)) return { d: new Date(TODAY4), day: true };
+    if (/^yesterday/i.test(t)) return { d: new Date(TODAY4.getTime() - 864e5), day: true };
+    if (/^this week/i.test(t)) return { d: new Date(TODAY4.getTime() - 2 * 864e5), day: false };
+    if ((m = /^(\d{1,2}) ([A-Za-z]{3})(?: (\d{4}))?/.exec(t))) {
+      var y = m[3] ? +m[3] : (year || TODAY4.getFullYear()), d = new Date(y, MON4.indexOf(m[2]), +m[1]);
+      if (!m[3] && d > TODAY4) d = new Date(y - 1, MON4.indexOf(m[2]), +m[1]);
+      return { d: d, day: true };
+    }
+    if ((m = /^([A-Za-z]{3}) (\d{4})/.exec(t))) return { d: new Date(+m[2], MON4.indexOf(m[1]), 15), day: false };
+    if ((m = /^(\d{4})/.exec(t))) return { d: new Date(+m[1], 6, 1), day: false };
+    return null;
+  }
+  function num4(s) { return +(String(s || "0").replace(/[^\d]/g, "")) || 0; }
+  function inr4(s) { var n = num4(s); return n >= 1e5 ? "₹" + (n / 1e5).toFixed(1).replace(/\.0$/, "") + "L" : n >= 1e3 ? "₹" + Math.round(n / 1e3) + "K" : "₹" + n; }
+  function iso4(d) { return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); }
+  function maskPhone4(d) { return "+91 " + d.slice(0, 2) + "•••••" + d.slice(7); }
+  function maskEmail4(e) { var i = e.indexOf("@"); return e.charAt(0) + "•••••" + e.slice(i); }
+
+  // People without a hand-written Learner 360 view get one built from their profile data.
+  function v4Of(p) { return p.v4 || p._v4 || (p._v4 = v4Adapt(p)); }
+  function v4Adapt(p) {
+    var i = p.ins || {}, codes = p.lifecycle.map(function (r) { return r.bu; });
+    var KIND = { Prospect: "lead", Lead: "lead", Counselled: "counselled", Paid: "paid", Learning: "paid", Completed: "done", Alumni: "done", Lost: "lost", Dropped: "lost", Deferred: "paid", Refunded: "lost" };
+    var evs = (p.events || []).map(function (e) { return { e: e, at: e[6] ? d4(e[6]) : d4(e[1]) }; });
+    var lanes = LANES4.concat(codes.filter(function (c) { return LANES4.indexOf(c) < 0; })).map(function (c) {
+      var r = p.lifecycle.filter(function (x) { return x.bu === c; })[0];
+      if (!r) return { bu: c, note: "No record", empty: "No record" };
+      var st = d4(r.when) || d4(p.since), mine = evs.filter(function (x) { return x.e[0] === c && x.at && "LPE".indexOf(x.e[2]) >= 0; }).slice(0, 4);
+      return { bu: c, note: r.stage + " · " + r.when.replace(/^Since /, "since "), segs: st ? [[KIND[r.stage] || "lead", iso4(st.d), null]] : [], dots: mine.map(function (x) { return [iso4(x.at.d), x.e[3]]; }) };
+    });
+    var srcCount = {};
+    ["personal", "education", "career", "aspiration", "finance"].forEach(function (k) { (p[k] || []).forEach(function (r) { if (r[1] && r[2]) srcCount[r[2]] = (srcCount[r[2]] || 0) + 1; }); });
+    var c = p.consent || {};
+    function rows(arr) { return (arr || []).filter(function (r) { return r[0] !== "LinkedIn" || r[1]; }).map(function (r) { return { l: r[0], v: r[1] || "Not captured yet", src: r[2] ? [r[2]] : [], c: r[4] && /wins|says|newer/i.test(r[4]) ? r[4] : "", n: r[4] && !/wins|says|newer/i.test(r[4]) ? r[4] : "", t2: r[3] === "T2" }; }); }
+    var secs = [
+      { key: "identity", t: "Identity and contact", ic: "user", sum: p.emails.length + (p.emails.length === 1 ? " email, " : " emails, ") + p.phones.length + (p.phones.length === 1 ? " mobile" : " mobiles") + " · " + p.ids.length + " linked records", filled: [Math.min(8, 3 + p.ids.length), 8],
+        rows: [{ l: "Emails", mask: "emails", src: [(p.emails[0] || {}).src || "CMS"] }, { l: "Mobile", mask: "phones", src: [(p.phones[0] || {}).src || "CMS"] }, { l: "Name", v: p.name, src: ["Prism"] }] },
+      { key: "personal", t: "Personal details", ic: "home", sum: p.ageBand + " · " + p.stage.toLowerCase() + " · " + p.city, filled: [(p.personal || []).length + 2, 10], rows: rows(p.personal) },
+      { key: "education", t: "Education before upGrad", ic: "cap", sum: ((p.education || [])[0] || [0, "Not captured yet"])[1], filled: [(p.education || []).length, 4], rows: rows(p.education) },
+      { key: "career", t: "Career", ic: "brief", sum: ((p.career || [])[0] || [0, "Not captured yet"])[1], filled: [(p.career || []).filter(function (r) { return r[1]; }).length, 5], rows: rows(p.career) },
+      { key: "aspiration", t: "Aspiration", ic: "star", sum: ((p.aspiration || [])[0] || [0, "Not captured yet"])[1], filled: [(p.aspiration || []).length, 10], rows: rows(p.aspiration) },
+      { key: "financial", t: "Financial profile", ic: "money", sum: ((p.finance || [])[0] || [0, "Not captured yet"])[1], filled: [(p.finance || []).length, 8], fin: true, rows: rows(p.finance) },
+      { key: "consent", t: "Consent and preferences", ic: "shield", sum: ["Call", "Email", "SMS", "WhatsApp"].filter(function (x) { return c[x.toLowerCase()]; }).join(", ") + (c.ads ? ", ads" : "") + " allowed", filled: [6, 8],
+        rows: [["Calls", c.call], ["Email", c.email], ["SMS", c.sms], ["WhatsApp", c.whatsapp], ["Ads", c.ads], ["Other upGrad businesses", c.cross]].map(function (x) { return { l: x[0], v: x[1] ? "Allowed" : "Not allowed", bad: !x[1], src: ["LSQ"], n: (c.why || {})[x[0].toLowerCase()] || "" }; }).concat([{ l: "Legal basis", v: c.basis || "To be confirmed by Legal", src: ["Derived"], n: c.since || "" }]) }
+    ];
+    var cur = (p.courses || []).filter(function (x) { return x.status === "In progress"; })[0] || (p.courses || [])[0];
+    var known = d4(p.since), yrs = known ? Math.max(0, (TODAY4 - known.d) / (365.25 * 864e5)) : 0;
+    return {
+      initials: initials(p.name), place: p.city, known: known ? "Known for " + (yrs >= 1 ? Math.floor(yrs) + (Math.floor(yrs) === 1 ? " year" : " years") : "under a year") : "Known since " + p.since,
+      kpis: [
+        { k: "Lifetime revenue", v: inr4(i.revenue), pct: Math.min(100, Math.round(num4(i.revenue) / 3e5 * 100)), d: i.revenueD || "", fin: true },
+        { k: "Businesses", v: codes.length + " of 6", pct: Math.round(codes.length / 6 * 100), d: codes.map(function (x) { return (BU4[x] || [x, x])[1]; }).join(", ") },
+        { k: "Learning health", v: i.health || "—", pct: cur ? cur.pct : 0, d: i.healthD || (cur ? cur.pct + "% done" : ""), tone: /track|completed/i.test(i.health || "") ? "ok" : /risk/i.test(i.health || "") ? "bad" : "" },
+        { k: "Profile filled", v: p.complete + "%", pct: p.complete, d: Math.round(p.complete * 0.53) + " of 53 attributes", tone: "warm" }],
+      stageBand: [[p.stage, iso4((d4(p.since) || { d: new Date(2022, 0, 1) }).d), null]],
+      lanes: lanes,
+      records: p.ids.map(function (x) { return [x[1], x[2], x[0]]; }),
+      owners: [[codes.filter(function (x) { return BU[x] === p.owner; })[0] || "W", p.owner + " team", "Owns the relationship"]],
+      sources: Object.keys(srcCount).map(function (k) { return [k, srcCount[k]]; }).sort(function (a, b) { return b[1] - a[1]; }),
+      act: (p.moments || []).map(function (m) { return { t: m[0], d: m[1], b: "Share with the owner", done: "Shared with " + p.owner }; }),
+      sections: secs,
+      course: cur ? { t: cur.p, bu: cur.bu, pct: cur.pct, status: cur.status, line: "Started " + cur.started + " · " + cur.time + (cur.result ? " · " + cur.result : ""), stats: [["Time spent", cur.time.replace(/ spent$/, "")], ["Result", cur.result || "—"], ["Status", cur.status]] } : null,
+      skills: (p.skills.graded || []).map(function (g) { return [g[0], "Graded by upGrad · " + g[1], 3, "Proficient", 1]; }).concat((p.skills.declared || []).filter(function (d) { return !(p.skills.graded || []).some(function (g) { return g[0] === d; }); }).map(function (d) { return [d, "Self-declared · not verified", 2, "Declared", 0]; })),
+      creds: (p.courses || []).filter(function (x) { return x !== cur || x.cert; }).map(function (x) { return [x.p, x.cert || (x.status + " · " + x.time), x.cert ? 1 : 0]; }),
+      insights: [
+        { t: "Value", tag: "OMS", items: [{ k: "Lifetime revenue", v: i.revenue, big: 1, fin: true, how: i.revenueD }, { k: "Programmes", v: i.bought, how: "Distinct programmes with a payment or an enrolment." }] },
+        { t: "Reach and engagement", tag: "Derived", items: [{ k: "Reachable now", v: reach(p, TEAMS.central).filter(function (x) { return x[1]; }).map(function (x) { return x[0]; }).join(", ") || "No channel", big: 1, how: "Per channel: consent, plus a verified contact, plus not a minor." }, { k: "Contact fatigue", v: i.fatigue, how: "Outbound touches across every business in the last 7 and 30 days." }, { k: "Speed to lead", v: i.speed, how: "Lead created to first call." }] },
+        { t: "Health and risk", tag: "Prism", items: [{ k: "Learning health", v: i.health, big: 1, how: i.healthD || "Rules on progress, submissions and deferrals." }] },
+        { t: "Signals across businesses", tag: "Derived", items: [{ k: "Cross-business", v: codes.length > 1 ? "Yes, " + codes.length + " businesses" : "No, 1 business", big: 1, how: "Distinct businesses with a lead or enrolment record." }, { k: "Re-acquisition", v: i.reacq ? "Yes" : "No", how: i.reacqD || "Whether a paid lead was bought for someone upGrad already knew." }, { k: "Next-best programme", v: i.nbp, how: "Aspiration, skills and activity, rules first." }] }
+      ].concat((i.scores || []).length ? [{ t: "Counselling model scores", tag: (i.scores[0][2].split("· ")[1] || "Model"), items: i.scores.map(function (s) { return { k: s[0], v: s[1], how: "Model " + s[2] + "." }; }) }] : [])
+    };
+  }
+
+  function v4Ring(pct, inner, size) {
+    var r = 30, cx = 34, len = 2 * Math.PI * r;
+    return '<span class="v4ring" style="width:' + size + "px;height:" + size + 'px"><svg viewBox="0 0 68 68" aria-hidden="true"><circle cx="34" cy="34" r="' + r + '" class="rt"/><circle cx="34" cy="34" r="' + r + '" class="rv" stroke-dasharray="' + (len * pct / 100).toFixed(1) + " " + len.toFixed(1) + '"/></svg>' + inner + "</span>";
+  }
+
+  function profile4HTML(p, team) {
+    var m = v4Of(p), otherBu = !!team.bu && team.bu !== p.owner, noContact = otherBu && !p.consent.cross;
+    var back = L.matches.length > 1 ? '<button type="button" class="textbtn backbtn" data-back>‹ Back to ' + L.matches.length + " people on this number</button>" : "";
+    var face = p.photo ? '<img class="v4face photo" src="' + esc(p.photo) + '" alt="Photo of ' + esc(p.name) + '">' : '<span class="v4face" aria-hidden="true">' + esc(m.initials) + "</span>";
+    var hero = '<section class="v4hero" aria-label="' + esc(p.name) + '"><div class="v4id">' + v4Ring(p.restricted ? 0 : p.complete, face, 76) +
+      '<div class="v4who"><div class="v4name"><h1>' + esc(p.name) + '</h1><code class="gid">' + esc(p.gid) + "</code></div>" +
+      '<div class="v4chips"><span>' + esc(p.stage) + "</span><span>" + esc(p.ageBand.replace("–", " to ")) + (p.restricted ? " · minor" : "") + "</span><span>" + esc(m.place) + "</span><span>" + esc(m.known) + "</span></div>" +
+      '<p class="v4matched">' + esc(p.headline) + "</p></div></div>";
+    if (!p.restricted) hero += '<div class="v4kpis">' + m.kpis.map(function (k) {
+      var hide = k.fin && otherBu;
+      return '<div class="v4kpi' + (k.tone ? " t-" + k.tone : "") + '"><span class="k">' + esc(k.k) + '</span><span class="v">' + esc(hide ? "Owner only" : k.v) + '</span><span class="bar" aria-hidden="true"><i style="width:' + (hide ? 0 : k.pct) + '%"></i></span><span class="d">' + esc(hide ? "Shown to the owning business" : k.d) + "</span></div>";
+    }).join("") + "</div>";
+    hero += "</section>";
+
+    var top = back + hero + v4Life(m);
+    if (p.restricted) {
+      return '<div class="v4">' + top + '<div class="banner" role="note">' + warn() + "<div><b>Restricted: " + esc(first(p)) + " is a minor</b>Only basics are shown until a guardian consents. No marketing, no profiling. If the guardian is on the line, " + esc(p.owner) + " can send them the consent request.</div></div></div>";
+    }
+    var banner = noContact ? '<div class="banner" role="note">' + warn() + "<div><b>Don't contact " + esc(first(p)) + " about " + esc(team.bu) + "</b>" + esc(first(p)) + " hasn't agreed to offers from other upGrad businesses. You can view this profile for context only.</div></div>" : "";
+
+    var cur = TABS4.some(function (x) { return x[0] === V.tab; }) ? V.tab : "profile", fresh = cur !== V.seen; V.seen = cur; V.tab = cur;
+    var counts = { profile: m.sections.reduce(function (a, s) { return a + s.filled[1]; }, 0), academic: (p.courses || []).length, activity: (p.events || []).length, insights: m.insights.reduce(function (a, c) { return a + c.items.length; }, 0) };
+    var list = '<div class="tabs v4tabs" role="tablist" aria-label="Learner 360 sections" id="ptabs" data-slide>' + TABS4.map(function (t) {
+      var on = t[0] === cur;
+      return '<button type="button" role="tab" id="tab-' + t[0] + '" aria-controls="panel" aria-selected="' + on + '" tabindex="' + (on ? 0 : -1) + '" data-tab="' + t[0] + '">' + t[1] + ' <span class="v4cnt">' + esc(String(counts[t[0]])) + "</span></button>";
+    }).join("") + "</div>";
+    var mini = '<div class="pmini" role="group" aria-label="Current person">' + (p.photo ? avatarHTML(p, "mini-av") : '<span class="mini-av v4mini" aria-hidden="true">' + esc(m.initials) + "</span>") + '<span class="pm-id"><b>' + esc(p.name) + "</b><small>" + esc(p.stage + " · " + p.ageBand + " · " + p.city) + "</small></span>" +
+      '<span class="pm-more"><span class="pm-chip">Owned by ' + esc(p.owner === "Working Professionals" ? "WP" : p.owner) + '</span><span class="pm-chip">' + p.complete + "% filled</span></span></div>";
+    var body = cur === "academic" ? v4Academic(p, m) : cur === "activity" ? v4Activity(p, otherBu) : cur === "insights" ? v4Insights(p, m, otherBu) : v4Profile(p, m, team, otherBu);
+    var panel = '<div id="panel" class="' + (fresh ? "fresh" : "") + '" role="tabpanel" aria-labelledby="tab-' + cur + '">' + body + "</div>";
+    var main = '<div class="v4main">' + banner + v4Act(m) + '<section class="section pdet" aria-label="Learner 360 details"><div class="pbar">' + mini + list + "</div>" + panel + "</section></div>";
+    return '<div class="v4">' + top + '<div class="v4grid"><aside class="v4rail" aria-label="Contact and records">' + v4Rail(p, m, team, otherBu, noContact) + "</aside>" + main + "</div></div>";
+  }
+
+  // Life with upGrad: one lane per business, from the first touch to today.
+  function v4Life(m) {
+    var all = [];
+    m.lanes.forEach(function (l) { (l.segs || []).forEach(function (s) { all.push(s[1]); }); (l.dots || []).forEach(function (d) { all.push(d[0]); }); });
+    m.stageBand.forEach(function (s) { all.push(s[1]); });
+    var y0 = Math.min.apply(null, all.map(function (s) { return d4(s).d.getFullYear(); }).concat([TODAY4.getFullYear() - 1]));
+    var start = new Date(y0, 0, 1).getTime(), end = TODAY4.getTime() + 40 * 864e5;
+    var x = function (s) { var d = s ? d4(s).d.getTime() : TODAY4.getTime(); return Math.max(0, Math.min(100, (d - start) / (end - start) * 100)); };
+    var today = x(null).toFixed(2);
+    var NAME = { lead: "Lead", counselled: "Counselled", paid: "Paid, learning", done: "Completed", lost: "Lost" };
+    var fmt = function (s) { var d = d4(s).d; return d.getDate() + " " + MON4[d.getMonth()] + " " + d.getFullYear(); };
+    var track = function (inner) { return '<div class="v4track">' + inner + '<i class="v4today" style="left:' + today + '%" aria-hidden="true"></i></div>'; };
+    var rows = '<div class="v4lane v4stage"><div class="v4lname"><small>Life stage</small></div>' + track(m.stageBand.map(function (s) {
+      return '<span class="v4band" style="left:' + x(s[1]).toFixed(2) + "%;width:" + (x(s[2]) - x(s[1])).toFixed(2) + '%" title="' + esc(s[0]) + '">' + esc(s[0]) + "</span>";
+    }).join("")) + "</div>";
+    rows += m.lanes.map(function (l) {
+      var b = BU4[l.bu] || [l.bu, l.bu], inner = l.empty ? '<span class="v4empty">' + esc(l.empty) + "</span>" : "";
+      inner += (l.segs || []).map(function (s) {
+        var a = x(s[1]), w = Math.max(0.9, x(s[2]) - a);
+        return '<span class="v4seg k-' + s[0] + '" style="left:' + a.toFixed(2) + "%;width:" + w.toFixed(2) + '%" title="' + esc(b[0] + " · " + NAME[s[0]] + " from " + fmt(s[1]) + (s[2] ? " to " + fmt(s[2]) : " to today")) + '"></span>';
+      }).join("");
+      // Milestones that would overlap are merged into one dot, with every event in its tooltip.
+      var kept = [];
+      (l.dots || []).slice().sort(function (a, b) { return x(a[0]) - x(b[0]); }).forEach(function (d) { var last = kept[kept.length - 1]; if (last && x(d[0]) - last.x < 1.6) last.t.push(fmt(d[0]) + " · " + d[1]); else kept.push({ x: x(d[0]), t: [fmt(d[0]) + " · " + d[1]] }); });
+      inner += kept.map(function (k) { return '<span class="v4dot" style="left:' + k.x.toFixed(2) + '%" title="' + esc(k.t.join("\n")) + '"></span>'; }).join("");
+      return '<div class="v4lane"><div class="v4lname"><i class="bu-' + l.bu + '" aria-hidden="true"></i><span><b>' + esc(b[0]) + "</b><small>" + esc(l.note) + "</small></span></div>" + track(inner) + "</div>";
+    }).join("");
+    var ticks = "";
+    for (var yy = y0; yy <= TODAY4.getFullYear(); yy++) ticks += '<span class="v4tick" style="left:' + x(yy + "-01-01").toFixed(2) + '%">' + yy + "</span>";
+    ticks += '<span class="v4tick now" style="left:' + today + '%">Today</span>';
+    var legend = '<div class="v4legend" aria-hidden="true"><span><i class="lg-dot"></i>Milestone</span><span><i class="lg k-lead"></i>Lead</span><span><i class="lg k-counselled"></i>Counselled</span><span><i class="lg k-paid"></i>Paid, learning</span><span><i class="lg k-lost"></i>Lost</span></div>';
+    var summary = m.lanes.filter(function (l) { return !l.empty; }).map(function (l) { return (BU4[l.bu] || [l.bu])[0] + ": " + l.note; }).join("; ");
+    return '<section class="card v4life" aria-labelledby="v4lifeh"><div class="v4life-head"><h2 id="v4lifeh">Life with upGrad</h2>' + legend + '</div><p class="sr">' + esc(summary) + '</p><div class="v4life-scroll"><div class="v4life-grid" aria-hidden="true">' + rows +
+      '<div class="v4lane v4axis"><div class="v4lname"></div><div class="v4track">' + ticks + "</div></div></div></div></section>";
+  }
+
+  function v4Rail(p, m, team, otherBu, noContact) {
+    var c = p.consent, rn = m.reachNotes || {}, ph = p.phones.filter(function (x) { return x.v; })[0], em = p.emails.filter(function (x) { return x.v; })[0], blocked = p.restricted || noContact;
+    var st = function (ok, label) { return ok ? '<span class="v4st ok">' + esc(label || "Allowed") + "</span>" : '<span class="v4st no">Blocked</span>'; };
+    var ch = [
+      ["phone", "Call", V.revealed && ph ? fmtPhone(ph.d) + " · verified" : rn.call || (ph ? maskPhone4(ph.d) + " · verified" : "No verified number"), c.call && !!ph && !blocked],
+      ["mail", "Email", V.revealed && em ? em.e + " · verified" : rn.email || (em ? maskEmail4(em.e) + " · verified" : "No verified email"), c.email && !!em && !blocked, rn.emailState],
+      ["chat", "WhatsApp", rn.whatsapp || (ph ? "Same number · verified" : "No verified number"), c.whatsapp && !!ph && !blocked],
+      ["sms", "SMS", c.sms ? (ph ? "Same number · verified" : "No verified number") : (rn.sms || (c.why || {}).sms || "Not opted in"), c.sms && !!ph && !blocked],
+      ["ads", "Ads", c.ads ? (rn.ads || "Eligible for suppression lists") : "No marketing consent", c.ads && !blocked]
+    ];
+    var reachCard = '<section class="card v4rc"><h3>Reach ' + (p.v4 ? "her" : esc(first(p))) + '</h3><div class="v4reach">' + ch.map(function (x) {
+      return '<div class="v4ch"><span class="v4chic ' + (x[3] ? "ok" : "no") + '">' + ic4(x[0], 16) + '</span><span class="v4cht"><b>' + x[1] + "</b><small>" + esc(x[2]) + "</small></span>" + st(x[3], x[4]) + "</div>";
+    }).join("") + "</div>" +
+      (blocked ? "" : V.revealed ? '<p class="v4note" role="status">Shown to ' + esc(S.name || "you") + " for this call. Every reveal is logged.</p>" : '<button type="button" class="btn ghost sm v4wide" data-reveal>Show contact details</button>') +
+      '<p class="v4note">Consent is the most restrictive value across LSQ, HubSpot and Prism. Every reveal is logged.</p></section>';
+    var rec = '<section class="card v4rc"><div class="v4rch"><h3>Linked records</h3><small>' + m.records.length + " records, 1 person</small></div>" + m.records.map(function (r) {
+      return '<div class="v4rec"><span><b>' + esc(r[0]) + "</b><small>" + esc(r[1]) + "</small></span>" + src4(r[2]) + "</div>";
+    }).join("") + '<p class="v4note">' + esc(m.matched || "Matched on " + (L.how || "a verified identifier") + ".") + (TEAMS[S.team] && TEAMS[S.team].routes.indexOf("identity") >= 0 ? ' <a href="#/identity" class="v4link">Merge log</a>' : "") + "</p></section>";
+    var own = '<section class="card v4rc"><h3>Owners right now</h3>' + m.owners.map(function (o) {
+      return '<div class="v4own"><span class="v4bu bu-' + o[0] + '">' + esc((BU4[o[0]] || [o[0], o[0]])[1]) + '</span><span class="v4own-n"><b>' + esc(o[1]) + "</b><small>" + esc(o[2]) + '</small></span><button type="button" class="v4open" data-crm="' + esc((BU4[o[0]] || [o[0]])[0]) + '" aria-label="Open the ' + esc((BU4[o[0]] || [o[0]])[0]) + ' lead">' + ic4("ext", 15) + "</button></div>";
+    }).join("") + "</section>";
+    var max = Math.max.apply(null, m.sources.map(function (s) { return s[1]; }).concat([1]));
+    var srcs = '<section class="card v4rc"><h3>Where ' + (p.v4 ? "her" : "this") + ' data comes from</h3><div class="v4srcbars">' + m.sources.map(function (s) {
+      return '<div class="v4sb">' + src4(s[0]) + '<span class="v4sbt"><i style="width:' + Math.round(s[1] / max * 100) + '%"></i></span><b>' + s[1] + "</b></div>";
+    }).join("") + '</div><p class="v4note">Profile values, by the source that won the merge.</p></section>';
+    return reachCard + rec + own + srcs;
+  }
+
+  function v4Act(m) {
+    if (!m.act || !m.act.length) return "";
+    var n = m.act.length, words = ["No things", "One thing", "Two things", "Three things", "Four things"];
+    return '<section class="card v4act" aria-labelledby="v4acth"><div class="v4act-head"><span class="v4act-ic">' + ic4("alert", 16) + '</span><h2 id="v4acth">' + (words[n] || n + " things") + " to act on</h2></div>" + m.act.map(function (a, i) {
+      var done = V.acted && V.acted[i];
+      return '<div class="v4act-item' + (done ? " done" : "") + '"><div><b>' + esc(a.t) + "</b><p>" + esc(a.d) + "</p></div>" +
+        (done ? '<span class="v4done" role="status">' + ic4("check", 15) + esc(a.done) + "</span>" : '<button type="button" class="btn dark sm" data-act="' + i + '">' + esc(a.b) + "</button>") + "</div>";
+    }).join("") + "</section>";
+  }
+
+  // Learner profile: seven sections that open and close; each shows how much of it is filled.
+  function v4Profile(p, m, team, otherBu) {
+    var acc = V.acc || {}, used = {};
+    m.sections.forEach(function (s) { s.rows.forEach(function (r) { (r.src || []).forEach(function (x) { used[x] = 1; }); }); });
+    var tools = '<div class="v4tools"><div class="v4srcs"><span>Sources</span>' + ["Prism", "LSQ", "HubSpot", "OMS", "Sales Insights"].filter(function (s) { return used[s] || s === "HubSpot"; }).map(src4).join("") + "</div>" +
+      '<div class="v4tbtn"><button type="button" class="btn ghost sm" data-accall="1">Expand all</button><button type="button" class="btn ghost sm" data-accall="0">Collapse all</button></div></div>';
+    return tools + m.sections.map(function (s) {
+      var open = !!acc[s.key], locked = s.fin && !otherBu && !V.finOpen, hidden = s.fin && otherBu;
+      var pct = Math.round(s.filled[0] / s.filled[1] * 100);
+      var head = '<button type="button" class="v4acc-h" data-acc="' + s.key + '" aria-expanded="' + open + '" aria-controls="accb-' + s.key + '"><span class="v4acc-ic ic-' + s.key + '">' + ic4(s.ic, 18) + '</span><span class="v4acc-t"><b>' + esc(s.t) + "</b><small>" +
+        (hidden ? "Shown to the owning business only" : locked ? "Locked · team password needed" : esc(s.sum)) + '</small></span><span class="v4fill"><small>' + s.filled[0] + " of " + s.filled[1] + ' filled</small><span class="v4meter" aria-hidden="true"><i style="width:' + pct + '%"></i></span></span>' +
+        '<span class="v4lockic"' + (locked ? ' title="Locked">' + ic4("lock", 15) : ">") + "</span>" + '<span class="v4chev">' + ic4("chev", 18) + "</span></button>";
+      var body = "";
+      if (open) {
+        if (hidden) body = '<p class="v4note pad">Budget, funding and salary are shown to ' + esc(p.owner) + " only.</p>";
+        else if (s.fin) body = v4Lock() + (V.finOpen ? v4Rows(p, s, otherBu) : "");
+        else body = v4Rows(p, s, otherBu);
+      }
+      return '<section class="card v4acc' + (open ? " open" : "") + '" id="acc-' + s.key + '">' + head + '<div class="v4acc-b" id="accb-' + s.key + '"' + (open ? "" : " hidden") + ">" + body + "</div></section>";
+    }).join("");
+  }
+  function v4Rows(p, s, otherBu) {
+    return s.rows.filter(function (r) { return !(otherBu && r.t2); }).map(function (r) {
+      var v;
+      if (r.mask === "emails") v = p.emails.map(function (e) { return V.revealed ? e.e : maskEmail4(e.e); }).join(", ");
+      else if (r.mask === "phones") v = p.phones.map(function (x) { return V.revealed ? fmtPhone(x.d) : maskPhone4(x.d); }).join(", ") || "No mobile";
+      else v = r.v;
+      return '<div class="v4row"><div class="v4rl">' + esc(r.l) + '</div><div class="v4rv">' + (r.restricted ? '<i class="v4restr">Restricted</i>' : '<b class="' + (r.bad ? "bad" : "") + '">' + esc(v) + "</b>") +
+        '<div class="v4meta">' + (r.src || []).map(src4).join("") + (r.n ? "<span>" + esc(r.n) + "</span>" : "") + "</div>" + (r.c ? '<div class="v4conf">' + esc(r.c) + "</div>" : "") + "</div></div>";
+    }).join("") + (s.miss ? '<p class="v4miss">Not captured yet: ' + esc(s.miss) + "</p>" : "");
+  }
+  function v4Lock() {
+    var open = V.finOpen, ask = V.finAsk && !open;
+    var eye = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12s3.5-6.5 9.5-6.5S21.5 12 21.5 12s-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>' + (open ? "" : '<path d="M4 4l16 16"/>') + "</svg>";
+    var h = '<div class="v4lock' + (open ? " open" : "") + '"><span>' + ic4("lock", 16) + "</span><p>" + (open ? "Visible to you until you hide it or open another person. This access is logged." : ask ? "Enter the team password to see budget, funding, salary band and who decides." : "Budget, funding and salary are hidden. Select the eye and enter the team password.") + "</p>" +
+      '<button type="button" class="eyebtn" data-fineye aria-pressed="' + open + '" aria-label="' + (open ? "Hide financial details" : "Show financial details") + '" title="' + (open ? "Hide financial details" : "Show financial details") + '">' + eye + "</button></div>";
+    if (ask) h += '<form class="lockform v4lockform" data-unlock novalidate><label for="lockPw" class="sr">Team password</label><input id="lockPw" type="password" placeholder="Team password" autocomplete="off"' + (V.lockErr ? ' aria-invalid="true" aria-describedby="lockErr"' : "") + ">" +
+      '<button type="submit" class="btn dark sm">Unlock</button><button type="button" class="textbtn" data-lockcancel>Cancel</button>' + (V.lockErr ? '<p class="lock-err" id="lockErr" role="alert">' + esc(V.lockErr) + "</p>" : "") + "</form>";
+    return h;
+  }
+
+  // Academic and skills: the current programme in depth, then skills and credentials.
+  function v4Academic(p, m) {
+    var c = m.course, h = "";
+    if (c) {
+      var mods = c.modules ? '<h3 class="v4h3">Modules</h3><ol class="v4mods">' + c.modules.map(function (x, i) {
+        return '<li class="m-' + x[1] + '"><span class="n">' + (x[1] === "done" ? ic4("check", 13) : i + 1) + "</span><b>" + esc(x[0]) + "</b><small>" + (x[1] === "done" ? "Done" : x[1] === "now" ? "In progress" : "Upcoming") + "</small></li>";
+      }).join("") + "</ol>" : "";
+      var minis = "";
+      if (c.scores) {
+        var w = 260, hh = 76, mx = Math.max.apply(null, c.scores) + 4, mn = Math.min.apply(null, c.scores) - 6;
+        var pts = c.scores.map(function (v, i) { return [(i / (c.scores.length - 1) * (w - 12) + 6).toFixed(1), (hh - 6 - (v - mn) / (mx - mn) * (hh - 14)).toFixed(1)]; });
+        var line = pts.map(function (q) { return q.join(","); }).join(" ");
+        minis += '<div class="v4mini"><div class="v4mh"><b>Assignment scores</b><span class="v4up">Rising</span></div><svg class="v4spark" viewBox="0 0 ' + w + " " + hh + '" aria-label="Assignment scores: ' + c.scores.join(", ") + '"><polygon points="6,' + hh + " " + line + " " + (w - 6) + "," + hh + '" class="ar"/><polyline points="' + line + '" class="ln"/>' +
+          pts.map(function (q) { return '<circle cx="' + q[0] + '" cy="' + q[1] + '" r="3" class="pt"/>'; }).join("") + '</svg><div class="v4mf"><span>A1: ' + c.scores[0] + "</span><span>A" + c.scores.length + ": " + c.scores[c.scores.length - 1] + "</span></div></div>";
+      }
+      if (c.sessions) {
+        var att = c.sessions.filter(Boolean).length;
+        minis += '<div class="v4mini"><div class="v4mh"><b>Live sessions, last ' + c.sessions.length + "</b><small>" + att + ' attended</small></div><div class="v4sq" role="img" aria-label="' + att + " of " + c.sessions.length + ' attended">' + c.sessions.map(function (s) { return '<i class="' + (s ? "on" : "") + '"></i>'; }).join("") + '</div><p class="v4note">' + esc(c.sessNote) + "</p></div>";
+      }
+      if (c.inst) {
+        var dots = ""; for (var k = 0; k < c.inst[1]; k++) dots += '<i class="' + (k < c.inst[0] ? "on" : "") + '"></i>';
+        minis += '<div class="v4mini"><div class="v4mh"><b>Instalments</b><small>' + c.inst[0] + " of " + c.inst[1] + ' paid, none late</small></div><div class="v4inst" role="img" aria-label="' + c.inst[0] + " of " + c.inst[1] + ' instalments paid">' + dots + '</div><p class="v4note">' + esc(c.instNote) + "</p></div>";
+      }
+      h += '<section class="card v4course"><div class="v4ctop">' + v4Ring(c.pct, '<span class="v4pct"><b>' + c.pct + "%</b><small>complete</small></span>", 104) +
+        '<div class="v4ctx"><div class="v4tags"><span class="v4tag">' + esc(c.status) + '</span><span class="v4tag bu">' + esc((BU4[c.bu] || [c.bu, c.bu])[1]) + "</span></div><h2>" + esc(c.t) + "</h2><p>" + esc(c.line) + "</p></div>" +
+        '<div class="v4stats">' + c.stats.map(function (s) { return '<div><small>' + esc(s[0]) + "</small><b>" + esc(s[1]) + "</b></div>"; }).join("") + "</div></div>" + mods + (minis ? '<div class="v4minis">' + minis + "</div>" : "") + "</section>";
+    } else h += '<section class="card v4course empty4"><p class="v4note">No programme with upGrad yet.</p></section>';
+    var skills = '<section class="card v4skills"><h2>Skills</h2>' + (m.skills.length ? m.skills.map(function (s) {
+      var segs = ""; for (var k = 0; k < 4; k++) segs += '<i class="' + (k < s[2] ? (s[4] ? "on" : "dec") : "") + '"></i>';
+      return '<div class="v4sk"><span><b>' + esc(s[0]) + '</b><small class="' + (s[4] ? "gr" : "") + '">' + esc(s[1]) + '</small></span><span class="v4lvl"><span class="v4segs" aria-hidden="true">' + segs + "</span><small>" + esc(s[3]) + "</small></span></div>";
+    }).join("") : '<p class="v4note">No skills recorded yet.</p>') + "</section>";
+    var creds = '<section class="card v4creds"><h2>Credentials and other courses</h2>' + (m.creds.length ? m.creds.map(function (c2) {
+      return '<div class="v4cred' + (c2[2] ? " got" : " due") + '"><span class="v4cic">' + ic4("award", 18) + "</span><span><b>" + esc(c2[0]) + "</b><small>" + esc(c2[1]) + "</small></span></div>";
+    }).join("") : '<p class="v4note">No other courses or certificates.</p>') + "</section>";
+    return h + '<div class="v4two">' + skills + creds + "</div>";
+  }
+
+  // Activity: one timeline across every business, or by business, or the learning rhythm.
+  function v4Activity(p, otherBu) {
+    var evs = (p.events || []).filter(function (e) { return !(otherBu && e[2] === "P"); }).map(function (e) { return { e: e, at: e[6] ? d4(e[6]) : d4(e[1]) }; });
+    var sub = V.sub || "timeline", bu = V.ebu || "all", cat = V.ecat || "all";
+    var subs = [["timeline", "Timeline"], ["business", "By business"], ["rhythm", "Learning rhythm"]];
+    var buList = ["all"].concat(Object.keys(BU4).filter(function (k) { return evs.some(function (x) { return x.e[0] === k; }); }));
+    var inBu = evs.filter(function (x) { return bu === "all" || x.e[0] === bu; });
+    var tools = '<div class="v4atools"><div class="seg" role="group" aria-label="Activity view" data-slide>' + subs.map(function (s) { return '<button type="button" data-sub="' + s[0] + '" aria-pressed="' + (s[0] === sub) + '">' + s[1] + "</button>"; }).join("") + "</div>" +
+      (sub === "rhythm" && v4Of(p).rhythm ? "" : '<div class="seg sm" role="group" aria-label="Business" data-slide>' + buList.map(function (k) { return '<button type="button" data-ebu="' + k + '" aria-pressed="' + (k === bu) + '">' + (k === "all" ? "All businesses" : esc(BU4[k][1])) + "</button>"; }).join("") + "</div>") + "</div>";
+    var body = "";
+    if (sub === "timeline") {
+      var cats = '<div class="v4cats" role="group" aria-label="Event type"><button type="button" class="v4cat' + (cat === "all" ? " on" : "") + '" data-ecat="all" aria-pressed="' + (cat === "all") + '"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>All <span>' + inBu.length + "</span></button>" +
+        CAT4.map(function (c) { var n = inBu.filter(function (x) { return x.e[2] === c[0]; }).length; return '<button type="button" class="v4cat' + (cat === c[0] ? " on" : "") + '" data-ecat="' + c[0] + '" aria-pressed="' + (cat === c[0]) + '"' + (n ? "" : " disabled") + ">" + ic4(c[2], 14) + esc(c[1]) + " <span>" + n + "</span></button>"; }).join("") + "</div>";
+      var full = inBu.filter(function (x) { return cat === "all" || x.e[2] === cat; }), list = full.slice(0, V.shown || PAGE), groups = [], key = "";
+      list.forEach(function (x) { var k = x.at ? x.at.d.getFullYear() + "-" + x.at.d.getMonth() : "?"; if (k !== key) { groups.push({ k: k, at: x.at, items: [] }); key = k; } groups[groups.length - 1].items.push(x); });
+      body = cats + (groups.length ? groups.map(function (g) {
+        return '<div class="v4month"><h3>' + (g.at ? MONL4[g.at.d.getMonth()] + " " + g.at.d.getFullYear() : "Undated") + " <small>" + g.items.length + (g.items.length === 1 ? " event" : " events") + "</small></h3><ol class=\"v4tl\">" + g.items.map(function (x) {
+          var e = x.e, idx = p.events.indexOf(e), open = V.evx === idx, ci = CAT4.filter(function (c) { return c[0] === e[2]; })[0] || ["", "Other", "inbox"];
+          return '<li class="v4ev c-' + e[2] + '"><span class="v4when">' + (x.at && x.at.day ? "<b>" + x.at.d.getDate() + "</b><small>" + DAY4[x.at.d.getDay()] + "</small>" : "<b>—</b>") + '</span><span class="v4evic">' + ic4(ci[2], 15) + '</span><div class="v4evc"><div class="v4evh"><span class="v4bu bu-' + e[0] + '">' + esc((BU4[e[0]] || [e[0], e[0]])[1]) + "</span><b>" + esc(e[3]) + "</b>" + src4(e[5]) + "</div><p>" + esc(e[4]) + "</p>" +
+            '<button type="button" class="v4more" data-evx="' + idx + '" aria-expanded="' + open + '">' + (open ? "Hide details" : "Show details") + "</button>" +
+            (open ? '<dl class="v4dl"><div><dt>Business</dt><dd>' + esc((BU4[e[0]] || [BU[e[0]] || e[0]])[0]) + "</dd></div><div><dt>Type</dt><dd>" + esc(ci[1]) + "</dd></div><div><dt>When</dt><dd>" + (x.at ? (x.at.day ? x.at.d.getDate() + " " : "") + MON4[x.at.d.getMonth()] + " " + x.at.d.getFullYear() : esc(e[1])) + "</dd></div><div><dt>Source</dt><dd>" + esc(e[5]) + " · source record kept</dd></div></dl>" : "") + "</div></li>";
+        }).join("") + "</ol></div>";
+      }).join("") + (full.length > list.length ? '<button type="button" class="btn ghost sm v4wide v4older" data-more>Show ' + Math.min(PAGE, full.length - list.length) + " older · " + (full.length - list.length) + " left</button>" : "") : '<p class="v4note pad">No events of this type for this business.</p>');
+    } else if (sub === "business") {
+      body = '<div class="v4bys">' + Object.keys(BU4).filter(function (k) { return inBu.some(function (x) { return x.e[0] === k; }); }).map(function (k) {
+        var mine = inBu.filter(function (x) { return x.e[0] === k; }), a = mine[mine.length - 1].at, z = mine[0].at;
+        return '<section class="v4by"><div class="v4byh"><span class="v4bu bu-' + k + '">' + esc(BU4[k][1]) + "</span><b>" + esc(BU4[k][0]) + "</b><small>" + mine.length + (mine.length === 1 ? " event" : " events") + (a && z ? " · " + MON4[a.d.getMonth()] + " " + a.d.getFullYear() + (a.d.getFullYear() !== z.d.getFullYear() || a.d.getMonth() !== z.d.getMonth() ? " to " + MON4[z.d.getMonth()] + " " + z.d.getFullYear() : "") : "") + "</small></div><ol>" +
+          mine.map(function (x) { return "<li><span>" + (x.at ? (x.at.day ? x.at.d.getDate() + " " : "") + MON4[x.at.d.getMonth()] + " " + String(x.at.d.getFullYear()).slice(2) : esc(x.e[1])) + "</span><b>" + esc(x.e[3]) + "</b><small>" + esc(x.e[4]) + "</small></li>"; }).join("") + "</ol></section>";
+      }).join("") + "</div>";
+    } else {
+      var r = (v4Of(p).rhythm) || null, labels = [];
+      if (!r) {
+        r = []; for (var i = 11; i >= 0; i--) { var mo = new Date(TODAY4.getFullYear(), TODAY4.getMonth() - i, 1); r.push(inBu.filter(function (x) { return x.e[2] === "L" && x.at && x.at.d.getFullYear() === mo.getFullYear() && x.at.d.getMonth() === mo.getMonth(); }).length); labels.push(MON4[mo.getMonth()]); }
+      } else { for (var j = 11; j >= 0; j--) { var wk = new Date(TODAY4.getTime() - j * 7 * 864e5); labels.push(wk.getDate() + " " + MON4[wk.getMonth()]); } }
+      var mxr = Math.max.apply(null, r.concat([1])), weekly = !!v4Of(p).rhythm;
+      body = '<div class="v4rhythm"><p class="v4note">' + (weekly ? "Learning activity per week over the last 12 weeks: live sessions, assignments and assessments." : "Learning events per month over the last 12 months.") + '</p><div class="v4bars" role="img" aria-label="' + esc(r.join(", ")) + '">' +
+        r.map(function (v, i) { return '<span class="v4b"><i style="height:' + Math.max(4, Math.round(v / mxr * 100)) + '%"></i><small>' + esc(labels[i]) + "</small></span>"; }).join("") + "</div>" +
+        (weekly ? '<div class="v4rstats"><div><small>Most active</small><b>Tue and Thu evenings</b></div><div><small>Longest gap</small><b>9 days, in Aug</b></div><div><small>This week</small><b>5 activities</b></div></div>' : "") + "</div>";
+    }
+    return '<section class="card v4actv">' + tools + body + (otherBu ? '<p class="v4note">Payments are shown to the owning business only.</p>' : "") + "</section>";
+  }
+
+  // Insights: 13 derived answers, each with how it's worked out.
+  function v4Insights(p, m, otherBu) {
+    var how = V.how || {};
+    return '<div class="v4ins">' + m.insights.map(function (c, ci) {
+      return '<section class="card v4ic"><div class="v4ich"><h2>' + esc(c.t) + '</h2><span class="v4tag ' + (c.tag === "OMS" ? "t-oms" : c.tag === "Prism" ? "t-pr" : /only/.test(c.tag) ? "t-si" : "") + '">' + esc(c.tag) + "</span></div>" + c.items.map(function (it, ii) {
+        var k = ci + "-" + ii, open = !!how[k], hide = it.fin && otherBu;
+        return '<div class="v4it"><small>' + esc(it.k) + '</small><b class="' + (it.big ? "big " : "") + (it.muted ? "muted " : "") + (it.tone ? "t-" + it.tone : "") + '">' + esc(hide ? "Shown to the owning business" : it.v || "—") + "</b>" +
+          (it.how && !hide ? '<button type="button" class="v4how" data-how="' + k + '" aria-expanded="' + open + '">How this is worked out</button>' + (open ? '<p class="v4howt">' + esc(it.how) + "</p>" : "") : "") + "</div>";
+      }).join("") + "</section>";
+    }).join("") + "</div>";
+  }
   // Profile layouts to compare in V3: side panel, top header, side navigation.
   var PERSONS = [["rail", "Left panel"], ["top", "Top header"]];
   var TABPOS = [["top", "Top"], ["left", "Left"], ["right", "Right"]];
@@ -2005,7 +2745,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
     if (SHARED.pin === "0" || SHARED.pin === "1") SSEARCH = SHARED.pin === "1";
     if (SHARED.nav) { var keep = SHARED.nav.split(","); NAVHIDE = ["overview", "people", "lookup", "identity", "data", "later"].filter(function (k) { return keep.indexOf(k) < 0; }); }
   }
-  function applyLookupLayout() { var r = $("#lookupResult"); if (r) { r.setAttribute("data-layout", PERSON); r.setAttribute("data-tabs", TABS); r.setAttribute("data-stick", STICK); } syncSbar(); }
+  function applyLookupLayout() { var r = $("#lookupResult"), v4 = isV4(); if (r) { r.setAttribute("data-layout", v4 ? "top" : PERSON); r.setAttribute("data-tabs", v4 ? "top" : TABS); r.setAttribute("data-stick", STICK); } syncSbar(); }
   var CATS = { A: "Attribution", M: "Marketing", E: "Enquiries", X: "Interactions", P: "Payments", L: "Learning", S: "Support", C: "Consent" };
 
   var PEOPLE = {
@@ -2093,6 +2833,161 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
         ["U", "Jun 2021", "P", "Payment", "₹4,200 · Unacademy Plus · JEE Main", "OMS"],
         ["U", "Jun 2021", "A", "First touch", "YouTube · free JEE class", "CMS"]
       ]
+    },
+    ananyar: {
+      name: "Ananya R.", gid: "CIL-000184",
+      headline: "Data analyst · learning Data Science with Working Professionals",
+      stage: "Working professional", ageBand: "25–34", city: "Hyderabad", owner: "Working Professionals", since: "Mar 2022", complete: 78,
+      phones: [{ d: "9876501210", v: true, src: "Prism", tag: "Primary · WhatsApp" }],
+      emails: [{ e: "ananya.r@gmail.com", v: true, src: "Prism", tag: "Primary" }, { e: "ananya.r@work-example.com", v: true, src: "LSQ", tag: "Work · on the WP lead" }],
+      linked: [],
+      ids: [["Prism", "users._id", "64f…a91"], ["OMS", "user_id", "2 847 113"], ["LSQ", "SA ProspectAutoId", "1 204 552"], ["LSQ", "WP ProspectAutoId", "3 918 006"], ["LSQ", "KH tenant", "88 140"]],
+      consent: { call: true, email: true, sms: false, whatsapp: true, ads: true, callback: true, cross: true,
+        why: { sms: "Opted out on 12 Feb 2025." }, basis: "Consent · India default to be confirmed by Legal", since: "Jan 2025 · Prism" },
+      personal: [["Age band", "25–34 · adult", "Derived", "T2", "From date of birth. The date itself isn't stored."], ["Life stage", "Working professional since Aug 2022", "Sales Insights", "", "Final-year UG on the SA call, Apr 2022."],
+        ["City", "Hyderabad, Telangana, India", "Prism", "", "LSQ SA lead (2022) says Vijayawada. The newer Prism value wins."], ["Timezone · language", "IST · English, Hindi", "Prism"]],
+      education: [["Highest qualification", "B.Tech, Computer Science", "Prism"], ["Institution", "[University name] · 2018–22", "Prism"], ["Scores", "UG 78% · Class 12 88%", "Prism"], ["Language tests", "IELTS not taken", "Sales Insights"]],
+      career: [["Current role", "Data Analyst, [Employer name]", "Prism"], ["Experience", "4 years 3 months", "Prism", "", "LSQ WP lead (Nov 2024) says 2–3 years. The declared Prism value wins."], ["Industry · function", "IT services · analytics", "Prism"], ["Previous role", "Analyst intern", "Sales Insights"], ["LinkedIn", "", "Prism"]],
+      aspiration: [["Career goal", "Move into machine learning engineering", "Prism"], ["Dream role", "ML Engineer at a product company", "Prism"],
+        ["Programme of interest", "Now: Cloud and DevOps (KH, Oct 2026) · Before: Data Science PG (WP, 2024), MS Data Science in Germany (SA, 2022)", "LSQ"], ["Purchase timeline", "Within 3 months", "LSQ"],
+        ["Open concerns", "Fee (SA 2022, never resolved) · time commitment (WP 2024, resolved)", "Sales Insights"]],
+      finance: [["Budget band", "₹2–3 lakh", "Sales Insights"], ["Funding route", "EMI · open to a loan", "Sales Insights"], ["Employer sponsorship", "Employer reimburses courses · not claimed yet", "Prism"],
+        ["Decision maker", "Self", "Sales Insights", "", "In 2022 (SA) her parents decided. The most recent value wins."]],
+      skills: { declared: ["Tableau", "Excel"], graded: [["Python for data analysis", "PG programme in Data Science"], ["SQL", "SQL for Data Analysis"], ["Statistics", "PG programme in Data Science"]] },
+      courses: [
+        { p: "PG programme in Data Science", bu: "W", status: "In progress", pct: 62, time: "148 h spent", started: "Jan 2025", result: "Interim score 71%" },
+        { p: "SQL for Data Analysis (free)", bu: "G", status: "Completed", pct: 100, time: "12 h spent", started: "Feb 2024", result: "Pass", cert: "Certificate issued 14 Mar 2024" }
+      ],
+      lifecycle: [{ bu: "S", stage: "Lost", when: "Jul 2022 · budget" }, { bu: "W", stage: "Learning", when: "Since Jan 2025" }, { bu: "K", stage: "Lead", when: "Since 28 Oct" }],
+      ins: { state: "Learning", revenue: "₹1,90,000", revenueD: "8 of 12 WP instalments paid · ₹95,000 still due", bought: "1 paid, 1 free", reacq: true,
+        reacqD: "KnowledgeHut paid for a Meta lead on 28 Oct 2026. upGrad has known her since Mar 2022.",
+        intent: "High", intentD: "KH enquiry form: within 3 months", speed: "19 hours (KH)", fatigue: "4 in 7 days · 7 in 30", health: "On track", healthD: "62% through · 9 of the last 10 sessions · scores rising",
+        first: "Mar 2022", last: "29 Oct", nbp: "Cloud and DevOps with KnowledgeHut, after Data Science",
+        scores: [["WP counselling sub-levels", "Paying capacity: high · programme alignment: high (Dec 2024)", "wp-v3.2 · WP only"]] },
+      moments: [["KnowledgeHut paid to re-acquire her", "She's a paying WP learner. Add her to KH paid-ad suppression and tell the KH counsellor she's mid-programme."],
+        ["Cloud and DevOps interest at 62% through Data Science", "A cross-sell signal. One joint WP and KH conversation instead of two pitches."]],
+      events: [
+        ["K", "29 Oct", "X", "First call", "KH counsellor · 9 min · 19 hours after the lead", "LSQ", "2026-10-29"],
+        ["K", "28 Oct", "E", "Lead created", "Cloud and DevOps bootcamp · wants to start within 3 months", "LSQ", "2026-10-28"],
+        ["K", "28 Oct", "A", "Ad click", "Meta lead ad · Cloud and DevOps · paid", "LSQ", "2026-10-28"],
+        ["K", "26 Oct", "M", "Web visits", "Cloud and DevOps pages · 3 visits this week", "CMS", "2026-10-26"],
+        ["W", "5 Oct", "P", "Payment", "₹23,750 · instalment 8 of 12 · on time · EMI", "OMS", "2026-10-05"],
+        ["W", "29 Sep", "L", "Assignment submitted", "A6 · Machine learning · scored 78%", "Prism", "2026-09-29"],
+        ["W", "21 Aug", "S", "Rated a module", "Visualisation · 5 of 5", "Prism", "2026-08-21"],
+        ["W", "16 Jun 2025", "P", "Programme extended", "Expected completion moved from Jul 2026 to Mar 2027", "OMS", "2025-06-16"],
+        ["W", "12 Feb 2025", "C", "SMS opt-out", "Applied across every business", "LSQ", "2025-02-12"],
+        ["W", "22 Jan 2025", "L", "Enrolled", "PG programme in Data Science · batch Jan 2025", "Prism", "2025-01-22"],
+        ["W", "20 Jan 2025", "P", "Payment", "₹23,750 · instalment 1 of 12 · EMI", "OMS", "2025-01-20"],
+        ["W", "10 Dec 2024", "X", "Counselling call", "34 min · concern: time commitment · resolved", "Sales Insights", "2024-12-10"],
+        ["W", "18 Nov 2024", "C", "Consent recorded", "Calls, email and WhatsApp · WP enquiry form", "LSQ", "2024-11-18"],
+        ["W", "18 Nov 2024", "E", "Lead created", "PG programme in Data Science · work email", "LSQ", "2024-11-18"],
+        ["W", "18 Nov 2024", "A", "Ad click", "Google search · Data Science PG · GCLID captured", "LSQ", "2024-11-18"],
+        ["G", "14 Mar 2024", "L", "Certificate issued", "SQL for Data Analysis, free course", "Prism", "2024-03-14"],
+        ["G", "2 Feb 2024", "E", "Signed up on upGrad", "Free course: SQL for Data Analysis", "Prism", "2024-02-02"],
+        ["S", "6 Jul 2022", "X", "Call", "Said the budget doesn't work for now", "LSQ", "2022-07-06"],
+        ["S", "19 Apr 2022", "X", "Counselling call", "41 min · objection: fee · wanted the Fall 2023 intake", "Sales Insights", "2022-04-19"],
+        ["S", "12 Mar 2022", "E", "Lead created", "MS Data Science, Germany · Study in Germany webinar", "LSQ", "2022-03-12"],
+        ["S", "8 Mar 2022", "A", "First touch", "Instagram ad · Study in Germany webinar", "LSQ", "2022-03-08"]
+      ],
+      // V4: the Learner 360 view (content from the Learner 360 Figma frames).
+      v4: {
+        initials: "AR", known: "Known for 4 years 8 months", place: "Hyderabad, IST",
+        kpis: [
+          { k: "Lifetime revenue", v: "₹1.9L", pct: 67, d: "Paid · ₹95K still due", fin: true },
+          { k: "Businesses", v: "3 of 6", pct: 50, d: "SA, WP, KH" },
+          { k: "Learning health", v: "On track", pct: 62, d: "62% done · 9 of 10 sessions", tone: "ok" },
+          { k: "Profile filled", v: "78%", pct: 78, d: "41 of 53 attributes", tone: "warm" }
+        ],
+        stageBand: [["Final-year UG", "2022-01-01", "2022-08-01"], ["Working professional · data analyst", "2022-08-01", null]],
+        lanes: [
+          { bu: "S", note: "Lost on budget, Jul 2022", segs: [["lead", "2022-03-12", "2022-04-19"], ["counselled", "2022-04-19", "2022-07-06"], ["lost", "2022-07-06", "2022-10-20"]], dots: [["2022-03-12", "Lead created"], ["2022-07-06", "Budget doesn't work"]] },
+          { bu: "I", note: "Not connected yet", empty: "Joins in Phase 1, week 3" },
+          { bu: "G", note: "Free course, 2024", dots: [["2024-03-14", "Certificate: SQL for Data Analysis"]] },
+          { bu: "W", note: "Learning, 62%", segs: [["lead", "2024-11-18", "2024-12-10"], ["counselled", "2024-12-10", "2025-01-20"], ["paid", "2025-01-20", null]], dots: [["2025-01-22", "Enrolled"], ["2026-10-05", "Instalment 8 of 12"]] },
+          { bu: "K", note: "New lead, 28 Oct 2026", segs: [["lead", "2026-10-28", null]], dots: [["2026-10-28", "Lead from a paid Meta ad"]] },
+          { bu: "L", note: "No record", empty: "No record" }
+        ],
+        reachNotes: { call: "+91 98•••••210 · verified", email: "a•••••@gmail.com · verified", emailState: "Updates only", whatsapp: "Same number · verified", sms: "Opted out 12 Feb 2025", ads: "Eligible for suppression lists" },
+        records: [["Prism learner account", "users._id 64f…a91", "Prism"], ["OMS customer", "user_id 2 847 113", "OMS"], ["SA lead, 2022", "ProspectAutoId 1 204 552", "LSQ"], ["WP lead, 2024", "ProspectAutoId 3 918 006", "LSQ"], ["KH lead, 2026", "KH tenant 88 140", "LSQ"]],
+        matched: "Matched on her verified mobile and the payment lead identifier.",
+        owners: [["W", "R. Mehta", "Learner success"], ["K", "S. Iyer", "Counsellor"]],
+        sources: [["Prism", 18], ["Sales Insights", 9], ["LSQ", 8], ["OMS", 4], ["Derived", 2]],
+        act: [
+          { t: "KnowledgeHut paid to re-acquire her on 28 Oct", d: "She's a paying WP learner. Add her to KH paid-ad suppression and tell the KH counsellor she's mid-programme.", b: "Tell KH owner", done: "Sent to S. Iyer at KH" },
+          { t: "Cloud and DevOps interest while 62% through Data Science", d: "A cross-sell signal. Coordinate one conversation between WP and KH instead of two separate pitches.", b: "Book joint follow-up", done: "Follow-up booked with R. Mehta and S. Iyer" }
+        ],
+        sections: [
+          { key: "identity", t: "Identity and contact", ic: "user", sum: "2 emails, 1 mobile, all verified · 5 linked records", filled: [7, 8], rows: [
+            { l: "Emails", mask: "emails", src: ["Prism", "LSQ"], n: "Prism verified Jan 2025 · work email on the WP lead, Nov 2024" },
+            { l: "Mobile", mask: "phones", src: ["Prism", "LSQ"], n: "Verified Jan 2025 · same number on 3 LSQ leads" },
+            { l: "Device and ad IDs", v: "2 Google client IDs, 1 Meta lead ID", src: ["LSQ"], n: "Last seen 28 Oct 2026" },
+            { l: "Name", v: "Ananya R.", src: ["Prism"], n: "Jan 2025" }], miss: "Nationality" },
+          { key: "personal", t: "Personal details", ic: "home", sum: "25 to 34 · working professional · Hyderabad", filled: [8, 10], rows: [
+            { l: "Age", v: "25 to 34, adult", src: ["Derived"], n: "From date of birth. The raw value isn't stored.", t2: true },
+            { l: "Life stage", v: "Working professional since Aug 2022", src: ["Sales Insights", "Prism"], n: "Final-year UG on the SA call, Apr 2022" },
+            { l: "Location", v: "Hyderabad, Telangana, India", src: ["Prism"], n: "Jan 2025", c: "LSQ SA lead (2022) says Vijayawada. The newer Prism value wins." },
+            { l: "Timezone and language", v: "IST · English, Hindi", src: ["Prism", "Sales Insights"], n: "Jan 2025 · SA call Apr 2022" },
+            { l: "Gender", restricted: true, src: ["Prism"], n: "Shown only for an approved use case" }], miss: "Detected location, nationality" },
+          { key: "education", t: "Education before upGrad", ic: "cap", sum: "B.Tech Computer Science · 78% · IELTS not taken", filled: [4, 4], rows: [
+            { l: "Highest qualification", v: "B.Tech, Computer Science", src: ["Prism", "Sales Insights"], n: "Declared Jan 2025 · matches the SA call" },
+            { l: "Institution and years", v: "[University name], 2018 to 2022", src: ["Prism"], n: "Declared Jan 2025" },
+            { l: "Scores", v: "UG 78% · Class 12 88%", src: ["Prism", "Sales Insights"], n: "UG from Prism · Class 12 from the SA call" },
+            { l: "Language tests", v: "IELTS not taken", src: ["Sales Insights"], n: "SA call, Apr 2022" }] },
+          { key: "career", t: "Career", ic: "brief", sum: "Data Analyst · 4 years 3 months · IT services", filled: [4, 5], rows: [
+            { l: "Current role", v: "Data Analyst, [Employer name]", src: ["Prism", "Sales Insights"], n: "Declared Jan 2025 · WP call Dec 2024" },
+            { l: "Experience", v: "4 years 3 months", src: ["Prism"], n: "Jan 2025", c: "LSQ WP lead (Nov 2024) says 2 to 3 years. The declared Prism value wins." },
+            { l: "Industry and function", v: "IT services, analytics", src: ["Prism", "Sales Insights"], n: "Jan 2025" },
+            { l: "Previous role", v: "Analyst intern", src: ["Sales Insights"], n: "WP call, Dec 2024" }], miss: "LinkedIn profile" },
+          { key: "aspiration", t: "Aspiration", ic: "star", sum: "ML engineering · latest interest Cloud and DevOps", filled: [7, 10], rows: [
+            { l: "Career goal", v: "Move into machine learning engineering", src: ["Prism", "Sales Insights"], n: "Jan 2025 · WP call Dec 2024" },
+            { l: "Dream role and company", v: "ML Engineer at a product company", src: ["Prism"], n: "Jan 2025" },
+            { l: "Motivation", v: "Career growth · switch from analytics to engineering", src: ["Sales Insights"], n: "WP call, Dec 2024" },
+            { l: "Programme interest", v: "Now: Cloud and DevOps (KH, Oct 2026). Before: Data Science PG (WP, 2024), MS Data Science in Germany (SA, 2022)", src: ["LSQ"], n: "3 enquiries over 4 years" },
+            { l: "Timeline", v: "Within 3 months", src: ["LSQ"], n: "KH enquiry form, Oct 2026" },
+            { l: "Open concerns", v: "Fee (SA 2022, never resolved) · time commitment (WP 2024, resolved)", src: ["Sales Insights"], n: "From analysed counselling calls" }], miss: "Study time available, competitors considered, interest areas" },
+          { key: "financial", t: "Financial profile", ic: "money", sum: "₹2 to 3 lakh budget · EMI · decides herself", filled: [6, 8], fin: true, rows: [
+            { l: "Budget", v: "₹2 to 3 lakh", src: ["Sales Insights"], n: "WP call, Dec 2024" },
+            { l: "Funding route", v: "EMI · open to a loan", src: ["Sales Insights"], n: "WP call Dec 2024 · SA call Apr 2022" },
+            { l: "Employer sponsorship", v: "Employer reimburses courses · she hasn't claimed it", src: ["Prism"], n: "Declared Jan 2025" },
+            { l: "Salary band", restricted: true, src: ["LSQ"], n: "Sensitive · band only, approved roles" },
+            { l: "Decision maker", v: "Self", src: ["Sales Insights"], n: "WP call, Dec 2024", c: "In 2022 (SA) her parents decided. The most recent value wins." },
+            { l: "Parent involvement", v: "Not involved since 2024", src: ["Sales Insights"], n: "WP call, Dec 2024" }], miss: "Scholarship need, decision-maker clarity" },
+          { key: "consent", t: "Consent and preferences", ic: "shield", sum: "Call, email, WhatsApp and ads allowed · SMS blocked", filled: [5, 8], rows: [
+            { l: "Calls", v: "Allowed", src: ["LSQ", "Prism"], n: "Sources agree" },
+            { l: "Email", v: "Allowed: programme updates only", src: ["Prism"], n: "Jan 2025" },
+            { l: "SMS", v: "Blocked, opted out 12 Feb 2025", src: ["LSQ"], n: "The most restrictive value applies everywhere", bad: true },
+            { l: "WhatsApp", v: "Allowed", src: ["Prism"], n: "Jan 2025" },
+            { l: "Legal basis", v: "Consent · India default to be confirmed by Legal", src: ["Derived"], n: "DPDP Act" }], miss: "Notification preferences, callback consent, marketing consent date" }
+        ],
+        course: { t: "PG programme in Data Science", bu: "W", pct: 62, status: "In progress", line: "Enrolled 22 Jan 2025 · batch Jan 2025 · expected completion Jul 2026, extended to Mar 2027",
+          stats: [["Time spent", "148 h"], ["Interim score", "71%"], ["Extensions", "1"]],
+          modules: [["Python", "done"], ["Statistics", "done"], ["SQL and wrangling", "done"], ["Visualisation", "done"], ["Machine learning", "now"], ["Deep learning", "next"], ["MLOps", "next"], ["Capstone", "next"]],
+          scores: [64, 69, 67, 73, 71, 78], sessions: [1, 1, 1, 0, 1, 1, 1, 1, 1, 1], sessNote: "Average 58 of 70 minutes", inst: [8, 12], instNote: "From the OMS payment schedule" },
+        skills: [["Python for data analysis", "Graded by upGrad · module 1", 3, "Proficient", 1], ["SQL", "Graded by upGrad · certificate", 3, "Proficient", 1], ["Statistics", "Graded by upGrad · module 2", 2, "Intermediate", 1],
+          ["Machine learning", "Being assessed · module 5", 1, "Developing", 1], ["Tableau", "Self-declared · not verified", 2, "Declared", 0], ["Excel", "Self-declared · not verified", 3, "Declared", 0]],
+        creds: [["SQL for Data Analysis (free course)", "Certificate issued 14 Mar 2024 · grade: pass · 12 hours", 1], ["PG programme in Data Science", "Certificate due on completion · 3 modules to go", 0]],
+        rhythm: [3, 4, 4, 2, 5, 4, 3, 5, 4, 4, 2, 5],
+        insights: [
+          { t: "Value", tag: "OMS", items: [
+            { k: "Lifetime revenue", v: "₹1,90,000 paid · ₹95,000 due", big: 1, fin: true, how: "Payments minus refunds from OMS, in rupees. ₹95,000 is the 4 instalments left on her WP plan." },
+            { k: "Programmes", v: "1 paid, 1 free", how: "Distinct programmes with a payment or an enrolment: PG programme in Data Science (paid) and SQL for Data Analysis (free)." },
+            { k: "Acquisition cost", v: "Needs ad cost data", muted: 1, how: "Campaign cost allocated per lead. It needs ad-platform cost data, which isn't connected yet." }] },
+          { t: "Reach and engagement", tag: "Derived", items: [
+            { k: "Reachable now", v: "Call, email, WhatsApp, ads · not SMS", big: 1, how: "Per channel: consent, plus a verified contact, plus not a minor. She opted out of SMS on 12 Feb 2025." },
+            { k: "Contact fatigue", v: "4 outbound touches in 7 days", how: "Outbound calls and messages from every business in the last 7 days: 2 KH calls, 1 KH email and 1 WP email." },
+            { k: "Speed to lead (KH)", v: "19 hours", how: "KH lead created 28 Oct at 10:05, first call 29 Oct at 05:05 pm." }] },
+          { t: "Health and risk", tag: "Prism", items: [
+            { k: "Learning health", v: "On track", big: 1, tone: "ok", how: "Rules: progress on plan (62%), 9 of the last 10 live sessions, assignment scores rising, no deferral pending." },
+            { k: "Refund risk", v: "Low", tone: "ok", how: "Rules: every instalment on time (8 of 8), steady learning activity, no refund request." }] },
+          { t: "Signals across businesses", tag: "Derived", items: [
+            { k: "Cross-business", v: "Yes, 3 businesses", big: 1, how: "Distinct businesses with a lead or enrolment record: Study Abroad (2022), Working Professionals (2024) and KnowledgeHut (2026)." },
+            { k: "Re-acquisition", v: "Yes · KH paid for a Meta lead on 28 Oct 2026", tone: "warn", how: "KH's lead came from a paid ad, but upGrad has known her since March 2022." },
+            { k: "Next-best programme", v: "Cloud and DevOps with KH, after Data Science", how: "Aspiration, skills and activity, rules first. She finishes Data Science in Mar 2027." }] },
+          { t: "Counselling model scores", tag: "WP only", items: [
+            { k: "Paying capacity", v: "High (Dec 2024)", how: "WP counselling model wp-v3.2, from the analysed Dec 2024 call. WP only; not comparable with SA scores." },
+            { k: "Programme alignment", v: "High (Dec 2024)", how: "WP counselling model wp-v3.2, from the analysed Dec 2024 call." }] }
+        ]
+      }
     },
     rohan: {
       name: "Rohan Mehta", gid: "upg_9B3N6W4E", photo: "assets/profile-rohan.jpg",
@@ -2202,7 +3097,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
   }
 
   var PAGE = 6;
-  function freshView() { return { tab: "personal", bu: "all", cat: "all", shown: PAGE, revealed: false, finOpen: false, finAsk: false, lockErr: "" }; }
+  function freshView() { return { tab: "personal", bu: "all", cat: "all", shown: PAGE, revealed: false, finOpen: false, finAsk: false, lockErr: "", acc: { identity: true }, sub: "timeline", ebu: "all", ecat: "all", evx: -1, how: {}, acted: {} }; }
   var L = { status: "idle", label: "", matches: [], person: null, how: "" };
   var V = freshView();
   var lookupTimer = null;
@@ -2226,6 +3121,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
     lookupTimer = setTimeout(done, 450);
   }
 
+  function defaultKey() { return isV4() ? "ananya.r@gmail.com" : "arjun.kumar88@gmail.com"; }
   function chev() { return '<svg class="chev" width="8" height="14" viewBox="0 0 8 14" fill="none" stroke="#C7C7CC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l6 6-6 6"/></svg>'; }
   function warn() { return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D7192A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;margin-top:1px"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.5"/></svg>'; }
   function tick(ok) {
@@ -2253,7 +3149,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
       return;
     }
     if (L.status === "many" && !L.person) { box.innerHTML = manyHTML(); return; }
-    box.innerHTML = profileHTML(PEOPLE[L.person], team);
+    box.innerHTML = isV4() ? profile4HTML(PEOPLE[L.person], team) : profileHTML(PEOPLE[L.person], team);
     hdrCheck();
   }
   // After switching sections, start the new one from its top, just below whatever is pinned.
@@ -2272,7 +3168,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
   }
   // Once the person card scrolls out of view, the sticky bar shows a slim copy of it.
   function hdrCheck() {
-    var r = $("#lookupResult"), card = r && r.querySelector(".prail .pcard"), sb = syncSbar();
+    var r = $("#lookupResult"), card = r && r.querySelector(".prail .pcard, .v4hero"), sb = syncSbar();
     if (r) r.classList.toggle("hdr-off", !!card && card.getBoundingClientRect().bottom < 72 + sb);
     var bar = r && r.querySelector(".pbar"), view = $('.view[data-view="lookup"]');
     if (r) r.classList.toggle("bar-stuck", !!bar && window.scrollY > 4 && bar.getBoundingClientRect().top <= barPinTop(bar, sb) + 2);
@@ -2519,6 +3415,26 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
     else if (t.hasAttribute("data-cat")) { V.cat = t.getAttribute("data-cat"); V.shown = PAGE; renderLookup(); }
     else if (t.hasAttribute("data-crm")) { toast("Prototype: this would open the " + t.getAttribute("data-crm") + " CRM"); }
     else if (t.hasAttribute("data-clear")) { L.status = "idle"; $("#lookup").value = ""; renderLookup(); $("#lookup").focus(); }
+  });
+  // V4: sections that open and close, activity views and filters, insight explanations and actions.
+  $("#lookupResult").addEventListener("click", function (e) {
+    var t = e.target.closest("button"); if (!t || !isV4()) return;
+    if (t.hasAttribute("data-acc")) {
+      var k = t.getAttribute("data-acc"); V.acc = V.acc || {}; V.acc[k] = !V.acc[k]; renderLookup();
+      var again = $('[data-acc="' + k + '"]'); if (again) again.focus({ preventScroll: true });
+    } else if (t.hasAttribute("data-accall")) {
+      var on = t.getAttribute("data-accall") === "1"; V.acc = {};
+      if (on) v4Of(PEOPLE[L.person]).sections.forEach(function (x) { V.acc[x.key] = true; });
+      renderLookup(); toast(on ? "All sections open" : "All sections closed");
+    } else if (t.hasAttribute("data-sub")) { V.sub = t.getAttribute("data-sub"); renderLookup(); requestAnimationFrame(slideAll); }
+    else if (t.hasAttribute("data-ebu")) { V.ebu = t.getAttribute("data-ebu"); V.ecat = "all"; V.evx = -1; V.shown = PAGE; renderLookup(); requestAnimationFrame(slideAll); }
+    else if (t.hasAttribute("data-ecat")) { V.ecat = t.getAttribute("data-ecat"); V.evx = -1; V.shown = PAGE; renderLookup(); }
+    else if (t.hasAttribute("data-evx")) { var n = +t.getAttribute("data-evx"); V.evx = V.evx === n ? -1 : n; renderLookup(); var b = $('[data-evx="' + n + '"]'); if (b) b.focus({ preventScroll: true }); }
+    else if (t.hasAttribute("data-how")) { var h = t.getAttribute("data-how"); V.how = V.how || {}; V.how[h] = !V.how[h]; renderLookup(); var hb = $('[data-how="' + h + '"]'); if (hb) hb.focus({ preventScroll: true }); }
+    else if (t.hasAttribute("data-act")) {
+      var a = +t.getAttribute("data-act"), item = v4Of(PEOPLE[L.person]).act[a]; V.acted = V.acted || {}; V.acted[a] = true; renderLookup();
+      toast("Prototype: " + item.done.charAt(0).toLowerCase() + item.done.slice(1));
+    }
   });
   // Arrow keys move between profile tabs.
   $("#lookupResult").addEventListener("change", function (e) {
@@ -2813,14 +3729,15 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
 
   /* ---------- Design versions ---------- */
   function setVersion(v, keep) {
-    if (["1", "2", "3"].indexOf(v) < 0) v = "1";
-    document.documentElement.setAttribute("data-v", v);
+    if (["1", "2", "3", "4"].indexOf(v) < 0) v = "1";
+    document.documentElement.setAttribute("data-v", v === "4" ? "3" : v);
+    if (v === "4") document.documentElement.setAttribute("data-v4", ""); else document.documentElement.removeAttribute("data-v4");
     $$("#vswitch button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === v); });
     if (keep) { try { localStorage.setItem("cip-version", v); } catch (e) {} }
     v3Enter((location.hash.replace(/^#\/?/, "") || "overview").split("/")[0]);
   }
-  setVersion(document.documentElement.getAttribute("data-v") || "2");
-  $("#vswitch").addEventListener("click", function (e) { var b = e.target.closest("[data-v]"); if (!b) return; setVersion(b.getAttribute("data-v"), true); renderLookup(); requestAnimationFrame(slideAll); });
+  setVersion(curV());
+  $("#vswitch").addEventListener("click", function (e) { var b = e.target.closest("[data-v]"); if (!b) return; setVersion(b.getAttribute("data-v"), true); applyLookupLayout(); if (L.auto) { runLookup(defaultKey(), true); L.auto = true; } renderLookup(); requestAnimationFrame(slideAll); });
 
   /* ---------- V3: live overview and motion ---------- */
   var REDUCED = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -3056,18 +3973,19 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
     return p + " · " + t;
   }
   function rvSync() {
-    var v = document.documentElement.getAttribute("data-v");
+    var v = curV();
     $$("#rvPerson button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-person-at") === PERSON); });
     $("#rvSSearch").checked = SSEARCH;
     $$("#rvStick button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-stick-at") === STICK); });
     $$("#rvTabs button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-tabs-at") === TABS); });
     $("#rvThumb").innerHTML = rvThumb(PERSON, TABS);
     $("#rvLayoutNote").textContent = describeLayout();
-    $("#rvSummary").textContent = "V" + v + " · " + layoutLabel() + (NAVHIDE.length ? " · " + NAVHIDE.length + " hidden" : "");
+    $("#rvSummary").textContent = "V" + v + " · " + (v === "4" ? "Learner 360" : layoutLabel()) + (NAVHIDE.length ? " · " + NAVHIDE.length + " hidden" : "");
     $$("#rvNav [data-navitem]").forEach(function (c) { c.checked = NAVHIDE.indexOf(c.getAttribute("data-navitem")) < 0; });
     if (typeof rvShareSync === "function") rvShareSync();
   }
   function describeLayout() {
+    if (isV4()) return "V4 uses one layout, from the Learner 360 frames: the person and four headline figures, their life with upGrad, then contact and records on the left and four tabs on the right. The sticky bar and pinned search still apply.";
     var who = PERSON === "rail" ? "The person card stays pinned on the left" : "The person card runs across the top; once it scrolls away, a slim bar keeps their name in view";
     var tabs = TABS === "top" ? "the section tabs stay pinned above the details" : TABS === "left" ? (PERSON === "rail" ? "the section tabs sit under the person card" : "the section tabs stay pinned on the left") : "the section tabs stay pinned on the right";
     return who + ", and " + tabs + ".";
@@ -3129,7 +4047,8 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
       var em = p.emails.filter(function (x) { return x.v; })[0], ph = p.phones.filter(function (x) { return x.v; })[0];
       key = em ? em.e : ph ? ph.d : null;
     }
-    runLookup(key || "arjun.kumar88@gmail.com", true);
+    runLookup(key || defaultKey(), true);
+    if (!key) L.auto = true;
   })();
   if (SHARED) $("#review").hidden = true;
 
@@ -3139,7 +4058,7 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
     var nav = NAVITEMS.filter(function (n) { return NAVHIDE.indexOf(n[0]) < 0; }).map(function (n) { return n[0]; }).join(",");
     var q = ["preview=1"];
     if (S.team && S.team !== "central") q.push("team=" + S.team);
-    q.push("v=" + document.documentElement.getAttribute("data-v"), "card=" + PERSON, "tabs=" + TABS, "bar=" + STICK, "pin=" + (SSEARCH ? 1 : 0), "nav=" + nav);
+    q.push("v=" + curV(), "card=" + PERSON, "tabs=" + TABS, "bar=" + STICK, "pin=" + (SSEARCH ? 1 : 0), "nav=" + nav);
     if (route === "lookup" && L.person) q.push("p=" + L.person);
     q.push("review=0");
     var base = location.href.split(/[?#]/)[0];

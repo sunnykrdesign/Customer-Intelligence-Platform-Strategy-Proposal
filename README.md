@@ -43,8 +43,8 @@ Preview links look like this:
 A **Review** button in the bottom-right corner opens the review controls. They're for design review only, not part of the product:
 
 - **Share this view:** **Copy link** gives a link that opens exactly what you're looking at: the design version, the profile layout, the sticky bar, the pinned search bar, the sidebar menu items you've left on, the screen you're on and, on Look up a person, the person who's open. It skips sign-in and hides the Review panel, so the person you send it to sees only that view. For example: `…/?preview=1&v=3&card=top&tabs=left&bar=high&pin=1&nav=overview,people,lookup&p=ananya&review=0#/lookup`
-- **Design version:** V1, V2 or V3. You can also add `?v=1`, `?v=2` or `?v=3` to the URL.
-- **Look up a person · layout** (all versions): pick where the **person card** sits (Left panel or Top header) and where the **section tabs** sit (Top, Left or Right). That makes six combinations, and a small diagram shows the current one.
+- **Design version:** V1, V2, V3 or V4. You can also add `?v=1` to `?v=4` to the URL.
+- **Look up a person · layout** (V1 to V3): pick where the **person card** sits (Left panel or Top header) and where the **section tabs** sit (Top, Left or Right). That makes six combinations, and a small diagram shows the current one.
 
 - **Sticky bar:** how strongly the pinned person and tabs stand out once you scroll (default **Mid**):
   - **Minimum:** a light bar with a hairline.
@@ -69,6 +69,17 @@ Your choices are remembered on that browser.
   - **Business cards:** one per business, with a live profile count and an animated consent ring, plus a bar chart of lookups this week.
   - **Motion everywhere in V3:** tabs and segments use the same sliding indicator. Cards rise in with a stagger. People directory rows open into the same detail card.
   - **Reduced motion:** all of this switches off when the system asks for reduced motion.
+- **V4:** V3's design language and motion with V2's sidebar, and **Look up a person** rebuilt around the Learner 360 content (the Figma frames shared on 6 Nov). It opens on Ananya R., the Learner 360 sample. Everyone else gets the same view, built from their profile data.
+  - **Header:** the person, their profile-completeness ring, ID and key facts, and four headline figures: lifetime revenue, businesses, learning health and profile filled. Revenue is shown to the owning business only.
+  - **Life with upGrad:** one lane per business (Study Abroad, Internshala, upGrad platform, Working Professionals, KnowledgeHut, International), with lead, counselled, paid and lost periods, milestones and a Today line, under a life-stage band.
+  - **Left rail:** Reach her (each channel with its consent state, and **Show contact details**), linked records with the merge note, owners right now, and where her data comes from.
+  - **Things to act on:** the moments, each with one action that confirms when it's done.
+  - **Four tabs, kept in view with the person while you scroll:**
+    - **Learner profile:** seven sections that open and close (Expand all / Collapse all). Each shows a summary, how much of it is filled and, inside, every value with its sources, when it was captured, which source won a conflict, and what isn't captured yet. Financial profile stays locked behind the team password.
+    - **Academic and skills:** the current programme (progress, modules, assignment scores, live sessions and instalments), skills graded by upGrad or self-declared, and credentials.
+    - **Activity:** a timeline grouped by month, filtered by business and event type, with details per event and the latest 6 first. It can also be read by business, or as a weekly learning rhythm.
+    - **Insights:** 13 answers in five groups (value, reach and engagement, health and risk, signals across businesses, counselling model scores), each with how it's worked out.
+  - The Review panel's person and tab positions don't apply to V4; the sticky bar and pinned search do.
 
 ## People directory
 
@@ -84,6 +95,7 @@ The **Look up a person** screen searches sample data by exact phone or email (na
 
 | Search | What it shows |
 | --- | --- |
+| `ananya.r@gmail.com` | Ananya R. (V4's default): the Learner 360 sample, a WP learner who was an SA lead and is now a new KnowledgeHut lead |
 | `arjun.kumar88@gmail.com` | Arjun: learning with WP, alumnus of Internshala, re-acquired through a paid ad. Full profile with photo |
 | `+91 98234 41127` | Ananya: known to 3 businesses, no consent for cross-business offers, a "worth acting on" moment |
 | `rohan.mehta07@gmail.com` | Rohan: a Study Abroad lead with Sales Insights scores and an "intake passed" moment |
