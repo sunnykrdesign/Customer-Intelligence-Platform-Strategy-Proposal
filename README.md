@@ -43,7 +43,7 @@ Preview links look like this:
 A **Review** button in the bottom-right corner opens the review controls. They're for design review only, not part of the product:
 
 - **Share this view:** **Copy link** gives a link that opens exactly what you're looking at: the design version, the profile layout, the sticky bar, the pinned search bar, the sidebar menu items you've left on, the screen you're on and, on Look up a person, the person who's open. It skips sign-in and hides the Review panel, so the person you send it to sees only that view. For example: `…/?preview=1&v=3&card=top&tabs=left&bar=high&pin=1&nav=overview,people,lookup&p=ananya&review=0#/lookup`
-- **Design version:** V1, V2, V3 or V4. You can also add `?v=1` to `?v=4` to the URL.
+- **Design version:** V1 to V5. You can also add `?v=1` to `?v=5` to the URL.
 - **Look up a person · layout** (all versions): pick where the **person card** sits (Left panel or Top header) and where the **section tabs** sit (Top, Left or Right). That makes six combinations, and a small diagram shows the current one.
 
 - **Sticky bar:** how strongly the pinned person and tabs stand out once you scroll (default **Mid**):
@@ -75,11 +75,12 @@ Your choices are remembered on that browser.
   - **Left rail:** Reach her (each channel with its consent state, and **Show contact details**), linked records with the merge note, owners right now, and where her data comes from.
   - **Things to act on:** the moments, each with one action that confirms when it's done.
   - **Four tabs, kept in view with the person while you scroll:**
-    - **Learner profile:** one section at a time, so the page never becomes a long scroll. A row of chips (Identity, Personal, Education, Career, Aspiration, Financial, Consent) shows how much of each is filled, and the arrow keys or the previous/next links move between them. Each section shows its summary, then every value with its sources, when it was captured, which source won a conflict, and what isn't captured yet. Financial stays locked behind the team password.
+    - **Learner profile:** one section at a time, so the page never becomes a long scroll. A row of chips (Identity, Personal, Education, Career, Aspiration, Financial, Consent) shows how much of each is filled and stays pinned under the person bar as you scroll, so you can switch sections from anywhere; and the arrow keys or the previous/next links move between them. Each section shows its summary, then every value with its sources, when it was captured, which source won a conflict, and what isn't captured yet. Financial stays locked behind the team password.
     - **Academic and skills:** the current programme (progress, modules, assignment scores, live sessions and instalments), skills graded by upGrad or self-declared, and credentials.
     - **Activity:** a timeline grouped by month, filtered by business and event type, with details per event and the latest 6 first. It can also be read by business, or as a weekly learning rhythm.
     - **Insights:** 13 answers in five groups (value, reach and engagement, health and risk, signals across businesses, counselling model scores), each with how it's worked out.
   - **Layouts (Review panel), as in V3:** the person and headline figures across the top or in the left panel, and the four tabs on top, on the left or on the right. The left panel stays in view and scrolls on its own, so it never makes the page longer. Below 1100px wide, V4 always uses person on top and tabs on top. The sticky bar strength and the pinned search apply to every layout.
+- **V5:** V4's content and look, with one layout and a profile header that folds as you scroll. The header sits at the top of the right-hand column and stays pinned. As you scroll, the full profile and its four figures slide under the card's top edge and fade, the white card shrinks, and what's left is one slim bar: a small photo, the name, muted facts and the four tabs (their counts fade out too). The information you've already seen steps back, and the details take the focus. Contact and records stay pinned on the left, and the profile section chips pin under the slim bar. The Review panel's layout and sticky-bar choices don't apply to V5; the pinned search does.
 
 ## People directory
 

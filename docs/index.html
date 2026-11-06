@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<script>(function(){var v='2';try{var m=/[?&]v=([1234])/.exec(location.search);v=m?m[1]:(localStorage.getItem('cip-version')||'2');if(m)localStorage.setItem('cip-version',v);}catch(e){}var d=document.documentElement;d.setAttribute('data-v',v==='4'?'3':v);if(v==='4')d.setAttribute('data-v4','');})();</script>
+<script>(function(){var v='2';try{var m=/[?&]v=([12345])/.exec(location.search);v=m?m[1]:(localStorage.getItem('cip-version')||'2');if(m)localStorage.setItem('cip-version',v);}catch(e){}var d=document.documentElement;d.setAttribute('data-v',v>'3'?'3':v);if(v>'3')d.setAttribute('data-v4','');if(v==='5')d.setAttribute('data-v5','');})();</script>
 <style>
 :root{
   --bg:#F5F5F7; --card:#FFFFFF; --text:#1D1D1F; --muted:#6E6E73; --line:#E5E5EA; --border:#D2D2D7;
@@ -1520,8 +1520,10 @@ html[data-v4] #lookupResult[data-stick="mid"].hdr-off .pbar .pmini{max-width:180
 .v4howt{margin:8px 0 0;padding:10px 12px;border-radius:10px;background:#F7F7F9;font-size:12.5px;color:#55555C;line-height:1.5;animation:rise .3s var(--ease) backwards}
 
 /* V4: one profile section at a time */
-.v4secnav{display:flex;flex-wrap:wrap;gap:8px}
-.v4sn{display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--border);background:#fff;font-size:13px;font-weight:500;color:var(--text);transition:background .2s,border-color .2s,color .2s}
+.v4secnav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0}
+.v4secnav::-webkit-scrollbar{display:none}
+.v4secbar.ovf .v4secnav{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent)}
+.v4sn{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px;white-space:nowrap;border-radius:999px;border:1px solid var(--border);background:#fff;font-size:13px;font-weight:500;color:var(--text);transition:background .2s,border-color .2s,color .2s}
 .v4sn:hover{border-color:var(--text)}
 .v4sn svg{color:var(--muted)}
 .v4snf{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
@@ -1567,6 +1569,45 @@ html[data-v4] .dv-right{grid-template-columns:minmax(0,1fr) 208px}
   .view[data-view="lookup"][data-ssearch="on"] .v4rail{top:calc(var(--sbar,0px) - 6px);max-height:calc(100vh - var(--sbar,0px) - 114px)}
 }
 @media (max-width:760px){.v4sn{height:34px;padding:0 10px}.v4sn > span:not(.v4snf):not(.v4snl){font-size:12.5px}}
+/* V4 and V5: the profile section chips stay pinned below the person bar */
+.v4secbar{position:sticky;top:var(--chipTop,12px);z-index:11}
+.v4secbar::before{content:"";position:absolute;z-index:-1;top:-8px;bottom:-8px;left:calc(-1 * var(--pin-l,0px));right:calc(-1 * var(--pin-r,0px));background:var(--bg);pointer-events:none}
+.v4secbar.stuck::before{background:linear-gradient(var(--line),var(--line)) var(--pin-l,0px) 100%/calc(100% - var(--pin-l,0px) - var(--pin-r,0px)) 1px no-repeat,var(--bg)}
+#lookupResult.chips-stuck .pbar::before{background:var(--bg)}
+@media (min-width:1100px){.v4secbar::before{left:-8px}.v4secbar.stuck::before{background:linear-gradient(var(--line),var(--line)) 8px 100%/calc(100% - 8px - var(--pin-r,0px)) 1px no-repeat,var(--bg)}}
+
+/* ================= V5: the profile header folds into a slim bar as you scroll ================= */
+.v5head{--p:0;position:sticky;top:calc(var(--sbar,0px) + 12px - var(--clp,0px));z-index:12;padding:22px 22px 12px;min-width:0}
+/* Page colour behind the header: fills the gap above the folded bar and behind its rounded corners */
+.v5head::after{content:"";position:absolute;z-index:-2;top:-14px;bottom:-8px;left:calc(-1 * var(--pin-l,0px));right:calc(-1 * var(--pin-r,0px));background:var(--bg);pointer-events:none}
+.v5head.is-min::after{background:linear-gradient(var(--line),var(--line)) var(--pin-l,0px) 100%/calc(100% - var(--pin-l,0px) - var(--pin-r,0px)) 1px no-repeat,var(--bg)}
+#lookupResult.chips-stuck .v5head::after{background:var(--bg)}
+@media (min-width:1100px){
+  .v5head::after{left:-8px}
+  .v5head.is-min::after{background:linear-gradient(var(--line),var(--line)) 8px 100%/calc(100% - 8px - var(--pin-r,0px)) 1px no-repeat,var(--bg)}
+  html[data-v5] .v4rail{top:6px}
+  html[data-v5] .view[data-view="lookup"][data-ssearch="on"] .v4rail{top:calc(var(--sbar,0px) + 6px);max-height:calc(100vh - var(--sbar,0px) - 126px)}
+}
+/* The white card shrinks from the top as the full profile folds away */
+.v5bg{position:absolute;z-index:-1;left:0;right:0;bottom:0;top:calc(var(--p) * var(--clp,0px));background:var(--card);border-radius:22px;box-shadow:0 1px 2px rgba(16,16,24,.03),0 10px 30px rgba(16,16,24,.045);pointer-events:none;transition:box-shadow .25s}
+.v5head.is-min .v5bg{box-shadow:0 0 0 1px var(--line),0 6px 16px -8px rgba(16,16,24,.22)}
+.v5full{display:flex;flex-direction:column;gap:16px;opacity:calc(1 - var(--p) * 1.25);clip-path:inset(max(0px, calc(var(--p) * var(--clp,0px) - 22px)) 0 0 0)}
+.v5head.folding .v5full{pointer-events:none}
+.v5full .v4name h1{font-size:28px}
+/* The slim row: the person steps back (small, muted) and the tabs take over */
+.v5row{display:flex;align-items:center;gap:12px;margin-top:14px;min-width:0}
+.v5mini{display:flex;align-items:center;gap:10px;flex:0 0 auto;max-width:calc(var(--p) * 210px);opacity:calc(var(--p) * var(--p));overflow:hidden;white-space:nowrap;margin-right:calc(var(--p) * 2px - 12px)}
+.v5head.is-min .v5mini{margin-right:2px}
+.v5av{flex:0 0 36px;width:36px;height:36px;border-radius:50%;background:#1D1D1F;color:#fff;font-size:12px;font-weight:600;display:grid;place-items:center;object-fit:cover}
+.v5mini b{display:block;font-size:14px;font-weight:600;overflow:hidden;text-overflow:ellipsis}
+.v5mini small{display:block;font-size:11.5px;color:#9C9CA4;overflow:hidden;text-overflow:ellipsis}
+.v5row .tabs{flex:1 1 auto;min-width:0}
+/* Counts repeat what the full header showed: they fade out as it folds, so the four tabs keep their room */
+.v5head .v4tabs button{gap:calc((1 - var(--p)) * 8px)}
+.v5head .v4cnt{max-width:calc((1 - var(--p)) * 44px);opacity:calc(1 - var(--p) * 1.6);overflow:hidden;padding:0 calc((1 - var(--p)) * 6px)}
+@media (max-width:760px){.v5head{padding:16px 16px 10px}.v5full .v4name h1{font-size:23px}.v5mini{max-width:calc(var(--p) * 150px)}.v5mini small{display:none}}
+@media (prefers-reduced-motion: reduce){.v5bg{transition:none}}
+html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
 /* Smaller screens */
 @media (max-width:1320px){.v4hero{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:1100px){
@@ -2158,7 +2199,7 @@ html[data-v4] .dv-right{grid-template-columns:minmax(0,1fr) 208px}
 <div class="review" id="review">
   <div class="rv-panel" id="rvPanel" role="dialog" aria-label="Review controls" tabindex="-1" hidden>
     <div class="rv-head"><b>Review</b><span>For design review, not part of the product</span><button type="button" class="rv-x" id="rvClose" aria-label="Close review panel"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1l10 10M11 1L1 11"/></svg></button></div>
-    <div class="rv-sec"><span class="rv-k">Design version</span><div class="rv-seg" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="1" aria-pressed="false">V1</button><button type="button" data-v="2" aria-pressed="false">V2</button><button type="button" data-v="3" aria-pressed="false">V3</button><button type="button" data-v="4" aria-pressed="false">V4</button></div></div>
+    <div class="rv-sec"><span class="rv-k">Design version</span><div class="rv-seg" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="1" aria-pressed="false">V1</button><button type="button" data-v="2" aria-pressed="false">V2</button><button type="button" data-v="3" aria-pressed="false">V3</button><button type="button" data-v="4" aria-pressed="false">V4</button><button type="button" data-v="5" aria-pressed="false">V5</button></div></div>
     <div class="rv-sec"><span class="rv-k">Look up a person · layout</span>
       <div class="rv-pos">
       <div class="rv-thumb" id="rvThumb" aria-hidden="true"></div>
@@ -2166,7 +2207,7 @@ html[data-v4] .dv-right{grid-template-columns:minmax(0,1fr) 208px}
       <span class="rv-sub">Person card</span><div class="rv-seg" id="rvPerson" role="group" aria-label="Person card position"></div>
       <span class="rv-sub">Section tabs</span><div class="rv-seg" id="rvTabs" role="group" aria-label="Section tabs position"></div>
       </div>
-      <span class="rv-sub">Sticky bar</span><div class="rv-seg" id="rvStick" role="group" aria-label="Sticky bar prominence"></div>
+      <div class="rv-stick"><span class="rv-sub">Sticky bar</span><div class="rv-seg" id="rvStick" role="group" aria-label="Sticky bar prominence"></div></div>
       <div class="rv-rows"><label class="rv-row"><span>Pin the search bar</span><input type="checkbox" class="switch rv-switch" id="rvSSearch" aria-label="Pin the search bar at the top"></label></div>
       <p class="rv-note" id="rvLayoutNote"></p>
     </div>
@@ -2428,7 +2469,7 @@ html[data-v4] .dv-right{grid-template-columns:minmax(0,1fr) 208px}
   };
   function ic4(name, size) { return '<svg width="' + (size || 18) + '" height="' + (size || 18) + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICON4[name] || "") + "</svg>"; }
   function isV4() { return document.documentElement.hasAttribute("data-v4"); }
-  function curV() { return isV4() ? "4" : (document.documentElement.getAttribute("data-v") || "2"); }
+  function curV() { return isV5() ? "5" : isV4() ? "4" : (document.documentElement.getAttribute("data-v") || "2"); }
   function srcCls4(s) { return { Prism: "s-pr", LSQ: "s-lsq", HubSpot: "s-hs", OMS: "s-oms", "Sales Insights": "s-si", SA: "s-si", WP: "s-si" }[s] || "s-ot"; }
   function src4(s) { return '<span class="src4 ' + srcCls4(s) + '">' + esc(s) + "</span>"; }
 
@@ -2635,11 +2676,11 @@ html[data-v4] .dv-right{grid-template-columns:minmax(0,1fr) 208px}
   function v4Profile(p, m, team, otherBu) {
     var cur = m.sections.some(function (s) { return s.key === V.sec; }) ? V.sec : m.sections[0].key, s = m.sections.filter(function (x) { return x.key === cur; })[0];
     var SHORT = { identity: "Identity", personal: "Personal", education: "Education", career: "Career", aspiration: "Aspiration", financial: "Financial", consent: "Consent" };
-    var nav = '<div class="v4secnav" role="tablist" aria-label="Profile sections">' + m.sections.map(function (x) {
+    var nav = '<div class="v4secbar"><div class="v4secnav" role="tablist" aria-label="Profile sections">' + m.sections.map(function (x) {
       var on = x.key === cur, locked = x.fin && !otherBu && !V.finOpen;
-      return '<button type="button" role="tab" id="sec-' + x.key + '" aria-controls="secp" aria-selected="' + on + '" tabindex="' + (on ? 0 : -1) + '" data-sec="' + x.key + '" class="v4sn' + (on ? " on" : "") + '">' + ic4(x.ic, 15) + "<span>" + esc(SHORT[x.key] || x.t) + "</span>" +
+      return '<button type="button" role="tab" id="sec-' + x.key + '" aria-controls="secp" aria-selected="' + on + '" tabindex="' + (on ? 0 : -1) + '" data-sec="' + x.key + '" class="v4sn' + (on ? " on" : "") + '"><span>' + esc(SHORT[x.key] || x.t) + "</span>" +
         (locked ? '<span class="v4snl" title="Locked">' + ic4("lock", 12) + "</span>" : '<span class="v4snf" title="' + x.filled[0] + " of " + x.filled[1] + ' filled">' + x.filled[0] + "/" + x.filled[1] + "</span>") + "</button>";
-    }).join("") + "</div>";
+    }).join("") + "</div></div>";
     var locked = s.fin && !otherBu && !V.finOpen, hidden = s.fin && otherBu, pct = Math.round(s.filled[0] / s.filled[1] * 100);
     var head = '<div class="v4sec-h"><span class="v4acc-ic ic-' + s.key + '">' + ic4(s.ic, 18) + '</span><span class="v4acc-t"><b>' + esc(s.t) + "</b><small>" +
       (hidden ? "Shown to the owning business only" : locked ? "Locked · team password needed" : esc(s.sum)) + '</small></span><span class="v4fill"><small>' + s.filled[0] + " of " + s.filled[1] + ' filled</small><span class="v4meter" aria-hidden="true"><i style="width:' + pct + '%"></i></span></span></div>';
@@ -2748,6 +2789,55 @@ html[data-v4] .dv-right{grid-template-columns:minmax(0,1fr) 208px}
     return '<section class="card v4actv">' + tools + body + (otherBu ? '<p class="v4note">Payments are shown to the owning business only.</p>' : "") + "</section>";
   }
 
+  /* ================= V5: the profile header folds into a slim bar as you scroll ================= */
+  function isV5() { return document.documentElement.hasAttribute("data-v5"); }
+  function profile5HTML(p, team) {
+    var m = v4Of(p), otherBu = !!team.bu && team.bu !== p.owner, noContact = otherBu && !p.consent.cross;
+    var back = L.matches.length > 1 ? '<button type="button" class="textbtn backbtn" data-back>‹ Back to ' + L.matches.length + " people on this number</button>" : "";
+    if (p.restricted) return profile4HTML(p, team);
+    var banner = noContact ? '<div class="banner" role="note">' + warn() + "<div><b>Don't contact " + esc(first(p)) + " about " + esc(team.bu) + "</b>" + esc(first(p)) + " hasn't agreed to offers from other upGrad businesses. You can view this profile for context only.</div></div>" : "";
+    var cur = TABS4.some(function (x) { return x[0] === V.tab; }) ? V.tab : "profile", fresh = cur !== V.seen; V.seen = cur; V.tab = cur;
+    var counts = { profile: m.sections.reduce(function (a, s) { return a + s.filled[1]; }, 0), academic: (p.courses || []).length, activity: (p.events || []).length, insights: m.insights.reduce(function (a, c) { return a + c.items.length; }, 0) };
+    var list = '<div class="tabs v4tabs" role="tablist" aria-label="Learner 360 sections" id="ptabs" data-slide>' + TABS4.map(function (t) {
+      var on = t[0] === cur;
+      return '<button type="button" role="tab" id="tab-' + t[0] + '" aria-controls="panel" aria-selected="' + on + '" tabindex="' + (on ? 0 : -1) + '" data-tab="' + t[0] + '"><span class="v4tabl">' + t[1] + '</span><span class="v4cnt">' + esc(String(counts[t[0]])) + "</span></button>";
+    }).join("") + "</div>";
+    var face = function (cls) { return p.photo ? '<img class="' + cls + ' photo" src="' + esc(p.photo) + '" alt="">' : '<span class="' + cls + '" aria-hidden="true">' + esc(m.initials) + "</span>"; };
+    var kpis = '<div class="v4kpis">' + m.kpis.map(function (k) {
+      var hide = k.fin && otherBu;
+      return '<div class="v4kpi' + (k.tone ? " t-" + k.tone : "") + '"><span class="k">' + esc(k.k) + '</span><span class="v">' + esc(hide ? "Owner only" : k.v) + '</span><span class="bar" aria-hidden="true"><i style="width:' + (hide ? 0 : k.pct) + '%"></i></span><span class="d">' + esc(hide ? "Shown to the owning business" : k.d) + "</span></div>";
+    }).join("") + "</div>";
+    // The full profile (fades out as you scroll) and the slim row that stays: a small photo, the name, muted facts and the four tabs.
+    var head = '<section class="v5head" aria-label="' + esc(p.name) + '"><div class="v5bg" aria-hidden="true"></div>' +
+      '<div class="v5full"><div class="v4id">' + v4Ring(p.complete, face("v4face"), 72) + '<div class="v4who"><div class="v4name"><h1>' + esc(p.name) + '</h1><code class="gid">' + esc(p.gid) + "</code></div>" +
+      '<div class="v4chips"><span>' + esc(p.stage) + "</span><span>" + esc(p.ageBand.replace("–", " to ")) + "</span><span>" + esc(m.place) + "</span><span>" + esc(m.known) + "</span></div>" +
+      '<p class="v4matched">' + esc(p.headline) + "</p></div></div>" + kpis + "</div>" +
+      '<div class="v5row"><div class="v5mini" aria-hidden="true">' + face("v5av") + "<span><b>" + esc(p.name) + "</b><small>" + esc(p.stage + " · " + p.city) + "</small></span></div>" + list + "</div></section>";
+    var body = cur === "academic" ? v4Academic(p, m) : cur === "activity" ? v4Activity(p, otherBu) : cur === "insights" ? v4Insights(p, m, otherBu) : v4Profile(p, m, team, otherBu);
+    var panel = '<div id="panel" class="' + (fresh ? "fresh" : "") + '" role="tabpanel" aria-labelledby="tab-' + cur + '">' + body + "</div>";
+    var main = head + v4Life(m) + banner + v4Act(m) + '<section class="section pdet" aria-label="Learner 360 details">' + panel + "</section>";
+    return '<div class="v4 v5">' + back + '<div class="v4grid"><aside class="v4rail" aria-label="Contact and records">' + v4Rail(p, m, team, otherBu, noContact) + '</aside><div class="v4main">' + main + "</div></div></div>";
+  }
+
+  // Pinned pieces in V4 and V5: how far the V5 header has folded, and where the profile section chips pin.
+  function v4Sticky(r, sb, bar) {
+    if (!r) return;
+    if (!isV4()) { r.classList.remove("chips-stuck"); return; }
+    var hd = r.querySelector(".v5head"), nav = r.querySelector(".v4secbar"), top;
+    if (hd) {
+      var row = hd.querySelector(".v5row"), clp = Math.max(0, row.offsetTop - 10);
+      if (hd._clp !== clp) { hd._clp = clp; hd.style.setProperty("--clp", clp + "px"); }
+      var pin = sb + 12, p = Math.max(0, Math.min(1, (pin - hd.getBoundingClientRect().top) / (clp || 1)));
+      p = Math.round(p * 100) / 100;
+      if (hd._p !== p) { hd._p = p; hd.style.setProperty("--p", p); hd.classList.toggle("folding", p > 0.4); hd.classList.toggle("is-min", p >= 0.99); requestAnimationFrame(slideAll); }
+      top = pin + hd.offsetHeight - clp + 8;
+    } else if (bar) top = barPinTop(bar, sb) + bar.offsetHeight + (STICK === "min" ? 0 : 8);
+    else top = sb + 12;
+    r.style.setProperty("--chipTop", Math.round(top) + "px");
+    var stuck = !!nav && window.scrollY > 4 && nav.getBoundingClientRect().top <= top + 1;
+    if (nav) { nav.classList.toggle("stuck", stuck); var row = nav.firstChild; nav.classList.toggle("ovf", row.scrollWidth > row.clientWidth + 2 && row.scrollLeft + row.clientWidth < row.scrollWidth - 2); }
+    r.classList.toggle("chips-stuck", stuck);
+  }
   // Insights: 13 derived answers, each with how it's worked out.
   function v4Insights(p, m, otherBu) {
     var how = V.how || {};
@@ -2784,7 +2874,7 @@ html[data-v4] .dv-right{grid-template-columns:minmax(0,1fr) 208px}
     if (SHARED.pin === "0" || SHARED.pin === "1") SSEARCH = SHARED.pin === "1";
     if (SHARED.nav) { var keep = SHARED.nav.split(","); NAVHIDE = ["overview", "people", "lookup", "identity", "data", "later"].filter(function (k) { return keep.indexOf(k) < 0; }); }
   }
-  function applyLookupLayout() { var r = $("#lookupResult"), lay = isV4() ? v4Layout() : { p: PERSON, t: TABS }; if (r) { r.setAttribute("data-layout", lay.p); r.setAttribute("data-tabs", lay.t); r.setAttribute("data-stick", STICK); } syncSbar(); }
+  function applyLookupLayout() { var r = $("#lookupResult"), lay = isV5() ? { p: "top", t: "top" } : isV4() ? v4Layout() : { p: PERSON, t: TABS }; if (r) { r.setAttribute("data-layout", lay.p); r.setAttribute("data-tabs", lay.t); r.setAttribute("data-stick", STICK); } syncSbar(); }
   var CATS = { A: "Attribution", M: "Marketing", E: "Enquiries", X: "Interactions", P: "Payments", L: "Learning", S: "Support", C: "Consent" };
 
   var PEOPLE = {
@@ -3188,7 +3278,7 @@ html[data-v4] .dv-right{grid-template-columns:minmax(0,1fr) 208px}
       return;
     }
     if (L.status === "many" && !L.person) { box.innerHTML = manyHTML(); return; }
-    box.innerHTML = isV4() ? profile4HTML(PEOPLE[L.person], team) : profileHTML(PEOPLE[L.person], team);
+    box.innerHTML = isV5() ? profile5HTML(PEOPLE[L.person], team) : isV4() ? profile4HTML(PEOPLE[L.person], team) : profileHTML(PEOPLE[L.person], team);
     hdrCheck();
   }
   // After switching sections, start the new one from its top, just below whatever is pinned.
@@ -3197,6 +3287,8 @@ html[data-v4] .dv-right{grid-template-columns:minmax(0,1fr) 208px}
     var stack = SSEARCH ? $("#lookupForm").offsetHeight : 0, bar = $("#lookupResult .pbar");
     // Scroll so the bar sits exactly where it pins, with the section starting just below it.
     if (bar) stack = Math.max(stack, barPinTop(bar, stack) + bar.offsetHeight);
+    var hd = $("#lookupResult .v5head");
+    if (hd) stack = stack + 12 + hd.offsetHeight - (hd._clp || 0);
     var top = panel.getBoundingClientRect().top;
     if (top < stack + 12) window.scrollTo({ top: Math.max(0, window.scrollY + top - stack - 16), behavior: REDUCED ? "auto" : "smooth" });
   }
@@ -3212,6 +3304,7 @@ html[data-v4] .dv-right{grid-template-columns:minmax(0,1fr) 208px}
     var bar = r && r.querySelector(".pbar"), view = $('.view[data-view="lookup"]');
     if (r) r.classList.toggle("bar-stuck", !!bar && window.scrollY > 4 && bar.getBoundingClientRect().top <= barPinTop(bar, sb) + 2);
     if (view) view.classList.toggle("pin-bar", !!r && r.classList.contains("bar-stuck"));
+    v4Sticky(r, sb, bar);
   }
   // Optional pinned search bar: everything else that is pinned sits just below it.
   function syncSbar() {
@@ -3233,6 +3326,7 @@ html[data-v4] .dv-right{grid-template-columns:minmax(0,1fr) 208px}
     if (isV4()) { applyLookupLayout(); renderLookup(); requestAnimationFrame(slideAll); }
   });
   window.addEventListener("scroll", hdrCheck, { passive: true });
+  $("#lookupResult").addEventListener("transitionend", function (e) { if (e.target.closest && e.target.closest(".pbar, .pmini")) hdrCheck(); });
 
   function manyHTML() {
     var rows = L.matches.map(function (m) {
@@ -3770,9 +3864,10 @@ html[data-v4] .dv-right{grid-template-columns:minmax(0,1fr) 208px}
 
   /* ---------- Design versions ---------- */
   function setVersion(v, keep) {
-    if (["1", "2", "3", "4"].indexOf(v) < 0) v = "1";
-    document.documentElement.setAttribute("data-v", v === "4" ? "3" : v);
-    if (v === "4") document.documentElement.setAttribute("data-v4", ""); else document.documentElement.removeAttribute("data-v4");
+    if (["1", "2", "3", "4", "5"].indexOf(v) < 0) v = "1";
+    document.documentElement.setAttribute("data-v", v > "3" ? "3" : v);
+    if (v > "3") document.documentElement.setAttribute("data-v4", ""); else document.documentElement.removeAttribute("data-v4");
+    if (v === "5") document.documentElement.setAttribute("data-v5", ""); else document.documentElement.removeAttribute("data-v5");
     $$("#vswitch button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === v); });
     if (keep) { try { localStorage.setItem("cip-version", v); } catch (e) {} }
     v3Enter((location.hash.replace(/^#\/?/, "") || "overview").split("/")[0]);
@@ -4021,11 +4116,12 @@ html[data-v4] .dv-right{grid-template-columns:minmax(0,1fr) 208px}
     $$("#rvTabs button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-tabs-at") === TABS); });
     $("#rvThumb").innerHTML = rvThumb(PERSON, TABS);
     $("#rvLayoutNote").textContent = describeLayout();
-    $("#rvSummary").textContent = "V" + v + " · " + layoutLabel() + (NAVHIDE.length ? " · " + NAVHIDE.length + " hidden" : "");
+    $("#rvSummary").textContent = "V" + v + " · " + (v === "5" ? "Folding header" : layoutLabel()) + (NAVHIDE.length ? " · " + NAVHIDE.length + " hidden" : "");
     $$("#rvNav [data-navitem]").forEach(function (c) { c.checked = NAVHIDE.indexOf(c.getAttribute("data-navitem")) < 0; });
     if (typeof rvShareSync === "function") rvShareSync();
   }
   function describeLayout() {
+    if (isV5()) return "V5 has one layout. The profile header sits at the top of the right-hand column and stays pinned: as you scroll, the full profile and its four figures fade out and it folds into one slim bar with a small photo, the name, muted facts and the four tabs. Contact and records stay pinned on the left.";
     if (isV4()) {
       var who4 = PERSON === "rail" ? "The person, their headline figures, contact and records stay pinned in the left panel" : "The person and headline figures run across the top, and contact and records stay pinned on the left";
       var tabs4 = TABS === "top" ? "the four tabs stay pinned above the details" : TABS === "left" ? (PERSON === "rail" ? "the four tabs sit in the left panel, under the person" : "the four tabs stay pinned to the left of the details") : "the four tabs stay pinned to the right of the details";
