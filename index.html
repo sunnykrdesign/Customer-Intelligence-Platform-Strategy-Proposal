@@ -1608,6 +1608,169 @@ html[data-v4] .dv-right{grid-template-columns:minmax(0,1fr) 208px}
 @media (max-width:760px){.v5head{padding:16px 16px 10px}.v5full .v4name h1{font-size:23px}.v5mini{max-width:calc(var(--p) * 150px)}.v5mini small{display:none}}
 @media (prefers-reduced-motion: reduce){.v5bg{transition:none}}
 html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
+/* ================= V5 options ================= */
+.rv-v5{display:none}
+html[data-v5] .rv-v5{display:flex}
+/* Nothing scrolls inside something else in V5 */
+html[data-v5] .v4rail{overflow:visible;max-height:none}
+html[data-v5] .v4rail.flow{position:static}
+html[data-v5] .v4secnav{flex-wrap:wrap;overflow:visible}
+html[data-v5] .v4life-scroll{overflow:visible}
+html[data-v5] .v4life-grid{min-width:0}
+html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
+.v4life.bare{padding:0}
+.v4life.bare .v4life-head{margin-bottom:10px}
+
+/* Bar (Minimal and Overview first): learner, tabs and Find in one row */
+.v5-min,.v5-ovl{width:100%;max-width:1060px;margin:0 auto}
+.v5-min{padding-bottom:84px}
+.v5bar{position:sticky;top:calc(var(--sbar,0px) + 12px);z-index:12;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:16px;padding:10px 12px 10px 14px;background:var(--card);border-radius:20px;box-shadow:0 1px 2px rgba(16,16,24,.03),0 10px 30px rgba(16,16,24,.045);transition:box-shadow .25s}
+.v5bar::before{content:"";position:absolute;z-index:-1;top:-12px;bottom:-8px;left:calc(-1 * var(--pin-l,0px));right:calc(-1 * var(--pin-r,0px));background:var(--bg);pointer-events:none}
+.v5bar.is-min{box-shadow:0 0 0 1px var(--line),0 6px 16px -8px rgba(16,16,24,.22)}
+.v5bar.is-min::before{background:linear-gradient(var(--line),var(--line)) var(--pin-l,0px) 100%/calc(100% - var(--pin-l,0px) - var(--pin-r,0px)) 1px no-repeat,var(--bg)}
+#lookupResult.chips-stuck .v5bar::before{background:var(--bg)}
+.v5id{display:flex;align-items:center;gap:12px;min-width:0}
+.v5bar .v4face{font-size:12px}
+.v5who{min-width:0}
+.v5nm{display:flex;align-items:center;gap:8px;min-width:0}
+.v5nm h1{font-size:17px;font-weight:600;margin:0;letter-spacing:-.02em;white-space:nowrap}
+.v5gid{display:inline-flex;align-items:center;gap:5px;height:22px;padding:0 7px;border:none;border-radius:6px;background:var(--fill);font-family:var(--mono);font-size:10.5px;color:var(--muted);white-space:nowrap}
+.v5gid:hover{background:#E6E6EB;color:var(--text)}
+.v5who p{margin:2px 0 0;font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v5sync{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;color:#3E8E5E}
+.v5sync i{width:6px;height:6px;border-radius:50%;background:#34A267;box-shadow:0 0 0 3px #E3F4E9}
+.v5bar .tabs{min-width:0}
+.v5bar .v4tabs button{padding:0 14px}
+.v5bar .v4cnt{display:none}
+.v5row .v5findw{flex:0 0 auto}
+/* Find a field */
+.v5findw{position:relative}
+.v5findb{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 8px 0 11px;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--muted);font-size:13px}
+.v5findb:hover,.v5findb[aria-expanded="true"]{border-color:var(--text);color:var(--text)}
+.v5findb kbd{font-family:var(--mono);font-size:10.5px;padding:1px 6px;border-radius:5px;background:var(--fill);color:var(--muted)}
+.v5find{position:absolute;right:0;top:calc(100% + 8px);width:min(440px,calc(100vw - 32px));background:#fff;border-radius:16px;box-shadow:0 0 0 1px var(--line),0 18px 50px rgba(16,16,24,.16);padding:8px;z-index:30;animation:rise .2s var(--ease)}
+.v5fi{display:flex;align-items:center;gap:8px;padding:0 12px;height:44px;border-radius:11px;background:var(--fill);color:var(--muted)}
+.v5fi input{flex:1;min-width:0;border:none;background:transparent;font:inherit;font-size:14px;color:var(--text);outline:none}
+.v5fi input::-webkit-search-cancel-button{display:none}
+#v5res{list-style:none;margin:6px 0 0;padding:0}
+#v5res li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 10px;border-radius:10px;cursor:pointer}
+#v5res li[aria-selected="true"],#v5res li:not(.none):hover{background:#F2F5FD}
+#v5res li span{min-width:0}
+#v5res li b{display:block;font-size:13.5px;font-weight:600}
+#v5res li small{display:block;font-size:11.5px;color:var(--muted)}
+#v5res li em{font-style:normal;font-size:12.5px;color:#55555C;text-align:right;max-width:55%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#v5res li.none{color:var(--muted);font-size:13px;cursor:default}
+.v5fh{margin:6px 6px 2px;font-size:11px;color:#A1A1A8}
+.v4row.v5flash{animation:v5flash 1.8s var(--ease)}
+@keyframes v5flash{0%,35%{background:#FFF4D6;box-shadow:0 0 0 8px #FFF4D6}100%{background:transparent;box-shadow:0 0 0 8px transparent}}
+/* Values you can copy, lists inside a row, and where the values come from */
+.v5vals{display:flex;flex-direction:column;gap:2px}
+.v5cv{display:inline-flex;align-items:center;gap:4px}
+.v5cp{display:inline-grid;place-items:center;width:26px;height:26px;border:none;border-radius:7px;background:transparent;color:#A1A1A8;flex:0 0 auto}
+.v5cp:hover{background:var(--fill);color:var(--text)}
+.v5list{display:flex;flex-direction:column;gap:6px;margin-top:2px}
+.v5li{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13.5px;font-weight:400}
+.v5li b{font-weight:600}
+.v5li > span:not(.src4):not(.v4bu){color:var(--muted);font-family:var(--mono);font-size:12px}
+.v5srcl{margin:0;padding:12px 0 10px;font-size:12px;color:#A1A1A8;box-shadow:0 -1px 0 var(--line)}
+/* Dock (Minimal): contact and actions stay at the bottom of the screen */
+.v5dock{position:fixed;z-index:25;bottom:16px;left:calc(240px + (100vw - 240px) / 2);transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:7px 7px 7px 16px;background:rgba(29,29,31,.94);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:#fff;border-radius:999px;box-shadow:0 12px 40px rgba(16,16,24,.25);white-space:nowrap;animation:rise .4s var(--ease) backwards}
+.v5dk{font-size:12px;color:rgba(255,255,255,.6);font-weight:500}
+.v5chs{display:flex;gap:4px}
+.v5ch{position:relative;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(111,194,143,.18);color:#8FE0AE}
+.v5ch.no{background:rgba(255,255,255,.07);color:rgba(255,255,255,.38)}
+.v5ch.no i{position:absolute;width:20px;height:1.5px;background:#FF8A8A;transform:rotate(-45deg);border-radius:2px}
+.v5dbtn{height:34px;padding:0 14px;border:none;border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:13px;font-weight:500;display:inline-flex;align-items:center;gap:8px}
+.v5dbtn:hover{background:rgba(255,255,255,.2);color:#fff}
+.v5dbtn.act{background:#fff;color:#111}
+.v5dbtn.act:hover{background:#ECECF0;color:#111}
+.v5dbtn.act.clear{background:rgba(255,255,255,.12);color:#fff}
+.v5n{min-width:20px;height:20px;border-radius:999px;background:#E9B04A;color:#1D1D1F;font-size:11.5px;font-weight:700;display:grid;place-items:center;padding:0 5px}
+.v5sep{width:1px;height:22px;background:rgba(255,255,255,.18)}
+.v5dbtn .sh{display:none}
+.v5pop{position:absolute;bottom:calc(100% + 10px);right:0;width:min(540px,calc(100vw - 32px));color:var(--text);white-space:normal;animation:rise .25s var(--ease)}
+.v5pop .v4act{box-shadow:0 0 0 1px var(--line),0 20px 60px rgba(16,16,24,.22);padding-right:56px}
+.v5popx{position:absolute;top:12px;right:12px;z-index:1;width:32px;height:32px;border:none;border-radius:10px;background:var(--fill);color:var(--muted);display:grid;place-items:center}
+@media (max-width:1300px){.v5dock{left:calc(240px + 32px);transform:none}}
+@media (max-width:820px){.v5dock{left:12px;right:12px;bottom:12px;justify-content:space-between}html[data-v5] body:has(.v5dock) .review{bottom:80px}}
+@media (max-width:520px){.v5dk,.v5sep{display:none}.v5dock{gap:6px;padding-left:8px}.v5dbtn{padding:0 11px;font-size:12.5px}.v5ch{width:28px;height:28px}.v5chs{gap:2px}.v5dbtn .lg{display:none}.v5dbtn .sh{display:inline}html[data-v5] .v4snf{display:none}html[data-v5] .v4sn{padding:0 11px}}
+/* Overview first */
+.v5ov{display:flex;flex-direction:column;gap:16px}
+.v4kpis.v5kp{background:var(--card);border-radius:20px;box-shadow:0 1px 2px rgba(16,16,24,.03),0 10px 30px rgba(16,16,24,.045)}
+.v5ovA{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px;align-items:start}
+.v5ovB{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.v5ovA .v4act-item{flex-direction:column;align-items:flex-start;gap:10px}
+.v5orr .v4own{padding:6px 0}
+.v5rl{margin:10px 0 12px;font-size:12.5px;color:var(--muted)}
+.v5rl b{color:var(--text);font-weight:600}
+.v5lnk{border:none;background:none;padding:0;font:inherit;font-size:12.5px;color:#3D63C9;font-weight:600}
+.v5lnk:hover{text-decoration:underline;text-underline-offset:2px}
+/* Life with upGrad: journey */
+.v4legend .lgb{width:9px;height:9px;border-radius:50%;display:inline-block}
+:is(.v4legend,.v5cdh,.v5sp) i.bu-S{background:#3F9D6B}:is(.v4legend,.v5cdh,.v5sp) i.bu-I{background:#9A9AA2}:is(.v4legend,.v5cdh,.v5sp) i.bu-G{background:#5B6472}:is(.v4legend,.v5cdh,.v5sp) i.bu-W{background:#4C7BE8}:is(.v4legend,.v5cdh,.v5sp) i.bu-K{background:#8B6CDB}:is(.v4legend,.v5cdh,.v5sp) i.bu-L{background:#D07A3A}:is(.v4legend,.v5cdh,.v5sp) i.bu-U{background:#2BA59A}
+.v5jr{list-style:none;margin:6px 0 0;padding:72px 0;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);position:relative}
+.v5jr::before{content:"";position:absolute;left:3%;right:3%;top:50%;height:2px;margin-top:-1px;background:linear-gradient(90deg,#E6E6EB,#C9D5F3 70%,#F1D9A6);border-radius:2px}
+.v5j{position:relative;display:flex;justify-content:center;align-items:center;color:#9A9AA2}
+.v5jd{width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 0 0 2.5px currentColor;position:relative;z-index:1}
+.v5jd.bu-S{color:#3F9D6B}.v5jd.bu-I{color:#9A9AA2}.v5jd.bu-G{color:#5B6472}.v5jd.bu-W{color:#4C7BE8}.v5jd.bu-K{color:#8B6CDB}.v5jd.bu-L{color:#D07A3A}.v5jd.bu-U{color:#2BA59A}
+.v5j.jk-paid .v5jd,.v5j.jk-done .v5jd{background:currentColor}
+.v5j.jk-lost .v5jd{color:#C7C7CE;background:repeating-linear-gradient(135deg,#C7C7CE 0 2px,#fff 2px 4px)}
+.v5j.now .v5jd{width:16px;height:16px;background:#E9B04A;box-shadow:0 0 0 5px #FDF3E1}
+.v5jt{position:absolute;left:50%;transform:translateX(-50%);width:max(100%,128px);text-align:center;display:flex;flex-direction:column;gap:2px;color:var(--text)}
+.v5j.up .v5jt{bottom:calc(50% + 18px)}
+.v5j.dn .v5jt{top:calc(50% + 18px)}
+.v5jt b{font-size:12.5px;font-weight:600;line-height:1.25}
+.v5jt small{font-size:11.5px;color:var(--muted);line-height:1.3}
+.v5jt em{font-style:normal;font-family:var(--mono);font-size:10.5px;color:#A1A1A8}
+.v5j.now .v5jt b{color:#9A5B0F}
+.v5j:first-child .v5jt{left:0;transform:none;text-align:left}
+.v5j:last-child .v5jt{left:auto;right:0;transform:none;text-align:right;width:auto}
+.v5jnow{margin:4px 0 0;padding-top:12px;box-shadow:0 -1px 0 var(--line);font-size:13px;color:var(--muted)}
+.v5jnow b{color:#9A5B0F;font-weight:600;margin-right:4px}
+/* Life with upGrad: one card per business */
+.v5lc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
+.v5card{border-radius:16px;box-shadow:inset 0 0 0 1px var(--line);padding:14px 16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.v5cdh{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.v5cdh i{width:8px;height:8px;border-radius:3px;flex:0 0 8px}
+.v5cdh b{font-size:14px;font-weight:600}
+.v5pill{margin-left:auto;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:999px;background:#EEF3FE;color:#3D63C9;white-space:nowrap}
+.v5pill.lost{background:#F4F4F6;color:#8E8E96}
+.v5st{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px}
+.v5st li{display:flex;flex-direction:column;gap:6px;min-width:0}
+.v5st li i{height:5px;border-radius:999px;background:var(--track)}
+.v5st li.done i{background:#B9CCF4}
+.v5st li.now i{background:#4C7BE8}
+.v5st li.x i{background:repeating-linear-gradient(135deg,#C7C7CE 0 3px,#EEEEF1 3px 6px)}
+.v5st li span{font-size:10.5px;color:#A1A1A8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v5st li.now span,.v5st li.x span{color:var(--text);font-weight:600}
+.v5since{font-size:12px;color:var(--muted)}
+.v5lcn{margin:0;font-size:12px;color:var(--muted)}
+.v5none{margin:12px 0 0;font-size:12.5px;color:#A1A1A8}
+/* Life with upGrad: one strip */
+.v5life-strip{padding:18px 22px}
+.v5life-strip .v4life-head{margin-bottom:10px}
+.v5strip{display:flex;flex-wrap:wrap;gap:8px}
+.v5sp{display:inline-flex;align-items:center;gap:8px;min-height:34px;padding:0 14px;border-radius:999px;background:#F7F7F9;box-shadow:inset 0 0 0 1px var(--line);font-size:13px;color:#55555C}
+.v5sp b{color:var(--text);font-weight:600}
+.v5sp i{width:8px;height:8px;border-radius:50%;flex:0 0 8px}
+.v5sp.sk-paid{background:#EEF3FE;box-shadow:none;color:#2D4C99}
+.v5sp.sk-lost{color:#8E8E96}
+.v5sp.none{background:transparent;box-shadow:none;color:#A1A1A8}
+@media (max-width:1180px){
+  .v5bar{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"id find" "tabs tabs";row-gap:10px}
+  .v5bar .v5id{grid-area:id}.v5bar .tabs{grid-area:tabs}.v5bar > .v5findw{grid-area:find}
+  .v5ovA{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:760px){
+  .v5ovB{grid-template-columns:minmax(0,1fr)}
+  .v5findb span,.v5findb kbd{display:none}
+  .v5who p .v5sync{display:none}
+  .v5jr{grid-auto-flow:row;padding:0;gap:16px}
+  .v5jr::before{left:6px;right:auto;top:8px;bottom:8px;width:2px;height:auto;margin:0}
+  .v5j{justify-content:flex-start;align-items:flex-start;gap:14px}
+  .v5j .v5jd{margin-top:2px;flex:0 0 14px}
+  .v5jt,.v5j.up .v5jt,.v5j.dn .v5jt{position:static;transform:none;text-align:left;width:auto}
+}
 /* Smaller screens */
 @media (max-width:1320px){.v4hero{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:1100px){
@@ -2200,6 +2363,8 @@ html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
   <div class="rv-panel" id="rvPanel" role="dialog" aria-label="Review controls" tabindex="-1" hidden>
     <div class="rv-head"><b>Review</b><span>For design review, not part of the product</span><button type="button" class="rv-x" id="rvClose" aria-label="Close review panel"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1l10 10M11 1L1 11"/></svg></button></div>
     <div class="rv-sec"><span class="rv-k">Design version</span><div class="rv-seg" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="1" aria-pressed="false">V1</button><button type="button" data-v="2" aria-pressed="false">V2</button><button type="button" data-v="3" aria-pressed="false">V3</button><button type="button" data-v="4" aria-pressed="false">V4</button><button type="button" data-v="5" aria-pressed="false">V5</button></div></div>
+    <div class="rv-sec rv-v5"><span class="rv-k">V5 layout</span><div class="rv-seg" id="rvLay5" role="group" aria-label="V5 layout"></div>
+      <span class="rv-sub">Life with upGrad</span><div class="rv-seg" id="rvLife" role="group" aria-label="Life with upGrad style"></div></div>
     <div class="rv-sec"><span class="rv-k">Look up a person · layout</span>
       <div class="rv-pos">
       <div class="rv-thumb" id="rvThumb" aria-hidden="true"></div>
@@ -2259,7 +2424,7 @@ html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
   var Q = new URLSearchParams(location.search), SHARED = null;
   try { SHARED = JSON.parse(sessionStorage.getItem("cip-shared")); } catch (e) { SHARED = null; }
   if (Q.get("review") === "0") {
-    SHARED = { card: Q.get("card"), tabs: Q.get("tabs"), bar: Q.get("bar"), pin: Q.get("pin"), nav: Q.get("nav"), p: Q.get("p") };
+    SHARED = { card: Q.get("card"), tabs: Q.get("tabs"), bar: Q.get("bar"), pin: Q.get("pin"), nav: Q.get("nav"), p: Q.get("p"), lay5: Q.get("lay5"), life: Q.get("life") };
     try { sessionStorage.setItem("cip-shared", JSON.stringify(SHARED)); } catch (e) {}
   }
   (function () {
@@ -2599,7 +2764,7 @@ html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
       '<div class="v4grid"><aside class="v4rail" aria-label="' + (lay.p === "rail" ? "Person, contact and records" : "Contact and records") + '">' + rail + '</aside><div class="v4main">' + main + "</div></div></div>";
   }
   // Life with upGrad: one lane per business, from the first touch to today.
-  function v4Life(m) {
+  function v4LifeLanes(m, opts) {
     var all = [];
     m.lanes.forEach(function (l) { (l.segs || []).forEach(function (s) { all.push(s[1]); }); (l.dots || []).forEach(function (d) { all.push(d[0]); }); });
     m.stageBand.forEach(function (s) { all.push(s[1]); });
@@ -2630,11 +2795,12 @@ html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
     ticks += '<span class="v4tick now" style="left:' + today + '%">Today</span>';
     var legend = '<div class="v4legend" aria-hidden="true"><span><i class="lg-dot"></i>Milestone</span><span><i class="lg k-lead"></i>Lead</span><span><i class="lg k-counselled"></i>Counselled</span><span><i class="lg k-paid"></i>Paid, learning</span><span><i class="lg k-lost"></i>Lost</span></div>';
     var summary = m.lanes.filter(function (l) { return !l.empty; }).map(function (l) { return (BU4[l.bu] || [l.bu])[0] + ": " + l.note; }).join("; ");
-    return '<section class="card v4life" aria-labelledby="v4lifeh"><div class="v4life-head"><h2 id="v4lifeh">Life with upGrad</h2>' + legend + '</div><p class="sr">' + esc(summary) + '</p><div class="v4life-scroll"><div class="v4life-grid" aria-hidden="true">' + rows +
-      '<div class="v4lane v4axis"><div class="v4lname"></div><div class="v4track">' + ticks + "</div></div></div></div></section>";
+    var bare = opts && opts.bare;
+    return (bare ? '<div class="v4life bare">' : '<section class="card v4life" aria-labelledby="v4lifeh">') + '<div class="v4life-head"><h2 id="v4lifeh">Life with upGrad</h2>' + legend + '</div><p class="sr">' + esc(summary) + '</p><div class="v4life-scroll"><div class="v4life-grid" aria-hidden="true">' + rows +
+      '<div class="v4lane v4axis"><div class="v4lname"></div><div class="v4track">' + ticks + "</div></div></div></div>" + (bare ? "</div>" : "</section>");
   }
 
-  function v4Rail(p, m, team, otherBu, noContact) {
+  function v4Rail(p, m, team, otherBu, noContact, parts) {
     var c = p.consent, rn = m.reachNotes || {}, ph = p.phones.filter(function (x) { return x.v; })[0], em = p.emails.filter(function (x) { return x.v; })[0], blocked = p.restricted || noContact;
     var st = function (ok, label) { return ok ? '<span class="v4st ok">' + esc(label || "Allowed") + "</span>" : '<span class="v4st no">Blocked</span>'; };
     var ch = [
@@ -2659,7 +2825,8 @@ html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
     var srcs = '<section class="card v4rc"><h3>Where ' + (p.v4 ? "her" : "this") + ' data comes from</h3><div class="v4srcbars">' + m.sources.map(function (s) {
       return '<div class="v4sb">' + src4(s[0]) + '<span class="v4sbt"><i style="width:' + Math.round(s[1] / max * 100) + '%"></i></span><b>' + s[1] + "</b></div>";
     }).join("") + '</div><p class="v4note">Profile values, by the source that won the merge.</p></section>';
-    return reachCard + rec + own + srcs;
+    var all = { reach: reachCard, records: rec, owners: own, sources: srcs };
+    return (parts || ["reach", "records", "owners", "sources"]).map(function (k) { return all[k]; }).join("");
   }
 
   function v4Act(m) {
@@ -2684,19 +2851,22 @@ html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
     var locked = s.fin && !otherBu && !V.finOpen, hidden = s.fin && otherBu, pct = Math.round(s.filled[0] / s.filled[1] * 100);
     var head = '<div class="v4sec-h"><span class="v4acc-ic ic-' + s.key + '">' + ic4(s.ic, 18) + '</span><span class="v4acc-t"><b>' + esc(s.t) + "</b><small>" +
       (hidden ? "Shown to the owning business only" : locked ? "Locked · team password needed" : esc(s.sum)) + '</small></span><span class="v4fill"><small>' + s.filled[0] + " of " + s.filled[1] + ' filled</small><span class="v4meter" aria-hidden="true"><i style="width:' + pct + '%"></i></span></span></div>';
-    var body = hidden ? '<p class="v4note pad">Budget, funding and salary are shown to ' + esc(p.owner) + " only.</p>" : s.fin ? v4Lock() + (V.finOpen ? v4Rows(p, s, otherBu) : "") : v4Rows(p, s, otherBu);
+    var body = hidden ? '<p class="v4note pad">Budget, funding and salary are shown to ' + esc(p.owner) + " only.</p>" : s.fin ? v4Lock() + (V.finOpen ? v4Rows(p, s, otherBu, m) : "") : v4Rows(p, s, otherBu, m);
+    if (isV5()) body += '<p class="v5srcl">Values in this profile come from ' + esc(m.sources.map(function (x) { return x[0] + " (" + x[1] + ")"; }).join(", ")) + " · " + SYNC4.toLowerCase() + ".</p>";
     var i = m.sections.indexOf(s), prev = m.sections[i - 1], next = m.sections[i + 1];
     var pager = '<div class="v4pager">' + (prev ? '<button type="button" class="v4pg" data-sec="' + prev.key + '">‹ ' + esc(SHORT[prev.key]) + "</button>" : "<span></span>") + '<span class="v4pgn">' + (i + 1) + " of " + m.sections.length + "</span>" +
       (next ? '<button type="button" class="v4pg" data-sec="' + next.key + '">' + esc(SHORT[next.key]) + " ›</button>" : "<span></span>") + "</div>";
     return nav + '<section class="card v4sec" id="secp" role="tabpanel" aria-labelledby="sec-' + s.key + '">' + head + '<div class="v4sec-b">' + body + "</div>" + pager + "</section>";
   }
-  function v4Rows(p, s, otherBu) {
-    return s.rows.filter(function (r) { return !(otherBu && r.t2); }).map(function (r) {
-      var v;
-      if (r.mask === "emails") v = p.emails.map(function (e) { return V.revealed ? e.e : maskEmail4(e.e); }).join(", ");
-      else if (r.mask === "phones") v = p.phones.map(function (x) { return V.revealed ? fmtPhone(x.d) : maskPhone4(x.d); }).join(", ") || "No mobile";
+  function v4Rows(p, s, otherBu, m) {
+    var five = isV5(), cp = function (t, label) { return five ? '<button type="button" class="v5cp" data-copy="' + esc(t) + '" data-copymsg="' + esc(label) + ' copied" aria-label="Copy ' + esc(label) + '" title="Copy">' + ic4("copy", 13) + "</button>" : ""; };
+    return (m ? v5Rows5(p, m, s) : s.rows).filter(function (r) { return !(otherBu && r.t2); }).map(function (r) {
+      var v, val;
+      if (r.mask === "emails") { v = p.emails.map(function (e) { return V.revealed ? e.e : maskEmail4(e.e); }).join(", "); if (five && V.revealed) val = '<span class="v5vals">' + p.emails.map(function (e) { return '<span class="v5cv">' + esc(e.e) + cp(e.e, "Email") + "</span>"; }).join("") + "</span>"; }
+      else if (r.mask === "phones") { v = p.phones.map(function (x) { return V.revealed ? fmtPhone(x.d) : maskPhone4(x.d); }).join(", ") || "No mobile"; if (five && V.revealed) val = '<span class="v5vals">' + p.phones.map(function (x) { return '<span class="v5cv">' + esc(fmtPhone(x.d)) + cp("+91" + x.d, "Mobile") + "</span>"; }).join("") + "</span>"; }
       else v = r.v;
-      return '<div class="v4row"><div class="v4rl">' + esc(r.l) + '</div><div class="v4rv">' + (r.restricted ? '<i class="v4restr">Restricted</i>' : '<b class="' + (r.bad ? "bad" : "") + '">' + esc(v) + "</b>") +
+      if (r.list) val = '<div class="v5list">' + r.list.map(function (x) { return '<div class="v5li">' + (x[3] ? '<span class="v4bu bu-' + x[3] + '">' + esc((BU4[x[3]] || [x[3], x[3]])[1]) + "</span>" : "") + "<b>" + esc(x[0]) + "</b><span>" + esc(x[1]) + "</span>" + (x[2] ? src4(x[2]) : "") + (x[2] ? cp(x[1].replace(/^[^ ]+ /, ""), x[0] + " ID") : "") + "</div>"; }).join("") + "</div>";
+      return '<div class="v4row" data-hl="' + esc(r.l) + '"><div class="v4rl">' + esc(r.l) + '</div><div class="v4rv">' + (r.restricted ? '<i class="v4restr">Restricted</i>' : val ? '<b class="v5bv">' + val + "</b>" : '<b class="' + (r.bad ? "bad" : "") + '">' + esc(v) + "</b>") +
         '<div class="v4meta">' + (r.src || []).map(src4).join("") + (r.n ? "<span>" + esc(r.n) + "</span>" : "") + "</div>" + (r.c ? '<div class="v4conf">' + esc(r.c) + "</div>" : "") + "</div></div>";
     }).join("") + (s.miss ? '<p class="v4miss">Not captured yet: ' + esc(s.miss) + "</p>" : "");
   }
@@ -2752,12 +2922,15 @@ html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
     var evs = (p.events || []).filter(function (e) { return !(otherBu && e[2] === "P"); }).map(function (e) { return { e: e, at: e[6] ? d4(e[6]) : d4(e[1]) }; });
     var sub = V.sub || "timeline", bu = V.ebu || "all", cat = V.ecat || "all";
     var subs = [["timeline", "Timeline"], ["business", "By business"], ["rhythm", "Learning rhythm"]];
+    if (isV5() && LAY5 === "minimal") subs.unshift(["journey", "Journey"]);
+    if (sub === "journey" && !(isV5() && LAY5 === "minimal")) sub = "timeline";
     var buList = ["all"].concat(Object.keys(BU4).filter(function (k) { return evs.some(function (x) { return x.e[0] === k; }); }));
     var inBu = evs.filter(function (x) { return bu === "all" || x.e[0] === bu; });
     var tools = '<div class="v4atools"><div class="seg" role="group" aria-label="Activity view" id="v4sub" data-slide>' + subs.map(function (s) { return '<button type="button" data-sub="' + s[0] + '" aria-pressed="' + (s[0] === sub) + '">' + s[1] + "</button>"; }).join("") + "</div>" +
-      (sub === "rhythm" && v4Of(p).rhythm ? "" : '<div class="seg sm" role="group" aria-label="Business" id="v4bu" data-slide>' + buList.map(function (k) { return '<button type="button" data-ebu="' + k + '" aria-pressed="' + (k === bu) + '">' + (k === "all" ? "All businesses" : esc(BU4[k][1])) + "</button>"; }).join("") + "</div>") + "</div>";
+      ((sub === "rhythm" && v4Of(p).rhythm) || sub === "journey" ? "" : '<div class="seg sm" role="group" aria-label="Business" id="v4bu" data-slide>' + buList.map(function (k) { return '<button type="button" data-ebu="' + k + '" aria-pressed="' + (k === bu) + '">' + (k === "all" ? "All businesses" : esc(BU4[k][1])) + "</button>"; }).join("") + "</div>") + "</div>";
     var body = "";
-    if (sub === "timeline") {
+    if (sub === "journey") body = v4Life(v4Of(p), { bare: true });
+    else if (sub === "timeline") {
       var cats = '<div class="v4cats" role="group" aria-label="Event type"><button type="button" class="v4cat' + (cat === "all" ? " on" : "") + '" data-ecat="all" aria-pressed="' + (cat === "all") + '"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>All <span>' + inBu.length + "</span></button>" +
         CAT4.map(function (c) { var n = inBu.filter(function (x) { return x.e[2] === c[0]; }).length; return '<button type="button" class="v4cat' + (cat === c[0] ? " on" : "") + '" data-ecat="' + c[0] + '" aria-pressed="' + (cat === c[0]) + '"' + (n ? "" : " disabled") + ">" + ic4(c[2], 14) + esc(c[1]) + " <span>" + n + "</span></button>"; }).join("") + "</div>";
       var full = inBu.filter(function (x) { return cat === "all" || x.e[2] === cat; }), list = full.slice(0, V.shown || PAGE), groups = [], key = "";
@@ -2789,41 +2962,199 @@ html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
     return '<section class="card v4actv">' + tools + body + (otherBu ? '<p class="v4note">Payments are shown to the owning business only.</p>' : "") + "</section>";
   }
 
-  /* ================= V5: the profile header folds into a slim bar as you scroll ================= */
+  /* ================= V5: three layouts, less on screen, nothing that scrolls inside something else ================= */
+  var LAYS5 = [["minimal", "Minimal"], ["overview", "Overview first"], ["fold", "Folding header"]];
+  var LIFES = [["lanes", "Lanes"], ["journey", "Journey"], ["cards", "Businesses"], ["strip", "Strip"]];
+  var LAY5 = "minimal", LIFE = "lanes";
+  try { LAY5 = localStorage.getItem("cip-lay5") || LAY5; LIFE = localStorage.getItem("cip-life") || LIFE; } catch (e) {}
+  function okLay5(v) { return LAYS5.some(function (x) { return x[0] === v; }); }
+  function okLife(v) { return LIFES.some(function (x) { return x[0] === v; }); }
+  if (!okLay5(LAY5)) LAY5 = "minimal";
+  if (!okLife(LIFE)) LIFE = "lanes";
+  var SYNC4 = "Synced 4 min ago";
+  ICON4.copy = '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2h2"/>';
+  ICON4.search = '<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>';
+  ICON4.x = '<path d="M6 6l12 12M18 6L6 18"/>';
   function isV5() { return document.documentElement.hasAttribute("data-v5"); }
-  function profile5HTML(p, team) {
-    var m = v4Of(p), otherBu = !!team.bu && team.bu !== p.owner, noContact = otherBu && !p.consent.cross;
-    var back = L.matches.length > 1 ? '<button type="button" class="textbtn backbtn" data-back>‹ Back to ' + L.matches.length + " people on this number</button>" : "";
-    if (p.restricted) return profile4HTML(p, team);
-    var banner = noContact ? '<div class="banner" role="note">' + warn() + "<div><b>Don't contact " + esc(first(p)) + " about " + esc(team.bu) + "</b>" + esc(first(p)) + " hasn't agreed to offers from other upGrad businesses. You can view this profile for context only.</div></div>" : "";
-    var cur = TABS4.some(function (x) { return x[0] === V.tab; }) ? V.tab : "profile", fresh = cur !== V.seen; V.seen = cur; V.tab = cur;
+  function v5Face(p, m, cls) { return p.photo ? '<img class="' + cls + ' photo" src="' + esc(p.photo) + '" alt="">' : '<span class="' + cls + '" aria-hidden="true">' + esc(m.initials) + "</span>"; }
+  function v5Tabs(p, m, cur, withOverview) {
     var counts = { profile: m.sections.reduce(function (a, s) { return a + s.filled[1]; }, 0), academic: (p.courses || []).length, activity: (p.events || []).length, insights: m.insights.reduce(function (a, c) { return a + c.items.length; }, 0) };
-    var list = '<div class="tabs v4tabs" role="tablist" aria-label="Learner 360 sections" id="ptabs" data-slide>' + TABS4.map(function (t) {
+    var SHORT5 = { profile: "Profile", academic: "Academic", activity: "Activity", insights: "Insights" };
+    var tabs = (withOverview ? [["overview", "Overview"]] : []).concat(TABS4.map(function (t) { return [t[0], SHORT5[t[0]]]; }));
+    return '<div class="tabs v4tabs" role="tablist" aria-label="Learner 360 sections" id="ptabs" data-slide>' + tabs.map(function (t) {
       var on = t[0] === cur;
-      return '<button type="button" role="tab" id="tab-' + t[0] + '" aria-controls="panel" aria-selected="' + on + '" tabindex="' + (on ? 0 : -1) + '" data-tab="' + t[0] + '"><span class="v4tabl">' + t[1] + '</span><span class="v4cnt">' + esc(String(counts[t[0]])) + "</span></button>";
+      return '<button type="button" role="tab" id="tab-' + t[0] + '" aria-controls="panel" aria-selected="' + on + '" tabindex="' + (on ? 0 : -1) + '" data-tab="' + t[0] + '"><span class="v4tabl">' + t[1] + "</span>" + (counts[t[0]] !== undefined ? '<span class="v4cnt">' + esc(String(counts[t[0]])) + "</span>" : "") + "</button>";
     }).join("") + "</div>";
-    var face = function (cls) { return p.photo ? '<img class="' + cls + ' photo" src="' + esc(p.photo) + '" alt="">' : '<span class="' + cls + '" aria-hidden="true">' + esc(m.initials) + "</span>"; };
-    var kpis = '<div class="v4kpis">' + m.kpis.map(function (k) {
+  }
+  function v5Kpis(m, otherBu, cls) {
+    return '<div class="v4kpis ' + (cls || "") + '">' + m.kpis.map(function (k) {
       var hide = k.fin && otherBu;
       return '<div class="v4kpi' + (k.tone ? " t-" + k.tone : "") + '"><span class="k">' + esc(k.k) + '</span><span class="v">' + esc(hide ? "Owner only" : k.v) + '</span><span class="bar" aria-hidden="true"><i style="width:' + (hide ? 0 : k.pct) + '%"></i></span><span class="d">' + esc(hide ? "Shown to the owning business" : k.d) + "</span></div>";
     }).join("") + "</div>";
-    // The full profile (fades out as you scroll) and the slim row that stays: a small photo, the name, muted facts and the four tabs.
-    var head = '<section class="v5head" aria-label="' + esc(p.name) + '"><div class="v5bg" aria-hidden="true"></div>' +
-      '<div class="v5full"><div class="v4id">' + v4Ring(p.complete, face("v4face"), 72) + '<div class="v4who"><div class="v4name"><h1>' + esc(p.name) + '</h1><code class="gid">' + esc(p.gid) + "</code></div>" +
-      '<div class="v4chips"><span>' + esc(p.stage) + "</span><span>" + esc(p.ageBand.replace("–", " to ")) + "</span><span>" + esc(m.place) + "</span><span>" + esc(m.known) + "</span></div>" +
-      '<p class="v4matched">' + esc(p.headline) + "</p></div></div>" + kpis + "</div>" +
-      '<div class="v5row"><div class="v5mini" aria-hidden="true">' + face("v5av") + "<span><b>" + esc(p.name) + "</b><small>" + esc(p.stage + " · " + p.city) + "</small></span></div>" + list + "</div></section>";
-    var body = cur === "academic" ? v4Academic(p, m) : cur === "activity" ? v4Activity(p, otherBu) : cur === "insights" ? v4Insights(p, m, otherBu) : v4Profile(p, m, team, otherBu);
-    var panel = '<div id="panel" class="' + (fresh ? "fresh" : "") + '" role="tabpanel" aria-labelledby="tab-' + cur + '">' + body + "</div>";
-    var main = head + v4Life(m) + banner + v4Act(m) + '<section class="section pdet" aria-label="Learner 360 details">' + panel + "</section>";
-    return '<div class="v4 v5">' + back + '<div class="v4grid"><aside class="v4rail" aria-label="Contact and records">' + v4Rail(p, m, team, otherBu, noContact) + '</aside><div class="v4main">' + main + "</div></div></div>";
+  }
+  function v5Gid(p) { return '<button type="button" class="v5gid" data-copy="' + esc(p.gid) + '" data-copymsg="ID copied" title="Copy ID" aria-label="Copy ID ' + esc(p.gid) + '">' + esc(p.gid) + ic4("copy", 12) + "</button>"; }
+  function v5Sync() { return '<span class="v5sync" title="From Prism, LSQ, HubSpot, OMS and Sales Insights"><i aria-hidden="true"></i>' + SYNC4 + "</span>"; }
+
+  // Find a field: searches what's on this profile (labels and values you're allowed to see) and jumps to it.
+  function v5Find() {
+    return '<div class="v5findw"><button type="button" class="v5findb" data-find aria-expanded="' + !!V.findOpen + '" aria-label="Find a field (press /)" title="Find a field ( / )">' + ic4("search", 16) + '<span>Find</span><kbd>/</kbd></button>' +
+      (V.findOpen ? '<div class="v5find" role="dialog" aria-label="Find a field"><div class="v5fi">' + ic4("search", 16) + '<input id="v5q" type="search" placeholder="Find a field: budget, city, IELTS…" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="v5res" aria-autocomplete="list"></div><ul id="v5res" role="listbox" aria-label="Matches"></ul><p class="v5fh">↑ ↓ to move · Enter to open · Esc to close</p></div>' : "") + "</div>";
+  }
+  function v5FindIndex(p, m, otherBu) {
+    var out = [];
+    m.sections.forEach(function (s) {
+      if (s.fin && otherBu) return;
+      var locked = s.fin && !V.finOpen;
+      v5Rows5(p, m, s).forEach(function (r) {
+        var v = r.restricted ? "Restricted" : locked ? "Locked · team password" : r.mask ? (V.revealed ? (r.mask === "emails" ? p.emails.map(function (e) { return e.e; }).join(", ") : p.phones.map(function (x) { return fmtPhone(x.d); }).join(", ")) : "Hidden until you show contact details") : r.list ? r.list.map(function (x) { return x[0]; }).join(", ") : r.v;
+        out.push({ tab: "profile", sec: s.key, where: s.t, l: r.l, v: v || "", find: locked || r.mask && !V.revealed ? r.l : r.l + " " + (v || "") });
+      });
+    });
+    m.insights.forEach(function (c) { c.items.forEach(function (it) { var hide = it.fin && otherBu; out.push({ tab: "insights", where: "Insights · " + c.t, l: it.k, v: hide ? "Owner only" : it.v || "", find: it.k + " " + (hide ? "" : it.v || "") }); }); });
+    (m.skills || []).forEach(function (sk) { out.push({ tab: "academic", where: "Skills", l: sk[0], v: sk[3], find: sk[0] + " " + sk[3] + " skill" }); });
+    return out;
+  }
+  function v5FindRender() {
+    var q = ($("#v5q") || {}).value || "", ul = $("#v5res"); if (!ul) return;
+    var p = PEOPLE[L.person], team = TEAMS[S.team] || TEAMS.central, otherBu = !!team.bu && team.bu !== p.owner;
+    var words = q.toLowerCase().split(/\s+/).filter(Boolean), all = v5FindIndex(p, v4Of(p), otherBu);
+    var hits = words.length ? all.filter(function (x) { var t = x.find.toLowerCase(); return words.every(function (w) { return t.indexOf(w) >= 0; }); }).slice(0, 8) : all.filter(function (x) { return ["Budget", "Emails", "Mobile", "Career goal", "Programme interest", "Learning health"].indexOf(x.l) >= 0; });
+    V.fhits = hits; V.fi = Math.min(V.fi || 0, Math.max(0, hits.length - 1));
+    ul.innerHTML = hits.length ? hits.map(function (x, i) {
+      return '<li role="option" id="v5o' + i + '" aria-selected="' + (i === V.fi) + '" data-fhit="' + i + '"><span><b>' + esc(x.l) + "</b><small>" + esc(x.where) + "</small></span><em>" + esc(x.v) + "</em></li>";
+    }).join("") : '<li class="none">No field matches “' + esc(q) + '”.</li>';
+    $("#v5q").setAttribute("aria-activedescendant", hits.length ? "v5o" + V.fi : "");
+  }
+  function v5FindGo(i) {
+    var x = (V.fhits || [])[i]; if (!x) return;
+    V.findOpen = false; V.tab = x.tab; if (x.sec) V.sec = x.sec; V.hl = x.l; renderLookup(); requestAnimationFrame(slideAll);
+    var row = document.querySelector('[data-hl="' + (window.CSS && CSS.escape ? CSS.escape(x.l) : x.l) + '"]');
+    if (row) {
+      var stack = parseFloat(($("#lookupResult").style.getPropertyValue("--chipTop")) || "0") + 56;
+      window.scrollTo({ top: Math.max(0, window.scrollY + row.getBoundingClientRect().top - stack), behavior: REDUCED ? "auto" : "smooth" });
+      row.classList.add("v5flash"); setTimeout(function () { row.classList.remove("v5flash"); }, 1800);
+    }
+    V.hl = null;
   }
 
-  // Pinned pieces in V4 and V5: how far the V5 header has folded, and where the profile section chips pin.
+  // Identity in V5 also holds linked records and owners, so the left panel can go.
+  function v5Rows5(p, m, s) {
+    if (s.key !== "identity" || !isV5()) return s.rows;
+    return s.rows.concat([
+      { l: "Linked records", list: m.records.map(function (r) { return [r[0], r[1], r[2]]; }), n: m.matched || "Matched on " + (L.how || "a verified identifier") + "." },
+      { l: "Owners right now", list: m.owners.map(function (o) { return [(BU4[o[0]] || [o[0]])[0], o[1] + " · " + o[2], null, o[0]]; }) }
+    ]);
+  }
+
+  // Bar for Minimal and Overview first: the learner on the left, the tabs, then Find.
+  function v5Bar(p, m, list) {
+    return '<section class="v5bar" aria-label="' + esc(p.name) + '"><div class="v5id">' + v4Ring(p.complete, v5Face(p, m, "v4face"), 48) +
+      '<div class="v5who"><div class="v5nm"><h1>' + esc(p.name) + "</h1>" + v5Gid(p) + "</div><p>" + esc([p.stage, p.ageBand, p.city].join(" · ")) + " · " + v5Sync() + "</p></div></div>" +
+      list + v5Find() + "</section>";
+  }
+  // Minimal: contact and the things to act on live in a dock at the bottom of the screen.
+  function v5Dock(p, m, team, otherBu, noContact) {
+    var c = p.consent, ph = p.phones.filter(function (x) { return x.v; })[0], em = p.emails.filter(function (x) { return x.v; })[0], blocked = p.restricted || noContact, rn = m.reachNotes || {};
+    var ch = [["phone", "Call", c.call && !!ph], ["mail", "Email", c.email && !!em, rn.emailState], ["chat", "WhatsApp", c.whatsapp && !!ph], ["sms", "SMS", c.sms && !!ph], ["ads", "Ads", c.ads]];
+    var chips = ch.map(function (x) { var ok = x[2] && !blocked; return '<span class="v5ch ' + (ok ? "ok" : "no") + '" title="' + x[1] + ": " + (ok ? (x[3] || "allowed") : "blocked") + '">' + ic4(x[0], 15) + '<span class="sr">' + x[1] + ": " + (ok ? (x[3] || "allowed") : "blocked") + "</span>" + (ok ? "" : '<i aria-hidden="true"></i>') + "</span>"; }).join("");
+    var n = (m.act || []).filter(function (a, i) { return !(V.acted && V.acted[i]); }).length;
+    var pop = V.actOpen ? '<div class="v5pop" role="dialog" aria-label="Things to act on"><button type="button" class="v5popx" data-actopen aria-label="Close">' + ic4("x", 16) + "</button>" + v4Act(m) + "</div>" : "";
+    return '<div class="v5dock" role="region" aria-label="Reach and actions"><span class="v5dk">Reach</span><span class="v5chs">' + chips + "</span>" +
+      (blocked ? "" : V.revealed ? '<button type="button" class="v5dbtn" data-tab="profile" data-sec="identity"><span class="lg">Contact shown · logged</span><span class="sh">Shown</span></button>' : '<button type="button" class="v5dbtn" data-reveal><span class="lg">Show contact</span><span class="sh">Contact</span></button>') +
+      ((m.act || []).length ? '<span class="v5sep" aria-hidden="true"></span><button type="button" class="v5dbtn act' + (n ? "" : " clear") + '" data-actopen aria-expanded="' + !!V.actOpen + '">' + (n ? '<span class="v5n">' + n + '</span><span class="lg">' + (n === 1 ? "thing" : "things") + ' to act on</span><span class="sh">To act on</span>' : ic4("check", 14) + "All handled") + "</button>" : "") + pop + "</div>";
+  }
+  function v5Records(p, m) {
+    var max = Math.max.apply(null, m.sources.map(function (s) { return s[1]; }).concat([1]));
+    return '<section class="card v4rc v5orr"><h3>Owners and records</h3>' + m.owners.map(function (o) {
+      return '<div class="v4own"><span class="v4bu bu-' + o[0] + '">' + esc((BU4[o[0]] || [o[0], o[0]])[1]) + '</span><span class="v4own-n"><b>' + esc(o[1]) + "</b><small>" + esc(o[2]) + '</small></span><button type="button" class="v4open" data-crm="' + esc((BU4[o[0]] || [o[0]])[0]) + '" aria-label="Open the ' + esc((BU4[o[0]] || [o[0]])[0]) + ' lead">' + ic4("ext", 15) + "</button></div>";
+    }).join("") + '<p class="v5rl"><b>' + m.records.length + " linked records</b> · " + esc(m.records.map(function (r) { return r[2]; }).filter(function (v, i, a) { return a.indexOf(v) === i; }).join(", ")) + ' · <button type="button" class="v5lnk" data-tab="profile" data-sec="identity">See in Identity</button></p>' +
+      '<div class="v4srcbars">' + m.sources.map(function (s) { return '<div class="v4sb">' + src4(s[0]) + '<span class="v4sbt"><i style="width:' + Math.round(s[1] / max * 100) + '%"></i></span><b>' + s[1] + "</b></div>"; }).join("") + '</div><p class="v4note">Profile values, by the source that won the merge · ' + SYNC4.toLowerCase() + ".</p></section>";
+  }
+  function v5Overview(p, m, team, otherBu, noContact) {
+    return '<div class="v5ov">' + v5Kpis(m, otherBu, "v5kp") + '<div class="v5ovA">' + v4Life(m) + (v4Act(m) || '<section class="card v4act"><p class="v4note">Nothing to act on.</p></section>') + '</div><div class="v5ovB">' + v4Rail(p, m, team, otherBu, noContact, ["reach"]) + v5Records(p, m) + "</div></div>";
+  }
+
+  function profile5HTML(p, team) {
+    var m = v4Of(p), otherBu = !!team.bu && team.bu !== p.owner, noContact = otherBu && !p.consent.cross, lay = LAY5;
+    var back = L.matches.length > 1 ? '<button type="button" class="textbtn backbtn" data-back>‹ Back to ' + L.matches.length + " people on this number</button>" : "";
+    if (p.restricted) return profile4HTML(p, team);
+    var banner = noContact ? '<div class="banner" role="note">' + warn() + "<div><b>Don't contact " + esc(first(p)) + " about " + esc(team.bu) + "</b>" + esc(first(p)) + " hasn't agreed to offers from other upGrad businesses. You can view this profile for context only.</div></div>" : "";
+    var keys = (lay === "overview" ? ["overview"] : []).concat(TABS4.map(function (t) { return t[0]; }));
+    var cur = keys.indexOf(V.tab) >= 0 ? V.tab : keys[0], fresh = cur !== V.seen; V.seen = cur; V.tab = cur;
+    var list = v5Tabs(p, m, cur, lay === "overview");
+    var body = cur === "overview" ? v5Overview(p, m, team, otherBu, noContact) : cur === "academic" ? v4Academic(p, m) : cur === "activity" ? v4Activity(p, otherBu) : cur === "insights" ? v4Insights(p, m, otherBu) : v4Profile(p, m, team, otherBu);
+    var panel = '<div id="panel" class="' + (fresh ? "fresh" : "") + '" role="tabpanel" aria-labelledby="tab-' + cur + '">' + body + "</div>";
+    var details = '<section class="section pdet" aria-label="Learner 360 details">' + panel + "</section>";
+    if (lay === "minimal") return '<div class="v4 v5 v5-min">' + back + v5Bar(p, m, list) + banner + details + v5Dock(p, m, team, otherBu, noContact) + "</div>";
+    if (lay === "overview") return '<div class="v4 v5 v5-ovl">' + back + v5Bar(p, m, list) + banner + details + "</div>";
+    // Folding header: the full profile folds into a slim bar as you scroll; contact and owners on the left.
+    var head = '<section class="v5head" aria-label="' + esc(p.name) + '"><div class="v5bg" aria-hidden="true"></div>' +
+      '<div class="v5full"><div class="v4id">' + v4Ring(p.complete, v5Face(p, m, "v4face"), 72) + '<div class="v4who"><div class="v4name"><h1>' + esc(p.name) + "</h1>" + v5Gid(p) + "</div>" +
+      '<div class="v4chips"><span>' + esc(p.stage) + "</span><span>" + esc(p.ageBand.replace("–", " to ")) + "</span><span>" + esc(m.place) + "</span><span>" + esc(m.known) + '</span></div><p class="v4matched">' + v5Sync() + "</p></div></div>" + v5Kpis(m, otherBu) + "</div>" +
+      '<div class="v5row"><div class="v5mini" aria-hidden="true">' + v5Face(p, m, "v5av") + "<span><b>" + esc(p.name) + "</b><small>" + esc(p.stage + " · " + p.city) + "</small></span></div>" + list + v5Find() + "</div></section>";
+    var main = head + v4Life(m) + banner + v4Act(m) + details;
+    return '<div class="v4 v5 v5-fold">' + back + '<div class="v4grid"><aside class="v4rail" aria-label="Contact and owners">' + v4Rail(p, m, team, otherBu, noContact, ["reach"]) + v5Records(p, m) + '</aside><div class="v4main">' + main + "</div></div></div>";
+  }
+
+  // Life with upGrad, four ways. V4 always uses lanes.
+  function v4Life(m, opts) {
+    opts = opts || {};
+    var st = isV5() ? LIFE : "lanes";
+    if (isV5() && st === "lanes" && window.innerWidth < 760) st = "cards";
+    if (st === "lanes") return v4LifeLanes(m, opts);
+    var inner = st === "journey" ? v5Journey(m) : st === "cards" ? v5LifeCards(m) : v5LifeStrip(m);
+    var head = '<div class="v4life-head"><h2 id="v4lifeh">Life with upGrad</h2>' + (st === "journey" ? '<div class="v4legend" aria-hidden="true">' + ["S", "G", "W", "K"].map(function (k) { return '<span><i class="lgb bu-' + k + '"></i>' + esc(BU4[k][1]) + "</span>"; }).join("") + "</div>" : "") + "</div>";
+    return opts.bare ? '<div class="v4life bare v5life-' + st + '">' + head + inner + "</div>" : '<section class="card v4life v5life-' + st + '" aria-labelledby="v4lifeh">' + head + inner + "</section>";
+  }
+  function v5LifeEvents(m) {
+    var T = { lead: "lead", counselled: "Counselled", paid: "Paid · learning", done: "Completed", lost: "Lost" }, out = [];
+    m.lanes.forEach(function (l) {
+      var b = BU4[l.bu] || [l.bu, l.bu];
+      (l.segs || []).forEach(function (s) { out.push({ d: d4(s[1]).d, bu: l.bu, k: s[0], t: s[0] === "lead" ? b[1] + " lead" : T[s[0]] }); });
+      (l.dots || []).forEach(function (d) { out.push({ d: d4(d[0]).d, bu: l.bu, k: "dot", t: d[1] }); });
+    });
+    out.sort(function (a, b) { return a.d - b.d; });
+    var merged = [];
+    out.forEach(function (e) {
+      var last = merged[merged.length - 1];
+      if (last && last.bu === e.bu && Math.abs(e.d - last.d) < 8 * 864e5) { if (e.k !== "dot" && last.k === "dot") { last.sub = last.t; last.t = e.t; last.k = e.k; } else last.sub = last.sub || e.t; }
+      else merged.push({ d: e.d, bu: e.bu, k: e.k, t: e.t });
+    });
+    return merged;
+  }
+  function v5Journey(m) {
+    var ev = v5LifeEvents(m), fmt = function (d) { return MON4[d.getMonth()] + " " + d.getFullYear(); };
+    var now = m.lanes.filter(function (l) { return !l.empty && (l.segs || []).some(function (s) { return !s[2]; }); });
+    var items = ev.map(function (e, i) {
+      return '<li class="v5j jk-' + e.k + (i % 2 ? " dn" : " up") + '"><span class="v5jd bu-' + e.bu + '" aria-hidden="true"></span><span class="v5jt"><b>' + esc(e.t) + "</b>" + (e.sub ? "<small>" + esc(e.sub) + "</small>" : "") + "<em>" + esc((BU4[e.bu] || [e.bu])[1]) + " · " + fmt(e.d) + "</em></span></li>";
+    }).join("");
+    items += '<li class="v5j now ' + (ev.length % 2 ? "dn" : "up") + '"><span class="v5jd" aria-hidden="true"></span><span class="v5jt"><b>Today</b></span></li>';
+    return '<ol class="v5jr">' + items + '</ol><p class="v5jnow"><b>Today</b> ' + esc(now.map(function (l) { return (BU4[l.bu] || [l.bu])[0] + ": " + l.note.replace(/, \d{1,2} \w{3} \d{4}$/, "").toLowerCase(); }).join(" · ") || "No open relationship") + "</p>";
+  }
+  function v5LifeCards(m) {
+    var STEPS = ["Lead", "Counselled", "Paid", "Learning", "Completed"], AT = { lead: 0, counselled: 1, paid: 3, done: 4 };
+    var withRec = m.lanes.filter(function (l) { return !l.empty; }), none = m.lanes.filter(function (l) { return l.empty; });
+    return '<div class="v5lc">' + withRec.map(function (l) {
+      var segs = l.segs || [], last = segs[segs.length - 1], lost = last && last[0] === "lost", prev = lost ? segs[segs.length - 2] : last;
+      var at = prev ? (AT[prev[0]] !== undefined ? AT[prev[0]] : 0) : -1, since = last ? d4(last[1]).d : null;
+      var steps = segs.length ? '<ol class="v5st' + (lost ? " lost" : "") + '" aria-hidden="true">' + STEPS.map(function (s, i) { return '<li class="' + (i < at ? "done" : i === at ? (lost ? "x" : "now") : "") + '"><i></i><span>' + s + "</span></li>"; }).join("") + "</ol>" : '<p class="v5lcn">Milestones only</p>';
+      return '<div class="v5card"><div class="v5cdh"><i class="bu-' + l.bu + '" aria-hidden="true"></i><b>' + esc((BU4[l.bu] || [l.bu])[0]) + '</b><span class="v5pill' + (lost ? " lost" : "") + '">' + esc(l.note) + "</span></div>" + steps +
+        (since ? '<small class="v5since">' + (lost ? "Lost " : "Since ") + MON4[since.getMonth()] + " " + since.getFullYear() + ((l.dots || []).length ? " · " + l.dots.length + (l.dots.length === 1 ? " milestone" : " milestones") : "") + "</small>" : (l.dots || []).length ? '<small class="v5since">' + esc(l.dots.map(function (d) { return d[1]; }).join(" · ")) + "</small>" : "") + "</div>";
+    }).join("") + "</div>" + (none.length ? '<p class="v5none">No record yet: ' + esc(none.map(function (l) { return (BU4[l.bu] || [l.bu])[0] + (l.empty !== "No record" ? " (" + l.empty.toLowerCase() + ")" : ""); }).join(" · ")) + "</p>" : "");
+  }
+  function v5LifeStrip(m) {
+    var withRec = m.lanes.filter(function (l) { return !l.empty; }), none = m.lanes.filter(function (l) { return l.empty; });
+    return '<div class="v5strip">' + withRec.map(function (l) {
+      var segs = l.segs || [], last = segs[segs.length - 1], k = last ? last[0] : "dot";
+      return '<span class="v5sp sk-' + k + '"><i class="bu-' + l.bu + '" aria-hidden="true"></i><b>' + esc((BU4[l.bu] || [l.bu])[1]) + "</b>" + esc(l.note) + "</span>";
+    }).join("") + (none.length ? '<span class="v5sp none">Not yet: ' + esc(none.map(function (l) { return (BU4[l.bu] || [l.bu])[1]; }).join(", ")) + "</span>" : "") + "</div>";
+  }
+
+  // Pinned pieces: the V5 header or bar, the profile section chips, and whether the left panel fits on screen.
   function v4Sticky(r, sb, bar) {
     if (!r) return;
     if (!isV4()) { r.classList.remove("chips-stuck"); return; }
-    var hd = r.querySelector(".v5head"), nav = r.querySelector(".v4secbar"), top;
+    var hd = r.querySelector(".v5head"), vb = r.querySelector(".v5bar"), nav = r.querySelector(".v4secbar"), rail = r.querySelector(".v4rail"), top;
     if (hd) {
       var row = hd.querySelector(".v5row"), clp = Math.max(0, row.offsetTop - 10);
       if (hd._clp !== clp) { hd._clp = clp; hd.style.setProperty("--clp", clp + "px"); }
@@ -2831,12 +3162,17 @@ html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
       p = Math.round(p * 100) / 100;
       if (hd._p !== p) { hd._p = p; hd.style.setProperty("--p", p); hd.classList.toggle("folding", p > 0.4); hd.classList.toggle("is-min", p >= 0.99); requestAnimationFrame(slideAll); }
       top = pin + hd.offsetHeight - clp + 8;
+    } else if (vb) {
+      var vtop = sb + 12; top = vtop + vb.offsetHeight + 8;
+      vb.classList.toggle("is-min", window.scrollY > 4 && vb.getBoundingClientRect().top <= vtop + 1);
     } else if (bar) top = barPinTop(bar, sb) + bar.offsetHeight + (STICK === "min" ? 0 : 8);
     else top = sb + 12;
     r.style.setProperty("--chipTop", Math.round(top) + "px");
     var stuck = !!nav && window.scrollY > 4 && nav.getBoundingClientRect().top <= top + 1;
-    if (nav) { nav.classList.toggle("stuck", stuck); var row = nav.firstChild; nav.classList.toggle("ovf", row.scrollWidth > row.clientWidth + 2 && row.scrollLeft + row.clientWidth < row.scrollWidth - 2); }
+    if (nav) { nav.classList.toggle("stuck", stuck); var row2 = nav.firstChild; nav.classList.toggle("ovf", !isV5() && row2.scrollWidth > row2.clientWidth + 2 && row2.scrollLeft + row2.clientWidth < row2.scrollWidth - 2); }
     r.classList.toggle("chips-stuck", stuck);
+    // V5: the left panel pins only when it fits on screen; it never scrolls on its own.
+    if (rail && isV5()) rail.classList.toggle("flow", rail.offsetHeight > window.innerHeight - (sb + 12) - 120);
   }
   // Insights: 13 derived answers, each with how it's worked out.
   function v4Insights(p, m, otherBu) {
@@ -2872,6 +3208,8 @@ html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
     if (["top", "left", "right"].indexOf(SHARED.tabs) >= 0) TABS = SHARED.tabs;
     if (["min", "mid", "high"].indexOf(SHARED.bar) >= 0) STICK = SHARED.bar;
     if (SHARED.pin === "0" || SHARED.pin === "1") SSEARCH = SHARED.pin === "1";
+    if (okLay5(SHARED.lay5)) LAY5 = SHARED.lay5;
+    if (okLife(SHARED.life)) LIFE = SHARED.life;
     if (SHARED.nav) { var keep = SHARED.nav.split(","); NAVHIDE = ["overview", "people", "lookup", "identity", "data", "later"].filter(function (k) { return keep.indexOf(k) < 0; }); }
   }
   function applyLookupLayout() { var r = $("#lookupResult"), lay = isV5() ? { p: "top", t: "top" } : isV4() ? v4Layout() : { p: PERSON, t: TABS }; if (r) { r.setAttribute("data-layout", lay.p); r.setAttribute("data-tabs", lay.t); r.setAttribute("data-stick", STICK); } syncSbar(); }
@@ -3226,7 +3564,7 @@ html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
   }
 
   var PAGE = 6;
-  function freshView() { return { tab: "personal", bu: "all", cat: "all", shown: PAGE, revealed: false, finOpen: false, finAsk: false, lockErr: "", sec: "identity", sub: "timeline", ebu: "all", ecat: "all", evx: -1, how: {}, acted: {} }; }
+  function freshView() { return { tab: "personal", bu: "all", cat: "all", shown: PAGE, revealed: false, finOpen: false, finAsk: false, lockErr: "", sec: "identity", sub: "timeline", ebu: "all", ecat: "all", evx: -1, how: {}, acted: {}, findOpen: false, actOpen: false, fi: 0 }; }
   var L = { status: "idle", label: "", matches: [], person: null, how: "" };
   var V = freshView();
   var lookupTimer = null;
@@ -3320,9 +3658,9 @@ html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
   }
   window.addEventListener("resize", function () { syncSbar(); });
   // V4 switches to its one small-screen layout below 1100px, and back.
-  var NARROW4 = window.innerWidth < 1100;
+  var NARROW4 = window.innerWidth < 1100, PHONE4 = window.innerWidth < 760;
   window.addEventListener("resize", function () {
-    var n = window.innerWidth < 1100; if (n === NARROW4) return; NARROW4 = n;
+    var n = window.innerWidth < 1100, ph = window.innerWidth < 760; if (n === NARROW4 && ph === PHONE4) return; NARROW4 = n; PHONE4 = ph;
     if (isV4()) { applyLookupLayout(); renderLookup(); requestAnimationFrame(slideAll); }
   });
   window.addEventListener("scroll", hdrCheck, { passive: true });
@@ -3570,6 +3908,35 @@ html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
       var a = +t.getAttribute("data-act"), item = v4Of(PEOPLE[L.person]).act[a]; V.acted = V.acted || {}; V.acted[a] = true; renderLookup();
       toast("Prototype: " + item.done.charAt(0).toLowerCase() + item.done.slice(1));
     }
+  });
+  // V5: find a field, copy, the act-on panel in the dock.
+  function v5Copy(text, msg) {
+    var done = function () { toast(msg || "Copied"); };
+    var fb = function () { var t = document.createElement("textarea"); t.value = text; t.setAttribute("readonly", ""); t.style.position = "fixed"; t.style.opacity = "0"; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); done(); } catch (e) { toast("Select the text and copy it"); } document.body.removeChild(t); };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fb); else fb();
+  }
+  $("#lookupResult").addEventListener("click", function (e) {
+    if (!isV5()) return;
+    var t = e.target.closest("button, [data-fhit]"); if (!t) { if (V.findOpen && !e.target.closest(".v5find")) { V.findOpen = false; renderLookup(); } return; }
+    if (t.hasAttribute("data-copy")) { v5Copy(t.getAttribute("data-copy"), t.getAttribute("data-copymsg")); return; }
+    if (t.hasAttribute("data-find")) { V.findOpen = !V.findOpen; V.fi = 0; renderLookup(); var q = $("#v5q"); if (q) { q.focus(); v5FindRender(); } return; }
+    if (t.hasAttribute("data-fhit")) { v5FindGo(+t.getAttribute("data-fhit")); return; }
+    if (t.hasAttribute("data-actopen")) { V.actOpen = !V.actOpen; renderLookup(); var f = $(".v5pop [data-act], .v5pop .v5popx"); if (f && V.actOpen) f.focus(); return; }
+    if (t.hasAttribute("data-reveal") && LAY5 === "minimal") { V.tab = "profile"; V.sec = "identity"; renderLookup(); revealPanel(); }
+  });
+  $("#lookupResult").addEventListener("input", function (e) { if (e.target.id === "v5q") { V.fi = 0; v5FindRender(); } });
+  $("#lookupResult").addEventListener("keydown", function (e) {
+    if (e.target.id !== "v5q") return;
+    var n = (V.fhits || []).length;
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); if (n) { V.fi = (V.fi + (e.key === "ArrowDown" ? 1 : n - 1)) % n; v5FindRender(); } }
+    else if (e.key === "Enter") { e.preventDefault(); v5FindGo(V.fi || 0); }
+    else if (e.key === "Escape") { e.preventDefault(); V.findOpen = false; renderLookup(); var b = $("[data-find]"); if (b) b.focus(); }
+  });
+  document.addEventListener("keydown", function (e) {
+    if (!isV5() || !$('.view[data-view="lookup"]') || $('.view[data-view="lookup"]').hidden || !L.person) return;
+    var typing = /input|textarea|select/i.test((document.activeElement || {}).tagName || "");
+    if (e.key === "/" && !typing) { e.preventDefault(); V.findOpen = true; V.fi = 0; renderLookup(); var q = $("#v5q"); if (q) { q.focus(); v5FindRender(); } }
+    else if (e.key === "Escape" && V.actOpen) { V.actOpen = false; renderLookup(); var b = $("[data-actopen]"); if (b) b.focus(); }
   });
   // Arrow keys move between profile tabs.
   $("#lookupResult").addEventListener("change", function (e) {
@@ -4113,15 +4480,21 @@ html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
     $$("#rvPerson button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-person-at") === PERSON); });
     $("#rvSSearch").checked = SSEARCH;
     $$("#rvStick button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-stick-at") === STICK); });
+    $$("#rvLay5 button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-lay5") === LAY5); });
+    $$("#rvLife button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-life") === LIFE); });
     $$("#rvTabs button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-tabs-at") === TABS); });
     $("#rvThumb").innerHTML = rvThumb(PERSON, TABS);
     $("#rvLayoutNote").textContent = describeLayout();
-    $("#rvSummary").textContent = "V" + v + " · " + (v === "5" ? "Folding header" : layoutLabel()) + (NAVHIDE.length ? " · " + NAVHIDE.length + " hidden" : "");
+    $("#rvSummary").textContent = "V" + v + " · " + (v === "5" ? (LAYS5.filter(function (x) { return x[0] === LAY5; })[0] || ["", ""])[1] + " · " + (LIFES.filter(function (x) { return x[0] === LIFE; })[0] || ["", ""])[1].toLowerCase() : layoutLabel()) + (NAVHIDE.length ? " · " + NAVHIDE.length + " hidden" : "");
     $$("#rvNav [data-navitem]").forEach(function (c) { c.checked = NAVHIDE.indexOf(c.getAttribute("data-navitem")) < 0; });
     if (typeof rvShareSync === "function") rvShareSync();
   }
   function describeLayout() {
-    if (isV5()) return "V5 has one layout. The profile header sits at the top of the right-hand column and stays pinned: as you scroll, the full profile and its four figures fade out and it folds into one slim bar with a small photo, the name, muted facts and the four tabs. Contact and records stay pinned on the left.";
+    if (isV5()) return {
+      minimal: "Minimal: one pinned bar with the learner and the tabs, the details below, and a dock at the bottom with contact and the things to act on. Records, owners and sources sit in Identity; Life with upGrad is in Activity, as Journey.",
+      overview: "Overview first: one pinned bar, and an Overview tab that answers the main questions on one screen (headline figures, Life with upGrad, things to act on, contact, owners and records). The details sit in the other tabs.",
+      fold: "Folding header: the full profile sits at the top of the right-hand column and folds into one slim bar as you scroll. Contact and owners are on the left, pinned only when they fit on screen."
+    }[LAY5] + " Press / to find any field.";
     if (isV4()) {
       var who4 = PERSON === "rail" ? "The person, their headline figures, contact and records stay pinned in the left panel" : "The person and headline figures run across the top, and contact and records stay pinned on the left";
       var tabs4 = TABS === "top" ? "the four tabs stay pinned above the details" : TABS === "left" ? (PERSON === "rail" ? "the four tabs sit in the left panel, under the person" : "the four tabs stay pinned to the left of the details") : "the four tabs stay pinned to the right of the details";
@@ -4146,6 +4519,19 @@ html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
   $("#vswitch").addEventListener("click", function () { requestAnimationFrame(rvSync); });
   $("#rvPerson").addEventListener("click", function (e) { var b = e.target.closest("[data-person-at]"); if (b) { PERSON = b.getAttribute("data-person-at"); rvApply(); } });
   $("#rvTabs").addEventListener("click", function (e) { var b = e.target.closest("[data-tabs-at]"); if (b) { TABS = b.getAttribute("data-tabs-at"); rvApply(); } });
+  $("#rvLay5").innerHTML = LAYS5.map(function (x) { return '<button type="button" data-lay5="' + x[0] + '" aria-pressed="false">' + esc(x[1]) + "</button>"; }).join("");
+  $("#rvLife").innerHTML = LIFES.map(function (x) { return '<button type="button" data-life="' + x[0] + '" aria-pressed="false">' + esc(x[1]) + "</button>"; }).join("");
+  $("#rvLay5").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-lay5]"); if (!b) return;
+    LAY5 = b.getAttribute("data-lay5"); try { localStorage.setItem("cip-lay5", LAY5); } catch (er) {}
+    V.findOpen = false; V.actOpen = false; renderLookup(); rvSync(); requestAnimationFrame(slideAll);
+  });
+  $("#rvLife").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-life]"); if (!b) return;
+    LIFE = b.getAttribute("data-life"); try { localStorage.setItem("cip-life", LIFE); } catch (er) {}
+    if (LAY5 === "minimal" && V.tab !== "activity") { V.tab = "activity"; V.sub = "journey"; }
+    renderLookup(); rvSync(); requestAnimationFrame(slideAll);
+  });
   $("#rvStick").innerHTML = STICKS.map(function (x) { return '<button type="button" data-stick-at="' + x[0] + '" aria-pressed="false">' + esc(x[1]) + "</button>"; }).join("");
   $("#rvSSearch").addEventListener("change", function () {
     SSEARCH = this.checked; try { localStorage.setItem("cip-ssearch", SSEARCH ? "on" : "off"); } catch (er) {}
@@ -4200,6 +4586,7 @@ html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
     var q = ["preview=1"];
     if (S.team && S.team !== "central") q.push("team=" + S.team);
     q.push("v=" + curV(), "card=" + PERSON, "tabs=" + TABS, "bar=" + STICK, "pin=" + (SSEARCH ? 1 : 0), "nav=" + nav);
+    if (curV() === "5") q.push("lay5=" + LAY5, "life=" + LIFE);
     if (route === "lookup" && L.person) q.push("p=" + L.person);
     q.push("review=0");
     var base = location.href.split(/[?#]/)[0];
