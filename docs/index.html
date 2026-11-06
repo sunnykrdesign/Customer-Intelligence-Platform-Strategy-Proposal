@@ -1771,6 +1771,22 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
   .v5j .v5jd{margin-top:2px;flex:0 0 14px}
   .v5jt,.v5j.up .v5jt,.v5j.dn .v5jt{position:static;transform:none;text-align:left;width:auto}
 }
+/* V5: the V3 person card, and a bar that gains the photo and name once the card scrolls away */
+.v5-min .prail,.v5-ovl .prail{position:static}
+.v5card .pcard-top .btn{flex:0 0 auto}
+.v5card .matched .v5gid,.v5pcin .matched .v5gid{vertical-align:1px}
+.v5syncl{margin-top:2px !important}
+.v5bar{column-gap:12px}
+.v5bar .v5id{max-width:0;opacity:0;overflow:hidden;gap:10px;transition:max-width .4s var(--ease),opacity .25s}
+#lookupResult.hdr-off .v5bar .v5id{max-width:260px;opacity:1}
+.v5mav{flex:0 0 36px;width:36px;height:36px;border-radius:50%;object-fit:cover;background:#1D1D1F;color:#fff;font-size:12px;font-weight:600;display:grid;place-items:center}
+.v5bar .v5nm b{font-size:14.5px;font-weight:600;white-space:nowrap}
+.v5bar .v5who p{font-size:12px}
+.v5mini .v5av.photo,.v5av.photo{object-fit:cover}
+/* Folding header: the same card, without its own white box (the folding card provides it) */
+#lookupResult .v5head .prail .pcard{background:none;box-shadow:none;padding:0;border-radius:0}
+.v5head .v5full{gap:0}
+@media (prefers-reduced-motion: reduce){.v5bar .v5id{transition:none}}
 /* Smaller screens */
 @media (max-width:1320px){.v4hero{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:1100px){
@@ -3047,10 +3063,18 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
   }
 
   // Bar for Minimal and Overview first: the learner on the left, the tabs, then Find.
+  function v5Card(p, m, otherBu, inner) {
+    var fact = function (k, v) { return '<div class="fact"><span class="k">' + esc(k) + '</span><span class="v">' + esc(v) + "</span></div>"; };
+    var crm = otherBu || inner ? "" : '<button type="button" class="btn dark sm" data-crm="' + esc(p.owner) + '">Open in ' + esc(p.owner) + " CRM</button>";
+    var who = '<div class="who"><h1>' + esc(p.name) + '</h1><p class="headline">' + esc(p.headline) + '</p><p class="matched">' + esc(m.known) + " · matched on " + esc(L.how || "a verified identifier") + " · " + v5Gid(p) + '</p><p class="matched v5syncl">' + v5Sync() + "</p></div>";
+    var body = '<div class="pcard-top">' + avatarHTML(p, "avatar") + who + crm + '</div><div class="facts">' + fact("Life stage", p.stage) + fact("Age band", p.ageBand) + fact("City", p.city) + fact("Owned by", p.owner) +
+      '<div class="fact"><span class="k">Profile filled</span><span class="v">' + p.complete + '%</span><span class="meter" aria-hidden="true"><i style="width:' + p.complete + '%"></i></span></div></div>';
+    return inner ? '<div class="prail v5pcin"><div class="pcard">' + body + "</div></div>" : '<div class="prail"><section class="pcard v5card" aria-label="' + esc(p.name) + '">' + body + "</section></div>";
+  }
+  // The pinned bar: the tabs and Find; the photo and name join it once the card above has scrolled away.
   function v5Bar(p, m, list) {
-    return '<section class="v5bar" aria-label="' + esc(p.name) + '"><div class="v5id">' + v4Ring(p.complete, v5Face(p, m, "v4face"), 48) +
-      '<div class="v5who"><div class="v5nm"><h1>' + esc(p.name) + "</h1>" + v5Gid(p) + "</div><p>" + esc([p.stage, p.ageBand, p.city].join(" · ")) + " · " + v5Sync() + "</p></div></div>" +
-      list + v5Find() + "</section>";
+    return '<section class="v5bar" aria-label="Sections"><div class="v5id" aria-hidden="true">' + v5Face(p, m, "v5mav") +
+      '<div class="v5who"><div class="v5nm"><b>' + esc(p.name) + "</b></div><p>" + esc(p.stage + " · " + p.city) + "</p></div></div>" + list + v5Find() + "</section>";
   }
   // Minimal: contact and the things to act on live in a dock at the bottom of the screen.
   function v5Dock(p, m, team, otherBu, noContact) {
@@ -3071,7 +3095,8 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
       '<div class="v4srcbars">' + m.sources.map(function (s) { return '<div class="v4sb">' + src4(s[0]) + '<span class="v4sbt"><i style="width:' + Math.round(s[1] / max * 100) + '%"></i></span><b>' + s[1] + "</b></div>"; }).join("") + '</div><p class="v4note">Profile values, by the source that won the merge · ' + SYNC4.toLowerCase() + ".</p></section>";
   }
   function v5Overview(p, m, team, otherBu, noContact) {
-    return '<div class="v5ov">' + v5Kpis(m, otherBu, "v5kp") + '<div class="v5ovA">' + v4Life(m) + (v4Act(m) || '<section class="card v4act"><p class="v4note">Nothing to act on.</p></section>') + '</div><div class="v5ovB">' + v4Rail(p, m, team, otherBu, noContact, ["reach"]) + v5Records(p, m) + "</div></div>";
+    var m3 = Object.assign({}, m, { kpis: m.kpis.filter(function (k) { return k.k !== "Profile filled"; }) });
+    return '<div class="v5ov">' + v5Kpis(m3, otherBu, "v5kp") + '<div class="v5ovA">' + v4Life(m) + (v4Act(m) || '<section class="card v4act"><p class="v4note">Nothing to act on.</p></section>') + '</div><div class="v5ovB">' + v4Rail(p, m, team, otherBu, noContact, ["reach"]) + v5Records(p, m) + "</div></div>";
   }
 
   function profile5HTML(p, team) {
@@ -3085,12 +3110,11 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
     var body = cur === "overview" ? v5Overview(p, m, team, otherBu, noContact) : cur === "academic" ? v4Academic(p, m) : cur === "activity" ? v4Activity(p, otherBu) : cur === "insights" ? v4Insights(p, m, otherBu) : v4Profile(p, m, team, otherBu);
     var panel = '<div id="panel" class="' + (fresh ? "fresh" : "") + '" role="tabpanel" aria-labelledby="tab-' + cur + '">' + body + "</div>";
     var details = '<section class="section pdet" aria-label="Learner 360 details">' + panel + "</section>";
-    if (lay === "minimal") return '<div class="v4 v5 v5-min">' + back + v5Bar(p, m, list) + banner + details + v5Dock(p, m, team, otherBu, noContact) + "</div>";
-    if (lay === "overview") return '<div class="v4 v5 v5-ovl">' + back + v5Bar(p, m, list) + banner + details + "</div>";
+    if (lay === "minimal") return '<div class="v4 v5 v5-min">' + back + v5Card(p, m, otherBu) + v5Bar(p, m, list) + banner + details + v5Dock(p, m, team, otherBu, noContact) + "</div>";
+    if (lay === "overview") return '<div class="v4 v5 v5-ovl">' + back + v5Card(p, m, otherBu) + v5Bar(p, m, list) + banner + details + "</div>";
     // Folding header: the full profile folds into a slim bar as you scroll; contact and owners on the left.
     var head = '<section class="v5head" aria-label="' + esc(p.name) + '"><div class="v5bg" aria-hidden="true"></div>' +
-      '<div class="v5full"><div class="v4id">' + v4Ring(p.complete, v5Face(p, m, "v4face"), 72) + '<div class="v4who"><div class="v4name"><h1>' + esc(p.name) + "</h1>" + v5Gid(p) + "</div>" +
-      '<div class="v4chips"><span>' + esc(p.stage) + "</span><span>" + esc(p.ageBand.replace("–", " to ")) + "</span><span>" + esc(m.place) + "</span><span>" + esc(m.known) + '</span></div><p class="v4matched">' + v5Sync() + "</p></div></div>" + v5Kpis(m, otherBu) + "</div>" +
+      '<div class="v5full">' + v5Card(p, m, otherBu, true) + "</div>" +
       '<div class="v5row"><div class="v5mini" aria-hidden="true">' + v5Face(p, m, "v5av") + "<span><b>" + esc(p.name) + "</b><small>" + esc(p.stage + " · " + p.city) + "</small></span></div>" + list + v5Find() + "</div></section>";
     var main = head + v4Life(m) + banner + v4Act(m) + details;
     return '<div class="v4 v5 v5-fold">' + back + '<div class="v4grid"><aside class="v4rail" aria-label="Contact and owners">' + v4Rail(p, m, team, otherBu, noContact, ["reach"]) + v5Records(p, m) + '</aside><div class="v4main">' + main + "</div></div></div>";
@@ -3165,6 +3189,7 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
     } else if (vb) {
       var vtop = sb + 12; top = vtop + vb.offsetHeight + 8;
       vb.classList.toggle("is-min", window.scrollY > 4 && vb.getBoundingClientRect().top <= vtop + 1);
+      if (vb._off !== r.classList.contains("hdr-off")) { vb._off = r.classList.contains("hdr-off"); requestAnimationFrame(slideAll); }
     } else if (bar) top = barPinTop(bar, sb) + bar.offsetHeight + (STICK === "min" ? 0 : 8);
     else top = sb + 12;
     r.style.setProperty("--chipTop", Math.round(top) + "px");
@@ -3302,7 +3327,7 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
       ]
     },
     ananyar: {
-      name: "Ananya R.", gid: "CIL-000184",
+      name: "Ananya R.", gid: "CIL-000184", photo: "assets/profile-ananya.jpg",
       headline: "Data analyst · learning Data Science with Working Professionals",
       stage: "Working professional", ageBand: "25–34", city: "Hyderabad", owner: "Working Professionals", since: "Mar 2022", complete: 78,
       phones: [{ d: "9876501210", v: true, src: "Prism", tag: "Primary · WhatsApp" }],
@@ -3664,7 +3689,7 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
     if (isV4()) { applyLookupLayout(); renderLookup(); requestAnimationFrame(slideAll); }
   });
   window.addEventListener("scroll", hdrCheck, { passive: true });
-  $("#lookupResult").addEventListener("transitionend", function (e) { if (e.target.closest && e.target.closest(".pbar, .pmini")) hdrCheck(); });
+  $("#lookupResult").addEventListener("transitionend", function (e) { if (e.target.closest && e.target.closest(".pbar, .pmini")) hdrCheck(); if (e.target.closest && e.target.closest(".v5bar") && e.propertyName === "max-width") slideAll(); });
 
   function manyHTML() {
     var rows = L.matches.map(function (m) {
