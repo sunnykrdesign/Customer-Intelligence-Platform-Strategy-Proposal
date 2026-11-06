@@ -1607,7 +1607,7 @@ html[data-v4] .dv-right{grid-template-columns:minmax(0,1fr) 208px}
 .v5head .v4cnt{max-width:calc((1 - var(--p)) * 44px);opacity:calc(1 - var(--p) * 1.6);overflow:hidden;padding:0 calc((1 - var(--p)) * 6px)}
 @media (max-width:760px){.v5head{padding:16px 16px 10px}.v5full .v4name h1{font-size:23px}.v5mini{max-width:calc(var(--p) * 150px)}.v5mini small{display:none}}
 @media (prefers-reduced-motion: reduce){.v5bg{transition:none}}
-html[data-v5] .rv-pos,html[data-v5] .rv-stick{display:none}
+html[data-v5] .rv-pos{display:none}
 /* ================= V5 options ================= */
 .rv-v5{display:none}
 html[data-v5] .rv-v5{display:flex}
@@ -1787,6 +1787,71 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
 #lookupResult .v5head .prail .pcard{background:none;box-shadow:none;padding:0;border-radius:0}
 .v5head .v5full{gap:0}
 @media (prefers-reduced-motion: reduce){.v5bar .v5id{transition:none}}
+/* ===== V5: end to end, and a sticky bar whose strength decides what stays pinned ===== */
+.v5-min,.v5-ovl{max-width:none}
+.v5-min{padding-bottom:0}
+.v5-min.has-dock{padding-bottom:84px}
+.v5 .pdet{min-height:calc(100vh - var(--chipTop,200px) - 16px)}
+.v5card .fact .fs,.v5pcin .fact .fs{display:block;font-size:12px;color:var(--muted);margin-top:3px;font-weight:400}
+@media (min-width:1100px){#lookupResult .v5 .prail .facts .fact{justify-content:flex-start}}
+/* Who may be contacted, on the card */
+.v5reach{display:flex;align-items:center;gap:10px 12px;flex-wrap:wrap;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.v5rk{font-size:12px;color:var(--muted);margin-right:2px}
+.v5rchs{display:flex;flex-wrap:wrap;gap:6px}
+.v5rch{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 11px;border-radius:999px;font-size:12.5px;background:#EEF7F1;color:#23794A}
+.v5rch b{font-weight:600}
+.v5rch small{font-size:11.5px;opacity:.85}
+.v5rch.no{background:#F4F4F6;color:#A1A1A8}
+.v5rch.no b{text-decoration:line-through;text-decoration-color:rgba(180,35,44,.55);text-decoration-thickness:1.5px}
+.v5reach > .v5sbtn{margin-left:auto}
+.v5sbtn{height:32px;padding:0 13px;border:1px solid var(--border);border-radius:999px;background:#fff;color:var(--text);font-size:12.5px;font-weight:500;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.v5sbtn:hover{border-color:var(--text);color:var(--text)}
+.v5sbtn.act{background:#1D1D1F;color:#fff;border-color:#1D1D1F}
+.v5sbtn.act:hover{background:#000;color:#fff}
+.v5sbtn.act.clear{background:#fff;color:var(--text);border-color:var(--border)}
+.v5sbtn .sh{display:none}
+.v5actw{position:relative;display:inline-flex}
+.v5reach .v5pop{top:calc(100% + 10px);bottom:auto;right:0}
+.v5reach > .v5sbtn + .v5actw{margin-left:0}
+.v5orr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 40px}
+.v5orr-b h3{margin-bottom:12px}
+@media (max-width:900px){.v5orr{grid-template-columns:minmax(0,1fr)}}
+.v5bar .v5pop{top:calc(100% + 10px);bottom:auto;right:0}
+/* Bar layout: identity, (High: owners, contact, actions), tabs, Find */
+.v5bar{grid-template-areas:"id tabs find"}
+.v5bar .v5id{grid-area:id}
+.v5bar .tabs{grid-area:tabs}
+.v5bar > .v5findw{grid-area:find}
+.v5more{grid-area:more;display:flex;align-items:center;justify-content:flex-end;gap:10px;min-width:0}
+.v5own{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:auto;min-width:0}
+/* The card already shows the owners: they join the bar only once it has gone */
+.v5own{transition:opacity .25s}
+#lookupResult:not(.hdr-off) .v5bar:not(.in-head) .v5own,.v5head:not(.folding) .v5own{opacity:0;visibility:hidden}
+.v5mch{display:flex;gap:4px}
+.v5mch .v5ch{width:28px;height:28px;background:#EEF7F1;color:#23794A}
+.v5mch .v5ch.no{background:#F4F4F6;color:#B5B5BC}
+.v5mch .v5ch.no i{background:#E5484D;width:18px}
+/* Minimum: a light band, flush under the search bar; the name (no photo) joins once the card has gone */
+#lookupResult[data-stick="min"] .v5bar:not(.in-head){top:var(--sbar,0px);background:transparent;box-shadow:none;border-radius:0;padding:10px 0}
+#lookupResult[data-stick="min"] .v5bar:not(.in-head)::before{top:0;bottom:0}
+#lookupResult[data-stick="min"] .v5bar .v5mav,#lookupResult[data-stick="min"] .v5bar .v5who p{display:none}
+#lookupResult[data-stick="min"] .v5head .v5bg{opacity:calc(1 - var(--p))}
+#lookupResult[data-stick="min"] .v5head.is-min .v5bg{box-shadow:none}
+/* High: two rows; owners, contact and the things to act on are pinned from the start */
+#lookupResult[data-stick="high"] .v5bar{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"id more more" "tabs tabs find";row-gap:10px;padding:12px 14px}
+#lookupResult[data-stick="high"] .v5bar.in-head{padding:0}
+#lookupResult[data-stick="high"] .v5bar .v5mav{flex-basis:40px;width:40px;height:40px}
+#lookupResult[data-stick="high"] .v5bar .v5nm b{font-size:15.5px}
+/* Folding header: the bar sits inside the folding card */
+.v5bar.in-head{position:static;background:none;box-shadow:none;border-radius:0;padding:0;margin-top:16px}
+.v5bar.in-head::before{display:none}
+.v5head.folding .v5bar.in-head .v5id,#lookupResult.hdr-off .v5head .v5bar .v5id{max-width:260px;opacity:1}
+@media (max-width:1180px){
+  .v5bar{grid-template-areas:"id find" "tabs tabs"}
+  #lookupResult[data-stick="high"] .v5bar{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"id find" "more more" "tabs tabs"}
+  .v5more{justify-content:flex-start;flex-wrap:wrap}
+}
+@media (max-width:760px){.v5reach > .v5sbtn{margin-left:0}.v5own{display:none}.v5sbtn .lg{display:none}.v5sbtn .sh{display:inline}}
 /* Smaller screens */
 @media (max-width:1320px){.v4hero{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:1100px){
@@ -2938,8 +3003,9 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
     var evs = (p.events || []).filter(function (e) { return !(otherBu && e[2] === "P"); }).map(function (e) { return { e: e, at: e[6] ? d4(e[6]) : d4(e[1]) }; });
     var sub = V.sub || "timeline", bu = V.ebu || "all", cat = V.ecat || "all";
     var subs = [["timeline", "Timeline"], ["business", "By business"], ["rhythm", "Learning rhythm"]];
-    if (isV5() && LAY5 === "minimal") subs.unshift(["journey", "Journey"]);
-    if (sub === "journey" && !(isV5() && LAY5 === "minimal")) sub = "timeline";
+    var jr = isV5() && LAY5 !== "overview";
+    if (jr) subs.unshift(["journey", "Journey"]);
+    if (sub === "journey" && !jr) sub = "timeline";
     var buList = ["all"].concat(Object.keys(BU4).filter(function (k) { return evs.some(function (x) { return x.e[0] === k; }); }));
     var inBu = evs.filter(function (x) { return bu === "all" || x.e[0] === bu; });
     var tools = '<div class="v4atools"><div class="seg" role="group" aria-label="Activity view" id="v4sub" data-slide>' + subs.map(function (s) { return '<button type="button" data-sub="' + s[0] + '" aria-pressed="' + (s[0] === sub) + '">' + s[1] + "</button>"; }).join("") + "</div>" +
@@ -3063,44 +3129,76 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
   }
 
   // Bar for Minimal and Overview first: the learner on the left, the tabs, then Find.
-  function v5Card(p, m, otherBu, inner) {
-    var fact = function (k, v) { return '<div class="fact"><span class="k">' + esc(k) + '</span><span class="v">' + esc(v) + "</span></div>"; };
-    var crm = otherBu || inner ? "" : '<button type="button" class="btn dark sm" data-crm="' + esc(p.owner) + '">Open in ' + esc(p.owner) + " CRM</button>";
-    var who = '<div class="who"><h1>' + esc(p.name) + '</h1><p class="headline">' + esc(p.headline) + '</p><p class="matched">' + esc(m.known) + " · matched on " + esc(L.how || "a verified identifier") + " · " + v5Gid(p) + '</p><p class="matched v5syncl">' + v5Sync() + "</p></div>";
-    var body = '<div class="pcard-top">' + avatarHTML(p, "avatar") + who + crm + '</div><div class="facts">' + fact("Life stage", p.stage) + fact("Age band", p.ageBand) + fact("City", p.city) + fact("Owned by", p.owner) +
-      '<div class="fact"><span class="k">Profile filled</span><span class="v">' + p.complete + '%</span><span class="meter" aria-hidden="true"><i style="width:' + p.complete + '%"></i></span></div></div>';
+  // Where contact and the things to act on live, so each shows once on screen:
+  // High pins them in the bar; otherwise Minimal keeps them in the bottom dock, and the other layouts on the person card and the page.
+  function v5Where() { var hi = STICK === "high"; return { reach: hi ? "bar" : LAY5 === "minimal" ? "dock" : "card", act: hi ? "bar" : LAY5 === "minimal" ? "dock" : LAY5 === "overview" ? "page" : "card" }; }
+  function v5Channels(p, m, noContact) {
+    var c = p.consent, ph = p.phones.filter(function (x) { return x.v; })[0], em = p.emails.filter(function (x) { return x.v; })[0], blocked = p.restricted || noContact, rn = m.reachNotes || {};
+    return [["phone", "Call", c.call && !!ph], ["mail", "Email", c.email && !!em, rn.emailState], ["chat", "WhatsApp", c.whatsapp && !!ph], ["sms", "SMS", c.sms && !!ph, null, rn.sms || (c.why || {}).sms], ["ads", "Ads", c.ads]].map(function (x) {
+      var ok = x[2] && !blocked; return { ic: x[0], name: x[1], ok: ok, note: ok ? (x[3] || "Allowed") : blocked ? "Blocked for your business" : (x[4] || "Blocked") };
+    });
+  }
+  function v5Contact(p, blocked, dark) {
+    if (blocked) return "";
+    return V.revealed ? '<button type="button" class="' + (dark ? "v5dbtn" : "v5sbtn") + '" data-tab="profile" data-sec="identity"><span class="lg">Contact shown · logged</span><span class="sh">Shown</span></button>'
+      : '<button type="button" class="' + (dark ? "v5dbtn" : "v5sbtn") + '" data-reveal><span class="lg">Show contact</span><span class="sh">Contact</span></button>';
+  }
+  function v5ActBtn(m, dark) {
+    if (!(m.act || []).length) return "";
+    var n = m.act.filter(function (a, i) { return !(V.acted && V.acted[i]); }).length;
+    var pop = V.actOpen ? '<div class="v5pop" role="dialog" aria-label="Things to act on"><button type="button" class="v5popx" data-actopen aria-label="Close">' + ic4("x", 16) + "</button>" + v4Act(m) + "</div>" : "";
+    return '<span class="v5actw"><button type="button" class="' + (dark ? "v5dbtn" : "v5sbtn") + " act" + (n ? "" : " clear") + '" data-actopen aria-expanded="' + !!V.actOpen + '">' +
+      (n ? '<span class="v5n">' + n + '</span><span class="lg">' + (n === 1 ? "thing" : "things") + ' to act on</span><span class="sh">To act on</span>' : ic4("check", 14) + "All handled") + "</button>" + pop + "</span>";
+  }
+
+  // The V3 person card, end to end: photo, name, headline, how we know them, the CRM action, a facts row, and (outside High) who may be contacted.
+  function v5Card(p, m, otherBu, noContact, inner) {
+    var fact = function (k, v, sub) { return '<div class="fact"><span class="k">' + esc(k) + '</span><span class="v">' + esc(v) + "</span>" + (sub ? '<small class="fs">' + esc(sub) + "</small>" : "") + "</div>"; };
+    var crm = otherBu ? "" : '<button type="button" class="btn dark sm" data-crm="' + esc(p.owner) + '">Open in ' + esc(p.owner) + " CRM</button>";
+    var who = '<div class="who"><h1>' + esc(p.name) + '</h1><p class="headline">' + esc(p.headline) + '</p><p class="matched">' + esc(m.known) + " · matched on " + esc(L.how || "a verified identifier") + " · " + v5Gid(p) + " · " + v5Sync() + "</p></div>";
+    var owners = (m.owners || []).map(function (o) { return o[1] + " (" + (BU4[o[0]] || [o[0], o[0]])[1] + ")"; }).join(" · ");
+    var reach = "";
+    if (v5Where().reach === "card") {
+      var blocked = p.restricted || noContact;
+      reach = '<div class="v5reach"><span class="v5rk">Reach ' + (p.v4 ? "her" : esc(first(p))) + '</span><span class="v5rchs">' + v5Channels(p, m, noContact).map(function (x) {
+        return '<span class="v5rch ' + (x.ok ? "ok" : "no") + '" title="' + esc(x.name + ": " + x.note) + '">' + ic4(x.ic, 14) + "<b>" + x.name + "</b>" + (x.ok && x.note !== "Allowed" ? "<small>" + esc(x.note.toLowerCase()) + "</small>" : "") + (x.ok ? "" : '<small class="sr">blocked</small>') + "</span>";
+      }).join("") + "</span>" + v5Contact(p, blocked, false) + (v5Where().act === "card" ? v5ActBtn(m, false) : "") + "</div>";
+    }
+    var body = '<div class="pcard-top">' + avatarHTML(p, "avatar") + who + crm + '</div><div class="facts">' + fact("Life stage", p.stage) + fact("Age band", p.ageBand) + fact("City", p.city) + fact("Owned by", p.owner, owners) +
+      '<div class="fact"><span class="k">Profile filled</span><span class="v">' + p.complete + '%</span><span class="meter" aria-hidden="true"><i style="width:' + p.complete + '%"></i></span></div></div>' + reach;
     return inner ? '<div class="prail v5pcin"><div class="pcard">' + body + "</div></div>" : '<div class="prail"><section class="pcard v5card" aria-label="' + esc(p.name) + '">' + body + "</section></div>";
   }
-  // The pinned bar: the tabs and Find; the photo and name join it once the card above has scrolled away.
-  function v5Bar(p, m, list) {
-    return '<section class="v5bar" aria-label="Sections"><div class="v5id" aria-hidden="true">' + v5Face(p, m, "v5mav") +
-      '<div class="v5who"><div class="v5nm"><b>' + esc(p.name) + "</b></div><p>" + esc(p.stage + " · " + p.city) + "</p></div></div>" + list + v5Find() + "</section>";
+  // The pinned bar. Minimum: the tabs (and the name once the card has gone). Mid: plus the photo and facts. High: plus the owner, contact and things to act on.
+  function v5Bar(p, m, list, noContact, inHead) {
+    var w = v5Where(), more = "";
+    if (w.reach === "bar") {
+      more = '<div class="v5more"><span class="v5own" title="Owners right now">' + esc((m.owners || []).map(function (o) { return o[1] + " (" + (BU4[o[0]] || [o[0], o[0]])[1] + ")"; }).join(" · ")) + '</span><span class="v5mch" role="group" aria-label="Who may be contacted">' + v5Channels(p, m, noContact).map(function (x) {
+        return '<span class="v5ch ' + (x.ok ? "ok" : "no") + '" title="' + esc(x.name + ": " + x.note) + '">' + ic4(x.ic, 14) + '<span class="sr">' + x.name + ": " + esc(x.note) + "</span>" + (x.ok ? "" : '<i aria-hidden="true"></i>') + "</span>";
+      }).join("") + "</span>" + v5Contact(p, p.restricted || noContact, false) + v5ActBtn(m, false) + "</div>";
+    }
+    return '<' + (inHead ? "div" : "section") + ' class="v5bar' + (inHead ? " in-head" : "") + (more ? " has-more" : "") + '" aria-label="Sections"><div class="v5id" aria-hidden="true">' + v5Face(p, m, "v5mav") +
+      '<div class="v5who"><div class="v5nm"><b>' + esc(p.name) + "</b></div><p>" + esc(p.stage + " · " + p.city) + "</p></div></div>" + more + list + v5Find() + "</" + (inHead ? "div" : "section") + ">";
   }
-  // Minimal: contact and the things to act on live in a dock at the bottom of the screen.
+  // Minimal (Minimum and Mid): contact and the things to act on stay in a dock at the bottom of the screen.
   function v5Dock(p, m, team, otherBu, noContact) {
-    var c = p.consent, ph = p.phones.filter(function (x) { return x.v; })[0], em = p.emails.filter(function (x) { return x.v; })[0], blocked = p.restricted || noContact, rn = m.reachNotes || {};
-    var ch = [["phone", "Call", c.call && !!ph], ["mail", "Email", c.email && !!em, rn.emailState], ["chat", "WhatsApp", c.whatsapp && !!ph], ["sms", "SMS", c.sms && !!ph], ["ads", "Ads", c.ads]];
-    var chips = ch.map(function (x) { var ok = x[2] && !blocked; return '<span class="v5ch ' + (ok ? "ok" : "no") + '" title="' + x[1] + ": " + (ok ? (x[3] || "allowed") : "blocked") + '">' + ic4(x[0], 15) + '<span class="sr">' + x[1] + ": " + (ok ? (x[3] || "allowed") : "blocked") + "</span>" + (ok ? "" : '<i aria-hidden="true"></i>') + "</span>"; }).join("");
-    var n = (m.act || []).filter(function (a, i) { return !(V.acted && V.acted[i]); }).length;
-    var pop = V.actOpen ? '<div class="v5pop" role="dialog" aria-label="Things to act on"><button type="button" class="v5popx" data-actopen aria-label="Close">' + ic4("x", 16) + "</button>" + v4Act(m) + "</div>" : "";
-    return '<div class="v5dock" role="region" aria-label="Reach and actions"><span class="v5dk">Reach</span><span class="v5chs">' + chips + "</span>" +
-      (blocked ? "" : V.revealed ? '<button type="button" class="v5dbtn" data-tab="profile" data-sec="identity"><span class="lg">Contact shown · logged</span><span class="sh">Shown</span></button>' : '<button type="button" class="v5dbtn" data-reveal><span class="lg">Show contact</span><span class="sh">Contact</span></button>') +
-      ((m.act || []).length ? '<span class="v5sep" aria-hidden="true"></span><button type="button" class="v5dbtn act' + (n ? "" : " clear") + '" data-actopen aria-expanded="' + !!V.actOpen + '">' + (n ? '<span class="v5n">' + n + '</span><span class="lg">' + (n === 1 ? "thing" : "things") + ' to act on</span><span class="sh">To act on</span>' : ic4("check", 14) + "All handled") + "</button>" : "") + pop + "</div>";
+    var chips = v5Channels(p, m, noContact).map(function (x) { return '<span class="v5ch ' + (x.ok ? "ok" : "no") + '" title="' + esc(x.name + ": " + x.note) + '">' + ic4(x.ic, 15) + '<span class="sr">' + x.name + ": " + esc(x.note) + "</span>" + (x.ok ? "" : '<i aria-hidden="true"></i>') + "</span>"; }).join("");
+    return '<div class="v5dock" role="region" aria-label="Reach and actions"><span class="v5dk">Reach</span><span class="v5chs">' + chips + "</span>" + v5Contact(p, p.restricted || noContact, true) +
+      ((m.act || []).length ? '<span class="v5sep" aria-hidden="true"></span>' + v5ActBtn(m, true) : "") + "</div>";
   }
   function v5Records(p, m) {
     var max = Math.max.apply(null, m.sources.map(function (s) { return s[1]; }).concat([1]));
-    return '<section class="card v4rc v5orr"><h3>Owners and records</h3>' + m.owners.map(function (o) {
+    return '<section class="card v4rc v5orr"><div class="v5orr-a"><h3>Owners and records</h3>' + m.owners.map(function (o) {
       return '<div class="v4own"><span class="v4bu bu-' + o[0] + '">' + esc((BU4[o[0]] || [o[0], o[0]])[1]) + '</span><span class="v4own-n"><b>' + esc(o[1]) + "</b><small>" + esc(o[2]) + '</small></span><button type="button" class="v4open" data-crm="' + esc((BU4[o[0]] || [o[0]])[0]) + '" aria-label="Open the ' + esc((BU4[o[0]] || [o[0]])[0]) + ' lead">' + ic4("ext", 15) + "</button></div>";
-    }).join("") + '<p class="v5rl"><b>' + m.records.length + " linked records</b> · " + esc(m.records.map(function (r) { return r[2]; }).filter(function (v, i, a) { return a.indexOf(v) === i; }).join(", ")) + ' · <button type="button" class="v5lnk" data-tab="profile" data-sec="identity">See in Identity</button></p>' +
-      '<div class="v4srcbars">' + m.sources.map(function (s) { return '<div class="v4sb">' + src4(s[0]) + '<span class="v4sbt"><i style="width:' + Math.round(s[1] / max * 100) + '%"></i></span><b>' + s[1] + "</b></div>"; }).join("") + '</div><p class="v4note">Profile values, by the source that won the merge · ' + SYNC4.toLowerCase() + ".</p></section>";
+    }).join("") + '<p class="v5rl"><b>' + m.records.length + " linked records</b> · " + esc(m.records.map(function (r) { return r[2]; }).filter(function (v, i, a) { return a.indexOf(v) === i; }).join(", ")) + ' · <button type="button" class="v5lnk" data-tab="profile" data-sec="identity">See in Identity</button></p></div>' +
+      '<div class="v5orr-b"><h3>Where the data comes from</h3><div class="v4srcbars">' + m.sources.map(function (s) { return '<div class="v4sb">' + src4(s[0]) + '<span class="v4sbt"><i style="width:' + Math.round(s[1] / max * 100) + '%"></i></span><b>' + s[1] + "</b></div>"; }).join("") + '</div><p class="v4note">Profile values, by the source that won the merge · ' + SYNC4.toLowerCase() + ".</p></div></section>";
   }
   function v5Overview(p, m, team, otherBu, noContact) {
     var m3 = Object.assign({}, m, { kpis: m.kpis.filter(function (k) { return k.k !== "Profile filled"; }) });
-    return '<div class="v5ov">' + v5Kpis(m3, otherBu, "v5kp") + '<div class="v5ovA">' + v4Life(m) + (v4Act(m) || '<section class="card v4act"><p class="v4note">Nothing to act on.</p></section>') + '</div><div class="v5ovB">' + v4Rail(p, m, team, otherBu, noContact, ["reach"]) + v5Records(p, m) + "</div></div>";
+    return '<div class="v5ov">' + v5Kpis(m3, otherBu, "v5kp") + '<div class="v5ovA">' + v4Life(m) + (v4Act(m) || '<section class="card v4act"><p class="v4note">Nothing to act on.</p></section>') + "</div>" + v5Records(p, m) + "</div>";
   }
 
   function profile5HTML(p, team) {
-    var m = v4Of(p), otherBu = !!team.bu && team.bu !== p.owner, noContact = otherBu && !p.consent.cross, lay = LAY5;
+    var m = v4Of(p), otherBu = !!team.bu && team.bu !== p.owner, noContact = otherBu && !p.consent.cross, lay = LAY5, w = v5Where();
     var back = L.matches.length > 1 ? '<button type="button" class="textbtn backbtn" data-back>‹ Back to ' + L.matches.length + " people on this number</button>" : "";
     if (p.restricted) return profile4HTML(p, team);
     var banner = noContact ? '<div class="banner" role="note">' + warn() + "<div><b>Don't contact " + esc(first(p)) + " about " + esc(team.bu) + "</b>" + esc(first(p)) + " hasn't agreed to offers from other upGrad businesses. You can view this profile for context only.</div></div>" : "";
@@ -3110,14 +3208,11 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
     var body = cur === "overview" ? v5Overview(p, m, team, otherBu, noContact) : cur === "academic" ? v4Academic(p, m) : cur === "activity" ? v4Activity(p, otherBu) : cur === "insights" ? v4Insights(p, m, otherBu) : v4Profile(p, m, team, otherBu);
     var panel = '<div id="panel" class="' + (fresh ? "fresh" : "") + '" role="tabpanel" aria-labelledby="tab-' + cur + '">' + body + "</div>";
     var details = '<section class="section pdet" aria-label="Learner 360 details">' + panel + "</section>";
-    if (lay === "minimal") return '<div class="v4 v5 v5-min">' + back + v5Card(p, m, otherBu) + v5Bar(p, m, list) + banner + details + v5Dock(p, m, team, otherBu, noContact) + "</div>";
-    if (lay === "overview") return '<div class="v4 v5 v5-ovl">' + back + v5Card(p, m, otherBu) + v5Bar(p, m, list) + banner + details + "</div>";
-    // Folding header: the full profile folds into a slim bar as you scroll; contact and owners on the left.
-    var head = '<section class="v5head" aria-label="' + esc(p.name) + '"><div class="v5bg" aria-hidden="true"></div>' +
-      '<div class="v5full">' + v5Card(p, m, otherBu, true) + "</div>" +
-      '<div class="v5row"><div class="v5mini" aria-hidden="true">' + v5Face(p, m, "v5av") + "<span><b>" + esc(p.name) + "</b><small>" + esc(p.stage + " · " + p.city) + "</small></span></div>" + list + v5Find() + "</div></section>";
-    var main = head + v4Life(m) + banner + v4Act(m) + details;
-    return '<div class="v4 v5 v5-fold">' + back + '<div class="v4grid"><aside class="v4rail" aria-label="Contact and owners">' + v4Rail(p, m, team, otherBu, noContact, ["reach"]) + v5Records(p, m) + '</aside><div class="v4main">' + main + "</div></div></div>";
+    if (lay === "minimal") return '<div class="v4 v5 v5-min' + (w.reach === "dock" ? " has-dock" : "") + '">' + back + v5Card(p, m, otherBu, noContact) + v5Bar(p, m, list, noContact) + banner + details + (w.reach === "dock" ? v5Dock(p, m, team, otherBu, noContact) : "") + "</div>";
+    if (lay === "overview") return '<div class="v4 v5 v5-ovl">' + back + v5Card(p, m, otherBu, noContact) + v5Bar(p, m, list, noContact) + banner + details + "</div>";
+    // Folding header, end to end: the person card folds into the pinned bar as you scroll.
+    var head = '<section class="v5head" aria-label="' + esc(p.name) + '"><div class="v5bg" aria-hidden="true"></div><div class="v5full">' + v5Card(p, m, otherBu, noContact, true) + "</div>" + v5Bar(p, m, list, noContact, true) + "</section>";
+    return '<div class="v4 v5 v5-fold">' + back + head + banner + details + "</div>";
   }
 
   // Life with upGrad, four ways. V4 always uses lanes.
@@ -3180,14 +3275,15 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
     if (!isV4()) { r.classList.remove("chips-stuck"); return; }
     var hd = r.querySelector(".v5head"), vb = r.querySelector(".v5bar"), nav = r.querySelector(".v4secbar"), rail = r.querySelector(".v4rail"), top;
     if (hd) {
-      var row = hd.querySelector(".v5row"), clp = Math.max(0, row.offsetTop - 10);
+      var row = hd.querySelector(".v5bar"), clp = Math.max(0, row.offsetTop - 10);
       if (hd._clp !== clp) { hd._clp = clp; hd.style.setProperty("--clp", clp + "px"); }
       var pin = sb + 12, p = Math.max(0, Math.min(1, (pin - hd.getBoundingClientRect().top) / (clp || 1)));
       p = Math.round(p * 100) / 100;
       if (hd._p !== p) { hd._p = p; hd.style.setProperty("--p", p); hd.classList.toggle("folding", p > 0.4); hd.classList.toggle("is-min", p >= 0.99); requestAnimationFrame(slideAll); }
       top = pin + hd.offsetHeight - clp + 8;
     } else if (vb) {
-      var vtop = sb + 12; top = vtop + vb.offsetHeight + 8;
+      var vtop = parseFloat(getComputedStyle(vb).top); if (isNaN(vtop)) vtop = sb + (STICK === "min" ? 0 : 12);
+      top = vtop + vb.offsetHeight + (STICK === "min" ? 0 : 8);
       vb.classList.toggle("is-min", window.scrollY > 4 && vb.getBoundingClientRect().top <= vtop + 1);
       if (vb._off !== r.classList.contains("hdr-off")) { vb._off = r.classList.contains("hdr-off"); requestAnimationFrame(slideAll); }
     } else if (bar) top = barPinTop(bar, sb) + bar.offsetHeight + (STICK === "min" ? 0 : 8);
@@ -3650,8 +3746,9 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
     var stack = SSEARCH ? $("#lookupForm").offsetHeight : 0, bar = $("#lookupResult .pbar");
     // Scroll so the bar sits exactly where it pins, with the section starting just below it.
     if (bar) stack = Math.max(stack, barPinTop(bar, stack) + bar.offsetHeight);
-    var hd = $("#lookupResult .v5head");
+    var hd = $("#lookupResult .v5head"), vb = $("#lookupResult .v5bar:not(.in-head)");
     if (hd) stack = stack + 12 + hd.offsetHeight - (hd._clp || 0);
+    if (vb) { var vt = parseFloat(getComputedStyle(vb).top); stack = Math.max(stack, (isNaN(vt) ? stack + 12 : vt) + vb.offsetHeight + (STICK === "min" ? 0 : 8)); }
     var top = panel.getBoundingClientRect().top;
     if (top < stack + 12) window.scrollTo({ top: Math.max(0, window.scrollY + top - stack - 16), behavior: REDUCED ? "auto" : "smooth" });
   }
@@ -4516,10 +4613,10 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
   }
   function describeLayout() {
     if (isV5()) return {
-      minimal: "Minimal: one pinned bar with the learner and the tabs, the details below, and a dock at the bottom with contact and the things to act on. Records, owners and sources sit in Identity; Life with upGrad is in Activity, as Journey.",
-      overview: "Overview first: one pinned bar, and an Overview tab that answers the main questions on one screen (headline figures, Life with upGrad, things to act on, contact, owners and records). The details sit in the other tabs.",
-      fold: "Folding header: the full profile sits at the top of the right-hand column and folds into one slim bar as you scroll. Contact and owners are on the left, pinned only when they fit on screen."
-    }[LAY5] + " Press / to find any field.";
+      minimal: "Minimal: the person card, one pinned bar, the details, and (outside High) a dock at the bottom with contact and the things to act on. Records, owners and sources sit in Identity; Life with upGrad is in Activity, as Journey.",
+      overview: "Overview first: the person card with who may be contacted, one pinned bar, and an Overview tab with the headline figures, Life with upGrad, things to act on, owners, records and sources.",
+      fold: "Folding header: the person card runs end to end and folds into the pinned bar as you scroll. Who may be contacted and the things to act on sit on the card, the details follow straight after it, and Life with upGrad is in Activity, as Journey."
+    }[LAY5] + " Sticky bar · " + { min: "Minimum: only the tabs and Find stay pinned, with the name once the card has gone.", mid: "Mid: the photo, name and key facts stay pinned with the tabs.", high: "High: the bar also holds the owners, who may be contacted and the things to act on." }[STICK] + " Press / to find any field.";
     if (isV4()) {
       var who4 = PERSON === "rail" ? "The person, their headline figures, contact and records stay pinned in the left panel" : "The person and headline figures run across the top, and contact and records stay pinned on the left";
       var tabs4 = TABS === "top" ? "the four tabs stay pinned above the details" : TABS === "left" ? (PERSON === "rail" ? "the four tabs sit in the left panel, under the person" : "the four tabs stay pinned to the left of the details") : "the four tabs stay pinned to the right of the details";
@@ -4554,7 +4651,7 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
   $("#rvLife").addEventListener("click", function (e) {
     var b = e.target.closest("[data-life]"); if (!b) return;
     LIFE = b.getAttribute("data-life"); try { localStorage.setItem("cip-life", LIFE); } catch (er) {}
-    if (LAY5 === "minimal" && V.tab !== "activity") { V.tab = "activity"; V.sub = "journey"; }
+    if (LAY5 !== "overview" && V.tab !== "activity") { V.tab = "activity"; V.sub = "journey"; }
     renderLookup(); rvSync(); requestAnimationFrame(slideAll);
   });
   $("#rvStick").innerHTML = STICKS.map(function (x) { return '<button type="button" data-stick-at="' + x[0] + '" aria-pressed="false">' + esc(x[1]) + "</button>"; }).join("");
@@ -4565,7 +4662,7 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
   $("#rvStick").addEventListener("click", function (e) {
     var b = e.target.closest("[data-stick-at]"); if (!b) return;
     STICK = b.getAttribute("data-stick-at"); try { localStorage.setItem("cip-stick", STICK); } catch (er) {}
-    applyLookupLayout(); hdrCheck(); rvSync(); requestAnimationFrame(slideAll);
+    applyLookupLayout(); if (isV5()) { V.actOpen = false; renderLookup(); } hdrCheck(); rvSync(); requestAnimationFrame(slideAll);
   });
   // Sidebar menu items that can be hidden for a review.
   var NAVITEMS = [["overview", "Overview"], ["people", "People"], ["lookup", "Look up a person"], ["identity", "Identity & audits"], ["data", "Data dictionary"], ["later", "Later phases"]];
