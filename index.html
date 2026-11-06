@@ -1852,6 +1852,18 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
   .v5more{justify-content:flex-start;flex-wrap:wrap}
 }
 @media (max-width:760px){.v5reach > .v5sbtn{margin-left:0}.v5own{display:none}.v5sbtn .lg{display:none}.v5sbtn .sh{display:inline}}
+/* V5: calm switches */
+@keyframes v5fade{from{opacity:0}}
+html[data-v5] #panel.fresh > *{animation:v5fade .2s ease-out backwards}
+html[data-v5] .v4sec-b{animation:none}
+html[data-v5] #panel.fresh .v4sec-b{animation:none}
+html[data-v5] #panel.quiet *,html[data-v5] #panel.quiet{animation:none !important}
+#lookupResult.no-anim *,#lookupResult.no-anim *::before,#lookupResult.no-anim *::after{transition:none !important}
+/* High bar: one aligned row of context: who it is (with the owner), then Reach, Show contact and the things to act on */
+.v5mlbl{font-size:12px;color:var(--muted);margin-left:auto}
+#lookupResult.hdr-off[data-stick="high"] .v5bar .v5id,#lookupResult[data-stick="high"] .v5head.folding .v5bar .v5id{max-width:380px}
+.v5more{justify-content:flex-end}
+@media (prefers-reduced-motion: reduce){html[data-v5] #panel.fresh > *{animation:none}}
 /* Smaller screens */
 @media (max-width:1320px){.v4hero{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:1100px){
@@ -3172,12 +3184,12 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
   function v5Bar(p, m, list, noContact, inHead) {
     var w = v5Where(), more = "";
     if (w.reach === "bar") {
-      more = '<div class="v5more"><span class="v5own" title="Owners right now">' + esc((m.owners || []).map(function (o) { return o[1] + " (" + (BU4[o[0]] || [o[0], o[0]])[1] + ")"; }).join(" · ")) + '</span><span class="v5mch" role="group" aria-label="Who may be contacted">' + v5Channels(p, m, noContact).map(function (x) {
+      more = '<div class="v5more"><span class="v5mlbl">Reach</span><span class="v5mch" role="group" aria-label="Who may be contacted">' + v5Channels(p, m, noContact).map(function (x) {
         return '<span class="v5ch ' + (x.ok ? "ok" : "no") + '" title="' + esc(x.name + ": " + x.note) + '">' + ic4(x.ic, 14) + '<span class="sr">' + x.name + ": " + esc(x.note) + "</span>" + (x.ok ? "" : '<i aria-hidden="true"></i>') + "</span>";
       }).join("") + "</span>" + v5Contact(p, p.restricted || noContact, false) + v5ActBtn(m, false) + "</div>";
     }
     return '<' + (inHead ? "div" : "section") + ' class="v5bar' + (inHead ? " in-head" : "") + (more ? " has-more" : "") + '" aria-label="Sections"><div class="v5id" aria-hidden="true">' + v5Face(p, m, "v5mav") +
-      '<div class="v5who"><div class="v5nm"><b>' + esc(p.name) + "</b></div><p>" + esc(p.stage + " · " + p.city) + "</p></div></div>" + more + list + v5Find() + "</" + (inHead ? "div" : "section") + ">";
+      '<div class="v5who"><div class="v5nm"><b>' + esc(p.name) + "</b></div><p>" + esc(p.stage + " · " + p.city + (more ? " · Owned by " + (p.owner === "Working Professionals" ? "WP" : p.owner) : "")) + "</p></div></div>" + more + list + v5Find() + "</" + (inHead ? "div" : "section") + ">";
   }
   // Minimal (Minimum and Mid): contact and the things to act on stay in a dock at the bottom of the screen.
   function v5Dock(p, m, team, otherBu, noContact) {
@@ -3197,6 +3209,32 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
     return '<div class="v5ov">' + v5Kpis(m3, otherBu, "v5kp") + '<div class="v5ovA">' + v4Life(m) + (v4Act(m) || '<section class="card v4act"><p class="v4note">Nothing to act on.</p></section>') + "</div>" + v5Records(p, m) + "</div>";
   }
 
+  function v5Body(p, team, cur) {
+    var m = v4Of(p), otherBu = !!team.bu && team.bu !== p.owner, noContact = otherBu && !p.consent.cross;
+    return cur === "overview" ? v5Overview(p, m, team, otherBu, noContact) : cur === "academic" ? v4Academic(p, m) : cur === "activity" ? v4Activity(p, otherBu) : cur === "insights" ? v4Insights(p, m, otherBu) : v4Profile(p, m, team, otherBu);
+  }
+  // Switching tabs or sections: the card and the pinned bar stay put; only the content below changes, with a short fade.
+  function v5Swap(quiet) {
+    var p = PEOPLE[L.person], pan = $("#panel"); if (!p || !pan || !isV5()) { renderLookup(); return; }
+    var keys = $$("#ptabs [data-tab]").map(function (b) { return b.getAttribute("data-tab"); });
+    if (keys.indexOf(V.tab) < 0) V.tab = keys[0];
+    V.seen = V.tab;
+    $$("#ptabs [data-tab]").forEach(function (b) { var on = b.getAttribute("data-tab") === V.tab; b.setAttribute("aria-selected", on); b.tabIndex = on ? 0 : -1; });
+    pan.setAttribute("aria-labelledby", "tab-" + V.tab);
+    pan.classList.remove("fresh", "quiet"); pan.innerHTML = v5Body(p, TEAMS[S.team] || TEAMS.central, V.tab);
+    if (quiet) pan.classList.add("quiet"); else { void pan.offsetWidth; pan.classList.add("fresh"); v5Align(); }
+    hdrCheck(); requestAnimationFrame(slideAll);
+  }
+  // If you were scrolled down, the new content starts right under the pinned bar, with the bar exactly where it was (no sliding).
+  function v5Align() {
+    var pan = $("#panel"), r = $("#lookupResult"); if (!pan || !r) return;
+    var sb = SSEARCH ? $("#lookupForm").offsetHeight : 0, hd = r.querySelector(".v5head"), vb = r.querySelector(".v5bar:not(.in-head)"), bottom;
+    if (hd) bottom = sb + 12 + hd.offsetHeight - (hd._clp || 0);
+    else if (vb) { var vt = parseFloat(getComputedStyle(vb).top); bottom = (isNaN(vt) ? sb + 12 : vt) + vb.offsetHeight; }
+    else return;
+    var top = pan.getBoundingClientRect().top, want = bottom + 16;
+    if (top < want) window.scrollTo({ top: Math.max(0, window.scrollY + top - want), behavior: "auto" });
+  }
   function profile5HTML(p, team) {
     var m = v4Of(p), otherBu = !!team.bu && team.bu !== p.owner, noContact = otherBu && !p.consent.cross, lay = LAY5, w = v5Where();
     var back = L.matches.length > 1 ? '<button type="button" class="textbtn backbtn" data-back>‹ Back to ' + L.matches.length + " people on this number</button>" : "";
@@ -3205,7 +3243,7 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
     var keys = (lay === "overview" ? ["overview"] : []).concat(TABS4.map(function (t) { return t[0]; }));
     var cur = keys.indexOf(V.tab) >= 0 ? V.tab : keys[0], fresh = cur !== V.seen; V.seen = cur; V.tab = cur;
     var list = v5Tabs(p, m, cur, lay === "overview");
-    var body = cur === "overview" ? v5Overview(p, m, team, otherBu, noContact) : cur === "academic" ? v4Academic(p, m) : cur === "activity" ? v4Activity(p, otherBu) : cur === "insights" ? v4Insights(p, m, otherBu) : v4Profile(p, m, team, otherBu);
+    var body = v5Body(p, team, cur);
     var panel = '<div id="panel" class="' + (fresh ? "fresh" : "") + '" role="tabpanel" aria-labelledby="tab-' + cur + '">' + body + "</div>";
     var details = '<section class="section pdet" aria-label="Learner 360 details">' + panel + "</section>";
     if (lay === "minimal") return '<div class="v4 v5 v5-min' + (w.reach === "dock" ? " has-dock" : "") + '">' + back + v5Card(p, m, otherBu, noContact) + v5Bar(p, m, list, noContact) + banner + details + (w.reach === "dock" ? v5Dock(p, m, team, otherBu, noContact) : "") + "</div>";
@@ -3737,7 +3775,9 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
       return;
     }
     if (L.status === "many" && !L.person) { box.innerHTML = manyHTML(); return; }
+    box.classList.add("no-anim");
     box.innerHTML = isV5() ? profile5HTML(PEOPLE[L.person], team) : isV4() ? profile4HTML(PEOPLE[L.person], team) : profileHTML(PEOPLE[L.person], team);
+    requestAnimationFrame(function () { requestAnimationFrame(function () { box.classList.remove("no-anim"); }); });
     hdrCheck();
   }
   // After switching sections, start the new one from its top, just below whatever is pinned.
@@ -4007,9 +4047,9 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
       L.person = id; L.how = L.matches.filter(function (m) { return m.id === id; })[0].how; V = freshView();
       renderLookup(); window.scrollTo(0, 0);
     } else if (t.hasAttribute("data-back")) { L.person = null; renderLookup(); }
-    else if (t.hasAttribute("data-tab")) { V.tab = t.getAttribute("data-tab"); renderLookup(); var f = $("#tab-" + V.tab); if (f) f.focus({ preventScroll: true }); revealPanel(); }
+    else if (t.hasAttribute("data-tab")) { V.tab = t.getAttribute("data-tab"); if (t.hasAttribute("data-sec")) V.sec = t.getAttribute("data-sec"); if (isV5() && $("#panel")) v5Swap(); else { renderLookup(); revealPanel(); } var f = $("#tab-" + V.tab); if (f) f.focus({ preventScroll: true }); }
     else if (t.hasAttribute("data-reveal")) { V.revealed = true; renderLookup(); }
-    else if (t.hasAttribute("data-more")) { V.shown += PAGE; renderLookup(); }
+    else if (t.hasAttribute("data-more")) { V.shown += PAGE; if (isV5() && $("#panel")) v5Swap(true); else renderLookup(); }
     else if (t.hasAttribute("data-bu")) { V.bu = t.getAttribute("data-bu"); V.shown = PAGE; renderLookup(); }
     else if (t.hasAttribute("data-cat")) { V.cat = t.getAttribute("data-cat"); V.shown = PAGE; renderLookup(); }
     else if (t.hasAttribute("data-crm")) { toast("Prototype: this would open the " + t.getAttribute("data-crm") + " CRM"); }
@@ -4018,14 +4058,16 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
   // V4: sections that open and close, activity views and filters, insight explanations and actions.
   $("#lookupResult").addEventListener("click", function (e) {
     var t = e.target.closest("button"); if (!t || !isV4()) return;
+    var redraw = function (quiet) { if (isV5() && $("#panel")) v5Swap(quiet); else renderLookup(); };
     if (t.hasAttribute("data-sec")) {
-      V.sec = t.getAttribute("data-sec"); renderLookup();
-      var st = $("#sec-" + V.sec); if (st) st.focus({ preventScroll: true }); revealPanel();
-    } else if (t.hasAttribute("data-sub")) { V.sub = t.getAttribute("data-sub"); renderLookup(); requestAnimationFrame(slideAll); }
-    else if (t.hasAttribute("data-ebu")) { V.ebu = t.getAttribute("data-ebu"); V.ecat = "all"; V.evx = -1; V.shown = PAGE; renderLookup(); requestAnimationFrame(slideAll); }
-    else if (t.hasAttribute("data-ecat")) { V.ecat = t.getAttribute("data-ecat"); V.evx = -1; V.shown = PAGE; renderLookup(); }
-    else if (t.hasAttribute("data-evx")) { var n = +t.getAttribute("data-evx"); V.evx = V.evx === n ? -1 : n; renderLookup(); var b = $('[data-evx="' + n + '"]'); if (b) b.focus({ preventScroll: true }); }
-    else if (t.hasAttribute("data-how")) { var h = t.getAttribute("data-how"); V.how = V.how || {}; V.how[h] = !V.how[h]; renderLookup(); var hb = $('[data-how="' + h + '"]'); if (hb) hb.focus({ preventScroll: true }); }
+      if (t.hasAttribute("data-tab") && isV5()) return;
+      V.sec = t.getAttribute("data-sec"); if (isV5() && $("#panel")) v5Swap(); else { renderLookup(); revealPanel(); }
+      var st = $("#sec-" + V.sec); if (st) st.focus({ preventScroll: true });
+    } else if (t.hasAttribute("data-sub")) { V.sub = t.getAttribute("data-sub"); redraw(true); requestAnimationFrame(slideAll); }
+    else if (t.hasAttribute("data-ebu")) { V.ebu = t.getAttribute("data-ebu"); V.ecat = "all"; V.evx = -1; V.shown = PAGE; redraw(true); requestAnimationFrame(slideAll); }
+    else if (t.hasAttribute("data-ecat")) { V.ecat = t.getAttribute("data-ecat"); V.evx = -1; V.shown = PAGE; redraw(true); }
+    else if (t.hasAttribute("data-evx")) { var n = +t.getAttribute("data-evx"); V.evx = V.evx === n ? -1 : n; redraw(true); var b = $('[data-evx="' + n + '"]'); if (b) b.focus({ preventScroll: true }); }
+    else if (t.hasAttribute("data-how")) { var h = t.getAttribute("data-how"); V.how = V.how || {}; V.how[h] = !V.how[h]; redraw(true); var hb = $('[data-how="' + h + '"]'); if (hb) hb.focus({ preventScroll: true }); }
     else if (t.hasAttribute("data-act")) {
       var a = +t.getAttribute("data-act"), item = v4Of(PEOPLE[L.person]).act[a]; V.acted = V.acted || {}; V.acted[a] = true; renderLookup();
       toast("Prototype: " + item.done.charAt(0).toLowerCase() + item.done.slice(1));
@@ -4044,7 +4086,7 @@ html[data-v5] .v4lane{grid-template-columns:164px minmax(0,1fr)}
     if (t.hasAttribute("data-find")) { V.findOpen = !V.findOpen; V.fi = 0; renderLookup(); var q = $("#v5q"); if (q) { q.focus(); v5FindRender(); } return; }
     if (t.hasAttribute("data-fhit")) { v5FindGo(+t.getAttribute("data-fhit")); return; }
     if (t.hasAttribute("data-actopen")) { V.actOpen = !V.actOpen; renderLookup(); var f = $(".v5pop [data-act], .v5pop .v5popx"); if (f && V.actOpen) f.focus(); return; }
-    if (t.hasAttribute("data-reveal") && LAY5 === "minimal") { V.tab = "profile"; V.sec = "identity"; renderLookup(); revealPanel(); }
+    if (t.hasAttribute("data-reveal")) { V.tab = "profile"; V.sec = "identity"; renderLookup(); v5Align(); }
   });
   $("#lookupResult").addEventListener("input", function (e) { if (e.target.id === "v5q") { V.fi = 0; v5FindRender(); } });
   $("#lookupResult").addEventListener("keydown", function (e) {
