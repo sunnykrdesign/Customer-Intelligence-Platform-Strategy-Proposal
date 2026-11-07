@@ -2578,6 +2578,114 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
   .i6chip{margin-left:0}
 }
 @media (prefers-reduced-motion: reduce){.i6card,.i6k,.i6sig,.i6sum,.i6sum li,.i6pay i,.i6dial circle.p,.i6gauge i,.i6ch > div,.i6fat i,.i6sc,.i6num i,.i6m,.i6go,.i6sig.nbp::before{animation:none !important}}
+
+/* ================= V6 · fixes from the UX audit ================= */
+.v6off{}
+html[data-v6] .v6off{display:none !important}
+/* One colour per business */
+html[data-v6]{--buW:#4C7BE8;--buS:#3F9D6B;--buI:#E07B39;--buU:#0FA3B1;--buK:#8B6CDB;--buG:#5B6472;--buL:#C2577A}
+html[data-v6] .bu-W:not(i):not(.v5jd){background:color-mix(in srgb,var(--buW) 14%,#fff) !important;color:color-mix(in srgb,var(--buW) 80%,#1D1D1F) !important}
+html[data-v6] .bu-S:not(i):not(.v5jd){background:color-mix(in srgb,var(--buS) 14%,#fff) !important;color:color-mix(in srgb,var(--buS) 80%,#1D1D1F) !important}
+html[data-v6] .bu-I:not(i):not(.v5jd){background:color-mix(in srgb,var(--buI) 14%,#fff) !important;color:color-mix(in srgb,var(--buI) 80%,#1D1D1F) !important}
+html[data-v6] .bu-U:not(i):not(.v5jd){background:color-mix(in srgb,var(--buU) 14%,#fff) !important;color:color-mix(in srgb,var(--buU) 80%,#1D1D1F) !important}
+html[data-v6] .bu-K:not(i):not(.v5jd){background:color-mix(in srgb,var(--buK) 14%,#fff) !important;color:color-mix(in srgb,var(--buK) 80%,#1D1D1F) !important}
+html[data-v6] .bu-G:not(i):not(.v5jd){background:color-mix(in srgb,var(--buG) 14%,#fff) !important;color:color-mix(in srgb,var(--buG) 80%,#1D1D1F) !important}
+html[data-v6] .bu-L:not(i):not(.v5jd){background:color-mix(in srgb,var(--buL) 14%,#fff) !important;color:color-mix(in srgb,var(--buL) 80%,#1D1D1F) !important}
+html[data-v6] i.bu-W{background:var(--buW) !important}html[data-v6] i.bu-S{background:var(--buS) !important}html[data-v6] i.bu-I{background:var(--buI) !important}html[data-v6] i.bu-U{background:var(--buU) !important}html[data-v6] i.bu-K{background:var(--buK) !important}html[data-v6] i.bu-G{background:var(--buG) !important}html[data-v6] i.bu-L{background:var(--buL) !important}
+html[data-v6] .v5jd.bu-W{color:var(--buW) !important}html[data-v6] .v5jd.bu-S{color:var(--buS) !important}html[data-v6] .v5jd.bu-I{color:var(--buI) !important}html[data-v6] .v5jd.bu-U{color:var(--buU) !important}html[data-v6] .v5jd.bu-K{color:var(--buK) !important}html[data-v6] .v5jd.bu-G{color:var(--buG) !important}html[data-v6] .v5jd.bu-L{color:var(--buL) !important}
+
+html[data-v6] .me [data-action="switch-team"]{display:none !important}
+html[data-v6] #teamList:has(.v6team){background:none;box-shadow:none;border:none;padding:0;overflow:visible}
+/* Updated, not live */
+html[data-v6] .v6live i{animation:none;background:#8E8E93;box-shadow:none}
+html[data-v6] .v6live{font-weight:500;color:#D1D1D6}
+/* Each card states its period; the page-wide range is hidden */
+html[data-v6] #range{display:none}
+.v6per{margin-left:auto;font-style:normal;font-size:11px;color:#8E8E93;font-weight:500}
+.v6rl b{font-size:18px}
+
+/* Room for the dock */
+html[data-v6] .view[data-view="lookup"]{padding-bottom:84px}
+
+/* Team from the directory */
+.v6team{display:flex;flex-direction:column;gap:4px;padding:20px;border-radius:18px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+.v6team small{font-size:12px;color:#8E8E93}
+.v6team b{font-size:19px;color:#fff;letter-spacing:-0.02em}
+.v6team span{font-size:13.5px;color:#A1A1A6}
+.v6team p{margin:10px 0 14px;font-size:12.5px;color:#8E8E93;line-height:1.5}
+.v6team .v6tgo{width:100%;height:44px;background:#F5F5F7;color:#111;border-radius:12px;font-weight:600;border:none}
+.v6proto{margin-top:12px;font-size:13px;color:#A1A1A6}
+.v6proto summary{cursor:pointer;padding:6px 0}
+.v6proto .choice{margin-top:8px}
+
+/* Look up: empty start */
+.v6idle{display:flex;flex-direction:column;gap:20px;animation:a6in .5s var(--v6e) backwards}
+.v6call{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:20px 22px;border-radius:22px;background:#fff;box-shadow:0 0 0 1px rgba(16,16,24,.05),0 12px 32px -14px rgba(16,16,24,.1)}
+.v6cring{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#E6F6EC;color:#1E7A43;flex:0 0 44px;box-shadow:0 0 0 0 rgba(52,199,89,.4);animation:v6ping 2.2s infinite}
+.v6ctx{display:flex;flex-direction:column;gap:2px;flex:1 1 260px;min-width:0}
+.v6ctx small{font-size:12px;color:var(--muted)}
+.v6ctx b{font-size:20px;letter-spacing:-0.01em;font-variant-numeric:tabular-nums}
+.v6ctx span{font-size:13px;color:#515154}
+.v6rec h3{margin:0 0 10px;font-size:14px;font-weight:600}
+.v6recl{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.v6recl button{display:flex;align-items:center;gap:12px;padding:12px 14px;border:none;border-radius:16px;background:#fff;text-align:left;box-shadow:0 0 0 1px rgba(16,16,24,.05);transition:transform .3s var(--v6e),box-shadow .3s}
+.v6recl button:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(16,16,24,.06),0 10px 24px -12px rgba(16,16,24,.2)}
+.v6rf{width:38px;height:38px;border-radius:50%;overflow:hidden;flex:0 0 38px;background:#E5E5EA;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#3A3A3F}
+.v6rf img{width:100%;height:100%;object-fit:cover}
+.v6recl b{display:block;font-size:13.5px;color:var(--text)}
+.v6recl small{font-size:12px;color:var(--muted)}
+.v6ih{margin:0;font-size:13px;color:var(--muted)}
+
+/* Audit */
+.v6aud{display:flex;flex-direction:column;gap:14px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.v6aprog{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--muted)}
+.v6aprog b{color:var(--text)}
+.v6aprog i{flex:1;height:6px;border-radius:6px;background:#F0F0F3;overflow:hidden}
+.v6aprog em{display:block;height:100%;border-radius:6px;background:#1D1D1F;transition:width .5s var(--v6e)}
+.v6aact{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap}
+.v6anav{display:flex;gap:8px}
+.v6arsn{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted);margin-left:auto}
+.v6arsn select{height:38px;border-radius:10px;border:1px solid var(--line);background:#fff;padding:0 10px;font:inherit;font-size:13px;color:var(--text)}
+.v6achoice{display:flex;gap:8px;flex-wrap:wrap}
+.v6ab{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 16px;border-radius:12px;border:1.5px solid #D1D1D6;background:#fff;font-size:14px;font-weight:600;color:var(--text);transition:border-color .2s,background .2s,transform .3s var(--v6s)}
+.v6ab:hover{border-color:#1D1D1F}
+.v6ab:active{transform:scale(.97)}
+.v6ab kbd{font-family:var(--mono);font-size:11px;font-weight:600;color:#6E6E73;background:#F2F2F5;border-radius:5px;padding:1px 6px}
+.v6ab[aria-pressed="true"]{background:#1D1D1F;color:#fff;border-color:#1D1D1F}
+.v6ab[aria-pressed="true"] kbd{background:rgba(255,255,255,.18);color:#fff}
+.v6ahint{margin:0;font-size:12px;color:var(--muted)}
+.i6sig.xlock{background:#F7F7F9}
+.i6sig.xlock .i6ic{background:#E5E5EA;color:#6E6E73}
+
+/* Phones: tab bar at the bottom, one slim header row */
+@media (max-width:820px){
+  html[data-v6] .side{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:8px;padding:12px 16px 6px;height:auto !important;min-height:0 !important;position:static !important;flex:none !important}
+  html[data-v6] .side .top{grid-column:1;grid-row:1;min-width:0}
+  html[data-v6] .v6k-btn{grid-column:2;grid-row:1;width:40px;height:40px;margin:0;padding:0;justify-content:center}
+  html[data-v6] .v6k-btn span,html[data-v6] .v6k-btn kbd{display:none}
+  html[data-v6] .me{grid-column:3;grid-row:1;margin:0;padding:0;background:transparent;box-shadow:none;flex-direction:row;gap:4px}
+  html[data-v6] .me .nm{display:none}
+  html[data-v6] .me .av{flex-basis:32px;height:32px;font-size:12px}
+  html[data-v6] .me .acts{gap:2px}
+  html[data-v6] .me .acts button span,html[data-v6] .me [data-action="share"]{display:none}
+  html[data-v6] .nav{position:fixed;left:0;right:0;bottom:0;z-index:45;display:flex;flex-direction:row;justify-content:space-around;gap:0;overflow:visible;margin:0;padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px));background:rgba(250,250,252,.94);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 -1px 0 rgba(0,0,0,.08)}
+  html[data-v6] .nav a{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 2px;border-radius:12px;background:transparent !important;box-shadow:none !important;color:#8E8E93}
+  html[data-v6] .nav a[aria-current="page"]{color:#E3262F}
+  html[data-v6] .nav a .ni{font-size:0;gap:0;display:flex;justify-content:center}
+  html[data-v6] .nav a::after{content:attr(data-short);font-size:10.5px;font-weight:600;line-height:1.2;white-space:nowrap}
+  html[data-v6] .nav a .count{display:none}
+  html[data-v6] .main{padding-bottom:110px !important}
+  html[data-v6] .preview-bar{margin:0 0 14px;padding:5px 5px 5px 14px;gap:8px;font-size:12px;border-radius:12px !important}
+  html[data-v6] .preview-bar .opt,html[data-v6] .preview-bar [data-action="share"]{display:none}
+  html[data-v6] .preview-bar button{height:30px;padding:0 12px;font-size:12.5px}
+  html[data-v6] .v5dock{bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+  html[data-v6] .review{bottom:calc(140px + env(safe-area-inset-bottom,0px))}
+  html[data-v6] .view[data-view="lookup"]{padding-bottom:140px}
+  .v6aact{flex-direction:column;align-items:stretch}
+  .v6arsn{margin-left:0}
+  .v6ab{flex:1 1 auto;justify-content:center}
+}
+@media (prefers-reduced-motion: reduce){.v6cring,.v6idle{animation:none}}
 </style>
 </head>
 <body>
@@ -2650,7 +2758,7 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
       <section data-step="team" aria-labelledby="t-team" class="stack" style="gap:24px" hidden>
         <div class="auth-head">
           <h1 id="t-team">Choose your team</h1>
-          <p>What you see depends on your team. You can switch later.</p>
+          <p id="teamSub">What you see depends on your team. You can switch later.</p>
         </div>
         <div class="choice" id="teamList"></div>
         <div class="who-bar">
@@ -2745,7 +2853,7 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
         <section class="v6hero v6c" aria-labelledby="v6hT">
           <div class="v6h-glow" aria-hidden="true"></div>
           <div class="v6h-main">
-            <div class="v6h-top"><span class="v6live"><i></i>Live</span><span class="v6h-kick">Phase 1 · Identity resolution</span></div>
+            <div class="v6h-top"><span class="v6live"><i></i>Updated today, 09:00</span><span class="v6h-kick">Phase 1 · Identity resolution · progress to date</span></div>
             <h2 id="v6hT" class="v6h-title">One memory of<br>every learner.</h2>
             <div class="v6h-count">
               <span class="odo" data-odo="19,42,118" data-live="1942118" data-step="5">19,42,118</span>
@@ -2759,7 +2867,7 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
               <li><i></i><b>Consent by purpose</b><span>Next · DPDP rules</span></li>
             </ol>
           </div>
-          <div class="v6rings" role="img" aria-label="Leads resolved 71.4% against an 80% target. 360 view live for 2 of 3 teams. 812 of 1,000 merge audits done.">
+          <div class="v6rings" role="img" aria-label="Rings show progress. Leads resolved: 89% of the 80% target, 71.4% now. 360 view: 2 of 3 teams, 67%. Merge audits: 812 of 1,000, 81%.">
             <svg viewBox="0 0 220 220" aria-hidden="true">
               <defs>
                 <linearGradient id="v6gR" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF5A61"/><stop offset="1" stop-color="#E3262F"/></linearGradient>
@@ -2773,9 +2881,9 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
               </g>
             </svg>
             <ul class="v6rl">
-              <li><i style="background:#FF4A52"></i><span>Leads resolved</span><b>71.4%</b><em>target 80%</em></li>
-              <li><i style="background:#5B8DEF"></i><span>Teams on 360</span><b>2 of 3</b><em>Sales, Support</em></li>
-              <li><i style="background:#6FC28F"></i><span>Audits done</span><b>81%</b><em>188 left</em></li>
+              <li><i style="background:#FF4A52"></i><span>Leads resolved</span><b>89% of target</b><em>71.4% now · target 80%</em></li>
+              <li><i style="background:#5B8DEF"></i><span>Teams on the 360 view</span><b>67%</b><em>2 of 3 teams · Sales, Support</em></li>
+              <li><i style="background:#6FC28F"></i><span>Merge audits</span><b>81%</b><em>812 of 1,000 in Phase 1</em></li>
             </ul>
           </div>
         </section>
@@ -2812,7 +2920,7 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
           </section>
           <section class="v6c v6r v6flow" aria-labelledby="v6xT">
             <div class="v6s-head">
-              <div class="v6s-title"><h2 id="v6xT">Where learners move</h2><p>727K people known to more than one business</p></div>
+              <div class="v6s-title"><h2 id="v6xT">Where learners move</h2><p>727K people known to more than one business · all time</p></div>
             </div>
             <div id="v6Sankey" class="v6sk"></div>
           </section>
@@ -3032,7 +3140,16 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
             <span id="auditStatusText"></span>
             <button type="button" class="textbtn" id="auditUndo" style="font-weight:600">Undo</button>
           </div>
-          <div class="actions">
+          <div class="v6only v6aud">
+            <div class="v6aprog"><span><b id="v6aDone">12</b> of 200 reviewed this week</span><i aria-hidden="true"><em id="v6aBar"></em></i></div>
+            <div class="v6aact">
+              <div class="v6anav"><button type="button" class="btn soft sm" id="v6aPrev">Previous</button><button type="button" class="btn soft sm" id="v6aSkip">Skip</button></div>
+              <label class="v6arsn"><span>Reason (optional)</span><select id="v6aReason"><option value="">No reason given</option><option>Different date of birth</option><option>Different email</option><option>Different name</option><option>Different city</option><option>Other</option></select></label>
+              <div class="v6achoice" role="group" aria-label="Your answer"><button type="button" class="v6ab" data-aud="right" aria-pressed="false"><kbd>S</kbd>Same person</button><button type="button" class="v6ab" data-aud="unsure" aria-pressed="false"><kbd>N</kbd>Not sure</button><button type="button" class="v6ab" data-aud="wrong" aria-pressed="false"><kbd>D</kbd>Different people</button></div>
+            </div>
+            <p class="v6ahint">Neither answer is the default. Keys: S same, D different, N not sure, ← previous, → skip.</p>
+          </div>
+          <div class="actions v6off">
             <button type="button" class="icon-btn" id="auditPrev" aria-label="Previous merge"><svg width="8" height="14" viewBox="0 0 8 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 1L1 7l6 6"/></svg></button>
             <button type="button" class="icon-btn" id="auditNext" aria-label="Next merge"><svg width="8" height="14" viewBox="0 0 8 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l6 6-6 6"/></svg></button>
             <span class="grow"></span>
@@ -3363,6 +3480,8 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
 
   /* ---------- Step 3: team ---------- */
   function renderTeams() {
+    if (isV6()) { renderTeams6(); return; }
+    $("#t-team").textContent = "Choose your team"; $("#teamSub").textContent = "What you see depends on your team. You can switch later.";
     $("#teamList").innerHTML = Object.keys(TEAMS).map(function (k) {
       var t = TEAMS[k];
       return '<button type="button" data-team="' + k + '"><span class="txt"><span class="t">' + esc(t.label) + '</span><span class="d">' + esc(t.desc) +
@@ -3848,7 +3967,7 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
 
   // Find a field: searches what's on this profile (labels and values you're allowed to see) and jumps to it.
   function v5Find() {
-    return '<div class="v5findw"><button type="button" class="v5findb" data-find aria-expanded="' + !!V.findOpen + '" aria-label="Find a field (press /)" title="Find a field ( / )">' + ic4("search", 16) + '<span>Find</span><kbd>/</kbd></button>' +
+    return '<div class="v5findw"><button type="button" class="v5findb" data-find aria-expanded="' + !!V.findOpen + '" aria-label="Find a field (press /)" title="Find a field ( / )">' + ic4("search", 16) + '<span>' + (isV6() ? "Find in profile" : "Find") + '</span><kbd>/</kbd></button>' +
       (V.findOpen ? '<div class="v5find" role="dialog" aria-label="Find a field"><div class="v5fi">' + ic4("search", 16) + '<input id="v5q" type="search" placeholder="Find a field: budget, city, IELTS…" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="v5res" aria-autocomplete="list"></div><ul id="v5res" role="listbox" aria-label="Matches"></ul><p class="v5fh">↑ ↓ to move · Enter to open · Esc to close</p></div>' : "") + "</div>";
   }
   function v5FindIndex(p, m, otherBu) {
@@ -5162,7 +5281,7 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
     v3Enter((location.hash.replace(/^#\/?/, "") || "overview").split("/")[0]);
   }
   setVersion(curV());
-  $("#vswitch").addEventListener("click", function (e) { var b = e.target.closest("[data-v]"); if (!b) return; setVersion(b.getAttribute("data-v"), true); applyLookupLayout(); if (L.auto) { runLookup(defaultKey(), true); L.auto = true; } renderLookup(); requestAnimationFrame(slideAll); });
+  $("#vswitch").addEventListener("click", function (e) { var b = e.target.closest("[data-v]"); if (!b) return; setVersion(b.getAttribute("data-v"), true); applyLookupLayout(); if (L.auto) { if (isV6()) { L = { status: "idle", label: "", matches: [], person: null, how: "", auto: true }; $("#lookup").value = ""; } else { runLookup(defaultKey(), true); L.auto = true; } } renderLookup(); requestAnimationFrame(slideAll); });
 
   /* ---------- V3: live overview and motion ---------- */
   var REDUCED = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -5203,7 +5322,7 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
 
   // Live counters tick up, like a realtime feed.
   setInterval(function () {
-    if (!isV3() || REDUCED || document.hidden) return;
+    if (!isV3() || isV6() || REDUCED || document.hidden) return;
     $$("[data-live]").forEach(function (el) {
       if (!el.offsetParent || Math.random() < 0.4) return;
       var inc = 1 + Math.floor(Math.random() * (+el.getAttribute("data-step") || 3));
@@ -5496,8 +5615,8 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
       var em = p.emails.filter(function (x) { return x.v; })[0], ph = p.phones.filter(function (x) { return x.v; })[0];
       key = em ? em.e : ph ? ph.d : null;
     }
-    runLookup(key || defaultKey(), true);
-    if (!key) L.auto = true;
+    if (key || !isV6()) { runLookup(key || defaultKey(), true); if (!key) L.auto = true; }
+    else L.auto = true;
   })();
   if (SHARED) $("#review").hidden = true;
 
@@ -5682,7 +5801,7 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
       var pts = smooth6(v, 1).map(function (x, i) { return [i / 29 * 100, (hi - x) / (hi - lo) * 40 + 3]; });
       var d = cpath(pts), cap = s.tgt && c[0] === "mrg" ? (hi - s.tgt) / (hi - lo) * 40 + 3 : null;
       return '<div class="v6c v6k v6r" style="transition-delay:' + n * 70 + 'ms" data-k6="' + c[0] + '">' +
-        '<span class="k"><i style="background:' + s.c + '"></i>' + esc(c[1]) + '</span>' +
+        '<span class="k"><i style="background:' + s.c + '"></i>' + esc(c[1]) + '<em class="v6per">Last 30 days</em></span>' +
         '<span class="v"><span class="odo" data-odo="' + c[2] + '">' + c[2] + '</span><em class="v6chip ' + c[4] + '">' + c[3] + '</em></span>' +
         '<div class="v6spark"><svg ' + NS6 + ' viewBox="0 0 100 46" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="v6sp' + n + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="' + s.c + '" stop-opacity=".18"/><stop offset="1" stop-color="' + s.c + '" stop-opacity="0"/></linearGradient></defs>' +
         (cap != null ? '<line class="cap" x1="0" x2="100" y1="' + f1(cap) + '" y2="' + f1(cap) + '"/>' : "") +
@@ -5951,7 +6070,7 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
   $("#v6FunStyle").addEventListener("click", function (e) { var b = e.target.closest("[data-fstyle]"); if (!b || b.getAttribute("data-fstyle") === V6.fstyle) return; V6.fstyle = b.getAttribute("data-fstyle"); renderFunnel6(true); requestAnimationFrame(slideAll); });
 
   /* ----- Where learners move (flow between businesses) ----- */
-  var BC6 = { U: ["Unacademy", "#3FB472"], I: ["Internshala", "#5B8DEF"], W: ["Working Professionals", "#E3262F"], S: ["Study Abroad", "#A78BFA"] };
+  var BC6 = { U: ["Unacademy", "#0FA3B1"], I: ["Internshala", "#E07B39"], W: ["Working Professionals", "#4C7BE8"], S: ["Study Abroad", "#3F9D6B"] };
   var FL6 = [["U", "I", 312000], ["U", "W", 48000], ["U", "S", 41000], ["I", "W", 196000], ["I", "S", 88000], ["W", "S", 42000]];
   function renderSankey6() {
     var box = $("#v6Sankey"); if (!box || !box.offsetParent) return;
@@ -5989,6 +6108,7 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
   var IO6 = "IntersectionObserver" in window ? new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); IO6.unobserve(e.target); } }); }, { threshold: 0.12 }) : null;
   function reveal6(scope) { $$(".v6r", scope).forEach(function (el) { if (REDUCED || !IO6) el.classList.add("in"); else { el.classList.remove("in"); IO6.observe(el); } }); }
   function v6Enter(name, view) {
+    if (window.V6READY) v6Copy();
     if (!window.V6READY || !isV6() || !view) return;
     view.classList.remove("v6in"); void view.offsetWidth; if (!REDUCED) view.classList.add("v6in");
     if (name === "overview") {
@@ -6013,9 +6133,9 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
   };
   var MAC6 = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent), KEY6 = MAC6 ? "⌘K" : "Ctrl K";
   var pal = document.createElement("div"); pal.className = "v6pal"; pal.hidden = true; pal.setAttribute("role", "dialog"); pal.setAttribute("aria-modal", "true"); pal.setAttribute("aria-label", "Search and commands");
-  pal.innerHTML = '<div class="v6pal-box"><div class="v6pal-in">' + IC6.find + '<input type="text" id="v6palQ" placeholder="Search people, screens and actions" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="v6palL"><kbd>Esc</kbd></div><div class="v6pal-list" id="v6palL" role="listbox"></div><div class="v6pal-ft"><span><kbd>↑</kbd><kbd>↓</kbd>Move</span><span><kbd>↵</kbd>Open</span><span><kbd>' + KEY6 + "</kbd>Toggle</span></div></div>";
+  pal.innerHTML = '<div class="v6pal-box"><div class="v6pal-in">' + IC6.find + '<input type="text" id="v6palQ" placeholder="Search people, screens and actions, or type a phone or email" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="v6palL"><kbd>Esc</kbd></div><div class="v6pal-list" id="v6palL" role="listbox"></div><div class="v6pal-ft"><span><kbd>↑</kbd><kbd>↓</kbd>Move</span><span><kbd>↵</kbd>Open</span><span><kbd>' + KEY6 + "</kbd>Toggle</span></div></div>";
   document.body.appendChild(pal);
-  var kbtn = document.createElement("button"); kbtn.type = "button"; kbtn.className = "v6k-btn"; kbtn.innerHTML = IC6.find + "<span>Search</span><kbd>" + KEY6 + "</kbd>";
+  var kbtn = document.createElement("button"); kbtn.type = "button"; kbtn.className = "v6k-btn"; kbtn.innerHTML = IC6.find + "<span>Search all</span><kbd>" + KEY6 + "</kbd>"; kbtn.setAttribute("aria-label", "Search people, screens and actions");
   var sideTop = $(".side .top"); if (sideTop) sideTop.parentNode.insertBefore(kbtn, sideTop.nextSibling);
   var PAL = { items: [], sel: 0, back: null };
   function palAll() {
@@ -6031,6 +6151,8 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
   function palRender() {
     var q = $("#v6palQ").value.trim().toLowerCase(), list = $("#v6palL");
     PAL.items = palAll().filter(function (x) { return !q || (x.t + " " + x.s + " " + x.g).toLowerCase().indexOf(q) >= 0; });
+    var raw = $("#v6palQ").value.trim(), tm = TEAMS[S.team] || TEAMS.central;
+    if (raw.length >= 3 && tm.routes.indexOf("lookup") >= 0 && NAVHIDE.indexOf("lookup") < 0) PAL.items.unshift({ g: "Look up a caller", t: "Look up \u201c" + raw + "\u201d", s: "Phone or email", ic: IC6.find, run: function () { if (location.hash !== "#/lookup") location.hash = "#/lookup"; $("#lookup").value = raw; runLookup(raw); } });
     if (PAL.sel >= PAL.items.length) PAL.sel = 0;
     if (!PAL.items.length) { list.innerHTML = '<div class="v6pal-none">No matches for “' + esc(q) + "”</div>"; return; }
     var g = null;
@@ -6064,7 +6186,7 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
   if (S.step === "app" && isV6()) { var _r6 = (location.hash.replace(/^#\/?/, "") || "overview").split("/")[0]; v6Enter(_r6, $('.view[data-view="' + _r6 + '"]')); }
 
   /* ================= V6 · Look up a person: Academic, Activity, Life with upGrad ================= */
-  var BC6P = { S: "#3F9D6B", I: "#9A9AA2", G: "#5B6472", W: "#4C7BE8", K: "#8B6CDB", L: "#D07A3A", U: "#2BA59A" };
+  var BC6P = { S: "#3F9D6B", I: "#E07B39", G: "#5B6472", W: "#4C7BE8", K: "#8B6CDB", L: "#C2577A", U: "#0FA3B1" };
   var CC6 = { A: "#5B8DEF", M: "#F0A43A", E: "#3FB472", X: "#4C7BE8", P: "#2BA59A", L: "#8B6CDB", S: "#E3262F", C: "#5B6472" };
   var buN6 = function (k) { return (BU4[k] || [k, k])[0]; }, buS6 = function (k) { return (BU4[k] || [k, k])[1]; };
   function ring6(pct, size, stroke, inner, dark) {
@@ -6291,6 +6413,11 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
     var reacq = get(/re-acquisition/i), nbp = get(/next-best/i), reachI = get(/reachable/i), fat = get(/fatigue/i), speed = get(/speed to lead/i);
     var scores = all.filter(function (a) { return /model scores/i.test(a.c.t); }); scores.forEach(function (a) { used[a.k] = 1; });
     var first = p.name.split(" ")[0], ch = reach(p, team);
+    // Other businesses only see cross-business details when the learner agreed to share them.
+    var cross0 = !!(p.consent && p.consent.cross), xb = otherBu && !cross0, xok = otherBu && cross0;
+    var vShort = ""; Object.keys(BU4).forEach(function (k) { if (BU4[k][0] === team.bu) vShort = BU4[k][1]; });
+    if (otherBu) scores = scores.filter(function (a) { return !/only/i.test(a.c.tag) || a.c.tag.indexOf(vShort) === 0; });
+    if (xb) { reacq = null; nbp = null; }
 
     // Before you call: a plain summary built from the signals below.
     var lines = [];
@@ -6300,6 +6427,8 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
     var nFat = fat && /(\d+)/.exec(fat.it.v || ""); if (nFat) lines.push("<b>Already contacted:</b> " + nFat[1] + " outbound " + (+nFat[1] === 1 ? "touch" : "touches") + " in the last 7 days, across every business");
     if (reacq && /^yes/i.test(reacq.it.v || "")) lines.push('<b class="w">Heads up:</b> ' + esc((reacq.it.v || "").replace(/^yes\s*·?\s*/i, "")) + ". upGrad already knew " + esc(first) + ".");
     if (nbp && nbp.it.v) lines.push("<b>Best next step:</b> " + esc(nbp.it.v));
+    if (xb) lines.push("<b>Consent:</b> no cross-business consent, so details from other businesses are hidden");
+    else if (xok) lines.push("<b>Consent:</b> details from other businesses are shown because " + esc(first) + " agreed to share between businesses");
     var sum = '<section class="i6sum"><div class="i6sh"><span class="i6spark">' + ic4("star", 16) + '</span><h2>Before you call ' + esc(first) + '</h2><span class="i6chip">From the signals below</span></div><ul>' + lines.map(function (l, i) { return '<li style="--i:' + i + '">' + l + "</li>"; }).join("") + "</ul></section>";
 
     // Scorecards.
@@ -6321,7 +6450,8 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
       cards.push('<div class="i6k" style="--i:2"><div class="i6kh"><small>' + esc(speed.it.k) + "</small>" + howB(speed) + '</div><b class="i6v">' + esc(speed.it.v || "—") + '</b><span class="i6n">Lead created to first call</span>' + howT(speed) + "</div>");
       speed = null;
     }
-    if (cross) {
+    if (cross && xb) cards.push('<div class="i6k" style="--i:3"><div class="i6kh"><small>Known to</small></div><b class="i6lock">' + ic4("lock", 16) + 'Hidden</b><span class="i6n">Other businesses are shown only with cross-business consent</span></div>');
+    else if (cross) {
       var bus = m.lanes.filter(function (l) { return !l.empty; });
       cards.push('<div class="i6k" style="--i:3"><div class="i6kh"><small>Known to</small>' + howB(cross) + '</div><b class="i6v">' + bus.length + (bus.length === 1 ? " business" : " businesses") + '</b><div class="i6bus">' + bus.map(function (l) { return '<span style="--c:' + (BC6P[l.bu] || "#8E8E93") + '"><i></i>' + esc(buS6(l.bu)) + "</span>"; }).join("") + "</div>" + howT(cross) + "</div>");
     }
@@ -6335,6 +6465,7 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
         (nbp ? '<section class="i6sig nbp"><div class="i6kh"><span class="i6ic">' + ic4("award", 16) + "</span><small>Next-best programme</small>" + src(nbp) + howB(nbp) + "</div><b>" + esc(nbp.it.v || "—") + '</b><p>Rules first: aspiration, skills and activity.</p><span class="i6go" aria-hidden="true">' + ic4("target", 14) + "</span>" + howT(nbp) + "</section>" : "") + "</div>";
     }
 
+    if (xb) sig = '<section class="i6sig xlock"><div class="i6kh"><span class="i6ic">' + ic4("lock", 16) + '</span><small>Cross-business signals</small></div><b>Hidden without consent</b><p>Re-acquisition and next-best programmes from other businesses appear only when the learner has agreed to share between businesses.</p></section>';
     // Reach and engagement.
     var re = "";
     if (reachI || fat || speed) {
@@ -6375,6 +6506,88 @@ html[data-v6] #toast{transition:transform .5s var(--v6s),opacity .3s}
   }
   var _ins4 = v4Insights;
   v4Insights = function (p, m, otherBu) { return isV6() ? v6Insights(p, m, otherBu) : _ins4(p, m, otherBu); };
+
+  /* ================= V6 · fixes from the UX audit ================= */
+  // Search boxes say what they find (only in V6; other versions keep their own copy).
+  var COPY6 = [["#pSearch", "Filter this list: name, ID, city or business"], ["#lookup", "Caller's phone number or email"], ["#dmSearch", "Filter fields: name or source field, like mx_City"]];
+  function v6Copy() {
+    if (!COPY6) return;
+    COPY6.forEach(function (c) { var el = $(c[0]); if (!el) return; if (!el.hasAttribute("data-ph0")) el.setAttribute("data-ph0", el.placeholder); el.placeholder = isV6() ? c[1] : el.getAttribute("data-ph0"); });
+  }
+  // Short labels for the phone tab bar.
+  var SHORT6 = { overview: "Overview", people: "People", lookup: "Look up", identity: "Audits", data: "Dictionary" };
+  $$(".nav a[data-route]").forEach(function (a) { a.setAttribute("data-short", SHORT6[a.getAttribute("data-route")] || ""); });
+
+  // Team comes from the directory, not from a picker.
+  function team6For(email) {
+    email = (email || "").toLowerCase();
+    if (/@internshala\.com$/.test(email)) return "internshala";
+    if (/@unacademy\.com$/.test(email)) return "unacademy";
+    if (/(^|[._-])wp([._-]|@)/.test(email)) return "wp";
+    return "central";
+  }
+  function renderTeams6() {
+    var k = S.preview ? (S.team || "central") : team6For(S.email), t = TEAMS[k];
+    $("#t-team").textContent = "Your team"; $("#teamSub").textContent = "Your team decides which learners and fields you can see.";
+    $("#teamList").innerHTML = '<div class="v6team"><small>Team</small><b>' + esc(t.label) + "</b><span>" + esc(t.desc) + "</span>" +
+      "<p>Set from your upGrad directory profile. If it's wrong, ask your manager to update the directory. Changes are logged.</p>" +
+      '<button type="button" class="btn dark v6tgo" data-team="' + k + '">Continue as ' + esc(t.label) + "</button></div>" +
+      '<details class="v6proto"><summary>Prototype only: preview as another team</summary><div class="choice">' + Object.keys(TEAMS).filter(function (x) { return x !== k; }).map(function (x) {
+        return '<button type="button" data-team="' + x + '"><span class="txt"><span class="t">' + esc(TEAMS[x].label) + '</span><span class="d">' + esc(TEAMS[x].desc) + "</span></span></button>";
+      }).join("") + "</div></details>";
+  }
+
+  // Look up starts empty: a caller to confirm, and recent lookups.
+  var CALLER6 = "ananyar", RECENT6 = [["arjun", "Today, 10:12"], ["rohan", "Today, 09:40"], ["meera", "Yesterday"], ["ananya", "Yesterday"]];
+  function v6Idle() {
+    var c = PEOPLE[CALLER6], ph = (c.phones.filter(function (x) { return x.v; })[0] || {}).d || "";
+    var mask = ph ? "+91 " + ph.slice(0, 2) + "•• ••" + ph.slice(-3) : "Unknown number";
+    var face = function (p) { return p.photo ? '<img src="' + esc(p.photo) + '" alt="">' : "<span>" + esc(p.name.split(" ").map(function (w) { return w[0]; }).join("").slice(0, 2)) + "</span>"; };
+    return '<div class="v6idle"><div class="v6call"><span class="v6cring" aria-hidden="true">' + ic4("phone", 18) + '</span><div class="v6ctx"><small>Incoming call · from the dialler</small><b>' + esc(mask) + "</b><span>This number matches one profile. Check it's the caller before you open it.</span></div>" +
+      '<button type="button" class="btn dark sm" data-v6call="' + esc(ph) + '">Confirm and open</button></div>' +
+      '<div class="v6rec"><h3>Recent lookups by you</h3><div class="v6recl">' + RECENT6.filter(function (r) { return PEOPLE[r[0]]; }).map(function (r) {
+        var p = PEOPLE[r[0]]; return '<button type="button" data-v6p="' + r[0] + '"><span class="v6rf">' + face(p) + "</span><span><b>" + esc(p.name) + "</b><small>" + esc(r[1]) + "</small></span></button>";
+      }).join("") + '</div></div><p class="v6ih">Or type the caller\'s phone number or email in the search above.</p></div>';
+  }
+  var _renderLookup0 = renderLookup;
+  renderLookup = function () {
+    if (isV6() && L.status === "idle") { var box = $("#lookupResult"); if (box) box.innerHTML = v6Idle(); return; }
+    _renderLookup0();
+  };
+  $("#lookupResult").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-v6call],[data-v6p]"); if (!b) return;
+    if (b.hasAttribute("data-v6p")) openPerson(b.getAttribute("data-v6p"));
+    else { $("#lookup").value = b.getAttribute("data-v6call"); runLookup(b.getAttribute("data-v6call")); }
+  });
+
+  // Audit: neutral answers, Not sure, reason, progress and keys.
+  labels.unsure = "Marked not sure. Sent to a second reviewer.";
+  audit.reasons = {};
+  function v6AuditSync() {
+    var d = audit.decisions[audit.i], done = 12 + Object.keys(audit.decisions).length;
+    var dn = $("#v6aDone"); if (dn) dn.textContent = done;
+    var bar = $("#v6aBar"); if (bar) bar.style.width = (done / 200 * 100).toFixed(1) + "%";
+    $$(".v6ab").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-aud") === d)); });
+    var r = $("#v6aReason"); if (r) r.value = audit.reasons[audit.i] || "";
+    if (d && audit.reasons[audit.i] && $("#auditStatusText")) $("#auditStatusText").textContent = labels[d] + " Reason: " + audit.reasons[audit.i].toLowerCase() + ".";
+  }
+  var _renderAudit0 = renderAudit;
+  renderAudit = function () { _renderAudit0(); v6AuditSync(); };
+  function audit6(v) { audit.reasons[audit.i] = $("#v6aReason").value; audit.decisions[audit.i] = v; renderAudit(); }
+  $$(".v6ab").forEach(function (b) { b.addEventListener("click", function () { audit6(b.getAttribute("data-aud")); }); });
+  $("#v6aPrev").addEventListener("click", function () { audit.i = (audit.i + cases.length - 1) % cases.length; renderAudit(); });
+  $("#v6aSkip").addEventListener("click", function () { audit.i = (audit.i + 1) % cases.length; renderAudit(); });
+  document.addEventListener("keydown", function (e) {
+    if (!isV6() || e.metaKey || e.ctrlKey || e.altKey) return;
+    var v = $('.view[data-view="identity"]'); if (!v || v.hidden || S.step !== "app") return;
+    if (e.target.closest && e.target.closest("input,select,textarea,[contenteditable]")) return;
+    var k = e.key.toLowerCase();
+    if (k === "s") audit6("right"); else if (k === "d") audit6("wrong"); else if (k === "n") audit6("unsure");
+    else if (e.key === "ArrowLeft") $("#v6aPrev").click(); else if (e.key === "ArrowRight") $("#v6aSkip").click(); else return;
+    e.preventDefault();
+  });
+  renderAudit();
+  v6Copy();
   renderAudit();
   render();
 })();
