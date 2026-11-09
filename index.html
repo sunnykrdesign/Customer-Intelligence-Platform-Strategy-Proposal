@@ -3162,6 +3162,10 @@ html[data-v6] .phead .pc{justify-content:flex-start}
 html[data-v6] .v6ctx b{font-size:16px;font-weight:600;letter-spacing:.01em;line-height:1.4}
 html[data-v6] .v6ctx{gap:3px}
 html[data-v6] .v6recl b{font-size:14px;font-weight:600}
+/* Look up is quiet until the agent is typing */
+html[data-v6] #lookupForm .btn[type="submit"]{background:#fff !important;color:#1D1D1F !important;border:1px solid #D2D2D7 !important;box-shadow:none !important;transition:background .15s,color .15s,border-color .15s}
+html[data-v6] #lookupForm .btn[type="submit"]:hover{border-color:#1D1D1F !important}
+html[data-v6] #lookupForm:not(.v6done) .search:focus-within:has(#lookup:not(:placeholder-shown)) .btn[type="submit"]{background:#1D1D1F !important;color:#fff !important;border-color:#1D1D1F !important}
 </style>
 </head>
 <body>
@@ -7481,6 +7485,10 @@ html[data-v6] .v6recl b{font-size:14px;font-weight:600}
     paintBu6($("#pRows"));
   };
   if (isV6()) renderPeople();
+
+  // Look up goes quiet once it has run; editing the field makes it the main action again.
+  $("#lookupForm").addEventListener("submit", function () { this.classList.add("v6done"); });
+  $("#lookup").addEventListener("input", function () { $("#lookupForm").classList.remove("v6done"); });
   renderAudit();
   render();
 })();
