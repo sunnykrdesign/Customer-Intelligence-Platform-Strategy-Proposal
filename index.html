@@ -3190,6 +3190,21 @@ html[data-v6] .i6spark .i6sp .ss{animation:i6spin 3.2s linear infinite !importan
 @keyframes i6twinkle{0%,100%{transform:rotate(0) scale(1);opacity:1}50%{transform:rotate(-180deg) scale(.6);opacity:.65}}
 @media (prefers-reduced-motion: reduce){html[data-v6] .i6spark .i6sp path{animation:none !important}}
 
+/* Before you call mark: per-option motion */
+html[data-v6] .i6spark .i6sp.m-swap path,html[data-v6] .i6spark .i6sp.m-orbit .ss,html[data-v6] .i6spark .i6sp.m-cycle path{animation:none !important}
+html[data-v6] .i6spark .i6sp.m-orbit .sb{animation:i6breathe 2.4s ease-in-out infinite !important}
+html[data-v6] .i6spark .i6sp.m-hop .ss{animation:i6spin 2s linear infinite !important}
+@keyframes i6breathe{0%,100%{transform:scale(1)}50%{transform:scale(.86)}}
+@media (prefers-reduced-motion: reduce){html[data-v6] .i6spark .i6sp path{animation:none !important}}
+.rv-sp6{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.rv-sp6{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08)}
+.rv-sp6 .rv-sub{font-size:13px;font-weight:600;color:inherit;opacity:.85}
+.rv-sp6 .rv-seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;height:auto}
+.rv-sp6 .rv-seg button{display:inline-flex;align-items:center;justify-content:flex-start;gap:8px;height:40px;padding:0 8px;white-space:nowrap;min-width:0}
+.rvsp{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,#FF6B71,#8B6CDB);flex:0 0 22px}
+.rvsp svg{width:14px;height:14px}
+.rvsp .i6sp path{transform-box:fill-box;transform-origin:center}
+
 /* ===== V6 Trends redesign ===== */
 .t7tools{display:contents}
 html[data-v6] .t7tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -6402,6 +6417,7 @@ html[data-v6] .v4secnav .v4sn .v4snf{display:none}
     if (curV() === "6" && typeof V6 !== "undefined") q.push("tr=" + V6.style);
     if (curV() === "6" && typeof V6 !== "undefined" && V6.range === 30) q.push("rg=30");
     if (curV() === "6" && typeof GLOW6 !== "undefined" && !GLOW6) q.push("glow=0");
+    if (curV() === "6" && typeof SPARK6 !== "undefined" && SPARK6 !== "pulse") q.push("sp=" + SPARK6);
     if (route === "lookup" && L.person) q.push("p=" + L.person);
     q.push("review=0");
     var base = location.href.split(/[?#]/)[0];
@@ -7207,7 +7223,7 @@ html[data-v6] .v4secnav .v4sn .v4snf{display:none}
     if (nbp && nbp.it.v) lines.push("<b>Best next step:</b> " + esc(nbp.it.v));
     if (xb) lines.push("<b>Consent:</b> no cross-business consent, so details from other businesses are hidden");
     else if (xok) lines.push("<b>Consent:</b> details from other businesses are shown because " + esc(first) + " agreed to share between businesses");
-    var sum = '<section class="i6sum"><div class="i6sh"><span class="i6spark">' + (isV6() ? '<svg class="i6sp" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path class="sb" fill="#fff" d="M9.5 1.3C10.21 6.69 12.31 8.79 17.7 9.5C12.31 10.21 10.21 12.31 9.5 17.7C8.79 12.31 6.69 10.21 1.3 9.5C6.69 8.79 8.79 6.69 9.5 1.3Z"/><path class="ss" fill="#fff" d="M18.8 16.7C19.96 16.7 20.9 17.64 20.9 18.8C20.9 19.96 19.96 20.9 18.8 20.9C17.64 20.9 16.7 19.96 16.7 18.8C16.7 17.64 17.64 16.7 18.8 16.7Z">' + (REDUCED ? "" : '<animate attributeName="d" dur="3.2s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" values="M18.8 16.7C19.96 16.7 20.9 17.64 20.9 18.8C20.9 19.96 19.96 20.9 18.8 20.9C17.64 20.9 16.7 19.96 16.7 18.8C16.7 17.64 17.64 16.7 18.8 16.7Z;M18.8 14C19.21 17.15 20.45 18.39 23.6 18.8C20.45 19.21 19.21 20.45 18.8 23.6C18.39 20.45 17.15 19.21 14 18.8C17.15 18.39 18.39 17.15 18.8 14Z;M18.8 16.7C19.96 16.7 20.9 17.64 20.9 18.8C20.9 19.96 19.96 20.9 18.8 20.9C17.64 20.9 16.7 19.96 16.7 18.8C16.7 17.64 17.64 16.7 18.8 16.7Z"/>') + '</path></svg>' : ic4("star", 16)) + '</span><h2>Before you call ' + esc(first) + '</h2><span class="i6chip">From the signals below</span></div><ul>' + lines.map(function (l, i) { return '<li style="--i:' + i + '">' + l + "</li>"; }).join("") + "</ul></section>";
+    var sum = '<section class="i6sum"><div class="i6sh"><span class="i6spark">' + (isV6() ? spark6svg() : ic4("star", 16)) + '</span><h2>Before you call ' + esc(first) + '</h2><span class="i6chip">From the signals below</span></div><ul>' + lines.map(function (l, i) { return '<li style="--i:' + i + '">' + l + "</li>"; }).join("") + "</ul></section>";
 
     // Scorecards.
     var cards = [];
@@ -8091,6 +8107,94 @@ html[data-v6] .v4secnav .v4sn .v4snf{display:none}
     if (wasAbove) window.scrollTo(0, window.scrollY + newSec.getBoundingClientRect().top - lim - 12);
     var chip = $("#sec-" + key); if (chip && t.classList.contains("v4sn")) chip.focus({ preventScroll: true });
   }, true);
+
+  /* ================= V6 Insights: Before you call mark, four motion options (Review panel) ================= */
+  var SPARK6 = "pulse", SP6 = { pulse: "Pulse", swap: "Swap", orbit: "Orbit", hop: "Hop", cycle: "Cycle" };
+  try { var sp6s = localStorage.getItem("cip-spark6"); if (SP6[sp6s]) SPARK6 = sp6s; } catch (e) {}
+  if (SP6[Q.get("sp")]) SPARK6 = Q.get("sp");
+  function sp6n(v) { return (Math.round(v * 100) / 100).toString(); }
+  // Four-point star and a circle drawn with the same four cubic segments, so one can morph into the other (and move).
+  function sp6Star(cx, cy, r) {
+    var a = 0.086 * r, b = 0.343 * r, P = [[0, -r], [a, -b], [b, -a], [r, 0], [b, a], [a, b], [0, r], [-a, b], [-b, a], [-r, 0], [-b, -a], [-a, -b], [0, -r]];
+    return sp6Path(cx, cy, P);
+  }
+  function sp6Dot(cx, cy, r) {
+    var k = 0.5523 * r, P = [[0, -r], [k, -r], [r, -k], [r, 0], [r, k], [k, r], [0, r], [-k, r], [-r, k], [-r, 0], [-r, -k], [-k, -r], [0, -r]];
+    return sp6Path(cx, cy, P);
+  }
+  function sp6Path(cx, cy, P) {
+    var d = "M" + sp6n(cx + P[0][0]) + " " + sp6n(cy + P[0][1]);
+    for (var i = 1; i < P.length; i += 3) d += "C" + [P[i], P[i + 1], P[i + 2]].map(function (q) { return sp6n(cx + q[0]) + " " + sp6n(cy + q[1]); }).join(" ");
+    return d + "Z";
+  }
+  function sp6Anim(values, times, dur) {
+    var ease = values.slice(1).map(function () { return "0.45 0 0.55 1"; }).join(";");
+    return '<animate attributeName="d" dur="' + dur + 's" repeatCount="indefinite" calcMode="spline" keyTimes="' + times.join(";") + '" keySplines="' + ease + '" values="' + values.join(";") + '"/>';
+  }
+  function spark6svg(mode) {
+    mode = SP6[mode] ? mode : SPARK6;
+    var still = REDUCED, big, small, extra = "";
+    var open = '<svg class="i6sp m-' + mode + '" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">';
+    if (mode === "swap") {
+      // The star and the dot trade corners: the star shrinks into a dot top-left while the dot grows into the star bottom-right, then back.
+      var S1 = sp6Star(9.5, 9.5, 8.2), D1 = sp6Dot(4.6, 4.6, 2.1), S2 = sp6Star(14.5, 14.5, 8.2), D2 = sp6Dot(19.4, 19.4, 2.1);
+      var t = [0, 0.3, 0.5, 0.8, 1];
+      big = '<path class="sb" fill="#fff" d="' + S1 + '">' + (still ? "" : sp6Anim([S1, S1, D1, D1, S1], t, 5)) + "</path>";
+      small = '<path class="ss" fill="#fff" d="' + D2 + '">' + (still ? "" : sp6Anim([D2, D2, S2, S2, D2], t, 5)) + "</path>";
+    } else if (mode === "orbit") {
+      // Two marks circle the star on opposite sides without stopping, each opening into a small star at the diagonals.
+      var c = 12, R = 10.3, px = c + R * Math.SQRT1_2, py = c - R * Math.SQRT1_2, S = sp6Star(px, py, 3.6), D = sp6Dot(px, py, 2);
+      var orb = function (from, first) { return '<g>' + (still ? "" : '<animateTransform attributeName="transform" type="rotate" values="' + from + ' 12 12;' + (from + 360) + ' 12 12" dur="6s" repeatCount="indefinite"/>') + '<path class="ss" fill="#fff" d="' + first + '"' + (still && from ? ' transform="rotate(' + from + ' 12 12)"' : "") + '>' + (still ? "" : sp6Anim(first === S ? [S, D, S] : [D, S, D], [0, 0.5, 1], 1.5)) + "</path></g>"; };
+      big = '<path class="sb" fill="#fff" d="' + sp6Star(c, c, 7) + '"/>';
+      small = orb(0, S) + orb(180, D);
+    } else if (mode === "hop") {
+      // The dot hops between three corners and opens into a star each time it lands.
+      var P = [[18.8, 18.8], [20, 4.6], [4.6, 20]], v = [], tt = [], n = 0, steps = 10;
+      P.forEach(function (q, i) { v.push(sp6Dot(q[0], q[1], 2.1), sp6Star(q[0], q[1], 4.6), sp6Dot(q[0], q[1], 2.1)); });
+      v.push(sp6Dot(P[0][0], P[0][1], 2.1));
+      for (n = 0; n < v.length; n++) tt.push(sp6n(n / (v.length - 1)));
+      big = '<path class="sb" fill="#fff" d="' + sp6Star(9.5, 9.5, 8.2) + '"/>';
+      small = '<path class="ss" fill="#fff" d="' + v[1] + '">' + (still ? "" : sp6Anim(v, tt, 6)) + "</path>";
+      void steps;
+    } else if (mode === "cycle") {
+      // Three marks take turns: the big star moves down and shrinks, the small star becomes a dot, the dot grows into the big star.
+      var ST = [sp6Star(9.5, 9.5, 8.2), sp6Star(18.8, 18.4, 4.6), sp6Dot(19.6, 4.6, 2)], ct = [0, 0.2, 0.333, 0.533, 0.667, 0.867, 1], parts = "";
+      for (var e = 0; e < 3; e++) {
+        var a0 = ST[e], a1 = ST[(e + 1) % 3], a2 = ST[(e + 2) % 3];
+        parts += '<path class="' + (e ? "ss" : "sb") + '" fill="#fff" d="' + a0 + '">' + (still ? "" : sp6Anim([a0, a0, a1, a1, a2, a2, a0], ct, 7.5)) + "</path>";
+      }
+      big = parts; small = "";
+    } else {
+      // Pulse: the star turns; the dot grows into a star and back in place.
+      var sd = sp6Dot(18.8, 18.8, 2.1), ss = sp6Star(18.8, 18.8, 4.8);
+      big = '<path class="sb" fill="#fff" d="' + sp6Star(9.5, 9.5, 8.2) + '"/>';
+      small = '<path class="ss" fill="#fff" d="' + sd + '">' + (still ? "" : sp6Anim([sd, ss, sd], [0, 0.5, 1], 3.2)) + "</path>";
+    }
+    return open + big + small + extra + "</svg>";
+  }
+  function spark6Apply() { $$(".i6spark").forEach(function (el) { if (el.querySelector(".i6sp")) el.innerHTML = spark6svg(); }); }
+  (function () {
+    var rows = $(".rv-v6x .rv-rows"); if (!rows) return;
+    var box = document.createElement("div"); box.className = "rv-sp6";
+    box.innerHTML = '<span class="rv-sub">Before you call mark</span><div class="rv-seg" id="rvSpark6" role="group" aria-label="Before you call mark">' +
+      Object.keys(SP6).map(function (k) { return '<button type="button" data-sp6="' + k + '" aria-pressed="' + (k === SPARK6) + '"><span class="rvsp">' + spark6svg(k) + "</span>" + SP6[k] + "</button>"; }).join("") + "</div>" +
+      '<p class="rv-note" id="rvSpark6Note"></p>';
+    rows.parentNode.appendChild(box);
+    var NOTE = {
+      pulse: "The star turns slowly; the dot grows into a small star and back, in place (3.2s).",
+      swap: "The star and the dot trade corners: the star shrinks into a dot at the top left while the dot grows into the star at the bottom right, then they swap back (5s).",
+      orbit: "Two marks circle the star on opposite sides without stopping, each opening into a small star at the diagonals and closing to a dot in between (6s per lap).",
+      hop: "The dot hops between three corners and opens into a star each time it lands (6s).",
+      cycle: "Three marks take turns: the big star moves down and shrinks, the small star becomes a dot, and the dot grows into the big star (7.5s)."
+    };
+    function sync() { $$("#rvSpark6 [data-sp6]").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-sp6") === SPARK6); }); $("#rvSpark6Note").textContent = NOTE[SPARK6] + " Still when reduced motion is on."; }
+    sync();
+    $("#rvSpark6").addEventListener("click", function (e) {
+      var b = e.target.closest("[data-sp6]"); if (!b) return;
+      SPARK6 = b.getAttribute("data-sp6"); try { localStorage.setItem("cip-spark6", SPARK6); } catch (er) {}
+      sync(); spark6Apply(); if (typeof rvShareSync === "function") rvShareSync();
+    });
+  })();
   renderAudit();
   render();
 })();
