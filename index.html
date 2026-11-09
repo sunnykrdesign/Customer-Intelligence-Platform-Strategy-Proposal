@@ -3353,6 +3353,10 @@ html[data-v6] .v6ch text.t7tgl{fill:#3A3A3F;font-weight:500}
 html[data-v6] .v6ch .t7base{stroke:#E5E5EA}
 html[data-v6] .v6studio .v6ch.hov .v6x{opacity:.25}
 html[data-v6] .t7leg i.tg{border-top-color:#8E8E93}
+html[data-v6] .t7v b .t7ar{font-style:normal;font-weight:600;margin-right:4px}
+html[data-v6] .t7v b .t7ar.up{color:#146B3A}
+html[data-v6] .t7v b .t7ar.dn{color:#B0141F}
+html[data-v6] .t7v b small{font-size:16px;font-weight:500;color:#6B6B72;letter-spacing:0}
 </style>
 </head>
 <body>
@@ -7745,6 +7749,8 @@ html[data-v6] .t7leg i.tg{border-top-color:#8E8E93}
       var d = cpath(smooth6(vals, 2).map(function (v, i) { return [i / (vals.length - 1) * 80, 26 - (v - lo) / r * 22]; }));
       return '<svg class="t7sp" ' + NS6 + ' viewBox="0 0 80 30" preserveAspectRatio="none" aria-hidden="true"><path d="' + d + '" stroke="' + c + '"/></svg>';
     }
+    // Cards lead with the change; the current value lives once in the chart (Flow end labels, Focus foot).
+    function dv7(d, dp, good) { return '<i class="t7ar ' + (good ? "up" : "dn") + '">' + (d >= 0 ? "↑" : "↓") + "</i>" + Math.abs(d).toFixed(dp) + '<small> pts</small>'; }
     function card7(o) {
       var tag = o.attr ? "button" : "div";
       return "<" + tag + (o.attr ? ' type="button" ' + o.attr + ' aria-pressed="' + !!o.on + '"' : "") + ' class="t7card' + (o.on ? " on" : "") + (o.attr ? "" : " static") + '" style="--c:' + o.c + '">' +
@@ -7985,7 +7991,7 @@ html[data-v6] .t7leg i.tg{border-top-color:#8E8E93}
         sub.textContent = "Three Phase 1 measures, " + rl + ". Each has its own base, so compare direction, not height. The axis doesn't start at zero.";
         bar.innerHTML = S6.slice(0, 3).map(function (s) {
           var c = s.v[N6 - 1] - s.v[i0];
-          return card7({ attr: 'data-ser6="' + s.k + '" title="' + (V6.on[s.k] ? "Hide" : "Show") + ' this line"', on: V6.on[s.k], c: s.c, name: s.n, val: s.v[N6 - 1].toFixed(1) + "%", chip: arr7(c, 1, " pts"), chipCls: c >= 0 ? "up" : "dn", cap: esc(s.b || "") + " · since " + sn });
+          return card7({ attr: 'data-ser6="' + s.k + '" title="' + (V6.on[s.k] ? "Hide" : "Show") + ' this line"', on: V6.on[s.k], c: s.c, name: s.n, val: dv7(c, 1, c >= 0), cap: "Change since " + sn + " · " + esc(s.b || "") });
         }).join("");
         var evs = EV6.map(function (e, n) { return e[0] >= i0 ? '<li><em>' + (n + 1) + "</em>" + esc(e[1]) + "<small>" + dfmt(TR.days[e[0]]) + "</small></li>" : ""; }).join("");
         foot.innerHTML = evs ? '<div class="t7moms"><span class="t7mk">Moments</span><ol>' + evs + "</ol></div>" : '<div class="t7moms"><span class="t7mk">Moments</span><span class="t7none">None in this range</span></div>';
@@ -8004,10 +8010,10 @@ html[data-v6] .t7leg i.tg{border-top-color:#8E8E93}
         sub.textContent = "Pick one measure to see it against last period and its target, with a 30-day projection: a straight line from the last 30 days, not a model.";
         bar.innerHTML = ["res", "ovl", "kno", "mrg"].map(function (k) {
           var m = s6(k), c = m.v[N6 - 1] - m.v[i0], good = m.low ? c <= 0 : c >= 0;
-          return card7({ attr: 'data-foc6="' + k + '"', on: k === V6.focus, c: m.c, name: m.n, val: m.v[N6 - 1].toFixed(m.dp) + "%", chip: arr7(c, m.dp, m.dp === 2 ? "" : " pts"), chipCls: good ? "up" : "dn", cap: "since " + sn, extra: spark7(m.v.slice(i0), m.c) });
+          return card7({ attr: 'data-foc6="' + k + '"', on: k === V6.focus, c: m.c, name: m.n, val: dv7(c, m.dp, good), cap: "Change since " + sn, extra: spark7(m.v.slice(i0), m.c) });
         }).join("");
         foot.innerHTML = '<div class="t7leg"><span><i class="ln" style="background:' + s.c + '"></i>Actual</span><span><i class="gh"></i>Same period before</span><span><i class="fc" style="color:' + s.c + '"></i>Projection</span><span><i class="bd" style="background:' + s.c + '"></i>Likely range</span>' + (s.tgt != null ? '<span><i class="tg"></i>' + (s.low ? "Cap" : "Target") + "</span>" : "") + "</div>" +
-          '<div class="t7stats"><span>Last period, same day<b>' + pv.toFixed(s.dp) + "%</b></span><span>In 30 days, if the trend holds<b>" + fc.toFixed(s.dp) + "%</b></span>" +
+          '<div class="t7stats"><span>Today<b>' + G.toFixed(s.dp) + '%</b></span><span>Last period, same day<b>' + pv.toFixed(s.dp) + "%</b></span><span>In 30 days, if the trend holds<b>" + fc.toFixed(s.dp) + "%</b></span>" +
           (s.tgt != null ? "<span>" + (s.low ? "Room under the cap" : "Still to go") + "<b>" + Math.abs(s.tgt - G).toFixed(s.dp) + (s.dp === 2 ? "%" : " pts") + "</b></span>" : "") + "</div>";
       }
       $$("#v6Style button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-style") === V6.style); });
