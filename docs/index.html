@@ -3189,7 +3189,7 @@ html[data-v6] .v6studio .v6s-title p{max-width:640px;line-height:1.5}
 html[data-v6] .v6s-bar.t7cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:20px 0 6px;align-items:stretch}
 html[data-v6] .t7card{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-height:0;height:auto !important;padding:14px 16px 14px;border:1px solid #E5E5EA;border-radius:16px;background:#fff;text-align:left;font:inherit;color:#1D1D1F;cursor:pointer;transition:border-color .2s,box-shadow .2s,background .2s;overflow:hidden}
 html[data-v6] .t7card.static{cursor:default;background:#FAFAFB}
-html[data-v6] .t7card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--c);opacity:0;transition:opacity .2s}
+html[data-v6] .t7card::before{display:none}
 html[data-v6] button.t7card:hover{border-color:#C7C7CC}
 html[data-v6] button.t7card.on{border-color:#D1D1D6;box-shadow:0 1px 2px rgba(0,0,0,.04),0 6px 16px -10px rgba(16,16,24,.18)}
 html[data-v6] .t7card.on::before{opacity:1}
@@ -3214,7 +3214,7 @@ html[data-v6] .t7-focus .t7cap{padding-right:72px}
 html[data-v6] .t7share{display:block;width:100%;height:4px;border-radius:2px;background:#F0F0F3;overflow:hidden;margin-top:2px}
 html[data-v6] .t7share i{display:block;height:100%;border-radius:2px;background:var(--c);box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)}
 html[data-v6] #v6Stage{height:300px;margin-top:14px}
-html[data-v6] #v6Stage[data-st="stack"]{height:360px}
+html[data-v6] #v6Stage[data-st="stack"]{height:300px}
 /* chart marks */
 html[data-v6] .v6ch .t7gl{stroke:#F0F0F3}
 html[data-v6] .v6ch .t7base{stroke:#D1D1D6}
@@ -3295,11 +3295,48 @@ html[data-v6] .t7stats b{display:block;margin-top:2px;font-size:16px;font-weight
   html[data-v6] .v6s-bar.t7cards::-webkit-scrollbar{display:none}
   html[data-v6] .t7card{flex:0 0 72%;scroll-snap-align:start}
   html[data-v6] #v6Stage{height:260px}
-  html[data-v6] #v6Stage[data-st="stack"]{height:320px}
+  html[data-v6] #v6Stage[data-st="stack"]{height:260px}
   html[data-v6] .t7tools{width:100%;display:grid;grid-template-columns:1fr;gap:8px}
   html[data-v6] .t7tools .v6seg{display:flex;width:100%}
   html[data-v6] .t7tools .v6seg button{flex:1;justify-content:center}
   html[data-v6] .v6studio .v6tip.t7tip{min-width:200px}
+}
+/* Stack v2: headline + inline legend, plain bars, breakdown table (Snowflake / Dovetail pattern) */
+html[data-v6] .v6s-bar.t7stk{display:block;margin:20px 0 0}
+html[data-v6] .t7sum{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 32px;flex-wrap:wrap}
+html[data-v6] .t7hl{display:flex;align-items:flex-end;gap:12px}
+html[data-v6] .t7hl > b{font-size:36px;font-weight:600;letter-spacing:-0.03em;line-height:1;font-variant-numeric:tabular-nums}
+html[data-v6] .t7hl span{display:flex;flex-direction:column;gap:2px;font-size:14px;color:#1D1D1F;line-height:1.35;padding-bottom:1px}
+html[data-v6] .t7hl small,html[data-v6] .t7side small{font-size:12px;color:#6B6B72}
+html[data-v6] .t7side{display:flex;flex-direction:column;gap:2px;padding-left:20px;border-left:1px solid #E5E5EA;font-size:12px;color:#6B6B72}
+html[data-v6] .t7side b{font-size:20px;font-weight:600;color:#1D1D1F;letter-spacing:-0.01em;font-variant-numeric:tabular-nums;line-height:1.2}
+html[data-v6] .t7lg{display:flex;flex-wrap:wrap;gap:0 4px;margin:14px 0 0 -10px}
+html[data-v6] .main .t7lg button{display:inline-flex;align-items:center;gap:8px;height:36px;min-height:36px;padding:0 10px;border:0;border-radius:8px;background:none;font:inherit;font-size:13px;color:#3A3A3F;cursor:pointer}
+html[data-v6] .t7lg button:hover{background:#F5F5F7}
+html[data-v6] .t7lg button i{width:10px;height:10px;border-radius:2px;background:var(--c);box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+html[data-v6] .t7lg button[aria-pressed="false"]{color:#8E8E93;text-decoration:line-through;text-decoration-color:#C7C7CC}
+html[data-v6] .t7lg button[aria-pressed="false"] i{background:transparent;box-shadow:inset 0 0 0 1.5px var(--c)}
+html[data-v6] .v6ch text.t7bl{font-family:inherit !important;font-size:12px;letter-spacing:0;fill:#8E8E93;font-variant-numeric:tabular-nums}
+html[data-v6] .v6ch text.t7bl.now{fill:#1D1D1F;font-weight:600}
+html[data-v6] .v6ch.dim .col.hot text.t7bl{fill:#1D1D1F;font-weight:600}
+html[data-v6] .t7-stack ~ #v6Stage .v6ch.dim .col:not(.hot) .bar,html[data-v6] #v6Stage[data-st="stack"] .v6ch.dim .col:not(.hot) .bar{opacity:.45}
+html[data-v6] .t7tbl{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+html[data-v6] .t7tbl th,html[data-v6] .t7tbl td{padding:10px 12px;text-align:right;border-bottom:1px solid #F0F0F3;font-weight:400;white-space:nowrap}
+html[data-v6] .t7tbl thead th{font-size:12px;color:#6B6B72;font-weight:500;padding-top:0}
+html[data-v6] .t7tbl :is(th,td):first-child{text-align:left;padding-left:0}
+html[data-v6] .t7tbl :is(th,td):last-child{padding-right:0}
+html[data-v6] .t7tbl tbody tr:last-child :is(th,td){border-bottom:0}
+html[data-v6] .t7tbl tbody th{color:#1D1D1F;font-weight:500}
+html[data-v6] .t7tbl tbody th i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:10px;vertical-align:-1px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+html[data-v6] .t7in{display:inline-block;width:120px;height:6px;margin-right:12px;border-radius:3px;background:#F0F0F3;vertical-align:1px;overflow:hidden}
+html[data-v6] .t7in i{display:block;height:100%;border-radius:3px}
+html[data-v6] .v6studio .v6s-foot:has(.t7tbl){display:block}
+@media (max-width:640px){
+  html[data-v6] .t7hl > b{font-size:28px}
+  html[data-v6] .t7side{padding-left:0;border-left:0}
+  html[data-v6] .t7in{display:none}
+  html[data-v6] .t7tbl :is(th,td){padding:10px 6px}
+  html[data-v6] .t7tbl :is(th,td):nth-child(4){display:none}
 }
 </style>
 </head>
@@ -7772,43 +7809,32 @@ html[data-v6] .t7stats b{display:block;margin-top:2px;font-size:16px;font-weight
       };
     };
 
-    /* ----- Stack: weekly bars on top, share already known below ----- */
+    /* ----- Stack: plain weekly bars, share known printed above each bar (no second axis) ----- */
     stackChart6 = function (ch, F) {
       if (!isV6()) return stack6o(ch, F);
-      var w0 = w07(), W = WK6.slice(w0), on = SK7.filter(function (k) { return V6.son[k[0]]; });
-      var gapP = 34, ph1 = Math.round((F.ph - gapP) * 0.64), ph2 = F.ph - gapP - ph1, t2 = F.t + ph1 + gapP, base1 = F.t + ph1, base2 = t2 + ph2;
+      var w0 = w07(), W = WK6.slice(w0), on = SK7.filter(function (k) { return V6.son[k[0]]; }), last = W.length - 1;
+      var base = F.t + F.ph;
       var max = Math.max.apply(null, W.map(function (w) { return on.reduce(function (a, k) { return a + w[k[0]]; }, 0); })) || 1;
-      var ticks = ticks6(0, max * 1.04, 3), hi = Math.max(ticks[ticks.length - 1], max * 1.04);
-      var band = F.pw / W.length, bw = Math.min(F.m ? 18 : 40, band * 0.62);
-      var y = function (v) { return F.t + (hi - v) / hi * ph1; }, cx = function (n) { return F.l + band * (n + 0.5); };
-      var kps = W.map(function (w) { return w.kp; }), lo2 = Math.floor((Math.min.apply(null, kps) - 1) / 5) * 5, hi2 = Math.ceil((Math.max.apply(null, kps) + 1) / 5) * 5;
-      var y2 = function (p) { return t2 + (hi2 - p) / (hi2 - lo2) * ph2; };
-      var defs = "", cols = W.map(function (w, n) {
-        var X = cx(n) - bw / 2, acc = 0, segs = on.map(function (k) {
+      var ticks = ticks6(0, max, 4), hi = Math.max(ticks[ticks.length - 1], max);
+      var band = F.pw / W.length, bw = Math.min(F.m ? 16 : (W.length > 6 ? 30 : 56), band * 0.56);
+      var y = function (v) { return F.t + (hi - v) / hi * F.ph; }, cx = function (n) { return F.l + band * (n + 0.5); };
+      var cols = W.map(function (w, n) {
+        var X = cx(n) - bw / 2, acc = 0, segs = on.map(function (k, j) {
           var v = w[k[0]], ya = y(acc + v), yb = y(acc); acc += v;
-          return '<rect data-s="' + k[0] + '" x="' + f1(X) + '" y="' + f1(ya) + '" width="' + f1(bw) + '" height="' + f1(Math.max(0, yb - ya - (ya > F.t + 1 ? 1.5 : 0))) + '" fill="' + k[2] + '"/>';
+          return '<rect data-s="' + k[0] + '" x="' + f1(X) + '" y="' + f1(ya) + '" width="' + f1(bw) + '" height="' + f1(Math.max(0, yb - ya - (j < on.length - 1 ? 1 : 0))) + '" fill="' + k[2] + '"/>';
         }).join(""), top = y(acc);
-        defs += '<clipPath id="t7cp' + n + '"><rect x="' + f1(X) + '" y="' + f1(top) + '" width="' + f1(bw) + '" height="' + f1(base1 - top + 8) + '" rx="' + Math.min(6, bw / 4) + '"/></clipPath>';
-        return '<g class="col" data-w="' + n + '"><rect class="t7colbg" x="' + f1(cx(n) - band / 2 + 2) + '" y="' + F.t + '" width="' + f1(band - 4) + '" height="' + f1(base2 - F.t) + '" rx="8"/><g clip-path="url(#t7cp' + n + ')"><g class="bar">' + segs + "</g></g></g>";
+        var lab = V6.son.known && (!F.m || n % 2 === last % 2) ? '<text class="t7bl' + (n === last ? " now" : "") + '" x="' + f1(cx(n)) + '" y="' + f1(top - 8) + '" text-anchor="middle">' + Math.round(w.kp) + "%</text>" : "";
+        return '<g class="col" data-w="' + n + '"><rect class="t7colbg" x="' + f1(cx(n) - band / 2 + 1) + '" y="' + (F.t - 22) + '" width="' + f1(band - 2) + '" height="' + f1(base - F.t + 22) + '" rx="6"/><g class="bar">' + segs + "</g>" + lab + "</g>";
       }).join("");
-      var lp = W.map(function (w, n) { return [cx(n), y2(w.kp)]; }), ld = cpath(lp);
-      var area = ld + "L" + f1(lp[lp.length - 1][0]) + "," + base2 + "L" + f1(lp[0][0]) + "," + base2 + "Z";
-      var t2t = [lo2, (lo2 + hi2) / 2, hi2];
-      var low = '<text class="t7ph" x="' + F.l + '" y="' + (t2 - 12) + '">Share already known</text>' +
-        t2t.map(function (q) { return '<line class="t7gl" x1="' + F.l + '" x2="' + (F.l + F.pw) + '" y1="' + f1(y2(q)) + '" y2="' + f1(y2(q)) + '"/><text class="t7yl" x="' + (F.l - 10) + '" y="' + f1(y2(q) + 4) + '" text-anchor="end">' + q + "%</text>"; }).join("") +
-        '<defs><linearGradient id="t7ka" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C98A1E" stop-opacity=".22"/><stop offset="1" stop-color="#C98A1E" stop-opacity="0"/></linearGradient></defs>' +
-        '<path d="' + area + '" fill="url(#t7ka)"/><path class="t7ln" data-k="kp" stroke="#C98A1E" d="' + ld + '"/>' +
-        lp.map(function (p, n) { return '<circle class="t7kd" cx="' + f1(p[0]) + '" cy="' + f1(p[1]) + '" r="' + (n === lp.length - 1 ? 4 : 2.5) + '"/>'; }).join("");
-      var xl = W.map(function (w, n) { return (W.length > 6 && n % (F.m ? 4 : 2)) ? "" : '<text class="t7xl" x="' + f1(cx(n)) + '" y="' + (base2 + 21) + '" text-anchor="middle">' + dfmt(TR.days[w.i0]) + "</text>"; }).join("");
-      ch.innerHTML = '<svg ' + NS6 + ' viewBox="0 0 ' + F.W + " " + F.H + '" aria-hidden="true"><defs>' + defs + "</defs>" +
-        '<text class="t7ph" x="' + F.l + '" y="' + (F.t - 12) + '">Paid leads each week</text>' +
+      var xl = W.map(function (w, n) { return (W.length > 6 && (last - n) % (F.m ? 4 : 2)) ? "" : '<text class="t7xl" x="' + f1(cx(n)) + '" y="' + (base + 21) + '" text-anchor="middle">' + dfmt(TR.days[w.i0]) + "</text>"; }).join("");
+      ch.innerHTML = '<svg ' + NS6 + ' viewBox="0 0 ' + F.W + " " + F.H + '" aria-hidden="true">' +
         yAxis7(F, y, ticks.filter(function (t) { return t <= hi; }), function (t) { return t ? K6(t) : "0"; }) + cols +
-        '<line class="t7base" x1="' + F.l + '" x2="' + (F.l + F.pw) + '" y1="' + base1 + '" y2="' + base1 + '"/>' + low + xl + "</svg>" +
-        overlay7([["kp", "#C98A1E"]]) + '<div class="v6hit" tabindex="0" role="img" aria-label="Weekly paid leads, stacked by what the profile check found, with the share already known below. The share already known went from ' + W[0].kp.toFixed(1) + "% to " + W[W.length - 1].kp.toFixed(1) + '%. Use the arrow keys to read each week."></div>';
+        '<line class="t7base" x1="' + F.l + '" x2="' + (F.l + F.pw) + '" y1="' + base + '" y2="' + base + '"/>' + xl + "</svg>" +
+        overlay7([]) + '<div class="v6hit" tabindex="0" role="img" aria-label="Weekly paid leads, stacked by what the profile check found. The number above each bar is the share already known, which went from ' + W[0].kp.toFixed(1) + "% to " + W[last].kp.toFixed(1) + '%. Use the arrow keys to read each week."></div>';
       return {
-        n: W.length, i: W.length - 1, x: cx,
-        idx: function (px) { return Math.max(0, Math.min(W.length - 1, Math.floor((px - F.l) / band))); },
-        y: function (k, n) { return y2(W[n].kp); },
+        n: W.length, i: last, x: cx,
+        idx: function (px) { return Math.max(0, Math.min(last, Math.floor((px - F.l) / band))); },
+        y: function () { return null; },
         date: function (n) { return "Week of " + dfmt(TR.days[W[n].i0]); },
         on: function (n) { ch.classList.add("dim"); $$(".col", ch).forEach(function (c) { c.classList.toggle("hot", +c.getAttribute("data-w") === n); }); },
         off: function () { ch.classList.remove("dim"); $$(".col.hot", ch).forEach(function (c) { c.classList.remove("hot"); }); },
@@ -7816,7 +7842,7 @@ html[data-v6] .t7stats b{display:block;margin-top:2px;font-size:16px;font-weight
           var w = W[n], pv = n ? W[n - 1].kp : null;
           return '<div class="t7th"><b>Week of ' + dfmt(TR.days[w.i0]) + "</b><small>" + fmtN(w.tot) + " paid leads</small></div>" + SK7.map(function (k) {
             return '<span class="t7r' + (V6.son[k[0]] ? "" : " off") + '"><i style="background:' + k[2] + '"></i><u>' + k[1] + "</u><b>" + fmtN(w[k[0]]) + "</b><em>" + (w[k[0]] / w.tot * 100).toFixed(1) + "%</em></span>";
-          }).join("") + '<div class="t7tf"><u>Share already known</u><b>' + w.kp.toFixed(1) + "%</b>" + (pv != null ? '<em class="' + (w.kp - pv >= 0 ? "up" : "dn") + '">' + arr7(w.kp - pv, 1) + "</em>" : "<em></em>") + "</div>";
+          }).join("") + (pv != null ? '<div class="t7tf"><u>Share known vs week before</u><b class="' + (w.kp - pv >= 0 ? "up" : "dn") + '">' + arr7(w.kp - pv, 1, " pts") + "</b></div>" : "");
         }
       };
     };
@@ -7915,7 +7941,7 @@ html[data-v6] .t7stats b{display:block;margin-top:2px;font-size:16px;font-weight
     studioBar6 = function () {
       if (!isV6()) return bar6o();
       var bar = $("#v6Bar"), sub = $("#v6tSub"), foot = $("#v6Foot"), i0 = i07(), sn = since7(), rl = V6.range > 40 ? "last 3 months" : "last 30 days";
-      bar.className = "v6s-bar t7cards t7-" + V6.style; stage.setAttribute("data-st", V6.style); syncRange();
+      bar.className = "v6s-bar " + (V6.style === "stack" ? "t7stk" : "t7cards") + " t7-" + V6.style; stage.setAttribute("data-st", V6.style); syncRange();
       if (V6.style === "flow") {
         sub.textContent = "Three Phase 1 measures, " + rl + ". Each has its own base, so compare direction, not height. The axis doesn't start at zero.";
         bar.innerHTML = S6.slice(0, 3).map(function (s) {
@@ -7925,13 +7951,15 @@ html[data-v6] .t7stats b{display:block;margin-top:2px;font-size:16px;font-weight
         var evs = EV6.map(function (e, n) { return e[0] >= i0 ? '<li><em>' + (n + 1) + "</em>" + esc(e[1]) + "<small>" + dfmt(TR.days[e[0]]) + "</small></li>" : ""; }).join("");
         foot.innerHTML = evs ? '<div class="t7moms"><span class="t7mk">Moments</span><ol>' + evs + "</ol></div>" : '<div class="t7moms"><span class="t7mk">Moments</span><span class="t7none">None in this range</span></div>';
       } else if (V6.style === "stack") {
-        var W = WK6.slice(w07()), sum = function (k) { return W.reduce(function (a, w) { return a + w[k]; }, 0); }, tot = sum("tot");
-        sub.textContent = "Paid leads each week, " + (V6.range > 40 ? "last 13 weeks" : "last 5 weeks") + ", by what the profile check found when the lead came in.";
-        bar.innerHTML = SK7.map(function (k) {
-          var v = sum(k[0]), pc = v / tot * 100;
-          return card7({ attr: 'data-stk6="' + k[0] + '" title="' + (V6.son[k[0]] ? "Hide" : "Show") + ' in the bars"', on: V6.son[k[0]], c: k[2], name: k[1], val: K6(v), cap: pc.toFixed(1) + "% of paid leads", extra: '<span class="t7share"><i style="width:' + pc.toFixed(1) + '%"></i></span>' });
-        }).join("") + card7({ c: "#E3262F", name: "Spent on people we knew", val: "₹" + (sum("known") * 1400 / 1e7).toFixed(1) + " Cr", cap: "at ₹1,400 a paid lead, " + fmtN(tot) + " leads" });
-        foot.innerHTML = "";
+        var W = WK6.slice(w07()), sum = function (k) { return W.reduce(function (a, w) { return a + w[k]; }, 0); }, tot = sum("tot"), kn = sum("known"), wl = W.length;
+        sub.textContent = "Every paid lead is checked against our profiles when it arrives. Each bar splits a week by what the check found; the number on top is the share already known.";
+        bar.innerHTML = '<div class="t7sum"><div class="t7hl"><b>' + (kn / tot * 100).toFixed(1) + '%</b><span>of paid leads were people upGrad already knew<small>' + K6(kn) + " of " + K6(tot) + ", last " + wl + ' weeks</small></span></div>' +
+          '<div class="t7side"><span>Spent on leads we already had</span><b>₹' + (kn * 1400 / 1e7).toFixed(1) + ' Cr</b><small>at ₹1,400 a paid lead</small></div></div>' +
+          '<div class="t7lg" role="group" aria-label="Show or hide groups">' + SK7.map(function (k) { return '<button type="button" data-stk6="' + k[0] + '" aria-pressed="' + V6.son[k[0]] + '" style="--c:' + k[2] + '"><i></i>' + k[1] + "</button>"; }).join("") + "</div>";
+        foot.innerHTML = '<table class="t7tbl"><thead><tr><th scope="col">What the check found</th><th scope="col">Paid leads</th><th scope="col">Share of all</th><th scope="col">Last week vs first</th></tr></thead><tbody>' + SK7.map(function (k) {
+          var v = sum(k[0]), pc = v / tot * 100, a = W[0][k[0]] / W[0].tot * 100, b = W[wl - 1][k[0]] / W[wl - 1].tot * 100, d = b - a;
+          return '<tr><th scope="row"><i style="background:' + k[2] + '"></i>' + k[1] + "</th><td>" + fmtN(v) + '</td><td><span class="t7in"><i style="width:' + pc.toFixed(1) + "%;background:" + k[2] + '"></i></span>' + pc.toFixed(1) + "%</td><td>" + arr7(d, 1, " pts") + "</td></tr>";
+        }).join("") + "</tbody></table>";
       } else {
         var s = s6(V6.focus), G = s.v[N6 - 1], fc = G + (G - s.v[N6 - 31]) * 0.7, pv = s.prev[N6 - 1];
         sub.textContent = "Pick one measure to see it against last period and its target, with a 30-day projection: a straight line from the last 30 days, not a model.";
