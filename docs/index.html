@@ -7871,18 +7871,37 @@ html[data-v6] .t7leg i.tg{border-top-color:#8E8E93}
       var x = function (i) { return F.l + (i - i0) / (NN - 1 - i0) * F.pw; }, y = function (val) { return F.t + (mx - val) / (mx - mn) * F.ph; }, base = F.t + F.ph;
       var sm = smooth6(v, V6.range > 40 ? 2 : 1); sm[N6 - 1] = last;
       var lp = sm.slice(i0).map(function (val, j) { return [x(i0 + j), y(val)]; }), line = cpath(lp);
-      var gh = cpath(smooth6(s.prev, 2).slice(i0).map(function (val, j) { return [x(i0 + j), y(val)]; }));
-      var fcp = cpath(fc.map(function (val, j) { return [x(N6 - 1 + j), y(val)]; }));
+      var ghp = smooth6(s.prev, 2).slice(i0).map(function (val, j) { return [x(i0 + j), y(val)]; }), gh = cpath(ghp);
+      var fpp = fc.map(function (val, j) { return [x(N6 - 1 + j), y(val)]; }), fcp = cpath(fpp);
       var bandD = cpath(band.map(function (b, j) { return [x(N6 - 1 + j), y(b[1])]; })) + "L" + band.slice().reverse().map(function (b, j) { return f1(x(N6 - 1 + FC6 - j)) + "," + f1(y(b[0])); }).join("L") + "Z";
       var fmt = function (t) { return (s.dp === 2 ? t.toFixed(2) : Math.round(t)) + "%"; };
-      var tX = x(N6 - 1), zw = F.l + F.pw - tX;
+      var tX = x(N6 - 1), zw = F.l + F.pw - tX, tgY = 0, tgX = F.l + F.pw - 8, tgA = "end";
+      // Target label: try a few spots along the target line and take the first that touches no line, ghost or range band.
+      if (s.tgt != null) {
+        var ty = y(s.tgt), tw = s.tgtL.length * 6.8 + 6, pts = lp.concat(ghp, fpp), mids = [];
+        [lp, ghp, fpp].forEach(function (a) { for (var q = 1; q < a.length; q++) mids.push([(a[q - 1][0] + a[q][0]) / 2, (a[q - 1][1] + a[q][1]) / 2]); });
+        pts = pts.concat(mids);
+        var hits = function (x0, x1, y0, y1) {
+          for (var q = 0; q < pts.length; q++) if (pts[q][0] >= x0 - 3 && pts[q][0] <= x1 + 3 && pts[q][1] >= y0 - 3 && pts[q][1] <= y1 + 3) return true;
+          for (var b = 0; b <= FC6; b++) { var bx = x(N6 - 1 + b); if (bx >= x0 - 3 && bx <= x1 + 3 && y(band[b][1]) <= y1 + 3 && y(band[b][0]) >= y0 - 3) return true; }
+          return false;
+        };
+        var xs = [[F.l + F.pw - 8, "end"], [F.l + 8, "start"], [x(i0 + Math.round((N6 - 1 - i0) / 2)) - tw / 2, "start"], [tX - 10, "end"]], ys = [ty - 8, ty + 17], pick = null;
+        for (var a = 0; a < xs.length && !pick; a++) for (var c = 0; c < 2 && !pick; c++) {
+          var x0 = xs[a][1] === "end" ? xs[a][0] - tw : xs[a][0], yb = ys[c];
+          if (yb - 12 < F.t - 4 || yb > F.t + F.ph - 2) continue;
+          if (!hits(x0, x0 + tw, yb - 12, yb + 2)) pick = [xs[a][0], xs[a][1], yb];
+        }
+        if (!pick) pick = [F.l + F.pw - 8, "end", ty - 8 < F.t ? ty + 17 : ty - 8];
+        tgX = pick[0]; tgA = pick[1]; tgY = pick[2];
+      }
       var axes = '<rect class="t7zone" x="' + f1(tX) + '" y="' + (F.t - 6) + '" width="' + f1(zw) + '" height="' + f1(F.ph + 6) + '" rx="0"/>' +
         yAxis7(F, y, ticks6(mn, mx, F.m ? 3 : 4), fmt) + xAxis7(F, x, i0, NN - 1, [[N6 + 26, "Dec"]]) +
         '<line class="t7base" x1="' + F.l + '" x2="' + (F.l + F.pw) + '" y1="' + base + '" y2="' + base + '"/>' +
         '<line class="t7today" x1="' + f1(tX) + '" x2="' + f1(tX) + '" y1="' + (F.t - 6) + '" y2="' + base + '"/>' +
         '<g class="t7tag"><rect x="' + f1(tX - 26) + '" y="' + (F.t - 28) + '" width="52" height="20" rx="10"/><text x="' + f1(tX) + '" y="' + (F.t - 14) + '" text-anchor="middle">Today</text></g>' +
-        (zw > 90 ? '<text class="t7zl" x="' + f1(tX + zw / 2) + '" y="' + (F.t + 12) + '" text-anchor="middle">Projection</text>' : "") +
-        (s.tgt != null ? '<line class="t7tgt" x1="' + F.l + '" x2="' + (F.l + F.pw) + '" y1="' + f1(y(s.tgt)) + '" y2="' + f1(y(s.tgt)) + '"/><text class="t7tgl" x="' + (F.l + 8) + '" y="' + f1(y(s.tgt) - 8) + '">' + esc(s.tgtL) + "</text>" : "");
+        (zw > 120 ? '<text class="t7zl" x="' + f1(tX + 34) + '" y="' + (F.t - 14) + '">Projection</text>' : "") +
+        (s.tgt != null ? '<line class="t7tgt" x1="' + F.l + '" x2="' + (F.l + F.pw) + '" y1="' + f1(y(s.tgt)) + '" y2="' + f1(y(s.tgt)) + '"/><text class="t7tgl" x="' + f1(tgX) + '" y="' + f1(tgY) + '" text-anchor="' + tgA + '">' + esc(s.tgtL) + "</text>" : "");
       return { i0: i0, NN: NN, x: x, y: y, line: line, area: line + "L" + f1(x(N6 - 1)) + "," + base + "L" + f1(x(i0)) + "," + base + "Z", ghost: gh, fc: fcp, band: bandD, axes: axes, end: [x(N6 - 1), y(last)], fcv: fc, bandv: band };
     }
     focusChart6 = function (ch, F, morph) {
