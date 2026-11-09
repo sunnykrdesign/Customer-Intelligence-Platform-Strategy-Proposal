@@ -2973,6 +2973,152 @@ html[data-v6] .search .x{color:var(--muted)}
 }
 html[data-v6] .view[data-view="people"] .empty{text-align:center;box-shadow:none !important;background:transparent !important;padding:48px 16px}
 html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view="people"] .empty p{margin-left:auto;margin-right:auto}
+
+/* ================= V6 · remaining UX audit fixes ================= */
+.v6ovsw,.v6dmtabs,.v6pleg,.v6help,.v6proto-l,.v6pbx,.v6desk,.v6dmban,.v6share,.v6fold{display:none}
+html[data-v6] :is(.v6ovsw,.v6dmtabs){display:inline-flex}
+html[data-v6] .v6pleg{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:12px;color:var(--muted);margin:-4px 0 4px}
+html[data-v6] .v6pleg .bud{display:inline-flex;margin-right:2px}
+html[data-v6] .v6pleg .rdots{display:inline-flex;vertical-align:middle}
+html[data-v6] :is(.v6help,.v6proto-l){display:block}
+html[data-v6] .v6share{display:flex}
+html[data-v6] .v6fold{display:inline-flex;margin-left:auto}
+/* Overview: one audience at a time */
+html[data-v6] .view[data-view="overview"] .page-head{flex-wrap:wrap;gap:12px 24px}
+html[data-v6] .view[data-view="overview"][data-ov6="progress"] .v3ov{display:none !important}
+html[data-v6] .view[data-view="overview"][data-ov6="leads"] .v6ov{display:none !important}
+html[data-v6] .v6ch path.ar[fill^="url(#v6g-"]{display:none}
+html[data-v6] .v6ch .endl{font-family:inherit;font-size:12px;font-weight:600;fill:#1D1D1F;paint-order:stroke;stroke:#fff;stroke-width:4px}
+html[data-v6] .v6ch .pax{font-family:inherit;font-size:12px;fill:#6B6B72;paint-order:stroke;stroke:#fff;stroke-width:4px}
+html[data-v6] .v6base{font-size:12px;color:var(--muted);font-weight:400}
+html[data-v6] .v6moms b{font-size:13px;font-weight:400;line-height:1.7}
+html[data-v6] .v6moms em{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;margin-right:6px;border-radius:50%;background:#1D1D1F;color:#fff;font-size:11px;font-style:normal;font-weight:600}
+html[data-v6] .v6s-foot{align-items:flex-start}
+/* Look up */
+html[data-v6] #lookupForm .eyebrow{font-size:20px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;text-transform:none}
+html[data-v6] .v5ch{cursor:default;position:relative}
+html[data-v6] .v5ch.ok::after{content:"✓";position:absolute;right:-3px;bottom:-3px;width:13px;height:13px;border-radius:50%;background:#34C759;color:#fff;font-size:9px;line-height:13px;text-align:center;font-weight:700}
+html[data-v6] .v5cp{width:32px !important;height:32px !important}
+html[data-v6] .v6back{display:inline-flex;align-items:center;height:32px;padding:0 10px;margin:0 0 12px -10px;border:none;border-radius:10px;background:transparent;font-size:14px;font-weight:600;color:var(--ink)}
+html[data-v6] .v6back:hover{background:#F0F0F3}
+html[data-v6] .v6sec{scroll-margin-top:200px;margin-bottom:16px}
+html[data-v6] .v6srcl{font-size:12px;color:var(--muted);margin:4px 0 0}
+html[data-v6] .v6stale{color:#9A4F00 !important;background:#FFF1D6;padding:1px 8px;border-radius:6px}
+html[data-v6] .v6stale i{background:#E08A00 !important}
+.v6skel{display:flex;flex-direction:column;gap:12px;padding:24px;border-radius:22px;background:#fff;box-shadow:0 0 0 1px rgba(16,16,24,.05)}
+.v6skel .sk{border-radius:10px;background:linear-gradient(90deg,#F0F0F3 0%,#F7F7F9 50%,#F0F0F3 100%);background-size:200% 100%;animation:v6sh 1.2s linear infinite}
+.v6skel .a{width:72px;height:72px;border-radius:50%}.v6skel .b{height:22px;width:40%}.v6skel .c{height:14px;width:65%}.v6skel .d{height:64px}
+.v6skel p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+@keyframes v6sh{to{background-position:-200% 0}}
+html[data-v6] .v6err .ic{background:#FFF1D6;color:#9A4F00}
+/* Academic */
+html[data-v6] .a6prog{margin-bottom:4px;align-self:flex-start;flex-wrap:wrap}
+html[data-v6] .a6rn{text-align:center;margin:0}
+html[data-v6] .a6h > span .v6chip{margin-left:6px}
+/* Activity */
+html[data-v6] .j6head{align-items:center}
+html[data-v6] .j6zoom{margin-left:auto}
+html[data-v6] .j6dot.many{width:18px;height:18px;margin:-26px 0 0 -9px;transform:none;border-radius:50%;background:#1D1D1F;box-shadow:0 2px 6px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;animation:none}
+html[data-v6] .j6dot.many b{color:#fff;font-size:11px;font-weight:700}
+html[data-v6] .t6hb[data-mk]{cursor:pointer}
+html[data-v6] .t6hb[data-mk]:hover{background:#F0F0F3;border-radius:4px}
+html[data-v6] .t6mo{scroll-margin-top:220px}
+html[data-v6] .v6est{font-size:12px;color:#7A4A00 !important;background:#FFF1D6;padding:2px 8px;border-radius:6px}
+html[data-v6] .b6own{display:inline-block;margin-top:12px;font-size:12px;font-weight:600;color:#146B3A;background:#E3F4E8;padding:2px 8px;border-radius:6px}
+html[data-v6] .b6all{margin-top:8px}
+/* Insights */
+html[data-v6] .i6det > summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:10px;border:1px solid var(--ctl);background:#fff;font-size:14px;font-weight:600;color:var(--ink)}
+html[data-v6] .i6det > summary::-webkit-details-marker{display:none}
+html[data-v6] .i6det > summary::after{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+html[data-v6] .i6det[open] > summary::after{transform:rotate(-135deg) translateY(-2px)}
+html[data-v6] .i6det[open] > summary{margin-bottom:20px}
+html[data-v6] .i6steps{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:12px}
+html[data-v6] .i6steps span{height:28px;border-radius:8px;background:#F0F0F3;color:#6B6B72;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center}
+html[data-v6] .i6steps span.on{background:#1D1D1F;color:#fff}
+/* People */
+html[data-v6] .v6sortable{cursor:pointer;user-select:none;display:inline-flex;align-items:center;gap:4px}
+html[data-v6] .v6sortable:hover{color:var(--ink)}
+html[data-v6] .v6arr{font-size:11px;color:#8E8E93}
+html[data-v6] [aria-sort="ascending"] .v6arr,html[data-v6] [aria-sort="descending"] .v6arr{color:var(--ink)}
+html[data-v6] #pRows .prow.v6click{cursor:pointer}
+html[data-v6] #pRows .prow:not(.open):hover{background:#F7F7F9}
+html[data-v6] .v6samp{font-size:12px;color:var(--muted);padding:2px 8px;border-radius:6px;background:#F2F2F5}
+html[data-v6] .v6minor{margin-left:6px;font-size:11px;font-weight:600;color:#7A4A00;background:#FFF1D6;padding:1px 6px;border-radius:5px}
+/* Shell */
+html[data-v6] .preview-bar [data-action="share"]{display:none}
+html[data-v6] .v6pbx{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border:none !important;background:transparent !important;color:var(--muted) !important;padding:0 !important}
+html[data-v6].v6pbhide .preview-bar{display:none !important}
+@media (min-width:821px){
+  html[data-v6] .me .acts{display:none}
+  html[data-v6] .me.v6open .acts{display:flex;flex-direction:column;align-items:stretch;gap:2px;margin-top:4px}
+  html[data-v6] .me.v6open .acts button{flex-direction:row;justify-content:flex-start;gap:10px;height:36px;padding:0 10px;border-radius:10px;font-size:13px}
+  html[data-v6] .me.v6open .acts button:hover{background:#F2F2F5}
+  html[data-v6] .me .id{cursor:pointer;border-radius:12px;padding:4px;margin:-4px}
+  html[data-v6] .me .id:hover{background:#F5F5F7}
+  html[data-v6] .me .id::after{content:"";margin-left:auto;width:7px;height:7px;border-right:1.6px solid #8E8E93;border-bottom:1.6px solid #8E8E93;transform:rotate(45deg) translate(-2px,-2px)}
+  html[data-v6] .me.v6open .id::after{transform:rotate(-135deg)}
+}
+html[data-v6] .nav .count::after{content:" left"}
+html[data-v6] body:has(#app[hidden]) .review{display:none}
+html[data-v6].v6rv body .review{display:flex !important}
+/* Sign-in */
+html[data-v6] .v6help{margin:12px 0 0;font-size:13px;color:#A1A1A6}
+html[data-v6] .auth-foot{gap:10px}
+html[data-v6] .v6proto-l{font-size:12px;color:#8E8E93;text-transform:uppercase;letter-spacing:.06em}
+/* Identity and audits */
+html[data-v6] .view[data-view="identity"] [data-v6rules]{order:5}
+html[data-v6] .view[data-view="identity"] [data-v6rules]:not(.v6open) .list{display:none}
+html[data-v6] .view[data-view="identity"] [data-v6rules] .section-head{flex-direction:row;align-items:center}
+.v6conf{display:flex;flex-direction:column;gap:8px;width:100%;padding:4px 0}
+.v6conf > span{font-size:13px;color:var(--muted)}
+.v6conf select{max-width:320px}
+.v6confb{display:flex;gap:8px;justify-content:flex-end}
+/* Data dictionary */
+html[data-v6] .view[data-view="data"][data-dmtab] > [data-v6tab]{display:none !important}
+html[data-v6] .view[data-view="data"][data-dmtab="fields"] > [data-v6tab="fields"],html[data-v6] .view[data-view="data"][data-dmtab="sources"] > [data-v6tab="sources"],html[data-v6] .view[data-view="data"][data-dmtab="access"] > [data-v6tab="access"],html[data-v6] .view[data-view="data"][data-dmtab="storage"] > [data-v6tab="storage"]{display:flex !important}
+html[data-v6] .view[data-view="data"] > header{flex-wrap:wrap;gap:12px 24px}
+html[data-v6] .v6dmban{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 16px;border-radius:16px;background:#FFF6E6;color:#5C3A00;font-size:14px}
+html[data-v6] .v6dmban svg{vertical-align:-3px;color:#B25E09}
+html[data-v6] .tag.v6block{background:#FCE9EA;color:#A3121B;font-weight:600}
+html[data-v6] .v6stchip{font-size:12px;font-weight:600;color:#7A4A00;background:#FFF1D6;padding:1px 7px;border-radius:6px}
+/* Share */
+html[data-v6] .embed > summary{display:inline-flex;align-items:center;height:32px;padding:0 12px;border-radius:10px;border:1px solid var(--ctl);font-size:13px;font-weight:600;cursor:pointer;list-style:none}
+html[data-v6] .embed > summary::-webkit-details-marker{display:none}
+/* Phones */
+@media (max-width:820px){
+  html[data-v6] .v6desk{display:block;margin:0 0 8px;padding:10px 14px;border-radius:12px;background:#F2F2F5;font-size:13px;color:#3A3A3F}
+  html[data-v6] .v5card .avatar,html[data-v6] .v5card .photo{width:56px !important;height:56px !important}
+  html[data-v6] .v5card .pcard-top{flex-direction:row !important;align-items:center;gap:14px}
+  html[data-v6] .v5card .v4name h1,html[data-v6] .v5card h1{font-size:22px !important}
+  html[data-v6] .v5card .matched{display:none}
+  html[data-v6] .v5card .headline{font-size:14px}
+  html[data-v6] .v5card .facts{display:flex !important;flex-wrap:nowrap !important;overflow-x:auto;gap:8px;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 4px}
+  html[data-v6] .v5card .fact{flex:0 0 auto;min-width:132px;scroll-snap-align:start;padding:10px 12px !important;border-radius:12px;background:#F5F5F7;box-shadow:none !important}
+  html[data-v6] #pRows .prow:not(.open){display:grid !important;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:12px 0}
+  html[data-v6] #pRows .prow > .pc:nth-child(2),html[data-v6] #pRows .prow > .pc:nth-child(3),html[data-v6] #pRows .prow > .pc:nth-child(6),html[data-v6] #pRows .prow > .pc:nth-child(7){display:none}
+  html[data-v6] #pRows .prow > .pc .lbl{display:none}
+  html[data-v6] #pRows .prow > .pc:nth-child(1){grid-column:1;grid-row:1}
+  html[data-v6] #pRows .prow > .pc:nth-child(5){grid-column:2;grid-row:1;align-items:flex-end}
+  html[data-v6] #pRows .prow > .pc:nth-child(4){grid-column:1;grid-row:2;padding-left:50px}
+  html[data-v6] #pRows .prow > .pc:nth-child(8){grid-column:2;grid-row:2}
+  html[data-v6] #pRows .prow > .pc:nth-child(8) .btn{display:none}
+  html[data-v6] .v6pleg{display:none}
+  html[data-v6] .v6ovsw,html[data-v6] .v6dmtabs{max-width:100%;overflow-x:auto}
+}
+@media (prefers-reduced-motion: reduce){.v6skel .sk{animation:none}}
+
+html[data-v6] .v6sortable{flex-direction:row !important;white-space:nowrap}
+html[data-v6] .v6pleg .rdots i{background:#D1D1D6}
+html[data-v6] .v6pleg .rdots i.on{background:#34C759}
+html[data-v6] .v6pleg > span > b{margin-right:6px}
+html[data-v6] .a6rw{display:flex;flex-direction:column;align-items:center;min-width:0}
+html[data-v6] .v6fold{height:32px;padding:0 12px;border-radius:10px;border:1px solid var(--ctl);background:#fff;font-size:13px;font-weight:600;color:var(--ink);align-self:flex-start}
+html[data-v6] .view[data-view="identity"] [data-v6rules] .section-head{display:flex;flex-wrap:wrap;gap:8px 16px}
+html[data-v6] .view[data-view="identity"] > .footnote{order:9}
+@media (max-width:820px){
+  html[data-v6] .side{padding:12px 16px 6px !important}
+  html[data-v6] .me{padding:0 !important}
+}
 </style>
 </head>
 <body>
@@ -3009,7 +3155,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
           <form class="stack" id="emailForm" novalidate>
             <div class="field">
               <label for="email">Work email</label>
-              <input class="input" id="email" type="email" inputmode="email" autocomplete="username" placeholder="name@upgrad.com" aria-describedby="emailErr">
+              <input class="input" id="email" type="email" inputmode="email" autocomplete="username" placeholder="name@upgrad.com" data-v6ph="you@company.com" aria-describedby="emailErr">
               <p class="error" id="emailErr" hidden></p>
             </div>
             <button type="submit" class="btn light block">Continue</button>
@@ -3076,6 +3222,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
   </div>
 
   <footer class="auth-foot">
+    <span class="v6proto-l">Prototype only:</span>
     <button type="button" data-action="preview">Preview without signing in</button>
     <span aria-hidden="true">·</span>
     <button type="button" data-action="share">Share</button>
@@ -3198,7 +3345,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
         <div class="v6pair">
           <section class="v6c v6r v6fun" aria-labelledby="v6fT">
             <div class="v6s-head">
-              <div class="v6s-title"><h2 id="v6fT">From lead to learner</h2><p>Paid leads in the last 30 days</p></div>
+              <div class="v6s-title"><h2 id="v6fT">From lead to learner</h2><p>Paid leads in the last 30 days. Each step counts only people who passed the step before.</p></div>
               <div class="v6seg sm" role="group" aria-label="Funnel style" id="v6FunStyle" data-slide>
                 <button type="button" data-fstyle="cols" aria-pressed="true">Columns</button>
                 <button type="button" data-fstyle="taper" aria-pressed="false">Taper</button>
@@ -3208,7 +3355,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
           </section>
           <section class="v6c v6r v6flow" aria-labelledby="v6xT">
             <div class="v6s-head">
-              <div class="v6s-title"><h2 id="v6xT">Where learners move</h2><p>727K people known to more than one business · all time</p></div>
+              <div class="v6s-title"><h2 id="v6xT">Where learners move</h2><p>People who moved between businesses, all time. Each person is counted once: where they started and where they went next.</p></div>
             </div>
             <div id="v6Sankey" class="v6sk"></div>
           </section>
@@ -3589,6 +3736,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
         </select>
       </label>
       <label class="opt-row" id="shareScreenRow"><span class="txt"><span class="t">Open on this screen</span><span class="d" id="shareScreenName"></span></span><input type="checkbox" class="switch" id="shareScreen" checked></label>
+      <label class="opt-row v6share"><span class="txt"><span class="t">Include my current view</span><span class="d">Design version, layout, menu and the person open</span></span><input type="checkbox" class="switch" id="shareView"></label>
     </div>
 
     <div class="field-light">
@@ -4172,7 +4320,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
     }).join("") + "</div></div>";
     var locked = s.fin && !otherBu && !V.finOpen, hidden = s.fin && otherBu, pct = Math.round(s.filled[0] / s.filled[1] * 100);
     var head = '<div class="v4sec-h"><span class="v4acc-ic ic-' + s.key + '">' + ic4(s.ic, 18) + '</span><span class="v4acc-t"><b>' + esc(s.t) + "</b><small>" +
-      (hidden ? "Shown to the owning business only" : locked ? "Locked · team password needed" : esc(s.sum)) + '</small></span><span class="v4fill"><small>' + s.filled[0] + " of " + s.filled[1] + ' filled</small><span class="v4meter" aria-hidden="true"><i style="width:' + pct + '%"></i></span></span></div>';
+      (hidden ? "Shown to the owning business only" : locked ? "Locked · team password needed" : esc(s.sum)) + '</small></span><span class="v4fill"><small>' + s.filled[0] + " of " + s.filled[1] + (isV6() ? " fields filled" : " filled") + '</small><span class="v4meter" aria-hidden="true"><i style="width:' + pct + '%"></i></span></span></div>';
     var body = hidden ? '<p class="v4note pad">Budget, funding and salary are shown to ' + esc(p.owner) + " only.</p>" : s.fin ? v4Lock() + (V.finOpen ? v4Rows(p, s, otherBu, m) : "") : v4Rows(p, s, otherBu, m);
     if (isV5()) body += '<p class="v5srcl">Values in this profile come from ' + esc(m.sources.map(function (x) { return x[0] + " (" + x[1] + ")"; }).join(", ")) + " · " + SYNC4.toLowerCase() + ".</p>";
     var i = m.sections.indexOf(s), prev = m.sections[i - 1], next = m.sections[i + 1];
@@ -4406,7 +4554,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
       }).join("") + "</span>" + v5Contact(p, blocked, false) + (v5Where().act === "card" ? v5ActBtn(m, false) : "") + "</div>";
     }
     var body = '<div class="pcard-top">' + avatarHTML(p, "avatar") + who + crm + '</div><div class="facts">' + fact("Life stage", p.stage) + fact("Age band", p.ageBand) + fact("City", p.city) + fact("Owned by", p.owner, owners) +
-      '<div class="fact"><span class="k">Profile filled</span><span class="v">' + p.complete + '%</span><span class="meter" aria-hidden="true"><i style="width:' + p.complete + '%"></i></span></div></div>' + reach;
+      '<div class="fact" title="' + Math.round(p.complete * 0.53) + ' of 53 profile fields have a value"><span class="k">' + (isV6() ? "Fields filled" : "Profile filled") + '</span><span class="v">' + p.complete + '%</span><span class="meter" aria-hidden="true"><i style="width:' + p.complete + '%"></i></span></div></div>' + reach;
     return inner ? '<div class="prail v5pcin"><div class="pcard">' + body + "</div></div>" : '<div class="prail"><section class="pcard v5card" aria-label="' + esc(p.name) + '">' + body + "</section></div>";
   }
   // The pinned bar. Minimum: the tabs (and the name once the card has gone). Mid: plus the photo and facts. High: plus the owner, contact and things to act on.
@@ -4690,7 +4838,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
       ]
     },
     ananyar: {
-      name: "Ananya R.", gid: "CIL-000184", photo: "assets/profile-ananya.jpg",
+      name: "Ananya R.", gid: "upg_6A2R8K4C", photo: "assets/profile-ananya.jpg",
       headline: "Data analyst · learning Data Science with Working Professionals",
       stage: "Working professional", ageBand: "25–34", city: "Hyderabad", owner: "Working Professionals", since: "Mar 2022", complete: 78,
       phones: [{ d: "9876501210", v: true, src: "Prism", tag: "Primary · WhatsApp" }],
@@ -5465,7 +5613,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
   }
   function dRow(r) {
     var low = r.p === "P0" && r.cov < 60;
-    var tags = '<span class="tag pri ' + r.p.toLowerCase() + '">' + esc(r.p) + "</span>" + (r.tier ? '<span class="tier ' + r.tier.toLowerCase() + '">' + esc(r.tier) + "</span>" : "") +
+    var tags = (low && isV6() ? '<span class="tag v6block">Blocks Phase 1</span>' : "") + '<span class="tag pri ' + r.p.toLowerCase() + '">' + esc(r.p) + "</span>" + (r.tier ? '<span class="tier ' + r.tier.toLowerCase() + '">' + esc(r.tier) + "</span>" : "") +
       (r.pending ? '<span class="tag amber">Pending</span>' : !r.ok ? '<span class="tag">Unchecked</span>' : "");
     var cov = '<span class="dcov' + (low ? " low" : "") + '" title="' + r.cov + '% of profiles"><span class="cbar" aria-hidden="true"><i style="width:' + r.cov + '%"></i></span><b>' + r.cov + "%</b></span>";
     var who = r.part === "activity" ? "of profiles had this event in the last 90 days" : r.part === "insights" ? "of profiles have this computed" : "of profiles have a value";
@@ -6048,6 +6196,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
     return (location.hash.replace(/^#\/?/, "") || "").split("/")[0] || TEAMS[S.team].home;
   }
   function shareUrl() {
+    if (isV6() && $("#shareView") && $("#shareView").checked && $("#sharePreview").checked) return viewLink();
     var preview = $("#sharePreview").checked, team = $("#shareTeam").value;
     var route = (preview && !$("#shareScreenRow").hidden && $("#shareScreen").checked) ? currentRoute() : "";
     if (route && TEAMS[team].routes.indexOf(route) < 0) route = TEAMS[team].home;
@@ -6195,10 +6344,10 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
       defs += '<linearGradient id="v6g-' + s.k + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="' + s.c + '" stop-opacity=".16"/><stop offset=".6" stop-color="' + s.c + '" stop-opacity=".02"/><stop offset="1" stop-color="' + s.c + '" stop-opacity="0"/></linearGradient>';
       areas += '<path class="ar draw' + off + '" fill="url(#v6g-' + s.k + ')" d="' + d + "L" + f1(x(N6 - 1)) + "," + base + "L" + f1(x(0)) + "," + base + 'Z" style="animation-delay:' + (0.35 + n * 0.15) + 's"/>';
       lines += '<path class="ln draw' + off + '" pathLength="1" stroke="' + s.c + '" d="' + d + '" style="animation-delay:' + n * 0.15 + 's"/>';
-      if (V6.on[s.k]) ends += '<circle class="pulse" cx="' + f1(x(N6 - 1)) + '" cy="' + f1(y(s.v[N6 - 1])) + '" r="4" fill="' + s.c + '"/><circle class="endc" cx="' + f1(x(N6 - 1)) + '" cy="' + f1(y(s.v[N6 - 1])) + '" r="4.5" fill="' + s.c + '" stroke="#fff" stroke-width="2"/>';
+      if (V6.on[s.k]) ends += '<text class="endl" x="' + f1(x(N6 - 1) - 10) + '" y="' + f1(y(s.v[N6 - 1]) - 10) + '" text-anchor="end">' + s.v[N6 - 1].toFixed(1) + "%</text>"; if (V6.on[s.k]) ends += '<circle class="pulse" cx="' + f1(x(N6 - 1)) + '" cy="' + f1(y(s.v[N6 - 1])) + '" r="4" fill="' + s.c + '"/><circle class="endc" cx="' + f1(x(N6 - 1)) + '" cy="' + f1(y(s.v[N6 - 1])) + '" r="4.5" fill="' + s.c + '" stroke="#fff" stroke-width="2"/>';
     });
     var evs = EV6.map(function (e, n) {
-      var X = x(e[0]), lab = e[1].split(" · ")[0], w = lab.length * 6.3 + 18, lx = Math.min(F.l + F.pw - w, Math.max(F.l, X - w / 2));
+      var X = x(e[0]), lab = String(n + 1), w = 22, lx = Math.min(F.l + F.pw - w, Math.max(F.l, X - w / 2));
       return '<g class="ev" style="--i:' + n + '"><line x1="' + f1(X) + '" x2="' + f1(X) + '" y1="' + (F.t - 4) + '" y2="' + base + '"/>' + (F.W < 600 ? "" : '<rect x="' + f1(lx) + '" y="' + (F.t - 26) + '" width="' + f1(w) + '" height="20" rx="10"/><text x="' + f1(lx + w / 2) + '" y="' + (F.t - 12) + '" text-anchor="middle">' + esc(lab) + '</text>') + '<circle cx="' + f1(X) + '" cy="' + base + '" r="3.5"/></g>';
     }).join("");
     ch.innerHTML = '<svg ' + NS6 + ' viewBox="0 0 ' + F.W + " " + F.H + '" aria-hidden="true"><defs>' + defs + "</defs>" +
@@ -6219,6 +6368,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
   }
 
   function stackChart6(ch, F) {
+    if (isV6()) F = Object.assign({}, F, { l: F.l + 40, pw: F.pw - 40 });
     var keys = [["known", "Already known", "#C98A1E"], ["shared", "Shared phone", "#9AA3B5"], ["fresh", "New to upGrad", "#DCDCE1"]];
     var on = keys.filter(function (k) { return V6.son[k[0]]; });
     var max = Math.max.apply(null, WK6.map(function (w) { return on.reduce(function (a, k) { return a + w[k[0]]; }, 0); })) || 1;
@@ -6235,12 +6385,12 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
     }).join("");
     var lo2 = 15, hi2 = 30, y2 = function (p) { return F.t + (hi2 - p) / (hi2 - lo2) * F.ph * 0.9; };
     var lp = WK6.map(function (w, n) { return [cx(n), y2(w.kp)]; }), last = lp[lp.length - 1];
-    var line = V6.son.known ? '<path class="ln draw" pathLength="1" stroke="#1D1D1F" stroke-width="1.75" d="' + cpath(lp) + '" style="animation-delay:.7s;stroke-width:1.75"/>' + lp.map(function (p, n) { return '<circle class="endc" cx="' + f1(p[0]) + '" cy="' + f1(p[1]) + '" r="3" fill="#fff" stroke="#1D1D1F" stroke-width="1.5" style="animation-delay:' + (1 + n * 0.05) + 's"/>'; }).join("") +
+    var pax = V6.son.known ? '<text class="pax" x="' + (F.l - 40) + '" y="' + (F.t - 12) + '">% known</text>' + [15, 20, 25, 30].map(function (q) { return '<text class="pax" x="' + (F.l - 40) + '" y="' + f1(y2(q) + 4) + '">' + q + "%</text>"; }).join("") : ""; var line = V6.son.known ? '<path class="ln draw" pathLength="1" stroke="#1D1D1F" stroke-width="1.75" d="' + cpath(lp) + '" style="animation-delay:.7s;stroke-width:1.75"/>' + lp.map(function (p, n) { return '<circle class="endc" cx="' + f1(p[0]) + '" cy="' + f1(p[1]) + '" r="3" fill="#fff" stroke="#1D1D1F" stroke-width="1.5" style="animation-delay:' + (1 + n * 0.05) + 's"/>'; }).join("") +
       '<g class="ev" style="--i:2"><rect x="' + f1(Math.min(last[0] - 8, F.l + F.pw - 104)) + '" y="' + f1(last[1] - 32) + '" width="104" height="20" rx="10"/><text x="' + f1(Math.min(last[0] - 8, F.l + F.pw - 104) + 52) + '" y="' + f1(last[1] - 18) + '" text-anchor="middle">' + WK6[WK6.length - 1].kp.toFixed(1) + '% known</text></g>' : "";
     ch.innerHTML = '<svg ' + NS6 + ' viewBox="0 0 ' + F.W + " " + F.H + '" aria-hidden="true"><defs>' + defs + "</defs>" +
       axisY6(F, y, ticks.filter(function (t) { return t <= hi; }), function (t) { return t ? K6(t) : "0"; }) +
       WK6.map(function (w, n) { return n % (F.W < 600 ? 4 : 2) ? "" : '<text x="' + f1(cx(n)) + '" y="' + (base + 20) + '" text-anchor="middle">' + dfmt(TR.days[w.i0]).toUpperCase() + "</text>"; }).join("") +
-      cols + line + "</svg>" + overlay6(["kp"]) + '<div class="v6hit" tabindex="0" role="img" aria-label="Weekly paid leads, stacked by what the profile check found. The share already known rose from 19.6% to 24.1%. Use the arrow keys to read each week."></div>';
+      cols + line + pax + "</svg>" + overlay6(["kp"]) + '<div class="v6hit" tabindex="0" role="img" aria-label="Weekly paid leads, stacked by what the profile check found. The share already known rose from 19.6% to 24.1%. Use the arrow keys to read each week."></div>';
     return {
       n: WK6.length, i: WK6.length - 1, x: cx,
       idx: function (px) { return Math.max(0, Math.min(WK6.length - 1, Math.floor((px - F.l) / band))); },
@@ -6272,7 +6422,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
     var axes = axisY6(F, y, ticks6(mn, mx, 4), fmt) +
       mons6.concat([[N6 + 26, "Dec"]]).map(function (m) { var X = x(m[0]); return X > F.l + F.pw ? "" : '<text x="' + f1(X) + '" y="' + (base + 20) + '" text-anchor="middle">' + m[1].toUpperCase() + "</text>"; }).join("") +
       '<line class="base" x1="' + F.l + '" x2="' + (F.l + F.pw) + '" y1="' + base + '" y2="' + base + '"/>' +
-      '<line class="gl" style="stroke:#C7C7CC;stroke-dasharray:none" x1="' + f1(x(N6 - 1)) + '" x2="' + f1(x(N6 - 1)) + '" y1="' + (F.t - 8) + '" y2="' + base + '"/><text x="' + f1(x(N6 - 1) + 6) + '" y="' + (F.t - 12) + '" style="fill:#1D1D1F;font-weight:600">TODAY</text><text x="' + f1(x(N6 + 2)) + '" y="' + (F.t + 4) + '">FORECAST</text>' +
+      '<line class="gl" style="stroke:#C7C7CC;stroke-dasharray:none" x1="' + f1(x(N6 - 1)) + '" x2="' + f1(x(N6 - 1)) + '" y1="' + (F.t - 8) + '" y2="' + base + '"/><text x="' + f1(x(N6 - 1) + 6) + '" y="' + (F.t - 12) + '" style="fill:#1D1D1F;font-weight:600">TODAY</text><text x="' + f1(x(N6 + 2)) + '" y="' + (F.t + 4) + '">PROJECTION</text>' +
       (s.tgt != null ? '<line class="tgt" x1="' + F.l + '" x2="' + (F.l + F.pw) + '" y1="' + f1(y(s.tgt)) + '" y2="' + f1(y(s.tgt)) + '"/><text class="tgtl" x="' + (F.l + 4) + '" y="' + f1(y(s.tgt) - 7) + '">' + esc(s.tgtL.toUpperCase()) + "</text>" : "");
     return { NN: NN, x: x, y: y, line: line, area: line + "L" + f1(x(N6 - 1)) + "," + base + "L" + f1(x(0)) + "," + base + "Z", ghost: gh, fc: fcp, band: bandD, axes: axes, end: [x(N6 - 1), y(last)], fcv: fc, bandv: band };
   }
@@ -6307,7 +6457,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
         var m = s6(V6.focus), dp = m.dp;
         if (i < N6) return "<b>" + dfmt(TR.days[i]) + '</b><span><i style="background:' + m.c + '"></i>' + esc(m.n) + "<b>" + m.v[i].toFixed(dp) + '%</b><em></em></span><span style="color:#A1A1A6"><i style="background:#8E8E93"></i>Same day, last period<b style="color:#fff">' + m.prev[i].toFixed(dp) + "%</b><em></em></span>";
         var j = i - N6 + 1, d = new Date(TR.days[N6 - 1].getTime() + j * 864e5);
-        return "<b>" + dfmt(d) + ' · forecast</b><span><i style="background:' + m.c + ';opacity:.5"></i>Likely<b>' + G.fcv[j].toFixed(dp) + '%</b><em></em></span><span style="color:#A1A1A6">Range<b style="color:#fff">' + G.bandv[j][0].toFixed(dp) + "–" + G.bandv[j][1].toFixed(dp) + "%</b><em></em></span>";
+        return "<b>" + dfmt(d) + ' · projection</b><span><i style="background:' + m.c + ';opacity:.5"></i>If the trend holds<b>' + G.fcv[j].toFixed(dp) + '%</b><em></em></span><span style="color:#A1A1A6">Range<b style="color:#fff">' + G.bandv[j][0].toFixed(dp) + "–" + G.bandv[j][1].toFixed(dp) + "%</b><em></em></span>";
       }
     };
   }
@@ -6323,6 +6473,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
       if (M.on) M.on(i);
     }
     function hide() { ch.classList.remove("hov"); if (ch._M.off) ch._M.off(); }
+    hit.addEventListener("pointerdown", function (e) { var r = ch.getBoundingClientRect(); show(ch._M.idx(e.clientX - r.left)); });
     hit.addEventListener("pointermove", function (e) { var r = ch.getBoundingClientRect(); show(ch._M.idx(e.clientX - r.left)); });
     hit.addEventListener("pointerleave", hide);
     hit.addEventListener("focus", function () { show(ch._M.i); });
@@ -6333,9 +6484,9 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
   function studioBar6() {
     var bar = $("#v6Bar"), sub = $("#v6tSub"), foot = $("#v6Foot"); if (!bar) return;
     if (V6.style === "flow") {
-      sub.textContent = "Three Phase 1 measures, last 3 months, with the moments that moved them";
-      bar.innerHTML = S6.slice(0, 3).map(function (s) { return '<button type="button" class="v6pill" data-ser6="' + s.k + '" aria-pressed="' + V6.on[s.k] + '"><i style="background:' + s.c + ';color:' + s.c + '"></i>' + esc(s.n) + " <b>" + s.v[N6 - 1].toFixed(1) + "%</b></button>"; }).join("");
-      foot.innerHTML = S6.slice(0, 3).map(function (s) { var ch = s.v[N6 - 1] - s.v[0]; return "<span>" + esc(s.n) + "<b>" + (ch >= 0 ? "+" : "−") + Math.abs(ch).toFixed(1) + " pts</b></span>"; }).join("") + "<span>Moments marked<b>3</b></span>";
+      sub.textContent = "Three Phase 1 measures over the last 3 months. Each has its own base, so compare direction, not height. The axis doesn't start at zero.";
+      bar.innerHTML = S6.slice(0, 3).map(function (s) { return '<button type="button" class="v6pill" data-ser6="' + s.k + '" aria-pressed="' + V6.on[s.k] + '"><i style="background:' + s.c + ';color:' + s.c + '"></i>' + esc(s.n) + ' <small class="v6base">' + esc(s.b || "") + "</small></button>"; }).join("");
+      foot.innerHTML = S6.slice(0, 3).map(function (s) { var ch = s.v[N6 - 1] - s.v[0]; return "<span>" + esc(s.n) + "<b>" + (ch >= 0 ? "+" : "−") + Math.abs(ch).toFixed(1) + " pts</b></span>"; }).join("") + '<span class="v6moms">Moments marked<b>' + EV6.map(function (e, n) { return '<em>' + (n + 1) + "</em>" + esc(e[1]) + " · " + dfmt(TR.days[e[0]]); }).join("<br>") + "</b></span>";
     } else if (V6.style === "stack") {
       sub.textContent = "Paid leads each week, by what the profile check found";
       var keys = [["known", "Already known", "#C98A1E"], ["shared", "Shared phone", "#9AA3B5"], ["fresh", "New to upGrad", "#DCDCE1"]];
@@ -6344,12 +6495,12 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
       foot.innerHTML = "<span>Paid leads · 13 weeks<b>" + K6(sum("tot")) + "</b></span><span>Already known<b>" + K6(sum("known")) + "</b></span><span>Spent on people we knew<b>₹" + (sum("known") * 1400 / 1e7).toFixed(1) + " Cr</b></span><span>Share known, this week<b>" + WK6[12].kp.toFixed(1) + "%</b></span>";
     } else {
       var s = s6(V6.focus), ch = s.v[N6 - 1] - s.v[0], good = s.low ? ch <= 0 : ch >= 0, prevCh = s.v[N6 - 1] - s.prev[N6 - 1];
-      sub.textContent = "One measure against last period, its target and a 30-day forecast";
+      sub.textContent = "One measure against last period and its target, with a 30-day projection: a straight line from the last 30 days, not a model.";
       bar.innerHTML = ["res", "ovl", "kno", "mrg"].map(function (k) { var m = s6(k); return '<button type="button" class="v6pill' + (k === V6.focus ? " sel" : "") + '" data-foc6="' + k + '" aria-pressed="' + (k === V6.focus) + '"><i style="background:' + m.c + '"></i>' + esc(m.n) + "</button>"; }).join("") +
         '<div class="v6big" style="flex-basis:100%"><span class="odo" data-odo="' + s.v[N6 - 1].toFixed(s.dp) + '%">' + s.v[N6 - 1].toFixed(s.dp) + '%</span><em class="v6chip ' + (good ? "up" : "dn") + '">' + (ch >= 0 ? "+" : "−") + Math.abs(ch).toFixed(s.dp) + (s.dp === 2 ? "" : " pts") + '</em><span class="c">since 5 Aug · ' + (prevCh >= 0 ? "+" : "−") + Math.abs(prevCh).toFixed(s.dp) + " vs the same day last period</span></div>";
       $$("[data-foc6]", bar).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-foc6") === V6.focus); });
       var G = s.v[N6 - 1], fc = G + (G - s.v[N6 - 31]) * 0.7;
-      foot.innerHTML = "<span>3 months ago<b>" + s.v[0].toFixed(s.dp) + "%</b></span><span>Today<b>" + G.toFixed(s.dp) + "%</b></span><span>In 30 days, likely<b>" + fc.toFixed(s.dp) + "%</b></span>" + (s.tgt != null ? "<span>" + (s.low ? "Room under the cap" : "Still to go") + "<b>" + Math.abs(s.tgt - G).toFixed(s.dp) + (s.dp === 2 ? "%" : " pts") + "</b></span>" : "<span>Last period, same day<b>" + s.prev[N6 - 1].toFixed(s.dp) + "%</b></span>");
+      foot.innerHTML = "<span>3 months ago<b>" + s.v[0].toFixed(s.dp) + "%</b></span><span>Today<b>" + G.toFixed(s.dp) + "%</b></span><span>In 30 days, if the trend holds<b>" + fc.toFixed(s.dp) + "%</b></span>" + (s.tgt != null ? "<span>" + (s.low ? "Room under the cap" : "Still to go") + "<b>" + Math.abs(s.tgt - G).toFixed(s.dp) + (s.dp === 2 ? "%" : " pts") + "</b></span>" : "<span>Last period, same day<b>" + s.prev[N6 - 1].toFixed(s.dp) + "%</b></span>");
     }
     $$("#v6Style button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-style") === V6.style); });
     rollIn(bar);
@@ -6406,7 +6557,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
     } else {
       el.className = "v6tp";
       var W = box.clientWidth, lw = Math.min(170, W * 0.36), aw = W - lw, rh = H / FUN6.length, bh = rh * 0.62, cx = lw + aw / 2;
-      var wv = function (v) { return Math.max(aw * 0.08, v / top * aw); };
+      var wv = function (v) { return Math.max(4, v / top * aw); };
       var svg = FUN6.map(function (s, i) {
         var w = wv(s[1]), y0 = i * rh + (rh - bh) / 2, x0 = cx - w / 2, link = "";
         if (i < FUN6.length - 1) { var w2 = wv(FUN6[i + 1][1]), y1 = y0 + bh, y2 = (i + 1) * rh + (rh - bh) / 2; link = '<path d="M' + f1(x0) + "," + f1(y1) + "L" + f1(x0 + w) + "," + f1(y1) + "L" + f1(cx + w2 / 2) + "," + f1(y2) + "L" + f1(cx - w2 / 2) + "," + f1(y2) + 'Z" fill="#F2F2F5"/><text class="o" x="' + f1(cx) + '" y="' + f1((y1 + y2) / 2 + 4) + '" text-anchor="middle" style="font-size:12px">' + (FUN6[i + 1][1] / s[1] * 100).toFixed(0) + "% continue</text>"; }
@@ -6443,8 +6594,8 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
       if (h > 6) pts += '<path class="pt" style="animation-delay:-' + (i * 0.4) + 's;stroke-width:' + Math.min(2.5, h / 12).toFixed(1) + '" d="M' + a + "," + f1(ya + h / 2) + "C" + f1(xm) + "," + f1(ya + h / 2) + " " + f1(xm) + "," + f1(yb + h / 2) + " " + b + "," + f1(yb + h / 2) + '"/>';
     });
     var lab = function (n, side) { var nm = BC6[n][0]; return narrow && nm.length > 11 ? nm.split(" ").map(function (w) { return w[0]; }).join("") : nm; };
-    L.forEach(function (n) { var o = ly[n]; nodes += '<rect class="nd" data-n="L' + n + '" x="' + x0 + '" y="' + f1(o.y) + '" width="' + nw + '" height="' + f1(o.h) + '" rx="4" fill="' + BC6[n][1] + '"/><text x="' + (x0 - 10) + '" y="' + f1(o.y + o.h / 2 - 2) + '" text-anchor="end">' + esc(lab(n)) + '</text><text class="s" x="' + (x0 - 10) + '" y="' + f1(o.y + o.h / 2 + 14) + '" text-anchor="end">' + K6(o.v) + " left</text>"; });
-    R.forEach(function (n) { var o = ry[n]; nodes += '<rect class="nd" data-n="R' + n + '" x="' + x1 + '" y="' + f1(o.y) + '" width="' + nw + '" height="' + f1(o.h) + '" rx="4" fill="' + BC6[n][1] + '"/><text x="' + (x1 + nw + 10) + '" y="' + f1(o.y + o.h / 2 - 2) + '">' + esc(lab(n)) + '</text><text class="s" x="' + (x1 + nw + 10) + '" y="' + f1(o.y + o.h / 2 + 14) + '">' + K6(o.v) + " joined</text>"; });
+    L.forEach(function (n) { var o = ly[n]; nodes += '<rect class="nd" data-n="L' + n + '" x="' + x0 + '" y="' + f1(o.y) + '" width="' + nw + '" height="' + f1(o.h) + '" rx="4" fill="' + BC6[n][1] + '"/><text x="' + (x0 - 10) + '" y="' + f1(o.y + o.h / 2 - 2) + '" text-anchor="end">' + esc(lab(n)) + '</text><text class="s" x="' + (x0 - 10) + '" y="' + f1(o.y + o.h / 2 + 14) + '" text-anchor="end">' + K6(o.v) + " started here</text>"; });
+    R.forEach(function (n) { var o = ry[n]; nodes += '<rect class="nd" data-n="R' + n + '" x="' + x1 + '" y="' + f1(o.y) + '" width="' + nw + '" height="' + f1(o.h) + '" rx="4" fill="' + BC6[n][1] + '"/><text x="' + (x1 + nw + 10) + '" y="' + f1(o.y + o.h / 2 - 2) + '">' + esc(lab(n)) + '</text><text class="s" x="' + (x1 + nw + 10) + '" y="' + f1(o.y + o.h / 2 + 14) + '">' + K6(o.v) + " moved here</text>"; });
     box.innerHTML = '<svg ' + NS6 + ' viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Flows between businesses: ' + FL6.map(function (f) { return BC6[f[0]][0] + " to " + BC6[f[1]][0] + " " + K6(f[2]); }).join(", ") + '"><defs>' + defs + '</defs><g class="rbs">' + rbs + pts + "</g>" + nodes + '</svg><div class="sktip"></div>';
   }
   $("#v6Sankey").addEventListener("pointerover", function (e) {
@@ -6550,7 +6701,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
 
   /* ----- Academic ----- */
   function v6Academic(p, m) {
-    var c = m.course, h = "";
+    var c = m.course, h = ""; var cp6 = progs6(p, c); if (cp6) { h += cp6.bar; c = cp6.c; }
     if (c) {
       var mods = c.modules || [], cur = -1, done = 0;
       mods.forEach(function (x, i) { if (x[1] === "done") done++; if (x[1] === "now" && cur < 0) cur = i; });
@@ -6560,7 +6711,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
         '<div class="a6stats">' + (c.stats || []).map(function (s, i) { return '<div style="--i:' + i + '"><small>' + esc(s[0]) + "</small><b>" + esc(s[1]) + "</b></div>"; }).join("") + "</div></section>";
       if (mods.length) {
         var at = cur >= 0 ? cur : Math.max(0, done - 1), fill = mods.length > 1 ? at / (mods.length - 1) * 100 : 100;
-        h += '<section class="a6card"><div class="a6h"><h3>Programme path</h3><span>' + done + " of " + mods.length + ' modules done</span></div><ol class="a6path" style="--n:' + mods.length + ";--f:" + fill.toFixed(1) + '">' + mods.map(function (x, i) {
+        h += '<section class="a6card"><div class="a6h"><h3>Programme path</h3><span>' + done + " of " + mods.length + " modules done" + plan6(c) + '</span></div><ol class="a6path" style="--n:' + mods.length + ";--f:" + fill.toFixed(1) + '">' + mods.map(function (x, i) {
           return '<li class="a6m ' + x[1] + '" style="--i:' + i + '"><span class="a6n">' + (x[1] === "done" ? ic4("check", 15) : i + 1) + "</span><b>" + esc(x[0]) + "</b><small>" + (x[1] === "done" ? "Done" : x[1] === "now" ? "In progress" : "Upcoming") + "</small></li>";
         }).join("") + "</ol></section>";
       }
@@ -6571,7 +6722,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
         var pts = sc.map(function (v, i) { return [x(i), y(v)]; }), d = cpath(pts), base = H - 28;
         minis += '<div class="a6card a6mini"><div class="a6h"><h3>Assignment scores</h3><span class="v6chip up">+' + (sc[n - 1] - sc[0]) + " since A1</span></div>" +
           '<svg class="a6sc" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Assignment scores: ' + sc.join(", ") + '. Cohort average ' + avg + '."><defs><linearGradient id="a6sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E3262F" stop-opacity=".18"/><stop offset="1" stop-color="#E3262F" stop-opacity="0"/></linearGradient></defs>' +
-          '<line class="avg" x1="10" x2="' + (W - 10) + '" y1="' + f1(y(avg)) + '" y2="' + f1(y(avg)) + '"/><text class="avgl" x="' + (W - 10) + '" y="' + f1(y(avg) + 16) + '" text-anchor="end">Cohort average ' + avg + "</text>" +
+          '<line class="avg" x1="10" x2="' + (W - 10) + '" y1="' + f1(y(avg)) + '" y2="' + f1(y(avg)) + '"/><text class="avgl" x="' + (W - 10) + '" y="' + f1(y(avg) + 16) + '" text-anchor="end">' + batch6(c) + " average " + avg + "</text>" +
           '<path class="ar" fill="url(#a6sg)" d="' + d + "L" + f1(x(n - 1)) + "," + base + "L" + f1(x(0)) + "," + base + 'Z"/><path class="ln" pathLength="1" d="' + d + '"/>' +
           pts.map(function (q, i) { return '<g class="pt" style="--i:' + i + '"><circle cx="' + f1(q[0]) + '" cy="' + f1(q[1]) + '" r="' + (i === n - 1 ? 5 : 3.5) + '"/><text x="' + f1(q[0]) + '" y="' + f1(q[1] - 11) + '" text-anchor="middle">' + sc[i] + '</text><text class="xl" x="' + f1(q[0]) + '" y="' + (H - 8) + '" text-anchor="middle">A' + (i + 1) + "</text></g>"; }).join("") + "</svg></div>";
       }
@@ -6584,22 +6735,22 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
       if (c.inst) {
         var segs = ""; for (var k = 0; k < c.inst[1]; k++) segs += '<i class="' + (k < c.inst[0] ? "on" : "") + '" style="--i:' + k + '"></i>';
         minis += '<div class="a6card a6mini"><div class="a6h"><h3>Instalments</h3><span class="v6chip up">None late</span></div>' +
-          '<div class="a6big"><b>' + c.inst[0] + "</b><span>of " + c.inst[1] + ' paid</span></div><div class="a6inst" role="img" aria-label="' + c.inst[0] + " of " + c.inst[1] + ' instalments paid">' + segs + '</div><p class="a6note">' + esc(c.instNote || "") + (c.inst[0] < c.inst[1] ? " · next is instalment " + (c.inst[0] + 1) : "") + "</p></div>";
+          '<div class="a6big"><b>' + c.inst[0] + "</b><span>of " + c.inst[1] + ' paid</span></div><div class="a6inst" role="img" aria-label="' + c.inst[0] + " of " + c.inst[1] + ' instalments paid">' + segs + '</div><p class="a6note">' + esc(c.instNote || "") + (c.inst[0] < c.inst[1] ? next6(p, c) : "") + "</p></div>";
       }
       if (minis) h += '<div class="a6minis">' + minis + "</div>";
     } else h += '<section class="a6card a6empty"><p class="a6note">No programme with upGrad yet.</p></section>';
 
     // Skills: radar for the shape, list for the detail.
-    var sk = m.skills || [], radar = "";
+    var sk = m.skills || [], radar = "", skAll = sk; sk = sk.filter(function (x) { return x[4]; });
     if (sk.length >= 3) {
       var N = sk.length, R = 92, C = 130, ang = function (i) { return (-90 + 360 * i / N) * Math.PI / 180; }, P = function (i, r) { return [C + Math.cos(ang(i)) * r, C + Math.sin(ang(i)) * r]; };
       var grid = [1, 2, 3, 4].map(function (l) { return '<polygon class="g" points="' + sk.map(function (_, i) { return P(i, R * l / 4).map(f1).join(","); }).join(" ") + '"/>'; }).join("") + sk.map(function (_, i) { var q = P(i, R); return '<line class="g" x1="' + C + '" y1="' + C + '" x2="' + f1(q[0]) + '" y2="' + f1(q[1]) + '"/>'; }).join("");
       var poly = sk.map(function (s, i) { return P(i, R * Math.max(0.35, s[2]) / 4).map(f1).join(","); }).join(" ");
       var dots = sk.map(function (s, i) { var q = P(i, R * Math.max(0.35, s[2]) / 4); return '<circle class="' + (s[4] ? "v" : "d") + '" cx="' + f1(q[0]) + '" cy="' + f1(q[1]) + '" r="4.5"/>'; }).join("");
       var labs = sk.map(function (s, i) { var q = P(i, R + 18), a = Math.cos(ang(i)); return '<text x="' + f1(q[0]) + '" y="' + f1(q[1] + 4) + '" text-anchor="' + (a > 0.3 ? "start" : a < -0.3 ? "end" : "middle") + '">' + esc(s[0].replace(/ for data analysis$/i, "")) + "</text>"; }).join("");
-      radar = '<svg class="a6radar" viewBox="-40 0 340 260" role="img" aria-label="Skills shape">' + grid + '<polygon class="sh" points="' + poly + '"/>' + dots + labs + "</svg>";
+      radar = '<div class="a6rw"><svg class="a6radar" viewBox="-80 0 420 260" role="img" aria-label="Skills shape">' + grid + '<polygon class="sh" points="' + poly + '"/>' + dots + labs + '</svg><p class="a6note a6rn">Radar shows graded skills only</p></div>';
     }
-    var list = sk.length ? '<ul class="a6sk">' + sk.map(function (s, i) {
+    sk = skAll; var list = sk.length ? '<ul class="a6sk">' + sk.map(function (s, i) {
       return '<li style="--i:' + i + '"><span><b>' + esc(s[0]) + '</b><small class="' + (s[4] ? "gr" : "") + '">' + (s[4] ? ic4("check", 12) : "") + esc(s[1]) + '</small></span><span class="a6lv"><span class="a6bar' + (s[4] ? "" : " dec") + '" style="--w:' + (s[2] / 4 * 100) + '%"><i></i></span><small>' + esc(s[3]) + "</small></span></li>";
     }).join("") + "</ul>" : '<p class="a6note">No skills recorded yet.</p>';
     h += '<div class="a6two"><section class="a6card a6skills"><div class="a6h"><h3>Skills</h3><span class="a6key"><i class="v"></i>Graded by upGrad<i class="d"></i>Self-declared</span></div><div class="a6skb">' + radar + list + "</div></section>";
@@ -6615,19 +6766,20 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
     m.lanes.forEach(function (l) { (l.segs || []).forEach(function (s) { all.push(s[1]); }); (l.dots || []).forEach(function (d) { all.push(d[0]); }); });
     (m.stageBand || []).forEach(function (s) { all.push(s[1]); });
     var y0 = Math.min.apply(null, all.map(function (s) { return d4(s).d.getFullYear(); }).concat([TODAY4.getFullYear() - 1])), y1 = TODAY4.getFullYear();
-    var start = new Date(y0, 0, 1).getTime(), end = TODAY4.getTime() + 75 * 864e5;
+    var z12 = V.jz === "12m", start = z12 ? TODAY4.getTime() - 365 * 864e5 : new Date(y0, 0, 1).getTime(), end = TODAY4.getTime() + (z12 ? 25 : 75) * 864e5;
     var x = function (s) { var d = s ? d4(s).d.getTime() : TODAY4.getTime(); return Math.max(0, Math.min(100, (d - start) / (end - start) * 100)); };
     var fmt = function (s) { var d = d4(s).d; return d.getDate() + " " + MON4[d.getMonth()] + " " + d.getFullYear(); };
     var NAME = { lead: "Lead", counselled: "Counselled", paid: "Paid, learning", done: "Completed", lost: "Lost" }, today = x(null);
-    var years = ""; for (var y = y0; y <= y1; y++) { var X = (new Date(y, 0, 1).getTime() - start) / (end - start) * 100; years += '<span class="j6yr" style="left:' + X.toFixed(2) + '%"><em>' + y + "</em></span>"; }
+    var years = ""; for (var y = y0; y <= y1; y++) { var X = (new Date(y, 0, 1).getTime() - start) / (end - start) * 100; if (X >= 0) years += '<span class="j6yr" style="left:' + X.toFixed(2) + '%"><em>' + y + "</em></span>"; }
     var lanes = m.lanes.filter(function (l) { return !l.empty; }), none = m.lanes.filter(function (l) { return l.empty; }), n = 0;
     var stage = (m.stageBand || []).length ? '<div class="j6row j6stage"><div class="j6nm"><small>Life stage</small></div><div class="j6trk">' + m.stageBand.map(function (s) { return '<span class="j6band" style="left:' + x(s[1]).toFixed(2) + "%;width:" + (x(s[2]) - x(s[1])).toFixed(2) + '%" data-tip="' + esc(s[0]) + '">' + esc(s[0]) + "</span>"; }).join("") + "</div></div>" : "";
     var rows = lanes.map(function (l) {
       var c = BC6P[l.bu] || "#8E8E93", segs = (l.segs || []).map(function (s) {
-        var a = x(s[1]), w = Math.max(1.8, x(s[2]) - a);
+        if (s[2] && d4(s[2]).d.getTime() < start) return ""; var a = x(s[1]), w = Math.max(1.8, x(s[2]) - a);
         return '<span class="j6seg k-' + s[0] + '" style="left:' + a.toFixed(2) + "%;width:" + w.toFixed(2) + "%;--i:" + (n++) + '" data-tip="' + esc(buN6(l.bu) + " · " + NAME[s[0]] + " · " + fmt(s[1]) + (s[2] ? " to " + fmt(s[2]) : " to today")) + '"></span>';
       }).join("");
-      var dots = (l.dots || []).map(function (d) { return '<span class="j6dot" style="left:' + x(d[0]).toFixed(2) + "%;--i:" + (n++) + '" data-tip="' + esc(fmt(d[0]) + " · " + d[1]) + '"></span>'; }).join("");
+      var grp = []; (l.dots || []).filter(function (dd) { return d4(dd[0]).d.getTime() >= start; }).sort(function (a2, b2) { return x(a2[0]) - x(b2[0]); }).forEach(function (dd) { var g = grp[grp.length - 1]; if (g && x(dd[0]) - g.x < 2.5) g.t.push(fmt(dd[0]) + " · " + dd[1]); else grp.push({ x: x(dd[0]), t: [fmt(dd[0]) + " · " + dd[1]] }); });
+      var dots = grp.map(function (g) { return '<span class="j6dot' + (g.t.length > 1 ? " many" : "") + '" style="left:' + g.x.toFixed(2) + "%;--i:" + (n++) + '" data-tip="' + esc(g.t.join(" | ")) + '">' + (g.t.length > 1 ? "<b>" + g.t.length + "</b>" : "") + "</span>"; }).join("");
       var live = (l.segs || []).some(function (s) { return !s[2] && (s[0] === "lead" || s[0] === "counselled" || s[0] === "paid"); });
       return '<div class="j6row" style="--c:' + c + '"><div class="j6nm"><i></i><span><b>' + esc(buN6(l.bu)) + "</b><small>" + esc(l.note) + "</small></span>" + (live ? '<em class="j6live">Active</em>' : "") + '</div><div class="j6trk">' + segs + dots + "</div></div>";
     }).join("");
@@ -6645,7 +6797,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
     }).join("") + '<li class="j6c now" style="--i:' + ys.length + '"><span class="j6cy">Today</span><ul>' + (now.length ? now.map(function (l) { return '<li><i style="background:' + (BC6P[l.bu] || "#8E8E93") + '"></i><span><b>' + esc(buN6(l.bu)) + "</b><small>" + esc(l.note) + "</small></span></li>"; }).join("") : "<li><span><b>No open relationship</b></span></li>") + "</ul></li></ol></div>";
   }
   function v6Life(m, opts) {
-    var head = '<div class="j6head"><h2 id="v4lifeh">Life with upGrad</h2><span>Every business, on one line of time</span></div>';
+    var head = '<div class="j6head"><h2 id="v4lifeh">Life with upGrad</h2><span>Every business, on one line of time</span><div class="v6seg sm j6zoom" role="group" aria-label="Time range"><button type="button" data-jz="all" aria-pressed="' + (V.jz !== "12m") + '">All time</button><button type="button" data-jz="12m" aria-pressed="' + (V.jz === "12m") + '">Last 12 months</button></div></div>';
     return opts && opts.bare ? '<div class="j6wrap bare">' + head + v6Metro(m) + v6Chapters(m) + "</div>" : '<section class="a6card j6wrap" aria-labelledby="v4lifeh">' + head + v6Metro(m) + "</section>";
   }
   document.addEventListener("pointerover", function (e) {
@@ -6660,8 +6812,8 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
   /* ----- Activity ----- */
   function v6Activity(p, otherBu) {
     var evs = (p.events || []).filter(function (e) { return !(otherBu && e[2] === "P"); }).map(function (e) { return { e: e, at: e[6] ? d4(e[6]) : d4(e[1]) }; });
-    var sub = V.sub || "journey", bu = V.ebu || "all", cat = V.ecat || "all";
-    var subs = [["journey", "Journey", "target"], ["timeline", "Timeline", "inbox"], ["business", "By business", "card"], ["rhythm", "Learning rhythm", "book"]];
+    var sub = V.sub || "timeline", bu = V.ebu || "all", cat = V.ecat || "all";
+    var subs = [["timeline", "Timeline", "inbox"], ["journey", "Journey", "target"], ["business", "By business", "card"], ["rhythm", "Learning rhythm", "book"]];
     var buList = ["all"].concat(Object.keys(BU4).filter(function (k) { return evs.some(function (x) { return x.e[0] === k; }); }));
     var inBu = evs.filter(function (x) { return bu === "all" || x.e[0] === bu; });
     var showBu = sub === "timeline" || sub === "business";
@@ -6684,7 +6836,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
       var mx = Math.max.apply(null, cnt.map(function (o) { return o._t; }).concat([1]));
       hist = '<div class="t6hist" role="img" aria-label="Events per month from ' + MON4[months[0].getMonth()] + " " + months[0].getFullYear() + ' to today">' + months.map(function (mo, i) {
         var o = cnt[i], segs = CAT4.filter(function (c) { return o[c[0]]; }).map(function (c) { return '<i style="height:' + (o[c[0]] / mx * 100) + "%;background:" + CC6[c[0]] + '"></i>'; }).join("");
-        return '<span class="t6hb' + (o._t ? "" : " z") + (mo.getMonth() === 0 ? " y" : "") + '" style="--i:' + i + '" title="' + MONL4[mo.getMonth()] + " " + mo.getFullYear() + " · " + o._t + (o._t === 1 ? " event" : " events") + '"' + (mo.getMonth() === 0 ? ' data-y="' + mo.getFullYear() + '"' : "") + ">" + segs + "</span>";
+        return '<span data-mk="' + mo.getFullYear() + "-" + mo.getMonth() + '" class="t6hb' + (o._t ? "" : " z") + (mo.getMonth() === 0 ? " y" : "") + '" style="--i:' + i + '" title="' + MONL4[mo.getMonth()] + " " + mo.getFullYear() + " · " + o._t + (o._t === 1 ? " event" : " events") + '"' + (mo.getMonth() === 0 ? ' data-y="' + mo.getFullYear() + '"' : "") + ">" + segs + "</span>";
       }).join("") + "</div>";
     }
     var cats = '<div class="t6cats" role="group" aria-label="Event type"><button type="button" data-ecat="all" aria-pressed="' + (cat === "all") + '">All <span>' + inBu.length + "</span></button>" +
@@ -6692,7 +6844,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
     var full = inBu.filter(function (x) { return cat === "all" || x.e[2] === cat; }), list = full.slice(0, V.shown || PAGE), groups = [], key = "", k = 0;
     list.forEach(function (x) { var g = x.at ? x.at.d.getFullYear() + "-" + x.at.d.getMonth() : "?"; if (g !== key) { groups.push({ at: x.at, items: [] }); key = g; } groups[groups.length - 1].items.push(x); });
     var feed = groups.length ? groups.map(function (g) {
-      return '<div class="t6mo"><h3><b>' + (g.at ? MONL4[g.at.d.getMonth()] + "</b> " + g.at.d.getFullYear() : "Undated</b>") + "<small>" + g.items.length + (g.items.length === 1 ? " event" : " events") + '</small></h3><ol class="t6feed">' + g.items.map(function (x) {
+      return '<div class="t6mo" id="t6m-' + (g.at ? g.at.d.getFullYear() + "-" + g.at.d.getMonth() : "x") + '"><h3><b>' + (g.at ? MONL4[g.at.d.getMonth()] + "</b> " + g.at.d.getFullYear() : "Undated</b>") + "<small>" + g.items.length + (g.items.length === 1 ? " event" : " events") + '</small></h3><ol class="t6feed">' + g.items.map(function (x) {
         var e = x.e, idx = p.events.indexOf(e), open = V.evx === idx, ci = CAT4.filter(function (c) { return c[0] === e[2]; })[0] || ["", "Other", "inbox"];
         return '<li class="t6ev' + (open ? " open" : "") + '" style="--c:' + (CC6[e[2]] || "#8E8E93") + ";--i:" + (k++) + '"><span class="t6ic">' + ic4(ci[2], 15) + '</span><div class="t6b"><div class="t6h"><b>' + esc(e[3]) + '</b><span class="t6bu" style="--b:' + (BC6P[e[0]] || "#8E8E93") + '"><i></i>' + esc(buS6(e[0])) + "</span>" + src4(e[5]) + "<time>" + (x.at && x.at.day ? x.at.d.getDate() + " " + MON4[x.at.d.getMonth()] + " · " + DAY4[x.at.d.getDay()] : x.at ? MON4[x.at.d.getMonth()] + " " + x.at.d.getFullYear() : esc(e[1])) + "</time></div><p>" + esc(e[4]) + "</p>" +
           '<button type="button" class="t6more" data-evx="' + idx + '" aria-expanded="' + open + '">' + (open ? "Hide details" : "Details") + "</button>" +
@@ -6702,7 +6854,8 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
     return hist + cats + feed;
   }
   function v6ByBusiness(inBu) {
-    var keys = Object.keys(BU4).filter(function (k) { return inBu.some(function (x) { return x.e[0] === k; }); });
+    var keys = Object.keys(BU4).filter(function (k) { return inBu.some(function (x) { return x.e[0] === k; }); }), own6 = (PEOPLE[L.person] || {}).owner;
+    keys.sort(function (a2, b2) { return (buN6(b2) === own6) - (buN6(a2) === own6); });
     return '<div class="b6grid">' + keys.map(function (k, i) {
       var mine = inBu.filter(function (x) { return x.e[0] === k; }), ds = mine.filter(function (x) { return x.at; }).map(function (x) { return x.at.d.getTime(); });
       var a = Math.min.apply(null, ds), z = Math.max.apply(null, ds), span = ds.length ? MON4[new Date(a).getMonth()] + " " + new Date(a).getFullYear() + (z - a > 31 * 864e5 ? " – " + MON4[new Date(z).getMonth()] + " " + new Date(z).getFullYear() : "") : "";
@@ -6710,7 +6863,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
       var mix = '<div class="b6mix" role="img" aria-label="' + esc(byc.map(function (q) { return q[1] + " " + q[0][1].toLowerCase(); }).join(", ")) + '">' + byc.map(function (q) { return '<i style="flex:' + q[1] + ";background:" + CC6[q[0][0]] + '" title="' + esc(q[0][1]) + ": " + q[1] + '"></i>'; }).join("") + "</div>";
       var tl = ds.length > 1 && z > a ? '<div class="b6tl">' + ds.map(function (t) { return '<i style="left:' + ((t - a) / (z - a) * 100).toFixed(1) + '%"></i>'; }).join("") + "</div>" : "";
       return '<section class="b6c" style="--c:' + (BC6P[k] || "#8E8E93") + ";--i:" + i + '"><div class="b6h"><span class="b6dot"></span><span><b>' + esc(buN6(k)) + "</b><small>" + esc(span) + '</small></span><span class="b6n"><b>' + mine.length + "</b><small>" + (mine.length === 1 ? "event" : "events") + "</small></span></div>" + mix + tl +
-        '<ol class="b6list">' + mine.map(function (x) { var ci = CAT4.filter(function (c) { return c[0] === x.e[2]; })[0] || ["", "", "inbox"]; return '<li style="--c2:' + (CC6[x.e[2]] || "#8E8E93") + '"><span class="b6ic">' + ic4(ci[2], 12) + "</span><span><b>" + esc(x.e[3]) + "</b><small>" + esc(x.e[4]) + "</small></span><time>" + (x.at ? (x.at.day ? x.at.d.getDate() + " " : "") + MON4[x.at.d.getMonth()] + " " + String(x.at.d.getFullYear()).slice(2) : esc(x.e[1])) + "</time></li>"; }).join("") + "</ol></section>";
+        (buN6(k) === own6 ? '<span class="b6own">Owns the relationship</span>' : "") + '<ol class="b6list">' + mine.slice(0, 5).map(function (x) { var ci = CAT4.filter(function (c) { return c[0] === x.e[2]; })[0] || ["", "", "inbox"]; return '<li style="--c2:' + (CC6[x.e[2]] || "#8E8E93") + '"><span class="b6ic">' + ic4(ci[2], 12) + "</span><span><b>" + esc(x.e[3]) + "</b><small>" + esc(x.e[4]) + "</small></span><time>" + (x.at ? (x.at.day ? x.at.d.getDate() + " " : "") + MON4[x.at.d.getMonth()] + " " + String(x.at.d.getFullYear()).slice(2) : esc(x.e[1])) + "</time></li>"; }).join("") + "</ol>" + (mine.length > 5 ? '<button type="button" class="btn soft sm b6all" data-b6all="' + k + '">See all ' + mine.length + " in Timeline</button>" : "") + "</section>";
     }).join("") + "</div>";
   }
   function v6Rhythm(p, inBu) {
@@ -6739,7 +6892,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
       var SL = ["Morning", "Afternoon", "Evening", "Night"], DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], rb = rng(131);
       var busy = DAYS.map(function (d, di) { var peak = di === 1 || di === 3; return [d].concat(SL.map(function (_, si) { var b = si === 2 ? (peak ? 3 : 1 + Math.round(rb())) : si === 0 && di === 5 ? 2 : Math.round(rb() * 1.2); return Math.min(3, b); })); });
       var bt = '<div class="r6busy" role="img" aria-label="Busiest on Tuesday and Thursday evenings"><span></span>' + SL.map(function (s) { return "<small>" + s + "</small>"; }).join("") + busy.map(function (row, ri) { return "<small>" + row[0] + "</small>" + row.slice(1).map(function (v, ci) { return '<i class="l' + v + '" style="--i:' + (ri * 4 + ci) + '"></i>'; }).join(""); }).join("") + "</div>";
-      h += '<div class="r6two"><div class="r6card"><div class="a6h"><h3>Day by day</h3><span>Last 12 weeks</span></div>' + hm + '</div><div class="r6card"><div class="a6h"><h3>Busy times</h3><span>When they learn</span></div>' + bt + "</div></div>";
+      h += '<div class="r6two"><div class="r6card"><div class="a6h"><h3>Day by day</h3><span class="v6est">Estimated · last 12 weeks</span></div>' + hm + '</div><div class="r6card"><div class="a6h"><h3>Busy times</h3><span class="v6est">Estimated</span></div>' + bt + "</div></div>";
     }
     return h + '<p class="a6note">' + (weekly ? "Live sessions, assignments and assessments from Prism. The day-by-day and busy-time views are a sample pattern built from the weekly totals." : "Learning events recorded across businesses.") + "</p>";
   }
@@ -6798,7 +6951,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
     var risk = refund || (scores.length ? null : null);
     if (refund) {
       var rv = (refund.it.v || "").toLowerCase(), pos = /low/.test(rv) ? 16 : /medium/.test(rv) ? 50 : /high/.test(rv) ? 86 : 50;
-      cards.push('<div class="i6k" style="--i:2"><div class="i6kh"><small>Refund risk</small>' + howB(refund) + '</div><b class="i6v">' + esc(refund.it.v) + '</b><div class="i6gauge" role="img" aria-label="Refund risk ' + esc(refund.it.v) + '"><i style="left:' + pos + '%"></i></div><span class="i6gl"><span>Low</span><span>Medium</span><span>High</span></span>' + howT(refund) + "</div>");
+      cards.push('<div class="i6k" style="--i:2"><div class="i6kh"><small>Refund risk</small>' + howB(refund) + '</div><b class="i6v">' + esc(refund.it.v) + '</b><div class="i6steps" role="img" aria-label="Refund risk ' + esc(refund.it.v) + '">' + ["Low", "Medium", "High"].map(function (q) { return '<span class="' + (rv.indexOf(q.toLowerCase()) >= 0 ? "on" : "") + '">' + q + "</span>"; }).join("") + '</div>' + howT(refund) + "</div>");
     } else if (speed) {
       cards.push('<div class="i6k" style="--i:2"><div class="i6kh"><small>' + esc(speed.it.k) + "</small>" + howB(speed) + '</div><b class="i6v">' + esc(speed.it.v || "—") + '</b><span class="i6n">Lead created to first call</span>' + howT(speed) + "</div>");
       speed = null;
@@ -6814,7 +6967,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
     var sig = "";
     if (reacq || nbp) {
       var ry = reacq && /^yes/i.test(reacq.it.v || "");
-      sig = '<div class="i6two">' + (reacq ? '<section class="i6sig ' + (ry ? "warn" : "ok") + '"><div class="i6kh"><span class="i6ic">' + ic4(ry ? "alert" : "check", 16) + "</span><small>Re-acquisition</small>" + src(reacq) + howB(reacq) + "</div><b>" + (ry ? "Bought back someone we knew" : "No paid lead for someone we knew") + "</b><p>" + esc((reacq.it.v || "").replace(/^(yes|no)\s*·?\s*/i, "") || reacq.it.how || "") + "</p>" + howT(reacq) + "</section>" : "") +
+      sig = '<div class="i6two">' + (reacq ? '<section class="i6sig ' + (ry ? "warn" : "ok") + '"><div class="i6kh"><span class="i6ic">' + ic4(ry ? "alert" : "check", 16) + "</span><small>Re-acquisition</small>" + src(reacq) + howB(reacq) + "</div><b>" + (ry ? "Paid for a lead upGrad already knew" : "No paid lead for someone upGrad already knew") + "</b><p>" + esc((reacq.it.v || "").replace(/^(yes|no)\s*·?\s*/i, "") || reacq.it.how || "") + "</p>" + howT(reacq) + "</section>" : "") +
         (nbp ? '<section class="i6sig nbp"><div class="i6kh"><span class="i6ic">' + ic4("award", 16) + "</span><small>Next-best programme</small>" + src(nbp) + howB(nbp) + "</div><b>" + esc(nbp.it.v || "—") + '</b><p>Rules first: aspiration, skills and activity.</p><span class="i6go" aria-hidden="true">' + ic4("target", 14) + "</span>" + howT(nbp) + "</section>" : "") + "</div>";
     }
 
@@ -6855,7 +7008,7 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
       return '<div class="i6m" style="--i:' + i + '"><div class="i6kh"><small>' + esc(a.it.k) + "</small>" + src(a) + howB(a) + '</div><b class="' + (a.it.muted ? "mu" : "") + '">' + esc(hid(a) ? "Shown to the owning business" : a.it.v || "—") + "</b>" + howT(a) + "</div>";
     }).join("") + "</div></section>" : "";
 
-    return '<div class="i6">' + sum + kp + sig + '<div class="i6two">' + re + ms + "</div>" + more + "</div>";
+    return '<div class="i6">' + sum + '<details class="i6det"' + (V.i6open ? " open" : "") + '><summary>Show the signals behind this summary</summary><div class="i6 i6in">' + kp + sig + '<div class="i6two">' + re + ms + "</div>" + more + "</div></details></div>";
   }
   var _ins4 = v4Insights;
   v4Insights = function (p, m, otherBu) { return isV6() ? v6Insights(p, m, otherBu) : _ins4(p, m, otherBu); };
@@ -6969,6 +7122,273 @@ html[data-v6] .view[data-view="people"] .empty h2,html[data-v6] .view[data-view=
     }
     _renderLookup6();
   };
+
+  /* ================= V6 · remaining UX audit fixes ================= */
+  S6[0].b = "% of leads"; S6[1].b = "% of profiles"; S6[2].b = "% of paid leads"; S6[3].b = "% of audited merges";
+
+  // One number format: lakh and crore, exact figure on hover; arrows next to change chips.
+  function lakh6(n) { return n >= 1e7 ? (n / 1e7).toPrecision(3).replace(/\.?0+$/, "") + " Cr" : (n / 1e5).toPrecision(3).replace(/\.?0+$/, "") + "L"; }
+  var NUM6 = /(^|[^\w.₹])(\d+(?:\.\d+)?)([KM])(?![\w])/g;
+  function conv6(t) { return t.replace(NUM6, function (all, pre, num, u) { var v = parseFloat(num) * (u === "M" ? 1e6 : 1e3); return v >= 1e5 ? pre + lakh6(v) : all; }); }
+  function fmt6(root) {
+    if (!isV6() || !root) return;
+    $$("[data-odo]", root).forEach(function (el) { var a = el.getAttribute("data-odo"), b = conv6(a); if (a !== b) { el.setAttribute("data-odo", b); el.title = "About " + a.replace(/M$/, " million"); } });
+    var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), n, list = [];
+    while ((n = w.nextNode())) { if (NUM6.test(n.nodeValue)) list.push(n); NUM6.lastIndex = 0; }
+    list.forEach(function (t) { if (t.parentNode.closest("[data-odo],script,style,textarea")) return; var b = conv6(t.nodeValue); if (b !== t.nodeValue) { t.parentNode.title = t.parentNode.title || "Shown in lakh (L) and crore (Cr)"; t.nodeValue = b; } });
+    $$(".v6chip, .kc em, .v6k .v6chip", root).forEach(function (el) { if (el.hasAttribute("data-ar")) return; var t = el.textContent.trim(); if (/^[+−-]\s?\d/.test(t)) { el.setAttribute("data-ar", ""); el.textContent = (t[0] === "+" ? "↑ " : "↓ ") + t.slice(1).trim(); } });
+  }
+  var _v6Enter0 = v6Enter;
+  v6Enter = function (name, view) { _v6Enter0(name, view); fmt6(view); if (view && name === "overview") ovSwitch6(); };
+
+  // Overview: one view per audience.
+  function ovSwitch6() {
+    var v = $('.view[data-view="overview"]'); if (!v) return;
+    if (!$(".v6ovsw", v)) {
+      var sw = document.createElement("div"); sw.className = "v6seg v6ovsw"; sw.setAttribute("role", "group"); sw.setAttribute("aria-label", "Overview view"); sw.setAttribute("data-slide", ""); sw.id = "v6ovsw";
+      sw.innerHTML = '<button type="button" data-ov6="progress">Phase 1 progress</button><button type="button" data-ov6="leads">Paid leads</button>';
+      var head = $(".page-head", v); head.appendChild(sw);
+      sw.addEventListener("click", function (e) { var b = e.target.closest("[data-ov6]"); if (!b) return; setOv6(b.getAttribute("data-ov6")); });
+    }
+    var cur = "progress"; try { cur = sessionStorage.getItem("cip-ov6") || "progress"; } catch (e) {}
+    setOv6(cur, true);
+  }
+  function setOv6(k, quiet) {
+    var v = $('.view[data-view="overview"]'); v.setAttribute("data-ov6", k);
+    $$("#v6ovsw button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-ov6") === k)); });
+    try { sessionStorage.setItem("cip-ov6", k); } catch (e) {}
+    if (!quiet && k === "progress") { renderStudio6(false); renderFunnel6(); renderSankey6(); }
+    requestAnimationFrame(slideAll);
+  }
+
+  // Look up: loading skeleton, a source error, stale data, a way back.
+  var V6BACK = null, V6HOLD = 0;
+  var _openPerson0 = openPerson;
+  openPerson = function (id) {
+    var r = (location.hash.replace(/^#\/?/, "") || "").split("/")[0];
+    V6BACK = isV6() && r && r !== "lookup" ? { route: r, y: window.scrollY } : null;
+    _openPerson0(id);
+  };
+  var _runLookup0 = runLookup;
+  runLookup = function (raw, instant) { V6BACK = null; return _runLookup0(raw, instant); };
+  var _renderLookup7 = renderLookup;
+  renderLookup = function () {
+    var box = $("#lookupResult");
+    if (isV6() && L.status === "loading") { box.innerHTML = '<div class="v6skel" aria-busy="true" aria-label="Looking up ' + esc(L.label) + '"><div class="sk a"></div><div class="sk b"></div><div class="sk c"></div><div class="sk d"></div><p>Checking Prism, LeadSquared, HubSpot and OMS…</p></div>'; return; }
+    if (isV6() && L.status === "none" && /00000$/.test((L.label || "").replace(/\D/g, ""))) {
+      box.innerHTML = '<div class="v6nomatch v6err"><span class="ic">' + ic4("alert", 18) + '</span><span class="tx"><small>Looking up ' + esc(L.label) + '</small><b>Couldn\'t check every source</b><span>LeadSquared didn\'t answer in time, so we checked Prism, HubSpot and OMS only. The caller may still be known to a business.</span></span><span class="acts"><button type="button" class="btn dark sm" data-v6retry>Try again</button><button type="button" class="btn soft sm" data-clear>Search again</button></span></div>';
+      return;
+    }
+    _renderLookup7();
+    if (!isV6()) return;
+    if (V6BACK && L.person && box) { var t = titles[V6BACK.route] || "previous screen"; box.insertAdjacentHTML("afterbegin", '<button type="button" class="v6back" data-v6back>‹ Back to ' + esc(t) + "</button>"); }
+    fmt6(box);
+  };
+  var _v5Sync0 = v5Sync;
+  v5Sync = function () { if (isV6() && L.person === "rohan") return '<span class="v5sync v6stale" title="Data may be out of date">Last synced 3 h ago · LSQ export delayed</span>'; return _v5Sync0(); };
+  var _v5FindGo0 = v5FindGo;
+  v5FindGo = function (i) { _v5FindGo0(i); if (isV6()) setTimeout(function () { var el = V.hl && $('#lookupResult [data-hl="' + V.hl.replace(/"/g, "") + '"]'); if (el) jump6(el); }, 60); };
+  function jump6(el) {
+    var bar = $(".v5bar") || $(".v5head"), chips = $(".v4secbar"), off = 16;
+    if (bar) off += Math.max(0, bar.getBoundingClientRect().bottom); if (chips) off += chips.offsetHeight;
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - off, behavior: REDUCED ? "auto" : "smooth" });
+  }
+
+  // Profile: one scrolling page; section chips jump to their section.
+  var _v4Profile0 = v4Profile;
+  v4Profile = function (p, m, team, otherBu) {
+    if (!isV6()) return _v4Profile0(p, m, team, otherBu);
+    var SHORT = { identity: "Identity", personal: "Personal", education: "Education", career: "Career", aspiration: "Aspiration", financial: "Financial", consent: "Consent" };
+    var cur = V.sec || m.sections[0].key;
+    var nav = '<div class="v4secbar"><div class="v4secnav" aria-label="Jump to a section">' + m.sections.map(function (x) {
+      var locked = x.fin && !otherBu && !V.finOpen;
+      return '<button type="button" data-v6sec="' + x.key + '" class="v4sn' + (x.key === cur ? " on" : "") + '"><span>' + esc(SHORT[x.key] || x.t) + "</span>" + (locked ? '<span class="v4snl" title="Locked">' + ic4("lock", 12) + "</span>" : '<span class="v4snf" title="' + x.filled[0] + " of " + x.filled[1] + ' fields filled">' + x.filled[0] + "/" + x.filled[1] + "</span>") + "</button>";
+    }).join("") + "</div></div>";
+    var cards = m.sections.map(function (s) {
+      var locked = s.fin && !otherBu && !V.finOpen, hidden = s.fin && otherBu, pct = Math.round(s.filled[0] / s.filled[1] * 100);
+      var head = '<div class="v4sec-h"><span class="v4acc-ic ic-' + s.key + '">' + ic4(s.ic, 18) + '</span><span class="v4acc-t"><b>' + esc(s.t) + "</b><small>" + (hidden ? "Shown to the owning business only" : locked ? "Locked · team password needed" : esc(s.sum)) + '</small></span><span class="v4fill"><small>' + s.filled[0] + " of " + s.filled[1] + ' fields filled</small><span class="v4meter" aria-hidden="true"><i style="width:' + pct + '%"></i></span></span></div>';
+      var body = hidden ? '<p class="v4note pad">Budget, funding and salary are shown to ' + esc(p.owner) + " only.</p>" : s.fin ? v4Lock() + (V.finOpen ? v4Rows(p, s, otherBu, m) : "") : v4Rows(p, s, otherBu, m);
+      return '<section class="card v4sec v6sec" id="v6s-' + s.key + '" data-sec6="' + s.key + '">' + head + '<div class="v4sec-b">' + body + "</div></section>";
+    }).join("");
+    return nav + cards + '<p class="v5srcl v6srcl">Values in this profile come from ' + esc(m.sources.map(function (x) { return x[0] + " (" + x[1] + ")"; }).join(", ")) + " · " + SYNC4.toLowerCase() + ".</p>";
+  };
+  window.addEventListener("scroll", function () {
+    if (!isV6() || Date.now() < V6HOLD) return; var secs = $$("#lookupResult .v6sec"); if (!secs.length) return;
+    var bar = $(".v4secbar"), lim = (bar ? bar.getBoundingClientRect().bottom : 0) + 40, on = secs[0].getAttribute("data-sec6");
+    secs.forEach(function (x) { if (x.getBoundingClientRect().top <= lim) on = x.getAttribute("data-sec6"); });
+    if (V.sec !== on) { V.sec = on; $$("[data-v6sec]").forEach(function (b) { b.classList.toggle("on", b.getAttribute("data-v6sec") === on); }); }
+  }, { passive: true });
+
+  // Academic helpers.
+  function progs6(p, c) {
+    if (!isV6()) return null;
+    var cl = (p.courses || []).slice();
+    if (c && !cl.some(function (x) { return x.p === c.t; })) cl.unshift({ p: c.t });
+    if (cl.length < 2) return null;
+    var def = 0; cl.forEach(function (x, i) { if (c && x.p === c.t) def = i; });
+    var pi = V.prog != null && cl[V.prog] ? V.prog : def, sel = cl[pi], nc = c;
+    if (!c || sel.p !== c.t) nc = { t: sel.p, bu: sel.bu, pct: sel.pct || 0, status: sel.status || "", line: [sel.started ? "Started " + sel.started : "", sel.time || "", sel.result || ""].filter(Boolean).join(" · "), stats: [["Time spent", (sel.time || "—").replace(" spent", "")], ["Result", sel.result || "—"]] };
+    return { c: nc, bar: '<div class="v6seg a6prog" role="group" aria-label="Programme">' + cl.map(function (x, i) { return '<button type="button" data-prog="' + i + '" aria-pressed="' + (i === pi) + '">' + esc(x.p) + "</button>"; }).join("") + "</div>" };
+  }
+  function plan6(c) {
+    var m = PEOPLE[L.person] ? v4Of(PEOPLE[L.person]) : null, h = "";
+    (m && m.insights || []).forEach(function (g) { g.items.forEach(function (it) { if (/learning health/i.test(it.k)) h = it.v || ""; }); });
+    var all = (c && c.line || "").match(/\b[A-Z][a-z]{2} \d{4}\b/g) || [], due = all.length ? " · due " + all[all.length - 1] : "";
+    var tag = /on track/i.test(h) ? '<em class="v6chip up">On plan</em>' : /risk|behind/i.test(h) ? '<em class="v6chip dn">Behind plan</em>' : "";
+    return due + (tag ? " " + tag : "");
+  }
+  function batch6(c) { var b = /batch (\w{3} \d{4})/i.exec(c && c.line || ""); return b ? "Batch " + b[1] : "Cohort"; }
+  function next6(p, c) {
+    var team = TEAMS[S.team] || TEAMS.central;
+    if (team.bu && team.bu !== p.owner) return " · next due date shown to the owning business";
+    var pays = (p.events || []).filter(function (e) { return e[2] === "P" && /₹[\d,]+/.test(e[4]); }).map(function (e) { return { e: e, d: d4(e[6] || e[1]).d }; }).sort(function (a, b) { return b.d - a.d; });
+    if (!pays.length) return " · next is instalment " + (c.inst[0] + 1);
+    var last = pays[0], due = new Date(last.d.getFullYear(), last.d.getMonth() + 1, last.d.getDate());
+    return " · next: instalment " + (c.inst[0] + 1) + ", " + /₹[\d,]+/.exec(last.e[4])[0] + ", due " + due.getDate() + " " + MON4[due.getMonth()] + " " + due.getFullYear();
+  }
+
+  // People: sortable columns, one way to open, masked minors, business codes with a legend.
+  var PS6 = { k: null, dir: 1 };
+  var _dirRows0 = dirRows;
+  dirRows = function () {
+    var r = _dirRows0(); if (!isV6() || !PS6.k) return r;
+    var val = function (x) {
+      if (PS6.k === "name") return x.name.toLowerCase();
+      if (PS6.k === "rev") return Number(String(x.rev).replace(/[^\d]/g, "")) || -1;
+      var t = x.last; if (t === "Today") return TODAY4.getTime(); if (t === "Yesterday") return TODAY4.getTime() - 864e5; var d = new Date(t + " " + TODAY4.getFullYear()); return isNaN(d) ? 0 : d.getTime();
+    };
+    return r.slice().sort(function (a, b) { var A = val(a), B = val(b); return (A > B ? 1 : A < B ? -1 : 0) * PS6.dir; });
+  };
+  (function () {
+    var head = $(".view[data-view='people'] .phead"); if (!head) return;
+    [["Person", "name"], ["Revenue", "rev"], ["Last active", "last"]].forEach(function (x) {
+      var c = $$(".pc", head).filter(function (e) { return e.textContent.trim() === x[0]; })[0]; if (!c) return;
+      c.setAttribute("data-v6sort", x[1]); c.setAttribute("tabindex", "0"); c.classList.add("v6sortable");
+      c.insertAdjacentHTML("beforeend", '<span class="v6arr" aria-hidden="true"></span>');
+    });
+    var leg = document.createElement("div"); leg.className = "v6pleg";
+    leg.innerHTML = "<span><b>Businesses</b> " + ["U", "I", "S", "W", "K"].map(function (k) { return '<span class="bud bu-' + k + '">' + esc(BU4[k][1]) + "</span> " + esc(BU4[k][0]); }).join(" · ") + '</span><span><b>Reach</b> <span class="rdots"><i class="on"></i></span> open · <span class="rdots"><i></i></span> closed, in the order call, email, SMS, WhatsApp, ads</span>';
+    var t = $(".view[data-view='people'] .ptable"); if (t) t.parentNode.insertBefore(leg, t);
+  })();
+  function sortPeople6(k) { if (PS6.k === k) PS6.dir = -PS6.dir; else { PS6.k = k; PS6.dir = k === "name" ? 1 : -1; } renderPeople(); }
+  var _renderPeople0 = renderPeople;
+  renderPeople = function (stagger) {
+    _renderPeople0(stagger);
+    if (!isV6()) return;
+    var map = {}; _dirRows0().forEach(function (r) { map[r.gid] = r; });
+    $$("[data-v6sort]").forEach(function (c) { var on = PS6.k === c.getAttribute("data-v6sort"); c.setAttribute("aria-sort", on ? (PS6.dir > 0 ? "ascending" : "descending") : "none"); $(".v6arr", c).textContent = on ? (PS6.dir > 0 ? "↑" : "↓") : "↕"; });
+    $$("#pRows .prow[data-row]").forEach(function (row) {
+      var r = map[row.getAttribute("data-row")]; if (!r) return;
+      $$(".bud", row).forEach(function (b, i) { var k = r.bus[i]; if (BU4[k]) { b.textContent = BU4[k][1]; b.title = BU4[k][0]; } });
+      var rd = $(".rdots", row); if (rd) rd.title = ["Call", "Email", "SMS", "WhatsApp", "Ads"].map(function (n, i) { return n + (r.reach[i] ? " open" : " closed"); }).join(" · ");
+      if (segOf(r) === "restricted") { var nb = $(".pc.who b", row); if (nb) nb.innerHTML = 'Name hidden <small class="v6minor">Minor</small>'; var av = $(".pc.who .mini-av", row); if (av) { av.textContent = "–"; av.style.backgroundImage = "none"; } }
+      var sb = $("[data-sample]", row); if (sb) sb.outerHTML = '<span class="v6samp" title="Only the sample people have full profiles">Sample</span>';
+      if (r.id) row.classList.add("v6click");
+    });
+    $("#pCount").textContent = "Showing " + $$("#pRows .prow[data-row]").length + " of 19,42,118 · sample rows. Search or pick a segment to narrow it down.";
+  };
+  document.addEventListener("click", function (e) {
+    if (!isV6()) return;
+    var srt = e.target.closest("[data-v6sort]"); if (srt) { sortPeople6(srt.getAttribute("data-v6sort")); return; }
+    var row = e.target.closest("#pRows .prow[data-row]");
+    if (row && !e.target.closest("button, a, .pexp, input")) {
+      e.stopPropagation(); var r = _dirRows0().filter(function (x) { return x.gid === row.getAttribute("data-row"); })[0];
+      if (r && r.id) openPerson(r.id); else toast("Sample row: only the sample people have full profiles");
+    }
+  }, true);
+  document.addEventListener("keydown", function (e) { var srt = e.target.closest && e.target.closest("[data-v6sort]"); if (srt && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); sortPeople6(srt.getAttribute("data-v6sort")); } });
+
+  // Clicks for the new controls in Look up.
+  $("#lookupResult").addEventListener("click", function (e) {
+    if (!isV6()) return;
+    var t = e.target.closest("[data-prog],[data-jz],[data-mk],[data-b6all],[data-v6sec],[data-v6back],[data-v6retry]"); if (!t) return;
+    if (t.hasAttribute("data-v6sec")) { var k6 = t.getAttribute("data-v6sec"), sec = $("#v6s-" + k6); V.sec = k6; V6HOLD = Date.now() + 900; $$("[data-v6sec]").forEach(function (x) { x.classList.toggle("on", x === t); }); if (sec) jump6(sec); return; }
+    if (t.hasAttribute("data-v6back")) { var b = V6BACK; V6BACK = null; location.hash = "#/" + b.route; setTimeout(function () { window.scrollTo(0, b.y); }, 80); return; }
+    if (t.hasAttribute("data-v6retry")) { runLookup(L.label || $("#lookup").value); return; }
+    if (t.hasAttribute("data-prog")) V.prog = +t.getAttribute("data-prog");
+    else if (t.hasAttribute("data-jz")) V.jz = t.getAttribute("data-jz");
+    else if (t.hasAttribute("data-b6all")) { V.sub = "timeline"; V.ebu = t.getAttribute("data-b6all"); V.ecat = "all"; V.shown = PAGE; }
+    else if (t.hasAttribute("data-mk")) {
+      var id = "t6m-" + t.getAttribute("data-mk"), el = $("#" + id);
+      if (!el) { V.shown = 999; renderLookup(); el = $("#" + id); }
+      if (el) jump6(el); else toast("No events in that month");
+      return;
+    }
+    renderLookup(); requestAnimationFrame(slideAll);
+  });
+  document.addEventListener("toggle", function (e) { if (e.target.classList && e.target.classList.contains("i6det")) V.i6open = e.target.open; }, true);
+
+  // Shell: dismissible preview bar, account menu, labelled count, review chip only when asked for.
+  (function () {
+    var pb = $("#previewBar");
+    if (pb) { var x = document.createElement("button"); x.type = "button"; x.className = "v6pbx"; x.setAttribute("aria-label", "Hide this notice"); x.innerHTML = ic4("x", 14); pb.appendChild(x);
+      x.addEventListener("click", function () { document.documentElement.classList.add("v6pbhide"); try { sessionStorage.setItem("cip-pbhide", "1"); } catch (e) {} }); }
+    try { if (sessionStorage.getItem("cip-pbhide")) document.documentElement.classList.add("v6pbhide"); } catch (e) {}
+    var me = $(".me .id"); if (me) { me.setAttribute("role", "button"); me.setAttribute("tabindex", "0"); me.setAttribute("aria-haspopup", "true"); me.setAttribute("aria-expanded", "false");
+      var tog = function () { var o = !$(".me").classList.contains("v6open"); $(".me").classList.toggle("v6open", o); me.setAttribute("aria-expanded", String(o)); };
+      me.addEventListener("click", function () { if (isV6()) tog(); });
+      me.addEventListener("keydown", function (e) { if (isV6() && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); tog(); } });
+      document.addEventListener("click", function (e) { if (!e.target.closest(".me")) { $(".me").classList.remove("v6open"); me.setAttribute("aria-expanded", "false"); } }); }
+    var cnt = $('.nav [data-bind="auditsLeft"]'); if (cnt) cnt.title = "Merges left to audit this week";
+    if (/[?&]review=1/.test(location.search)) document.documentElement.classList.add("v6rv");
+    document.addEventListener("keydown", function (e) { if (e.shiftKey && (e.key === "R") && !(e.target.closest && e.target.closest("input,textarea,select"))) document.documentElement.classList.toggle("v6rv"); });
+  })();
+
+  // Sign-in: a neutral placeholder and a way to get help.
+  COPY6.push(["#email", "you@company.com"]);
+  (function () { var f = $("#email"); f = f && f.closest("form"); if (f) f.insertAdjacentHTML("beforeend", '<p class="v6help">Can\'t sign in? Ask your IT helpdesk to check that your directory account is active.</p>'); })();
+
+  // Identity and audits: the audit first, rules folded away, confirmed changes in the merge log.
+  (function () {
+    var v = $('.view[data-view="identity"]'); if (!v) return;
+    var rules = $$("section", v).filter(function (s) { var h = $("h2", s); return h && /How matching works/.test(h.textContent); })[0];
+    if (rules) { rules.setAttribute("data-v6rules", ""); var h = $("h2", rules); var b = document.createElement("button"); b.type = "button"; b.className = "v6fold"; b.setAttribute("aria-expanded", "false"); b.textContent = "Show"; h.parentNode.appendChild(b);
+      b.addEventListener("click", function () { var o = !rules.classList.contains("v6open"); rules.classList.toggle("v6open", o); b.setAttribute("aria-expanded", String(o)); b.textContent = o ? "Hide" : "Show"; }); }
+    $("#mergeLog").addEventListener("click", function (e) {
+      if (!isV6()) return;
+      var row = e.target.closest(".row"); if (!row) return;
+      if (e.target.closest("[data-v6cancel]")) { row.innerHTML = row._orig; return; }
+      if (e.target.closest("[data-v6ok]")) {
+        var act = row._act, why = $("select", row).value;
+        row.innerHTML = '<span class="txt"><span class="title">' + esc(row._who) + '</span><span class="desc">' + esc({ Unmerge: "Unmerged", Unlink: "Unlinked", "Re-merge": "Re-merged" }[act] || act) + " by " + esc(S.name || "you") + " · just now" + (why ? " · " + esc(why.toLowerCase()) : "") + '</span></span><button type="button" class="textbtn" data-v6undo>Undo</button>';
+        toast(act + " done. Logged with your name."); setTimeout(function () { var u = $("[data-v6undo]", row); if (u) u.remove(); }, 6000); return;
+      }
+      if (e.target.closest("[data-v6undo]")) { row.innerHTML = row._orig; toast("Undone"); return; }
+      var btn = e.target.closest(".textbtn"); if (!btn) return;
+      row._orig = row.innerHTML; row._act = btn.textContent.trim(); row._who = ($(".title", row) || {}).textContent || "";
+      row.innerHTML = '<div class="v6conf"><b>' + esc(row._act) + " " + esc(row._who) + '?</b><span>This changes the profile in every business. It\'s logged with your name.</span><label><span class="sr">Reason</span><select><option value="">Choose a reason</option><option>Different date of birth</option><option>Different person on a shared phone</option><option>Same person, wrongly split</option><option>Other</option></select></label><div class="v6confb"><button type="button" class="btn soft sm" data-v6cancel>Cancel</button><button type="button" class="btn dark sm" data-v6ok>' + esc(row._act) + "</button></div></div>";
+    });
+  })();
+
+  // Data dictionary: tabs, explained codes, the gaps that block Phase 1, stale sources.
+  (function () {
+    var v = $('.view[data-view="data"]'); if (!v) return;
+    var old = $(".v6dmnav", v); if (old) old.remove();
+    var kids = $$(":scope > *", v);
+    kids.forEach(function (k) {
+      if (k.matches("header") || k.classList.contains("footnote") || k.classList.contains("v6desk")) return;
+      var t = $("#dm-s", k) ? "sources" : $("#dm-a", k) ? "access" : ($("#dm-v", k) || k.matches("details") || $("details.eng", k) || k.classList.contains("eng")) ? "storage" : "fields";
+      k.setAttribute("data-v6tab", t);
+    });
+    var tabs = document.createElement("div"); tabs.className = "v6seg v6dmtabs"; tabs.id = "v6dmtabs"; tabs.setAttribute("role", "group"); tabs.setAttribute("aria-label", "Dictionary part"); tabs.setAttribute("data-slide", "");
+    tabs.innerHTML = [["fields", "Fields"], ["sources", "Sources"], ["access", "Who can see what"], ["storage", "Storage, for engineers"]].map(function (x) { return '<button type="button" data-dmtab="' + x[0] + '" aria-pressed="' + (x[0] === "fields") + '">' + x[1] + "</button>"; }).join("");
+    $(":scope > header", v).appendChild(tabs); v.setAttribute("data-dmtab", "fields");
+    tabs.addEventListener("click", function (e) { var b = e.target.closest("[data-dmtab]"); if (!b) return; v.setAttribute("data-dmtab", b.getAttribute("data-dmtab")); $$("button", tabs).forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); }); requestAnimationFrame(slideAll); });
+    var TIP = { P0: "Must have for Phase 1", P1: "Should have", P2: "Nice to have", T0: "Doesn't identify anyone", T1: "Identifies them: kept in the vault, hashed in analytics", T2: "Sensitive: shown as bands only" };
+    $$("#dmPri button, #dmTier button").forEach(function (b) { var k = b.textContent.trim(); if (TIP[k]) b.title = TIP[k]; });
+    var list = $("#dmList");
+    if (list) { var ban = document.createElement("div"); ban.className = "v6dmban"; ban.innerHTML = '<span>' + ic4("alert", 16) + ' <b>3 must-have fields are below 60% coverage</b> and block Phase 1. The lowest is legal basis, at 12%.</span><button type="button" class="btn soft sm">Show them first</button>';
+      list.parentNode.insertBefore(ban, list);
+      $("button", ban).addEventListener("click", function () { var pb = $$("#dmPri button").filter(function (b) { return b.textContent.trim() === "P0"; })[0], sb = $$("#dmSort button").filter(function (b) { return /Lowest/.test(b.textContent); })[0]; if (pb) pb.click(); if (sb) sb.click(); list.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "start" }); }); }
+    $$("#dmSources .sync").forEach(function (s) { if ($("i.warn", s)) s.insertAdjacentHTML("beforeend", ' <span class="v6stchip">Needs attention</span>'); });
+    // Screens that are desktop jobs say so on phones.
+    [["identity", "Auditing merges"], ["data", "The data dictionary"]].forEach(function (x) { var vv = $('.view[data-view="' + x[0] + '"]'), h = vv && $(":scope > header", vv); if (h) h.insertAdjacentHTML("afterend", '<p class="v6desk">' + x[1] + " works best on a larger screen. You can read it here, but use a laptop to work through it.</p>"); });
+  })();
+
+  // Share: one sheet, with the option to include the current view.
+  $("#shareView").addEventListener("change", refreshShare);
+  if (isV6()) { renderPeople(); fmt6($('.view[data-view="people"]')); }
+  v6Copy();
   renderAudit();
   render();
 })();
