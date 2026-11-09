@@ -3357,6 +3357,7 @@ html[data-v6] .t7v b .t7ar{font-style:normal;font-weight:600;margin-right:4px}
 html[data-v6] .t7v b .t7ar.up{color:#146B3A}
 html[data-v6] .t7v b .t7ar.dn{color:#B0141F}
 html[data-v6] .t7v b small{font-size:16px;font-weight:500;color:#6B6B72;letter-spacing:0}
+html[data-v6] .v4sn.on .v4snf{color:#6B6B72}
 </style>
 </head>
 <body>
@@ -7438,10 +7439,11 @@ html[data-v6] .t7v b small{font-size:16px;font-weight:500;color:#6B6B72;letter-s
     window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - off, behavior: REDUCED ? "auto" : "smooth" });
   }
 
-  // Profile: one scrolling page; section chips jump to their section.
-  var _v4Profile0 = v4Profile;
+  // Profile: the single scrolling page (UX L3) is switched off at the reviewer's request.
+  // V6 keeps the original behaviour: one section at a time, chosen with the section chips and the pager.
+  var _v4Profile0 = v4Profile, V6_ONE_PAGE = false;
   v4Profile = function (p, m, team, otherBu) {
-    if (!isV6()) return _v4Profile0(p, m, team, otherBu);
+    if (!isV6() || !V6_ONE_PAGE) return _v4Profile0(p, m, team, otherBu);
     var SHORT = { identity: "Identity", personal: "Personal", education: "Education", career: "Career", aspiration: "Aspiration", financial: "Financial", consent: "Consent" };
     var cur = V.sec || m.sections[0].key;
     var nav = '<div class="v4secbar"><div class="v4secnav" aria-label="Jump to a section">' + m.sections.map(function (x) {
