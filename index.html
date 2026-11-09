@@ -3338,6 +3338,13 @@ html[data-v6] .v6studio .v6s-foot:has(.t7tbl){display:block}
   html[data-v6] .t7tbl :is(th,td){padding:10px 6px}
   html[data-v6] .t7tbl :is(th,td):nth-child(4){display:none}
 }
+/* Softer selected states (review: black outlines and fills were too harsh) */
+html[data-v6] .t7card{border-color:transparent;background:#F5F5F7;box-shadow:none}
+html[data-v6] button.t7card:hover{border-color:transparent;background:#EFEFF2}
+html[data-v6] button.t7card.on,html[data-v6] .t7-focus button.t7card.on{background:#fff;border-color:rgba(0,0,0,.08);box-shadow:0 1px 2px rgba(16,16,24,.04),0 4px 14px -6px rgba(16,16,24,.12)}
+html[data-v6] :is(.t7-flow,.t7-stack) button.t7card:not(.on),html[data-v6] .t7-focus button.t7card:not(.on){background:#F5F5F7}
+html[data-v6] .t7-focus button.t7card:not(.on):hover{background:#EFEFF2}
+html[data-v6] :is(.v6pill.sel,.t6bus button[aria-pressed="true"],.t6cats button[aria-pressed="true"],.v4sn.on,.v6ab[aria-pressed="true"],.part[aria-pressed="true"]){background:#EDEDF0;border-color:#EDEDF0;color:#1D1D1F;font-weight:600}
 </style>
 </head>
 <body>
