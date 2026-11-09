@@ -7765,7 +7765,12 @@ html[data-v6] .t7leg i.tg{border-top-color:#8E8E93}
     function xAxis7(F, x, i0, i1, extra) {
       var out = "", base = F.t + F.ph;
       if (V6.range > 40) mons6.concat(extra || []).forEach(function (m) { if (m[0] < i0 || m[0] > i1) return; var X = x(m[0]); out += '<line class="t7tk" x1="' + f1(X) + '" x2="' + f1(X) + '" y1="' + base + '" y2="' + (base + 5) + '"/><text class="t7xl" x="' + f1(X) + '" y="' + (base + 21) + '" text-anchor="middle">' + m[1] + "</text>"; });
-      else for (var i = N6 - 1, n = 0; i >= i0; i -= 7, n++) { if (F.m && n % 2) continue; var X = x(i); out += '<line class="t7tk" x1="' + f1(X) + '" x2="' + f1(X) + '" y1="' + base + '" y2="' + (base + 5) + '"/><text class="t7xl" x="' + f1(X) + '" y="' + (base + 21) + '" text-anchor="middle">' + dfmt(TR.days[i]) + "</text>"; }
+      // Weekly ticks counted from today, both back into the data and forward into a projection (Focus).
+      else for (var k = -Math.floor((N6 - 1 - i0) / 7); N6 - 1 + 7 * k <= i1; k++) {
+        if (F.m && k % 2) continue;
+        var i = N6 - 1 + 7 * k, X = x(i), d = i < N6 ? TR.days[i] : new Date(TR.days[N6 - 1].getTime() + (i - N6 + 1) * 864e5);
+        out += '<line class="t7tk" x1="' + f1(X) + '" x2="' + f1(X) + '" y1="' + base + '" y2="' + (base + 5) + '"/><text class="t7xl" x="' + f1(X) + '" y="' + (base + 21) + '" text-anchor="middle">' + dfmt(d) + "</text>";
+      }
       return out;
     }
     function overlay7(keys) {
