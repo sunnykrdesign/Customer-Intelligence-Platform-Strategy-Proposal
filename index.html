@@ -8169,11 +8169,11 @@ html[data-v6] .v4secnav .v4sn .v4snf{display:none}
       // a small mark travels the ring, opening into a star as it passes in front and dimming to a dot as it goes behind.
       var rx = 10.6, ry = 3.4, cx = 12, cy = 12.4, orbit = "M" + (cx + rx) + " " + cy + "A" + rx + " " + ry + " 0 1 1 " + (cx - rx) + " " + cy + "A" + rx + " " + ry + " 0 1 1 " + (cx + rx) + " " + cy;
       var back = "M" + (cx + rx) + " " + cy + "A" + rx + " " + ry + " 0 0 0 " + (cx - rx) + " " + cy, front = "M" + (cx - rx) + " " + cy + "A" + rx + " " + ry + " 0 0 0 " + (cx + rx) + " " + cy;
-      var MD = sp6Dot(0, 0, 1.5), MS = sp6Star(0, 0, 3.2), tilt = ' transform="rotate(-16 12 12)"';
-      var ringStyle = ' fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round"';
-      big = '<path class="o6r" d="' + back + '"' + ringStyle + ' opacity=".55"' + tilt + '/>' +
-        '<path class="sb" fill="#fff" d="' + sp6Star(12, 12, 7.4) + '"/>' +
-        '<path class="o6r" d="' + front + '"' + ringStyle + tilt + '/>';
+      var MD = sp6Dot(0, 0, 1.8), MS = sp6Star(0, 0, 3.9), tilt = ' transform="rotate(-16 12 12)"';
+      var ringStyle = ' fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round"';
+      big = '<path class="o6r" d="' + back + '"' + ringStyle + ' opacity=".3"' + tilt + '/>' +
+        '<path class="sb" fill="#fff" d="' + sp6Star(12, 12, 8.6) + '"/>' +
+        '<path class="o6r" d="' + front + '"' + ringStyle + ' opacity=".6"' + tilt + '/>';
       small = "<g" + tilt + "><path class=\"ss\" fill=\"#fff\" d=\"" + (still ? MS : MD) + "\"" + (still ? ' transform="translate(' + cx + " " + (cy + ry) + ')"' : "") + ">" +
         (still ? "" : '<animateMotion dur="5s" repeatCount="indefinite" path="' + orbit + '"/>' + sp6Anim([MD, MS, MD, MD], [0, 0.25, 0.5, 1], 5) +
           '<animate attributeName="opacity" dur="5s" repeatCount="indefinite" keyTimes="0;0.5;0.75;1" values="1;1;0.35;1"/>') + "</path></g>";
