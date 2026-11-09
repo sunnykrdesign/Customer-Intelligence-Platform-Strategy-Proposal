@@ -8144,11 +8144,26 @@ html[data-v6] .v4secnav .v4sn .v4snf{display:none}
       big = '<path class="sb" fill="#fff" d="' + S1 + '">' + (still ? "" : sp6Anim([S1, S1, D1, D1, S1], t, 5)) + "</path>";
       small = '<path class="ss" fill="#fff" d="' + D2 + '">' + (still ? "" : sp6Anim([D2, D2, S2, S2, D2], t, 5)) + "</path>";
     } else if (mode === "orbit") {
-      // Two marks circle the star on opposite sides without stopping, each opening into a small star at the diagonals.
-      var c = 12, R = 10.3, px = c + R * Math.SQRT1_2, py = c - R * Math.SQRT1_2, S = sp6Star(px, py, 3.6), D = sp6Dot(px, py, 2);
-      var orb = function (from, first) { return '<g>' + (still ? "" : '<animateTransform attributeName="transform" type="rotate" values="' + from + ' 12 12;' + (from + 360) + ' 12 12" dur="6s" repeatCount="indefinite"/>') + '<path class="ss" fill="#fff" d="' + first + '"' + (still && from ? ' transform="rotate(' + from + ' 12 12)"' : "") + '>' + (still ? "" : sp6Anim(first === S ? [S, D, S] : [D, S, D], [0, 0.5, 1], 1.5)) + "</path></g>"; };
-      big = '<path class="sb" fill="#fff" d="' + sp6Star(c, c, 7) + '"/>';
-      small = orb(0, S) + orb(180, D);
+      // 3D orbit: two marks travel crossing, tilted orbits around the star. Coming towards you a mark grows into a star and
+      // brightens; going away it shrinks to a dot, dims and passes behind the star (a copy drawn under the star takes over).
+      var c = 12, rx = 10, ry = 3.3, DUR = 6;
+      var path3 = "M" + (c + rx) + " " + c + "A" + rx + " " + ry + " 0 1 1 " + (c - rx) + " " + c + "A" + rx + " " + ry + " 0 1 1 " + (c + rx) + " " + c;
+      var mid = sp6Star(0, 0, 2.3), near = sp6Star(0, 0, 3.7), far = sp6Dot(0, 0, 1.1), kt = "0;0.25;0.5;0.75;1";
+      var mark = function (tilt, phase, layer) {
+        var beg = ' begin="' + (-phase) + 's"', vis = layer === "front" ? "visible;hidden" : "hidden;visible";
+        var inner = still
+          ? (layer === "front" ? '<path class="ss" fill="#fff" d="' + near + '" transform="translate(' + c + " " + (c + ry) + ')"/>' : "")
+          : '<g><animate attributeName="visibility" calcMode="discrete" dur="' + DUR + 's"' + beg + ' repeatCount="indefinite" keyTimes="0;0.5" values="' + vis + '"/>' +
+            '<path class="ss" fill="#fff" d="' + mid + '">' +
+            '<animateMotion dur="' + DUR + 's"' + beg + ' repeatCount="indefinite" path="' + path3 + '"/>' +
+            '<animate attributeName="d" dur="' + DUR + 's"' + beg + ' repeatCount="indefinite" calcMode="spline" keyTimes="' + kt + '" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" values="' + [mid, near, mid, far, mid].join(";") + '"/>' +
+            '<animate attributeName="opacity" dur="' + DUR + 's"' + beg + ' repeatCount="indefinite" keyTimes="' + kt + '" values="0.85;1;0.85;0.4;0.85"/>' +
+            "</path></g>";
+        return '<g transform="rotate(' + tilt + " " + c + " " + c + ')">' + inner + "</g>";
+      };
+      // Back layer, then the star, then the front layer, so a mark going away is hidden by the star.
+      big = mark(-24, 0, "back") + mark(26, DUR / 2, "back") + '<path class="sb" fill="#fff" d="' + sp6Star(c, c, 6.8) + '"/>';
+      small = mark(-24, 0, "front") + mark(26, DUR / 2, "front");
     } else if (mode === "ring") {
       // A tilted orbit ring around the star. The back half of the ring sits behind the star and the front half in front;
       // a small mark travels the ring, opening into a star as it passes in front and dimming to a dot as it goes behind.
@@ -8189,7 +8204,7 @@ html[data-v6] .v4secnav .v4sn .v4snf{display:none}
     var NOTE = {
       pulse: "The star turns slowly; the dot grows into a small star and back, in place (3.2s).",
       swap: "The star and the dot trade corners: the star shrinks into a dot at the top left while the dot grows into the star at the bottom right, then they swap back (5s).",
-      orbit: "Two marks circle the star on opposite sides without stopping, each opening into a small star at the diagonals and closing to a dot in between (6s per lap).",
+      orbit: "Two marks travel crossing, tilted orbits around the star, as if in 3D: each grows into a star and brightens as it comes towards you, then shrinks to a dot, dims and passes behind the star as it goes away (6s per lap).",
       ring: "A tilted ring circles the star, half behind it and half in front. A small mark travels the ring, opening into a star as it passes in front and fading to a dot behind (5s per lap).",
       cycle: "Three marks take turns: the big star moves down and shrinks, the small star becomes a dot, and the dot grows into the big star (7.5s)."
     };
