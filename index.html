@@ -3345,6 +3345,14 @@ html[data-v6] button.t7card.on,html[data-v6] .t7-focus button.t7card.on{backgrou
 html[data-v6] :is(.t7-flow,.t7-stack) button.t7card:not(.on),html[data-v6] .t7-focus button.t7card:not(.on){background:#F5F5F7}
 html[data-v6] .t7-focus button.t7card:not(.on):hover{background:#EFEFF2}
 html[data-v6] :is(.v6pill.sel,.t6bus button[aria-pressed="true"],.t6cats button[aria-pressed="true"],.v4sn.on,.v6ab[aria-pressed="true"],.part[aria-pressed="true"]){background:#EDEDF0;border-color:#EDEDF0;color:#1D1D1F;font-weight:600}
+/* Lighter chart rules (review: the black lines read too heavy) */
+html[data-v6] .v6ch .t7ln{stroke-width:2}
+html[data-v6] .v6ch .t7today{stroke:#C7C7CC;stroke-width:1}
+html[data-v6] .v6ch .t7tgt{stroke:#8E8E93;stroke-width:1;stroke-dasharray:4 4}
+html[data-v6] .v6ch text.t7tgl{fill:#3A3A3F;font-weight:500}
+html[data-v6] .v6ch .t7base{stroke:#E5E5EA}
+html[data-v6] .v6studio .v6ch.hov .v6x{opacity:.25}
+html[data-v6] .t7leg i.tg{border-top-color:#8E8E93}
 </style>
 </head>
 <body>
@@ -7893,7 +7901,7 @@ html[data-v6] :is(.v6pill.sel,.t6bus button[aria-pressed="true"],.t6cats button[
           '<path class="fband morph" style="fill:' + s.c + ';opacity:.12" d="' + G.band + '"/>' +
           '<path class="fghost t7ghost morph" d="' + G.ghost + '"/>' +
           '<path class="farea morph" fill="url(#t7gf)" d="' + G.area + '"/>' +
-          '<path class="fline t7ln morph" style="stroke:' + s.c + ';stroke-width:2.5" d="' + G.line + '"/>' +
+          '<path class="fline t7ln morph" style="stroke:' + s.c + ';stroke-width:2" d="' + G.line + '"/>' +
           '<path class="ffc t7fc morph" style="stroke:' + s.c + '" d="' + G.fc + '"/>' +
           '<circle class="fhalo" cx="' + f1(G.end[0]) + '" cy="' + f1(G.end[1]) + '" r="10" fill="' + s.c + '" opacity=".14"/>' +
           '<circle class="fend" cx="' + f1(G.end[0]) + '" cy="' + f1(G.end[1]) + '" r="5" fill="' + s.c + '" stroke="#fff" stroke-width="2.5"/></svg>' +
