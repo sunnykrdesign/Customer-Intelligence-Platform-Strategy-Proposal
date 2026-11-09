@@ -3180,6 +3180,127 @@ html[data-v6] .v6hero.v6glowon .v6h-glow{opacity:0}
 html[data-v6] .v6hero .v6h-glow{background:radial-gradient(40% 40% at 78% 40%,rgba(227,38,47,.18),transparent 70%),radial-gradient(35% 35% at 62% 85%,rgba(91,141,239,.1),transparent 70%),radial-gradient(30% 30% at 15% 0%,rgba(255,255,255,.04),transparent 70%)}
 /* The cursor light belongs to the dark hero only */
 html[data-v6] .v6c::before{display:none !important}
+
+/* ===== V6 Trends redesign ===== */
+.t7tools{display:contents}
+html[data-v6] .t7tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+html:not([data-v6]) .t7range{display:none}
+html[data-v6] .v6studio .v6s-title p{max-width:640px;line-height:1.5}
+html[data-v6] .v6s-bar.t7cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:20px 0 6px;align-items:stretch}
+html[data-v6] .t7card{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-height:0;height:auto !important;padding:14px 16px 14px;border:1px solid #E5E5EA;border-radius:16px;background:#fff;text-align:left;font:inherit;color:#1D1D1F;cursor:pointer;transition:border-color .2s,box-shadow .2s,background .2s;overflow:hidden}
+html[data-v6] .t7card.static{cursor:default;background:#FAFAFB}
+html[data-v6] .t7card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--c);opacity:0;transition:opacity .2s}
+html[data-v6] button.t7card:hover{border-color:#C7C7CC}
+html[data-v6] button.t7card.on{border-color:#D1D1D6;box-shadow:0 1px 2px rgba(0,0,0,.04),0 6px 16px -10px rgba(16,16,24,.18)}
+html[data-v6] .t7card.on::before{opacity:1}
+html[data-v6] .t7-focus button.t7card.on{border-color:#1D1D1F;box-shadow:0 0 0 1px #1D1D1F}
+html[data-v6] .t7-focus .t7card::before{display:none}
+html[data-v6] button.t7card:not(.on){background:#FAFAFB}
+html[data-v6] :is(.t7-flow,.t7-stack) button.t7card:not(.on) .t7v{opacity:.45}
+html[data-v6] .t7-focus button.t7card:not(.on){background:#fff}
+html[data-v6] .t7-focus button.t7card:not(.on) .t7sp{opacity:.6}
+html[data-v6] .t7n{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:#3A3A3F;line-height:1.3;padding-right:4px}
+html[data-v6] .t7n i{width:10px;height:10px;border-radius:3px;background:var(--c);flex:0 0 10px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+html[data-v6] :is(.t7-flow,.t7-stack) button.t7card:not(.on) .t7n i{background:transparent;box-shadow:inset 0 0 0 1.5px var(--c)}
+html[data-v6] .t7v{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+html[data-v6] .t7v b{font-size:24px;font-weight:600;letter-spacing:-0.02em;line-height:1.15;font-variant-numeric:tabular-nums}
+html[data-v6] .t7chip{font-style:normal;font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;line-height:1.5;white-space:nowrap}
+html[data-v6] .t7chip.up{background:#E6F6EC;color:#146B3A}
+html[data-v6] .t7chip.dn{background:#FDE8E9;color:#B0141F}
+html[data-v6] .t7cap{font-size:12px;color:#6B6B72;line-height:1.4}
+html[data-v6] .t7sp{position:absolute;right:16px;bottom:14px;width:64px;height:24px;overflow:visible}
+html[data-v6] .t7sp path{fill:none;stroke-width:1.75;stroke-linecap:round;vector-effect:non-scaling-stroke}
+html[data-v6] .t7-focus .t7cap{padding-right:72px}
+html[data-v6] .t7share{display:block;width:100%;height:4px;border-radius:2px;background:#F0F0F3;overflow:hidden;margin-top:2px}
+html[data-v6] .t7share i{display:block;height:100%;border-radius:2px;background:var(--c);box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)}
+html[data-v6] #v6Stage{height:300px;margin-top:14px}
+html[data-v6] #v6Stage[data-st="stack"]{height:360px}
+/* chart marks */
+html[data-v6] .v6ch .t7gl{stroke:#F0F0F3}
+html[data-v6] .v6ch .t7base{stroke:#D1D1D6}
+html[data-v6] .v6ch .t7tk{stroke:#D1D1D6}
+html[data-v6] .v6ch text.t7yl,html[data-v6] .v6ch text.t7xl{font-family:inherit;font-size:12px;letter-spacing:0;fill:#6B6B72;font-variant-numeric:tabular-nums}
+html[data-v6] .v6ch text.t7ph{font-family:inherit;font-size:12px;letter-spacing:0;font-weight:600;fill:#3A3A3F}
+html[data-v6] .v6ch .t7ln{fill:none;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;transition:opacity .2s}
+html[data-v6] .v6ch .t7end{stroke:#fff;stroke-width:2}
+html[data-v6] .v6ch .t7pill text{font-family:inherit;font-size:12px;letter-spacing:0;font-weight:600;fill:#fff;font-variant-numeric:tabular-nums}
+html[data-v6] .v6ch .t7lead{fill:none;stroke-width:1;opacity:.5}
+html[data-v6] .v6ch .t7pill,html[data-v6] .v6ch .t7end{transition:opacity .2s}
+html[data-v6] .v6ch.emph :is(.t7ln,.t7end,.t7pill):not(.hi){opacity:.14}
+html[data-v6] .v6ch.emph rect[data-s]:not(.hi){opacity:.25}
+html[data-v6] .v6ch rect[data-s]{transition:opacity .2s}
+html[data-v6] .v6ch .t7ev line{stroke:#C7C7CC;stroke-dasharray:3 3}
+html[data-v6] .v6ch .t7ev circle{fill:#fff;stroke:#1D1D1F;stroke-width:1.5}
+html[data-v6] .v6ch .t7ev text{font-family:inherit;font-size:12px;letter-spacing:0;font-weight:600;fill:#1D1D1F}
+html[data-v6] .v6ch .t7colbg{fill:#F5F5F7;opacity:0;transition:opacity .15s}
+html[data-v6] .v6ch.dim .col.hot .t7colbg{opacity:1}
+html[data-v6] .v6ch.dim .col:not(.hot) .bar{opacity:.4}
+html[data-v6] .v6ch .t7kd{fill:#fff;stroke:#C98A1E;stroke-width:1.5}
+html[data-v6] .v6ch .t7zone{fill:#F7F7F9}
+html[data-v6] .v6ch .t7today{stroke:#1D1D1F;stroke-width:1}
+html[data-v6] .v6ch .t7tag rect{fill:#1D1D1F}
+html[data-v6] .v6ch .t7tag text{font-family:inherit;font-size:12px;letter-spacing:0;font-weight:600;fill:#fff}
+html[data-v6] .v6ch text.t7zl{font-family:inherit;font-size:12px;letter-spacing:0;fill:#6B6B72;font-weight:500}
+html[data-v6] .v6ch .t7tgt{stroke:#1D1D1F;stroke-width:1.25;stroke-dasharray:6 4}
+html[data-v6] .v6ch text.t7tgl{font-family:inherit;font-size:12px;letter-spacing:0;font-weight:600;fill:#1D1D1F;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round}
+html[data-v6] .v6ch .t7ghost{fill:none;stroke:#AEAEB2;stroke-width:1.5;stroke-dasharray:2 4;stroke-linecap:round}
+html[data-v6] .v6ch .t7fc{fill:none;stroke-width:2.25;stroke-dasharray:6 5;stroke-linecap:round}
+html[data-v6] .v6studio .v6x{background:#1D1D1F;opacity:0;width:1px}
+html[data-v6] .v6studio .v6ch.hov .v6x{opacity:.55}
+html[data-v6] .v6studio .v6dot{width:10px;height:10px;margin:-5px 0 0 -5px;border-width:2px;box-shadow:0 0 0 3px rgba(255,255,255,.9),0 1px 4px rgba(0,0,0,.18)}
+html[data-v6] .v6studio .t7xd{position:absolute;bottom:4px;transform:translateX(-50%);padding:2px 8px;border-radius:6px;background:#1D1D1F;color:#fff;font-size:12px;font-weight:600;line-height:18px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .15s;z-index:3}
+html[data-v6] .v6studio .v6ch.hov .t7xd{opacity:1}
+/* light tooltip */
+html[data-v6] .v6studio .v6tip.t7tip{top:0;min-width:260px;max-width:340px;padding:12px 14px;gap:8px;border-radius:12px;background:rgba(255,255,255,.97);color:#1D1D1F;font-size:13px;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 0 0 1px rgba(0,0,0,.07),0 12px 32px -12px rgba(16,16,24,.28);z-index:5}
+html[data-v6] .t7tip .t7th{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:8px;border-bottom:1px solid #F0F0F3}
+html[data-v6] .t7tip .t7th b{font-size:13px;font-weight:600;font-family:inherit;text-transform:none;letter-spacing:0;color:#1D1D1F}
+html[data-v6] .t7tip .t7th small{font-size:12px;color:#6B6B72}
+html[data-v6] .t7tip .t7r{display:grid;grid-template-columns:10px 1fr auto auto;align-items:center;gap:8px}
+html[data-v6] .t7tip .t7r.off{opacity:.5}
+html[data-v6] .t7tip .t7r i{width:10px;height:10px;border-radius:3px}
+html[data-v6] .t7tip i.gh{height:0;border-top:2px dotted #8E8E93;border-radius:0}
+html[data-v6] .t7tip i.bd{opacity:.25}
+html[data-v6] .t7tip u{text-decoration:none;color:#3A3A3F;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html[data-v6] .t7tip .t7r b{margin:0;padding:0;font-weight:600;font-variant-numeric:tabular-nums}
+html[data-v6] .t7tip .t7r em{font-style:normal;font-size:12px;color:#6B6B72;min-width:44px;text-align:right;font-variant-numeric:tabular-nums}
+html[data-v6] .t7tip :is(em,b).up{color:#146B3A}
+html[data-v6] .t7tip :is(em,b).dn{color:#B0141F}
+html[data-v6] .t7tip .t7tf{display:flex;align-items:center;gap:8px;padding-top:8px;border-top:1px solid #F0F0F3}
+html[data-v6] .t7tip .t7tf b{margin-left:auto;font-weight:600;font-variant-numeric:tabular-nums}
+html[data-v6] .t7tip .t7tf em{font-style:normal;font-size:12px;font-weight:600;min-width:44px;text-align:right}
+html[data-v6] .t7tip .t7evt{display:flex;align-items:center;gap:8px;padding-top:8px;border-top:1px solid #F0F0F3;color:#1D1D1F;font-size:12px;font-weight:500}
+html[data-v6] .t7tip .t7evt em{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;border:1.5px solid #1D1D1F;font-style:normal;font-size:11px;font-weight:600;flex:0 0 18px}
+/* foot */
+html[data-v6] .v6studio .v6s-foot:empty{display:none}
+html[data-v6] .v6studio .v6s-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;margin-top:16px;padding-top:16px}
+html[data-v6] .t7moms{display:flex;align-items:center;gap:12px 16px;flex-wrap:wrap;font-size:13px;color:#3A3A3F}
+html[data-v6] .t7mk{font-size:12px;font-weight:600;color:#6B6B72}
+html[data-v6] .t7moms ol{display:flex;flex-wrap:wrap;gap:8px 20px;margin:0;padding:0;list-style:none}
+html[data-v6] .t7moms li{display:flex;align-items:center;gap:8px}
+html[data-v6] .t7moms li em{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;border:1.5px solid #1D1D1F;font-style:normal;font-size:11px;font-weight:600;color:#1D1D1F;flex:0 0 20px}
+html[data-v6] .t7moms small{font-size:12px;color:#6B6B72;white-space:nowrap}
+html[data-v6] .t7none{font-size:13px;color:#6B6B72}
+html[data-v6] .t7leg{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:12px;color:#3A3A3F}
+html[data-v6] .t7leg span{display:inline-flex;align-items:center;gap:6px}
+html[data-v6] .t7leg i{display:inline-block;width:16px;height:0}
+html[data-v6] .t7leg i.ln{height:2.5px;border-radius:2px}
+html[data-v6] .t7leg i.gh{border-top:2px dotted #8E8E93}
+html[data-v6] .t7leg i.fc{border-top:2px dashed currentColor}
+html[data-v6] .t7leg i.bd{height:10px;border-radius:3px;opacity:.2}
+html[data-v6] .t7leg i.tg{border-top:1.5px dashed #1D1D1F}
+html[data-v6] .t7stats{display:flex;flex-wrap:wrap;gap:8px 28px;font-size:12px;color:#6B6B72}
+html[data-v6] .t7stats b{display:block;margin-top:2px;font-size:16px;font-weight:600;color:#1D1D1F;font-variant-numeric:tabular-nums}
+@media (max-width:640px){
+  html[data-v6] .v6s-bar.t7cards{display:flex;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:16px;gap:8px;margin:16px -16px 4px;padding:2px 16px 6px;scrollbar-width:none}
+  html[data-v6] .v6s-bar.t7cards::-webkit-scrollbar{display:none}
+  html[data-v6] .t7card{flex:0 0 72%;scroll-snap-align:start}
+  html[data-v6] #v6Stage{height:260px}
+  html[data-v6] #v6Stage[data-st="stack"]{height:320px}
+  html[data-v6] .t7tools{width:100%;display:grid;grid-template-columns:1fr;gap:8px}
+  html[data-v6] .t7tools .v6seg{display:flex;width:100%}
+  html[data-v6] .t7tools .v6seg button{flex:1;justify-content:center}
+  html[data-v6] .v6studio .v6tip.t7tip{min-width:200px}
+}
 </style>
 </head>
 <body>
@@ -6195,6 +6316,7 @@ html[data-v6] .v6c::before{display:none !important}
     q.push("v=" + curV(), "card=" + PERSON, "tabs=" + TABS, "bar=" + STICK, "pin=" + (SSEARCH ? 1 : 0), "nav=" + nav);
     if (curV() >= "5") q.push("lay5=" + LAY5, "life=" + LIFE);
     if (curV() === "6" && typeof V6 !== "undefined") q.push("tr=" + V6.style);
+    if (curV() === "6" && typeof V6 !== "undefined" && V6.range === 30) q.push("rg=30");
     if (curV() === "6" && typeof GLOW6 !== "undefined" && !GLOW6) q.push("glow=0");
     if (route === "lookup" && L.person) q.push("p=" + L.person);
     q.push("review=0");
@@ -7538,6 +7660,312 @@ html[data-v6] .v6c::before{display:none !important}
     });
     hero.addEventListener("pointerleave", function () { on = false; last = null; hero.classList.remove("v6glowon"); });
     var sw = $("#rvGlow6"); if (sw) { sw.checked = GLOW6; sw.addEventListener("change", function () { GLOW6 = this.checked; try { localStorage.setItem("cip-glow6", GLOW6 ? "1" : "0"); } catch (e) {} if (!GLOW6) { on = false; hero.classList.remove("v6glowon"); } if (typeof rvShareSync === "function") rvShareSync(); }); }
+  })();
+
+  /* ================= V6 Trends redesign: metric cards, range, two-tier stack, focus projection ================= */
+  (function () {
+    var stage = $("#v6Stage"); if (!stage) return;
+    var frame6o = frame6, flow6o = flowChart6, stack6o = stackChart6, focus6o = focusChart6, hover6o = hover6, bar6o = studioBar6;
+    V6.range = 92;
+    try { if (localStorage.getItem("cip-v6-range") === "30") V6.range = 30; } catch (e) {}
+    if (Q.get("rg") === "30") V6.range = 30; else if (Q.get("rg") === "92") V6.range = 92;
+    var SK7 = [["known", "Already known", "#C98A1E"], ["shared", "Shared phone", "#8E97AB"], ["fresh", "New to upGrad", "#E3E3E8"]];
+
+    // Range control, injected next to the style switch (V6 only).
+    var seg = $("#v6Style"), tools = document.createElement("div");
+    tools.className = "t7tools"; seg.parentNode.insertBefore(tools, seg);
+    tools.innerHTML = '<div class="v6seg t7range" role="group" aria-label="Time range" id="t7Range" data-slide><button type="button" data-rg="30" aria-pressed="false" title="Last 30 days">30 days</button><button type="button" data-rg="92" aria-pressed="false" title="Last 3 months">3 months</button></div>';
+    tools.appendChild(seg);
+    function syncRange() { $$("#t7Range [data-rg]").forEach(function (b) { b.setAttribute("aria-pressed", +b.getAttribute("data-rg") === V6.range); }); }
+    syncRange();
+    $("#t7Range").addEventListener("click", function (e) {
+      var b = e.target.closest("[data-rg]"); if (!b || +b.getAttribute("data-rg") === V6.range) return;
+      V6.range = +b.getAttribute("data-rg"); try { localStorage.setItem("cip-v6-range", String(V6.range)); } catch (er) {}
+      syncRange(); renderStudio6(true, true); requestAnimationFrame(slideAll); if (typeof rvShareSync === "function") rvShareSync();
+    });
+
+    function i07() { return N6 - Math.min(V6.range, N6); }
+    function w07() { return V6.range > 40 ? 0 : WK6.length - 5; }
+    function arr7(d, dp, unit) { return (d >= 0 ? "↑ " : "↓ ") + Math.abs(d).toFixed(dp) + (unit || ""); }
+    function since7() { return dfmt(TR.days[i07()]); }
+    function spark7(vals, c) {
+      var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals), r = hi - lo || 1;
+      var d = cpath(smooth6(vals, 2).map(function (v, i) { return [i / (vals.length - 1) * 80, 26 - (v - lo) / r * 22]; }));
+      return '<svg class="t7sp" ' + NS6 + ' viewBox="0 0 80 30" preserveAspectRatio="none" aria-hidden="true"><path d="' + d + '" stroke="' + c + '"/></svg>';
+    }
+    function card7(o) {
+      var tag = o.attr ? "button" : "div";
+      return "<" + tag + (o.attr ? ' type="button" ' + o.attr + ' aria-pressed="' + !!o.on + '"' : "") + ' class="t7card' + (o.on ? " on" : "") + (o.attr ? "" : " static") + '" style="--c:' + o.c + '">' +
+        '<span class="t7n"><i></i>' + esc(o.name) + "</span>" +
+        '<span class="t7v"><b>' + o.val + "</b>" + (o.chip ? '<em class="t7chip ' + o.chipCls + '">' + o.chip + "</em>" : "") + "</span>" +
+        '<span class="t7cap">' + o.cap + "</span>" + (o.extra || "") + "</" + tag + ">";
+    }
+
+    frame6 = function (st) {
+      if (!isV6()) return frame6o(st);
+      var W = Math.max(280, st.clientWidth), H = st.clientHeight, m = W < 600, l = m ? 34 : 44, r = V6.style === "flow" ? (m ? 54 : 64) : 12, t = 30, b = 30;
+      return { W: W, H: H, l: l, r: r, t: t, b: b, pw: W - l - r, ph: H - t - b, m: m };
+    };
+
+    function yAxis7(F, y, ticks, fmt) {
+      return ticks.map(function (t) { var Y = y(t); return '<line class="t7gl" x1="' + F.l + '" x2="' + (F.l + F.pw) + '" y1="' + f1(Y) + '" y2="' + f1(Y) + '"/><text class="t7yl" x="' + (F.l - 10) + '" y="' + f1(Y + 4) + '" text-anchor="end">' + fmt(t) + "</text>"; }).join("");
+    }
+    function xAxis7(F, x, i0, i1, extra) {
+      var out = "", base = F.t + F.ph;
+      if (V6.range > 40) mons6.concat(extra || []).forEach(function (m) { if (m[0] < i0 || m[0] > i1) return; var X = x(m[0]); out += '<line class="t7tk" x1="' + f1(X) + '" x2="' + f1(X) + '" y1="' + base + '" y2="' + (base + 5) + '"/><text class="t7xl" x="' + f1(X) + '" y="' + (base + 21) + '" text-anchor="middle">' + m[1] + "</text>"; });
+      else for (var i = N6 - 1, n = 0; i >= i0; i -= 7, n++) { if (F.m && n % 2) continue; var X = x(i); out += '<line class="t7tk" x1="' + f1(X) + '" x2="' + f1(X) + '" y1="' + base + '" y2="' + (base + 5) + '"/><text class="t7xl" x="' + f1(X) + '" y="' + (base + 21) + '" text-anchor="middle">' + dfmt(TR.days[i]) + "</text>"; }
+      return out;
+    }
+    function overlay7(keys) {
+      return '<span class="v6x"></span><span class="t7xd"></span>' + keys.map(function (k) { return '<span class="v6dot" data-k="' + k[0] + '" style="border-color:' + k[1] + '"></span>'; }).join("") + '<div class="v6tip t7tip" role="presentation"></div>';
+    }
+    // Value pills in the right gutter, nudged apart so they never overlap.
+    function pills7(F, items) {
+      items.sort(function (a, b) { return a.y - b.y; });
+      var gap = 24, ys = items.map(function (it) { return it.y; });
+      for (var k = 1; k < ys.length; k++) if (ys[k] - ys[k - 1] < gap) ys[k] = ys[k - 1] + gap;
+      var over = ys.length ? ys[ys.length - 1] - (F.t + F.ph - 10) : 0; if (over > 0) ys = ys.map(function (v) { return v - over; });
+      var px = F.l + F.pw + 10, w = F.r - 14;
+      return items.map(function (it, k) {
+        return '<g class="t7pill" data-k="' + it.k + '"><path class="t7lead" d="M' + f1(F.l + F.pw) + "," + f1(it.y) + "L" + f1(px) + "," + f1(ys[k]) + '" stroke="' + it.c + '"/><rect x="' + f1(px) + '" y="' + f1(ys[k] - 11) + '" width="' + w + '" height="22" rx="11" fill="' + it.c + '"/><text x="' + f1(px + w / 2) + '" y="' + f1(ys[k] + 4) + '" text-anchor="middle"' + (it.dark ? ' class="dk"' : "") + ">" + it.t + "</text></g>";
+      }).join("");
+    }
+
+    /* ----- Flow ----- */
+    flowChart6 = function (ch, F) {
+      if (!isV6()) return flow6o(ch, F);
+      var i0 = i07(), i1 = N6 - 1, on = S6.slice(0, 3).filter(function (s) { return V6.on[s.k]; }), all = [];
+      on.forEach(function (s) { all = all.concat(s.v.slice(i0)); });
+      var mn = Math.min.apply(null, all), mx = Math.max.apply(null, all), st = mx - mn > 24 ? 10 : mx - mn > 8 ? 5 : 2;
+      var lo = Math.floor((mn - st * 0.3) / st) * st, hi = Math.ceil((mx + st * 0.3) / st) * st;
+      var x = function (i) { return F.l + (i - i0) / (i1 - i0) * F.pw; }, y = function (v) { return F.t + (hi - v) / (hi - lo) * F.ph; }, base = F.t + F.ph;
+      var lines = "", ends = "", pills = [], tk = []; for (var t = lo; t <= hi + 1e-9; t += st) tk.push(t);
+      if (tk.length > 6) tk = tk.filter(function (_, n) { return n % 2 === 0; });
+      on.forEach(function (s) {
+        var sm = smooth6(s.v, V6.range > 40 ? 3 : 1); sm[i1] = s.v[i1];
+        var d = cpath(sm.slice(i0).map(function (v, j) { return [x(i0 + j), y(v)]; }));
+        lines += '<path class="t7ln" data-k="' + s.k + '" stroke="' + s.c + '" d="' + d + '"/>';
+        ends += '<circle class="t7end" data-k="' + s.k + '" cx="' + f1(x(i1)) + '" cy="' + f1(y(s.v[i1])) + '" r="4" fill="' + s.c + '"/>';
+        pills.push({ k: s.k, c: s.c, y: y(s.v[i1]), t: s.v[i1].toFixed(1) + "%" });
+      });
+      var evs = EV6.map(function (e, n) {
+        if (e[0] < i0) return ""; var X = x(e[0]);
+        return '<g class="t7ev"><line x1="' + f1(X) + '" x2="' + f1(X) + '" y1="' + (F.t - 8) + '" y2="' + base + '"/><circle cx="' + f1(X) + '" cy="' + (F.t - 18) + '" r="10"/><text x="' + f1(X) + '" y="' + (F.t - 14) + '" text-anchor="middle">' + (n + 1) + "</text></g>";
+      }).join("");
+      ch.innerHTML = '<svg ' + NS6 + ' viewBox="0 0 ' + F.W + " " + F.H + '" aria-hidden="true">' +
+        yAxis7(F, y, tk, function (t) { return t + "%"; }) + xAxis7(F, x, i0, i1) + '<line class="t7base" x1="' + F.l + '" x2="' + (F.l + F.pw) + '" y1="' + base + '" y2="' + base + '"/>' +
+        evs + lines + ends + pills7(F, pills) + "</svg>" +
+        overlay7(S6.slice(0, 3).map(function (s) { return [s.k, s.c]; })) +
+        '<div class="v6hit" tabindex="0" role="img" aria-label="Line chart of ' + on.map(function (s) { return s.n + " from " + s.v[i0].toFixed(1) + "% to " + s.v[i1].toFixed(1) + "%"; }).join(", ") + '. Use the arrow keys to read each day."></div>';
+      return {
+        n: i1 - i0 + 1, i: i1 - i0, x: function (j) { return x(i0 + j); },
+        idx: function (px) { return Math.max(0, Math.min(i1 - i0, Math.round((px - F.l) / F.pw * (i1 - i0)))); },
+        y: function (k, j) { return V6.on[k] ? y(s6(k).v[i0 + j]) : null; },
+        date: function (j) { return dfmt(TR.days[i0 + j]); },
+        tip: function (j) {
+          var i = i0 + j, ev = EV6.filter(function (e) { return e[0] >= i0 && Math.abs(e[0] - i) <= 1; })[0], evn = EV6.indexOf(ev) + 1;
+          return '<div class="t7th"><b>' + dfmt(TR.days[i]) + "</b><small>Change since " + since7() + "</small></div>" + on.map(function (s) {
+            var c = s.v[i] - s.v[i0];
+            return '<span class="t7r"><i style="background:' + s.c + '"></i><u>' + esc(s.n) + "</u><b>" + s.v[i].toFixed(1) + '%</b><em class="' + (c >= 0 ? "up" : "dn") + '">' + arr7(c, 1) + "</em></span>";
+          }).join("") + (ev ? '<div class="t7evt"><em>' + evn + "</em>" + esc(ev[1]) + "</div>" : "");
+        }
+      };
+    };
+
+    /* ----- Stack: weekly bars on top, share already known below ----- */
+    stackChart6 = function (ch, F) {
+      if (!isV6()) return stack6o(ch, F);
+      var w0 = w07(), W = WK6.slice(w0), on = SK7.filter(function (k) { return V6.son[k[0]]; });
+      var gapP = 34, ph1 = Math.round((F.ph - gapP) * 0.64), ph2 = F.ph - gapP - ph1, t2 = F.t + ph1 + gapP, base1 = F.t + ph1, base2 = t2 + ph2;
+      var max = Math.max.apply(null, W.map(function (w) { return on.reduce(function (a, k) { return a + w[k[0]]; }, 0); })) || 1;
+      var ticks = ticks6(0, max * 1.04, 3), hi = Math.max(ticks[ticks.length - 1], max * 1.04);
+      var band = F.pw / W.length, bw = Math.min(F.m ? 18 : 40, band * 0.62);
+      var y = function (v) { return F.t + (hi - v) / hi * ph1; }, cx = function (n) { return F.l + band * (n + 0.5); };
+      var kps = W.map(function (w) { return w.kp; }), lo2 = Math.floor((Math.min.apply(null, kps) - 1) / 5) * 5, hi2 = Math.ceil((Math.max.apply(null, kps) + 1) / 5) * 5;
+      var y2 = function (p) { return t2 + (hi2 - p) / (hi2 - lo2) * ph2; };
+      var defs = "", cols = W.map(function (w, n) {
+        var X = cx(n) - bw / 2, acc = 0, segs = on.map(function (k) {
+          var v = w[k[0]], ya = y(acc + v), yb = y(acc); acc += v;
+          return '<rect data-s="' + k[0] + '" x="' + f1(X) + '" y="' + f1(ya) + '" width="' + f1(bw) + '" height="' + f1(Math.max(0, yb - ya - (ya > F.t + 1 ? 1.5 : 0))) + '" fill="' + k[2] + '"/>';
+        }).join(""), top = y(acc);
+        defs += '<clipPath id="t7cp' + n + '"><rect x="' + f1(X) + '" y="' + f1(top) + '" width="' + f1(bw) + '" height="' + f1(base1 - top + 8) + '" rx="' + Math.min(6, bw / 4) + '"/></clipPath>';
+        return '<g class="col" data-w="' + n + '"><rect class="t7colbg" x="' + f1(cx(n) - band / 2 + 2) + '" y="' + F.t + '" width="' + f1(band - 4) + '" height="' + f1(base2 - F.t) + '" rx="8"/><g clip-path="url(#t7cp' + n + ')"><g class="bar">' + segs + "</g></g></g>";
+      }).join("");
+      var lp = W.map(function (w, n) { return [cx(n), y2(w.kp)]; }), ld = cpath(lp);
+      var area = ld + "L" + f1(lp[lp.length - 1][0]) + "," + base2 + "L" + f1(lp[0][0]) + "," + base2 + "Z";
+      var t2t = [lo2, (lo2 + hi2) / 2, hi2];
+      var low = '<text class="t7ph" x="' + F.l + '" y="' + (t2 - 12) + '">Share already known</text>' +
+        t2t.map(function (q) { return '<line class="t7gl" x1="' + F.l + '" x2="' + (F.l + F.pw) + '" y1="' + f1(y2(q)) + '" y2="' + f1(y2(q)) + '"/><text class="t7yl" x="' + (F.l - 10) + '" y="' + f1(y2(q) + 4) + '" text-anchor="end">' + q + "%</text>"; }).join("") +
+        '<defs><linearGradient id="t7ka" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C98A1E" stop-opacity=".22"/><stop offset="1" stop-color="#C98A1E" stop-opacity="0"/></linearGradient></defs>' +
+        '<path d="' + area + '" fill="url(#t7ka)"/><path class="t7ln" data-k="kp" stroke="#C98A1E" d="' + ld + '"/>' +
+        lp.map(function (p, n) { return '<circle class="t7kd" cx="' + f1(p[0]) + '" cy="' + f1(p[1]) + '" r="' + (n === lp.length - 1 ? 4 : 2.5) + '"/>'; }).join("");
+      var xl = W.map(function (w, n) { return (W.length > 6 && n % (F.m ? 4 : 2)) ? "" : '<text class="t7xl" x="' + f1(cx(n)) + '" y="' + (base2 + 21) + '" text-anchor="middle">' + dfmt(TR.days[w.i0]) + "</text>"; }).join("");
+      ch.innerHTML = '<svg ' + NS6 + ' viewBox="0 0 ' + F.W + " " + F.H + '" aria-hidden="true"><defs>' + defs + "</defs>" +
+        '<text class="t7ph" x="' + F.l + '" y="' + (F.t - 12) + '">Paid leads each week</text>' +
+        yAxis7(F, y, ticks.filter(function (t) { return t <= hi; }), function (t) { return t ? K6(t) : "0"; }) + cols +
+        '<line class="t7base" x1="' + F.l + '" x2="' + (F.l + F.pw) + '" y1="' + base1 + '" y2="' + base1 + '"/>' + low + xl + "</svg>" +
+        overlay7([["kp", "#C98A1E"]]) + '<div class="v6hit" tabindex="0" role="img" aria-label="Weekly paid leads, stacked by what the profile check found, with the share already known below. The share already known went from ' + W[0].kp.toFixed(1) + "% to " + W[W.length - 1].kp.toFixed(1) + '%. Use the arrow keys to read each week."></div>';
+      return {
+        n: W.length, i: W.length - 1, x: cx,
+        idx: function (px) { return Math.max(0, Math.min(W.length - 1, Math.floor((px - F.l) / band))); },
+        y: function (k, n) { return y2(W[n].kp); },
+        date: function (n) { return "Week of " + dfmt(TR.days[W[n].i0]); },
+        on: function (n) { ch.classList.add("dim"); $$(".col", ch).forEach(function (c) { c.classList.toggle("hot", +c.getAttribute("data-w") === n); }); },
+        off: function () { ch.classList.remove("dim"); $$(".col.hot", ch).forEach(function (c) { c.classList.remove("hot"); }); },
+        tip: function (n) {
+          var w = W[n], pv = n ? W[n - 1].kp : null;
+          return '<div class="t7th"><b>Week of ' + dfmt(TR.days[w.i0]) + "</b><small>" + fmtN(w.tot) + " paid leads</small></div>" + SK7.map(function (k) {
+            return '<span class="t7r' + (V6.son[k[0]] ? "" : " off") + '"><i style="background:' + k[2] + '"></i><u>' + k[1] + "</u><b>" + fmtN(w[k[0]]) + "</b><em>" + (w[k[0]] / w.tot * 100).toFixed(1) + "%</em></span>";
+          }).join("") + '<div class="t7tf"><u>Share already known</u><b>' + w.kp.toFixed(1) + "%</b>" + (pv != null ? '<em class="' + (w.kp - pv >= 0 ? "up" : "dn") + '">' + arr7(w.kp - pv, 1) + "</em>" : "<em></em>") + "</div>";
+        }
+      };
+    };
+
+    /* ----- Focus ----- */
+    function geom7(F, s) {
+      var i0 = i07(), NN = N6 + FC6, v = s.v, last = v[N6 - 1], slope = (last - v[N6 - 31]) / 30 * 0.7, fc = [], band = [];
+      for (var j = 0; j <= FC6; j++) { var fv = last + slope * j, sp = (s.dp === 2 ? 0.0009 : 0.12) * j; fc.push(fv); band.push([fv - sp, fv + sp]); }
+      var pool = v.slice(i0).concat(s.prev.slice(i0), band.map(function (b) { return b[0]; }), band.map(function (b) { return b[1]; }), s.tgt != null ? [s.tgt] : []);
+      var mn = Math.min.apply(null, pool), mx = Math.max.apply(null, pool), pad = (mx - mn) * 0.14; mn -= pad; mx += pad;
+      var x = function (i) { return F.l + (i - i0) / (NN - 1 - i0) * F.pw; }, y = function (val) { return F.t + (mx - val) / (mx - mn) * F.ph; }, base = F.t + F.ph;
+      var sm = smooth6(v, V6.range > 40 ? 2 : 1); sm[N6 - 1] = last;
+      var lp = sm.slice(i0).map(function (val, j) { return [x(i0 + j), y(val)]; }), line = cpath(lp);
+      var gh = cpath(smooth6(s.prev, 2).slice(i0).map(function (val, j) { return [x(i0 + j), y(val)]; }));
+      var fcp = cpath(fc.map(function (val, j) { return [x(N6 - 1 + j), y(val)]; }));
+      var bandD = cpath(band.map(function (b, j) { return [x(N6 - 1 + j), y(b[1])]; })) + "L" + band.slice().reverse().map(function (b, j) { return f1(x(N6 - 1 + FC6 - j)) + "," + f1(y(b[0])); }).join("L") + "Z";
+      var fmt = function (t) { return (s.dp === 2 ? t.toFixed(2) : Math.round(t)) + "%"; };
+      var tX = x(N6 - 1), zw = F.l + F.pw - tX;
+      var axes = '<rect class="t7zone" x="' + f1(tX) + '" y="' + (F.t - 6) + '" width="' + f1(zw) + '" height="' + f1(F.ph + 6) + '" rx="0"/>' +
+        yAxis7(F, y, ticks6(mn, mx, F.m ? 3 : 4), fmt) + xAxis7(F, x, i0, NN - 1, [[N6 + 26, "Dec"]]) +
+        '<line class="t7base" x1="' + F.l + '" x2="' + (F.l + F.pw) + '" y1="' + base + '" y2="' + base + '"/>' +
+        '<line class="t7today" x1="' + f1(tX) + '" x2="' + f1(tX) + '" y1="' + (F.t - 6) + '" y2="' + base + '"/>' +
+        '<g class="t7tag"><rect x="' + f1(tX - 26) + '" y="' + (F.t - 28) + '" width="52" height="20" rx="10"/><text x="' + f1(tX) + '" y="' + (F.t - 14) + '" text-anchor="middle">Today</text></g>' +
+        (zw > 90 ? '<text class="t7zl" x="' + f1(tX + zw / 2) + '" y="' + (F.t + 12) + '" text-anchor="middle">Projection</text>' : "") +
+        (s.tgt != null ? '<line class="t7tgt" x1="' + F.l + '" x2="' + (F.l + F.pw) + '" y1="' + f1(y(s.tgt)) + '" y2="' + f1(y(s.tgt)) + '"/><text class="t7tgl" x="' + (F.l + 8) + '" y="' + f1(y(s.tgt) - 8) + '">' + esc(s.tgtL) + "</text>" : "");
+      return { i0: i0, NN: NN, x: x, y: y, line: line, area: line + "L" + f1(x(N6 - 1)) + "," + base + "L" + f1(x(i0)) + "," + base + "Z", ghost: gh, fc: fcp, band: bandD, axes: axes, end: [x(N6 - 1), y(last)], fcv: fc, bandv: band };
+    }
+    focusChart6 = function (ch, F, morph) {
+      if (!isV6()) return focus6o(ch, F, morph);
+      var s = s6(V6.focus), G = geom7(F, s);
+      if (morph && ch.querySelector(".fline")) {
+        $(".faxes", ch).innerHTML = G.axes;
+        setD6($(".fline", ch), G.line); setD6($(".farea", ch), G.area); setD6($(".fghost", ch), G.ghost); setD6($(".ffc", ch), G.fc); setD6($(".fband", ch), G.band);
+        $(".fline", ch).style.stroke = s.c; $(".ffc", ch).style.stroke = s.c; $(".fband", ch).style.fill = s.c; $("#t7gf0", ch).setAttribute("stop-color", s.c); $("#t7gf1", ch).setAttribute("stop-color", s.c);
+        ["cx", "cy"].forEach(function (a, n) { $$(".fend, .fhalo", ch).forEach(function (c) { c.setAttribute(a, f1(G.end[n])); }); });
+        $(".fend", ch).setAttribute("fill", s.c); $(".fhalo", ch).setAttribute("fill", s.c);
+        $('.v6dot[data-k="f"]', ch).style.borderColor = s.c;
+      } else {
+        ch.innerHTML = '<svg ' + NS6 + ' viewBox="0 0 ' + F.W + " " + F.H + '" aria-hidden="true"><defs><linearGradient id="t7gf" x1="0" y1="0" x2="0" y2="1"><stop id="t7gf0" offset="0" stop-color="' + s.c + '" stop-opacity=".16"/><stop id="t7gf1" offset="1" stop-color="' + s.c + '" stop-opacity="0"/></linearGradient></defs>' +
+          '<g class="faxes">' + G.axes + "</g>" +
+          '<path class="fband morph" style="fill:' + s.c + ';opacity:.12" d="' + G.band + '"/>' +
+          '<path class="fghost t7ghost morph" d="' + G.ghost + '"/>' +
+          '<path class="farea morph" fill="url(#t7gf)" d="' + G.area + '"/>' +
+          '<path class="fline t7ln morph" style="stroke:' + s.c + ';stroke-width:2.5" d="' + G.line + '"/>' +
+          '<path class="ffc t7fc morph" style="stroke:' + s.c + '" d="' + G.fc + '"/>' +
+          '<circle class="fhalo" cx="' + f1(G.end[0]) + '" cy="' + f1(G.end[1]) + '" r="10" fill="' + s.c + '" opacity=".14"/>' +
+          '<circle class="fend" cx="' + f1(G.end[0]) + '" cy="' + f1(G.end[1]) + '" r="5" fill="' + s.c + '" stroke="#fff" stroke-width="2.5"/></svg>' +
+          overlay7([["f", s.c]]) + '<div class="v6hit" tabindex="0" role="img" aria-label="One measure against last period and its target, with a 30-day projection. Use the arrow keys to read each day."></div>';
+        $$(".morph", ch).forEach(function (el) { el.style.d = 'path("' + el.getAttribute("d") + '")'; });
+      }
+      var i0 = G.i0, NN = G.NN;
+      return {
+        n: NN - i0, i: N6 - 1 - i0, x: function (j) { return G.x(i0 + j); },
+        idx: function (px) { return Math.max(0, Math.min(NN - 1 - i0, Math.round((px - F.l) / F.pw * (NN - 1 - i0)))); },
+        y: function (k, j) { var i = i0 + j, m = s6(V6.focus); return i < N6 ? G.y(m.v[i]) : G.y(G.fcv[i - N6 + 1]); },
+        date: function (j) { var i = i0 + j; return i < N6 ? dfmt(TR.days[i]) : dfmt(new Date(TR.days[N6 - 1].getTime() + (i - N6 + 1) * 864e5)); },
+        tip: function (j) {
+          var i = i0 + j, m = s6(V6.focus), dp = m.dp;
+          if (i < N6) {
+            var dl = m.v[i] - m.prev[i], good = m.low ? dl <= 0 : dl >= 0;
+            return '<div class="t7th"><b>' + dfmt(TR.days[i]) + "</b><small>Actual</small></div>" +
+              '<span class="t7r"><i style="background:' + m.c + '"></i><u>' + esc(m.n) + "</u><b>" + m.v[i].toFixed(dp) + "%</b><em></em></span>" +
+              '<span class="t7r"><i class="gh"></i><u>Same day, last period</u><b>' + m.prev[i].toFixed(dp) + "%</b><em></em></span>" +
+              '<div class="t7tf"><u>Difference</u><b class="' + (good ? "up" : "dn") + '">' + arr7(dl, dp, dp === 2 ? "" : " pts") + "</b></div>";
+          }
+          var k = i - N6 + 1, d = new Date(TR.days[N6 - 1].getTime() + k * 864e5);
+          return '<div class="t7th"><b>' + dfmt(d) + "</b><small>Projection</small></div>" +
+            '<span class="t7r"><i style="background:' + m.c + ';opacity:.5"></i><u>If the trend holds</u><b>' + G.fcv[k].toFixed(dp) + "%</b><em></em></span>" +
+            '<span class="t7r"><i class="bd" style="background:' + m.c + '"></i><u>Likely range</u><b>' + G.bandv[k][0].toFixed(dp) + "–" + G.bandv[k][1].toFixed(dp) + "%</b><em></em></span>";
+        }
+      };
+    };
+
+    /* ----- Hover: crosshair, dots, date chip on the axis, light tooltip ----- */
+    hover6 = function (ch, M0) {
+      if (!isV6()) return hover6o(ch, M0);
+      ch._M = M0;
+      var hit = $(".v6hit", ch), xl = $(".v6x", ch), tip = $(".v6tip", ch), xd = $(".t7xd", ch);
+      function show(i) {
+        var M = ch._M; M.i = i; ch.classList.add("hov"); var px = M.x(i); xl.style.left = px + "px";
+        $$(".v6dot", ch).forEach(function (d) { var yy = M.y(d.getAttribute("data-k"), i); d.classList.toggle("no", yy == null); if (yy != null) { d.style.left = px + "px"; d.style.top = yy + "px"; } });
+        if (xd && M.date) { xd.textContent = M.date(i); var hw = xd.offsetWidth / 2; xd.style.left = Math.max(hw, Math.min(ch.clientWidth - hw, px)) + "px"; }
+        tip.innerHTML = M.tip(i); var tw = tip.offsetWidth, left = px + 16; if (left + tw > ch.clientWidth) left = px - 16 - tw; tip.style.left = Math.max(0, left) + "px";
+        if (M.on) M.on(i);
+      }
+      function hide() { ch.classList.remove("hov"); if (ch._M.off) ch._M.off(); }
+      hit.addEventListener("pointerdown", function (e) { var r = ch.getBoundingClientRect(); show(ch._M.idx(e.clientX - r.left)); });
+      hit.addEventListener("pointermove", function (e) { var r = ch.getBoundingClientRect(); show(ch._M.idx(e.clientX - r.left)); });
+      hit.addEventListener("pointerleave", hide);
+      hit.addEventListener("focus", function () { show(ch._M.i); });
+      hit.addEventListener("blur", hide);
+      hit.addEventListener("keydown", function (e) { var M = ch._M; if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return; e.preventDefault(); show(Math.max(0, Math.min(M.n - 1, M.i + (e.key === "ArrowRight" ? 1 : -1)))); });
+    };
+
+    /* ----- Cards above the chart, and the foot ----- */
+    studioBar6 = function () {
+      if (!isV6()) return bar6o();
+      var bar = $("#v6Bar"), sub = $("#v6tSub"), foot = $("#v6Foot"), i0 = i07(), sn = since7(), rl = V6.range > 40 ? "last 3 months" : "last 30 days";
+      bar.className = "v6s-bar t7cards t7-" + V6.style; stage.setAttribute("data-st", V6.style); syncRange();
+      if (V6.style === "flow") {
+        sub.textContent = "Three Phase 1 measures, " + rl + ". Each has its own base, so compare direction, not height. The axis doesn't start at zero.";
+        bar.innerHTML = S6.slice(0, 3).map(function (s) {
+          var c = s.v[N6 - 1] - s.v[i0];
+          return card7({ attr: 'data-ser6="' + s.k + '" title="' + (V6.on[s.k] ? "Hide" : "Show") + ' this line"', on: V6.on[s.k], c: s.c, name: s.n, val: s.v[N6 - 1].toFixed(1) + "%", chip: arr7(c, 1, " pts"), chipCls: c >= 0 ? "up" : "dn", cap: esc(s.b || "") + " · since " + sn });
+        }).join("");
+        var evs = EV6.map(function (e, n) { return e[0] >= i0 ? '<li><em>' + (n + 1) + "</em>" + esc(e[1]) + "<small>" + dfmt(TR.days[e[0]]) + "</small></li>" : ""; }).join("");
+        foot.innerHTML = evs ? '<div class="t7moms"><span class="t7mk">Moments</span><ol>' + evs + "</ol></div>" : '<div class="t7moms"><span class="t7mk">Moments</span><span class="t7none">None in this range</span></div>';
+      } else if (V6.style === "stack") {
+        var W = WK6.slice(w07()), sum = function (k) { return W.reduce(function (a, w) { return a + w[k]; }, 0); }, tot = sum("tot");
+        sub.textContent = "Paid leads each week, " + (V6.range > 40 ? "last 13 weeks" : "last 5 weeks") + ", by what the profile check found when the lead came in.";
+        bar.innerHTML = SK7.map(function (k) {
+          var v = sum(k[0]), pc = v / tot * 100;
+          return card7({ attr: 'data-stk6="' + k[0] + '" title="' + (V6.son[k[0]] ? "Hide" : "Show") + ' in the bars"', on: V6.son[k[0]], c: k[2], name: k[1], val: K6(v), cap: pc.toFixed(1) + "% of paid leads", extra: '<span class="t7share"><i style="width:' + pc.toFixed(1) + '%"></i></span>' });
+        }).join("") + card7({ c: "#E3262F", name: "Spent on people we knew", val: "₹" + (sum("known") * 1400 / 1e7).toFixed(1) + " Cr", cap: "at ₹1,400 a paid lead, " + fmtN(tot) + " leads" });
+        foot.innerHTML = "";
+      } else {
+        var s = s6(V6.focus), G = s.v[N6 - 1], fc = G + (G - s.v[N6 - 31]) * 0.7, pv = s.prev[N6 - 1];
+        sub.textContent = "Pick one measure to see it against last period and its target, with a 30-day projection: a straight line from the last 30 days, not a model.";
+        bar.innerHTML = ["res", "ovl", "kno", "mrg"].map(function (k) {
+          var m = s6(k), c = m.v[N6 - 1] - m.v[i0], good = m.low ? c <= 0 : c >= 0;
+          return card7({ attr: 'data-foc6="' + k + '"', on: k === V6.focus, c: m.c, name: m.n, val: m.v[N6 - 1].toFixed(m.dp) + "%", chip: arr7(c, m.dp, m.dp === 2 ? "" : " pts"), chipCls: good ? "up" : "dn", cap: "since " + sn, extra: spark7(m.v.slice(i0), m.c) });
+        }).join("");
+        foot.innerHTML = '<div class="t7leg"><span><i class="ln" style="background:' + s.c + '"></i>Actual</span><span><i class="gh"></i>Same period before</span><span><i class="fc" style="color:' + s.c + '"></i>Projection</span><span><i class="bd" style="background:' + s.c + '"></i>Likely range</span>' + (s.tgt != null ? '<span><i class="tg"></i>' + (s.low ? "Cap" : "Target") + "</span>" : "") + "</div>" +
+          '<div class="t7stats"><span>Last period, same day<b>' + pv.toFixed(s.dp) + "%</b></span><span>In 30 days, if the trend holds<b>" + fc.toFixed(s.dp) + "%</b></span>" +
+          (s.tgt != null ? "<span>" + (s.low ? "Room under the cap" : "Still to go") + "<b>" + Math.abs(s.tgt - G).toFixed(s.dp) + (s.dp === 2 ? "%" : " pts") + "</b></span>" : "") + "</div>";
+      }
+      $$("#v6Style button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-style") === V6.style); });
+    };
+
+    // Hovering a card brings its series forward in the chart.
+    function emph(k, attr) {
+      var ch = $("#v6Stage .v6ch:last-child"); if (!ch) return;
+      ch.classList.toggle("emph", !!k);
+      $$("[data-k], rect[data-s]", ch).forEach(function (el) { el.classList.toggle("hi", !!k && (el.getAttribute(attr) === k)); });
+    }
+    $("#v6Bar").addEventListener("pointerover", function (e) {
+      if (!isV6() || e.pointerType === "touch") return;
+      var b = e.target.closest("[data-ser6],[data-stk6]");
+      if (!b) return emph(null);
+      if (b.hasAttribute("data-ser6") && V6.on[b.getAttribute("data-ser6")]) emph(b.getAttribute("data-ser6"), "data-k");
+      else if (b.hasAttribute("data-stk6") && V6.son[b.getAttribute("data-stk6")]) emph(b.getAttribute("data-stk6"), "data-s");
+    });
+    $("#v6Bar").addEventListener("pointerleave", function () { emph(null); });
+    // Keep the clicked card in place when the bar re-renders.
+    $("#v6Bar").addEventListener("click", function (e) {
+      var b = e.target.closest("[data-ser6],[data-stk6],[data-foc6]"); if (!b || !isV6()) return;
+      var a = b.hasAttribute("data-ser6") ? "data-ser6" : b.hasAttribute("data-stk6") ? "data-stk6" : "data-foc6", v = b.getAttribute(a);
+      requestAnimationFrame(function () { var nb = $("#v6Bar [" + a + '="' + v + '"]'); if (nb && document.activeElement === document.body) nb.focus({ preventScroll: true }); });
+    });
   })();
   renderAudit();
   render();
