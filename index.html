@@ -3170,6 +3170,13 @@ html[data-v6] #lookupForm:not(.v6done) .search:focus-within:has(#lookup:not(:pla
 .rv-v6x{display:none}
 html[data-v6] .rv-v6x{display:flex}
 html[data-v6] .v6h-glow{will-change:transform}
+
+.v6cglow{display:none}
+html[data-v6] .v6cglow{display:block;position:absolute;left:0;top:0;width:460px;height:460px;margin:-230px 0 0 -230px;border-radius:50%;z-index:-1;pointer-events:none;opacity:0;background:radial-gradient(circle at center,rgba(255,84,92,.55) 0%,rgba(227,38,47,.32) 28%,rgba(227,38,47,.1) 52%,rgba(227,38,47,0) 70%);filter:blur(6px);transition:opacity .45s ease;will-change:transform,opacity}
+html[data-v6] .v6hero.v6glowon .v6cglow{opacity:1}
+html[data-v6] .v6hero .v6h-glow{transition:opacity .6s ease}
+html[data-v6] .v6hero.v6glowon .v6h-glow{opacity:.45}
+@media (prefers-reduced-motion: reduce){html[data-v6] .v6cglow{display:none}}
 </style>
 </head>
 <body>
@@ -3817,9 +3824,9 @@ html[data-v6] .v6h-glow{will-change:transform}
   <div class="rv-panel" id="rvPanel" role="dialog" aria-label="Review controls" tabindex="-1" hidden>
     <div class="rv-head"><b>Review</b><span>For design review, not part of the product</span><button type="button" class="rv-x" id="rvClose" aria-label="Close review panel"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1l10 10M11 1L1 11"/></svg></button></div>
     <div class="rv-sec"><span class="rv-k">Design version</span><div class="rv-seg" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="1" aria-pressed="false">V1</button><button type="button" data-v="2" aria-pressed="false">V2</button><button type="button" data-v="3" aria-pressed="false">V3</button><button type="button" data-v="4" aria-pressed="false">V4</button><button type="button" data-v="5" aria-pressed="false">V5</button><button type="button" data-v="6" aria-pressed="false">V6</button></div></div>
-    <div class="rv-sec rv-v6x"><span class="rv-k">V6 experiments</span>
+    <div class="rv-sec rv-v6x"><span class="rv-k">V6 motion</span>
       <div class="rv-rows"><label class="rv-row"><span>Hero glow follows the cursor</span><input type="checkbox" class="switch rv-switch" id="rvGlow6" aria-label="Hero glow follows the cursor"></label></div>
-      <p class="rv-note">On the Overview hero, the red glow drifts slightly toward the pointer and settles back when it leaves. No click effect. Off on touch screens and when reduced motion is on.</p>
+      <p class="rv-note">On the Overview hero, a soft red light sits under the pointer and trails it as you move, then fades out when you leave the card. No click effect. Off on touch screens and when reduced motion is on.</p>
     </div>
     <div class="rv-sec rv-v5"><span class="rv-k">V5 layout</span><div class="rv-seg" id="rvLay5" role="group" aria-label="V5 layout"></div>
       <span class="rv-sub">Life with upGrad</span><div class="rv-seg" id="rvLife" role="group" aria-label="Life with upGrad style"></div></div>
@@ -6185,7 +6192,7 @@ html[data-v6] .v6h-glow{will-change:transform}
     q.push("v=" + curV(), "card=" + PERSON, "tabs=" + TABS, "bar=" + STICK, "pin=" + (SSEARCH ? 1 : 0), "nav=" + nav);
     if (curV() >= "5") q.push("lay5=" + LAY5, "life=" + LIFE);
     if (curV() === "6" && typeof V6 !== "undefined") q.push("tr=" + V6.style);
-    if (curV() === "6" && typeof GLOW6 !== "undefined" && GLOW6) q.push("glow=1");
+    if (curV() === "6" && typeof GLOW6 !== "undefined" && !GLOW6) q.push("glow=0");
     if (route === "lookup" && L.person) q.push("p=" + L.person);
     q.push("review=0");
     var base = location.href.split(/[?#]/)[0];
@@ -7499,26 +7506,35 @@ html[data-v6] .v6h-glow{will-change:transform}
   $("#lookupForm").addEventListener("submit", function () { this.classList.add("v6done"); });
   $("#lookup").addEventListener("input", function () { $("#lookupForm").classList.remove("v6done"); });
 
-  /* ================= V6 experiment: hero glow leans toward the cursor ================= */
-  var GLOW6 = false;
-  try { GLOW6 = localStorage.getItem("cip-glow6") === "1"; } catch (e) {}
-  if (Q.get("glow") === "1") GLOW6 = true;
+  /* ================= V6: hero glow follows the cursor ================= */
+  var GLOW6 = true;
+  try { var g6 = localStorage.getItem("cip-glow6"); if (g6 === "0") GLOW6 = false; } catch (e) {}
+  if (Q.get("glow") === "1") GLOW6 = true; else if (Q.get("glow") === "0") GLOW6 = false;
   (function () {
-    var sw = $("#rvGlow6"); if (sw) { sw.checked = GLOW6; sw.addEventListener("change", function () { GLOW6 = this.checked; try { localStorage.setItem("cip-glow6", GLOW6 ? "1" : "0"); } catch (e) {} if (!GLOW6) target(0, 0); if (typeof rvShareSync === "function") rvShareSync(); }); }
-    var hero = $(".v6hero"), glow = hero && $(".v6h-glow", hero); if (!glow) return;
-    var cur = { x: 0, y: 0 }, tgt = { x: 0, y: 0 }, raf = 0, MAXX = 56, MAXY = 40;
+    var hero = $(".v6hero"); if (!hero) return;
+    var dot = document.createElement("span"); dot.className = "v6cglow"; dot.setAttribute("aria-hidden", "true"); hero.insertBefore(dot, hero.firstChild);
+    var cur = { x: 0, y: 0, s: 1 }, tgt = { x: 0, y: 0, s: 1 }, last = null, raf = 0, on = false;
     function step() {
-      cur.x += (tgt.x - cur.x) * 0.08; cur.y += (tgt.y - cur.y) * 0.08;
-      glow.style.transform = "translate3d(" + cur.x.toFixed(1) + "px," + cur.y.toFixed(1) + "px,0)";
-      if (Math.abs(tgt.x - cur.x) > 0.2 || Math.abs(tgt.y - cur.y) > 0.2) raf = requestAnimationFrame(step); else raf = 0;
+      cur.x += (tgt.x - cur.x) * 0.16; cur.y += (tgt.y - cur.y) * 0.16; cur.s += (tgt.s - cur.s) * 0.1;
+      tgt.s += (1 - tgt.s) * 0.06;
+      dot.style.transform = "translate3d(" + cur.x.toFixed(1) + "px," + cur.y.toFixed(1) + "px,0) scale(" + cur.s.toFixed(3) + ")";
+      if (on || Math.abs(tgt.x - cur.x) > 0.3 || Math.abs(tgt.y - cur.y) > 0.3 || Math.abs(cur.s - 1) > 0.002) raf = requestAnimationFrame(step); else raf = 0;
     }
-    function target(x, y) { tgt.x = x; tgt.y = y; if (!raf) raf = requestAnimationFrame(step); }
-    hero.addEventListener("pointermove", function (e) {
-      if (!GLOW6 || !isV6() || REDUCED || e.pointerType !== "mouse") return;
-      var r = hero.getBoundingClientRect(), nx = (e.clientX - r.left) / r.width * 2 - 1, ny = (e.clientY - r.top) / r.height * 2 - 1;
-      target(nx * MAXX, ny * MAXY);
+    function usable(e) { return GLOW6 && isV6() && !REDUCED && e.pointerType === "mouse"; }
+    hero.addEventListener("pointerenter", function (e) {
+      if (!usable(e)) return; var r = hero.getBoundingClientRect();
+      cur.x = tgt.x = e.clientX - r.left; cur.y = tgt.y = e.clientY - r.top; on = true; hero.classList.add("v6glowon");
+      if (!raf) raf = requestAnimationFrame(step);
     });
-    hero.addEventListener("pointerleave", function () { target(0, 0); });
+    hero.addEventListener("pointermove", function (e) {
+      if (!usable(e)) return; var r = hero.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+      if (!on) { cur.x = x; cur.y = y; on = true; hero.classList.add("v6glowon"); }
+      if (last) { var v = Math.min(1, Math.hypot(x - last.x, y - last.y) / 60); tgt.s = Math.max(tgt.s, 1 + v * 0.12); }
+      last = { x: x, y: y }; tgt.x = x; tgt.y = y;
+      if (!raf) raf = requestAnimationFrame(step);
+    });
+    hero.addEventListener("pointerleave", function () { on = false; last = null; hero.classList.remove("v6glowon"); });
+    var sw = $("#rvGlow6"); if (sw) { sw.checked = GLOW6; sw.addEventListener("change", function () { GLOW6 = this.checked; try { localStorage.setItem("cip-glow6", GLOW6 ? "1" : "0"); } catch (e) {} if (!GLOW6) { on = false; hero.classList.remove("v6glowon"); } if (typeof rvShareSync === "function") rvShareSync(); }); }
   })();
   renderAudit();
   render();
