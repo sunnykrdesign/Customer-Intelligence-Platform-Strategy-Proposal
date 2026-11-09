@@ -3370,6 +3370,10 @@ html[data-v6] .v4secnav .v4sn:hover{background:#fff;border-color:#AEAEB2;color:#
 html[data-v6] .v4secnav .v4sn.on{background:#1D1D1F;border-color:#1D1D1F;color:#fff;font-weight:600;box-shadow:0 2px 6px -2px rgba(16,16,24,.3)}
 html[data-v6] .v4secnav .v4sn .v4snf{color:#6B6B72}
 html[data-v6] .v4secnav .v4sn.on .v4snf,html[data-v6] .v4secnav .v4sn.on .v4snl{color:rgba(255,255,255,.72)}
+html[data-v6] #panel .v4sec.v6in{animation:v6secin .16s ease-out}
+@keyframes v6secin{from{opacity:.35}to{opacity:1}}
+html[data-v6] .v4secnav .v4sn{transition:border-color .15s}
+html[data-v6] .v4meter{overflow:hidden}
 </style>
 </head>
 <body>
@@ -8054,6 +8058,28 @@ html[data-v6] .v4secnav .v4sn.on .v4snf,html[data-v6] .v4secnav .v4sn.on .v4snl{
       requestAnimationFrame(function () { var nb = $("#v6Bar [" + a + '="' + v + '"]'); if (nb && document.activeElement === document.body) nb.focus({ preventScroll: true }); });
     });
   })();
+
+  /* ================= V6 Look up: switch Profile sections without re-rendering the panel ================= */
+  // Before: every section click rebuilt and faded the whole panel, so the pills and tabs blinked.
+  // Now only the section card (with its pager) is swapped; the pill row stays still.
+  document.addEventListener("click", function (e) {
+    if (!isV6()) return;
+    var t = e.target.closest && e.target.closest("#panel [data-sec]"); if (!t || t.hasAttribute("data-tab")) return;
+    var pan = $("#panel"), p = PEOPLE[L.person]; if (!pan || !p || V.tab !== "profile") return;
+    var oldSec = $(".v4sec", pan); if (!oldSec) return;
+    e.preventDefault(); e.stopImmediatePropagation();
+    var key = t.getAttribute("data-sec"); if (key === V.sec && $('.v4sn.on[data-sec="' + key + '"]', pan)) return;
+    V.sec = key;
+    var tmp = document.createElement("div"); tmp.innerHTML = v5Body(p, TEAMS[S.team] || TEAMS.central, V.tab);
+    var newSec = $(".v4sec", tmp); if (!newSec) { v5Swap(); return; }
+    $$(".v4secnav [data-sec]", pan).forEach(function (b) { var on = b.getAttribute("data-sec") === key; b.classList.toggle("on", on); b.setAttribute("aria-selected", on); b.tabIndex = on ? 0 : -1; });
+    var bar = $(".v4secbar", pan), lim = bar ? bar.getBoundingClientRect().bottom : 0, wasAbove = oldSec.getBoundingClientRect().top < lim;
+    if (!REDUCED) newSec.classList.add("v6in");
+    oldSec.parentNode.replaceChild(newSec, oldSec);
+    // If you had scrolled into the old section, start the new one from its top, right under the pinned pills.
+    if (wasAbove) window.scrollTo(0, window.scrollY + newSec.getBoundingClientRect().top - lim - 12);
+    var chip = $("#sec-" + key); if (chip && t.classList.contains("v4sn")) chip.focus({ preventScroll: true });
+  }, true);
   renderAudit();
   render();
 })();
