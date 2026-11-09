@@ -3193,7 +3193,9 @@ html[data-v6] .i6spark .i6sp .ss{animation:i6spin 3.2s linear infinite !importan
 /* Before you call mark: per-option motion */
 html[data-v6] .i6spark .i6sp.m-swap path,html[data-v6] .i6spark .i6sp.m-orbit .ss,html[data-v6] .i6spark .i6sp.m-cycle path{animation:none !important}
 html[data-v6] .i6spark .i6sp.m-orbit .sb{animation:i6breathe 2.4s ease-in-out infinite !important}
-html[data-v6] .i6spark .i6sp.m-hop .ss{animation:i6spin 2s linear infinite !important}
+html[data-v6] .i6spark .i6sp.m-ring .ss{animation:none !important}
+.i6sp .o6r{transform-box:view-box !important;transform-origin:0 0 !important}
+html[data-v6] .i6spark .i6sp.m-ring .sb{animation:i6breathe 2.5s ease-in-out infinite !important}
 @keyframes i6breathe{0%,100%{transform:scale(1)}50%{transform:scale(.86)}}
 @media (prefers-reduced-motion: reduce){html[data-v6] .i6spark .i6sp path{animation:none !important}}
 .rv-sp6{display:flex;flex-direction:column;gap:8px;margin-top:10px}
@@ -8109,7 +8111,7 @@ html[data-v6] .v4secnav .v4sn .v4snf{display:none}
   }, true);
 
   /* ================= V6 Insights: Before you call mark, four motion options (Review panel) ================= */
-  var SPARK6 = "pulse", SP6 = { pulse: "Pulse", swap: "Swap", orbit: "Orbit", hop: "Hop", cycle: "Cycle" };
+  var SPARK6 = "pulse", SP6 = { pulse: "Pulse", swap: "Swap", orbit: "Orbit", ring: "Ring", cycle: "Cycle" };
   try { var sp6s = localStorage.getItem("cip-spark6"); if (SP6[sp6s]) SPARK6 = sp6s; } catch (e) {}
   if (SP6[Q.get("sp")]) SPARK6 = Q.get("sp");
   function sp6n(v) { return (Math.round(v * 100) / 100).toString(); }
@@ -8147,15 +8149,19 @@ html[data-v6] .v4secnav .v4sn .v4snf{display:none}
       var orb = function (from, first) { return '<g>' + (still ? "" : '<animateTransform attributeName="transform" type="rotate" values="' + from + ' 12 12;' + (from + 360) + ' 12 12" dur="6s" repeatCount="indefinite"/>') + '<path class="ss" fill="#fff" d="' + first + '"' + (still && from ? ' transform="rotate(' + from + ' 12 12)"' : "") + '>' + (still ? "" : sp6Anim(first === S ? [S, D, S] : [D, S, D], [0, 0.5, 1], 1.5)) + "</path></g>"; };
       big = '<path class="sb" fill="#fff" d="' + sp6Star(c, c, 7) + '"/>';
       small = orb(0, S) + orb(180, D);
-    } else if (mode === "hop") {
-      // The dot hops between three corners and opens into a star each time it lands.
-      var P = [[18.8, 18.8], [20, 4.6], [4.6, 20]], v = [], tt = [], n = 0, steps = 10;
-      P.forEach(function (q, i) { v.push(sp6Dot(q[0], q[1], 2.1), sp6Star(q[0], q[1], 4.6), sp6Dot(q[0], q[1], 2.1)); });
-      v.push(sp6Dot(P[0][0], P[0][1], 2.1));
-      for (n = 0; n < v.length; n++) tt.push(sp6n(n / (v.length - 1)));
-      big = '<path class="sb" fill="#fff" d="' + sp6Star(9.5, 9.5, 8.2) + '"/>';
-      small = '<path class="ss" fill="#fff" d="' + v[1] + '">' + (still ? "" : sp6Anim(v, tt, 6)) + "</path>";
-      void steps;
+    } else if (mode === "ring") {
+      // A tilted orbit ring around the star. The back half of the ring sits behind the star and the front half in front;
+      // a small mark travels the ring, opening into a star as it passes in front and dimming to a dot as it goes behind.
+      var rx = 10.6, ry = 3.4, cx = 12, cy = 12.4, orbit = "M" + (cx + rx) + " " + cy + "A" + rx + " " + ry + " 0 1 1 " + (cx - rx) + " " + cy + "A" + rx + " " + ry + " 0 1 1 " + (cx + rx) + " " + cy;
+      var back = "M" + (cx + rx) + " " + cy + "A" + rx + " " + ry + " 0 0 0 " + (cx - rx) + " " + cy, front = "M" + (cx - rx) + " " + cy + "A" + rx + " " + ry + " 0 0 0 " + (cx + rx) + " " + cy;
+      var MD = sp6Dot(0, 0, 1.5), MS = sp6Star(0, 0, 3.2), tilt = ' transform="rotate(-16 12 12)"';
+      var ringStyle = ' fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round"';
+      big = '<path class="o6r" d="' + back + '"' + ringStyle + ' opacity=".55"' + tilt + '/>' +
+        '<path class="sb" fill="#fff" d="' + sp6Star(12, 12, 7.4) + '"/>' +
+        '<path class="o6r" d="' + front + '"' + ringStyle + tilt + '/>';
+      small = "<g" + tilt + "><path class=\"ss\" fill=\"#fff\" d=\"" + (still ? MS : MD) + "\"" + (still ? ' transform="translate(' + cx + " " + (cy + ry) + ')"' : "") + ">" +
+        (still ? "" : '<animateMotion dur="5s" repeatCount="indefinite" path="' + orbit + '"/>' + sp6Anim([MD, MS, MD, MD], [0, 0.25, 0.5, 1], 5) +
+          '<animate attributeName="opacity" dur="5s" repeatCount="indefinite" keyTimes="0;0.5;0.75;1" values="1;1;0.35;1"/>') + "</path></g>";
     } else if (mode === "cycle") {
       // Three marks take turns: the big star moves down and shrinks, the small star becomes a dot, the dot grows into the big star.
       var ST = [sp6Star(9.5, 9.5, 8.2), sp6Star(18.8, 18.4, 4.6), sp6Dot(19.6, 4.6, 2)], ct = [0, 0.2, 0.333, 0.533, 0.667, 0.867, 1], parts = "";
@@ -8184,7 +8190,7 @@ html[data-v6] .v4secnav .v4sn .v4snf{display:none}
       pulse: "The star turns slowly; the dot grows into a small star and back, in place (3.2s).",
       swap: "The star and the dot trade corners: the star shrinks into a dot at the top left while the dot grows into the star at the bottom right, then they swap back (5s).",
       orbit: "Two marks circle the star on opposite sides without stopping, each opening into a small star at the diagonals and closing to a dot in between (6s per lap).",
-      hop: "The dot hops between three corners and opens into a star each time it lands (6s).",
+      ring: "A tilted ring circles the star, half behind it and half in front. A small mark travels the ring, opening into a star as it passes in front and fading to a dot behind (5s per lap).",
       cycle: "Three marks take turns: the big star moves down and shrinks, the small star becomes a dot, and the dot grows into the big star (7.5s)."
     };
     function sync() { $$("#rvSpark6 [data-sp6]").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-sp6") === SPARK6); }); $("#rvSpark6Note").textContent = NOTE[SPARK6] + " Still when reduced motion is on."; }
