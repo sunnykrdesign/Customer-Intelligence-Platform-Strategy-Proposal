@@ -3119,6 +3119,43 @@ html[data-v6] .view[data-view="identity"] > .footnote{order:9}
   html[data-v6] .side{padding:12px 16px 6px !important}
   html[data-v6] .me{padding:0 !important}
 }
+
+/* People toolbar that scales with any number of businesses */
+.v6busel,.v6keyw{display:none}
+html[data-v6] .view[data-view="people"] .v6pleg{display:none !important}
+html[data-v6] .view[data-view="people"] .dir-head{display:grid !important;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"title segs" "search tools";align-items:center;gap:12px 12px}
+html[data-v6] .v6ptools{grid-area:tools;display:flex;gap:8px;justify-self:end}
+.v6ptools{display:contents}
+html[data-v6] .view[data-view="people"] .dir-head > h2{grid-area:title;margin:0}
+html[data-v6] .view[data-view="people"] .dir-head > #pSegs{grid-area:segs;justify-self:end}
+html[data-v6] .view[data-view="people"] .dir-head > .search{grid-area:search;width:auto;max-width:none;height:40px;margin:0}
+html[data-v6] .v6busel{display:block}
+html[data-v6] .v6busel select{width:220px;height:40px}
+html[data-v6] .v6keyw{display:block;position:relative}
+.v6keyb{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 14px;border-radius:10px;border:1px solid #D2D2D7;background:#fff;font:inherit;font-size:14px;font-weight:600;color:#1D1D1F;cursor:pointer}
+.v6keyb:hover,.v6keyb[aria-expanded="true"]{border-color:#1D1D1F}
+.v6keyp{position:absolute;right:0;top:calc(100% + 8px);z-index:30;width:min(560px,calc(100vw - 32px));padding:18px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.06),0 24px 56px -18px rgba(16,16,24,.38);display:flex;flex-direction:column;gap:16px}
+.v6keyp h4{margin:0 0 8px;font-size:13px;font-weight:600;color:#1D1D1F;display:flex;justify-content:space-between}
+.v6keyp h4 span{font-weight:500;color:#5F5F66}
+.v6keyg{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:6px 12px;max-height:220px;overflow:auto;margin:0;padding:0;list-style:none}
+.v6keyg li{display:flex;align-items:center;gap:8px;min-width:0;font-size:13px;color:#3A3A3F;height:28px}
+.v6keyg li span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.v6keyg .bud{flex:0 0 auto;margin:0}
+.v6keyr{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.v6keyr li{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:6px;font-size:12px;color:#3A3A3F;text-align:center}
+.v6keyr i{width:8px;height:8px;border-radius:50%;background:#34C759}
+.v6keyn{margin:0;font-size:12px;color:#5F5F66}
+html[data-v6] .bud.v6more{background:#F2F2F5 !important;color:#3A3A3F !important}
+html[data-v6] .phead .v6sortable{gap:4px !important}
+html[data-v6] .phead .pc{justify-content:flex-start}
+@media (max-width:820px){
+  html[data-v6] .view[data-view="people"] .dir-head{grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "segs" "search" "tools"}
+  html[data-v6] .view[data-view="people"] .dir-head > #pSegs{justify-self:stretch;flex-wrap:nowrap !important;overflow-x:auto;scrollbar-width:none}
+  html[data-v6] .view[data-view="people"] .dir-head > #pSegs button{flex:0 0 auto;white-space:nowrap}
+  html[data-v6] .v6ptools{justify-self:stretch}
+  html[data-v6] .v6busel{flex:1}
+  html[data-v6] .v6busel select{width:100%}
+}
 </style>
 </head>
 <body>
@@ -5720,7 +5757,7 @@ html[data-v6] .view[data-view="identity"] > .footnote{order:9}
     var k = /Restricted|Refunded|Dropped/.test(s) ? "st-red" : /Alumni|Completed/.test(s) ? "st-mint" : /Learning|Paid/.test(s) ? "st-lav" : "st-peach";
     return '<span class="st ' + k + '">' + esc(s) + "</span>";
   }
-  function buDots(bus) { return '<span class="budots">' + bus.map(function (b) { return '<span class="bud bu-' + b + '" title="' + esc(BU[b]) + '">' + esc(BUS[b] === "WP" ? "WP" : BUS[b].charAt(0)) + "</span>"; }).join("") + "</span>"; }
+  function buDots(bus) { return '<span class="budots">' + bus.map(function (b) { return '<span class="bud bu-' + b + '" title="' + esc(BU[b] || b) + '">' + esc((BUS[b] || b) === "WP" ? "WP" : (BUS[b] || b).charAt(0)) + "</span>"; }).join("") + "</span>"; }
   function reachDots(r) { return '<span class="rdots" aria-label="Reachable on ' + r.filter(Boolean).length + ' of 5 channels">' + r.map(function (x) { return '<i class="' + (x ? "on" : "") + '"></i>'; }).join("") + "</span>"; }
 
   var P = { seg: "all", q: "" };
@@ -7389,6 +7426,55 @@ html[data-v6] .view[data-view="identity"] > .footnote{order:9}
   $("#shareView").addEventListener("change", refreshShare);
   if (isV6()) { renderPeople(); fmt6($('.view[data-view="people"]')); }
   v6Copy();
+
+  /* ================= V6 · People toolbar that scales ================= */
+  var P6BU = "";
+  var _dirRows2 = dirRows;
+  dirRows = function () { var r = _dirRows2(); return isV6() && P6BU ? r.filter(function (x) { return x.bus.indexOf(P6BU) >= 0; }) : r; };
+  (function () {
+    var head = $('.view[data-view="people"] .dir-head'); if (!head) return;
+    var cnt = {}; _dirRows0().forEach(function (r) { r.bus.forEach(function (b) { cnt[b] = (cnt[b] || 0) + 1; }); });
+    var keys = Object.keys(BU4).sort(function (a, b) { return BU4[a][0].localeCompare(BU4[b][0]); });
+    var lab = document.createElement("label"); lab.className = "v6busel";
+    lab.innerHTML = '<span class="sr">Business</span><select id="pBu6"><option value="">All businesses</option>' + keys.filter(function (k) { return cnt[k]; }).map(function (k) { return '<option value="' + k + '">' + esc(BU4[k][0]) + " (" + cnt[k] + ")</option>"; }).join("") + "</select>";
+    var tools = document.createElement("div"); tools.className = "v6ptools"; head.appendChild(tools); tools.appendChild(lab);
+    $("#pBu6").addEventListener("change", function () { P6BU = this.value; P.open = null; renderPeople(); });
+    var w = document.createElement("div"); w.className = "v6keyw";
+    w.innerHTML = '<button type="button" class="v6keyb" aria-expanded="false" aria-controls="v6keyp">' + '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>' + 'Key</button>' +
+      '<div class="v6keyp" id="v6keyp" role="dialog" aria-label="Key" hidden>' +
+      '<div><h4>Businesses <span>' + keys.length + "</span></h4><ul class=\"v6keyg\">" + keys.map(function (k) { return '<li><span class="bud bu-' + k + '">' + esc(BU4[k][1]) + "</span><span>" + esc(BU4[k][0]) + "</span></li>"; }).join("") + "</ul></div>" +
+      '<div><h4>Reach</h4><ul class="v6keyr">' + ["Call", "Email", "SMS", "WhatsApp", "Ads"].map(function (n) { return "<li><i></i>" + n + "</li>"; }).join("") + '</ul><p class="v6keyn">Each row shows five dots in this order. A green dot means the channel is open; grey means closed. Hover a row\'s dots for details.</p></div>' +
+      '<p class="v6keyn">The Businesses column shows up to three businesses per person, then +N. Hover it to see them all.</p></div>';
+    tools.appendChild(w); paintBu6(w);
+    var btn = $(".v6keyb", w), pop = $(".v6keyp", w);
+    var set = function (o) { pop.hidden = !o; btn.setAttribute("aria-expanded", String(o)); };
+    btn.addEventListener("click", function () { set(pop.hidden); });
+    document.addEventListener("click", function (e) { if (!e.target.closest(".v6keyw")) set(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !pop.hidden) { set(false); btn.focus(); } });
+  })();
+  // Businesses without a colour of their own get one from a fixed 12-colour palette, so new ones never show up blank.
+  var OWN6 = { S: 1, I: 1, G: 1, W: 1, K: 1, L: 1, U: 1 };
+  var PAL6 = ["#4C7BE8", "#3F9D6B", "#E07B39", "#0FA3B1", "#8B6CDB", "#C2577A", "#B08A1E", "#2F8F83", "#7A6FD0", "#D0573A", "#5E8C2E", "#A0527F"];
+  function buColor6(k) { var PAL6 = ["#4C7BE8", "#3F9D6B", "#E07B39", "#0FA3B1", "#8B6CDB", "#C2577A", "#B08A1E", "#2F8F83", "#7A6FD0", "#D0573A", "#5E8C2E", "#A0527F"], h = 0; for (var i = 0; i < k.length; i++) h = (h * 31 + k.charCodeAt(i)) % 997; return PAL6[(Object.keys(BU4).indexOf(k) + h) % PAL6.length]; }
+  function paintBu6(root) {
+    if (!isV6() || !root) return;
+    $$(".bud", root).forEach(function (b) { var m = /bu-([A-Za-z]+)/.exec(b.className); if (!m || ({ S: 1, I: 1, G: 1, W: 1, K: 1, L: 1, U: 1 })[m[1]]) return; var c = buColor6(m[1]); b.style.background = "color-mix(in srgb," + c + " 14%,#fff)"; b.style.color = "color-mix(in srgb," + c + " 60%,#1D1D1F)"; });
+  }
+  var _buDots0 = buDots;
+  buDots = function (bus) { if (!isV6() && bus.every(function (b) { return BUS[b]; })) return _buDots0(bus); return '<span class="budots">' + bus.map(function (b) { var n = BU4[b] || [BU[b] || b, BUS[b] || b]; return '<span class="bud bu-' + b + '" title="' + esc(n[0]) + '">' + esc(n[1]) + "</span>"; }).join("") + "</span>"; };
+  var _renderPeople1 = renderPeople;
+  renderPeople = function (stagger) {
+    _renderPeople1(stagger);
+    if (!isV6()) return;
+    $$("#pRows .budots").forEach(function (d) {
+      var all = $$(".bud", d); if (all.length <= 3) return;
+      var extra = all.slice(3); extra.forEach(function (b) { b.hidden = true; });
+      var m = document.createElement("span"); m.className = "bud v6more"; m.textContent = "+" + extra.length;
+      m.title = all.map(function (b) { return b.title || b.textContent; }).join(", "); d.title = m.title; d.appendChild(m);
+    });
+    paintBu6($("#pRows"));
+  };
+  if (isV6()) renderPeople();
   renderAudit();
   render();
 })();
