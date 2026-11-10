@@ -105,8 +105,8 @@ Your choices are remembered on that browser.
 - **V7 (default):** V6 with a new visual layer and four themes (Review → V7 theme).
   - **Bold (default): contrast and colour.** Colours and treatments are taken from four reference dashboards (healthy, Windpo, SETO, DOCTRACK); none of their content or layout is copied:
     - **Shell:** a grey-to-peach canvas around a light, rounded shell.
-    - **Sidebar:** a moss-green column. The current page is a lime pill with black text, and the signed-in person sits in a translucent card. On phones, the top bar and bottom tab bar turn moss as well.
-    - **Figures:** each number is colour-coded: blue, teal, pink, orange and olive. The first card in every summary row is an olive feature card with a lime figure. Icons sit in small square tiles at the top right, and change chips are outlined in green (good) or red (bad).
+    - **Sidebar:** a deep navy column (DOCTRACK's blue family) with a soft blue glow at the top. The current page is a lime pill with black text, and the signed-in person sits in a translucent card. On phones, the top bar and bottom tab bar are navy as well.
+    - **Figures:** each number is colour-coded: blue, teal, pink, orange and violet. The first card in every summary row is a navy feature card with a lime figure. Icons sit in small square tiles at the top right, and change chips are outlined in green (good) or red (bad).
     - **Overview hero:** a white card with an upper-case Inter Tight headline and the profile count in blue. Phase 1 progress shows as an orange tick bar, after Windpo's. The rings are blue, orange and teal.
     - **Controls:** a light track with a black pill for the chosen tab or segment. Chosen filter chips and section pills are black too, as are the main actions.
     - **Tables:** each person in the directory is a white row band, after DOCTRACK's schedule. Status pills are outlined in green, blue, amber or red.

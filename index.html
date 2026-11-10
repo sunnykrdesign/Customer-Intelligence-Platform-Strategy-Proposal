@@ -3882,8 +3882,8 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) .src4{background:var(--cr-sub) !impo
 
 /* ================= V7 · Bold: contrast and colour =================
    Built from four reference dashboards' visual language (healthy, Windpo, SETO, DOCTRACK), not their content:
-   a grey-to-peach canvas, a light shell with a moss-green sidebar and a lime pill for the current page,
-   white cards with colour-coded figures and one olive feature card per row, black pills for chosen and main actions,
+   a grey-to-peach canvas, a light shell with a deep navy sidebar and a lime pill for the current page,
+   white cards with colour-coded figures and one navy feature card per row, black pills for chosen and main actions,
    Windpo's tick progress bar, hatched chart tracks, electric blue, orange, teal and lime for data, Inter Tight figures.
    The rules below start from Crisp's structure (same selectors, re-scoped) and the Bold block at the end sets its own look. */
 html[data-v7t="bold"][data-v6]:not(#bold){
@@ -4112,18 +4112,18 @@ html[data-v7t="bold"][data-v6]:not(#bold) .a6cr:not(.due) .a6medal{background:#f
 html[data-v7t="bold"][data-v6]:not(#bold) .v6ch .t7tgt{stroke:var(--cr-rose) !important;stroke-width:1.5 !important;stroke-dasharray:6 5 !important}
 html[data-v7t="bold"][data-v6]:not(#bold) .v6ch text.t7tgl{fill:var(--cr-rose-d) !important;font-weight:500 !important}
 
-/* ---------- Bold: tokens. Canvas from SETO (cool grey to peach), sidebar and feature cards from Windpo (moss, olive, lime),
+/* ---------- Bold: tokens. Canvas from SETO (cool grey to peach), sidebar and feature cards in deep navy (DOCTRACK) with Windpo lime,
    data from DOCTRACK and Windpo (electric blue, orange, teal), black pills for the main action ---------- */
 html[data-v7t="bold"][data-v6]:not(#bold){
   --cr-canvas:#C9CDD0;--cr-shell:#F4F4F1;--cr-ink:#151714;--cr-2:#4E5248;--cr-3:#666A60;--cr-4:#8E9188;--cr-line:#E1E3DC;--cr-row:#E8E9E4;--cr-sub:#EAEBE6;
   --cr-peri:#2F4BF0;--cr-peri-d:#2238D6;--cr-peri-m:#A9B6F8;--cr-peri-s:#DCE2FD;--cr-peri-xs:#EEF1FE;
   --cr-rose:#F26A1B;--cr-rose-d:#C2410C;--cr-rose-s:#FCDCC8;--cr-rose-xs:#FEF1E8;--cr-lime:#C5F059;--cr-act:#151714;--cr-r:20px;
-  --bd-moss:#45523A;--bd-moss2:#36412B;--bd-olive:#5A6447;--bd-lime:#C5F059;--bd-lime-t:#D9F77A;--bd-teal:#2D7F91;--bd-orange:#F26A1B;--bd-orange-t:#C9480F;
-  --bd-good:#23845A;--bd-good-xs:#E9F5EF;--bd-bad:#C23B22;--bd-bad-xs:#FCECE8;--bd-peach:#F4B08E;--bd-pink:#F7CBE3;--bd-feat:linear-gradient(160deg,#5E6949 0%,#4C5639 100%);
+  --bd-moss:#1B2550;--bd-moss2:#111838;--bd-olive:#1E2A5C;--bd-lime:#C5F059;--bd-lime-t:#D9F77A;--bd-teal:#2D7F91;--bd-orange:#F26A1B;--bd-orange-t:#C9480F;
+  --bd-good:#23845A;--bd-good-xs:#E9F5EF;--bd-bad:#C23B22;--bd-bad-xs:#FCECE8;--bd-peach:#F4B08E;--bd-pink:#F7CBE3;--bd-feat:linear-gradient(160deg,#22306A 0%,#141C42 100%);
   --v7-ink:#151714;--v7-text:#2C2F28;--v7-2:#4E5248;--v7-3:#666A60;--v7-line:#E1E3DC;--v7-sub:#EAEBE6;--v7-page:#F4F4F1;--v7-acc:#2F4BF0;--v7-acc-bg:#EEF1FE;--v7-acc2:#8FA2FA;
   --bg:#F4F4F1;--text:#151714;--muted:#4E5248;--line:#E8E9E4;--border:#E1E3DC;--fill:#EAEBE6;--track:#EAEBE6;--chev:#C2C4BC;
   --red:#C23B22;--red-text:#C23B22;--red-soft:#FCECE8;--focus:#2F4BF0;--ink:#151714;--line6:#E1E3DC;--ctl:#D6D8D0;
-  --buW:#2F4BF0;--buS:#6E8A2E;--buI:#F26A1B;--buU:#2D7F91;--buK:#D96BA8;--buG:#7A8088;--buL:#C77A52;
+  --buW:#2F4BF0;--buS:#7C5CE0;--buI:#F26A1B;--buU:#2D7F91;--buK:#D96BA8;--buG:#7A8088;--buL:#C77A52;
   background:#C9CDD0 !important
 }
 html[data-v7t="bold"][data-v6]:not(#bold) body{background:linear-gradient(180deg,#C9CDD0 0%,#CCCFCF 44%,#E0BEA8 80%,#EBB48E 100%) fixed !important;font-family:"Inter",-apple-system,BlinkMacSystemFont,sans-serif !important;letter-spacing:-0.011em}
@@ -4133,37 +4133,37 @@ html[data-v7t="bold"][data-v6]:not(#bold) .main h1{font-size:32px}
 html[data-v7t="bold"][data-v6]:not(#bold) :is(.v6k .v,.kpis > .kpi .v,.v6h-count .odo,.v6rl b,.t7v b,.fact .v,.f6l b,.part .n,.v6h-title){font-family:"Inter Tight","Inter",sans-serif !important;font-weight:600 !important;letter-spacing:-0.03em}
 html[data-v7t="bold"][data-v6]:not(#bold) ::selection{background:#DCE2FD}
 
-/* Shell: the sidebar is a moss-green column inside the rounded shell */
+/* Shell: the sidebar is a deep navy column inside the rounded shell */
 @media (min-width:821px){
-  html[data-v7t="bold"][data-v6]:not(#bold) .app{background:linear-gradient(90deg,transparent 264px,var(--cr-shell) 264px),linear-gradient(180deg,#4A573E 0%,#3A4530 100%) !important;box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 40px 80px -40px rgba(70,50,30,.38) !important}
+  html[data-v7t="bold"][data-v6]:not(#bold) .app{background:linear-gradient(90deg,transparent 264px,var(--cr-shell) 264px),radial-gradient(120% 40% at 0% 0%,rgba(47,75,240,.35),transparent 70%),linear-gradient(180deg,#1C2756 0%,#111838 100%) !important;box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 40px 80px -40px rgba(70,50,30,.38) !important}
   html[data-v7t="bold"][data-v6]:not(#bold) .me{border-top:none !important;padding:12px !important}
 }
 @media (max-width:820px){
   html[data-v7t="bold"][data-v6]:not(#bold) .app{background:var(--cr-shell) !important}
-  html[data-v7t="bold"][data-v6]:not(#bold) .side{background:linear-gradient(180deg,#4A573E,#3E4A33) !important;border-bottom:none !important}
-  html[data-v7t="bold"][data-v6]:not(#bold) .nav{background:rgba(54,65,43,.97) !important;-webkit-backdrop-filter:none !important;backdrop-filter:none !important;border-top:none !important;box-shadow:0 -10px 24px -14px rgba(0,0,0,.35) !important}
+  html[data-v7t="bold"][data-v6]:not(#bold) .side{background:linear-gradient(180deg,#1C2756,#16204A) !important;border-bottom:none !important}
+  html[data-v7t="bold"][data-v6]:not(#bold) .nav{background:rgba(20,28,64,.97) !important;-webkit-backdrop-filter:none !important;backdrop-filter:none !important;border-top:none !important;box-shadow:0 -10px 24px -14px rgba(0,0,0,.35) !important}
 }
 @media (min-width:821px){html[data-v7t="bold"][data-v6]:not(#bold) .side{background:transparent !important}}
 html[data-v7t="bold"][data-v6]:not(#bold) .preview-bar button{white-space:nowrap}
 html[data-v7t="bold"][data-v6]:not(#bold) .brand{color:#fff}
-html[data-v7t="bold"][data-v6]:not(#bold) .brand .tail{color:rgba(236,240,228,.8)}
+html[data-v7t="bold"][data-v6]:not(#bold) .brand .tail{color:rgba(228,233,250,.8)}
 html[data-v7t="bold"][data-v6]:not(#bold) .brand .up{color:#FF8F84}
-html[data-v7t="bold"][data-v6]:not(#bold) .nav a{color:rgba(236,240,228,.82) !important}
-html[data-v7t="bold"][data-v6]:not(#bold) .nav a .ni svg{color:rgba(236,240,228,.82) !important}
+html[data-v7t="bold"][data-v6]:not(#bold) .nav a{color:rgba(228,233,250,.82) !important}
+html[data-v7t="bold"][data-v6]:not(#bold) .nav a .ni svg{color:rgba(228,233,250,.82) !important}
 html[data-v7t="bold"][data-v6]:not(#bold) .nav a:hover{background:rgba(255,255,255,.09) !important;color:#fff !important}
 html[data-v7t="bold"][data-v6]:not(#bold) .nav a:hover .ni svg{color:#fff !important}
 html[data-v7t="bold"][data-v6]:not(#bold) .nav a:is([aria-current="page"],.on,.active){background:var(--bd-lime) !important;color:var(--cr-ink) !important;font-weight:600 !important;box-shadow:0 10px 22px -12px rgba(197,240,89,.7) !important}
 html[data-v7t="bold"][data-v6]:not(#bold) .nav a:is([aria-current="page"],.on,.active) .ni svg{color:var(--cr-ink) !important}
-html[data-v7t="bold"][data-v6]:not(#bold) .nav .count{color:rgba(236,240,228,.74)}
+html[data-v7t="bold"][data-v6]:not(#bold) .nav .count{color:rgba(228,233,250,.74)}
 html[data-v7t="bold"][data-v6]:not(#bold) .nav a[aria-current="page"] .count{color:rgba(21,23,20,.66)}
-html[data-v7t="bold"][data-v6]:not(#bold) .v6k-btn{background:rgba(255,255,255,.07) !important;border-color:rgba(255,255,255,.14) !important;color:rgba(236,240,228,.82) !important}
+html[data-v7t="bold"][data-v6]:not(#bold) .v6k-btn{background:rgba(255,255,255,.07) !important;border-color:rgba(255,255,255,.14) !important;color:rgba(228,233,250,.82) !important}
 html[data-v7t="bold"][data-v6]:not(#bold) .v6k-btn:hover{background:rgba(255,255,255,.13) !important;color:#fff !important}
 html[data-v7t="bold"][data-v6]:not(#bold) .v6k-btn kbd{background:rgba(255,255,255,.12) !important;border-color:transparent !important;color:#fff !important}
 html[data-v7t="bold"][data-v6]:not(#bold) .me{background:rgba(255,255,255,.09) !important;border-radius:18px !important}
 html[data-v7t="bold"][data-v6]:not(#bold) .me .av{background:var(--bd-lime) !important;color:var(--cr-ink) !important}
 html[data-v7t="bold"][data-v6]:not(#bold) .me .nm b{color:#fff}
-html[data-v7t="bold"][data-v6]:not(#bold) .me .nm span{color:rgba(236,240,228,.74)}
-html[data-v7t="bold"][data-v6]:not(#bold) .me :is(svg,button){color:rgba(236,240,228,.86) !important}
+html[data-v7t="bold"][data-v6]:not(#bold) .me .nm span{color:rgba(228,233,250,.74)}
+html[data-v7t="bold"][data-v6]:not(#bold) .me :is(svg,button){color:rgba(228,233,250,.86) !important}
 html[data-v7t="bold"][data-v6]:not(#bold) .me .acts button:hover{background:rgba(255,255,255,.12) !important;color:#fff !important}
 
 /* Cards: white, 20px corners, a whisper of shadow so they lift off the light shell */
@@ -4179,7 +4179,7 @@ html[data-v7t="bold"][data-v6]:not(#bold) [data-slide] > .slider{background:var(
 /* Filter chips and section pills: outlined; the chosen one black */
 html[data-v7t="bold"][data-v6]:not(#bold) :is(.fchip,.fchips button,.v6pill,.t6f button):is([aria-pressed="true"],.on),html[data-v7t="bold"][data-v6]:not(#bold) .v4secnav .v4sn:is(.on,[aria-selected="true"],[aria-current="true"]){background:var(--cr-ink) !important;border-color:var(--cr-ink) !important;color:#fff !important;font-weight:500 !important}
 
-/* Summary rows: white cards with colour-coded figures; the first is the olive feature card with a lime figure */
+/* Summary rows: white cards with colour-coded figures; the first is the navy feature card with a lime figure */
 html[data-v7t="bold"][data-v6]:not(#bold) .v6kpis > .v6k:nth-child(n){background:#fff !important}
 html[data-v7t="bold"][data-v6]:not(#bold) .v6kpis > .v6k:nth-child(1){background:var(--bd-feat) !important;color:#fff}
 html[data-v7t="bold"][data-v6]:not(#bold) .v6kpis > .v6k:nth-child(1) :is(.k,.n),html[data-v7t="bold"][data-v6]:not(#bold) .v6kpis > .v6k:nth-child(1) .k *{color:rgba(255,255,255,.84) !important}
@@ -4206,7 +4206,7 @@ html[data-v7t="bold"][data-v6]:not(#bold) .kpis > .kpi:nth-child(5n+1) :is(.k,.d
 html[data-v7t="bold"][data-v6]:not(#bold) .kpis > .kpi:nth-child(5n+1) .v{color:var(--bd-lime-t) !important}
 html[data-v7t="bold"][data-v6]:not(#bold) .kpis > .kpi:nth-child(5n+2) .v{color:var(--cr-peri) !important}
 html[data-v7t="bold"][data-v6]:not(#bold) .kpis > .kpi:nth-child(5n+3) .v{color:var(--bd-teal) !important}
-html[data-v7t="bold"][data-v6]:not(#bold) .kpis > .kpi:nth-child(5n+4) .v{color:#4F6B17 !important}
+html[data-v7t="bold"][data-v6]:not(#bold) .kpis > .kpi:nth-child(5n+4) .v{color:#6347D1 !important}
 html[data-v7t="bold"][data-v6]:not(#bold) .kpis > .kpi:nth-child(5n) .v{color:var(--bd-orange-t) !important}
 html[data-v7t="bold"][data-v6]:not(#bold) .kpis > .kpi .d.up{color:var(--bd-good) !important}
 html[data-v7t="bold"][data-v6]:not(#bold) .kpis > .kpi:nth-child(5n+1) .d.up{color:var(--bd-lime-t) !important}
@@ -9215,7 +9215,7 @@ html[data-v7t="bold"][data-v6]:not(#bold) :is(.i6spark,.rvsp){background:linear-
       h: { "#FF5A61": "#DDD6FE", "#E3262F": "#A855F7", "#FF4A52": "#C084FC", "#8FB3FF": "#A5F3FC", "#4F7FEA": "#06B6D4", "#5B8DEF": "#22D3EE", "#9BE3B4": "#FBCFE8", "#3FB472": "#EC4899", "#6FC28F": "#F472B6" } },
     bold: { s6: { res: "#2F4BF0", ovl: "#2D7F91", kno: "#C9480F", mrg: "#B83D7A" }, sk: ["#2F4BF0", "#151714", "#E2E4DD"],
       h: { "#FF5A61": "#8FA2FA", "#E3262F": "#2F4BF0", "#FF4A52": "#2F4BF0", "#8FB3FF": "#F7A47C", "#4F7FEA": "#F26A1B", "#5B8DEF": "#F26A1B", "#9BE3B4": "#8CCAD6", "#3FB472": "#2D7F91", "#6FC28F": "#2D7F91" },
-      bc: { U: "#2D7F91", I: "#F26A1B", W: "#2F4BF0", S: "#6E8A2E" }, bp: { S: "#6E8A2E", I: "#F26A1B", G: "#7A8088", W: "#2F4BF0", K: "#D96BA8", L: "#C77A52", U: "#2D7F91" } },
+      bc: { U: "#2D7F91", I: "#F26A1B", W: "#2F4BF0", S: "#7C5CE0" }, bp: { S: "#7C5CE0", I: "#F26A1B", G: "#7A8088", W: "#2F4BF0", K: "#D96BA8", L: "#C77A52", U: "#2D7F91" } },
     ocean: { s6: { res: "#0D9488", ovl: "#0284C7", kno: "#F59E0B", mrg: "#E11D48" }, sk: ["#F59E0B", "#5EEAD4", "#CCFBF1"],
       h: { "#FF5A61": "#99F6E4", "#E3262F": "#14B8A6", "#FF4A52": "#2DD4BF", "#8FB3FF": "#BAE6FD", "#4F7FEA": "#0284C7", "#5B8DEF": "#38BDF8", "#9BE3B4": "#FDE68A", "#3FB472": "#F59E0B", "#6FC28F": "#FBBF24" } }
   };
@@ -9259,7 +9259,7 @@ html[data-v7t="bold"][data-v6]:not(#bold) :is(.i6spark,.rvsp){background:linear-
       [["bold", "Bold"], ["crisp", "Crisp"], ["vivid", "Vivid"], ["ocean", "Ocean"]].map(function (x) { return '<button type="button" data-t7="' + x[0] + '" aria-pressed="' + (x[0] === V7THEME) + '">' + x[1] + "</button>"; }).join("") +
       '</div><p class="rv-note" id="rvTheme7Note"></p>';
     host.parentNode.insertBefore(sec, host);
-    var NOTE = { bold: "Contrast and colour: a moss-green sidebar with a lime pill for the current page, a grey-to-peach canvas, colour-coded figures with one olive feature card per row, black pills for chosen and main actions, and blue, orange, teal and lime for data.", crisp: "Soft lavender: a light shell on a lilac canvas, a pastel pink-to-periwinkle row of figures, grey line icons, black pill actions, and periwinkle and rose for data.", vivid: "A deep indigo sidebar with solid colour icons, a violet hero, gradient-topped measure cards and violet, cyan, amber and pink data colours.", ocean: "Teal and sky: a teal hero, tinted measure cards and teal accents for selection and actions." };
+    var NOTE = { bold: "Contrast and colour: a deep navy sidebar with a lime pill for the current page, a grey-to-peach canvas, colour-coded figures with one navy feature card per row, black pills for chosen and main actions, and blue, orange, teal and lime for data.", crisp: "Soft lavender: a light shell on a lilac canvas, a pastel pink-to-periwinkle row of figures, grey line icons, black pill actions, and periwinkle and rose for data.", vivid: "A deep indigo sidebar with solid colour icons, a violet hero, gradient-topped measure cards and violet, cyan, amber and pink data colours.", ocean: "Teal and sky: a teal hero, tinted measure cards and teal accents for selection and actions." };
     function sync() { $$("#rvTheme7 [data-t7]").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-t7") === V7THEME); }); $("#rvTheme7Note").textContent = NOTE[V7THEME]; }
     sync();
     $("#rvTheme7").addEventListener("click", function (e) {
