@@ -43,7 +43,7 @@ Preview links look like this:
 A **Review** button in the bottom-right corner opens the review controls. They're for design review only, not part of the product:
 
 - **Share this view:** **Copy link** gives a link that opens exactly what you're looking at: the design version, the profile layout, the sticky bar, the pinned search bar, the sidebar menu items you've left on, the screen you're on and, on Look up a person, the person who's open. It skips sign-in and hides the Review panel, so the person you send it to sees only that view. For example: `…/?preview=1&v=3&card=top&tabs=left&bar=high&pin=1&nav=overview,people,lookup&p=ananya&review=0#/lookup`
-- **Design version:** V1 to V7. V7 is the default for new visitors. You can also add `?v=1` to `?v=7` to the URL. A V6 or V7 link also keeps the trend style, for example `&tr=stack`, and a V7 link keeps the theme, for example `&t=vivid`.
+- **Design version:** V1 to V8. V8 is the default for new visitors. You can also add `?v=1` to `?v=8` to the URL. A V6 or V7 link also keeps the trend style, for example `&tr=stack`, and a V7 link keeps the theme, for example `&t=vivid`.
 - **V7 theme:** **Bold** (default), **Crisp**, **Vivid** or **Ocean**. Shown only in V7.
 - **Look up a person · layout** (all versions): pick where the **person card** sits (Left panel or Top header) and where the **section tabs** sit (Top, Left or Right). That makes six combinations, and a small diagram shows the current one.
 
@@ -124,6 +124,37 @@ Your choices are remembered on that browser.
     - **Charts:** periwinkle, ink and rose series. The Overview hero is a white card with periwinkle, rose and ink rings. Funnel tracks are hatched, with white value pills. In Focus, the target or cap is a rose dashed line. Businesses in "Where learners move" and the Activity tab use the same palette.
     - **Text contrast:** body and label text is at least 4.5:1, including the white text on chart pills.
   - **Vivid** and **Ocean** keep their own looks.
+
+- **V8 (default): a new design, not a re-skin.** Every screen has its own new layout and markup. DOCTRACK leads the look: white cards, small icon boxes, outlined change chips, grey row bands, hatched bars with a black tooltip and a semicircle gauge. It's softened with healthy's light shell and pastels. The data and features are the same as V6; V7 is untouched.
+  - **Shell:** a light, rounded app on a soft grey canvas. The sidebar is a shade darker than the page, and the current page is a white pill with a blue icon.
+  - **Top bar (every screen):** a search pill (it opens the Ctrl K / ⌘K search), "Look up a person" and "Audit a merge" pills, a bell with the merges left to audit, and a black Share pill.
+  - **Overview:**
+    - A "Welcome back" greeting and three figure cards: unified profiles, leads resolved and wrong merges.
+    - An assistant card with a glass orb and three updates you can step through.
+    - Phase 1 milestones as row bands.
+    - A merge-audit gauge.
+    - Paid leads checked: 13 or 6 weeks of bars. Pick a week to see its known and new split, with a black tooltip.
+    - A split bar for leads resolved against the 80% target, and a donut for people known to 2+ businesses.
+    - The latest paid leads and the connected businesses, each with how many records matched and whether it is in sync.
+  - **People:**
+    - Four figure cards, a segment donut and the people you looked up recently.
+    - A full-width directory of row bands with segment pills, a name, ID or city filter, and a business filter.
+    - Minors stay "Name hidden".
+  - **Look up a person:**
+    - The landing is a centred search with an orb, example searches, recent lookups as cards, and three notes on how lookup protects people.
+    - "New to upGrad" and shared-phone results have their own cards.
+    - The person page has a header card with ID copy, CRM and Show contact; figure cards for profile filled, lifetime value, businesses and learning; Life with upGrad as stage bars per business; a "Before you call" brief; an activity feed with type filters; reach and contact with copy buttons; learning and skills; records and owners; and profile details by section.
+    - Financial details stay locked behind the team password, and contact stays masked until shown.
+  - **Identity and audits:**
+    - Figure cards, and the case as two records side by side with every differing field flagged.
+    - Same person, Not sure and Different people answers, with S, N, D and the arrow keys.
+    - This week's sample, how matching works, and a merge log where each change can be reversed after you confirm.
+  - **Data dictionary:**
+    - Figure cards and the four parts as selectable cards.
+    - A field list with coverage bars, main source, priority and tier. Open a field for its source fields, merge rule and check.
+    - Search, priority and source filters, "Lowest coverage first", and a banner for must-haves below 60%.
+    - A Sources tab with each system's sync state.
+  - **Phones:** figure cards sit two to a row, lists collapse to the essentials, and nothing scrolls sideways.
 
 ## People directory
 
