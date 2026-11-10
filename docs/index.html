@@ -3424,7 +3424,7 @@ html[data-v7][data-v6] .kpis .spark i{background:#A5B4FC !important}
 html[data-v7][data-v6] .kpis .spark i:last-child{background:#4F46E5 !important}
 
 /* Surfaces: white cards with a hairline edge instead of grey-on-grey */
-html[data-v7][data-v6] :is(.v6c,.card,.a6card,.pcard,.v5card,.v4sec,.me,.v6kpis > *):not(.v6hero):not(.in-head):not(:is(.v6c,.card,.a6card,.pcard,.v5card,.v5bar,.v4sec) *){background:#fff;border:1px solid var(--v7-line) !important;box-shadow:0 1px 2px rgba(16,24,40,.04) !important}
+html[data-v7][data-v6] :is(.v6c,.card,.a6card,.pcard,.v5card,.v4sec,.me,.v6kpis > *):not(.v6hero):not(.in-head):not(:is(.v6c,.card,.a6card,.pcard,.v5card,.v5bar,.v4sec,.v5head) *){background:#fff;border:1px solid var(--v7-line) !important;box-shadow:0 1px 2px rgba(16,24,40,.04) !important}
 /* A bar or card nested inside another card (the High header bar, cards inside cards) has no frame of its own */
 html[data-v7][data-v6] :is(.v6c,.card,.a6card,.pcard,.v5card,.v5bar,.v4sec) :is(.v5bar,.v5card,.card):not(.v6hero),html[data-v7][data-v6] .v5bar.in-head{border:none !important;box-shadow:none !important;background:transparent !important}
 html[data-v7][data-v6] .side{background:#fff;border-right:1px solid var(--v7-line);box-shadow:none}
@@ -3638,8 +3638,10 @@ html[data-v7][data-v6] .cbar i{background:var(--v7-acc) !important}
 
 /* Pinned header bar: no frame of its own (it read as a grey box inside the page) */
 html[data-v7][data-v6] .v5bar{border:none !important;box-shadow:none !important}
-html[data-v7][data-v6] .v5bar.is-min{box-shadow:0 1px 0 var(--v7-line) !important}
-html[data-v7][data-v6] .v5bar::before{background:var(--v7-page) !important}
+/* Pinned bands behind the header, bars and search take the theme's page colour, not the base grey */
+html[data-v7][data-v6] .v5head::after,html[data-v7][data-v6] .v5bar::before,html[data-v7][data-v6] .v4secbar::before,html[data-v7][data-v6] .pbar::before,html[data-v7][data-v6] #lookupForm::before{--bg:var(--v7-page)}
+/* Folding header: the header is the card, so the person card inside it has no frame of its own */
+html[data-v7][data-v6] .v5head :is(.pcard,.v5card,.card){border:none !important;box-shadow:none !important;background:transparent !important}
 </style>
 </head>
 <body>
