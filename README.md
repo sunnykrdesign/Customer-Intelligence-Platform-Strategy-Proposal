@@ -44,7 +44,7 @@ A **Review** button in the bottom-right corner opens the review controls. They'r
 
 - **Share this view:** **Copy link** gives a link that opens exactly what you're looking at: the design version, the profile layout, the sticky bar, the pinned search bar, the sidebar menu items you've left on, the screen you're on and, on Look up a person, the person who's open. It skips sign-in and hides the Review panel, so the person you send it to sees only that view. For example: `…/?preview=1&v=3&card=top&tabs=left&bar=high&pin=1&nav=overview,people,lookup&p=ananya&review=0#/lookup`
 - **Design version:** V1 to V7. V7 is the default for new visitors. You can also add `?v=1` to `?v=7` to the URL. A V6 or V7 link also keeps the trend style, for example `&tr=stack`, and a V7 link keeps the theme, for example `&t=vivid`.
-- **V7 theme:** **Crisp** (default), **Vivid** or **Ocean**. Shown only in V7.
+- **V7 theme:** **Bold** (default), **Crisp**, **Vivid** or **Ocean**. Shown only in V7.
 - **Look up a person · layout** (all versions): pick where the **person card** sits (Left panel or Top header) and where the **section tabs** sit (Top, Left or Right). That makes six combinations, and a small diagram shows the current one.
 
 - **Sticky bar:** how strongly the pinned person and tabs stand out once you scroll (default **Mid**):
@@ -102,8 +102,18 @@ Your choices are remembered on that browser.
   - **Look up a person · Activity (V6):** **Journey** is a roadmap with one row per business over time (lead, counselled, paid, completed and lost bars, milestones, the life stage on top and a Today line), then chapters by year. **Timeline** opens with a stacked chart of events per month, then filters by business and event type and a feed grouped by month. **By business** gives a card per business with its event mix, when things happened and every event. **Learning rhythm** has the headline figures, weekly bars with the average, a day-by-day heatmap and busy times. The same roadmap is used for Life with upGrad on the Profile tab. References: Productboard, Plane and Miro (roadmaps), Calendly, Shopify and Mixpanel (activity feeds), Base44, Peerlist and Cursor (heatmaps), Quo (busy times), and Headspace, Codecademy and Babbel (course progress).
   - **Look up a person · Insights (V6):** opens with **Before you call**, a short summary built from the signals (learning, reach, how often they've been contacted this week, any re-acquisition and the best next step). Then come scorecards for lifetime value (paid against still due, owner only), learning health, refund risk and how many businesses know them; re-acquisition and next-best programme cards; reach as open and closed channels with contact fatigue for 7 and 30 days; model scores as meters; and any other signals. Every figure keeps its **How** note. References: HubSpot's record summary, Xero and Searchable scorecards, Whop's risk gauge and Vanta's status cards.
   - **Motion:** screens fade in as you open them, cards rise into view as you scroll, a soft spotlight follows the cursor on cards, and segmented controls slide with a spring. If reduced motion is turned on, all of this is switched off.
-- **V7 (default):** V6 with a new visual layer and three themes (Review → V7 theme).
-  - **Crisp (default): soft lavender.** Built from a reference dashboard's visual language, not its content or layout:
+- **V7 (default):** V6 with a new visual layer and four themes (Review → V7 theme).
+  - **Bold (default): contrast and colour.** Colours and treatments are taken from four reference dashboards (healthy, Windpo, SETO, DOCTRACK); none of their content or layout is copied:
+    - **Shell:** a grey-to-peach canvas around a light, rounded shell.
+    - **Sidebar:** a moss-green column. The current page is a lime pill with black text, and the signed-in person sits in a translucent card. On phones, the top bar and bottom tab bar turn moss as well.
+    - **Figures:** each number is colour-coded: blue, teal, pink, orange and olive. The first card in every summary row is an olive feature card with a lime figure. Icons sit in small square tiles at the top right, and change chips are outlined in green (good) or red (bad).
+    - **Overview hero:** a white card with an upper-case Inter Tight headline and the profile count in blue. Phase 1 progress shows as an orange tick bar, after Windpo's. The rings are blue, orange and teal.
+    - **Controls:** a light track with a black pill for the chosen tab or segment. Chosen filter chips and section pills are black too, as are the main actions.
+    - **Tables:** each person in the directory is a white row band, after DOCTRACK's schedule. Status pills are outlined in green, blue, amber or red.
+    - **Charts:** blue, teal, orange and pink series. The Stack bars are blue and black. Funnel tracks are hatched, with blue fills. In Focus, the target is an orange dashed line.
+    - **Insights summary:** edged in SETO's peach-to-blue.
+    - **Text contrast:** every text pairing is at least 4.5:1. Big figures are at least 3:1, which is the large-text level.
+  - **Crisp: soft lavender.** Built from a reference dashboard's visual language, not its content or layout:
     - **Shell:** a lilac canvas around one light, rounded app shell. The sidebar shares the shell colour, with a hairline divider down the full height.
     - **Surfaces:** white cards with no borders and 16px corners. Type is Figtree, with medium-weight headings and figures.
     - **Sidebar:** grey line icons with no colour tiles. The current page is a white pill. The signed-in person sits at the foot of the sidebar, with no card around them.
