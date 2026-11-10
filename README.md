@@ -43,7 +43,8 @@ Preview links look like this:
 A **Review** button in the bottom-right corner opens the review controls. They're for design review only, not part of the product:
 
 - **Share this view:** **Copy link** gives a link that opens exactly what you're looking at: the design version, the profile layout, the sticky bar, the pinned search bar, the sidebar menu items you've left on, the screen you're on and, on Look up a person, the person who's open. It skips sign-in and hides the Review panel, so the person you send it to sees only that view. For example: `…/?preview=1&v=3&card=top&tabs=left&bar=high&pin=1&nav=overview,people,lookup&p=ananya&review=0#/lookup`
-- **Design version:** V1 to V6. V6 is the default for new visitors. You can also add `?v=1` to `?v=6` to the URL. A V6 link also keeps the trend style, for example `&tr=stack`.
+- **Design version:** V1 to V7. V7 is the default for new visitors. You can also add `?v=1` to `?v=7` to the URL. A V6 or V7 link also keeps the trend style, for example `&tr=stack`, and a V7 link keeps the theme, for example `&t=vivid`.
+- **V7 theme:** **Crisp** (default), **Vivid** or **Ocean**. Shown only in V7.
 - **Look up a person · layout** (all versions): pick where the **person card** sits (Left panel or Top header) and where the **section tabs** sit (Top, Left or Right). That makes six combinations, and a small diagram shows the current one.
 
 - **Sticky bar:** how strongly the pinned person and tabs stand out once you scroll (default **Mid**):
@@ -101,6 +102,18 @@ Your choices are remembered on that browser.
   - **Look up a person · Activity (V6):** **Journey** is a roadmap with one row per business over time (lead, counselled, paid, completed and lost bars, milestones, the life stage on top and a Today line), then chapters by year. **Timeline** opens with a stacked chart of events per month, then filters by business and event type and a feed grouped by month. **By business** gives a card per business with its event mix, when things happened and every event. **Learning rhythm** has the headline figures, weekly bars with the average, a day-by-day heatmap and busy times. The same roadmap is used for Life with upGrad on the Profile tab. References: Productboard, Plane and Miro (roadmaps), Calendly, Shopify and Mixpanel (activity feeds), Base44, Peerlist and Cursor (heatmaps), Quo (busy times), and Headspace, Codecademy and Babbel (course progress).
   - **Look up a person · Insights (V6):** opens with **Before you call**, a short summary built from the signals (learning, reach, how often they've been contacted this week, any re-acquisition and the best next step). Then come scorecards for lifetime value (paid against still due, owner only), learning health, refund risk and how many businesses know them; re-acquisition and next-best programme cards; reach as open and closed channels with contact fatigue for 7 and 30 days; model scores as meters; and any other signals. Every figure keeps its **How** note. References: HubSpot's record summary, Xero and Searchable scorecards, Whop's risk gauge and Vanta's status cards.
   - **Motion:** screens fade in as you open them, cards rise into view as you scroll, a soft spotlight follows the cursor on cards, and segmented controls slide with a spring. If reduced motion is turned on, all of this is switched off.
+- **V7 (default):** V6 with a new visual layer and three themes (Review → V7 theme).
+  - **Crisp (default): soft lavender.** Built from a reference dashboard's visual language, not its content or layout:
+    - **Shell:** a lilac canvas around one light, rounded app shell. The sidebar shares the shell colour, with a hairline divider down the full height.
+    - **Surfaces:** white cards with no borders and 16px corners. Type is Figtree, with medium-weight headings and figures.
+    - **Sidebar:** grey line icons with no colour tiles. The current page is a white pill. The signed-in person sits at the foot of the sidebar, with no card around them.
+    - **Summary rows:** one band of pastel cards running from pink to periwinkle, each figure with a white icon disc. This covers the Overview measures, the People tiles and the Data dictionary tiles.
+    - **Controls:** a black pill for the main action (Sign in, Open in CRM, and Look up once something is typed), white outlined pills for everything else, and soft tracks with a white pill for tabs and segmented controls. Chosen filter chips and section pills turn periwinkle.
+    - **Colour meaning:** periwinkle for good movement and done states, like the reference's "Taken". Rose for warnings, limits and restrictions, like its "Missed". A lime dot for live and synced.
+    - **Tables:** the People directory sits on the shell with hairline rows, as in the reference's tracker. Status is a white pill with an icon: a check for completed, a slash for restricted or refunded, a dot for in-progress states.
+    - **Charts:** periwinkle, ink and rose series. The Overview hero is a white card with periwinkle, rose and ink rings. Funnel tracks are hatched, with white value pills. In Focus, the target or cap is a rose dashed line. Businesses in "Where learners move" and the Activity tab use the same palette.
+    - **Text contrast:** body and label text is at least 4.5:1, including the white text on chart pills.
+  - **Vivid** and **Ocean** keep their own looks.
 
 ## People directory
 
