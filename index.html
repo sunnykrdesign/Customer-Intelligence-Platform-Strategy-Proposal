@@ -3424,7 +3424,9 @@ html[data-v7][data-v6] .kpis .spark i{background:#A5B4FC !important}
 html[data-v7][data-v6] .kpis .spark i:last-child{background:#4F46E5 !important}
 
 /* Surfaces: white cards with a hairline edge instead of grey-on-grey */
-html[data-v7][data-v6] :is(.v6c,.card,.a6card,.pcard,.v5card,.v5bar,.v4sec,.me,.v6kpis > *):not(.v6hero){background:#fff;border:1px solid var(--v7-line) !important;box-shadow:0 1px 2px rgba(16,24,40,.04) !important}
+html[data-v7][data-v6] :is(.v6c,.card,.a6card,.pcard,.v5card,.v4sec,.me,.v6kpis > *):not(.v6hero):not(.in-head):not(:is(.v6c,.card,.a6card,.pcard,.v5card,.v5bar,.v4sec) *){background:#fff;border:1px solid var(--v7-line) !important;box-shadow:0 1px 2px rgba(16,24,40,.04) !important}
+/* A bar or card nested inside another card (the High header bar, cards inside cards) has no frame of its own */
+html[data-v7][data-v6] :is(.v6c,.card,.a6card,.pcard,.v5card,.v5bar,.v4sec) :is(.v5bar,.v5card,.card):not(.v6hero),html[data-v7][data-v6] .v5bar.in-head{border:none !important;box-shadow:none !important;background:transparent !important}
 html[data-v7][data-v6] .side{background:#fff;border-right:1px solid var(--v7-line);box-shadow:none}
 
 /* Sidebar: icons sit on small colour-coded tiles; the active page is a quiet grey row */
@@ -3633,6 +3635,11 @@ html[data-v7][data-v6] .dm-head{order:4;margin-top:4px}
 html[data-v7][data-v6] .dm-list{order:5}
 html[data-v7][data-v6] .cbar i{background:var(--v7-acc) !important}
 @media (max-width:899px){html[data-v7][data-v6] .view[data-view="data"] .kpis{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:12px}html[data-v7][data-v6] .view[data-view="data"] .kpis > :last-child:nth-child(odd){grid-column:1 / -1}}
+
+/* Pinned header bar: no frame of its own (it read as a grey box inside the page) */
+html[data-v7][data-v6] .v5bar{border:none !important;box-shadow:none !important}
+html[data-v7][data-v6] .v5bar.is-min{box-shadow:0 1px 0 var(--v7-line) !important}
+html[data-v7][data-v6] .v5bar::before{background:var(--v7-page) !important}
 </style>
 </head>
 <body>
