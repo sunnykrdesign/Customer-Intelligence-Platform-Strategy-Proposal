@@ -58,7 +58,7 @@ A **Review** button in the bottom-right corner opens the review controls. They'r
   - **Profile values:** in every section, "Added 7 Jun 2024" sits under each value's sources, and the verified date sits in the row's top-right corner as a green scalloped check badge and the date, with no "Verified" word (screen readers and the hover label still say "Verified 7 Sep 2026"). Rule-derived values say "Derived", and their badge reads "Rechecked" on hover.
   - **Education and career entries:** the same badge and date, inline after the added date.
   - **Linked records and owners:** "Linked" or "Since" with a date, lined up in a column.
-  - **Person card facts:** the badge and verified date under Life stage, Age band and City, and "Updated" under Fields filled. Owned by has no date.
+  - **Person card facts:** no dates, except "Updated" under Fields filled.
   - **Sample dates:** they stay the same for each person and field, fall between when upGrad first knew the person and today, and the check never comes before the capture.
   - A link keeps Off with `&dt=off`.
 - **Insights:** **Simple** (default), **Call brief** or **Current**. Shown only in V4 with the Crisp theme.
