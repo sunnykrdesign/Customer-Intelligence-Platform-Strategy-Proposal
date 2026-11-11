@@ -3747,26 +3747,33 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) :focus-visible:not(input):not(textar
   html[data-v7t="crisp"][data-v6]:not(#crisp) .side .me{border-top-color:var(--cr-side-line) !important}
 }
 
-/* Sidebar shade (Review → Sidebar): Darker and Darkest, the same lavender family as Current */
+/* Sidebar shade (Review → Sidebar): Darker is a deep lavender-indigo, Darkest the near-black of the reference dashboard */
 @media (min-width:821px){
-  html[data-v7t="crisp"][data-v7sb="darker"][data-v6]:not(#crisp){--cr-side:#D6D2E8;--cr-side-line:#C3BEDA}
-  html[data-v7t="crisp"][data-v7sb="darker"][data-v6]:not(#crisp) .side :is(.nav a,.count,.me .nm span){color:#3E4052 !important}
-  html[data-v7t="crisp"][data-v7sb="darker"][data-v6]:not(#crisp) .side .v6k-btn{color:#45475A !important}
-  html[data-v7t="crisp"][data-v7sb="darker"][data-v6]:not(#crisp) .side .nav a:is([aria-current="page"],.on,.active){color:var(--cr-ink) !important}
-  html[data-v7t="crisp"][data-v7sb="darker"][data-v6]:not(#crisp) .side .brand .tail{color:#55576A !important}
-  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp){--cr-side:#2C2850;--cr-side-line:#3D3866}
-  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .brand{color:#fff !important}
-  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .brand .up{color:#F15663 !important}
-  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .brand .tail{color:#B9B5D6 !important}
-  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side :is(.nav a,.count,.me .nm span){color:#CFCCE6 !important}
-  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .nav a:not([aria-current="page"]):not(.on):not(.active):hover{background:rgba(255,255,255,.09) !important;color:#fff !important}
-  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .nav a:is([aria-current="page"],.on,.active){color:var(--cr-ink) !important;box-shadow:0 8px 20px -10px rgba(0,0,0,.5) !important}
-  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .v6k-btn{background:rgba(255,255,255,.08) !important;border-color:rgba(255,255,255,.14) !important;color:#D9D6EC !important}
-  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .v6k-btn:hover{background:rgba(255,255,255,.14) !important}
-  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .v6k-btn kbd{background:rgba(255,255,255,.12) !important;border-color:transparent !important;color:#D9D6EC !important}
-  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .me .nm b{color:#fff !important}
-  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .me > button svg,html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .me .chev{color:#B9B5D6 !important}
-  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .me{border-top-color:rgba(255,255,255,.12) !important}
+  html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="darkest"])[data-v6]:not(#crisp){--cr-side:#2C2850;--cr-side-line:#3D3866}
+  html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="darkest"])[data-v6]:not(#crisp) .side .brand{color:#fff !important}
+  html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="darkest"])[data-v6]:not(#crisp) .side .brand .up{color:#F15663 !important}
+  html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="darkest"])[data-v6]:not(#crisp) .side .brand .tail{color:#B9B5D6 !important}
+  html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="darkest"])[data-v6]:not(#crisp) .side :is(.nav a,.count,.me .nm span){color:#CFCCE6 !important}
+  html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="darkest"])[data-v6]:not(#crisp) .side .nav a:not([aria-current="page"]):not(.on):not(.active):hover{background:rgba(255,255,255,.09) !important;color:#fff !important}
+  html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="darkest"])[data-v6]:not(#crisp) .side .nav a:is([aria-current="page"],.on,.active){color:var(--cr-ink) !important;box-shadow:0 8px 20px -10px rgba(0,0,0,.5) !important}
+  html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="darkest"])[data-v6]:not(#crisp) .side .v6k-btn{background:rgba(255,255,255,.08) !important;border-color:rgba(255,255,255,.14) !important;color:#D9D6EC !important}
+  html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="darkest"])[data-v6]:not(#crisp) .side .v6k-btn:hover{background:rgba(255,255,255,.14) !important}
+  html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="darkest"])[data-v6]:not(#crisp) .side .v6k-btn kbd{background:rgba(255,255,255,.12) !important;border-color:transparent !important;color:#D9D6EC !important}
+  html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="darkest"])[data-v6]:not(#crisp) .side .me .nm b{color:#fff !important}
+  html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="darkest"])[data-v6]:not(#crisp) .side .me > button svg,html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="darkest"])[data-v6]:not(#crisp) .side .me .chev{color:#B9B5D6 !important}
+  html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="darkest"])[data-v6]:not(#crisp) .side .me{border-top-color:rgba(255,255,255,.12) !important}
+  /* Darkest: near-black with a faint violet cast, neutral light-grey text, and the current page as white text with a white edge bar (no white pill) */
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp){--cr-side:#211D25;--cr-side-line:#302B36}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .brand .tail{color:#AEABB4 !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side :is(.nav a,.count,.me .nm span){color:#C5C2C8 !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .me > button svg,html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .me .chev{color:#AEABB4 !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .nav a:not([aria-current="page"]):not(.on):not(.active):hover{background:rgba(255,255,255,.06) !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .nav a:is([aria-current="page"],.on,.active){position:relative;background:rgba(255,255,255,.08) !important;color:#fff !important;box-shadow:none !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .nav a:is([aria-current="page"],.on,.active)::after{content:"";position:absolute;left:-20px;top:50%;width:4px;height:24px;margin-top:-12px;border-radius:0 4px 4px 0;background:#fff;pointer-events:none}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .v6k-btn{background:rgba(255,255,255,.06) !important;border-color:rgba(255,255,255,.1) !important;color:#C5C2C8 !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .v6k-btn:hover{background:rgba(255,255,255,.11) !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .v6k-btn kbd{background:rgba(255,255,255,.1) !important;color:#C5C2C8 !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .me{border-top-color:rgba(255,255,255,.09) !important}
   /* On the darker shades the sidebar icons follow the text colour (Colour's gradient glyphs lose contrast there): light on Darkest, deep grey on Darker, ink on the white current-page pill */
   html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="darkest"])[data-v6]:not(#crisp) .side .nav a .ni::before{background:currentColor !important;opacity:1 !important}
 }
@@ -4885,7 +4892,7 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
      no specificity and keep the original cascade order; other versions are untouched. */
   (function () {
     var SCALE = function (px) { return px <= 12.5 ? 12 : px <= 13.5 ? 13 : px <= 15 ? 14 : px <= 16.5 ? 16 : px <= 18.5 ? 18 : px <= 21 ? 20 : px <= 25 ? 24 : px <= 31 ? 28 : px <= 39 ? 36 : px <= 48 ? 44 : px; };
-    var DARK = /\.auth|v6hero|v6h-|v6track|v6rl|v6live|a6hero|a6glow|a6now|a6tag|a6stats|\.dk\b|nbp|v5dock|v5d[a-z]|v5pop|v6tip|j6tip|tr-tip|sktip|j6c\.now|preview-bar|\.review|\.rv-|toast|\.dark|v6team|v6proto|who-bar|aria-pressed="true"|\.sel\b|\.pill\b|\.on\b|v6pal-i\[aria-selected|\.done|xlock|\.core|tcard|\.kpi\.dark/;
+    var DARK = /\.auth|v6hero|v6h-|v6track|v6rl|v6live|a6hero|a6glow|a6now|a6tag|a6stats|\.dk\b|nbp|v5dock|v5d[a-z]|v5pop|v6tip|j6tip|tr-tip|sktip|j6c\.now|preview-bar|\.review|\.rv-|toast|\.dark|v6team|v6proto|who-bar|aria-pressed="true"|\.sel\b|\.pill\b|\.on\b|v6pal-i\[aria-selected|\.done|xlock|\.core|tcard|\.kpi\.dark|v7sb/;
     var ELEV = {
       rest: "0 0 0 1px rgba(16,16,24,.05), 0 1px 3px rgba(16,16,24,.05)",
       raised: "0 0 0 1px rgba(16,16,24,.06), 0 10px 28px -10px rgba(16,16,24,.22)",
@@ -9315,7 +9322,7 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
       var row = document.createElement("div"); row.className = "rv-sec rv-v7sb";
       row.innerHTML = '<span class="rv-k">Sidebar</span><div class="rv-seg" role="group" aria-label="Sidebar shade"><button type="button" data-sb7="current">Current</button><button type="button" data-sb7="darker">Darker</button><button type="button" data-sb7="darkest">Darkest</button></div><p class="rv-note"></p>';
       host.parentNode.insertBefore(row, host);
-      var NOTE = { current: "Soft lavender (#E5E3F0), a shade deeper than the page.", darker: "A deeper lavender (#D6D2E8) with darker text, for a clearer split from the page.", darkest: "Deep lavender-indigo (#2C2850) with light text; the current page stays a white pill." };
+      var NOTE = { current: "Soft lavender (#E5E3F0), a shade deeper than the page.", darker: "Deep lavender-indigo (#2C2850) with light text; the current page is a white pill.", darkest: "Near-black (#211D25) with light grey text; the current page is white text with a white bar at the edge." };
       var sync = function () { $$("[data-sb7]", row).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-sb7") === V7SB); }); $(".rv-note", row).textContent = NOTE[V7SB]; };
       sync();
       row.addEventListener("click", function (e) {
