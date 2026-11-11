@@ -4044,12 +4044,12 @@ html[data-v7t="crisp"][data-v7pc="darkest"][data-v7fi="on"][data-v6]:not([data-v
 html[data-v7t="crisp"][data-v7pc="darkest"][data-v7fi="on"][data-v6]:not([data-v7i="color"]):not(#crisp) #lookupResult :is(.v5head,.v5card) .fact[data-f="city"]{--fg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.05 4.05a7 7 0 1 1 9.9 9.9l-1.13 1.12-2.43 2.37a2 2 0 0 1-2.64.12l-.14-.12-2.04-1.99-1.52-1.5a7 7 0 0 1 0-9.9M10 6.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5' fill='%23FFFFFF'/%3E%3C/svg%3E")}
 html[data-v7t="crisp"][data-v7pc="darkest"][data-v7fi="on"][data-v6]:not([data-v7i="color"]):not(#crisp) #lookupResult :is(.v5head,.v5card) .fact[data-f="owner"]{--fg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M12.5 4.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0m5 .5a2 2 0 1 1-4 0 2 2 0 0 1 4 0m-13 2a2 2 0 1 0 0-4 2 2 0 0 0 0 4M6 9.25C6 8.56 6.56 8 7.25 8h5.5c.69 0 1.25.56 1.25 1.25V14a4 4 0 0 1-8 0zm-1 0q.01-.7.38-1.25H3.25C2.56 8 2 8.56 2 9.25V13a3 3 0 0 0 3.4 2.97Q5 15.06 5 14zM15 14q0 1.06-.4 1.97.2.03.4.03a3 3 0 0 0 3-3V9.25C18 8.56 17.44 8 16.75 8h-2.13q.37.55.38 1.25z' fill='%23FFFFFF'/%3E%3C/svg%3E")}
 html[data-v7t="crisp"][data-v7pc="darkest"][data-v7fi="on"][data-v6]:not([data-v7i="color"]):not(#crisp) #lookupResult :is(.v5head,.v5card) .fact[data-f="filled"]{--fg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.01 4.07A6.99 6.99 0 0 0 9 18a7 7 0 0 0 6.93-6v-.01l.05-.45a.5.5 0 0 0-.5-.54H10.5A1.5 1.5 0 0 1 9 9.5V4.52a.5.5 0 0 0-.54-.5zM18 9.14c-.01.5-.44.86-.94.86H11a1 1 0 0 1-1-1V2.94c0-.5.37-.93.86-.94H11a7 7 0 0 1 7 7.14' fill='%23FFFFFF'/%3E%3C/svg%3E")}
-/* Header fold → Snap: the switch between open and folded animates instead of following the scroll */
-html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head .v5bg{transition:top .26s cubic-bezier(.2,.7,.2,1),box-shadow .25s,background .25s}
-html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head .v5full{transition:opacity .2s ease,clip-path .26s cubic-bezier(.2,.7,.2,1)}
-html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head :is(.v5mini,.v5id){transition:max-width .26s cubic-bezier(.2,.7,.2,1),opacity .22s ease,margin .26s}
-html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head .v4tabs button{transition:gap .22s,color .2s}
-html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head .v4cnt{transition:max-width .22s,opacity .2s,padding .22s}
+/* Header fold → Snap: the switch between open and folded is one short eased animation (no scroll-linked steps) */
+html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head .v5bg{transition:top .3s cubic-bezier(.22,.8,.24,1),box-shadow .3s ease,background .25s}
+html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head .v5full{will-change:opacity;transition:opacity .24s cubic-bezier(.22,.8,.24,1),clip-path .3s cubic-bezier(.22,.8,.24,1)}
+html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head :is(.v5mini,.v5id){transition:max-width .3s cubic-bezier(.22,.8,.24,1),opacity .26s ease,margin .3s cubic-bezier(.22,.8,.24,1)}
+html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head .v4tabs button{transition:gap .3s cubic-bezier(.22,.8,.24,1),color .2s}
+html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head .v4cnt{transition:max-width .3s,opacity .2s,padding .3s}
 @media (prefers-reduced-motion: reduce){html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head :is(.v5bg,.v5full,.v5mini,.v5id,.v4tabs button,.v4cnt){transition:none}}
 /* Crisp iconography: the upGrad Design System 2026 icon set (Fluent UI System Icons style; Microsoft, MIT licence).
    Regular outline by default and Filled for the current page, as the system asks. Sidebar icons are the 20 px design, table and
@@ -5703,16 +5703,22 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
   }
 
   // V4 Crisp, Review → Header fold → Snap: the folding header is only ever fully open or fully folded, never in between.
-  function foldSnap(hd, raw, clp) {
-    var y = window.scrollY, down = y > (hd._sy || 0), st = hd._s || 0; hd._sy = y;
-    if (raw >= 0.99) st = 1; else if (raw <= 0.01) st = 0; else if (down && raw > 0.2) st = 1; else if (!down && raw < 0.8) st = 0;
-    hd._s = st; clearTimeout(hd._st);
-    if (raw > 0.01 && raw < 0.99) hd._st = setTimeout(function () {
-      var r2 = hd._p2 === undefined ? raw : hd._p2, dy = st ? (1 - r2) * clp : -r2 * clp;
-      if (Math.abs(dy) > 1) window.scrollTo({ top: window.scrollY + dy, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
-    }, 140);
-    hd._p2 = raw;
+  // While the header scrolls toward its pinned spot the open card simply scrolls; it folds as it pins and opens as soon as it leaves.
+  function foldSnap(hd, raw) {
+    var st = hd._s || 0;
+    if (raw >= 0.97) st = 1; else if (raw <= 0.93) st = 0;
+    if (st !== hd._s) { hd._s = st; slideFollow(hd); }
     return st;
+  }
+  // Keep the tab slider glued to the tabs while the header switches (the mini name slides in and the tabs move with it).
+  function slideFollow(hd) {
+    var c = hd.querySelector("[data-slide]"), sl = c && c.querySelector(":scope > .slider"); if (!sl) return;
+    var t0 = performance.now(); sl.style.transition = "none";
+    (function step(t) {
+      var act = c.querySelector(':scope > [aria-selected="true"]');
+      if (act) { var r = { x: act.offsetLeft, y: act.offsetTop, w: act.offsetWidth, h: act.offsetHeight }; place(sl, r); SL[c.id] = r; }
+      if (t - t0 < 340) requestAnimationFrame(step); else sl.style.transition = "";
+    })(t0);
   }
   // Pinned pieces: the V5 header or bar, the profile section chips, and whether the left panel fits on screen.
   function v4Sticky(r, sb, bar) {
@@ -5724,7 +5730,7 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
       if (hd._clp !== clp) { hd._clp = clp; hd.style.setProperty("--clp", clp + "px"); }
       var pin = sb + 12, p = Math.max(0, Math.min(1, (pin - hd.getBoundingClientRect().top) / (clp || 1)));
       p = Math.round(p * 100) / 100;
-      if (document.documentElement.getAttribute("data-v7fold") === "snap") p = foldSnap(hd, p, clp);
+      if (document.documentElement.getAttribute("data-v7fold") === "snap") p = foldSnap(hd, p);
       if (hd._p !== p) { hd._p = p; hd.style.setProperty("--p", p); hd.classList.toggle("folding", p > 0.4); hd.classList.toggle("is-min", p >= 0.99); requestAnimationFrame(slideAll); }
       top = pin + hd.offsetHeight - clp + 8;
     } else if (vb) {
@@ -6233,7 +6239,8 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
     var n = window.innerWidth < 1100, ph = window.innerWidth < 760; if (n === NARROW4 && ph === PHONE4) return; NARROW4 = n; PHONE4 = ph;
     if (isV4()) { applyLookupLayout(); renderLookup(); requestAnimationFrame(slideAll); }
   });
-  window.addEventListener("scroll", hdrCheck, { passive: true });
+  var hdrQ = false;
+  window.addEventListener("scroll", function () { if (hdrQ) return; hdrQ = true; requestAnimationFrame(function () { hdrQ = false; hdrCheck(); }); }, { passive: true });
   $("#lookupResult").addEventListener("transitionend", function (e) { if (e.target.closest && e.target.closest(".pbar, .pmini")) hdrCheck(); if (e.target.closest && e.target.closest(".v5bar") && e.propertyName === "max-width") slideAll(); });
 
   function manyHTML() {
@@ -8160,7 +8167,8 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
   /* ================= V6 · UI audit fixes (behaviour) ================= */
   if (isV6() && !SHARED) SSEARCH = false;
   // Dock gets compact while scrolling.
-  window.addEventListener("scroll", function () { document.documentElement.classList.toggle("v6scroll", isV6() && window.scrollY > 240); }, { passive: true });
+  var v6sQ = false;
+  window.addEventListener("scroll", function () { if (v6sQ) return; v6sQ = true; requestAnimationFrame(function () { v6sQ = false; document.documentElement.classList.toggle("v6scroll", isV6() && window.scrollY > 240); }); }, { passive: true });
   // Data dictionary: section shortcuts, legend next to the filters.
   (function () {
     var v = $('.view[data-view="data"]'); if (!v) return;
@@ -9226,7 +9234,7 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
       var row = document.createElement("div"); row.className = "rv-sec rv-v7fold";
       row.innerHTML = '<span class="rv-k">Header fold</span><div class="rv-seg" role="group" aria-label="Folding header behaviour"><button type="button" data-fold7="snap">Snap</button><button type="button" data-fold7="smooth">Smooth</button></div><p class="rv-note"></p>';
       host.parentNode.insertBefore(row, host);
-      var NOTE = { snap: "Folding header layout: the person card is either fully open or folded into the slim bar, never half way. Stop scrolling part way and it settles to the nearer state.", smooth: "Folding header layout: the card shrinks and fades step by step as you scroll, as before." };
+      var NOTE = { snap: "Folding header layout: the person card is either fully open or folded into the slim bar, never half way. It scrolls as an open card and folds in one smooth step as it pins.", smooth: "Folding header layout: the card shrinks and fades step by step as you scroll, as before." };
       var sync = function () { $$("[data-fold7]", row).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-fold7") === V7FOLD); }); $(".rv-note", row).textContent = NOTE[V7FOLD]; };
       sync();
       row.addEventListener("click", function (e) {
