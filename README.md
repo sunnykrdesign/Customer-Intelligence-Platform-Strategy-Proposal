@@ -59,6 +59,13 @@ A **Review** button in the bottom-right corner opens the review controls. They'r
   - **Steady behaviour:** the page never scrolls on its own, and the tab slider moves with the tabs. Scroll anchoring is off in this mode, so the fold can't nudge the page back.
   - **Smooth:** the old behaviour, where the card shrinks and fades step by step as you scroll.
   - A link keeps Smooth with `&fold=smooth`.
+- **Value dates:** **On** (default) or **Off**. Shown only in V4 with the Crisp theme. It shows when information was added and when it was last verified:
+  - **Profile values:** in every section, an "Added 7 Jun 2024 · Verified 7 Sep 2026" line sits under each value's sources. Rule-derived values say "Derived · Rechecked".
+  - **Education and career entries:** the same added and verified line.
+  - **Linked records and owners:** "Linked" or "Since" with a date, lined up in a column.
+  - **Person card facts:** "Verified" under each fact, and "Updated" under Fields filled.
+  - **Sample dates:** they stay the same for each person and field, fall between when upGrad first knew the person and today, and the check never comes before the capture.
+  - A link keeps Off with `&dt=off`.
 - **Spacing:** **Compact** (default) or **Current**. Shown only in V4 with the Crisp theme. Compact tightens vertical spacing across V4:
   - **Person card:** less room above it (the space above the photo drops from 61px to 29px in the Folding header layout), with the person header about 60px shorter.
   - **Pages:** less room at the top of every page and between sections, and slimmer padding in cards, figure tiles and profile rows.
