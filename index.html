@@ -4912,7 +4912,7 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
       <span class="rv-sub">Person card</span><div class="rv-seg" id="rvPerson" role="group" aria-label="Person card position"></div>
       <span class="rv-sub">Section tabs</span><div class="rv-seg" id="rvTabs" role="group" aria-label="Section tabs position"></div>
       </div>
-      <div class="rv-stick"><span class="rv-sub">Sticky bar</span><div class="rv-seg" id="rvStick" role="group" aria-label="Sticky bar prominence"></div></div>
+      <div class="rv-stick" hidden><span class="rv-sub">Sticky bar</span><div class="rv-seg" id="rvStick" role="group" aria-label="Sticky bar prominence"></div></div>
       <div class="rv-rows"><label class="rv-row"><span>Pin the search bar</span><input type="checkbox" class="switch rv-switch" id="rvSSearch" aria-label="Pin the search bar at the top"></label></div>
       <p class="rv-note" id="rvLayoutNote"></p>
     </div>
@@ -5895,15 +5895,13 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
   if (["top", "left", "right"].indexOf(TABS) < 0) TABS = "top";
   var SSEARCH = true;
   try { SSEARCH = localStorage.getItem("cip-ssearch") !== "off"; } catch (e) {}
-  var STICKS = [["min", "Minimum"], ["mid", "Mid"], ["high", "High"]], STICK = "mid";
-  try { STICK = localStorage.getItem("cip-stick") || STICK; } catch (e) {}
-  if (["min", "mid", "high"].indexOf(STICK) < 0) STICK = "mid";
+  // Sticky bar: only High is offered now (Minimum and Mid were removed), so the Review row is hidden and saved or linked choices are ignored.
+  var STICKS = [["high", "High"]], STICK = "high";
   var NAVHIDE = [];
   try { NAVHIDE = JSON.parse(localStorage.getItem("cip-navhide") || "[]") || []; } catch (e) { NAVHIDE = []; }
   if (SHARED) {
     if (["rail", "top"].indexOf(SHARED.card) >= 0) PERSON = SHARED.card;
     if (["top", "left", "right"].indexOf(SHARED.tabs) >= 0) TABS = SHARED.tabs;
-    if (["min", "mid", "high"].indexOf(SHARED.bar) >= 0) STICK = SHARED.bar;
     if (SHARED.pin === "0" || SHARED.pin === "1") SSEARCH = SHARED.pin === "1";
     if (okLay5(SHARED.lay5)) LAY5 = SHARED.lay5;
     if (okLife(SHARED.life)) LIFE = SHARED.life;
@@ -7208,7 +7206,7 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
       minimal: "Minimal: the person card, one pinned bar, the details, and (outside High) a dock at the bottom with contact and the things to act on. Records, owners and sources sit in Identity; Life with upGrad is in Activity, as Journey.",
       overview: "Overview first: the person card with who may be contacted, one pinned bar, and an Overview tab with the headline figures, Life with upGrad, things to act on, owners, records and sources.",
       fold: "Folding header: the person card runs end to end and folds into the pinned bar as you scroll. Who may be contacted and the things to act on sit on the card, the details follow straight after it, and Life with upGrad is in Activity, as Journey."
-    }[LAY5] + " Sticky bar · " + { min: "Minimum: only the tabs and Find stay pinned, with the name once the card has gone.", mid: "Mid: the photo, name and key facts stay pinned with the tabs.", high: "High: the bar also holds the owners, who may be contacted and the things to act on." }[STICK] + " Press / to find any field.";
+    }[LAY5] + " The pinned bar holds the photo, name, tabs, owners, who may be contacted and the things to act on." + " Press / to find any field.";
     if (isV4()) {
       var who4 = PERSON === "rail" ? "The person, their headline figures, contact and records stay pinned in the left panel" : "The person and headline figures run across the top, and contact and records stay pinned on the left";
       var tabs4 = TABS === "top" ? "the four tabs stay pinned above the details" : TABS === "left" ? (PERSON === "rail" ? "the four tabs sit in the left panel, under the person" : "the four tabs stay pinned to the left of the details") : "the four tabs stay pinned to the right of the details";
