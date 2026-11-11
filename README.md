@@ -113,6 +113,7 @@ Your choices are remembered on that browser.
     - **Tables:** the People directory sits on the shell with hairline rows, as in the reference's tracker. Status is a white pill with an icon: a check for completed, a slash for restricted or refunded, a dot for in-progress states.
     - **Charts:** periwinkle, ink and rose series. The Overview hero is a white card with periwinkle, rose and ink rings. Funnel tracks are hatched, with white value pills. In Focus, the target or cap is a rose dashed line. Businesses in "Where learners move" and the Activity tab use the same palette.
     - **Text contrast:** body and label text is at least 4.5:1, including the white text on chart pills.
+    - **Icons:** one set on a 24px grid. The sidebar uses 1.7px line icons, and the current page switches to a solid ink icon. Figure cards use solid ink glyphs with a soft grey second tone on white discs, the same on Overview and People. Activity events and profile sections sit on tinted discs, one colour per kind. In the People directory, Reach shows five channel icons (call, email, SMS, WhatsApp, ads): periwinkle when open, grey when closed. Sort arrows are drawn icons.
   - **Ocean** keeps its own teal look.
 
 - **V8 (default): a new design, not a re-skin.** Every screen has its own new layout and markup. DOCTRACK leads the look: white cards, small icon boxes, outlined change chips, grey row bands, hatched bars with a black tooltip and a semicircle gauge. It's softened with healthy's light shell and pastels. The data and features are the same as V6; V7 is untouched.
