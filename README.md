@@ -60,7 +60,7 @@ A **Review** button in the bottom-right corner opens the review controls. They'r
   - **Bold:** Tinted, plus a deep periwinkle-to-pink person card with white text, solid selected section pills, solid activity icons and solid business badges. It overrides Person card shade.
   - A link keeps a variant with `&lc=tint`, `&lc=cover` or `&lc=bold`.
 - **Value dates:** **On** (default) or **Off**. Shown only in V4 with the Crisp theme. It shows when information was added and when it was last verified:
-  - **Profile values:** in every section, "Added 7 Jun 2024" sits under each value's sources, and the verified date sits in the row's top-right corner as a green scalloped check badge and the date, with no "Verified" word (screen readers and the hover label still say "Verified 7 Sep 2026"). Rule-derived values say "Derived", and their badge reads "Rechecked" on hover.
+  - **Profile values:** in every section, "Added 7 Jun 2024" sits under each value's sources, and the verified date sits in the row's top-right corner as a solid green scalloped check badge and the date, with no "Verified" word (screen readers and the hover label still say "Verified 7 Sep 2026"). Rule-derived values say "Derived", and their badge reads "Rechecked" on hover.
   - **Education and career entries:** the same badge and date, inline after the added date.
   - **Linked records and owners:** "Linked" or "Since" with a date, lined up in a column.
   - **Person card facts:** no dates, except "Updated" under Fields filled.
