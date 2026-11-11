@@ -3725,6 +3725,20 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) :focus-visible:not(input):not(textar
   html[data-v7t="crisp"][data-v6]:not(#crisp) .side{background:var(--cr-shell) !important;border-right:none !important;border-bottom:1px solid var(--cr-line) !important}
 }
 
+/* Sidebar contrast: its own deeper lavender surface and a firmer divider, so it reads apart from the page (desktop) */
+@media (min-width:821px){
+  html[data-v7t="crisp"][data-v6]:not(#crisp){--cr-side:#E5E3F0;--cr-side-line:#D5D2E3}
+  html[data-v7t="crisp"][data-v6]:not(#crisp) .app{background:linear-gradient(90deg,var(--cr-side) 0 263px,var(--cr-side-line) 263px 264px,transparent 264px) no-repeat,var(--cr-shell) !important}
+  html[data-v7t="crisp"][data-v6]:not(#crisp) .side{background:var(--cr-side) !important;box-shadow:inset -1px 0 0 var(--cr-side-line) !important}
+  html[data-v7t="crisp"][data-v6]:not(#crisp) .side .v6k-btn{background:rgba(255,255,255,.72) !important;border-color:rgba(255,255,255,.9) !important;color:#55576A !important}
+  html[data-v7t="crisp"][data-v6]:not(#crisp) .side .v6k-btn:hover{background:#fff !important}
+  html[data-v7t="crisp"][data-v6]:not(#crisp) .side .nav a:not([aria-current="page"]):not(.on):not(.active):hover{background:rgba(255,255,255,.6) !important}
+  html[data-v7t="crisp"][data-v6]:not(#crisp) .side .nav a:is([aria-current="page"],.on,.active){box-shadow:0 1px 2px rgba(21,22,28,.06),0 6px 16px -8px rgba(70,62,120,.28) !important}
+  html[data-v7t="crisp"][data-v6]:not(#crisp) .side :is(.nav a,.count,.me .nm span){color:#4F5160 !important}
+  html[data-v7t="crisp"][data-v6]:not(#crisp) .side .nav a:is([aria-current="page"],.on,.active){color:var(--cr-ink) !important}
+  html[data-v7t="crisp"][data-v6]:not(#crisp) .side .me{border-top-color:var(--cr-side-line) !important}
+}
+
 /* Sidebar: grey line icons, no colour tiles; the current page is a white pill */
 html[data-v7t="crisp"][data-v6]:not(#crisp) .brand{font-weight:600;letter-spacing:-0.025em;color:var(--cr-ink)}
 html[data-v7t="crisp"][data-v6]:not(#crisp) .brand .tail{font-weight:400;color:var(--cr-3)}
