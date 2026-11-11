@@ -47,6 +47,11 @@ A **Review** button in the bottom-right corner opens the review controls. They'r
 - **V7 theme:** **Crisp** (default) or **Ocean**. Shown only in V7. A saved or linked Bold or Vivid theme opens as Crisp.
 - **Crisp icons:** **Mono** (default) or **Colour**. Shown only in V7 with the Crisp theme. Colour fills the same icons with the theme's gradients: the figure cards run pink to periwinkle along each row, the sidebar runs rose to periwinkle, and activity events and profile sections get gradient discs with white icons. A link keeps the choice with `&ic=color`.
 - **Tab icons:** **On** (default) or **Off**. Shown only in V7 with the Crisp theme. It shows or hides the icons on the profile section tabs (Identity, Personal, Education, Career, Aspiration, Financial, Consent) so you can compare both. A link keeps Off with `&ti=off`.
+- **Profile header:** **Current**, **Card** (default) or **Banner**. Shown only in V7 with the Crisp theme, so you can compare the person header options on Look up a person. A link keeps the choice with `&ph=current` or `&ph=banner`.
+  - **Current:** the original layout: a large person card with a row of facts, and a separate grey tab bar below it.
+  - **Card:** a compact pastel card, about 215px tall instead of 345px. It has the photo in a gradient ring, the name with the copyable ID, and the facts as chips with icons (life stage, age band, city, owner). A ring shows how much of the profile is filled, next to Open in CRM. The section tabs are joined underneath as an underlined row with counts.
+  - **Banner:** based on a shared reference. A violet band holds a large photo, the same chips in white, a white Open in CRM button and "92% of profile fields filled". The section tabs sit in white on the band, lined up with the name.
+  - **Pinned bar:** in both new options, the tab bar pins on scroll as before, with the small photo and name.
 - **Look up a person · layout** (all versions): pick where the **person card** sits (Left panel or Top header) and where the **section tabs** sit (Top, Left or Right). That makes six combinations, and a small diagram shows the current one.
 
 - **Sticky bar:** how strongly the pinned person and tabs stand out once you scroll (default **Mid**):
