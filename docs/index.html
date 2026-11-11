@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<script>(function(){var v='7';try{var m=/[?&]v=([12345678])/.exec(location.search);v=m?m[1]:(localStorage.getItem('cip-version')||'7');if(m)localStorage.setItem('cip-version',v);}catch(e){}if(v==='1'||v==='2'||v==='5'||v==='8'){v='7';try{localStorage.setItem('cip-version','7');}catch(e){}}var d=document.documentElement;d.setAttribute('data-v',v>'3'?'3':v);if(v>'3')d.setAttribute('data-v4','');if(v>='5')d.setAttribute('data-v5','');if(v>='6')d.setAttribute('data-v6','');if(v==='7'){d.setAttribute('data-v7','');var t='crisp';try{var tm=/[?&]t=(crisp|ocean)/.exec(location.search);t=tm?tm[1]:(localStorage.getItem('cip-v7t')||'crisp');if(t!=='crisp'&&t!=='ocean'){t='crisp';localStorage.setItem('cip-v7t',t);}if(tm)localStorage.setItem('cip-v7t',t);}catch(e){}d.setAttribute('data-v7t',t);try{var im=/[?&]ic=(color|mono)/.exec(location.search),ic=im?im[1]:localStorage.getItem('cip-v7i');if(im)localStorage.setItem('cip-v7i',ic);if(t==='crisp'&&ic==='color')d.setAttribute('data-v7i','color');}catch(e){}try{var tim=/[?&]ti=(on|off)/.exec(location.search),ti=tim?tim[1]:localStorage.getItem('cip-v7ti');if(tim)localStorage.setItem('cip-v7ti',ti);if(t==='crisp'&&ti==='off')d.setAttribute('data-v7ti','off');}catch(e){}try{var phm=/[?&]ph=(current|card|banner)/.exec(location.search),ph=phm?phm[1]:(localStorage.getItem('cip-v7ph')||'card');if(phm)localStorage.setItem('cip-v7ph',ph);if(t==='crisp'&&(ph==='card'||ph==='banner'))d.setAttribute('data-v7ph',ph);}catch(e){}}})();</script>
+<script>(function(){var v='7';try{var m=/[?&]v=([12345678])/.exec(location.search),vm=/[?&]ver=([1-4])/.exec(location.search);if(vm)m=[0,'3467'.charAt(vm[1]-1)];v=m?m[1]:(localStorage.getItem('cip-version')||'7');if(m)localStorage.setItem('cip-version',v);}catch(e){}if(v==='1'||v==='2'||v==='5'||v==='8'){v='7';try{localStorage.setItem('cip-version','7');}catch(e){}}var d=document.documentElement;d.setAttribute('data-v',v>'3'?'3':v);if(v>'3')d.setAttribute('data-v4','');if(v>='5')d.setAttribute('data-v5','');if(v>='6')d.setAttribute('data-v6','');if(v==='7'){d.setAttribute('data-v7','');var t='crisp';try{var tm=/[?&]t=(crisp|ocean)/.exec(location.search);t=tm?tm[1]:(localStorage.getItem('cip-v7t')||'crisp');if(t!=='crisp'&&t!=='ocean'){t='crisp';localStorage.setItem('cip-v7t',t);}if(tm)localStorage.setItem('cip-v7t',t);}catch(e){}d.setAttribute('data-v7t',t);try{var im=/[?&]ic=(color|mono)/.exec(location.search),ic=im?im[1]:localStorage.getItem('cip-v7i');if(im)localStorage.setItem('cip-v7i',ic);if(t==='crisp'&&ic==='color')d.setAttribute('data-v7i','color');}catch(e){}try{var tim=/[?&]ti=(on|off)/.exec(location.search),ti=tim?tim[1]:localStorage.getItem('cip-v7ti');if(tim)localStorage.setItem('cip-v7ti',ti);if(t==='crisp'&&ti==='off')d.setAttribute('data-v7ti','off');}catch(e){}try{var phm=/[?&]ph=(current|card|banner)/.exec(location.search),ph=phm?phm[1]:(localStorage.getItem('cip-v7ph')||'card');if(phm)localStorage.setItem('cip-v7ph',ph);if(t==='crisp'&&(ph==='card'||ph==='banner'))d.setAttribute('data-v7ph',ph);}catch(e){}}})();</script>
 <style>
 :root{
   --bg:#F5F5F7; --card:#FFFFFF; --text:#1D1D1F; --muted:#6E6E73; --line:#E5E5EA; --border:#D2D2D7;
@@ -1006,6 +1006,9 @@ html[data-v="3"] .pnav > button[aria-selected="true"]{font-weight:500}
 .rv-x:hover{background:rgba(255,255,255,.16);color:#fff}
 .rv-sec{display:flex;flex-direction:column;gap:8px}
 .rv-k{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#8E8E93}
+.rv-grp{margin:4px 0 -6px;padding-top:14px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;font-weight:600;color:#F5F5F7;letter-spacing:-0.005em}
+.rv-grp.first,.rv-head + .rv-grp{border-top:0;padding-top:0}
+.rv-grp[hidden]{display:none}
 .rv-seg{display:flex;gap:2px;padding:3px;border-radius:12px;background:rgba(255,255,255,.08)}
 .rv-seg button{flex:1 1 0;min-width:0;height:32px;padding:0 8px;border:none;border-radius:9px;background:transparent;color:#D1D1D6;font-size:12.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rv-seg button:hover{color:#fff}
@@ -4025,6 +4028,100 @@ html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .v
 
 html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .v5card > .v5reach{border-color:rgba(255,255,255,.25) !important}
 html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .v5card > .v5reach .v5rk{color:rgba(255,255,255,.8) !important}
+/* ---- Banner, the rest of the shared reference: a verified mark, underlined section tabs, each section as a detail panel with a violet
+   header and grouped fields, and Education and Career as entry cards with a detail panel ---- */
+.cph-ver{display:none}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .cph-ver{display:inline-grid;place-items:center;flex:0 0 auto;margin-left:-4px}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .cph-ver circle{fill:#21C8B5}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .cph-ver path{fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+/* Section tabs: a plain underlined row, violet when chosen */
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .v4secnav{gap:26px !important;padding:0 4px !important;box-shadow:inset 0 -1px 0 rgba(21,22,28,.09)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .v4secnav .v4sn{height:48px !important;padding:0 2px !important;gap:7px !important;background:none !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;font-size:15px !important;font-weight:500 !important;color:var(--cr-2) !important;position:relative}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .v4secnav .v4sn::before{background:currentColor !important}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .v4secnav .v4sn:hover{color:var(--cr-ink) !important}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .v4secnav .v4sn.on{color:#5B3FD9 !important;font-weight:600 !important}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .v4secnav .v4sn.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;border-radius:3px 3px 0 0;background:#5B3FD9}
+/* A section as a detail panel: violet header, then fields in grouped bands, label above value */
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp{border:0 !important;border-radius:20px !important;overflow:hidden;background:#fff !important;box-shadow:0 1px 2px rgba(21,22,28,.04),0 22px 44px -34px rgba(75,68,196,.5) !important}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp > .v4sec-h{position:relative;padding:22px 26px !important;box-shadow:none !important;background:radial-gradient(240px 240px at 76% -80px,rgba(255,255,255,.14),rgba(255,255,255,0) 70%),radial-gradient(170px 170px at 97% 135%,rgba(255,255,255,.12),rgba(255,255,255,0) 70%),var(--bnr) !important}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp > .v4sec-h .v4acc-ic{background:rgba(255,255,255,.16) !important;color:#fff !important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.24) !important}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp > .v4sec-h .v4acc-t::before{content:"Learner profile";display:block;margin-bottom:5px;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp > .v4sec-h .v4acc-t b{color:#fff !important;font-size:21px;letter-spacing:-0.02em}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp > .v4sec-h .v4acc-t small{color:rgba(255,255,255,.84) !important;font-size:13.5px;margin-top:4px}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp > .v4sec-h .v4fill small{display:inline-flex;align-items:center;height:30px;padding:0 14px;border-radius:999px;background:#fff;color:#2A2B33 !important;font-size:13px;font-weight:500}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp > .v4sec-h .v4meter{display:none}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp > .v4sec-b{padding:18px 24px 6px !important;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:36px;align-content:start}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp > .v4sec-b > *{grid-column:1 / -1}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp > .v4sec-b > .v4row{grid-column:auto}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp > .v4sec-b > .v4row:has(.v5list,.v5vals,.v4conf){grid-column:1 / -1}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp > .v4sec-b::before{content:"Details";grid-column:1 / -1}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult :is(.grpbar,#secp .xp-h4){display:block;margin:8px 0 4px;padding:9px 14px;border-radius:6px;background:#F3F2FA;color:#777A93;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;line-height:1.3}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp > .v4sec-b::before{display:block;margin:8px 0 4px;padding:9px 14px;border-radius:6px;background:#F3F2FA;color:#777A93;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;line-height:1.3}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp .v4row{display:flex !important;flex-direction:column;gap:5px;padding:13px 14px !important;box-shadow:none !important;border:0 !important}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp .v4row .v4rl{font-size:13px !important;color:var(--cr-3) !important;padding:0 !important}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp .v4row .v4rv > b{font-size:15.5px !important;font-weight:600 !important;color:var(--cr-ink) !important}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp :is(.v5srcl,.v4miss){margin:6px 14px 14px;font-size:12.5px;color:var(--cr-3)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp > .v4pager{border-top:1px solid rgba(21,22,28,.07);padding:14px 22px}
+/* Education and Career: entry cards on the left, the chosen entry's detail panel on the right */
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp:has(.xpmd){background:transparent !important;box-shadow:none !important;overflow:visible;border-radius:0 !important}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp:has(.xpmd) > .v4sec-h{display:none !important}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp:has(.xpmd) > .v4sec-b{display:block;padding:4px 0 0 !important}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp:has(.xpmd) > .v4sec-b::before{display:none}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp:has(.xpmd) > .v4pager{border-top:0;padding:16px 4px}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp:has(.xpmd) .v5srcl{margin:14px 4px 0}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd{display:grid;grid-template-columns:minmax(270px,380px) minmax(0,1fr);gap:22px;align-items:start}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-l{display:flex;flex-direction:column;gap:14px;min-width:0}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-cap{margin:0;font-size:13px;color:var(--cr-3)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-c{display:flex;flex-direction:column;width:100%;padding:0;margin:0;text-align:left;font:inherit;color:inherit;background:#fff;border:1.5px solid transparent;border-radius:14px;box-shadow:0 1px 2px rgba(21,22,28,.04),0 12px 26px -20px rgba(75,68,196,.45);cursor:pointer;overflow:hidden;transition:border-color .15s,box-shadow .15s,transform .15s}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-c:hover{transform:translateY(-1px);box-shadow:0 1px 2px rgba(21,22,28,.05),0 16px 30px -20px rgba(75,68,196,.55)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-c.on{border-color:#6B4FE0;box-shadow:0 0 0 3px rgba(107,79,224,.12),0 16px 30px -22px rgba(75,68,196,.6)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-c:focus-visible{outline:2px solid #5B3FD9;outline-offset:2px}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px 0}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-tag{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;background:#F1F1F6;color:var(--cr-2);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-go{flex:0 0 auto;color:var(--cr-ink);transition:transform .15s}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-c:hover .xpmd-go{transform:translateX(2px)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-id{display:flex;align-items:center;gap:14px;padding:12px 16px 14px}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-id .xp-logo{display:grid;place-items:center;width:46px;height:46px;flex:0 0 46px;border-radius:12px;font-size:15px;--xb:linear-gradient(135deg,#5B3FD9,#8456DC);--xc:#fff;box-shadow:0 8px 16px -10px rgba(91,63,217,.8)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-id > span:not(.xp-logo){display:flex;flex-direction:column;gap:3px;min-width:0}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-id b{font-size:15.5px;font-weight:600;color:var(--cr-ink)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-id small{font-size:13.5px;color:var(--cr-2)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-now{margin-left:auto;align-self:flex-start;font-style:normal;font-size:11.5px;font-weight:600;color:#4B44C4;background:#EEEBFF;border-radius:6px;padding:3px 8px}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-ft{display:flex;justify-content:space-between;gap:8px 14px;flex-wrap:wrap;padding:12px 16px;border-top:1px solid rgba(21,22,28,.07);font-size:13px;color:var(--cr-2)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-ft span{display:inline-flex;align-items:center;gap:6px}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-ft svg{color:var(--cr-3)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-d{display:none;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 1px 2px rgba(21,22,28,.04),0 22px 44px -34px rgba(75,68,196,.5)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-d.on{display:block;animation:xpmdIn .2s ease-out}
+@keyframes xpmdIn{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-h{position:relative;padding:22px 26px;color:#fff;background:radial-gradient(240px 240px at 74% -80px,rgba(255,255,255,.14),rgba(255,255,255,0) 70%),radial-gradient(170px 170px at 96% 140%,rgba(255,255,255,.12),rgba(255,255,255,0) 70%),var(--bnr)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-h .k{margin:0 0 6px;padding-right:130px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-h h3{margin:0;padding-right:130px;font-size:24px;font-weight:600;letter-spacing:-0.02em;color:#fff}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-h .s{margin:6px 0 0;font-size:15px;color:rgba(255,255,255,.86)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-chips span{display:inline-flex;align-items:center;height:26px;padding:0 11px;border-radius:999px;background:#fff;color:#4B44C4;font-size:12.5px;font-weight:500}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-pill{position:absolute;top:22px;right:24px;display:inline-flex;align-items:center;height:30px;padding:0 14px;border-radius:999px;background:#fff;color:#2A2B33;font-size:13px;font-weight:500;white-space:nowrap}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-b{padding:16px 22px 20px}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-b dl{margin:0 0 6px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-b dl div{padding:12px 14px;min-width:0}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-b dt{margin:0 0 4px;font-size:13px;color:var(--cr-3)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-b dd{margin:0;font-size:15.5px;font-weight:600;color:var(--cr-ink);overflow-wrap:anywhere}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-p{margin:12px 14px 6px;font-size:14.5px;line-height:1.6;color:var(--cr-ink)}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-more{margin-top:22px;padding:16px 22px 8px;border-radius:18px;background:#fff;box-shadow:0 1px 2px rgba(21,22,28,.04),0 22px 44px -34px rgba(75,68,196,.5);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:36px}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-more > *{grid-column:1 / -1}
+html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-more > .v4row{grid-column:auto}
+@media (max-width:980px){
+  html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd{grid-template-columns:minmax(0,1fr)}
+  html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult :is(#secp > .v4sec-b,.xpmd-more,.xpmd-b dl){grid-template-columns:minmax(0,1fr)}
+  html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult :is(#secp > .v4sec-b,.xpmd-more) > .v4row{grid-column:1 / -1}
+}
+@media (max-width:640px){
+  html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .v4secnav{gap:20px !important;flex-wrap:nowrap !important;overflow-x:auto;scrollbar-width:none}
+  html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .v4secnav::-webkit-scrollbar{display:none}
+  html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .v4secnav .v4sn{flex:0 0 auto !important;height:44px !important}
+  html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult #secp > .v4sec-h{padding:18px !important}
+  html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-h{padding:18px}
+  html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult :is(.xpmd-h .k,.xpmd-h h3){padding-right:0}
+  html[data-v7t="crisp"][data-v7ph="banner"][data-v6]:not(#crisp) #lookupResult .xpmd-pill{position:static;margin-top:12px}
+}
 /* Narrower screens: the side column drops under the details; phones stack the photo above */
 @media (max-width:1180px){
   html[data-v7t="crisp"][data-v7ph][data-v6]:not(#crisp) #lookupResult .cph{grid-template-columns:auto minmax(0,1fr);grid-template-areas:"av main" "av side";row-gap:14px}
@@ -4761,12 +4858,12 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
 <div class="review" id="review">
   <div class="rv-panel" id="rvPanel" role="dialog" aria-label="Review controls" tabindex="-1" hidden>
     <div class="rv-head"><b>Review</b><span>For design review, not part of the product</span><button type="button" class="rv-x" id="rvClose" aria-label="Close review panel"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1l10 10M11 1L1 11"/></svg></button></div>
-    <div class="rv-sec"><span class="rv-k">Design version</span><div class="rv-seg" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="3" aria-pressed="false">V3</button><button type="button" data-v="4" aria-pressed="false">V4</button><button type="button" data-v="6" aria-pressed="false">V6</button><button type="button" data-v="7" aria-pressed="false">V7</button></div></div>
-    <div class="rv-sec rv-v6x"><span class="rv-k">V6 motion</span>
+    <div class="rv-sec"><span class="rv-k">Design version</span><div class="rv-seg" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="3" aria-pressed="false" title="V1 · Classic">V1</button><button type="button" data-v="4" aria-pressed="false" title="V2 · Learner 360">V2</button><button type="button" data-v="6" aria-pressed="false" title="V3 · Master">V3</button><button type="button" data-v="7" aria-pressed="false" title="V4 · Crisp (latest)">V4</button></div><p class="rv-note" id="vNote"></p></div>
+    <div class="rv-sec rv-v6x"><span class="rv-k">Hero motion</span>
       <div class="rv-rows"><label class="rv-row"><span>Hero glow follows the cursor</span><input type="checkbox" class="switch rv-switch" id="rvGlow6" aria-label="Hero glow follows the cursor"></label></div>
       <p class="rv-note">On the Overview hero, a soft red light sits under the pointer and trails it as you move, then fades out when you leave the card. No click effect. Off on touch screens and when reduced motion is on.</p>
     </div>
-    <div class="rv-sec rv-v5"><span class="rv-k">Look up layout · V6 and V7</span><div class="rv-seg" id="rvLay5" role="group" aria-label="Look up layout"></div>
+    <div class="rv-sec rv-v5"><span class="rv-k">Look up layout</span><div class="rv-seg" id="rvLay5" role="group" aria-label="Look up layout"></div>
       <span class="rv-sub">Life with upGrad</span><div class="rv-seg" id="rvLife" role="group" aria-label="Life with upGrad style"></div></div>
     <div class="rv-sec"><span class="rv-k">Look up a person · layout</span>
       <div class="rv-pos">
@@ -5566,7 +5663,7 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
     var fill = Math.round(p.complete * 0.53) + " of 53 profile fields have a value";
     return '<div class="cph">' +
       '<div class="cph-av">' + avatarHTML(p, "avatar") + "</div>" +
-      '<div class="cph-main"><div class="cph-nm"><h1>' + esc(p.name) + "</h1>" + v5Gid(p) + "</div>" +
+      '<div class="cph-main"><div class="cph-nm"><h1>' + esc(p.name) + '</h1><span class="cph-ver" title="Identity matched on the people directory" role="img" aria-label="Identity matched"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M4.7 8.3l2.2 2.2 4.4-4.5"/></svg></span>' + v5Gid(p) + "</div>" +
       '<p class="cph-hl">' + esc(p.headline) + "</p>" +
       '<ul class="cph-chips">' + chip(stu ? "hat_graduation" : "briefcase", p.stage) + chip("calendar", p.ageBand) + chip("location", p.city) + chip("people_team", p.owner, "Owned by") + "</ul>" +
       '<p class="cph-meta">' + esc(m.known) + " · matched on " + esc(L.how || "a verified identifier") + " · " + v5Sync() + "</p></div>" +
@@ -6787,6 +6884,14 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
   renderPeople();
 
   /* ---------- Design versions ---------- */
+  // Shown as V1-V4. The internal codes (3, 4, 6, 7) are what the page and older links use.
+  var VNAMES = {
+    "3": ["V1", "Classic", "A soft grey canvas with white cards and upGrad red, an Overview built for live monitoring, and the first Look up a person."],
+    "4": ["V2", "Learner 360", "V1's look, with Look up a person rebuilt around the Learner 360 content: Life with upGrad, four tabs and one profile section at a time."],
+    "6": ["V3", "Master", "Everything so far with less on screen: three Look up layouts, Find, a rebuilt Overview with richer charts, and a motion layer."],
+    "7": ["V4", "Crisp", "The latest. V3 with a new visual layer: the Crisp and Ocean themes, upGrad Design System icons and new profile layouts."]
+  };
+  function vName(v) { var n = VNAMES[v] || VNAMES["7"]; return n[0] + " · " + n[1]; }
   function setVersion(v, keep) {
     if (["3", "4", "6", "7"].indexOf(v) < 0) v = "7"; // V1, V2, V5 and V8 are retired from the switcher
     document.documentElement.setAttribute("data-v", v > "3" ? "3" : v);
@@ -6795,6 +6900,7 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
     if (v >= "6") document.documentElement.setAttribute("data-v6", ""); else document.documentElement.removeAttribute("data-v6");
     if (v === "7") document.documentElement.setAttribute("data-v7", ""); else document.documentElement.removeAttribute("data-v7");
     $$("#vswitch button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === v); });
+    var vn = $("#vNote"); if (vn) vn.textContent = vName(v) + ": " + VNAMES[v][2];
     if (keep) { try { localStorage.setItem("cip-version", v); } catch (e) {} }
     v3Enter((location.hash.replace(/^#\/?/, "") || "overview").split("/")[0]);
   }
@@ -7057,7 +7163,7 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
     if (isV4()) {
       var who4 = PERSON === "rail" ? "The person, their headline figures, contact and records stay pinned in the left panel" : "The person and headline figures run across the top, and contact and records stay pinned on the left";
       var tabs4 = TABS === "top" ? "the four tabs stay pinned above the details" : TABS === "left" ? (PERSON === "rail" ? "the four tabs sit in the left panel, under the person" : "the four tabs stay pinned to the left of the details") : "the four tabs stay pinned to the right of the details";
-      return who4 + ", and " + tabs4 + ". Below 1100px wide, V4 always puts the person and tabs on top.";
+      return who4 + ", and " + tabs4 + ". Below 1100px wide, V2 always puts the person and tabs on top.";
     }
     var who = PERSON === "rail" ? "The person card stays pinned on the left" : "The person card runs across the top; once it scrolls away, a slim bar keeps their name in view";
     var tabs = TABS === "top" ? "the section tabs stay pinned above the details" : TABS === "left" ? (PERSON === "rail" ? "the section tabs sit under the person card" : "the section tabs stay pinned on the left") : "the section tabs stay pinned on the right";
@@ -7144,7 +7250,7 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
     var nav = NAVITEMS.filter(function (n) { return NAVHIDE.indexOf(n[0]) < 0; }).map(function (n) { return n[0]; }).join(",");
     var q = ["preview=1"];
     if (S.team && S.team !== "central") q.push("team=" + S.team);
-    q.push("v=" + curV(), "card=" + PERSON, "tabs=" + TABS, "bar=" + STICK, "pin=" + (SSEARCH ? 1 : 0), "nav=" + nav);
+    q.push("ver=" + (VNAMES[curV()] || VNAMES["7"])[0].slice(1), "card=" + PERSON, "tabs=" + TABS, "bar=" + STICK, "pin=" + (SSEARCH ? 1 : 0), "nav=" + nav);
     if (curV() >= "5") q.push("lay5=" + LAY5, "life=" + LIFE);
     if (isV6() && typeof V6 !== "undefined") q.push("tr=" + V6.style);
     if (isV6() && typeof V6 !== "undefined" && V6.range === 30) q.push("rg=30");
@@ -7674,7 +7780,7 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
     if (routes.indexOf("overview") >= 0) [["flow", "Flow"], ["stack", "Stack"], ["focus", "Focus"]].forEach(function (s) { it.push({ g: "Trends", t: "Show trends as " + s[1], s: s[0] === V6.style ? "Current" : "Overview", ic: IC6.chart, run: function () { V6.style = s[0]; if (location.hash !== "#/overview") location.hash = "#/overview"; else renderStudio6(true, true); requestAnimationFrame(slideAll); } }); });
     it.push({ g: "Actions", t: "Copy link to this view", s: "Opens without the Review panel", ic: IC6.link, run: function () { copy(viewLink(), $("#rvShareUrl"), "Link to this view copied"); } });
     it.push({ g: "Actions", t: "Share this dashboard", s: "Preview link", ic: IC6.link, run: function () { var b = $('.side [data-action="share"]'); if (b) b.click(); } });
-    if (!SHARED) ["3", "4", "6", "7"].forEach(function (v) { it.push({ g: "Design version", t: "Switch to V" + v + (v === "7" ? " · latest" : v === "6" ? " · master" : ""), s: curV() === v ? "Current" : "", ic: IC6.ver, run: function () { var b = $('#vswitch [data-v="' + v + '"]'); if (b) b.click(); } }); });
+    if (!SHARED) ["3", "4", "6", "7"].forEach(function (v) { it.push({ g: "Design version", t: "Switch to " + vName(v) + (v === "7" ? " (latest)" : ""), s: curV() === v ? "Current" : "", ic: IC6.ver, run: function () { var b = $('#vswitch [data-v="' + v + '"]'); if (b) b.click(); } }); });
     return it;
   }
   function palRender() {
@@ -9144,26 +9250,27 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
   (function () {
     var host = $(".rv-v6x"); if (!host) return;
     var sec = document.createElement("div"); sec.className = "rv-sec rv-v7t";
-    sec.innerHTML = '<span class="rv-k">V7 theme</span><div class="rv-seg" id="rvTheme7" role="group" aria-label="V7 theme">' +
+    sec.innerHTML = '<span class="rv-k">Theme</span><div class="rv-seg" id="rvTheme7" role="group" aria-label="Theme">' +
       [["crisp", "Crisp"], ["ocean", "Ocean"]].map(function (x) { return '<button type="button" data-t7="' + x[0] + '" aria-pressed="' + (x[0] === V7THEME) + '">' + x[1] + "</button>"; }).join("") +
       '</div><p class="rv-note" id="rvTheme7Note"></p>';
     host.parentNode.insertBefore(sec, host);
     var isec = document.createElement("div"); isec.className = "rv-sec rv-v7i";
-    isec.innerHTML = '<span class="rv-k">Crisp icons</span><div class="rv-seg" id="rvIcon7" role="group" aria-label="Crisp icons"><button type="button" data-i7="mono">Mono</button><button type="button" data-i7="color">Colour</button></div><p class="rv-note" id="rvIcon7Note"></p>';
+    isec.innerHTML = '<span class="rv-k">Icons</span><div class="rv-seg" id="rvIcon7" role="group" aria-label="Icons"><button type="button" data-i7="mono">Mono</button><button type="button" data-i7="color">Colour</button></div><p class="rv-note" id="rvIcon7Note"></p>';
     host.parentNode.insertBefore(isec, host);
     var tsec = document.createElement("div"); tsec.className = "rv-sec rv-v7ti";
     tsec.innerHTML = '<span class="rv-k">Tab icons</span><div class="rv-seg" id="rvTabI7" role="group" aria-label="Icons on the profile section tabs"><button type="button" data-ti7="on">On</button><button type="button" data-ti7="off">Off</button></div><p class="rv-note" id="rvTabI7Note"></p>';
     host.parentNode.insertBefore(tsec, host);
     var hsec = document.createElement("div"); hsec.className = "rv-sec rv-v7ph";
-    hsec.innerHTML = '<span class="rv-k">Profile header</span><div class="rv-seg" id="rvHead7" role="group" aria-label="Profile header"><button type="button" data-ph7="current">Current</button><button type="button" data-ph7="card">Card</button><button type="button" data-ph7="banner">Banner</button></div><p class="rv-note" id="rvHead7Note"></p>';
+    hsec.innerHTML = '<span class="rv-k">Profile layout</span><div class="rv-seg" id="rvHead7" role="group" aria-label="Profile layout"><button type="button" data-ph7="current">Current</button><button type="button" data-ph7="card">Card</button><button type="button" data-ph7="banner">Banner</button></div><p class="rv-note" id="rvHead7Note"></p>';
     host.parentNode.insertBefore(hsec, host);
-    var HNOTE = { current: "The person card as it was: a large card with a row of facts, and a separate grey tab bar below.", card: "A compact pastel card: photo with a gradient ring, the facts as chips, a profile-filled ring and the section tabs joined underneath.", banner: "A violet banner: a large photo, the facts as chips, a white CRM button, and the section tabs in white on the band." };
+    var HNOTE = { current: "The person card as it was: a large card with a row of facts, and a separate grey tab bar below.", card: "A compact pastel card: photo with a gradient ring, the facts as chips, a profile-filled ring and the section tabs joined underneath.", banner: "After the shared reference: a violet banner header, underlined section tabs, and each section as a detail panel with a violet header and grouped fields. Education and Career list each entry on the left with its details on the right." };
     function hsync() { $$("#rvHead7 [data-ph7]").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-ph7") === V7PH); }); $("#rvHead7Note").textContent = HNOTE[V7PH]; }
     hsync();
     $("#rvHead7").addEventListener("click", function (e) {
       var b = e.target.closest("[data-ph7]"); if (!b) return;
       V7PH = b.getAttribute("data-ph7"); try { localStorage.setItem("cip-v7ph", V7PH); } catch (er) {}
       hsync(); v7theme(); if (typeof rvShareSync === "function") rvShareSync();
+      if (typeof renderLookup === "function" && L && L.person) renderLookup();
       requestAnimationFrame(function () { window.dispatchEvent(new Event("resize")); window.dispatchEvent(new Event("scroll")); });
     });
     var TNOTE = { on: "Profile section tabs start with their section's icon, filled on the selected tab.", off: "Profile section tabs show their names only." };
@@ -9282,6 +9389,51 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
     var b = e.target.closest && e.target.closest("[data-xpmore]"); if (!b) return;
     var d = b.closest(".xp-desc"), open = !d.classList.contains("open"); d.classList.toggle("open", open); b.setAttribute("aria-expanded", open); b.textContent = open ? "Show less" : "… more";
   });
+  // ---------- V4 Crisp, Review → Profile layout → Banner: entries as a list with a detail panel (after the shared reference) ----------
+  function v7Showcase() { var d = document.documentElement; return d.hasAttribute("data-v7") && d.getAttribute("data-v7t") === "crisp" && d.getAttribute("data-v7ph") === "banner"; }
+  function flI(n, cls) { var g = typeof FLU !== "undefined" && FLU[n]; return g ? '<svg' + (cls ? ' class="' + cls + '"' : "") + ' width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-fl="' + n + '">' + g[0].split("|").map(function (d) { return '<path d="' + d + '"/>'; }).join("") + "</svg>" : ""; }
+  var XPSEL = { p: null, edu: 0, exp: 0 };
+  function xpMD(p, kind) {
+    if (XPSEL.p !== L.person) XPSEL = { p: L.person, edu: 0, exp: 0 };
+    var E = [];
+    if (kind === "edu") p.edu.forEach(function (e) {
+      var deg = /bachelor|master|b\.|m\.|diploma|degree/i.test(e.d);
+      E.push({ tag: (deg ? "Degree" : "School") + " | Education", t: e.d, org: e.s, lg: null, logo: e.s, foot: [e.g ? ["ribbon", e.g.split(" · ")[0]] : null, ["calendar", e.y]], pill: e.y, chips: e.g ? e.g.split(" · ") : [],
+        groups: [["Programme info", [["Qualification", e.d], ["Years", e.y], ["Grade or score", e.g ? e.g.replace(/^Grade:\s*/i, "") : ""]]], ["Institution info", [["Name of the institution", e.s], ["Source", e.src]]]], kick: (deg ? "Degree" : "School") + " | " + e.s });
+    });
+    else p.exp.forEach(function (c) {
+      c.roles.forEach(function (r) {
+        var d = xpDur(r.from, r.to), range = r.from + (r.to ? " – " + r.to : r.soon ? " · " + r.soon : "");
+        E.push({ tag: (c.type || "Role") + " | Career", t: r.t, org: c.c, lg: c.lg, logo: c.c, foot: [c.loc ? ["location", c.loc.split(" · ")[0]] : null, ["calendar", range]], pill: r.to === "Present" ? "Since " + r.from : r.soon || r.from, chips: r.sk || [],
+          groups: [["Role info", [["Title", r.t], ["Employment type", c.type], ["Location", c.loc], ["Duration", r.to === "Present" ? range + (d ? " · " + d : "") : d ? range + " · " + d : range]]], ["Employer info", [["Company", c.c], ["Source", r.src]]]].concat(r.desc ? [["About the role", [["What they do", r.desc]]]] : []),
+          kick: (c.type || "Role") + " | " + c.c, now: r.to === "Present" });
+      });
+    });
+    var sel = Math.min(XPSEL[kind] || 0, E.length - 1), dl = function (rows) { return "<dl>" + rows.filter(function (x) { return x[1]; }).map(function (x) { return "<div><dt>" + esc(x[0]) + "</dt><dd>" + esc(x[1]) + "</dd></div>"; }).join("") + "</dl>"; };
+    var cap = kind === "exp" ? (E.length + (E.length === 1 ? " role" : " roles") + (p.expTotal ? " · " + p.expTotal + " in total" : "")) : (E.length + (E.length === 1 ? " entry" : " entries"));
+    return '<div class="xpmd" data-kind="' + kind + '"><div class="xpmd-l"><p class="xpmd-cap">' + esc(cap) + "</p>" + E.map(function (e, i) {
+      return '<button type="button" class="xpmd-c' + (i === sel ? " on" : "") + '" data-xpsel="' + i + '" aria-pressed="' + (i === sel) + '"><span class="xpmd-top"><span class="xpmd-tag">' + esc(e.tag) + "</span>" + flI("arrow_right", "xpmd-go") + "</span>" +
+        '<span class="xpmd-id">' + xpLogo(e.logo, e.lg) + "<span><b>" + esc(e.t) + "</b><small>" + esc(e.org) + "</small></span>" + (e.now ? '<i class="xpmd-now">Present</i>' : "") + "</span>" +
+        '<span class="xpmd-ft">' + e.foot.filter(Boolean).map(function (x) { return "<span>" + flI(x[0]) + esc(x[1]) + "</span>"; }).join("") + "</span></button>";
+    }).join("") + '</div><div class="xpmd-r">' + E.map(function (e, i) {
+      return '<article class="xpmd-d' + (i === sel ? " on" : "") + '" data-xpd="' + i + '"><header class="xpmd-h"><p class="k">' + esc(e.kick) + '</p><h3>' + esc(e.t) + "</h3><p class=\"s\">" + esc(e.org) + "</p>" +
+        (e.chips.length ? '<div class="xpmd-chips">' + e.chips.map(function (x) { return "<span>" + esc(x) + "</span>"; }).join("") + "</div>" : "") + '<span class="xpmd-pill">' + esc(e.pill) + "</span></header>" +
+        '<div class="xpmd-b">' + e.groups.map(function (g) { return '<h4 class="grpbar">' + esc(g[0]) + "</h4>" + (g[0] === "About the role" ? '<p class="xpmd-p">' + esc(g[1][0][1]) + "</p>" : dl(g[1])); }).join("") + "</div></article>";
+    }).join("") + "</div></div>";
+  }
+  var _v4RowsSC = v4Rows;
+  v4Rows = function (p, s, otherBu, m) {
+    var kind = s.key === "education" ? "edu" : s.key === "career" ? "exp" : null, list = kind && p[kind];
+    if (!kind || !isV6() || !list || !list.length || !v7Showcase()) return _v4RowsSC(p, s, otherBu, m);
+    var rest = Object.assign({}, s, { rows: (s.rows || []).filter(function (r) { return !XPCOVER[s.key].test(r.l); }), miss: s.miss });
+    return xpMD(p, kind) + (rest.rows.length ? '<section class="xpmd-more"><h4 class="grpbar">Also on file</h4>' + _v4Rows0(p, rest, otherBu, m) + "</section>" : "");
+  };
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest("[data-xpsel]"); if (!b) return;
+    var w = b.closest(".xpmd"), i = +b.getAttribute("data-xpsel"); XPSEL[w.getAttribute("data-kind")] = i;
+    $$("[data-xpsel]", w).forEach(function (x) { var on = +x.getAttribute("data-xpsel") === i; x.classList.toggle("on", on); x.setAttribute("aria-pressed", on); });
+    $$("[data-xpd]", w).forEach(function (x) { x.classList.toggle("on", +x.getAttribute("data-xpd") === i); });
+  });
   // ===== V7 Crisp: icons from the upGrad Design System 2026 =====
   // The system draws its icons in the Fluent UI System Icons style (Microsoft, MIT licence): Regular (outline) by default, Filled for
   // the current page. While V7 Crisp is on, every icon the page draws is swapped for its Fluent glyph (the 16 px design up to 16 px,
@@ -9340,6 +9492,23 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
       }
     }).observe(document.body, { childList: true, subtree: true });
     new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ["data-v7", "data-v7t"] });
+    sync();
+  })();
+  // Review panel, organised: rows sit under group titles, and a title hides when none of its rows apply to the version in view.
+  (function () {
+    var panel = $("#rvPanel"); if (!panel) return;
+    var rows = Array.prototype.slice.call(panel.querySelectorAll(":scope > .rv-sec"));
+    var find = function (t) { return rows.filter(function (r) { var k = r.querySelector(":scope > .rv-k"); return k && k.textContent.trim().indexOf(t) === 0; })[0]; };
+    var G = [["Version", ["Design version"]], ["V4 options", ["Theme", "Icons", "Tab icons", "Profile layout"]], ["Look up a person", ["Look up layout", "Look up a person"]],
+      ["Motion", ["Hero motion"]], ["Sharing and access", ["Share this view", "Locked sections", "Sidebar menu"]]];
+    var used = [], heads = G.map(function (g, i) {
+      var h = document.createElement("p"); h.className = "rv-grp" + (i ? "" : " first"); h.textContent = g[0];
+      h._rows = g[1].map(find).filter(Boolean); panel.appendChild(h); h._rows.forEach(function (r) { panel.appendChild(r); used.push(r); });
+      return h;
+    });
+    rows.forEach(function (r) { if (used.indexOf(r) < 0) panel.appendChild(r); });
+    function sync() { heads.forEach(function (h) { h.hidden = !h._rows.some(function (r) { return !r.hidden && getComputedStyle(r).display !== "none"; }); }); }
+    new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ["data-v", "data-v4", "data-v5", "data-v6", "data-v7", "data-v7t"] });
     sync();
   })();
   renderAudit();
