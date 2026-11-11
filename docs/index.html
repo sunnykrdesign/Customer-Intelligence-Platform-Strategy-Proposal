@@ -3752,6 +3752,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) :focus-visible:not(input):not(textar
   html[data-v7t="crisp"][data-v7sb="darker"][data-v6]:not(#crisp){--cr-side:#D6D2E8;--cr-side-line:#C3BEDA}
   html[data-v7t="crisp"][data-v7sb="darker"][data-v6]:not(#crisp) .side :is(.nav a,.count,.me .nm span){color:#3E4052 !important}
   html[data-v7t="crisp"][data-v7sb="darker"][data-v6]:not(#crisp) .side .v6k-btn{color:#45475A !important}
+  html[data-v7t="crisp"][data-v7sb="darker"][data-v6]:not(#crisp) .side .nav a:is([aria-current="page"],.on,.active){color:var(--cr-ink) !important}
   html[data-v7t="crisp"][data-v7sb="darker"][data-v6]:not(#crisp) .side .brand .tail{color:#55576A !important}
   html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp){--cr-side:#2C2850;--cr-side-line:#3D3866}
   html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .brand{color:#fff !important}
@@ -3766,6 +3767,8 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) :focus-visible:not(input):not(textar
   html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .me .nm b{color:#fff !important}
   html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .me > button svg,html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .me .chev{color:#B9B5D6 !important}
   html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .me{border-top-color:rgba(255,255,255,.12) !important}
+  /* On the darker shades the sidebar icons follow the text colour (Colour's gradient glyphs lose contrast there): light on Darkest, deep grey on Darker, ink on the white current-page pill */
+  html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="darkest"])[data-v6]:not(#crisp) .side .nav a .ni::before{background:currentColor !important;opacity:1 !important}
 }
 
 /* Sidebar: grey line icons, no colour tiles; the current page is a white pill */
