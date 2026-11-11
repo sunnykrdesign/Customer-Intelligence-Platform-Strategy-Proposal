@@ -5179,7 +5179,7 @@ html[data-v8]:not(#v8) .v8srcs .v8fd:first-of-type{margin-left:auto}
     }
     Array.prototype.forEach.call(document.styleSheets, function (sh) { try { if (sh.ownerNode && sh.ownerNode.id === "v6sys") return; visit(sh.cssRules, ""); } catch (e) {} });
     var el = document.createElement("style"); el.id = "v6sys"; el.textContent = css.join("\n");
-    document.head.appendChild(el);
+    var ss = document.querySelectorAll("style"), lastSt = ss[ss.length - 1]; if (lastSt) lastSt.parentNode.insertBefore(el, lastSt.nextSibling); else document.head.appendChild(el);
     window.V6SYS = css.length;
   })();
   var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -9348,9 +9348,10 @@ html[data-v8]:not(#v8) .v8srcs .v8fd:first-of-type{margin-left:auto}
     }
     Array.prototype.forEach.call(document.styleSheets, function (sh) { try { if (sh.ownerNode && (sh.ownerNode.id === "v7sys" || sh.ownerNode.id === "v7layer")) return; visit(sh.cssRules, ""); } catch (e) {} });
     var el = document.createElement("style"); el.id = "v7sys"; el.textContent = css.join("\n");
-    document.head.appendChild(el);
+    // After every page stylesheet (not into <head>, which comes first when the page is embedded in another document).
+    var ss = document.querySelectorAll("style"), lastSt = ss[ss.length - 1]; if (lastSt) lastSt.parentNode.insertBefore(el, lastSt.nextSibling); else document.head.appendChild(el);
     // The hand-written V7 design layer goes after the remapped copies so it wins ties.
-    var lay = document.getElementById("v7layer"); if (lay) document.head.appendChild(lay);
+    var lay = document.getElementById("v7layer"); if (lay) el.parentNode.insertBefore(lay, el.nextSibling);
   })();
 
   // Inline colours written by scripts (chart strokes, fills, style="...") are remapped the same way in V7.
@@ -9389,7 +9390,7 @@ html[data-v8]:not(#v8) .v8srcs .v8fd:first-of-type{margin-left:auto}
   if (typeof BC6 !== "undefined") Object.keys(BC6).forEach(function (k) { V6BC[k] = BC6[k][1]; });
   var V6BCP = {}; if (typeof BC6P !== "undefined") Object.keys(BC6P).forEach(function (k) { V6BCP[k] = BC6P[k]; });
   S6.forEach(function (s) { V6S6[s.k] = s.c; }); if (V6.sk7) V6.sk7.forEach(function (k) { V6SK.push(k[2]); });
-  function v7theme() { var d = document.documentElement; if (isV7()) d.setAttribute("data-v7t", V7THEME); else d.removeAttribute("data-v7t"); }
+  function v7theme() { var d = document.documentElement; if (isV7()) d.setAttribute("data-v7t", V7THEME); else d.removeAttribute("data-v7t"); var rs = $(".rv-v7t"); if (rs) rs.hidden = !isV7(); }
   function v7data() {
     v7theme();
     var on = isV7(), T = V7T[V7THEME];
