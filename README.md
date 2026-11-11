@@ -61,14 +61,17 @@ A **Review** button in the bottom-right corner opens the review controls. They'r
   - **Person card facts:** "Verified" under each fact, and "Updated" under Fields filled.
   - **Sample dates:** they stay the same for each person and field, fall between when upGrad first knew the person and today, and the check never comes before the capture.
   - A link keeps Off with `&dt=off`.
-- **Insights:** **New** (default) or **Current**. Shown only in V4 with the Crisp theme. New lays the same signals out as a call brief, with nothing hidden behind "Show the signals behind this summary":
-  - **Verdict:** "Good time to call", "Call, but keep it brief" (3 to 5 outbound touches in the last 7 days) or "Hold off" (6 or more, or no channel open), with the reason.
-  - **Talking points:** numbered (learning, heads up, consent).
-  - **Best next step:** a pastel panel beside the brief.
-  - **Four tiles:** lifetime value, learning health, refund risk or speed to lead, and businesses, each with an icon.
-  - **Two columns:** Reach and engagement with More signals, and re-acquisition with the model scores.
-  - **How notes:** they work as before.
-  - A link keeps Current with `&ins=current`.
+- **Insights:** **Simple** (default), **Call brief** or **Current**. Shown only in V4 with the Crisp theme.
+  - **Simple:** a plain read of the person in one clean panel, with no calling advice, reach or contact counts:
+    - **Summary:** two or three sentences on who they are, how long upGrad has known them, their current or past programmes and a good next fit, then three figures: lifetime value, programmes and learning.
+    - **With upGrad:** a card for each business they're known to, with its stage, since when and the course they took there.
+    - **Key details:** status, first seen, last active, intent, re-acquired and next programme.
+    - **Activity over time:** events in each of the last six months as a bar chart, with the change from the quarter before. These are sample figures, steady for each person and nudged up by their real events.
+    - **Interest by area:** up to three areas, worked out from the words in their courses, goals, headline, skills and activity.
+    - Another business without cross-business consent sees only its own relationship. Lifetime value shows "Owner only" to every other business.
+  - **Call brief:** the previous default. It shows a verdict, talking points and the best next step, then every signal.
+  - **Current:** Before you call as a list, with the signals behind a Show more.
+  - A link keeps a choice with `&ins=brief` or `&ins=current`.
 - **Spacing:** **Compact** (default) or **Current**. Shown only in V4 with the Crisp theme. Compact tightens vertical spacing across V4:
   - **Person card:** less room above it (the space above the photo drops from 61px to 29px in the Folding header layout), with the person header about 60px shorter.
   - **Pages:** less room at the top of every page and between sections, and slimmer padding in cards, figure tiles and profile rows.
