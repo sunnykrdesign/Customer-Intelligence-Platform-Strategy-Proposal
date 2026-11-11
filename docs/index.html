@@ -4049,7 +4049,10 @@ html[data-v7t="crisp"][data-v7pc="darkest"][data-v7fi="on"][data-v6]:not([data-v
    fold can't nudge the page back. */
 html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp){overflow-anchor:none}
 html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head{top:calc(var(--sbar,0px) + 12px) !important;display:grid !important;grid-template-columns:minmax(0,1fr);grid-template-rows:1fr auto;transition:grid-template-rows .32s cubic-bezier(.22,.8,.24,1)}
-html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head.folding{grid-template-rows:0fr auto}
+html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head.folding{grid-template-rows:0fr auto;padding:12px 14px 12px 16px !important}
+html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head{transition:grid-template-rows .32s cubic-bezier(.22,.8,.24,1),padding .32s cubic-bezier(.22,.8,.24,1)}
+html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head.folding .v5bar .v5id{gap:12px}
+html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head.folding .v5bar .v5mav{width:40px;height:40px;flex-basis:40px}
 html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head > .v5full{min-height:0;overflow:hidden;clip-path:none !important;opacity:calc(1 - var(--p));transition:opacity .24s cubic-bezier(.22,.8,.24,1)}
 html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head > .v5bg{top:0 !important;transition:box-shadow .3s ease,background .25s}
 html[data-v7t="crisp"][data-v7fold="snap"][data-v6]:not(#crisp) #lookupResult .v5head .v5bar.in-head{transition:margin-top .32s cubic-bezier(.22,.8,.24,1)}
@@ -5798,9 +5801,16 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
   function foldSnap(hd, pin) {
     var par = hd.parentElement, rt = hd.getBoundingClientRect().top, pt = par.getBoundingClientRect().top;
     if (hd._off === undefined || rt > pin + 1) hd._off = rt - pt;
-    var nat = pt + hd._off, st = hd._s || 0;
-    if (nat < pin - 1) st = 1; else if (nat > pin + 1) st = 0;
-    if (st !== hd._s) { hd._s = st; slideFollow(hd); foldFollow(); }
+    var nat = pt + hd._off, st = hd._s || 0, y = window.scrollY, down = y > (hd._sy === undefined ? y : hd._sy), up = y < (hd._sy === undefined ? y : hd._sy), now = performance.now();
+    hd._sy = y;
+    // Not too eager: fold only while scrolling down and 64px past the pin point; open only while scrolling up and back within 16px
+    // of the top; and never flip again while the 0.3s fold is still running.
+    if (now - (hd._st || 0) > 380) {
+      if (!st && down && nat < pin - 64) st = 1;
+      else if (st && up && nat > pin - 16) st = 0;
+      else if (st && nat > pin + 1) st = 0;
+    }
+    if (st !== hd._s) { hd._s = st; hd._st = now; slideFollow(hd); foldFollow(); }
     return st;
   }
   // While the header changes height, keep the pinned section chips just under it.
@@ -5831,7 +5841,7 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
       var snap = document.documentElement.getAttribute("data-v7fold") === "snap";
       if (snap) p = foldSnap(hd, pin);
       if (hd._p !== p) { hd._p = p; hd.style.setProperty("--p", p); hd.classList.toggle("folding", p > 0.4); hd.classList.toggle("is-min", p >= 0.99); requestAnimationFrame(slideAll); }
-      top = snap ? Math.max(pin, hd.getBoundingClientRect().top) + hd.offsetHeight + 8 : pin + hd.offsetHeight - clp + 8;
+      top = snap ? Math.max(pin, hd.getBoundingClientRect().top) + hd.offsetHeight + 12 : pin + hd.offsetHeight - clp + 8;
     } else if (vb) {
       var vtop = parseFloat(getComputedStyle(vb).top); if (isNaN(vtop)) vtop = sb + (STICK === "min" ? 0 : 12);
       top = vtop + vb.offsetHeight + (STICK === "min" ? 0 : 8);

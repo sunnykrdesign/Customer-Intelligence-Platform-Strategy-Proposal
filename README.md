@@ -56,6 +56,8 @@ A **Review** button in the bottom-right corner opens the review controls. They'r
 - **Header fold:** **Snap** (default) or **Smooth**. Shown only in V4 with the Crisp theme; it affects the Folding header layout.
   - **Snap:** a two-state header. It scrolls with the page while it's fully in view. The moment it reaches the top, it pins and folds into the slim bar in one eased step (about 0.3s), with the content below sliding up with it. Scroll back to where it started and it opens again the same way.
   - **Never cut off:** the card is never half folded or partly off the screen, whether or not the search bar is pinned.
+  - **Not too eager:** it folds only while you scroll down, once you're 64px past the pinned spot. It opens only while you scroll up, back within 16px of the top. It can't flip again while the 0.3s fold is still running, so small trackpad movements don't flip it.
+  - **Folded bar:** 12px of padding all round, with the photo, name, tabs and Find centred, and 12px above the section chips.
   - **Steady behaviour:** the page never scrolls on its own, and the tab slider moves with the tabs. Scroll anchoring is off in this mode, so the fold can't nudge the page back.
   - **Smooth:** the old behaviour, where the card shrinks and fades step by step as you scroll.
   - A link keeps Smooth with `&fold=smooth`.
