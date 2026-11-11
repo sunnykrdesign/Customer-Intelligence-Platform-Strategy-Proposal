@@ -51,6 +51,11 @@ A **Review** button in the bottom-right corner opens the review controls. They'r
 - **Theme (V4 options):** **Crisp** (default) or **Ocean**. Shown only in V4. A saved or linked Bold or Vivid theme opens as Crisp.
 - **Icons:** **Mono** (default) or **Colour**. Shown only in V4 with the Crisp theme. Colour fills the same icons with the theme's gradients: the figure cards run pink to periwinkle along each row, the sidebar runs rose to periwinkle, and activity events and profile sections get gradient discs with white icons. A link keeps the choice with `&ic=color`.
 - **Tab icons:** **On** (default) or **Off**. Shown only in V4 with the Crisp theme. It shows or hides the icons on the profile section tabs (Identity, Personal, Education, Career, Aspiration, Financial, Consent) so you can compare both. A link keeps Off with `&ti=off`.
+- **Spacing:** **Compact** (default) or **Current**. Shown only in V4 with the Crisp theme. Compact tightens vertical spacing across V4:
+  - **Person card:** less room above it (the space above the photo drops from 61px to 29px in the Folding header layout), with the person header about 60px shorter.
+  - **Pages:** less room at the top of every page and between sections, and slimmer padding in cards, figure tiles and profile rows.
+  - A link keeps Current with `&sp=current`.
+- **Fact icons:** **On** (default) or **Off**. Shown only in V4 with the Crisp theme. Each fact on the person card (life stage, age band, city, owner, fields filled) gets an icon tile from the design-system set: a briefcase, or a graduation cap for students, then a calendar with a person, a location pin, a team and a pie. With Icons on Mono the tiles are ink on soft lavender; on Colour each fact gets its own pastel tile and tinted glyph. A link keeps Off with `&fi=off`.
 - **Look up a person · layout** (all versions): pick where the **person card** sits (Left panel or Top header) and where the **section tabs** sit (Top, Left or Right). That makes six combinations, and a small diagram shows the current one.
 
 - **Sticky bar:** how strongly the pinned person and tabs stand out once you scroll (default **Mid**):

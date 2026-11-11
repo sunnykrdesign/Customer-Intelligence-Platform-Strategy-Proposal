@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<script>(function(){var v='7';try{var m=/[?&]v=([12345678])/.exec(location.search),vm=/[?&]ver=([1-4])/.exec(location.search);if(vm)m=[0,'3467'.charAt(vm[1]-1)];v=m?m[1]:(localStorage.getItem('cip-version')||'7');if(m)localStorage.setItem('cip-version',v);}catch(e){}if(v==='1'||v==='2'||v==='5'||v==='8'){v='7';try{localStorage.setItem('cip-version','7');}catch(e){}}var d=document.documentElement;d.setAttribute('data-v',v>'3'?'3':v);if(v>'3')d.setAttribute('data-v4','');if(v>='5')d.setAttribute('data-v5','');if(v>='6')d.setAttribute('data-v6','');if(v==='7'){d.setAttribute('data-v7','');var t='crisp';try{var tm=/[?&]t=(crisp|ocean)/.exec(location.search);t=tm?tm[1]:(localStorage.getItem('cip-v7t')||'crisp');if(t!=='crisp'&&t!=='ocean'){t='crisp';localStorage.setItem('cip-v7t',t);}if(tm)localStorage.setItem('cip-v7t',t);}catch(e){}d.setAttribute('data-v7t',t);try{var im=/[?&]ic=(color|mono)/.exec(location.search),ic=im?im[1]:localStorage.getItem('cip-v7i');if(im)localStorage.setItem('cip-v7i',ic);if(t==='crisp'&&ic==='color')d.setAttribute('data-v7i','color');}catch(e){}try{var tim=/[?&]ti=(on|off)/.exec(location.search),ti=tim?tim[1]:localStorage.getItem('cip-v7ti');if(tim)localStorage.setItem('cip-v7ti',ti);if(t==='crisp'&&ti==='off')d.setAttribute('data-v7ti','off');}catch(e){}}})();</script>
+<script>(function(){var v='7';try{var m=/[?&]v=([12345678])/.exec(location.search),vm=/[?&]ver=([1-4])/.exec(location.search);if(vm)m=[0,'3467'.charAt(vm[1]-1)];v=m?m[1]:(localStorage.getItem('cip-version')||'7');if(m)localStorage.setItem('cip-version',v);}catch(e){}if(v==='1'||v==='2'||v==='5'||v==='8'){v='7';try{localStorage.setItem('cip-version','7');}catch(e){}}var d=document.documentElement;d.setAttribute('data-v',v>'3'?'3':v);if(v>'3')d.setAttribute('data-v4','');if(v>='5')d.setAttribute('data-v5','');if(v>='6')d.setAttribute('data-v6','');if(v==='7'){d.setAttribute('data-v7','');var t='crisp';try{var tm=/[?&]t=(crisp|ocean)/.exec(location.search);t=tm?tm[1]:(localStorage.getItem('cip-v7t')||'crisp');if(t!=='crisp'&&t!=='ocean'){t='crisp';localStorage.setItem('cip-v7t',t);}if(tm)localStorage.setItem('cip-v7t',t);}catch(e){}d.setAttribute('data-v7t',t);try{var im=/[?&]ic=(color|mono)/.exec(location.search),ic=im?im[1]:localStorage.getItem('cip-v7i');if(im)localStorage.setItem('cip-v7i',ic);if(t==='crisp'&&ic==='color')d.setAttribute('data-v7i','color');}catch(e){}try{var tim=/[?&]ti=(on|off)/.exec(location.search),ti=tim?tim[1]:localStorage.getItem('cip-v7ti');if(tim)localStorage.setItem('cip-v7ti',ti);if(t==='crisp'&&ti==='off')d.setAttribute('data-v7ti','off');}catch(e){}try{var spm=/[?&]sp=(compact|current)/.exec(location.search),sp=spm?spm[1]:(localStorage.getItem('cip-v7sp')||'compact');if(spm)localStorage.setItem('cip-v7sp',sp);if(t==='crisp'&&sp==='compact')d.setAttribute('data-v7sp','compact');var fim=/[?&]fi=(on|off)/.exec(location.search),fi=fim?fim[1]:(localStorage.getItem('cip-v7fi')||'on');if(fim)localStorage.setItem('cip-v7fi',fi);if(t==='crisp'&&fi==='on')d.setAttribute('data-v7fi','on');}catch(e){}}})();</script>
 <style>
 :root{
   --bg:#F5F5F7; --card:#FFFFFF; --text:#1D1D1F; --muted:#6E6E73; --line:#E5E5EA; --border:#D2D2D7;
@@ -3945,6 +3945,39 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) .v6ch .t7tgt{stroke:var(--cr-rose) !
 html[data-v7t="crisp"][data-v6]:not(#crisp) .v6ch text.t7tgl{fill:var(--cr-rose-d) !important;font-weight:500 !important}
 /* Activity: events get grey line icons on a soft disc (colour is kept for status); source labels are quiet pills */
 html[data-v7t="crisp"][data-v6]:not(#crisp) .src4{background:var(--cr-sub) !important;color:var(--cr-2) !important;border-radius:999px !important;font-family:inherit !important;font-weight:500 !important;font-size:11.5px !important;padding:0 8px !important}
+/* Crisp refinements (Review → Spacing, Fact icons). Spacing: Compact tightens vertical rhythm across V4; Current is the old spacing. */
+html[data-v7t="crisp"][data-v7sp="compact"][data-v6]:not(#crisp) .main{padding-top:18px !important}
+html[data-v7t="crisp"][data-v7sp="compact"][data-v6]:not(#crisp) .preview-bar{margin-bottom:16px !important}
+html[data-v7t="crisp"][data-v7sp="compact"][data-v6]:not(#crisp) .view{gap:20px !important}
+html[data-v7t="crisp"][data-v7sp="compact"][data-v6]:not(#crisp) :is(.v6hero,.v6c):not(.v6k){padding:28px !important;gap:24px !important}
+html[data-v7t="crisp"][data-v7sp="compact"][data-v6]:not(#crisp) .v6k{padding:22px !important}
+html[data-v7t="crisp"][data-v7sp="compact"][data-v6]:not(#crisp) .kpi{padding:20px !important}
+html[data-v7t="crisp"][data-v7sp="compact"][data-v6]:not(#crisp) .view[data-view="lookup"]{gap:14px !important;padding-bottom:56px !important}
+html[data-v7t="crisp"][data-v7sp="compact"][data-v6]:not(#crisp) #lookupResult .v5head{padding:16px 20px 10px !important}
+html[data-v7t="crisp"][data-v7sp="compact"][data-v6]:not(#crisp) #lookupResult .v5head .pcard{padding-top:4px !important;padding-bottom:12px !important}
+html[data-v7t="crisp"][data-v7sp="compact"][data-v6]:not(#crisp) #lookupResult .v5card{padding:20px 24px 16px !important}
+html[data-v7t="crisp"][data-v7sp="compact"][data-v6]:not(#crisp) #lookupResult .pcard-top{gap:16px !important}
+html[data-v7t="crisp"][data-v7sp="compact"][data-v6]:not(#crisp) #lookupResult .facts{margin-top:16px !important}
+html[data-v7t="crisp"][data-v7sp="compact"][data-v6]:not(#crisp) #lookupResult .fact{padding-top:12px !important;padding-bottom:2px !important}
+html[data-v7t="crisp"][data-v7sp="compact"][data-v6]:not(#crisp) #lookupResult .v5bar.in-head{margin-top:10px !important}
+html[data-v7t="crisp"][data-v7sp="compact"][data-v6]:not(#crisp) #lookupResult .v4sec-h{padding:16px 22px !important}
+html[data-v7t="crisp"][data-v7sp="compact"][data-v6]:not(#crisp) #lookupResult .v4row{padding-top:12px !important;padding-bottom:12px !important}
+/* Fact icons: an icon tile beside each fact. Mono: ink glyphs on soft lavender; Colour: a pastel tile per fact with a tinted glyph. */
+html[data-v7t="crisp"][data-v7fi="on"][data-v6]:not(#crisp) #lookupResult .fact[data-f]{display:grid !important;grid-template-columns:40px minmax(0,1fr);column-gap:12px;row-gap:2px;align-content:start}
+html[data-v7t="crisp"][data-v7fi="on"][data-v6]:not(#crisp) #lookupResult .fact[data-f] > *{grid-column:2}
+html[data-v7t="crisp"][data-v7fi="on"][data-v6]:not(#crisp) #lookupResult .fact[data-f]::before{content:"";grid-column:1;grid-row:1 / span 3;align-self:start;width:40px;height:40px;border-radius:12px;background:var(--fg) center/20px 20px no-repeat,var(--ft,#ECEEF6)}
+html[data-v7t="crisp"][data-v7fi="on"][data-v6]:not(#crisp) #lookupResult .fact[data-f="stage"]{--fg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M18 14a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-3.36c.73.83 1.8 1.36 3 1.36h4v.5c0 .28.22.5.5.5h1a.5.5 0 0 0 .5-.5V12h4c1.2 0 2.27-.53 3-1.36zM11.25 2c.97 0 1.75.78 1.75 1.75V5h2a3 3 0 1 1 0 6h-4v-.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v.5H5a3 3 0 0 1 0-6h2V3.75C7 2.78 7.78 2 8.75 2zm-2.5 1a.75.75 0 0 0-.75.75V5h4V3.75a.75.75 0 0 0-.75-.75z' fill='%2315161C'/%3E%3C/svg%3E")}
+html[data-v7t="crisp"][data-v7fi="on"][data-v6]:not(#crisp) #lookupResult .fact[data-f="stage-stu"]{--fg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 14.5v-3.34l4 2.3a4 4 0 0 0 4 0l4-2.3v3.34a.5.5 0 0 1-.15.35v.01l-.03.03-.38.32A9.1 9.1 0 0 1 10 17a9 9 0 0 1-5.74-2.05l-.08-.07-.02-.03A.5.5 0 0 1 4 14.5m14.75-6.07-7.26 4.17a3 3 0 0 1-2.98 0L2 8.86v4.64a.5.5 0 0 1-1 0V8q.01-.31.26-.44L8.51 3.4a3 3 0 0 1 2.98 0l7.26 4.17a.5.5 0 0 1 0 .86' fill='%2315161C'/%3E%3C/svg%3E")}
+html[data-v7t="crisp"][data-v7fi="on"][data-v6]:not(#crisp) #lookupResult .fact[data-f="age"]{--fg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M17 7v2.4q-.67-.39-1.5-.4a3 3 0 0 0-2.23 5.01A2.5 2.5 0 0 0 11.04 17H5.5A2.5 2.5 0 0 1 3 14.5V7zm-2.5-4A2.5 2.5 0 0 1 17 5.5V6H3v-.5A2.5 2.5 0 0 1 5.5 3zm3 9a2 2 0 1 1-4 0 2 2 0 0 1 4 0m1.5 4.5c0 1.25-1 2.5-3.5 2.5S12 17.75 12 16.5c0-.83.67-1.5 1.5-1.5h4c.83 0 1.5.67 1.5 1.5' fill='%2315161C'/%3E%3C/svg%3E")}
+html[data-v7t="crisp"][data-v7fi="on"][data-v6]:not(#crisp) #lookupResult .fact[data-f="city"]{--fg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.05 4.05a7 7 0 1 1 9.9 9.9l-1.13 1.12-2.43 2.37a2 2 0 0 1-2.64.12l-.14-.12-2.04-1.99-1.52-1.5a7 7 0 0 1 0-9.9M10 6.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5' fill='%2315161C'/%3E%3C/svg%3E")}
+html[data-v7t="crisp"][data-v7fi="on"][data-v6]:not(#crisp) #lookupResult .fact[data-f="owner"]{--fg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M12.5 4.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0m5 .5a2 2 0 1 1-4 0 2 2 0 0 1 4 0m-13 2a2 2 0 1 0 0-4 2 2 0 0 0 0 4M6 9.25C6 8.56 6.56 8 7.25 8h5.5c.69 0 1.25.56 1.25 1.25V14a4 4 0 0 1-8 0zm-1 0q.01-.7.38-1.25H3.25C2.56 8 2 8.56 2 9.25V13a3 3 0 0 0 3.4 2.97Q5 15.06 5 14zM15 14q0 1.06-.4 1.97.2.03.4.03a3 3 0 0 0 3-3V9.25C18 8.56 17.44 8 16.75 8h-2.13q.37.55.38 1.25z' fill='%2315161C'/%3E%3C/svg%3E")}
+html[data-v7t="crisp"][data-v7fi="on"][data-v6]:not(#crisp) #lookupResult .fact[data-f="filled"]{--fg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.01 4.07A6.99 6.99 0 0 0 9 18a7 7 0 0 0 6.93-6v-.01l.05-.45a.5.5 0 0 0-.5-.54H10.5A1.5 1.5 0 0 1 9 9.5V4.52a.5.5 0 0 0-.54-.5zM18 9.14c-.01.5-.44.86-.94.86H11a1 1 0 0 1-1-1V2.94c0-.5.37-.93.86-.94H11a7 7 0 0 1 7 7.14' fill='%2315161C'/%3E%3C/svg%3E")}
+html[data-v7t="crisp"][data-v7fi="on"][data-v7i="color"][data-v6]:not(#crisp) #lookupResult .fact[data-f="stage"]{--fg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M18 14a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-3.36c.73.83 1.8 1.36 3 1.36h4v.5c0 .28.22.5.5.5h1a.5.5 0 0 0 .5-.5V12h4c1.2 0 2.27-.53 3-1.36zM11.25 2c.97 0 1.75.78 1.75 1.75V5h2a3 3 0 1 1 0 6h-4v-.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v.5H5a3 3 0 0 1 0-6h2V3.75C7 2.78 7.78 2 8.75 2zm-2.5 1a.75.75 0 0 0-.75.75V5h4V3.75a.75.75 0 0 0-.75-.75z' fill='%23B8346A'/%3E%3C/svg%3E");--ft:linear-gradient(135deg,#FCE6EF,#F3DDF3)}
+html[data-v7t="crisp"][data-v7fi="on"][data-v7i="color"][data-v6]:not(#crisp) #lookupResult .fact[data-f="stage-stu"]{--fg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 14.5v-3.34l4 2.3a4 4 0 0 0 4 0l4-2.3v3.34a.5.5 0 0 1-.15.35v.01l-.03.03-.38.32A9.1 9.1 0 0 1 10 17a9 9 0 0 1-5.74-2.05l-.08-.07-.02-.03A.5.5 0 0 1 4 14.5m14.75-6.07-7.26 4.17a3 3 0 0 1-2.98 0L2 8.86v4.64a.5.5 0 0 1-1 0V8q.01-.31.26-.44L8.51 3.4a3 3 0 0 1 2.98 0l7.26 4.17a.5.5 0 0 1 0 .86' fill='%23B8346A'/%3E%3C/svg%3E");--ft:linear-gradient(135deg,#FCE6EF,#F3DDF3)}
+html[data-v7t="crisp"][data-v7fi="on"][data-v7i="color"][data-v6]:not(#crisp) #lookupResult .fact[data-f="age"]{--fg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M17 7v2.4q-.67-.39-1.5-.4a3 3 0 0 0-2.23 5.01A2.5 2.5 0 0 0 11.04 17H5.5A2.5 2.5 0 0 1 3 14.5V7zm-2.5-4A2.5 2.5 0 0 1 17 5.5V6H3v-.5A2.5 2.5 0 0 1 5.5 3zm3 9a2 2 0 1 1-4 0 2 2 0 0 1 4 0m1.5 4.5c0 1.25-1 2.5-3.5 2.5S12 17.75 12 16.5c0-.83.67-1.5 1.5-1.5h4c.83 0 1.5.67 1.5 1.5' fill='%237D4DC0'/%3E%3C/svg%3E");--ft:linear-gradient(135deg,#F2E8FC,#E7DDF9)}
+html[data-v7t="crisp"][data-v7fi="on"][data-v7i="color"][data-v6]:not(#crisp) #lookupResult .fact[data-f="city"]{--fg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.05 4.05a7 7 0 1 1 9.9 9.9l-1.13 1.12-2.43 2.37a2 2 0 0 1-2.64.12l-.14-.12-2.04-1.99-1.52-1.5a7 7 0 0 1 0-9.9M10 6.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5' fill='%234A52C2'/%3E%3C/svg%3E");--ft:linear-gradient(135deg,#E9EBFC,#DDE3FA)}
+html[data-v7t="crisp"][data-v7fi="on"][data-v7i="color"][data-v6]:not(#crisp) #lookupResult .fact[data-f="owner"]{--fg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M12.5 4.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0m5 .5a2 2 0 1 1-4 0 2 2 0 0 1 4 0m-13 2a2 2 0 1 0 0-4 2 2 0 0 0 0 4M6 9.25C6 8.56 6.56 8 7.25 8h5.5c.69 0 1.25.56 1.25 1.25V14a4 4 0 0 1-8 0zm-1 0q.01-.7.38-1.25H3.25C2.56 8 2 8.56 2 9.25V13a3 3 0 0 0 3.4 2.97Q5 15.06 5 14zM15 14q0 1.06-.4 1.97.2.03.4.03a3 3 0 0 0 3-3V9.25C18 8.56 17.44 8 16.75 8h-2.13q.37.55.38 1.25z' fill='%232A7570'/%3E%3C/svg%3E");--ft:linear-gradient(135deg,#E3F2F3,#D8ECEF)}
+html[data-v7t="crisp"][data-v7fi="on"][data-v7i="color"][data-v6]:not(#crisp) #lookupResult .fact[data-f="filled"]{--fg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.01 4.07A6.99 6.99 0 0 0 9 18a7 7 0 0 0 6.93-6v-.01l.05-.45a.5.5 0 0 0-.5-.54H10.5A1.5 1.5 0 0 1 9 9.5V4.52a.5.5 0 0 0-.54-.5zM18 9.14c-.01.5-.44.86-.94.86H11a1 1 0 0 1-1-1V2.94c0-.5.37-.93.86-.94H11a7 7 0 0 1 7 7.14' fill='%235560C8'/%3E%3C/svg%3E");--ft:linear-gradient(135deg,#ECEEFB,#E1E6FA)}
 /* Crisp iconography: the upGrad Design System 2026 icon set (Fluent UI System Icons style; Microsoft, MIT licence).
    Regular outline by default and Filled for the current page, as the system asks. Sidebar icons are the 20 px design, table and
    chip icons the 16 px design, figure cards a Filled glyph on a 40 px disc. Inline icons are swapped by the script (FLU). */
@@ -5447,7 +5480,8 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
 
   // The V3 person card, end to end: photo, name, headline, how we know them, the CRM action, a facts row, and (outside High) who may be contacted.
   function v5Card(p, m, otherBu, noContact, inner) {
-    var fact = function (k, v, sub) { return '<div class="fact"><span class="k">' + esc(k) + '</span><span class="v">' + esc(v) + "</span>" + (sub ? '<small class="fs">' + esc(sub) + "</small>" : "") + "</div>"; };
+    var FK = { "Life stage": /student|undergrad|school|graduate/i.test(p.stage || "") ? "stage-stu" : "stage", "Age band": "age", "City": "city", "Owned by": "owner" };
+    var fact = function (k, v, sub) { return '<div class="fact" data-f="' + (FK[k] || "") + '"><span class="k">' + esc(k) + '</span><span class="v">' + esc(v) + "</span>" + (sub ? '<small class="fs">' + esc(sub) + "</small>" : "") + "</div>"; };
     var crm = otherBu ? "" : '<button type="button" class="btn dark sm" data-crm="' + esc(p.owner) + '"' + (isV6() ? ' title="Opens ' + esc(p.owner) + ' CRM">Open in CRM</button>' : '>Open in ' + esc(p.owner) + " CRM</button>");
     var who = '<div class="who"><h1>' + esc(p.name) + '</h1><p class="headline">' + esc(p.headline) + '</p><p class="matched">' + esc(m.known) + " · matched on " + esc(L.how || "a verified identifier") + " · " + v5Gid(p) + " · " + v5Sync() + "</p></div>";
     var owners = (m.owners || []).map(function (o) { return o[1] + " (" + (BU4[o[0]] || [o[0], o[0]])[1] + ")"; }).join(" · ");
@@ -5459,7 +5493,7 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
       }).join("") + "</span>" + v5Contact(p, blocked, false) + (v5Where().act === "card" ? v5ActBtn(m, false) : "") + "</div>";
     }
     var body = '<div class="pcard-top">' + avatarHTML(p, "avatar") + who + (v5Where().reach === "crm" ? '<div class="v5ctas">' + v5Reach7(p, m, noContact) + crm + "</div>" : crm) + '</div><div class="facts">' + fact("Life stage", p.stage) + fact("Age band", p.ageBand) + fact("City", p.city) + fact("Owned by", p.owner, owners) +
-      '<div class="fact" title="' + Math.round(p.complete * 0.53) + ' of 53 profile fields have a value"><span class="k">' + (isV6() ? "Fields filled" : "Profile filled") + '</span><span class="v">' + p.complete + '%</span><span class="meter" aria-hidden="true"><i style="width:' + p.complete + '%"></i></span></div></div>' + reach;
+      '<div class="fact" data-f="filled" title="' + Math.round(p.complete * 0.53) + ' of 53 profile fields have a value"><span class="k">' + (isV6() ? "Fields filled" : "Profile filled") + '</span><span class="v">' + p.complete + '%</span><span class="meter" aria-hidden="true"><i style="width:' + p.complete + '%"></i></span></div></div>' + reach;
     return inner ? '<div class="prail v5pcin"><div class="pcard">' + body + "</div></div>" : '<div class="prail"><section class="pcard v5card" aria-label="' + esc(p.name) + '">' + body + "</section></div>";
   }
   // The pinned bar. Minimum: the tabs (and the name once the card has gone). Mid: plus the photo and facts. High: plus the owner, contact and things to act on.
@@ -7057,6 +7091,8 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
     if (curV() === "7" && typeof V7THEME !== "undefined" && V7THEME !== "crisp") q.push("t=" + V7THEME);
     if (curV() === "7" && typeof V7ICON !== "undefined" && V7THEME === "crisp" && V7ICON === "color") q.push("ic=color");
     if (curV() === "7" && typeof V7TABI !== "undefined" && V7THEME === "crisp" && V7TABI === "off") q.push("ti=off");
+    if (curV() === "7" && typeof V7SP !== "undefined" && V7THEME === "crisp" && V7SP === "current") q.push("sp=current");
+    if (curV() === "7" && typeof V7FI !== "undefined" && V7THEME === "crisp" && V7FI === "off") q.push("fi=off");
     if (route === "lookup" && L.person) q.push("p=" + L.person);
     q.push("review=0");
     var base = location.href.split(/[?#]/)[0];
@@ -9000,6 +9036,10 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
   var V7TABI = "on";
   try { if (localStorage.getItem("cip-v7ti") === "off") V7TABI = "off"; } catch (e) {}
   if (Q.get("ti") === "on" || Q.get("ti") === "off") V7TABI = Q.get("ti");
+  var V7SP = "compact", V7FI = "on";
+  try { if (localStorage.getItem("cip-v7sp") === "current") V7SP = "current"; if (localStorage.getItem("cip-v7fi") === "off") V7FI = "off"; } catch (e) {}
+  if (Q.get("sp") === "compact" || Q.get("sp") === "current") V7SP = Q.get("sp");
+  if (Q.get("fi") === "on" || Q.get("fi") === "off") V7FI = Q.get("fi");
   try { var t7s = localStorage.getItem("cip-v7t"); if (V7T[t7s]) V7THEME = t7s; } catch (e) {}
   if (V7T[Q.get("t")]) V7THEME = Q.get("t");
   var V6S6 = {}, V6SK = [], V6BC = {};
@@ -9011,7 +9051,10 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
     if (isV7() && V7THEME === "crisp" && V7ICON === "color") d.setAttribute("data-v7i", "color"); else d.removeAttribute("data-v7i");
     if (isV7() && V7THEME === "crisp" && V7TABI === "off") d.setAttribute("data-v7ti", "off"); else d.removeAttribute("data-v7ti");
     var ri = $(".rv-v7i"); if (ri) ri.hidden = !(isV7() && V7THEME === "crisp");
-    var rt = $(".rv-v7ti"); if (rt) rt.hidden = !(isV7() && V7THEME === "crisp"); }
+    var rt = $(".rv-v7ti"); if (rt) rt.hidden = !(isV7() && V7THEME === "crisp");
+    if (isV7() && V7THEME === "crisp" && V7SP === "compact") d.setAttribute("data-v7sp", "compact"); else d.removeAttribute("data-v7sp");
+    if (isV7() && V7THEME === "crisp" && V7FI === "on") d.setAttribute("data-v7fi", "on"); else d.removeAttribute("data-v7fi");
+    $$(".rv-v7sp,.rv-v7fi").forEach(function (r) { r.hidden = !(isV7() && V7THEME === "crisp"); }); }
   function v7data() {
     v7theme();
     var on = isV7(), T = V7T[V7THEME];
@@ -9052,6 +9095,22 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
     var tsec = document.createElement("div"); tsec.className = "rv-sec rv-v7ti";
     tsec.innerHTML = '<span class="rv-k">Tab icons</span><div class="rv-seg" id="rvTabI7" role="group" aria-label="Icons on the profile section tabs"><button type="button" data-ti7="on">On</button><button type="button" data-ti7="off">Off</button></div><p class="rv-note" id="rvTabI7Note"></p>';
     host.parentNode.insertBefore(tsec, host);
+    [["sp", "Spacing", [["compact", "Compact"], ["current", "Current"]], { compact: "Tighter spacing across V4: less room above the person card and between page sections, and slimmer card and row padding.", current: "The spacing as it was." }],
+     ["fi", "Fact icons", [["on", "On"], ["off", "Off"]], { on: "Life stage, age band, city, owner and fields filled each get an icon tile, so the facts row isn't blank.", off: "The facts row as text only." }]].forEach(function (o) {
+      var row = document.createElement("div"); row.className = "rv-sec rv-v7" + o[0];
+      row.innerHTML = '<span class="rv-k">' + o[1] + '</span><div class="rv-seg" role="group" aria-label="' + o[1] + '">' + o[2].map(function (x) { return '<button type="button" data-' + o[0] + '7="' + x[0] + '">' + x[1] + "</button>"; }).join("") + '</div><p class="rv-note"></p>';
+      host.parentNode.insertBefore(row, host);
+      var get = function () { return o[0] === "sp" ? V7SP : V7FI; };
+      var sync = function () { $$("[data-" + o[0] + "7]", row).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-" + o[0] + "7") === get()); }); $(".rv-note", row).textContent = o[3][get()]; };
+      sync();
+      row.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-" + o[0] + "7]"); if (!b) return;
+        var v = b.getAttribute("data-" + o[0] + "7"); if (o[0] === "sp") V7SP = v; else V7FI = v;
+        try { localStorage.setItem("cip-v7" + o[0], v); } catch (er) {}
+        sync(); v7theme(); if (typeof rvShareSync === "function") rvShareSync();
+        requestAnimationFrame(function () { window.dispatchEvent(new Event("resize")); window.dispatchEvent(new Event("scroll")); });
+      });
+    });
     var TNOTE = { on: "Profile section tabs start with their section's icon, filled on the selected tab.", off: "Profile section tabs show their names only." };
     function tsync() { $$("#rvTabI7 [data-ti7]").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-ti7") === V7TABI); }); $("#rvTabI7Note").textContent = TNOTE[V7TABI]; }
     tsync();
@@ -9233,7 +9292,7 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
     var panel = $("#rvPanel"); if (!panel) return;
     var rows = Array.prototype.slice.call(panel.querySelectorAll(":scope > .rv-sec"));
     var find = function (t) { return rows.filter(function (r) { var k = r.querySelector(":scope > .rv-k"); return k && k.textContent.trim().indexOf(t) === 0; })[0]; };
-    var G = [["Version", ["Design version"]], ["V4 options", ["Theme", "Icons", "Tab icons"]], ["Look up a person", ["Look up layout", "Look up a person"]],
+    var G = [["Version", ["Design version"]], ["V4 options", ["Theme", "Icons", "Tab icons", "Spacing", "Fact icons"]], ["Look up a person", ["Look up layout", "Look up a person"]],
       ["Motion", ["Hero motion"]], ["Sharing and access", ["Share this view", "Locked sections", "Sidebar menu"]]];
     var used = [], heads = G.map(function (g, i) {
       var h = document.createElement("p"); h.className = "rv-grp" + (i ? "" : " first"); h.textContent = g[0];
