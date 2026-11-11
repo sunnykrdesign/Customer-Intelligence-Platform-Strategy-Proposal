@@ -110,7 +110,7 @@ Four versions are in the switcher: V1 · Classic, V2 · Learner 360, V3 · Maste
   - **Motion:** screens fade in as you open them, cards rise into view as you scroll, a soft spotlight follows the cursor on cards, and segmented controls slide with a spring. If reduced motion is turned on, all of this is switched off.
 - **V4 · Crisp** (previously V7; the latest and the default): V3 with a new visual layer and two themes (Review → Theme). Bold and Vivid were removed.
   - **Crisp (default): soft lavender.** Built from a reference dashboard's visual language, not its content or layout:
-    - **Shell:** a lilac canvas around one light, rounded app shell. The sidebar shares the shell colour, with a hairline divider down the full height.
+    - **Shell:** one light app surface that runs edge to edge, with no canvas margin or rounded outer corners. The sidebar shares the shell colour, with a hairline divider down the full height.
     - **Surfaces:** white cards with no borders and 16px corners. Type is Figtree, with medium-weight headings and figures.
     - **Sidebar:** grey line icons with no colour tiles. The current page is a white pill. The signed-in person sits at the foot of the sidebar, with no card around them.
     - **Summary rows:** one band of pastel cards running from pink to periwinkle, each figure with a white icon disc. This covers the Overview measures, the People tiles and the Data dictionary tiles.
