@@ -51,17 +51,6 @@ A **Review** button in the bottom-right corner opens the review controls. They'r
 - **Theme (V4 options):** **Crisp** (default) or **Ocean**. Shown only in V4. A saved or linked Bold or Vivid theme opens as Crisp.
 - **Icons:** **Mono** (default) or **Colour**. Shown only in V4 with the Crisp theme. Colour fills the same icons with the theme's gradients: the figure cards run pink to periwinkle along each row, the sidebar runs rose to periwinkle, and activity events and profile sections get gradient discs with white icons. A link keeps the choice with `&ic=color`.
 - **Tab icons:** **On** (default) or **Off**. Shown only in V4 with the Crisp theme. It shows or hides the icons on the profile section tabs (Identity, Personal, Education, Career, Aspiration, Financial, Consent) so you can compare both. A link keeps Off with `&ti=off`.
-- **Profile layout:** **Current**, **Card** (default) or **Banner**. Shown only in V4 with the Crisp theme, so you can compare the person layouts on Look up a person. A link keeps the choice with `&ph=current` or `&ph=banner`.
-  - **Current:** the original layout: a large person card with a row of facts, and a separate grey tab bar below it.
-  - **Card:** a compact pastel card, about 215px tall instead of 345px. It has the photo in a gradient ring, the name with the copyable ID, and the facts as chips with icons (life stage, age band, city, owner). A ring shows how much of the profile is filled, next to Open in CRM. The section tabs are joined underneath as an underlined row with counts.
-  - **Banner:** the whole shared reference, not just its header:
-    - **Header:** a violet band with a large photo, a teal verified mark beside the name, the same chips in white, a white Open in CRM button and "92% of profile fields filled". The main tabs sit in white on the band, lined up with the name.
-    - **Section tabs:** Identity, Personal, Education and the rest become a plain underlined row, violet when chosen.
-    - **Other sections:** each section is a detail panel. A violet header shows "Learner profile", the section name and summary, and how many fields are filled. The fields follow under a grey "Details" band, with each label above its value, two to a row.
-    - **Education and Career:** each entry is a card on the left. A card shows its type (for example "Full-time | Career"), a violet initials tile, the title and organisation, then the place and dates. The chosen card has a violet outline.
-    - **The chosen entry's panel:** on the right, with a violet header (type and organisation, title, skills or grade as white chips, and a date pill). Below it are grouped bands: Role info and Employer info for a job, Programme info and Institution info for a school. Rows the entries don't cover follow under "Also on file".
-    - **Small screens:** the list stacks above the panel, and the section tabs become one row you can swipe.
-  - **Pinned bar:** in both new options, the tab bar pins on scroll as before, with the small photo and name.
 - **Look up a person · layout** (all versions): pick where the **person card** sits (Left panel or Top header) and where the **section tabs** sit (Top, Left or Right). That makes six combinations, and a small diagram shows the current one.
 
 - **Sticky bar:** how strongly the pinned person and tabs stand out once you scroll (default **Mid**):
