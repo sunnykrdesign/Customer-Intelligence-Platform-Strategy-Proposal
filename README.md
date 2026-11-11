@@ -118,6 +118,7 @@ Your choices are remembered on that browser.
       - **Sizes:** the sidebar uses the 20px design. Table, chip and inline icons use the 16px design up to 16px and the 20px design above that.
       - **Figure cards:** a Filled glyph on a white 40px disc, the same on Overview and People. Overview shows a person with a check for leads resolved, people for known to 2+, people with an alert for wrong merges, and a card for paid leads known.
       - **Profile sections and activity events:** tinted discs, one colour per kind.
+      - **Profile section tabs:** each tab starts with its section's icon: person (Identity), home (Personal), graduation cap (Education), briefcase (Career), star (Aspiration), wallet (Financial) and a shield with a keyhole (Consent). The selected tab uses the Filled icon. In Colour, each icon takes its section's colour.
       - **People directory:** Reach shows five channel icons (call, email, SMS, WhatsApp, ads), periwinkle when open and grey when closed. Status pills and sort arrows use the same set.
       - **How it's applied:** a small script swaps each icon for its Fluent glyph while Crisp is on and puts the original back when you leave Crisp. Other versions and the Ocean theme keep their own icons. The animated Insights sparkle stays as it is.
   - **Ocean** keeps its own teal look.
