@@ -43,7 +43,7 @@ Preview links look like this:
 A **Review** button in the bottom-right corner opens the review controls. They're for design review only, not part of the product:
 
 - **Share this view:** **Copy link** gives a link that opens exactly what you're looking at: the design version, the profile layout, the sticky bar, the pinned search bar, the sidebar menu items you've left on, the screen you're on and, on Look up a person, the person who's open. It skips sign-in and hides the Review panel, so the person you send it to sees only that view. For example: `…/?preview=1&v=3&card=top&tabs=left&bar=high&pin=1&nav=overview,people,lookup&p=ananya&review=0#/lookup`
-- **Design version:** V3, V4, V6, V7 and V8. V8 is the default for new visitors. You can also add `?v=3`, `?v=4`, `?v=6`, `?v=7` or `?v=8` to the URL. V1, V2 and V5 are retired from the switcher, and old links to them open V8. Switching away from V7 puts every colour V7 changed back, so its theme never shows in another version. A V6 or V7 link also keeps the trend style, for example `&tr=stack`, and a V7 link keeps the theme, for example `&t=ocean`.
+- **Design version:** V3, V4, V6 and V7. V7 (Crisp theme) is the default for new visitors. You can also add `?v=3`, `?v=4`, `?v=6` or `?v=7` to the URL. V1, V2, V5 and V8 are retired, and old links or saved choices for them open V7. Switching away from V7 puts every colour V7 changed back, so its theme never shows in another version. A V6 or V7 link also keeps the trend style, for example `&tr=stack`, and a V7 link keeps the theme, for example `&t=ocean`.
 - **V7 theme:** **Crisp** (default) or **Ocean**. Shown only in V7. A saved or linked Bold or Vivid theme opens as Crisp.
 - **Crisp icons:** **Mono** (default) or **Colour**. Shown only in V7 with the Crisp theme. Colour fills the same icons with the theme's gradients: the figure cards run pink to periwinkle along each row, the sidebar runs rose to periwinkle, and activity events and profile sections get gradient discs with white icons. A link keeps the choice with `&ic=color`.
 - **Tab icons:** **On** (default) or **Off**. Shown only in V7 with the Crisp theme. It shows or hides the icons on the profile section tabs (Identity, Personal, Education, Career, Aspiration, Financial, Consent) so you can compare both. A link keeps Off with `&ti=off`.
@@ -129,38 +129,7 @@ Your choices are remembered on that browser.
       - **How it's applied:** a small script swaps each icon for its Fluent glyph while Crisp is on and puts the original back when you leave Crisp. Other versions and the Ocean theme keep their own icons. The animated Insights sparkle stays as it is.
   - **Ocean** keeps its own teal look.
 
-- **V8 (default): a new design, not a re-skin.** Every screen has its own new layout and markup. DOCTRACK leads the look: white cards, small icon boxes, outlined change chips, grey row bands, hatched bars with a black tooltip and a semicircle gauge. It's softened with healthy's light shell and pastels. The data and features are the same as V6; V7 is untouched.
-  - **Shell:** a light, rounded app on a soft grey canvas. The sidebar is a shade darker than the page, and the current page is a white pill with a blue icon.
-  - **Top bar (every screen):** a search pill (it opens the Ctrl K / ⌘K search), "Look up a person" and "Audit a merge" pills, a bell with the merges left to audit, and a black Share pill.
-  - **Overview:**
-    - A "Welcome back" greeting and three figure cards: unified profiles, leads resolved and wrong merges.
-    - An assistant card with a glass orb and three updates you can step through.
-    - Phase 1 milestones as row bands.
-    - A merge-audit gauge.
-    - Paid leads checked: 13 or 6 weeks of bars. Pick a week to see its known and new split, with a black tooltip.
-    - A split bar for leads resolved against the 80% target, and a donut for people known to 2+ businesses.
-    - The latest paid leads and the connected businesses, each with how many records matched and whether it is in sync.
-  - **People:**
-    - Four figure cards, a segment donut and the people you looked up recently.
-    - A full-width directory of row bands with segment pills, a name, ID or city filter, and a business filter.
-    - Minors stay "Name hidden".
-  - **Look up a person:**
-    - The landing is a centred search with an orb, example searches, recent lookups as cards, and three notes on how lookup protects people.
-    - "New to upGrad" and shared-phone results have their own cards.
-    - The person page has a header card with ID copy, CRM and Show contact; figure cards for profile filled, lifetime value, businesses and learning; Life with upGrad as stage bars per business; a "Before you call" brief; an activity feed with type filters; reach and contact with copy buttons; learning and skills; records and owners; and profile details by section.
-    - Financial details stay locked behind the team password, and contact stays masked until shown.
-  - **Identity and audits:**
-    - Figure cards, and the case as two records side by side with every differing field flagged.
-    - Same person, Not sure and Different people answers, with S, N, D and the arrow keys.
-    - This week's sample, how matching works, and a merge log where each change can be reversed after you confirm.
-  - **Data dictionary:**
-    - Figure cards and the four parts as selectable cards.
-    - A field list with coverage bars, main source, priority and tier. Open a field for its source fields, merge rule and check.
-    - Search, priority and source filters, "Lowest coverage first", and a banner for must-haves below 60%.
-    - A Sources tab with each system's sync state.
-  - **Phones:** figure cards sit two to a row, lists collapse to the essentials, and nothing scrolls sideways.
-
-### Education and experience (V6, V7, V8)
+### Education and experience (V6, V7)
 
 Look up a person › Profile › Education and Career follow a professional-profile pattern (Figma frame 46:10046):
 - **Entries:** each school or employer is an entry with a logo tile (its initials), the title in bold, then the organisation and type, the dates with a worked-out duration, and the location.
