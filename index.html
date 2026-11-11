@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<script>(function(){var v='7';try{var m=/[?&]v=([12345678])/.exec(location.search),vm=/[?&]ver=([1-4])/.exec(location.search);if(vm)m=[0,'3467'.charAt(vm[1]-1)];v=m?m[1]:(localStorage.getItem('cip-version')||'7');if(m)localStorage.setItem('cip-version',v);}catch(e){}if(v==='1'||v==='2'||v==='5'||v==='8'){v='7';try{localStorage.setItem('cip-version','7');}catch(e){}}var d=document.documentElement;d.setAttribute('data-v',v>'3'?'3':v);if(v>'3')d.setAttribute('data-v4','');if(v>='5')d.setAttribute('data-v5','');if(v>='6')d.setAttribute('data-v6','');if(v==='7'){d.setAttribute('data-v7','');var t='crisp';try{var tm=/[?&]t=(crisp|ocean)/.exec(location.search);t=tm?tm[1]:(localStorage.getItem('cip-v7t')||'crisp');if(t!=='crisp'&&t!=='ocean'){t='crisp';localStorage.setItem('cip-v7t',t);}if(tm)localStorage.setItem('cip-v7t',t);}catch(e){}d.setAttribute('data-v7t',t);try{var im=/[?&]ic=(color|mono)/.exec(location.search),ic=im?im[1]:localStorage.getItem('cip-v7i');if(im)localStorage.setItem('cip-v7i',ic);if(t==='crisp'&&ic==='color')d.setAttribute('data-v7i','color');}catch(e){}try{var tim=/[?&]ti=(on|off)/.exec(location.search),ti=tim?tim[1]:localStorage.getItem('cip-v7ti');if(tim)localStorage.setItem('cip-v7ti',ti);if(t==='crisp'&&ti==='off')d.setAttribute('data-v7ti','off');}catch(e){}try{var spm=/[?&]sp=(compact|current)/.exec(location.search),sp=spm?spm[1]:(localStorage.getItem('cip-v7sp')||'compact');if(spm)localStorage.setItem('cip-v7sp',sp);if(t==='crisp'&&sp==='compact')d.setAttribute('data-v7sp','compact');var fim=/[?&]fi=(on|off)/.exec(location.search),fi=fim?fim[1]:(localStorage.getItem('cip-v7fi')||'on');if(fim)localStorage.setItem('cip-v7fi',fi);if(t==='crisp'&&fi==='on')d.setAttribute('data-v7fi','on');}catch(e){}}})();</script>
+<script>(function(){var v='7';try{var m=/[?&]v=([12345678])/.exec(location.search),vm=/[?&]ver=([1-4])/.exec(location.search);if(vm)m=[0,'3467'.charAt(vm[1]-1)];v=m?m[1]:(localStorage.getItem('cip-version')||'7');if(m)localStorage.setItem('cip-version',v);}catch(e){}if(v==='1'||v==='2'||v==='5'||v==='8'){v='7';try{localStorage.setItem('cip-version','7');}catch(e){}}var d=document.documentElement;d.setAttribute('data-v',v>'3'?'3':v);if(v>'3')d.setAttribute('data-v4','');if(v>='5')d.setAttribute('data-v5','');if(v>='6')d.setAttribute('data-v6','');if(v==='7'){d.setAttribute('data-v7','');var t='crisp';try{var tm=/[?&]t=(crisp|ocean)/.exec(location.search);t=tm?tm[1]:(localStorage.getItem('cip-v7t')||'crisp');if(t!=='crisp'&&t!=='ocean'){t='crisp';localStorage.setItem('cip-v7t',t);}if(tm)localStorage.setItem('cip-v7t',t);}catch(e){}d.setAttribute('data-v7t',t);try{var im=/[?&]ic=(color|mono)/.exec(location.search),ic=im?im[1]:localStorage.getItem('cip-v7i');if(im)localStorage.setItem('cip-v7i',ic);if(t==='crisp'&&ic==='color')d.setAttribute('data-v7i','color');}catch(e){}try{var tim=/[?&]ti=(on|off)/.exec(location.search),ti=tim?tim[1]:localStorage.getItem('cip-v7ti');if(tim)localStorage.setItem('cip-v7ti',ti);if(t==='crisp'&&ti==='off')d.setAttribute('data-v7ti','off');}catch(e){}try{var spm=/[?&]sp=(compact|current)/.exec(location.search),sp=spm?spm[1]:(localStorage.getItem('cip-v7sp')||'compact');if(spm)localStorage.setItem('cip-v7sp',sp);if(t==='crisp'&&sp==='compact')d.setAttribute('data-v7sp','compact');var fim=/[?&]fi=(on|off)/.exec(location.search),fi=fim?fim[1]:(localStorage.getItem('cip-v7fi')||'on');if(fim)localStorage.setItem('cip-v7fi',fi);if(t==='crisp'&&fi==='on')d.setAttribute('data-v7fi','on');}catch(e){}try{var sbm=/[?&]sb=(current|darker|darkest)/.exec(location.search),sb=sbm?sbm[1]:localStorage.getItem('cip-v7sb');if(sbm)localStorage.setItem('cip-v7sb',sb);if(t==='crisp'&&(sb==='darker'||sb==='darkest'))d.setAttribute('data-v7sb',sb);}catch(e){}}})();</script>
 <style>
 :root{
   --bg:#F5F5F7; --card:#FFFFFF; --text:#1D1D1F; --muted:#6E6E73; --line:#E5E5EA; --border:#D2D2D7;
@@ -3747,6 +3747,27 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) :focus-visible:not(input):not(textar
   html[data-v7t="crisp"][data-v6]:not(#crisp) .side .me{border-top-color:var(--cr-side-line) !important}
 }
 
+/* Sidebar shade (Review → Sidebar): Darker and Darkest, the same lavender family as Current */
+@media (min-width:821px){
+  html[data-v7t="crisp"][data-v7sb="darker"][data-v6]:not(#crisp){--cr-side:#D6D2E8;--cr-side-line:#C3BEDA}
+  html[data-v7t="crisp"][data-v7sb="darker"][data-v6]:not(#crisp) .side :is(.nav a,.count,.me .nm span){color:#3E4052 !important}
+  html[data-v7t="crisp"][data-v7sb="darker"][data-v6]:not(#crisp) .side .v6k-btn{color:#45475A !important}
+  html[data-v7t="crisp"][data-v7sb="darker"][data-v6]:not(#crisp) .side .brand .tail{color:#55576A !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp){--cr-side:#2C2850;--cr-side-line:#3D3866}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .brand{color:#fff !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .brand .up{color:#F15663 !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .brand .tail{color:#B9B5D6 !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side :is(.nav a,.count,.me .nm span){color:#CFCCE6 !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .nav a:not([aria-current="page"]):not(.on):not(.active):hover{background:rgba(255,255,255,.09) !important;color:#fff !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .nav a:is([aria-current="page"],.on,.active){color:var(--cr-ink) !important;box-shadow:0 8px 20px -10px rgba(0,0,0,.5) !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .v6k-btn{background:rgba(255,255,255,.08) !important;border-color:rgba(255,255,255,.14) !important;color:#D9D6EC !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .v6k-btn:hover{background:rgba(255,255,255,.14) !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .v6k-btn kbd{background:rgba(255,255,255,.12) !important;border-color:transparent !important;color:#D9D6EC !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .me .nm b{color:#fff !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .me > button svg,html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .me .chev{color:#B9B5D6 !important}
+  html[data-v7t="crisp"][data-v7sb="darkest"][data-v6]:not(#crisp) .side .me{border-top-color:rgba(255,255,255,.12) !important}
+}
+
 /* Sidebar: grey line icons, no colour tiles; the current page is a white pill */
 html[data-v7t="crisp"][data-v6]:not(#crisp) .brand{font-weight:600;letter-spacing:-0.025em;color:var(--cr-ink)}
 html[data-v7t="crisp"][data-v6]:not(#crisp) .brand .tail{font-weight:400;color:var(--cr-3)}
@@ -7092,6 +7113,7 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
     if (curV() === "7" && typeof V7ICON !== "undefined" && V7THEME === "crisp" && V7ICON === "color") q.push("ic=color");
     if (curV() === "7" && typeof V7TABI !== "undefined" && V7THEME === "crisp" && V7TABI === "off") q.push("ti=off");
     if (curV() === "7" && typeof V7SP !== "undefined" && V7THEME === "crisp" && V7SP === "current") q.push("sp=current");
+    if (curV() === "7" && typeof V7SB !== "undefined" && V7THEME === "crisp" && V7SB !== "current") q.push("sb=" + V7SB);
     if (curV() === "7" && typeof V7FI !== "undefined" && V7THEME === "crisp" && V7FI === "off") q.push("fi=off");
     if (route === "lookup" && L.person) q.push("p=" + L.person);
     q.push("review=0");
@@ -9040,6 +9062,9 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
   try { if (localStorage.getItem("cip-v7sp") === "current") V7SP = "current"; if (localStorage.getItem("cip-v7fi") === "off") V7FI = "off"; } catch (e) {}
   if (Q.get("sp") === "compact" || Q.get("sp") === "current") V7SP = Q.get("sp");
   if (Q.get("fi") === "on" || Q.get("fi") === "off") V7FI = Q.get("fi");
+  var V7SB = "current", V7SBS = ["current", "darker", "darkest"];
+  try { var sb7 = localStorage.getItem("cip-v7sb"); if (V7SBS.indexOf(sb7) >= 0) V7SB = sb7; } catch (e) {}
+  if (V7SBS.indexOf(Q.get("sb")) >= 0) V7SB = Q.get("sb");
   try { var t7s = localStorage.getItem("cip-v7t"); if (V7T[t7s]) V7THEME = t7s; } catch (e) {}
   if (V7T[Q.get("t")]) V7THEME = Q.get("t");
   var V6S6 = {}, V6SK = [], V6BC = {};
@@ -9054,7 +9079,8 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
     var rt = $(".rv-v7ti"); if (rt) rt.hidden = !(isV7() && V7THEME === "crisp");
     if (isV7() && V7THEME === "crisp" && V7SP === "compact") d.setAttribute("data-v7sp", "compact"); else d.removeAttribute("data-v7sp");
     if (isV7() && V7THEME === "crisp" && V7FI === "on") d.setAttribute("data-v7fi", "on"); else d.removeAttribute("data-v7fi");
-    $$(".rv-v7sp,.rv-v7fi").forEach(function (r) { r.hidden = !(isV7() && V7THEME === "crisp"); }); }
+    if (isV7() && V7THEME === "crisp" && V7SB !== "current") d.setAttribute("data-v7sb", V7SB); else d.removeAttribute("data-v7sb");
+    $$(".rv-v7sp,.rv-v7fi,.rv-v7sb").forEach(function (r) { r.hidden = !(isV7() && V7THEME === "crisp"); }); }
   function v7data() {
     v7theme();
     var on = isV7(), T = V7T[V7THEME];
@@ -9095,6 +9121,19 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
     var tsec = document.createElement("div"); tsec.className = "rv-sec rv-v7ti";
     tsec.innerHTML = '<span class="rv-k">Tab icons</span><div class="rv-seg" id="rvTabI7" role="group" aria-label="Icons on the profile section tabs"><button type="button" data-ti7="on">On</button><button type="button" data-ti7="off">Off</button></div><p class="rv-note" id="rvTabI7Note"></p>';
     host.parentNode.insertBefore(tsec, host);
+    (function () {
+      var row = document.createElement("div"); row.className = "rv-sec rv-v7sb";
+      row.innerHTML = '<span class="rv-k">Sidebar</span><div class="rv-seg" role="group" aria-label="Sidebar shade"><button type="button" data-sb7="current">Current</button><button type="button" data-sb7="darker">Darker</button><button type="button" data-sb7="darkest">Darkest</button></div><p class="rv-note"></p>';
+      host.parentNode.insertBefore(row, host);
+      var NOTE = { current: "Soft lavender (#E5E3F0), a shade deeper than the page.", darker: "A deeper lavender (#D6D2E8) with darker text, for a clearer split from the page.", darkest: "Deep lavender-indigo (#2C2850) with light text; the current page stays a white pill." };
+      var sync = function () { $$("[data-sb7]", row).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-sb7") === V7SB); }); $(".rv-note", row).textContent = NOTE[V7SB]; };
+      sync();
+      row.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-sb7]"); if (!b) return;
+        V7SB = b.getAttribute("data-sb7"); try { localStorage.setItem("cip-v7sb", V7SB); } catch (er) {}
+        sync(); v7theme(); if (typeof rvShareSync === "function") rvShareSync();
+      });
+    })();
     [["sp", "Spacing", [["compact", "Compact"], ["current", "Current"]], { compact: "Tighter spacing across V4: less room above the person card and between page sections, and slimmer card and row padding.", current: "The spacing as it was." }],
      ["fi", "Fact icons", [["on", "On"], ["off", "Off"]], { on: "Life stage, age band, city, owner and fields filled each get an icon tile, so the facts row isn't blank.", off: "The facts row as text only." }]].forEach(function (o) {
       var row = document.createElement("div"); row.className = "rv-sec rv-v7" + o[0];
@@ -9292,7 +9331,7 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
     var panel = $("#rvPanel"); if (!panel) return;
     var rows = Array.prototype.slice.call(panel.querySelectorAll(":scope > .rv-sec"));
     var find = function (t) { return rows.filter(function (r) { var k = r.querySelector(":scope > .rv-k"); return k && k.textContent.trim().indexOf(t) === 0; })[0]; };
-    var G = [["Version", ["Design version"]], ["V4 options", ["Theme", "Icons", "Tab icons", "Spacing", "Fact icons"]], ["Look up a person", ["Look up layout", "Look up a person"]],
+    var G = [["Version", ["Design version"]], ["V4 options", ["Theme", "Icons", "Tab icons", "Sidebar", "Spacing", "Fact icons"]], ["Look up a person", ["Look up layout", "Look up a person"]],
       ["Motion", ["Hero motion"]], ["Sharing and access", ["Share this view", "Locked sections", "Sidebar menu"]]];
     var used = [], heads = G.map(function (g, i) {
       var h = document.createElement("p"); h.className = "rv-grp" + (i ? "" : " first"); h.textContent = g[0];
