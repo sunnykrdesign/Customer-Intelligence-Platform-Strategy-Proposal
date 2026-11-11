@@ -148,6 +148,18 @@ Your choices are remembered on that browser.
     - A Sources tab with each system's sync state.
   - **Phones:** figure cards sit two to a row, lists collapse to the essentials, and nothing scrolls sideways.
 
+### Education and experience (V6, V7, V8)
+
+Look up a person › Profile › Education and Career follow a professional-profile pattern (Figma frame 46:10046):
+- **Entries:** each school or employer is an entry with a logo tile (its initials), the title in bold, then the organisation and type, the dates with a worked-out duration, and the location.
+- **Detail lines:** a grade line, a skills line ("SQL, Power BI and +2 skills") and a description clipped to two lines with "… more".
+- **Badges:** the current job is marked **Present**. A job that hasn't started yet shows when it starts.
+- **Connected roles:** several roles at one employer sit on a connected timeline under it.
+- **Total experience:** shown at the top of Career, with a "No work experience yet" state for students.
+- **Also on file:** fields the entries don't cover, such as language tests, industry and LinkedIn, stay below as rows.
+
+The sample entries match each person's existing Education and Career fields.
+
 ## People directory
 
 **People** (`#/people`, central data team only) lists everyone upGrad knows: one row per person.

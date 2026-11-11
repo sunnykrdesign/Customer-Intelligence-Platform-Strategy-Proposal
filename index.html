@@ -3463,6 +3463,48 @@ html[data-v7] .skp{--sk1:var(--v7-acc);--sk2:var(--v7-acc2);--skbg:var(--v7-acc-
 @media (max-width:900px){.skp-cols{grid-template-columns:minmax(0,1fr)}.skp-hero{grid-template-columns:auto minmax(0,1fr)}.skp-best{grid-column:1 / -1;padding-left:0;border-left:0;padding-top:10px;border-top:1px solid color-mix(in srgb,var(--sk1) 16%,#fff)}}
 @media (max-width:620px){.skp{padding:18px !important}.skp-list li{grid-template-columns:36px minmax(0,1fr) auto;row-gap:8px}.skp-lv{grid-column:2 / 3}.skp-lab{grid-column:3;grid-row:2;align-self:center}.skp-mono{width:36px;height:36px}}
 @media (prefers-reduced-motion: reduce){.skp-ring circle.p,.skp-list li{animation:none}}
+
+/* ---------- Education and experience, as a profile timeline (V6, V7, V8) ---------- */
+.xp{display:flex;flex-direction:column}
+.xp-e{display:grid;grid-template-columns:48px minmax(0,1fr);gap:14px;padding:16px 0;border-top:1px solid var(--line)}
+.xp-e:first-child{border-top:0;padding-top:4px}
+.xp-logo{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font-size:14px;font-weight:700;letter-spacing:.02em;background:var(--xb);color:var(--xc)}
+.xp-logo.c0{--xb:#EEF1FD;--xc:#3F51B5}.xp-logo.c1{--xb:#FDEEF3;--xc:#B42D63}.xp-logo.c2{--xb:#EAF6EF;--xc:#2A7A52}.xp-logo.c3{--xb:#FEF3E6;--xc:#9A5A12}.xp-logo.c4{--xb:#F1ECFB;--xc:#6A4FB0}.xp-logo.c5{--xb:#EEF0F4;--xc:#4A4E5A}
+.xp-b{display:flex;flex-direction:column;gap:2px;min-width:0}
+.xp-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.xp-top b,.xp-roles b{font-size:15px;font-weight:600;letter-spacing:-0.01em;color:var(--text)}
+.xp-top .src{margin-left:auto}
+.xp-sub{margin:0;font-size:14px;color:var(--text)}
+.xp-meta{margin:0;font-size:13px;color:var(--muted)}
+.xp-g{margin:6px 0 0;font-size:13.5px;color:var(--text)}
+.xp-sk{display:flex;align-items:center;gap:6px;margin:8px 0 0;font-size:13px;font-weight:600;color:var(--text)}
+.xp-sk svg{flex:0 0 auto;color:var(--muted)}
+.xp-desc{margin:8px 0 0;font-size:13.5px;line-height:1.5;color:var(--text);display:flex;align-items:flex-end;gap:4px}
+.xp-desc span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.xp-desc.open{display:block}
+.xp-desc.open span{display:inline;-webkit-line-clamp:unset}
+.xp-more{flex:0 0 auto;border:0;background:none;padding:0;font:inherit;font-size:13px;color:var(--muted);cursor:pointer;white-space:nowrap;min-height:0 !important}
+.xp-desc.open .xp-more{margin-left:6px}
+.xp-more:hover{color:var(--text);text-decoration:underline}
+.xp-now{margin-left:auto;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:6px;background:#E3F4F1;color:#1E6E63;font-size:11.5px;font-weight:600}
+.xp-now.soon{background:#FEF3E6;color:#9A5A12}
+.xp-e .src{align-self:flex-start;margin-top:8px}
+.xp-top .src{margin-top:0}
+.xp-roles{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column}
+.xp-roles li{position:relative;display:grid;grid-template-columns:16px minmax(0,1fr);gap:12px;padding:6px 0 12px}
+.xp-roles li > i{position:relative;width:8px;height:8px;margin:7px 0 0 4px;border-radius:50%;background:#C4C6CE}
+.xp-roles li:not(:last-child) > i::after{content:"";position:absolute;left:3px;top:14px;width:2px;height:calc(100% + 30px);background:#E3E4EA;border-radius:2px}
+.xp-total{margin:0 0 6px;font-size:13px;color:var(--muted)}
+.xp-total b{color:var(--text);font-weight:600}
+.xp-none{flex-direction:row;align-items:center;gap:14px;padding:6px 0}
+.xp-none b{font-size:15px;font-weight:600}
+.xp-none p{margin:2px 0 0;font-size:13px;color:var(--muted)}
+.xp-h4{margin:18px 0 4px;font-size:12px;font-weight:600;color:var(--muted);text-transform:none;letter-spacing:0}
+/* Theme tints */
+html[data-v7t="crisp"] .xp-logo.c0{--xb:#ECEEFA;--xc:#4F57A8}html[data-v7t="crisp"] .xp-logo.c1{--xb:#FCEFF4;--xc:#B42D63}html[data-v7t="crisp"] .xp-logo.c4{--xb:#F1EDFB;--xc:#6A4FB0}
+html[data-v7t="crisp"] .xp-now{background:var(--v7-acc-bg,#ECEEFA);color:#4F57A8}
+html[data-v8] .xp-now{background:#EEF3FE;color:#0B36D9}
+@media (max-width:620px){.xp-e{grid-template-columns:40px minmax(0,1fr);gap:12px}.xp-logo{width:40px;height:40px;font-size:12.5px}.xp-top .src{margin-left:0}}
 </style>
 <style id="v7layer">
 /* ================= V7 design layer (crisp, minimal; icons with a fixed colour meaning) =================
@@ -5580,7 +5622,7 @@ html[data-v8]:not(#v8) .v8srcs .v8fd:first-of-type{margin-left:auto}
       { key: "identity", t: "Identity and contact", ic: "user", sum: p.emails.length + (p.emails.length === 1 ? " email, " : " emails, ") + p.phones.length + (p.phones.length === 1 ? " mobile" : " mobiles") + " · " + p.ids.length + " linked records", filled: [Math.min(8, 3 + p.ids.length), 8],
         rows: [{ l: "Emails", mask: "emails", src: [(p.emails[0] || {}).src || "CMS"] }, { l: "Mobile", mask: "phones", src: [(p.phones[0] || {}).src || "CMS"] }, { l: "Name", v: p.name, src: ["Prism"] }] },
       { key: "personal", t: "Personal details", ic: "home", sum: p.ageBand + " · " + p.stage.toLowerCase() + " · " + p.city, filled: [(p.personal || []).length + 2, 10], rows: rows(p.personal) },
-      { key: "education", t: "Education before upGrad", ic: "cap", sum: ((p.education || [])[0] || [0, "Not captured yet"])[1], filled: [(p.education || []).length, 4], rows: rows(p.education) },
+      { key: "education", t: "Education before upGrad", ic: "cap", sum: ((p.education || [])[0] || [0, "Not captured yet"])[1], filled: [(p.education || []).length, Math.max(4, (p.education || []).length)], rows: rows(p.education) },
       { key: "career", t: "Career", ic: "brief", sum: ((p.career || [])[0] || [0, "Not captured yet"])[1], filled: [(p.career || []).filter(function (r) { return r[1]; }).length, 5], rows: rows(p.career) },
       { key: "aspiration", t: "Aspiration", ic: "star", sum: ((p.aspiration || [])[0] || [0, "Not captured yet"])[1], filled: [(p.aspiration || []).length, 10], rows: rows(p.aspiration) },
       { key: "financial", t: "Financial profile", ic: "money", sum: ((p.finance || [])[0] || [0, "Not captured yet"])[1], filled: [(p.finance || []).length, 8], fin: true, rows: rows(p.finance) },
@@ -9577,6 +9619,90 @@ html[data-v8]:not(#v8) .v8srcs .v8fd:first-of-type{margin-left:auto}
   // Re-colour data and charts when switching to or from V7 without a reload.
   var _setVersion7 = setVersion;
   setVersion = function (v, keep) { _setVersion7(v, keep); v7data(); if (isV6() && typeof renderKpis6 === "function") renderKpis6(); v7spark(); if (typeof renderStudio6 === "function") renderStudio6(false); if (typeof renderFunnel6 === "function") renderFunnel6(); };
+  // ---------- Education and experience, shown the way a professional profile shows them (Figma 46:10046) ----------
+  // Sample entries, consistent with each person's Education and Career rows. Rows these entries cover are folded in; the rest stay as rows.
+  (function () {
+    var D = {
+      arjun: {
+        edu: [{ s: "Osmania University", d: "Bachelor of Commerce - B.Com, Computer Applications", y: "2020 – 2023", g: "Grade: 74%", src: "Prism" },
+              { s: "Telangana State Board of Intermediate Education", d: "Class 12", y: "2018", g: "Grade: 88%", src: "Prism" }],
+        exp: [{ c: "Fintech company", type: "Full-time", loc: "Hyderabad, Telangana · Hybrid", roles: [{ t: "Data Analyst", from: "Apr 2024", to: "Present", sk: ["SQL", "Power BI", "Python", "Excel"], desc: "Builds lending-risk and collections dashboards for the credit team. Wants to move into machine learning, which is why he joined the PG Diploma in Data Science.", src: "Prism" }] },
+              { c: "Internship via Internshala", lg: "IS", type: "Internship", loc: "Hyderabad, Telangana", roles: [{ t: "Data Analyst Intern", from: "Sep 2023", to: "Mar 2024", sk: ["Business analytics", "Excel"], src: "Prism" }] }],
+        total: "2–5 years, declared"
+      },
+      ananya: {
+        edu: [{ s: "SRM Institute of Science and Technology", d: "Bachelor of Technology - B.Tech, Computer Science", y: "2022 – 2026", g: "Final year · graduates Jun 2026", src: "CMS" },
+              { s: "CBSE", d: "Class 12", y: "2022", g: "Grade: 91% · JEE Main 2022, 96.4 percentile", src: "CMS" }],
+        exp: [{ c: "Analytics firm", type: "Internship", loc: "Bengaluru, Karnataka", roles: [{ t: "Data Analyst Intern", from: "Dec 2026", to: "", soon: "Starts Dec", sk: ["SQL", "Excel", "Python"], src: "CMS" }] }],
+        total: "Under 1 year"
+      },
+      ananyar: {
+        edu: [{ s: "[University name]", d: "Bachelor of Technology - B.Tech, Computer Science", y: "2018 – 2022", g: "Grade: 78%", src: "Prism" },
+              { s: "Senior secondary", d: "Class 12", y: "2018", g: "Grade: 88%", src: "Prism" }],
+        exp: [{ c: "[Employer name]", type: "Full-time", loc: "", roles: [{ t: "Data Analyst", from: "Aug 2022", to: "Present", sk: ["Python", "SQL", "Statistics"], src: "Prism" }] },
+              { c: "Previous employer", type: "Internship", loc: "", roles: [{ t: "Analyst Intern", from: "Jan 2022", to: "Jun 2022", src: "Sales Insights" }] }],
+        total: "4 years 3 months, declared"
+      },
+      rohan: {
+        edu: [{ s: "Fergusson College, Pune", d: "Bachelor of Science - B.Sc, Biotechnology", y: "2024 – 2027", g: "CGPA 7.6", src: "CMS" },
+              { s: "Maharashtra State Board", d: "Class 12", y: "2024", g: "Grade: 84% · Class 10: 90%", src: "SA" }],
+        exp: [], total: "None yet"
+      },
+      meera: {
+        edu: [{ s: "Christ University, Bengaluru", d: "Bachelor of Commerce - B.Com", y: "2024 – 2027", src: "CMS" },
+              { s: "Karnataka PU Board", d: "Class 12", y: "2024", g: "Grade: 89%", src: "CMS" }],
+        exp: [], total: "None yet"
+      }
+    };
+    Object.keys(D).forEach(function (k) { if (PEOPLE[k]) { PEOPLE[k].edu = D[k].edu; PEOPLE[k].exp = D[k].exp; PEOPLE[k].expTotal = D[k].total; } });
+  })();
+  var XPMON = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
+  function xpDur(from, to) {
+    var a = /^(\w{3}) (\d{4})$/.exec(from || ""), b = to === "Present" ? null : /^(\w{3}) (\d{4})$/.exec(to || ""); if (!a) return "";
+    var end = b ? new Date(+b[2], XPMON[b[1]], 1) : TODAY4, m = (end.getFullYear() - +a[2]) * 12 + end.getMonth() - XPMON[a[1]] + 1;
+    if (m < 1) return ""; var y = Math.floor(m / 12), r = m % 12;
+    return (y ? y + (y > 1 ? " yrs" : " yr") : "") + (y && r ? " " : "") + (r ? r + (r > 1 ? " mos" : " mo") : "");
+  }
+  function xpLogo(name, lg) {
+    var w = name.replace(/[\[\]]/g, "").split(/[\s,·-]+/).filter(Boolean), t = lg || (w.length > 1 ? w[0][0] + w[1][0] : (w[0] || "?").slice(0, 2)).toUpperCase(), h = 0;
+    for (var i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) % 6;
+    return '<span class="xp-logo c' + h + '" aria-hidden="true">' + esc(t) + "</span>";
+  }
+  function xpSkills(sk) { if (!sk || !sk.length) return ""; var shown = sk.slice(0, 2).join(", "), more = sk.length - 2; return '<p class="xp-sk">' + ic4("star", 13) + "<span>" + esc(shown) + (more > 0 ? " and +" + more + " skill" + (more > 1 ? "s" : "") : "") + "</span></p>"; }
+  function xpDesc(t) { return t ? '<p class="xp-desc"><span>' + esc(t) + '</span><button type="button" class="xp-more" data-xpmore aria-expanded="false">… more</button></p>' : ""; }
+  // kind: "edu" or "exp". Returns "" when the person has no entries of that kind.
+  function xpHTML(p, kind) {
+    var list = kind === "edu" ? p.edu : p.exp; if (!list) return "";
+    if (!list.length) return '<div class="xp xp-none"><span class="xp-logo c5" aria-hidden="true">' + ic4("brief", 18) + "</span><div><b>No work experience yet</b><p>" + esc(p.expTotal || "") + (p.stage ? " · " + esc(p.stage) : "") + "</p></div></div>";
+    if (kind === "edu") return '<div class="xp">' + list.map(function (e) {
+      return '<article class="xp-e">' + xpLogo(e.s) + '<div class="xp-b"><div class="xp-top"><b>' + esc(e.s) + "</b>" + (e.src ? '<span class="src">' + esc(e.src) + "</span>" : "") + '</div><p class="xp-sub">' + esc(e.d) + '</p><p class="xp-meta">' + esc(e.y) + "</p>" + (e.g ? '<p class="xp-g">' + esc(e.g) + "</p>" : "") + xpDesc(e.a) + "</div></article>";
+    }).join("") + "</div>";
+    var tot = p.expTotal ? '<p class="xp-total">Total experience: <b>' + esc(p.expTotal) + "</b></p>" : "";
+    return tot + '<div class="xp">' + list.map(function (c) {
+      var r0 = c.roles[0], cur = c.roles.some(function (r) { return r.to === "Present"; }), badge = cur ? '<span class="xp-now">Present</span>' : r0.soon ? '<span class="xp-now soon">' + esc(r0.soon) + "</span>" : "";
+      var range = function (r) { var d = xpDur(r.from, r.to); return esc(r.from) + (r.to ? " – " + esc(r.to) : "") + (d ? " · " + d : ""); };
+      if (c.roles.length === 1) {
+        return '<article class="xp-e">' + xpLogo(c.c, c.lg) + '<div class="xp-b"><div class="xp-top"><b>' + esc(r0.t) + "</b>" + badge + '</div><p class="xp-sub">' + esc(c.c) + (c.type ? " · " + esc(c.type) : "") + '</p><p class="xp-meta">' + range(r0) + "</p>" + (c.loc ? '<p class="xp-meta">' + esc(c.loc) + "</p>" : "") +
+          xpSkills(r0.sk) + xpDesc(r0.desc) + (r0.src ? '<span class="src">' + esc(r0.src) + "</span>" : "") + "</div></article>";
+      }
+      var first = c.roles[c.roles.length - 1].from, last = c.roles[0].to, td = xpDur(first, last);
+      return '<article class="xp-e grp">' + xpLogo(c.c, c.lg) + '<div class="xp-b"><div class="xp-top"><b>' + esc(c.c) + "</b>" + badge + '</div><p class="xp-sub">' + esc(c.type || "") + (td ? " · " + td : "") + "</p>" + (c.loc ? '<p class="xp-meta">' + esc(c.loc) + "</p>" : "") +
+        '<ol class="xp-roles">' + c.roles.map(function (r) { return '<li><i aria-hidden="true"></i><div><b>' + esc(r.t) + '</b><p class="xp-meta">' + range(r) + "</p>" + xpSkills(r.sk) + xpDesc(r.desc) + "</div></li>"; }).join("") + "</ol></div></article>";
+    }).join("") + "</div>";
+  }
+  var XPCOVER = { education: /^(Highest qualification|Degree|Class 12|Scores|Institution)$/i, career: /^(Current role|Work history|Previous role|Experience)$/i };
+  var _v4Rows0 = v4Rows;
+  v4Rows = function (p, s, otherBu, m) {
+    var kind = s.key === "education" ? "edu" : s.key === "career" ? "exp" : null;
+    if (!kind || !isV6() || !p[kind]) return _v4Rows0(p, s, otherBu, m);
+    var rest = Object.assign({}, s, { rows: (s.rows || []).filter(function (r) { return !XPCOVER[s.key].test(r.l); }), miss: s.miss });
+    var tail = rest.rows.length ? '<h4 class="xp-h4">Also on file</h4>' + _v4Rows0(p, rest, otherBu, m) : "";
+    return xpHTML(p, kind) + tail;
+  };
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest("[data-xpmore]"); if (!b) return;
+    var d = b.closest(".xp-desc"), open = !d.classList.contains("open"); d.classList.toggle("open", open); b.setAttribute("aria-expanded", open); b.textContent = open ? "Show less" : "… more";
+  });
   // V8 JS START
   /* ================= V8: a dashboard led by DOCTRACK (white cards, icon boxes, change chips, row bands, hatched bars with a
      black tooltip, a semicircle gauge, an assistant card) and softened with healthy's light shell. Same data and features as V6. ================= */
@@ -9873,7 +9999,9 @@ html[data-v8]:not(#v8) .v8srcs .v8fd:first-of-type{margin-left:auto}
       body = '<div class="v8lock"><span class="v8ib">' + ic8("lockk", 18) + '</span><div><b>Financial details are locked</b><p>' + (otherBu ? "Only the owning business can see budget, funding and salary bands." : "Enter your team password to see budget, funding and salary bands. Access is logged.") + "</p></div>" +
         (otherBu ? "" : V.finAsk ? '<form class="v8lockf" data-unlock novalidate><label for="lockPw" class="sr">Team password</label><input id="lockPw" type="password" placeholder="Team password" autocomplete="off"' + (V.lockErr ? ' aria-invalid="true"' : "") + '><button type="submit" class="v8share">Unlock</button><button type="button" class="v8lnk" data-lockcancel>Cancel</button>' + (V.lockErr ? '<p class="v8err" role="alert">' + esc(V.lockErr) + "</p>" : "") + "</form>" : '<button type="button" class="v8share" data-fineye aria-pressed="false">Unlock</button>') + "</div>";
     } else {
-      body = '<dl class="v8dl">' + sec[2].filter(function (r) { return !(otherBu && r[3] === "T2"); }).map(function (r) {
+      var xk = cur === "education" ? "edu" : cur === "career" ? "exp" : null, xrows = sec[2];
+      if (xk && p[xk] && typeof xpHTML === "function") xrows = sec[2].filter(function (r) { return !XPCOVER[cur].test(r[0]); });
+      body = (xk && p[xk] && typeof xpHTML === "function" ? xpHTML(p, xk) + (xrows.length ? '<h4 class="xp-h4">Also on file</h4>' : "") : "") + '<dl class="v8dl">' + xrows.filter(function (r) { return !(otherBu && r[3] === "T2"); }).map(function (r) {
         return "<div><dt>" + esc(r[0]) + "</dt><dd><b>" + (r[1] ? esc(r[1]) : '<span class="v8miss">Not captured</span>') + "</b>" + (r[2] ? '<span class="v8src">' + esc(r[2]) + "</span>" : "") + (r[4] ? "<small>" + esc(r[4]) + "</small>" : "") + "</dd></div>";
       }).join("") + "</dl>" + (cur === "finance" ? '<button type="button" class="v8lnk" data-fineye aria-pressed="true">' + ic8("lockk", 14) + "Hide financial details</button>" : "");
     }
