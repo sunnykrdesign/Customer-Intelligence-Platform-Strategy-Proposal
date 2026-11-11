@@ -5665,7 +5665,7 @@ html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp) [aria-sort="ascend
     if (s.key !== "identity" || !isV5()) return s.rows;
     return s.rows.concat([
       { l: "Linked records", list: m.records.map(function (r) { return [r[0], r[1], r[2]]; }), n: m.matched || "Matched on " + (L.how || "a verified identifier") + "." },
-      { l: "Owners right now", list: m.owners.map(function (o) { return [(BU4[o[0]] || [o[0]])[0], o[1] + " · " + o[2], null, o[0]]; }) }
+      { l: "Owner", list: m.owners.map(function (o) { return [(BU4[o[0]] || [o[0]])[0], o[1] + " · " + o[2], null, o[0]]; }) }
     ]);
   }
 
