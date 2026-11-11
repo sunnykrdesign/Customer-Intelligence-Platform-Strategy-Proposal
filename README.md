@@ -127,6 +127,7 @@ Four versions are in the switcher: V1 · Classic, V2 · Learner 360, V3 · Maste
       - **People directory:** Reach shows five channel icons (call, email, SMS, WhatsApp, ads), periwinkle when open and grey when closed. Status pills and sort arrows use the same set.
       - **How it's applied:** a small script swaps each icon for its Fluent glyph while Crisp is on and puts the original back when you leave Crisp. Other versions and the Ocean theme keep their own icons. The animated Insights sparkle stays as it is.
   - **Ocean** keeps its own teal look.
+  - **Reach beside Open in CRM (V4, both themes):** in every Look up layout and sticky-bar strength, who may be contacted (the five channel icons), **Show contact** and the things to act on sit in the person card's top line, next to Open in CRM. There's no separate Reach row on the card, no Reach row in the High bar, and no bottom dock. On narrow screens the group wraps under the name.
 
 ### Education and experience (V3, V4)
 
