@@ -66,6 +66,14 @@ A **Review** button in the bottom-right corner opens the review controls. They'r
   - **Person card facts:** "Verified" under each fact, and "Updated" under Fields filled.
   - **Sample dates:** they stay the same for each person and field, fall between when upGrad first knew the person and today, and the check never comes before the capture.
   - A link keeps Off with `&dt=off`.
+- **Insights:** **New** (default) or **Current**. Shown only in V4 with the Crisp theme. New lays the same signals out as a call brief, with nothing hidden behind "Show the signals behind this summary":
+  - **Verdict:** "Good time to call", "Call, but keep it brief" (3 to 5 outbound touches in the last 7 days) or "Hold off" (6 or more, or no channel open), with the reason.
+  - **Talking points:** numbered (learning, heads up, consent).
+  - **Best next step:** a pastel panel beside the brief.
+  - **Four tiles:** lifetime value, learning health, refund risk or speed to lead, and businesses, each with an icon.
+  - **Two columns:** Reach and engagement with More signals, and re-acquisition with the model scores.
+  - **How notes:** they work as before.
+  - A link keeps Current with `&ins=current`.
 - **Spacing:** **Compact** (default) or **Current**. Shown only in V4 with the Crisp theme. Compact tightens vertical spacing across V4:
   - **Person card:** less room above it (the space above the photo drops from 61px to 29px in the Folding header layout), with the person header about 60px shorter.
   - **Pages:** less room at the top of every page and between sections, and slimmer padding in cards, figure tiles and profile rows.
