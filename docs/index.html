@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<script>(function(){var v='8';try{var m=/[?&]v=([12345678])/.exec(location.search);v=m?m[1]:(localStorage.getItem('cip-version')||'8');if(m)localStorage.setItem('cip-version',v);}catch(e){}var d=document.documentElement;d.setAttribute('data-v',v>'3'?'3':v);if(v>'3')d.setAttribute('data-v4','');if(v>='5')d.setAttribute('data-v5','');if(v>='6')d.setAttribute('data-v6','');if(v==='8')d.setAttribute('data-v8','');if(v==='7'){d.setAttribute('data-v7','');var t='bold';try{var tm=/[?&]t=(bold|crisp|vivid|ocean)/.exec(location.search);t=tm?tm[1]:(localStorage.getItem('cip-v7t')||'bold');if(tm)localStorage.setItem('cip-v7t',t);}catch(e){}d.setAttribute('data-v7t',t);}})();</script>
+<script>(function(){var v='8';try{var m=/[?&]v=([12345678])/.exec(location.search);v=m?m[1]:(localStorage.getItem('cip-version')||'8');if(m)localStorage.setItem('cip-version',v);}catch(e){}if(v==='1'||v==='2'||v==='5'){v='8';try{localStorage.setItem('cip-version','8');}catch(e){}}var d=document.documentElement;d.setAttribute('data-v',v>'3'?'3':v);if(v>'3')d.setAttribute('data-v4','');if(v>='5')d.setAttribute('data-v5','');if(v>='6')d.setAttribute('data-v6','');if(v==='8')d.setAttribute('data-v8','');if(v==='7'){d.setAttribute('data-v7','');var t='bold';try{var tm=/[?&]t=(bold|crisp|vivid|ocean)/.exec(location.search);t=tm?tm[1]:(localStorage.getItem('cip-v7t')||'bold');if(tm)localStorage.setItem('cip-v7t',t);}catch(e){}d.setAttribute('data-v7t',t);}})();</script>
 <style>
 :root{
   --bg:#F5F5F7; --card:#FFFFFF; --text:#1D1D1F; --muted:#6E6E73; --line:#E5E5EA; --border:#D2D2D7;
@@ -5526,12 +5526,12 @@ html[data-v8]:not(#v8) .v8srcs .v8fd:first-of-type{margin-left:auto}
 <div class="review" id="review">
   <div class="rv-panel" id="rvPanel" role="dialog" aria-label="Review controls" tabindex="-1" hidden>
     <div class="rv-head"><b>Review</b><span>For design review, not part of the product</span><button type="button" class="rv-x" id="rvClose" aria-label="Close review panel"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1l10 10M11 1L1 11"/></svg></button></div>
-    <div class="rv-sec"><span class="rv-k">Design version</span><div class="rv-seg" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="1" aria-pressed="false">V1</button><button type="button" data-v="2" aria-pressed="false">V2</button><button type="button" data-v="3" aria-pressed="false">V3</button><button type="button" data-v="4" aria-pressed="false">V4</button><button type="button" data-v="5" aria-pressed="false">V5</button><button type="button" data-v="6" aria-pressed="false">V6</button><button type="button" data-v="7" aria-pressed="false">V7</button><button type="button" data-v="8" aria-pressed="false">V8</button></div></div>
+    <div class="rv-sec"><span class="rv-k">Design version</span><div class="rv-seg" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="3" aria-pressed="false">V3</button><button type="button" data-v="4" aria-pressed="false">V4</button><button type="button" data-v="6" aria-pressed="false">V6</button><button type="button" data-v="7" aria-pressed="false">V7</button><button type="button" data-v="8" aria-pressed="false">V8</button></div></div>
     <div class="rv-sec rv-v6x"><span class="rv-k">V6 motion</span>
       <div class="rv-rows"><label class="rv-row"><span>Hero glow follows the cursor</span><input type="checkbox" class="switch rv-switch" id="rvGlow6" aria-label="Hero glow follows the cursor"></label></div>
       <p class="rv-note">On the Overview hero, a soft red light sits under the pointer and trails it as you move, then fades out when you leave the card. No click effect. Off on touch screens and when reduced motion is on.</p>
     </div>
-    <div class="rv-sec rv-v5"><span class="rv-k">V5 layout</span><div class="rv-seg" id="rvLay5" role="group" aria-label="V5 layout"></div>
+    <div class="rv-sec rv-v5"><span class="rv-k">Look up layout · V6 and V7</span><div class="rv-seg" id="rvLay5" role="group" aria-label="Look up layout"></div>
       <span class="rv-sub">Life with upGrad</span><div class="rv-seg" id="rvLife" role="group" aria-label="Life with upGrad style"></div></div>
     <div class="rv-sec"><span class="rv-k">Look up a person · layout</span>
       <div class="rv-pos">
@@ -7537,7 +7537,7 @@ html[data-v8]:not(#v8) .v8srcs .v8fd:first-of-type{margin-left:auto}
 
   /* ---------- Design versions ---------- */
   function setVersion(v, keep) {
-    if (["1", "2", "3", "4", "5", "6", "7", "8"].indexOf(v) < 0) v = "8";
+    if (["3", "4", "6", "7", "8"].indexOf(v) < 0) v = "8"; // V1, V2 and V5 are retired from the switcher
     document.documentElement.setAttribute("data-v", v > "3" ? "3" : v);
     if (v > "3") document.documentElement.setAttribute("data-v4", ""); else document.documentElement.removeAttribute("data-v4");
     if (v >= "5") document.documentElement.setAttribute("data-v5", ""); else document.documentElement.removeAttribute("data-v5");
@@ -8420,7 +8420,7 @@ html[data-v8]:not(#v8) .v8srcs .v8fd:first-of-type{margin-left:auto}
     if (routes.indexOf("overview") >= 0) [["flow", "Flow"], ["stack", "Stack"], ["focus", "Focus"]].forEach(function (s) { it.push({ g: "Trends", t: "Show trends as " + s[1], s: s[0] === V6.style ? "Current" : "Overview", ic: IC6.chart, run: function () { V6.style = s[0]; if (location.hash !== "#/overview") location.hash = "#/overview"; else renderStudio6(true, true); requestAnimationFrame(slideAll); } }); });
     it.push({ g: "Actions", t: "Copy link to this view", s: "Opens without the Review panel", ic: IC6.link, run: function () { copy(viewLink(), $("#rvShareUrl"), "Link to this view copied"); } });
     it.push({ g: "Actions", t: "Share this dashboard", s: "Preview link", ic: IC6.link, run: function () { var b = $('.side [data-action="share"]'); if (b) b.click(); } });
-    if (!SHARED) ["1", "2", "3", "4", "5", "6", "7", "8"].forEach(function (v) { it.push({ g: "Design version", t: "Switch to V" + v + (v === "8" ? " · latest" : v === "6" ? " · master" : ""), s: curV() === v ? "Current" : "", ic: IC6.ver, run: function () { var b = $('#vswitch [data-v="' + v + '"]'); if (b) b.click(); } }); });
+    if (!SHARED) ["3", "4", "6", "7", "8"].forEach(function (v) { it.push({ g: "Design version", t: "Switch to V" + v + (v === "8" ? " · latest" : v === "6" ? " · master" : ""), s: curV() === v ? "Current" : "", ic: IC6.ver, run: function () { var b = $('#vswitch [data-v="' + v + '"]'); if (b) b.click(); } }); });
     return it;
   }
   function palRender() {
@@ -9803,8 +9803,18 @@ html[data-v8]:not(#v8) .v8srcs .v8fd:first-of-type{margin-left:auto}
   // Inline colours written by scripts (chart strokes, fills, style="...") are remapped the same way in V7.
   function v7fixEl(el) {
     if (!isV7() || el.nodeType !== 1) return;
-    ["fill", "stroke", "stop-color"].forEach(function (a) { var v = el.getAttribute(a); if (v && /#|rgb/.test(v)) { var n = v7val(v); if (n !== v) el.setAttribute(a, n); } });
-    var s = el.getAttribute("style"); if (s && /#|rgb/.test(s)) { var ns = v7val(s); if (ns !== s) el.setAttribute("style", ns); }
+    // Keep the original value next to each change, so leaving V7 can put it back (see v7unfix).
+    ["fill", "stroke", "stop-color"].forEach(function (a) { var v = el.getAttribute(a); if (v && /#|rgb/.test(v)) { var n = v7val(v); if (n !== v) { if (!el.hasAttribute("data-v7o-" + a)) el.setAttribute("data-v7o-" + a, v); el.setAttribute(a, n); el.setAttribute("data-v7n-" + a, n); } } });
+    var s = el.getAttribute("style"); if (s && /#|rgb/.test(s)) { var ns = v7val(s); if (ns !== s) { if (!el.hasAttribute("data-v7o-style")) el.setAttribute("data-v7o-style", s); el.setAttribute("style", ns); el.setAttribute("data-v7n-style", ns); } }
+  }
+  // Leaving V7: every colour V7 rewrote goes back to what it was (unless something else has changed it since).
+  function v7unfix() {
+    ["fill", "stroke", "stop-color", "style"].forEach(function (a) {
+      Array.prototype.forEach.call(document.querySelectorAll("[data-v7o-" + a + "]"), function (el) {
+        if (el.getAttribute(a) === el.getAttribute("data-v7n-" + a)) el.setAttribute(a, el.getAttribute("data-v7o-" + a));
+        el.removeAttribute("data-v7o-" + a); el.removeAttribute("data-v7n-" + a);
+      });
+    });
   }
   function v7fixTree(root) { v7fixEl(root); if (root.querySelectorAll) Array.prototype.forEach.call(root.querySelectorAll("[fill],[stroke],[stop-color],[style]"), v7fixEl); }
   new MutationObserver(function (ms) {
@@ -9840,7 +9850,7 @@ html[data-v8]:not(#v8) .v8srcs .v8fd:first-of-type{margin-left:auto}
     // Business colours in "Where learners move" follow the theme (only Crisp sets its own).
     if (typeof BC6 !== "undefined") { Object.keys(BC6).forEach(function (k) { BC6[k][1] = on && T.bc && T.bc[k] ? T.bc[k] : V6BC[k]; }); if (typeof renderSankey6 === "function") renderSankey6(); }
     if (typeof BC6P !== "undefined") Object.keys(BC6P).forEach(function (k) { BC6P[k] = on && T.bp && T.bp[k] ? T.bp[k] : V6BCP[k]; });
-    if (on) v7fixTree(document.body);
+    if (on) v7fixTree(document.body); else v7unfix();
     v7hero(on ? T.h : null);
   }
   // Hero rings, track and legend take the theme colours; the V6 originals are kept so any theme (or V6) can be restored.
@@ -9879,7 +9889,7 @@ html[data-v8]:not(#v8) .v8srcs .v8fd:first-of-type{margin-left:auto}
 
   // Re-colour data and charts when switching to or from V7 without a reload.
   var _setVersion7 = setVersion;
-  setVersion = function (v, keep) { _setVersion7(v, keep); v7data(); v7spark(); if (typeof renderStudio6 === "function") renderStudio6(false); };
+  setVersion = function (v, keep) { _setVersion7(v, keep); v7data(); if (isV6() && typeof renderKpis6 === "function") renderKpis6(); v7spark(); if (typeof renderStudio6 === "function") renderStudio6(false); if (typeof renderFunnel6 === "function") renderFunnel6(); };
   // V8 JS START
   /* ================= V8: a dashboard led by DOCTRACK (white cards, icon boxes, change chips, row bands, hatched bars with a
      black tooltip, a semicircle gauge, an assistant card) and softened with healthy's light shell. Same data and features as V6. ================= */
