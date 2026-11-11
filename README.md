@@ -43,8 +43,8 @@ Preview links look like this:
 A **Review** button in the bottom-right corner opens the review controls. They're for design review only, not part of the product:
 
 - **Share this view:** **Copy link** gives a link that opens exactly what you're looking at: the design version, the profile layout, the sticky bar, the pinned search bar, the sidebar menu items you've left on, the screen you're on and, on Look up a person, the person who's open. It skips sign-in and hides the Review panel, so the person you send it to sees only that view. For example: `…/?preview=1&v=3&card=top&tabs=left&bar=high&pin=1&nav=overview,people,lookup&p=ananya&review=0#/lookup`
-- **Design version:** V3, V4, V6, V7 and V8. V8 is the default for new visitors. You can also add `?v=3`, `?v=4`, `?v=6`, `?v=7` or `?v=8` to the URL. V1, V2 and V5 are retired from the switcher, and old links to them open V8. Switching away from V7 puts every colour V7 changed back, so its theme never shows in another version. A V6 or V7 link also keeps the trend style, for example `&tr=stack`, and a V7 link keeps the theme, for example `&t=vivid`.
-- **V7 theme:** **Bold** (default), **Crisp**, **Vivid** or **Ocean**. Shown only in V7.
+- **Design version:** V3, V4, V6, V7 and V8. V8 is the default for new visitors. You can also add `?v=3`, `?v=4`, `?v=6`, `?v=7` or `?v=8` to the URL. V1, V2 and V5 are retired from the switcher, and old links to them open V8. Switching away from V7 puts every colour V7 changed back, so its theme never shows in another version. A V6 or V7 link also keeps the trend style, for example `&tr=stack`, and a V7 link keeps the theme, for example `&t=ocean`.
+- **V7 theme:** **Crisp** (default) or **Ocean**. Shown only in V7. A saved or linked Bold or Vivid theme opens as Crisp.
 - **Look up a person · layout** (all versions): pick where the **person card** sits (Left panel or Top header) and where the **section tabs** sit (Top, Left or Right). That makes six combinations, and a small diagram shows the current one.
 
 - **Sticky bar:** how strongly the pinned person and tabs stand out once you scroll (default **Mid**):
@@ -102,18 +102,8 @@ Your choices are remembered on that browser.
   - **Look up a person · Activity (V6):** **Journey** is a roadmap with one row per business over time (lead, counselled, paid, completed and lost bars, milestones, the life stage on top and a Today line), then chapters by year. **Timeline** opens with a stacked chart of events per month, then filters by business and event type and a feed grouped by month. **By business** gives a card per business with its event mix, when things happened and every event. **Learning rhythm** has the headline figures, weekly bars with the average, a day-by-day heatmap and busy times. The same roadmap is used for Life with upGrad on the Profile tab. References: Productboard, Plane and Miro (roadmaps), Calendly, Shopify and Mixpanel (activity feeds), Base44, Peerlist and Cursor (heatmaps), Quo (busy times), and Headspace, Codecademy and Babbel (course progress).
   - **Look up a person · Insights (V6):** opens with **Before you call**, a short summary built from the signals (learning, reach, how often they've been contacted this week, any re-acquisition and the best next step). Then come scorecards for lifetime value (paid against still due, owner only), learning health, refund risk and how many businesses know them; re-acquisition and next-best programme cards; reach as open and closed channels with contact fatigue for 7 and 30 days; model scores as meters; and any other signals. Every figure keeps its **How** note. References: HubSpot's record summary, Xero and Searchable scorecards, Whop's risk gauge and Vanta's status cards.
   - **Motion:** screens fade in as you open them, cards rise into view as you scroll, a soft spotlight follows the cursor on cards, and segmented controls slide with a spring. If reduced motion is turned on, all of this is switched off.
-- **V7:** V6 with a new visual layer and four themes (Review → V7 theme).
-  - **Bold (default): contrast and colour.** Colours and treatments are taken from four reference dashboards (healthy, Windpo, SETO, DOCTRACK); none of their content or layout is copied:
-    - **Shell:** a grey-to-peach canvas around a light, rounded shell.
-    - **Sidebar:** a deep navy column (DOCTRACK's blue family) with a soft blue glow at the top. The current page is a lime pill with black text, and the signed-in person sits in a translucent card. On phones, the top bar and bottom tab bar are navy as well.
-    - **Figures:** each number is colour-coded: blue, teal, pink, orange and violet. The first card in every summary row is a navy feature card with a lime figure. Icons sit in small square tiles at the top right, and change chips are outlined in green (good) or red (bad).
-    - **Overview hero:** a white card with an upper-case Inter Tight headline and the profile count in blue. Phase 1 progress shows as an orange tick bar, after Windpo's. The rings are blue, orange and teal.
-    - **Controls:** a light track with a black pill for the chosen tab or segment. Chosen filter chips and section pills are black too, as are the main actions.
-    - **Tables:** each person in the directory is a white row band, after DOCTRACK's schedule. Status pills are outlined in green, blue, amber or red.
-    - **Charts:** blue, teal, orange and pink series. The Stack bars are blue and black. Funnel tracks are hatched, with blue fills. In Focus, the target is an orange dashed line.
-    - **Insights summary:** edged in SETO's peach-to-blue.
-    - **Text contrast:** every text pairing is at least 4.5:1. Big figures are at least 3:1, which is the large-text level.
-  - **Crisp: soft lavender.** Built from a reference dashboard's visual language, not its content or layout:
+- **V7:** V6 with a new visual layer and two themes (Review → V7 theme). Bold and Vivid were removed.
+  - **Crisp (default): soft lavender.** Built from a reference dashboard's visual language, not its content or layout:
     - **Shell:** a lilac canvas around one light, rounded app shell. The sidebar shares the shell colour, with a hairline divider down the full height.
     - **Surfaces:** white cards with no borders and 16px corners. Type is Figtree, with medium-weight headings and figures.
     - **Sidebar:** grey line icons with no colour tiles. The current page is a white pill. The signed-in person sits at the foot of the sidebar, with no card around them.
@@ -123,7 +113,7 @@ Your choices are remembered on that browser.
     - **Tables:** the People directory sits on the shell with hairline rows, as in the reference's tracker. Status is a white pill with an icon: a check for completed, a slash for restricted or refunded, a dot for in-progress states.
     - **Charts:** periwinkle, ink and rose series. The Overview hero is a white card with periwinkle, rose and ink rings. Funnel tracks are hatched, with white value pills. In Focus, the target or cap is a rose dashed line. Businesses in "Where learners move" and the Activity tab use the same palette.
     - **Text contrast:** body and label text is at least 4.5:1, including the white text on chart pills.
-  - **Vivid** and **Ocean** keep their own looks.
+  - **Ocean** keeps its own teal look.
 
 - **V8 (default): a new design, not a re-skin.** Every screen has its own new layout and markup. DOCTRACK leads the look: white cards, small icon boxes, outlined change chips, grey row bands, hatched bars with a black tooltip and a semicircle gauge. It's softened with healthy's light shell and pastels. The data and features are the same as V6; V7 is untouched.
   - **Shell:** a light, rounded app on a soft grey canvas. The sidebar is a shade darker than the page, and the current page is a white pill with a blue icon.
