@@ -5790,10 +5790,10 @@ html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#cri
   // Identity in V5 also holds linked records and owners, so the left panel can go.
   function v5Rows5(p, m, s) {
     if (s.key !== "identity" || !isV5()) return s.rows;
-    return s.rows.concat([
-      { l: "Linked records", list: m.records.map(function (r) { return [r[0], r[1], r[2]]; }), n: m.matched || "Matched on " + (L.how || "a verified identifier") + "." },
-      { l: "Owner", list: m.owners.map(function (o) { return [(BU4[o[0]] || [o[0]])[0], o[1] + " · " + o[2], null, o[0]]; }) }
-    ]);
+    // V4 drops the Owner row: the person card already shows who owns the person ("Owned by").
+    var add = [{ l: "Linked records", list: m.records.map(function (r) { return [r[0], r[1], r[2]]; }), n: m.matched || "Matched on " + (L.how || "a verified identifier") + "." }];
+    if (!isV7()) add.push({ l: "Owner", list: m.owners.map(function (o) { return [(BU4[o[0]] || [o[0]])[0], o[1] + " · " + o[2], null, o[0]]; }) });
+    return s.rows.concat(add);
   }
 
   // Bar for Minimal and Overview first: the learner on the left, the tabs, then Find.
