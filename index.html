@@ -9388,6 +9388,12 @@ html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#cri
       ananya: [["28 Oct", ["W", "4 Nov", "X", "Counselling call", "Outbound · 18 min · Data Science, part-time · callback booked", "LSQ"], "before"]],
       rohan: [["24 Oct", ["S", "27 Oct", "X", "Follow-up call", "Outbound · 9 min · loan partners shared on WhatsApp", "SA"], "before"]]
     };
+    // Events taken out in review (V3 and V4): Arjun's consent record on 12 Aug.
+    var DROP = { arjun: [["12 Aug", "Consent recorded"]] };
+    Object.keys(DROP).forEach(function (k) {
+      var p = PEOPLE[k]; if (!p || !p.events) return;
+      p.events = p.events.filter(function (e) { return !DROP[k].some(function (d) { return e[1] === d[0] && e[3] === d[1]; }); });
+    });
     Object.keys(ADD).forEach(function (k) {
       var p = PEOPLE[k]; if (!p || !p.events || p._calls6) return; p._calls6 = true;
       ADD[k].forEach(function (a) {
