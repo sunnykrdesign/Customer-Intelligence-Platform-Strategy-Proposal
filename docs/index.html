@@ -4741,6 +4741,15 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
 .ov8-flow text.c{font-size:12px;fill:#6E7078}
 @media (prefers-reduced-motion:reduce){.ov8-flow .bd{transition:none}}
 </style>
+<style id="ov8tm">
+/* Demand treemap: three rows so every area has room for its name and share */
+html[data-v7t="crisp"][data-v6]:not(#crisp) .ov8 .ov8-tm{min-height:330px}
+html[data-v7t="crisp"][data-v6]:not(#crisp) .ov8 .ov8-tm .r:first-child{flex:1.7 1 0}
+html[data-v7t="crisp"][data-v6]:not(#crisp) .ov8 .ov8-tm .r:not(:first-child){flex:1 1 0}
+html[data-v7t="crisp"][data-v6]:not(#crisp) .ov8 .ov8-tc:not(.big){padding:9px 10px;font-size:11.5px;line-height:1.25}
+html[data-v7t="crisp"][data-v6]:not(#crisp) .ov8 .ov8-tc:not(.big) b{font-size:14px}
+@container (max-width:56px){html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tm .ov8-tc b{display:block !important}html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tm .ov8-tc span{display:block !important;font-size:10.5px}}
+</style>
 </head>
 <body>
 
@@ -9204,7 +9213,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
         ["Data science", [11.8, 11.9, 11.7, 12.0, 11.9, 12.1, 12.0, 12.2, 12.1, 12.0, 12.1, 12.0], 2], ["MBA", [9.4, 9.3, 9.2, 9.1, 9.0, 8.9, 8.8, 8.7, 8.6, 8.6, 8.5, 8.6], -9]];
       var DEST = [["UK", 27, 6], ["Canada", 18, 22], ["Germany", 16, 4], ["Ireland", 11, 3], ["Australia", 10, 9], ["USA", 9, 14], ["France", 5, 2]];
       h += ov8head("What they want", "Interest across every enquiry, form and call") + '<div class="ov8-grid">' +
-        ov8card({ id: "pdemand", cls: "fill", title: "Demand by programme area", sub: "Box size = share of prospects; colour = momentum", ins: "Data science and AI is the biggest interest, about 1 in 4 prospects, and still growing (+38%). MBA is big but shrinking.", body: '<div class="ov8-tm"><div class="r">' + T1.map(function (t, i) { return tcell(t, 1, i ? 1 : 0); }).join("") + '</div><div class="r">' + T2.map(function (t, i) { return tcell(t, 0, i < 2 ? 2 : i < 5 ? 3 : 4); }).join("") + "</div></div>" + momLeg,
+        ov8card({ id: "pdemand", cls: "fill", title: "Demand by programme area", sub: "Box size = share of prospects; colour = momentum", ins: "Data science and AI is the biggest interest, about 1 in 4 prospects, and still growing (+38%). MBA is big but shrinking.", body: '<div class="ov8-tm"><div class="r">' + T1.map(function (t, i) { return tcell(t, 1, i ? 1 : 0); }).join("") + '</div><div class="r">' + T2.slice(0, 3).map(function (t, i) { return tcell(t, 0, 2); }).join("") + '</div><div class="r">' + T2.slice(3).map(function (t, i) { return tcell(t, 0, 3); }).join("") + "</div></div>" + momLeg,
           table: { head: ["Programme area", "Share of prospects", "12-month change"], rows: T1.concat(T2).map(function (t) { return [t[0], t[1] + "%", momT(DMOM[t[0]] || 0)]; }) } }) +
         ov8card({ id: "ptrend", cls: "fill", title: "Rising and falling interests", sub: "Change in share of new enquiries over 12 months", ins: "Generative AI interest more than doubled (+142%). MBA is the only area that fell.",
           body: ov8mom(TS.map(function (s, i) { return { label: s[0], pct: s[2], vals: s[1], now: s[1][11] + "%", hot: i === 0 }; })),
