@@ -4709,6 +4709,38 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dd{displa
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-wrap:wrap}
 }
 </style>
+<style id="ov8colour">
+/* Overview colour pass: momentum treemap, coloured trends, stage funnel, crossover flow */
+.ov8-tc{position:relative}
+.ov8-tc em{position:absolute;bottom:12px;right:12px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.24);font-size:11px;font-style:normal;font-weight:600;line-height:16px;white-space:nowrap}
+.ov8-tc:not(.big) em{display:none}
+.ov8-mleg{display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin-top:14px;font-size:12px;color:var(--o-2,#5F616B)}
+.ov8-mleg i{width:22px;height:8px;border-radius:3px}
+.ov8-mleg span:first-child{margin-right:4px}.ov8-mleg span:nth-last-child(2){margin-left:4px}
+.ov8-mleg small{flex-basis:100%;margin-top:2px;font-size:11.5px;color:var(--o-3,#8A8C96)}
+.ov8-chip.up.g{background:#E3F5EC !important;color:#0B7A55 !important;box-shadow:none !important}
+.ov8-chip.fl{background:#EEEFF4;color:#5F6478}
+.ov8-mo li.hot{background:#F0FAF5}
+.ov8-fst .bar i{background:linear-gradient(180deg,color-mix(in srgb,var(--fc,#7983CD) 32%,#fff) 0%,var(--fc,#7983CD) 100%) !important}
+.ov8-dd.up{color:#0B7A55}.ov8-dd.dn{color:#B4285C}
+.ov8-flow{margin-top:6px}
+.ov8-flow .hd{display:flex;justify-content:space-between;padding:0 0 6px;font-size:12px;font-weight:600;color:var(--o-2,#5F616B)}
+.ov8-flow .cv{position:relative}
+.ov8-flow svg{position:absolute;inset:0;display:block;width:100%;height:100%;overflow:visible}
+.ov8-flow .fl{position:absolute;transform:translateY(-50%);display:flex;flex-direction:column;font-size:13px;line-height:1.3;pointer-events:none}
+.ov8-flow .fl.l{align-items:flex-end;text-align:right;max-width:22%}
+.ov8-flow .fl.r{max-width:21%}
+.ov8-flow .fl b{font-weight:600;color:#15161C}
+.ov8-flow .fl small{font-size:12px;color:#6E7078;font-variant-numeric:tabular-nums}
+.ov8-flow .bd{fill-opacity:.22;transition:fill-opacity .2s ease;cursor:default}
+.ov8-flow .bd.top{fill-opacity:.34}
+.ov8-flow svg:hover .bd{fill-opacity:.12}
+.ov8-flow svg .bd:hover{fill-opacity:.55}
+.ov8-flow text{font-family:inherit;font-size:13px;fill:#15161C}
+.ov8-flow text.n{font-weight:600}
+.ov8-flow text.c{font-size:12px;fill:#6E7078}
+@media (prefers-reduced-motion:reduce){.ov8-flow .bd{transition:none}}
+</style>
 </head>
 <body>
 
@@ -8940,6 +8972,8 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
   var OV8_BC = { WP: "#646EC2", SA: "#D03A70", KH: "#7C9A12", International: "#A260CB", LC: "#C77B2A", Internshala: "#2D93B8" };
   var OV8_CAT = ["#3F4796", "#646EC2", "#8F97DA", "#B9BFEC", "#DADDF5", "#EEF0FA"];
   var OV8_ORD = ["#F4C9D9", "#E486AA", "#C2306A", "#B3B9EA", "#6A74C6", "#2F3684"];
+  var OV8_UP = "#0F8A63", OV8_UP_L = "#8FD6B6", OV8_FLAT = "#8A90A8";
+  var OV8_CHC = { "Paid search": "#3F7FD9", "Paid social": "#A260CB", "Organic": "#D9822B", "Referral": "#0E9F8E", "Affiliate": "#8A90A8", "Webinar and events": "#D03A70", "Webinar": "#D03A70" };
   var OV8_ACC = "#646EC2", OV8_DEEP = "#3F4796", OV8_MUTE = "#C9CEEF", OV8_CHAR = "#182230", OV8_ROSE = "#D03A70", OV8_ROSE_M = "#F2C4D5", OV8_GREY = "#CDD0DE";
   var OV8_STAGES = ["School", "UG student", "Final-year UG", "Early career, 0 to 3 yrs", "Mid career, 3 to 8 yrs", "Senior, 8 yrs plus"];
   var OV8_STAGE_S = ["school students", "UG students", "final-year UG students", "early career", "mid career", "senior"];
@@ -9032,11 +9066,11 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
   // has a floor of half the interest's level, so a flat interest stays flat and steep ones look steep.
   function ov8mom(rows) {
     return '<ul class="ov8-mo">' + rows.map(function (r, i) {
-      var up = r.pct >= 0, c = up ? (r.hot ? OV8_ACC : "#8F97DA") : OV8_ROSE, mn = Math.min.apply(null, r.vals), mx = Math.max.apply(null, r.vals), mean = r.vals.reduce(function (a, v) { return a + v; }, 0) / r.vals.length, rg = Math.max(mx - mn, mean * 0.5), mid = (mn + mx) / 2;
+      var up = r.pct >= 0, c = r.pct >= 20 ? OV8_UP : r.pct >= 5 ? "#2FA97D" : r.pct > -5 ? OV8_FLAT : OV8_ROSE, mn = Math.min.apply(null, r.vals), mx = Math.max.apply(null, r.vals), mean = r.vals.reduce(function (a, v) { return a + v; }, 0) / r.vals.length, rg = Math.max(mx - mn, mean * 0.5), mid = (mn + mx) / 2;
       var d = "M" + r.vals.map(function (v, k) { return (k / (r.vals.length - 1) * 100).toFixed(1) + " " + (21 - (v - mid) / rg * 28).toFixed(1); }).join(" L"), ey = (21 - (r.vals[r.vals.length - 1] - mid) / rg * 28) / 42 * 100;
       return '<li class="' + (r.hot ? "hot" : "") + '" style="--i:' + i + '"' + ov8tip([(up ? "+" : "−") + Math.abs(r.pct) + "% in 12 months", r.label, r.vals[0] + "% of new enquiries a year ago, " + r.now + " now"]) + '><span class="mn"><b>' + esc(r.label) + "</b><span>" + r.vals[0] + "% → " + r.now + " of enquiries</span></span>" +
         '<span class="mt"><svg class="msp" viewBox="0 0 100 42" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="ov8mg' + i + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="' + c + '" stop-opacity=".2"/><stop offset="1" stop-color="' + c + '" stop-opacity="0"/></linearGradient></defs><path d="' + d + ' L100 42 L0 42 Z" fill="url(#ov8mg' + i + ')"/><path d="' + d + '" fill="none" stroke="' + c + '" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg><i style="top:' + ey.toFixed(1) + "%;background:" + c + '"></i></span>' +
-        '<em class="ov8-chip ' + (up ? "up" : "dn") + '">' + (up ? "↑ " : "↓ ") + Math.abs(r.pct) + "%</em></li>";
+        '<em class="ov8-chip ' + (r.pct >= 5 ? "up g" : r.pct > -5 ? "fl" : "dn") + '">' + (up ? "↑ " : "↓ ") + Math.abs(r.pct) + "%</em></li>";
     }).join("") + "</ul>";
   }
   // Two sides of one question: ruled out to the left, first choice to the right, the leader on each side highlighted.
@@ -9052,16 +9086,38 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
     var base = steps[0].v, drops = steps.map(function (s, i) { return i ? 1 - s.v / steps[i - 1].v : -1; }), worst = drops.indexOf(Math.max.apply(null, drops));
     return '<div class="ov8-fuw"><div class="ov8-fu" style="--n:' + steps.length + '">' + steps.map(function (s, i) {
       var p = i ? s.v / steps[i - 1].v * 100 : 100, pt = p < 10 ? p.toFixed(1) : String(Math.round(p));
-      return '<div class="ov8-fst' + (i === worst ? " hi" : "") + '" style="--f:' + Math.max(0.02, s.v / base).toFixed(3) + '"' + ov8tip([s.display, s.label].concat(i ? [pt + "% of " + steps[i - 1].label.toLowerCase() + " · " + dropText(steps[i - 1], s)] : [])) + '><span class="bar"><i></i>' +
+      return '<div class="ov8-fst' + (i === worst ? " hi" : "") + '" style="--f:' + Math.max(0.02, s.v / base).toFixed(3) + ";--fc:" + ["#646EC2", "#8B6FD6", "#D06A9A", "#0F8A63", "#0F8A63"][i] + '"' + ov8tip([s.display, s.label].concat(i ? [pt + "% of " + steps[i - 1].label.toLowerCase() + " · " + dropText(steps[i - 1], s)] : [])) + '><span class="bar"><i></i>' +
         (i ? '<em class="ov8-fdrop' + (i === worst ? " hi" : "") + '">' + pt + "%</em>" : "") + "</span><b>" + esc(s.display) + '</b><span class="lab">' + esc(s.label) + "</span></div>";
     }).join("") + "</div></div>";
   }
   // A year ago to now: two dots joined by a line for each row.
   function ov8dumb(rows, max) {
-    return ov8leg([["A year ago", OV8_GREY], ["Now", OV8_ACC]], "dt") + '<ul class="ov8-db">' + rows.map(function (r) {
+    return ov8leg([["A year ago", OV8_GREY], ["Now, in each channel's colour", OV8_ACC]], "dt") + '<ul class="ov8-db">' + rows.map(function (r) {
+      var cc = OV8_CHC[r[0]] || OV8_ACC;
       var a = r[1] / max * 100, b = r[2] / max * 100, d = r[2] - r[1];
-      return "<li" + ov8tip([r[2] + "% now", r[0], r[1] + "% a year ago"]) + '><span class="ov8-hl">' + esc(r[0]) + '</span><span class="ov8-dbt"><i class="ln" style="left:' + Math.min(a, b).toFixed(1) + "%;width:" + Math.abs(b - a).toFixed(1) + '%"></i><i class="d0" style="left:' + a.toFixed(1) + '%"></i><i class="d1" style="left:' + b.toFixed(1) + '%"></i></span><span class="ov8-hv">' + r[2] + '%</span><span class="ov8-dd">' + (d > 0 ? "↑ " + d + " pts" : d < 0 ? "↓ " + (-d) + " pts" : "no change") + "</span></li>";
+      return "<li" + ov8tip([r[2] + "% now", r[0], r[1] + "% a year ago"]) + '><span class="ov8-hl">' + esc(r[0]) + '</span><span class="ov8-dbt"><i class="ln" style="left:' + Math.min(a, b).toFixed(1) + "%;width:" + Math.abs(b - a).toFixed(1) + "%;background:" + cc + '"></i><i class="d0" style="left:' + a.toFixed(1) + '%"></i><i class="d1" style="left:' + b.toFixed(1) + "%;background:" + cc + '"></i></span><span class="ov8-hv">' + r[2] + '%</span><span class="ov8-dd' + (d > 0 ? " up" : d < 0 ? " dn" : "") + '">' + (d > 0 ? "↑ " + d + " pts" : d < 0 ? "↓ " + (-d) + " pts" : "no change") + "</span></li>";
     }).join("") + "</ul>";
+  }
+  // Crossover as a flow: each group of our learners on the left, the business they enquired in on the right, bands sized by people.
+  function ov8flow(rows, scale, sc, dn, code, tot, pc) {
+    var src = {}, dst = {};
+    rows.forEach(function (r) { src[r[0]] = (src[r[0]] || 0) + r[2]; dst[r[1]] = (dst[r[1]] || 0) + r[2]; });
+    var sk = Object.keys(src).sort(function (a, b) { return src[b] - src[a]; }), dk = Object.keys(dst).sort(function (a, b) { return dst[b] - dst[a]; });
+    var GAP = 16, HN = 300, k = Math.min((HN - GAP * (sk.length - 1)) / tot, (HN - GAP * (dk.length - 1)) / tot), X0 = 236, X1 = 764, NW = 12;
+    var lay = function (keys, tot2) { var y = 10, o = {}; keys.forEach(function (key) { var h = Math.max(3, tot2[key] * k); o[key] = { y: y + Math.max(0, (34 - h) / 2), h: h, off: 0 }; y += Math.max(h, 34) + GAP; }); return o; };
+    var L = lay(sk, src), R = lay(dk, dst), Hh = Math.max.apply(null, [sk, dk].map(function (ks, s2) { var o = s2 ? R : L; var last = o[ks[ks.length - 1]]; return last.y + last.h; })) + 10;
+    var sorted = rows.slice().sort(function (a, b) { return b[2] - a[2]; }), bands = "";
+    sorted.forEach(function (r, n) {
+      var a = L[r[0]], b = R[r[1]], w = Math.max(2, r[2] * k), ya = a.y + a.off, yb = b.y + b.off, c = sc(r[0]), mx = (X0 + NW + X1) / 2;
+      a.off += w; b.off += w;
+      bands += '<path class="bd' + (n === 0 ? " top" : "") + '" d="M' + (X0 + NW) + " " + ya.toFixed(1) + " C" + mx + " " + ya.toFixed(1) + " " + mx + " " + yb.toFixed(1) + " " + X1 + " " + yb.toFixed(1) + " L" + X1 + " " + (yb + w).toFixed(1) + " C" + mx + " " + (yb + w).toFixed(1) + " " + mx + " " + (ya + w).toFixed(1) + " " + (X0 + NW) + " " + (ya + w).toFixed(1) + ' Z" fill="' + c + '"' + ov8tip([ov8inr(r[2] * scale) + " people", r[0] + " → " + dn(r[1]), pc(r[2]) + " of everyone who moved"]) + "></path>";
+    });
+    var nodes = "", labels = "";
+    sk.forEach(function (key) { var o = L[key], c = sc(key), cy = o.y + o.h / 2; nodes += '<rect x="' + X0 + '" y="' + o.y.toFixed(1) + '" width="' + NW + '" height="' + o.h.toFixed(1) + '" rx="3" fill="' + c + '"/>';
+      labels += '<span class="fl l" style="right:' + (100 - (X0 - 12) / 10).toFixed(1) + "%;top:" + cy.toFixed(1) + 'px"><b>' + esc(key) + "</b><small>" + ov8inr(src[key] * scale) + " · " + pc(src[key]) + "</small></span>"; });
+    dk.forEach(function (key) { var o = R[key], c = OV8_BC[code[key]] || OV8_ACC, cy = o.y + o.h / 2; nodes += '<rect x="' + X1 + '" y="' + o.y.toFixed(1) + '" width="' + NW + '" height="' + o.h.toFixed(1) + '" rx="3" fill="' + c + '"/>';
+      labels += '<span class="fl r" style="left:' + ((X1 + NW + 12) / 10).toFixed(1) + "%;top:" + cy.toFixed(1) + 'px"><b>' + esc(dn(key)) + "</b><small>" + ov8inr(dst[key] * scale) + " · " + pc(dst[key]) + "</small></span>"; });
+    return '<div class="ov8-flow"><div class="hd" aria-hidden="true"><span>Our learners</span><span>Now enquiring in</span></div><div class="cv" style="height:' + Math.ceil(Hh) + 'px"><svg viewBox="0 0 1000 ' + Math.ceil(Hh) + '" preserveAspectRatio="none" role="img" aria-label="Flow of learners from their current business to the business they now enquire in">' + bands + nodes + "</svg>" + labels + "</div></div>";
   }
   // Crossover as routes: three summary tiles, then each route from one business's people to another business, largest first.
   // Dots run along each route in the destination's colour, faster for bigger routes; the bar is the route's size.
@@ -9074,12 +9130,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
     var topD = Object.keys(dest).sort(function (a, b) { return dest[b] - dest[a]; })[0], topS = Object.keys(src).sort(function (a, b) { return src[b] - src[a]; })[0];
     var pc = function (v) { return Math.round(v / tot * 100) + "%"; };
     return ov8tiles([["People who moved", ov8inr(tot * scale), "to another upGrad business"], ["Most went to", dn(topD), ov8inr(dest[topD] * scale) + " people · " + pc(dest[topD])], ["Biggest source", topS, ov8inr(src[topS] * scale) + " people · " + pc(src[topS])]]) +
-      '<p class="ov8-mini">Routes, largest first</p><div class="ov8-rtw"><ol class="ov8-rts">' + sorted.map(function (r, i) {
-        var c = OV8_BC[code[r[1]]] || OV8_ACC;
-        return '<li class="' + (i === 0 ? "hot" : "") + '" style="--c:' + c + ";--d:" + (1.8 + 2.4 * (1 - r[2] / mx)).toFixed(2) + "s;--i:" + i + '"' + ov8tip([ov8inr(r[2] * scale) + " people", r[0] + " → " + dn(r[1]), pc(r[2]) + " of everyone who moved"]) + ">" +
-          '<span class="rf"><i style="background:' + sc(r[0]) + '"></i><span>' + esc(r[0]) + '</span></span><span class="rl" aria-hidden="true"><i></i><i></i><i></i></span><span class="rt"><i style="background:' + c + '"></i><span>' + esc(dn(r[1])) + "</span></span>" +
-          '<span class="rb"><i style="width:' + (r[2] / mx * 100).toFixed(1) + "%;background:" + (i === 0 ? OV8_ACC : OV8_MUTE) + '"></i></span><b class="rv">' + ov8inr(r[2] * scale) + '</b><span class="rp">' + pc(r[2]) + "</span></li>";
-      }).join("") + "</ol></div>";
+      '<p class="ov8-mini">Who moved where. Band width = people; hover a band for the route.</p>' + ov8flow(rows, scale, sc, dn, code, tot, pc);
   }
   // Headline: the design's pastel KPI tiles. k = [label, value, change, good?, note, 12-point trend, icon, period, change in words]
   function ov8hero(label, kpis) {
@@ -9103,7 +9154,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
     var stageLeg = ov8leg(OV8_STAGES.map(function (s, i) { return [s, OV8_ORD[i]]; }));
     var stageRows = function (D) { return fb.map(function (b) { var row = D[b], m = row.indexOf(Math.max.apply(null, row)); return { label: OV8_BN[b], tail: "Mostly " + OV8_STAGE_S[m].replace(/ students$/, "") + " · " + row[m] + "%", segs: row.map(function (v, i) { return { v: v, c: OV8_ORD[i], name: OV8_STAGES[i] }; }) }; }); };
     var stageTbl = function (D) { return { head: ["Business"].concat(OV8_STAGES), rows: fb.map(function (b) { return [OV8_BN[b]].concat(D[b].map(function (v) { return v + "%"; })); }) }; };
-    var expBars = function (rows, hot) { var mx = Math.max.apply(null, rows.map(function (r) { return r[1]; })); return { body: ov8vbars(rows.map(function (r, i) { return { label: i ? r[0] + " yrs" : r[0], v: r[1], display: r[1] + "K", c: i === 0 ? (hot.indexOf(0) >= 0 ? OV8_CHAR : "#A3A8BC") : hot.indexOf(i) >= 0 ? OV8_ACC : hot.indexOf(0) >= 0 ? "#9AA2DE" : OV8_MUTE, mu: hot.indexOf(i) < 0, tip: (i ? r[0] + " yrs" : "Students") + " · thousands" }; }), mx), table: { head: ["Experience", "People (thousands)"], rows: rows.map(function (r, i) { return [i ? r[0] + " yrs" : r[0], r[1] + "K"]; }) } }; };
+    var expBars = function (rows, hot) { var mx = Math.max.apply(null, rows.map(function (r) { return r[1]; })); return { body: ov8vbars(rows.map(function (r, i) { return { label: i ? r[0] + " yrs" : r[0], v: r[1], display: r[1] + "K", c: i === 0 ? "#D06A9A" : ["#C9CEEF", "#B3B9EA", "#9AA2DE", "#7E88D2", "#646EC2", "#3F4796"][i - 1], mu: false, tip: (i ? r[0] + " yrs" : "Students") + " · thousands" }; }), mx), table: { head: ["Experience", "People (thousands)"], rows: rows.map(function (r, i) { return [i ? r[0] + " yrs" : r[0], r[1] + "K"]; }) } }; };
     var crossCard = function (id, title, rows) {
       var total = rows.reduce(function (a, c) { return a + c[2]; }, 0) * scale, top = rows.slice().sort(function (a, b) { return b[2] - a[2]; })[0];
       return ov8card({ id: id, cls: "w", title: title, sub: "People, " + rangeL + ". Each person counted once, for their latest move.", ins: ov8inr(total) + " people moved to another upGrad business. The biggest flow is " + top[0] + " to " + top[1] + ".", body: ov8routes(rows, scale),
@@ -9144,13 +9195,17 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
       // What they want
       var T1 = [["Data science and AI", 24], ["MBA and management", 17], ["Masters abroad", 14]], T2 = [["Software and cloud", 12], ["Internships", 9], ["Marketing", 7], ["Finance", 6], ["Doctorate", 6], ["Other", 3], ["Law", 2]];
       var TRC = ["#3F4796", "#646EC2", "#9AA2DE", "#C9CEEF", "#E3E6F7"];
-      var tcell = function (t, big, rk) { return '<div class="ov8-tc' + (big ? " big" : "") + '" style="flex:' + t[1] + " 1 0;background:" + TRC[rk] + ";color:" + ov8ink(TRC[rk]) + '"' + ov8tip([t[1] + "% of prospects", t[0]]) + "><span>" + esc(t[0]) + "</span><b>" + t[1] + "%</b></div>"; };
+      var DMOM = { "Data science and AI": 38, "MBA and management": -6, "Masters abroad": 4, "Software and cloud": 31, "Internships": 12, "Marketing": 3, "Finance": -2, "Doctorate": 9, "Other": 0, "Law": -11 };
+      var momC = function (m) { return m >= 20 ? OV8_UP : m >= 5 ? OV8_UP_L : m > -5 ? "#E7E5EF" : m > -10 ? "#F2B8CC" : OV8_ROSE; };
+      var momT = function (m) { return m > 0 ? "↑ " + m + "%" : m < 0 ? "↓ " + Math.abs(m) + "%" : "Flat"; };
+      var tcell = function (t, big, rk) { var m = DMOM[t[0]] || 0, c = momC(m); return '<div class="ov8-tc' + (big ? " big" : "") + (t[1] >= 9 ? " chg" : "") + '" style="flex:' + t[1] + " 1 0;background:" + c + ";color:" + ov8ink(c) + '"' + ov8tip([t[1] + "% of prospects", t[0], momT(m) + " in 12 months"]) + "><span>" + esc(t[0]) + "</span><b>" + t[1] + "%</b>" + (t[1] >= 9 ? "<em>" + momT(m) + "</em>" : "") + "</div>"; };
+      var momLeg = '<div class="ov8-mleg" aria-hidden="true"><span>Falling</span><i style="background:' + OV8_ROSE + '"></i><i style="background:#F2B8CC"></i><i style="background:#E7E5EF"></i><i style="background:' + OV8_UP_L + '"></i><i style="background:' + OV8_UP + '"></i><span>Rising</span><small>Colour = change in share over 12 months</small></div>';
       var TS = [["Generative AI", [3.1, 3.4, 3.9, 4.4, 4.9, 5.5, 6.0, 6.4, 6.6, 7.0, 7.3, 7.5], 142], ["Cloud and DevOps", [5.0, 5.1, 5.3, 5.5, 5.6, 5.8, 6.0, 6.2, 6.4, 6.6, 6.7, 6.9], 38], ["Product management", [3.3, 3.3, 3.4, 3.5, 3.6, 3.7, 3.7, 3.8, 3.9, 3.9, 4.0, 4.0], 21],
         ["Data science", [11.8, 11.9, 11.7, 12.0, 11.9, 12.1, 12.0, 12.2, 12.1, 12.0, 12.1, 12.0], 2], ["MBA", [9.4, 9.3, 9.2, 9.1, 9.0, 8.9, 8.8, 8.7, 8.6, 8.6, 8.5, 8.6], -9]];
       var DEST = [["UK", 27, 6], ["Canada", 18, 22], ["Germany", 16, 4], ["Ireland", 11, 3], ["Australia", 10, 9], ["USA", 9, 14], ["France", 5, 2]];
       h += ov8head("What they want", "Interest across every enquiry, form and call") + '<div class="ov8-grid">' +
-        ov8card({ id: "pdemand", cls: "fill", title: "Demand by programme area", sub: "Box size = share of prospects interested", ins: "Data science and AI is the biggest interest: about 1 in 4 prospects.", body: '<div class="ov8-tm"><div class="r">' + T1.map(function (t, i) { return tcell(t, 1, i ? 1 : 0); }).join("") + '</div><div class="r">' + T2.map(function (t, i) { return tcell(t, 0, i < 2 ? 2 : i < 5 ? 3 : 4); }).join("") + "</div></div>",
-          table: { head: ["Programme area", "Share of prospects"], rows: T1.concat(T2).map(function (t) { return [t[0], t[1] + "%"]; }) } }) +
+        ov8card({ id: "pdemand", cls: "fill", title: "Demand by programme area", sub: "Box size = share of prospects; colour = momentum", ins: "Data science and AI is the biggest interest, about 1 in 4 prospects, and still growing (+38%). MBA is big but shrinking.", body: '<div class="ov8-tm"><div class="r">' + T1.map(function (t, i) { return tcell(t, 1, i ? 1 : 0); }).join("") + '</div><div class="r">' + T2.map(function (t, i) { return tcell(t, 0, i < 2 ? 2 : i < 5 ? 3 : 4); }).join("") + "</div></div>" + momLeg,
+          table: { head: ["Programme area", "Share of prospects", "12-month change"], rows: T1.concat(T2).map(function (t) { return [t[0], t[1] + "%", momT(DMOM[t[0]] || 0)]; }) } }) +
         ov8card({ id: "ptrend", cls: "fill", title: "Rising and falling interests", sub: "Change in share of new enquiries over 12 months", ins: "Generative AI interest more than doubled (+142%). MBA is the only area that fell.",
           body: ov8mom(TS.map(function (s, i) { return { label: s[0], pct: s[2], vals: s[1], now: s[1][11] + "%", hot: i === 0 }; })),
           table: { head: ["Interest", "Dec", "Nov", "Change"], rows: TS.map(function (s) { return [s[0], s[1][0] + "%", s[1][11] + "%", (s[2] > 0 ? "+" : "−") + Math.abs(s[2]) + "%"]; }) } }) +
@@ -9168,8 +9223,8 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
       var seg = SEG[st.seg] || SEG.stage, segRows = seg[0].map(function (r) { return [r[0], r[1], r[2], r[3], +(r[1] * r[2] * r[3] / 10000).toFixed(1)]; }), segSorted = segRows.slice().sort(function (a, b) { return b[4] - a[4]; });
       var segCtrl = '<div class="ov8-seg sm" role="group" aria-label="Segment by">' + [["stage", "Life stage"], ["channel", "Channel"], ["tier", "City tier"]].map(function (s) { return '<button type="button" data-ov8-seg="' + s[0] + '" aria-pressed="' + (st.seg === s[0]) + '">' + s[1] + "</button>"; }).join("") + "</div>";
       var COH = [["May", 6.1, 90], ["Jun", 6.4, 90], ["Jul", 6.6, 90], ["Aug", 7.0, 90], ["Sep", 7.3, 60], ["Oct", 7.6, 30]];
-      var cohC = ["#D9DBE5", "#C9CCDA", "#B4BAE6", "#959DDB", "#6E78C8", "#2F3684"];
-      var cohS = COH.map(function (c, i) { var xs = [], vs = []; for (var t = 0; t <= c[2]; t += 5) { xs.push(t / 90); vs.push(+(c[1] * (1 - Math.exp(-t / 28)) / (1 - Math.exp(-90 / 28))).toFixed(2)); } return { c: cohC[i], w: i === 5 ? 3 : 2, x: xs, y: vs, name: c[0] + (c[2] < 90 ? " (so far)" : ""), dot: i === 5 }; });
+      var cohC = ["#BFE3DA", "#86CDBF", "#4FB2B7", "#4E8FD6", "#7B6BD8", OV8_ROSE];
+      var cohS = COH.map(function (c, i) { var xs = [], vs = []; for (var t = 0; t <= c[2]; t += 5) { xs.push(t / 90); vs.push(+(c[1] * (1 - Math.exp(-t / 28)) / (1 - Math.exp(-90 / 28))).toFixed(2)); } return { c: cohC[i], w: i === 5 ? 3 : 2, x: xs, y: vs, name: c[0] + (c[2] < 90 ? " (so far)" : ""), dot: i === 5, area: i === 5 }; });
       var hx = []; for (var t9 = 0; t9 <= 90; t9 += 10) hx.push(t9 / 90);
       var cohort = ov8line({ label: "Share of each month's enquiries enrolled, by days since enquiry", yMax: 8, yTicks: [0, 2, 4, 6, 8], yFmt: function (t) { return t + "%"; }, xTicks: [[0, "Day 0"], [1 / 3, "30"], [2 / 3, "60"], [1, "90"]], series: cohS, hx: hx,
         marks: [{ x: 34 / 90, y: cohS[3].y[7], label: "Half of enrolments by day 34" }],
@@ -9177,13 +9232,13 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
       h += ov8head("How they convert", "Each step counts only people who passed the step before") + '<div class="ov8-grid">' +
         ov8card({ id: "pfun", cls: "w", title: "From enquiry to enrolment", sub: "People, " + rangeL, ins: conv.toFixed(1) + "% of enquiries end in an enrolment. The biggest drop is from " + fsteps[fw - 1].label.toLowerCase() + " to " + fsteps[fw].label.toLowerCase() + ".",
           body: '<div class="ov8-two"><div><p class="ov8-mini">All selected businesses</p>' + ov8funnel(fsteps, function (a, b) { return Math.round((1 - b.v / a.v) * 100) + "% dropped"; }) + '</div><div><p class="ov8-mini">Enrolment rate, by business</p>' +
-            ov8hbars(rates.map(function (r, i) { return { label: OV8_BN[r[0]], v: r[1], display: r[1].toFixed(1) + "%", c: i === 0 ? OV8_ACC : OV8_MUTE, tip: OV8_BN[r[0]] + " · enquiry to enrolment" }; }), Math.max.apply(null, rates.map(function (r) { return r[1]; }))) + "</div></div>",
+            ov8hbars(rates.map(function (r, i) { return { label: OV8_BN[r[0]], v: r[1], display: r[1].toFixed(1) + "%", c: OV8_BC[r[0]] || OV8_ACC, tip: OV8_BN[r[0]] + " · enquiry to enrolment" }; }), Math.max.apply(null, rates.map(function (r) { return r[1]; }))) + "</div></div>",
           table: { head: ["Business"].concat(stepN).concat(["Enrol rate"]), rows: fb.map(function (b) { return [OV8_BN[b]].concat(FUN[b].map(function (v) { return v === null ? "Self-serve" : ov8inr(v * scale); })).concat([(FUN[b][3] / FUN[b][0] * 100).toFixed(1) + "%"]); }) },
           note: fb.indexOf("Internshala") >= 0 ? "Internshala is self-serve, so its enquirers skip counselling; the Counselled step counts the other businesses only." : "" }) +
         ov8card({ id: "pwho", cls: "fill", title: "Who converts", sub: "Enquiry to enrolment, by segment", ctrl: segCtrl, ins: seg[1],
-          body: ov8hbars(segSorted.map(function (r, i) { return { label: r[0], v: r[4], display: r[4] + "%", c: i === 0 ? OV8_ACC : OV8_MUTE, tip: r[0] + " · counselled " + r[1] + "%, paid " + r[2] + "%, enrolled " + r[3] + "%" }; }), segSorted[0][4]),
+          body: ov8hbars(segSorted.map(function (r, i) { return { label: r[0], v: r[4], display: r[4] + "%", c: i === 0 ? OV8_UP : i === segSorted.length - 1 ? OV8_ROSE : OV8_MUTE, mu: i > 0 && i < segSorted.length - 1, tip: r[0] + " · counselled " + r[1] + "%, paid " + r[2] + "%, enrolled " + r[3] + "%" }; }), segSorted[0][4]),
           table: { head: ["Segment", "Enquiry to counselled", "Counselled to paid", "Paid to enrolled", "Overall"], rows: segRows.map(function (r) { return [r[0]].concat(r.slice(1).map(function (v) { return v + "%"; })); }) } }) +
-        ov8card({ id: "pcoh", title: "How fast enquiries convert", sub: "% enrolled by days since enquiry, one line per month", ins: "Each newer month converts a little faster. October (highlighted) is ahead of every earlier month at the same age.",
+        ov8card({ id: "pcoh", title: "How fast enquiries convert", sub: "% enrolled by days since enquiry, one line per month", ins: "Each newer month converts a little faster. October (pink) is ahead of every earlier month at the same age.",
           body: cohort + ov8leg(cohS.map(function (s) { return [s.name, s.c]; }), "ln"),
           table: { head: ["Cohort", "Day 30", "Day 60", "Day 90"], rows: cohS.map(function (s) { return [s.name, s.y[6] + "%", s.y[12] !== undefined ? s.y[12] + "%" : "—", s.y[18] !== undefined ? s.y[18] + "%" : "—"]; }) } }) + "</div>";
 
@@ -9191,7 +9246,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
       var CH = [["Paid search", 34, 30], ["Paid social", 24, 27], ["Organic", 18, 17], ["Referral", 8, 9], ["Affiliate", 9, 8], ["Webinar and events", 7, 9]];
       var BUB = [["Paid search", 118, 5.7, 1.9], ["Paid social", 92, 3.0, 1.4], ["Organic", 66, 9.4, 2.2], ["Referral", 34, 15.3, 2.6], ["Affiliate", 31, 4.1, 1.5], ["Webinar", 43, 11.9, 2.4]];
       var bub = '<div class="ov8-bub"><div class="ov8-ly">' + [0, 5, 10, 15, 20].map(function (t) { return '<span style="top:' + (100 - t / 20 * 100).toFixed(2) + '%">' + t + "%</span>"; }).join("") + '</div><div class="ov8-bp"><span class="q q1">Few people, high quality</span><span class="q q2">Many people, low quality</span>' + [0, 5, 10, 15, 20].map(function (t) { return '<i class="g" style="top:' + (100 - t / 20 * 100).toFixed(2) + '%"></i>'; }).join("") +
-        BUB.map(function (b) { var sz = Math.round(b[3] * 16), good = b[2] >= 9; return '<span class="ov8-bb' + (b[1] / 130 > 0.72 ? " lf" : "") + '" style="left:' + (b[1] / 130 * 100).toFixed(1) + "%;bottom:" + (b[2] / 20 * 100).toFixed(1) + "%;width:" + sz + "px;height:" + sz + "px;background:" + (good ? OV8_ACC : "#A3A8BC") + '"' + ov8tip(["₹" + b[3] + " lakh average value", b[0], ov8inr(b[1] * 1000 * scale) + " prospects · " + b[2] + "% conversion"]) + '><em>' + esc(b[0]) + "</em></span>"; }).join("") +
+        BUB.map(function (b) { var sz = Math.round(b[3] * 16), good = b[2] >= 9; return '<span class="ov8-bb' + (b[1] / 130 > 0.72 ? " lf" : "") + '" style="left:' + (b[1] / 130 * 100).toFixed(1) + "%;bottom:" + (b[2] / 20 * 100).toFixed(1) + "%;width:" + sz + "px;height:" + sz + "px;background:" + (OV8_CHC[b[0]] || OV8_ACC) + '"' + ov8tip(["₹" + b[3] + " lakh average value", b[0], ov8inr(b[1] * 1000 * scale) + " prospects · " + b[2] + "% conversion"]) + '><em>' + esc(b[0]) + "</em></span>"; }).join("") +
         '</div><p class="ov8-ax">More prospects →</p></div>';
       h += ov8head("Where they come from", "How people first found us") + '<div class="ov8-grid">' +
         ov8card({ id: "pmix", title: "Channel mix, a year ago and now", sub: "Share of new prospects", ins: "Paid social gained 3 points and paid search lost 4. Webinars and events are growing too.", body: ov8dumb(CH, 36),
