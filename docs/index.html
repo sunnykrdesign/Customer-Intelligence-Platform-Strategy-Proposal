@@ -4494,15 +4494,19 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card.fill
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card.fill .ov8-vb{flex:1;min-height:var(--h)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card.fill .ov8-vbp{flex:1;height:auto;min-height:calc(var(--h) - 26px)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card.fill .ov8-vc i{height:calc((100% - 22px) * var(--f))}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card.fill :is(.ov8-hb,.ov8-dv){flex:1;justify-content:space-evenly;max-height:520px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card.fill .ov8-tm{flex:1;min-height:268px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card.fill .ov8-tm .r:first-child{flex:1.55 1 0;height:auto}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card.fill .ov8-tm .r:last-child{flex:1 1 0;height:auto}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card.fill :is(.ov8-hb,.ov8-mo){flex:1;justify-content:space-evenly;max-height:520px}
 /* summary tiles */
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sm{display:flex;flex-direction:column;gap:6px;min-width:0;padding:14px 16px;border-radius:14px;background:var(--o-tint)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sm .l{overflow:hidden;font-size:13px;font-weight:500;color:#182230;white-space:nowrap;text-overflow:ellipsis}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sm b{font-size:24px;line-height:1.15;font-weight:600;letter-spacing:-.02em;color:#101828;font-variant-numeric:tabular-nums}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sm .f{font-size:12px;color:var(--o-4)}
-/* horizontal bars, change bars, dot pairs */
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-hb,.ov8-dv,.ov8-db){display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sm.tx b{font-size:20px;line-height:1.25;letter-spacing:-.015em}
+/* horizontal bars, dot pairs */
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-hb,.ov8-db,.ov8-mo,.ov8-rts){display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hb li{display:grid;grid-template-columns:minmax(110px,38%) minmax(0,1fr) 64px;align-items:center;gap:12px;font-size:13px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hl{min-width:0;overflow:hidden;font-weight:500;white-space:nowrap;text-overflow:ellipsis}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hl small{font-size:12px;font-weight:400;color:var(--o-2)}
@@ -4511,12 +4515,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ht i{disp
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hv{font-weight:600;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 li.mu .ov8-hv{font-weight:500;color:var(--o-3)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 li.mu .ov8-hl{font-weight:400;color:var(--o-2)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-hb li,.ov8-dv li,.ov8-db li).ov8-on{background:var(--o-tint);border-radius:8px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dv li{display:grid;grid-template-columns:minmax(120px,30%) minmax(0,1fr) 62px 76px;align-items:center;gap:12px;font-size:13px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dvt{display:grid;grid-template-columns:1fr 4fr;height:12px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dvt .n{display:flex;justify-content:flex-end;border-right:1px solid #C9CCDA}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dvt .n i{display:block;height:100%;border-radius:999px 0 0 999px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dvt .p i{display:block;height:100%;border-radius:0 999px 999px 0}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-hb li,.ov8-db li).ov8-on{background:var(--o-tint);border-radius:8px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hv.up{color:#4F57A8}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hv.dn{color:#B4285C}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-db li{display:grid;grid-template-columns:minmax(110px,32%) minmax(0,1fr) 44px 84px;align-items:center;gap:12px;font-size:13px}
@@ -4526,6 +4525,65 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dbt :is(.
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dbt .d0{background:#C9CCDA}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dbt .d1{background:#646EC2}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dd{font-size:12px;color:var(--o-2);white-space:nowrap}
+/* rising and falling: momentum rows */
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mo{gap:6px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mo li{display:grid;grid-template-columns:minmax(140px,1fr) minmax(0,1.25fr) 76px;align-items:center;gap:18px;padding:10px 14px;border-radius:12px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mo li.hot{background:var(--o-tint)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mo li.ov8-on:not(.hot){background:#F8F8FC}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mo .mn{display:flex;flex-direction:column;gap:2px;min-width:0}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mo .mn b{overflow:hidden;font-size:14px;font-weight:500;white-space:nowrap;text-overflow:ellipsis}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mo .mn span{font-size:12px;color:var(--o-2);font-variant-numeric:tabular-nums}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mo .mt{position:relative;height:42px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mo .msp{position:absolute;inset:0;width:100%;height:100%;overflow:visible;animation:ov8rev 1s cubic-bezier(.3,.7,.2,1) both;animation-delay:calc(var(--i) * 90ms)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mo .mt i{position:absolute;right:-4px;width:8px;height:8px;margin-top:-4px;border-radius:50%;box-shadow:0 0 0 2px #fff;animation:ov8pop .3s ease-out both;animation-delay:calc(var(--i) * 90ms + .9s)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-chip{justify-self:end;padding:3px 9px;border-radius:999px;font-size:12px;font-style:normal;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-chip.up{background:#EEF0FA;color:#4F57A8}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-chip.dn{background:#FBEAF1;color:#B4285C}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mo li.hot .ov8-chip.up{background:#fff;box-shadow:var(--o-ring)}
+/* crossover: routes with moving dots */
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts{gap:4px;counter-reset:none}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts li{display:grid;grid-template-columns:minmax(150px,1fr) minmax(64px,120px) minmax(170px,1fr) minmax(90px,1.2fr) 56px 36px;align-items:center;gap:14px;padding:8px 12px;border-radius:12px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts li.hot{background:var(--o-tint)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts li.ov8-on:not(.hot){background:#F8F8FC}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts :is(.rf,.rt){display:inline-flex;align-items:center;gap:8px;justify-self:start;max-width:100%;min-width:0;height:30px;padding:0 12px;border-radius:999px;background:#fff;box-shadow:var(--o-ring);font-size:13px;font-weight:500}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts :is(.rf,.rt) > span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rf{justify-self:end}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts :is(.rf,.rt) > i{flex:0 0 auto;width:8px;height:8px;border-radius:50%}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rl{position:relative;height:2px;border-radius:2px;background:#E7E8EF}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rl::after{content:"";position:absolute;right:-1px;top:50%;width:7px;height:7px;border-top:2px solid #C9CCDA;border-right:2px solid #C9CCDA;transform:translateY(-50%) rotate(45deg)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rl i{position:absolute;top:50%;left:0;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--c);opacity:0;animation:ov8run var(--d) linear infinite}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rl i:nth-child(2){animation-delay:calc(var(--d) * -.333)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rl i:nth-child(3){animation-delay:calc(var(--d) * -.667)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rb{display:block;height:10px;border-radius:999px;background:var(--o-tint);overflow:hidden}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts li.hot .ov8-rts .rb{background:#fff}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rb i{display:block;height:100%;border-radius:999px;transform-origin:left center;animation:ov8grow .8s cubic-bezier(.3,.7,.2,1) both;animation-delay:calc(var(--i) * 70ms)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rv{font-size:14px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rp{font-size:12px;color:var(--o-2);text-align:right;font-variant-numeric:tabular-nums}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rtw{container-type:inline-size;min-width:0}
+@container (max-width:720px){
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts li{grid-template-columns:auto 44px minmax(0,1fr) auto;grid-template-areas:"f l t v" "b b b b";gap:10px 10px;padding:10px 12px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rf{grid-area:f;justify-self:start}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rl{grid-area:l}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rt{grid-area:t}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rb{grid-area:b;height:8px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rv{grid-area:v}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rp{display:none}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts :is(.rf,.rt){height:auto;min-height:28px;padding:4px 10px;font-size:12px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts :is(.rf,.rt) > span{white-space:normal}
+}
+@container (max-width:440px){
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts li{grid-template-columns:44px minmax(0,1fr) auto;grid-template-areas:"f f v" "l t t" "b b b";gap:8px 10px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts :is(.rf,.rt) > span{white-space:nowrap}
+}
+@keyframes ov8run{0%{left:0;opacity:0}12%{opacity:1}85%{opacity:1}100%{left:calc(100% - 10px);opacity:0}}
+@keyframes ov8grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes ov8rev{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes ov8pop{from{transform:scale(0)}to{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-mo .msp,.ov8-mo .mt i,.ov8-rts .rb i){animation:none}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rl i{display:none}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-rts .rl{background:repeating-linear-gradient(90deg,#C9CEEF 0 6px,transparent 6px 10px)}
+}
 /* butterfly: ruled out in rose, first choice in periwinkle */
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly{display:grid;grid-template-columns:minmax(0,1fr) 92px minmax(0,1fr);align-items:center;gap:10px 12px;font-size:13px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly .hd{font-size:12px;font-weight:600;color:var(--o-4)}
@@ -4606,19 +4664,6 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bb em{pos
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bb.lf em{left:auto;right:100%;margin:0 8px 0 0}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ax{grid-column:2;margin:8px 0 0;font-size:12px;color:var(--o-4);text-align:center}
 /* flow */
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow{display:grid;grid-template-columns:minmax(150px,26%) minmax(0,1fr) minmax(130px,22%);gap:12px;height:var(--h)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fcol{position:relative}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fl{position:absolute;font-size:12px;color:var(--o-2);white-space:nowrap;transform:translateY(-50%)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fl.l{right:0;text-align:right}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fl.r{left:0}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fl b{font-weight:500;color:#15161C}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fmid{position:relative}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow svg{position:absolute;top:0;bottom:0;left:10px;width:calc(100% - 20px);height:100%}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow svg path{fill-opacity:.26;cursor:default}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow svg path.ov8-on{fill-opacity:.55}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fn{position:absolute;width:10px;border-radius:3px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fn.l{left:0}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fn.r{right:0}
 /* table view and trust strip */
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tbl{overflow-x:auto}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tbl table{width:100%;border-collapse:collapse;font-size:13px}
@@ -4657,12 +4702,10 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sr.nl{gri
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tail{display:none}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly{grid-template-columns:minmax(0,1fr) 70px minmax(0,1fr)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hb li{grid-template-columns:minmax(84px,40%) minmax(0,1fr) 52px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dv li{grid-template-columns:minmax(90px,34%) minmax(0,1fr) 54px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dv .ov8-spk{display:none}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-db li{grid-template-columns:minmax(84px,34%) minmax(0,1fr) 40px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mo li{grid-template-columns:minmax(0,1fr) 84px 64px;gap:10px;padding:8px 10px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mo .mn span{display:none}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dd{display:none}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow{grid-template-columns:minmax(96px,32%) minmax(0,1fr) minmax(84px,28%)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fl{font-size:11px;line-height:1.2;white-space:normal}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-wrap:wrap}
 }
 </style>
@@ -8934,7 +8977,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
     return '<svg class="ov8-ksp" viewBox="0 0 100 46" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="ov8kg' + i + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#646EC2" stop-opacity=".22"/><stop offset="1" stop-color="#646EC2" stop-opacity="0"/></linearGradient></defs><path d="' + d + ' L100 46 L0 46 Z" fill="url(#ov8kg' + i + ')"/><path d="' + d + '" fill="none" stroke="#646EC2" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>';
   }
   // Summary tiles, as in the design's trend card: label, a big share, what it is a share of.
-  function ov8tiles(items) { return '<div class="ov8-sum">' + items.map(function (t) { return '<div class="ov8-sm"><span class="l">' + esc(t[0]) + "</span><b>" + esc(t[1]) + '</b><span class="f">' + esc(t[2]) + "</span></div>"; }).join("") + "</div>"; }
+  function ov8tiles(items) { return '<div class="ov8-sum">' + items.map(function (t) { return '<div class="ov8-sm' + (/^[\d₹]/.test(t[1]) ? "" : " tx") + '"><span class="l">' + esc(t[0]) + "</span><b>" + esc(t[1]) + '</b><span class="f">' + esc(t[2]) + "</span></div>"; }).join("") + "</div>"; }
   function ov8share(rows, groups, of) { var tot = rows.reduce(function (a, r) { return a + r[1]; }, 0); return ov8tiles(groups.map(function (g) { return [g[0], Math.round(g[1].reduce(function (a, i) { return a + rows[i][1]; }, 0) / tot * 100) + "%", of]; })); }
   // One whole split into parts: 28px segmented bars, share printed inside when it fits, the largest part named at the end.
   function ov8segs(rows) {
@@ -8984,13 +9027,16 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
         '<div class="ov8-scol" style="--f:' + (t / max).toFixed(3) + '">' + c.v.map(function (v, i) { return v ? '<i style="flex:' + v + " 1 0;background:" + colors[i] + '"></i>' : ""; }).join("") + "</div></div>";
     }).join("") + '</div><div class="ov8-vbl">' + cols.map(function (c) { return "<span>" + esc(c.label) + "</span>"; }).join("") + "</div></div>";
   }
-  // Change over 12 months: bars grow right for a rise and left for a fall, with the trend beside them.
-  function ov8div(rows) {
-    var mx = Math.max.apply(null, rows.map(function (r) { return Math.abs(r.pct); }));
-    return '<ul class="ov8-dv">' + rows.map(function (r) {
-      var w = (Math.abs(r.pct) / mx * 100).toFixed(1), up = r.pct >= 0;
-      return "<li" + ov8tip([(up ? "+" : "−") + Math.abs(r.pct) + "% in 12 months", r.label, "Now " + r.now + " of new enquiries"]) + '><span class="ov8-hl">' + esc(r.label) + '</span><span class="ov8-dvt"><span class="n">' + (up ? "" : '<i style="width:' + Math.min(100, Math.abs(r.pct) / (mx / 4) * 100).toFixed(1) + "%;background:" + OV8_ROSE + '"></i>') + '</span><span class="p">' + (up ? '<i style="width:' + w + "%;background:" + (r.hot ? OV8_ACC : OV8_MUTE) + '"></i>' : "") + "</span></span>" +
-        '<span class="ov8-hv ' + (up ? "up" : "dn") + '">' + (up ? "↑ " : "↓ ") + Math.abs(r.pct) + "%</span>" + ov8spark(r.vals) + "</li>";
+  // Rising and falling: each interest as a row with its 12-month trend (a wider area line, drawn in on render), the share a year
+  // ago and now, and the change as a chip. Rises in periwinkle (the biggest in full colour), falls in rose. The trend's height
+  // has a floor of half the interest's level, so a flat interest stays flat and steep ones look steep.
+  function ov8mom(rows) {
+    return '<ul class="ov8-mo">' + rows.map(function (r, i) {
+      var up = r.pct >= 0, c = up ? (r.hot ? OV8_ACC : "#8F97DA") : OV8_ROSE, mn = Math.min.apply(null, r.vals), mx = Math.max.apply(null, r.vals), mean = r.vals.reduce(function (a, v) { return a + v; }, 0) / r.vals.length, rg = Math.max(mx - mn, mean * 0.5), mid = (mn + mx) / 2;
+      var d = "M" + r.vals.map(function (v, k) { return (k / (r.vals.length - 1) * 100).toFixed(1) + " " + (21 - (v - mid) / rg * 28).toFixed(1); }).join(" L"), ey = (21 - (r.vals[r.vals.length - 1] - mid) / rg * 28) / 42 * 100;
+      return '<li class="' + (r.hot ? "hot" : "") + '" style="--i:' + i + '"' + ov8tip([(up ? "+" : "−") + Math.abs(r.pct) + "% in 12 months", r.label, r.vals[0] + "% of new enquiries a year ago, " + r.now + " now"]) + '><span class="mn"><b>' + esc(r.label) + "</b><span>" + r.vals[0] + "% → " + r.now + " of enquiries</span></span>" +
+        '<span class="mt"><svg class="msp" viewBox="0 0 100 42" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="ov8mg' + i + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="' + c + '" stop-opacity=".2"/><stop offset="1" stop-color="' + c + '" stop-opacity="0"/></linearGradient></defs><path d="' + d + ' L100 42 L0 42 Z" fill="url(#ov8mg' + i + ')"/><path d="' + d + '" fill="none" stroke="' + c + '" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg><i style="top:' + ey.toFixed(1) + "%;background:" + c + '"></i></span>' +
+        '<em class="ov8-chip ' + (up ? "up" : "dn") + '">' + (up ? "↑ " : "↓ ") + Math.abs(r.pct) + "%</em></li>";
     }).join("") + "</ul>";
   }
   // Two sides of one question: ruled out to the left, first choice to the right, the leader on each side highlighted.
@@ -9017,25 +9063,23 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
       return "<li" + ov8tip([r[2] + "% now", r[0], r[1] + "% a year ago"]) + '><span class="ov8-hl">' + esc(r[0]) + '</span><span class="ov8-dbt"><i class="ln" style="left:' + Math.min(a, b).toFixed(1) + "%;width:" + Math.abs(b - a).toFixed(1) + '%"></i><i class="d0" style="left:' + a.toFixed(1) + '%"></i><i class="d1" style="left:' + b.toFixed(1) + '%"></i></span><span class="ov8-hv">' + r[2] + '%</span><span class="ov8-dd">' + (d > 0 ? "↑ " + d + " pts" : d < 0 ? "↓ " + (-d) + " pts" : "no change") + "</span></li>";
     }).join("") + "</ul>";
   }
-  // Who moved where: groups on the left flow to businesses on the right; ribbon width = people.
-  function ov8flow(rows, scale) {
+  // Crossover as routes: three summary tiles, then each route from one business's people to another business, largest first.
+  // Dots run along each route in the destination's colour, faster for bigger routes; the bar is the route's size.
+  function ov8routes(rows, scale) {
     var code = { KnowledgeHut: "KH", WP: "WP", International: "International", SA: "SA", LC: "LC", Internshala: "Internshala" };
-    var L = [], R = [], li = {}, ri = {}, gap = 10;
-    rows.forEach(function (r) { if (!(r[0] in li)) { li[r[0]] = L.length; L.push({ n: r[0], v: 0 }); } L[li[r[0]]].v += r[2]; if (!(r[1] in ri)) { ri[r[1]] = R.length; R.push({ n: r[1], v: 0 }); } R[ri[r[1]]].v += r[2]; });
-    var tot = rows.reduce(function (a, r) { return a + r[2]; }, 0), k = 230 / tot;
-    var lay = function (N) { var y = 0; N.forEach(function (n) { n.y = y; n.h = Math.max(3, n.v * k); n.o = 0; y += n.h + gap; }); return y - gap; };
-    var hl = lay(L), hr = lay(R), H = Math.max(hl, hr), dl = (H - hl) / 2, dr = (H - hr) / 2;
-    L.forEach(function (n) { n.y += dl; }); R.forEach(function (n) { n.y += dr; });
-    var sorted = rows.slice().sort(function (a, b) { return li[a[0]] - li[b[0]] || ri[a[1]] - ri[b[1]]; });
-    var rOrder = rows.slice().sort(function (a, b) { return ri[a[1]] - ri[b[1]] || li[a[0]] - li[b[0]]; }), roff = {};
-    rOrder.forEach(function (r) { var b = R[ri[r[1]]]; roff[r[0] + "|" + r[1]] = b.y + b.o; b.o += r[2] * k; });
-    var paths = sorted.map(function (r) {
-      var a = L[li[r[0]]], t = r[2] * k, y0 = a.y + a.o, y1 = roff[r[0] + "|" + r[1]]; a.o += t;
-      return '<path d="M0 ' + y0.toFixed(1) + " C50 " + y0.toFixed(1) + " 50 " + y1.toFixed(1) + " 100 " + y1.toFixed(1) + " L100 " + (y1 + t).toFixed(1) + " C50 " + (y1 + t).toFixed(1) + " 50 " + (y0 + t).toFixed(1) + " 0 " + (y0 + t).toFixed(1) + ' Z" fill="' + (OV8_BC[code[r[1]]] || OV8_ACC) + '"' + ov8tip([ov8inr(r[2] * scale) + " people", r[0] + " → " + r[1]]) + "/>";
-    }).join("");
-    var lab = function (N, side) { return N.map(function (n) { return '<span class="fl ' + side + '" style="top:' + (n.y + n.h / 2).toFixed(1) + 'px"><b>' + esc(n.n) + "</b> " + ov8inr(n.v * scale) + "</span>"; }).join(""); };
-    var node = function (N, side) { return N.map(function (n) { return '<i class="fn ' + side + '" style="top:' + n.y.toFixed(1) + "px;height:" + n.h.toFixed(1) + "px;background:" + (side === "r" ? OV8_BC[code[n.n]] || OV8_ACC : OV8_CHAR) + '"></i>'; }).join(""); };
-    return '<div class="ov8-flow" style="--h:' + Math.ceil(H) + 'px"><div class="fcol">' + lab(L, "l") + '</div><div class="fmid">' + node(L, "l") + '<svg viewBox="0 0 100 ' + Math.ceil(H) + '" preserveAspectRatio="none" aria-hidden="true">' + paths + "</svg>" + node(R, "r") + '</div><div class="fcol">' + lab(R, "r") + "</div></div>";
+    var sc = function (n) { return OV8_BC[{ WP: "WP", SA: "SA", KH: "KH", LC: "LC", Internshala: "Internshala", International: "International" }[n.split(" ")[0]]] || OV8_GREY; };
+    var dn = function (d) { return OV8_BN[code[d]] || d; };
+    var tot = rows.reduce(function (a, r) { return a + r[2]; }, 0), sorted = rows.slice().sort(function (a, b) { return b[2] - a[2]; }), mx = sorted[0][2], dest = {}, src = {};
+    rows.forEach(function (r) { dest[r[1]] = (dest[r[1]] || 0) + r[2]; src[r[0]] = (src[r[0]] || 0) + r[2]; });
+    var topD = Object.keys(dest).sort(function (a, b) { return dest[b] - dest[a]; })[0], topS = Object.keys(src).sort(function (a, b) { return src[b] - src[a]; })[0];
+    var pc = function (v) { return Math.round(v / tot * 100) + "%"; };
+    return ov8tiles([["People who moved", ov8inr(tot * scale), "to another upGrad business"], ["Most went to", dn(topD), ov8inr(dest[topD] * scale) + " people · " + pc(dest[topD])], ["Biggest source", topS, ov8inr(src[topS] * scale) + " people · " + pc(src[topS])]]) +
+      '<p class="ov8-mini">Routes, largest first</p><div class="ov8-rtw"><ol class="ov8-rts">' + sorted.map(function (r, i) {
+        var c = OV8_BC[code[r[1]]] || OV8_ACC;
+        return '<li class="' + (i === 0 ? "hot" : "") + '" style="--c:' + c + ";--d:" + (1.8 + 2.4 * (1 - r[2] / mx)).toFixed(2) + "s;--i:" + i + '"' + ov8tip([ov8inr(r[2] * scale) + " people", r[0] + " → " + dn(r[1]), pc(r[2]) + " of everyone who moved"]) + ">" +
+          '<span class="rf"><i style="background:' + sc(r[0]) + '"></i><span>' + esc(r[0]) + '</span></span><span class="rl" aria-hidden="true"><i></i><i></i><i></i></span><span class="rt"><i style="background:' + c + '"></i><span>' + esc(dn(r[1])) + "</span></span>" +
+          '<span class="rb"><i style="width:' + (r[2] / mx * 100).toFixed(1) + "%;background:" + (i === 0 ? OV8_ACC : OV8_MUTE) + '"></i></span><b class="rv">' + ov8inr(r[2] * scale) + '</b><span class="rp">' + pc(r[2]) + "</span></li>";
+      }).join("") + "</ol></div>";
   }
   // Headline: the design's pastel KPI tiles. k = [label, value, change, good?, note, 12-point trend, icon, period, change in words]
   function ov8hero(label, kpis) {
@@ -9062,7 +9106,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
     var expBars = function (rows, hot) { var mx = Math.max.apply(null, rows.map(function (r) { return r[1]; })); return { body: ov8vbars(rows.map(function (r, i) { return { label: i ? r[0] + " yrs" : r[0], v: r[1], display: r[1] + "K", c: i === 0 ? (hot.indexOf(0) >= 0 ? OV8_CHAR : "#A3A8BC") : hot.indexOf(i) >= 0 ? OV8_ACC : hot.indexOf(0) >= 0 ? "#9AA2DE" : OV8_MUTE, mu: hot.indexOf(i) < 0, tip: (i ? r[0] + " yrs" : "Students") + " · thousands" }; }), mx), table: { head: ["Experience", "People (thousands)"], rows: rows.map(function (r, i) { return [i ? r[0] + " yrs" : r[0], r[1] + "K"]; }) } }; };
     var crossCard = function (id, title, rows) {
       var total = rows.reduce(function (a, c) { return a + c[2]; }, 0) * scale, top = rows.slice().sort(function (a, b) { return b[2] - a[2]; })[0];
-      return ov8card({ id: id, cls: "w", title: title, sub: "People, " + rangeL + ". Each person counted once, for their latest move.", ins: ov8inr(total) + " people moved to another upGrad business. The biggest flow is " + top[0] + " to " + top[1] + ".", body: ov8flow(rows, scale),
+      return ov8card({ id: id, cls: "w", title: title, sub: "People, " + rangeL + ". Each person counted once, for their latest move.", ins: ov8inr(total) + " people moved to another upGrad business. The biggest flow is " + top[0] + " to " + top[1] + ".", body: ov8routes(rows, scale),
         table: { head: ["From", "To", "People"], rows: rows.map(function (c) { return [c[0], c[1], ov8inr(c[2] * scale)]; }) } });
     };
 
@@ -9105,10 +9149,10 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
         ["Data science", [11.8, 11.9, 11.7, 12.0, 11.9, 12.1, 12.0, 12.2, 12.1, 12.0, 12.1, 12.0], 2], ["MBA", [9.4, 9.3, 9.2, 9.1, 9.0, 8.9, 8.8, 8.7, 8.6, 8.6, 8.5, 8.6], -9]];
       var DEST = [["UK", 27, 6], ["Canada", 18, 22], ["Germany", 16, 4], ["Ireland", 11, 3], ["Australia", 10, 9], ["USA", 9, 14], ["France", 5, 2]];
       h += ov8head("What they want", "Interest across every enquiry, form and call") + '<div class="ov8-grid">' +
-        ov8card({ id: "pdemand", title: "Demand by programme area", sub: "Box size = share of prospects interested", ins: "Data science and AI is the biggest interest: about 1 in 4 prospects.", body: '<div class="ov8-tm"><div class="r">' + T1.map(function (t, i) { return tcell(t, 1, i ? 1 : 0); }).join("") + '</div><div class="r">' + T2.map(function (t, i) { return tcell(t, 0, i < 2 ? 2 : i < 5 ? 3 : 4); }).join("") + "</div></div>",
+        ov8card({ id: "pdemand", cls: "fill", title: "Demand by programme area", sub: "Box size = share of prospects interested", ins: "Data science and AI is the biggest interest: about 1 in 4 prospects.", body: '<div class="ov8-tm"><div class="r">' + T1.map(function (t, i) { return tcell(t, 1, i ? 1 : 0); }).join("") + '</div><div class="r">' + T2.map(function (t, i) { return tcell(t, 0, i < 2 ? 2 : i < 5 ? 3 : 4); }).join("") + "</div></div>",
           table: { head: ["Programme area", "Share of prospects"], rows: T1.concat(T2).map(function (t) { return [t[0], t[1] + "%"]; }) } }) +
         ov8card({ id: "ptrend", cls: "fill", title: "Rising and falling interests", sub: "Change in share of new enquiries over 12 months", ins: "Generative AI interest more than doubled (+142%). MBA is the only area that fell.",
-          body: ov8div(TS.map(function (s, i) { return { label: s[0], pct: s[2], vals: s[1], now: s[1][11] + "%", hot: i === 0 }; })),
+          body: ov8mom(TS.map(function (s, i) { return { label: s[0], pct: s[2], vals: s[1], now: s[1][11] + "%", hot: i === 0 }; })),
           table: { head: ["Interest", "Dec", "Nov", "Change"], rows: TS.map(function (s) { return [s[0], s[1][0] + "%", s[1][11] + "%", (s[2] > 0 ? "+" : "−") + Math.abs(s[2]) + "%"]; }) } }) +
         ov8card({ id: "pdest", cls: "w", title: "Study Abroad destinations", sub: "% of Study Abroad prospects", ins: "The UK is the top first choice (27%). Canada is the most ruled out: about 1 in 5 say no to it.", body: ov8fly(DEST),
           table: { head: ["Country", "First choice", "Ruled out"], rows: DEST.map(function (d) { return [d[0], d[1] + "%", d[2] + "%"]; }) } }) + "</div>";
