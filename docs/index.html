@@ -4489,6 +4489,18 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-vbl span{
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-scol{display:flex;flex-direction:column-reverse;gap:2px;width:100%;max-width:68px;height:calc((var(--h) - 24px) * var(--f));border-radius:10px 10px 4px 4px;overflow:hidden}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-scol i{display:block;min-height:1px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-vc,.ov8-sc).ov8-on :is(i,.ov8-scol){filter:brightness(1.1)}
+/* cards that sit beside a taller one: the chart takes the spare height, lists spread out */
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card.fill .ov8-viz:not([hidden]){flex:1}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card.fill .ov8-vb{flex:1;min-height:var(--h)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card.fill .ov8-vbp{flex:1;height:auto;min-height:calc(var(--h) - 26px)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card.fill .ov8-vc i{height:calc((100% - 22px) * var(--f))}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card.fill :is(.ov8-hb,.ov8-dv){flex:1;justify-content:space-evenly;max-height:520px}
+/* summary tiles */
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sm{display:flex;flex-direction:column;gap:6px;min-width:0;padding:14px 16px;border-radius:14px;background:var(--o-tint)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sm .l{overflow:hidden;font-size:13px;font-weight:500;color:#182230;white-space:nowrap;text-overflow:ellipsis}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sm b{font-size:24px;line-height:1.15;font-weight:600;letter-spacing:-.02em;color:#101828;font-variant-numeric:tabular-nums}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sm .f{font-size:12px;color:var(--o-4)}
 /* horizontal bars, change bars, dot pairs */
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-hb,.ov8-dv,.ov8-db){display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hb li{display:grid;grid-template-columns:minmax(110px,38%) minmax(0,1fr) 64px;align-items:center;gap:12px;font-size:13px}
@@ -8921,6 +8933,9 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
     var d = "M" + vals.map(function (v, k) { return (k / (vals.length - 1) * 100).toFixed(1) + " " + (40 - (v - mn) / r * 32).toFixed(1); }).join(" L");
     return '<svg class="ov8-ksp" viewBox="0 0 100 46" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="ov8kg' + i + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#646EC2" stop-opacity=".22"/><stop offset="1" stop-color="#646EC2" stop-opacity="0"/></linearGradient></defs><path d="' + d + ' L100 46 L0 46 Z" fill="url(#ov8kg' + i + ')"/><path d="' + d + '" fill="none" stroke="#646EC2" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>';
   }
+  // Summary tiles, as in the design's trend card: label, a big share, what it is a share of.
+  function ov8tiles(items) { return '<div class="ov8-sum">' + items.map(function (t) { return '<div class="ov8-sm"><span class="l">' + esc(t[0]) + "</span><b>" + esc(t[1]) + '</b><span class="f">' + esc(t[2]) + "</span></div>"; }).join("") + "</div>"; }
+  function ov8share(rows, groups, of) { var tot = rows.reduce(function (a, r) { return a + r[1]; }, 0); return ov8tiles(groups.map(function (g) { return [g[0], Math.round(g[1].reduce(function (a, i) { return a + rows[i][1]; }, 0) / tot * 100) + "%", of]; })); }
   // One whole split into parts: 28px segmented bars, share printed inside when it fits, the largest part named at the end.
   function ov8segs(rows) {
     return '<div class="ov8-segs">' + rows.map(function (r) {
@@ -9071,12 +9086,12 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
 
       // Who they are
       var PST = { WP: [0, 3, 5, 22, 45, 25], SA: [6, 30, 34, 22, 7, 1], KH: [0, 4, 6, 30, 40, 20], International: [0, 8, 12, 30, 35, 15], LC: [2, 18, 20, 35, 20, 5], Internshala: [8, 52, 30, 8, 2, 0] };
-      var pe = expBars([["Student", 118], ["Under 1", 46], ["1 to 3", 64], ["3 to 5", 58], ["5 to 8", 49], ["8 to 12", 31], ["12 plus", 18]], [0]);
+      var peR = [["Student", 118], ["Under 1", 46], ["1 to 3", 64], ["3 to 5", 58], ["5 to 8", 49], ["8 to 12", 31], ["12 plus", 18]], pe = expBars(peR, [0]);
       var states = [["Maharashtra", 16], ["Karnataka", 13], ["Delhi NCR", 12], ["Telangana", 9], ["Tamil Nadu", 8], ["Uttar Pradesh", 7], ["West Bengal", 5], ["Gujarat", 4], ["Other states", 26]];
       var tiers = [["Tier 1", 54], ["Tier 2", 28], ["Tier 3 and below", 12], ["Outside India", 6]], TIERC = ["#3F4796", "#7983CD", "#B9BFEC", "#E7E8EF"];
       h += ov8head("Who they are", "The people deciding whether to learn with us") + '<div class="ov8-grid">' +
         ov8card({ id: "pstage", cls: "w", title: "Life stage, by business", sub: "Share of prospects in each business", ins: ov8stageIns(PST, fb), body: stageLeg + ov8segs(stageRows(PST)), table: stageTbl(PST) }) +
-        ov8card({ id: "pexp", title: "Experience when they enquire", sub: "People, thousands", ins: "Students are the biggest single group: 31% of prospects. Most working enquirers have 1 to 8 years of experience.", body: pe.body, table: pe.table }) +
+        ov8card({ id: "pexp", cls: "fill", title: "Experience when they enquire", sub: "People, thousands", ins: "Students are the biggest single group: 31% of prospects. Most working enquirers have 1 to 8 years of experience.", body: pe.body + ov8share(peR, [["Students", [0]], ["1 to 8 years", [2, 3, 4]], ["8 years plus", [5, 6]]], "of prospects"), table: pe.table }) +
         ov8card({ id: "pgeo", title: "Where they are", sub: "Share of prospects", ins: "Over half are in Tier 1 cities (54%). Maharashtra, Karnataka and Delhi NCR lead.",
           body: ov8segs([{ label: "", aria: "City tier", segs: tiers.map(function (t, i) { return { v: t[1], c: TIERC[i], name: t[0] }; }) }]) + ov8leg(tiers.map(function (t, i) { return [t[0], TIERC[i]]; })) +
             '<p class="ov8-mini">Top states</p>' + ov8hbars(states.map(function (s, i) { return { label: s[0], v: s[1], display: s[1] + "%", c: s[0] === "Other states" ? OV8_GREY : ov8em(i, [0, 1, 2]) }; }), 26),
@@ -9092,7 +9107,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
       h += ov8head("What they want", "Interest across every enquiry, form and call") + '<div class="ov8-grid">' +
         ov8card({ id: "pdemand", title: "Demand by programme area", sub: "Box size = share of prospects interested", ins: "Data science and AI is the biggest interest: about 1 in 4 prospects.", body: '<div class="ov8-tm"><div class="r">' + T1.map(function (t, i) { return tcell(t, 1, i ? 1 : 0); }).join("") + '</div><div class="r">' + T2.map(function (t, i) { return tcell(t, 0, i < 2 ? 2 : i < 5 ? 3 : 4); }).join("") + "</div></div>",
           table: { head: ["Programme area", "Share of prospects"], rows: T1.concat(T2).map(function (t) { return [t[0], t[1] + "%"]; }) } }) +
-        ov8card({ id: "ptrend", title: "Rising and falling interests", sub: "Change in share of new enquiries over 12 months", ins: "Generative AI interest more than doubled (+142%). MBA is the only area that fell.",
+        ov8card({ id: "ptrend", cls: "fill", title: "Rising and falling interests", sub: "Change in share of new enquiries over 12 months", ins: "Generative AI interest more than doubled (+142%). MBA is the only area that fell.",
           body: ov8div(TS.map(function (s, i) { return { label: s[0], pct: s[2], vals: s[1], now: s[1][11] + "%", hot: i === 0 }; })),
           table: { head: ["Interest", "Dec", "Nov", "Change"], rows: TS.map(function (s) { return [s[0], s[1][0] + "%", s[1][11] + "%", (s[2] > 0 ? "+" : "−") + Math.abs(s[2]) + "%"]; }) } }) +
         ov8card({ id: "pdest", cls: "w", title: "Study Abroad destinations", sub: "% of Study Abroad prospects", ins: "The UK is the top first choice (27%). Canada is the most ruled out: about 1 in 5 say no to it.", body: ov8fly(DEST),
@@ -9121,7 +9136,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
             ov8hbars(rates.map(function (r, i) { return { label: OV8_BN[r[0]], v: r[1], display: r[1].toFixed(1) + "%", c: i === 0 ? OV8_ACC : OV8_MUTE, tip: OV8_BN[r[0]] + " · enquiry to enrolment" }; }), Math.max.apply(null, rates.map(function (r) { return r[1]; }))) + "</div></div>",
           table: { head: ["Business"].concat(stepN).concat(["Enrol rate"]), rows: fb.map(function (b) { return [OV8_BN[b]].concat(FUN[b].map(function (v) { return v === null ? "Self-serve" : ov8inr(v * scale); })).concat([(FUN[b][3] / FUN[b][0] * 100).toFixed(1) + "%"]); }) },
           note: fb.indexOf("Internshala") >= 0 ? "Internshala is self-serve, so its enquirers skip counselling; the Counselled step counts the other businesses only." : "" }) +
-        ov8card({ id: "pwho", title: "Who converts", sub: "Enquiry to enrolment, by segment", ctrl: segCtrl, ins: seg[1],
+        ov8card({ id: "pwho", cls: "fill", title: "Who converts", sub: "Enquiry to enrolment, by segment", ctrl: segCtrl, ins: seg[1],
           body: ov8hbars(segSorted.map(function (r, i) { return { label: r[0], v: r[4], display: r[4] + "%", c: i === 0 ? OV8_ACC : OV8_MUTE, tip: r[0] + " · counselled " + r[1] + "%, paid " + r[2] + "%, enrolled " + r[3] + "%" }; }), segSorted[0][4]),
           table: { head: ["Segment", "Enquiry to counselled", "Counselled to paid", "Paid to enrolled", "Overall"], rows: segRows.map(function (r) { return [r[0]].concat(r.slice(1).map(function (v) { return v + "%"; })); }) } }) +
         ov8card({ id: "pcoh", title: "How fast enquiries convert", sub: "% enrolled by days since enquiry, one line per month", ins: "Each newer month converts a little faster. October (highlighted) is ahead of every earlier month at the same age.",
@@ -9148,12 +9163,12 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
         ["Completion", "58%", "+2 pts", 1, "Closed cohorts", [54, 54.5, 55, 55.3, 55.8, 56, 56.4, 56.8, 57.1, 57.4, 57.7, 58], "ribbon", "Last 12 months", "Up 2 points in 12 months"],
         ["Refund or deferral", "7.2%", "−0.5 pts", 1, "Of enrolments in the period", [8.1, 8.0, 7.9, 7.9, 7.8, 7.7, 7.6, 7.5, 7.5, 7.4, 7.3, 7.2], "payment", rangeC, "Down 0.5 points, which is good"]]);
       var LST = { WP: [0, 1, 2, 18, 50, 29], SA: [2, 22, 38, 28, 9, 1], KH: [0, 2, 3, 28, 44, 23], International: [0, 4, 8, 28, 40, 20], LC: [1, 12, 16, 40, 24, 7], Internshala: [5, 48, 33, 11, 3, 0] };
-      var le = expBars([["Student", 31], ["Under 1", 12], ["1 to 3", 34], ["3 to 5", 41], ["5 to 8", 46], ["8 to 12", 30], ["12 plus", 18]], [4]);
+      var leR = [["Student", 31], ["Under 1", 12], ["1 to 3", 34], ["3 to 5", 41], ["5 to 8", 46], ["8 to 12", 30], ["12 plus", 18]], le = expBars(leR, [4]);
       var EMP = [["Employer A", "IT services", 4210], ["Employer B", "IT services", 3870], ["Employer C", "Consulting", 2140], ["Employer D", "IT services", 1980], ["Employer E", "Banking", 1460], ["Employer F", "IT services", 1390], ["Employer G", "E-commerce", 1120], ["Employer H", "Telecom", 940], ["Employer I", "Banking", 880], ["Employer J", "Consulting", 760]];
       var IND = {}; EMP.forEach(function (e) { IND[e[1]] = (IND[e[1]] || 0) + e[2]; }); var INDK = Object.keys(IND).sort(function (a, b) { return IND[b] - IND[a]; }), INDT = EMP.reduce(function (a, e) { return a + e[2]; }, 0);
       h += ov8head("Who learns with us", "Everyone with at least one paid enrolment, refunds excluded") + '<div class="ov8-grid">' +
         ov8card({ id: "lstage", cls: "w", title: "Life stage, by business", sub: "Share of learners in each business", ins: ov8stageIns(LST, fb), body: stageLeg + ov8segs(stageRows(LST)), table: stageTbl(LST) }) +
-        ov8card({ id: "lexp", title: "Experience when they enrolled", sub: "Learners, thousands", ins: "Learners are more experienced than enquirers: the biggest group has 5 to 8 years, and students fall to 15%.", body: le.body, table: le.table }) +
+        ov8card({ id: "lexp", cls: "fill", title: "Experience when they enrolled", sub: "Learners, thousands", ins: "Learners are more experienced than enquirers: the biggest group has 5 to 8 years, and students fall to 15%.", body: le.body + ov8share(leR, [["Students", [0]], ["3 to 8 years", [3, 4]], ["8 years plus", [5, 6]]], "of learners"), table: le.table }) +
         ov8card({ id: "lemp", title: "Top employers of our learners", sub: "Learners, all time", ins: "IT services employ the most learners: " + Math.round(IND["IT services"] / INDT * 100) + "% of the top-10 total. Ten employers account for 9% of all learners.",
           body: '<p class="ov8-mini">Industry mix of the top 10</p>' + ov8segs([{ label: "", aria: "Industry mix", segs: INDK.map(function (k, i) { return { v: Math.round(IND[k] / INDT * 100), c: OV8_CAT[i], name: k }; }) }]) + ov8leg(INDK.map(function (k, i) { return [k, OV8_CAT[i]]; })) +
             '<p class="ov8-mini">Employers</p>' + ov8hbars(EMP.map(function (e, i) { return { label: e[0], sub: e[1], v: e[2], display: ov8inr(e[2]), c: i < 2 ? OV8_CHAR : OV8_GREY }; }), 4210),
@@ -9185,7 +9200,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-w
       h += ov8head("How they learn and finish", "Closed cohorts only, so every learner has had time to finish") + '<div class="ov8-grid">' +
         ov8card({ id: "lcomp", title: "From enrolment to certificate", sub: "% of enrolled learners", ins: "58% complete. The biggest drop is in the middle modules, between 25% and 50% done.",
           body: ov8funnel(CF.map(function (c) { return { label: c[0], v: c[1], display: c[1] + "%" }; }), function (a, b) { return (a.v - b.v) + " pts lost"; }), table: { head: ["Step", "Learners"], rows: CF.map(function (c) { return [c[0], c[1] + "%"]; }) } }) +
-        ov8card({ id: "lfin", title: "Who finishes", sub: "% who complete, by life stage", ins: "Mid-career learners finish most (65%). Students who enrol while still in school finish least (28%).",
+        ov8card({ id: "lfin", cls: "fill", title: "Who finishes", sub: "% who complete, by life stage", ins: "Mid-career learners finish most (65%). Students who enrol while still in school finish least (28%).",
           body: ov8hbars(fin.map(function (r, i) { return { label: r[0], v: r[5], display: r[5] + "%", c: i === 0 ? OV8_ACC : OV8_MUTE, tip: r[0] + " · completed" }; }), 70),
           table: { head: ["Life stage", "Under 25%", "25 to 50%", "50 to 75%", "75 to 99%", "Completed"], rows: CH2.map(function (r) { return [r[0]].concat(r.slice(1).map(function (v) { return v + "%"; })); }) } }) +
         ov8card({ id: "lwhy", cls: "w", title: "Why learners pause or leave", sub: "Deferral and refund reasons, % of cases", ins: "Two reasons explain half of all pauses and exits: time or work pressure, and money (49% together). Programme fit is 12%, a signal for admissions.",

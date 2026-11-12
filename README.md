@@ -57,6 +57,7 @@ A **Review** button in the bottom-right corner opens the review controls. They'r
     - Every card opens with its takeaway in one line (for example "Generative AI interest more than doubled").
     - The bar that matters is in periwinkle and the rest are muted.
     - Dense charts became simpler ones: change bars with sparklines for rising and falling interests, a butterfly chart for Study Abroad destinations (ruled out in rose, first choice in periwinkle), one funnel plus an enrolment-rate ranking instead of six funnels, ranked bars instead of the two heatmaps, year-ago-to-now dots for channel mix, quadrant labels on channel quality, a flow diagram for crossover, and a 49% callout for why learners leave.
+    - Cards side by side end level: in a shorter card the chart grows into the spare height and lists spread out. The experience charts add three summary tiles in the design's style (Students, 1 to 8 years and 8 years plus for prospects; Students, 3 to 8 years and 8 years plus for learners).
     - Funnels are the design's gradient columns with a white pill for the share that passed each step; the step that loses the most is a rose pill. In narrow cards and on phones the columns become rows.
   - **Exact figures:** hover any mark for a tooltip, or switch any card from **Chart** to **Table**.
   - **Current:** keeps Phase 1 progress and Paid leads. A link keeps Current with `&ov=current`.
