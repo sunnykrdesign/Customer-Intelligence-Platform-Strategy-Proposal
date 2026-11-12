@@ -4225,11 +4225,11 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs butt
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs button[aria-selected="true"]{color:var(--cr-ink);border-bottom-color:#5B63C4}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(button,select):focus-visible{outline:2px solid #5B63C4;outline-offset:2px}
 /* headline */
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hero{display:flex;flex-direction:column;gap:20px;padding:28px;border-radius:24px;background:linear-gradient(110deg,#E8E6FC 0%,#F5F1FC 52%,#F9E1ED 100%)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hero{display:flex;flex-direction:column;gap:14px;padding:24px 28px 28px;border-radius:24px;background:linear-gradient(110deg,#E8E6FC 0%,#F5F1FC 52%,#F9E1ED 100%)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-kick{font-size:13px;font-weight:600;color:#4F57A8}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fig{margin:8px 0 0;font-size:22px;line-height:1.3;font-weight:500;letter-spacing:-.01em;color:var(--cr-ink)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fig b{display:block;font-size:56px;line-height:1.05;font-weight:600;letter-spacing:-.03em}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ht2{margin:10px 0 0;max-width:68ch;font-size:14.5px;line-height:1.55;color:var(--cr-2)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ht2{margin:6px 0 0;max-width:68ch;font-size:16px;line-height:1.55;color:var(--cr-ink)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k{display:flex;flex-direction:column;gap:4px;padding:16px;border-radius:16px;background:rgba(255,255,255,.82)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kl{font-size:13px;color:var(--cr-3)}
@@ -9022,7 +9022,7 @@ html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#cri
     return h;
   }
   function ov8hero(kicker, fig, rest, text, kpis) {
-    return '<section class="ov8-hero" aria-label="Headline"><div class="ov8-hl2"><span class="ov8-kick">' + esc(kicker) + '</span><p class="ov8-fig"><b>' + esc(fig) + "</b>" + esc(rest) + '</p><p class="ov8-ht2">' + esc(text) + '</p></div><div class="ov8-kpis">' + kpis.map(function (k) {
+    return '<section class="ov8-hero" aria-label="Headline"><div class="ov8-hl2"><span class="ov8-kick">' + esc(kicker) + '</span></div><div class="ov8-kpis">' + kpis.map(function (k) {
       return '<div class="ov8-k"><span class="kl">' + esc(k[0]) + '</span><b class="kv">' + esc(k[1]) + '</b><span class="kd ' + (k[3] ? "up" : "dn") + '">' + (/^\+/.test(k[2]) ? "↑ " : /^[−-]/.test(k[2]) ? "↓ " : "") + esc(k[2]) + '</span><span class="kn">' + esc(k[4]) + "</span></div>";
     }).join("") + "</div></section>";
   }
