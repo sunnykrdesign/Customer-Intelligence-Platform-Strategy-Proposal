@@ -4750,6 +4750,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) .ov8 .ov8-tc:not(.big){padding:9px 1
 html[data-v7t="crisp"][data-v6]:not(#crisp) .ov8 .ov8-tc:not(.big) b{font-size:14px}
 @container (max-width:56px){html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tm .ov8-tc b{display:block !important}html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tm .ov8-tc span{display:block !important;font-size:10.5px}}
 </style>
+<style id="skipauth">html[data-skipauth] #previewBar{display:none !important}</style>
 </head>
 <body>
 
@@ -5396,6 +5397,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) .ov8 .ov8-tc:not(.big) b{font-size:1
   <div class="rv-panel" id="rvPanel" role="dialog" aria-label="Review controls" tabindex="-1" hidden>
     <div class="rv-head"><b>Review</b><span>For design review, not part of the product</span><button type="button" class="rv-x" id="rvClose" aria-label="Close review panel"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1l10 10M11 1L1 11"/></svg></button></div>
     <div class="rv-sec"><span class="rv-k">Design version</span><div class="rv-seg" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="3" aria-pressed="false" title="V1 · Classic">V1</button><button type="button" data-v="4" aria-pressed="false" title="V2 · Learner 360">V2</button><button type="button" data-v="6" aria-pressed="false" title="V3 · Master">V3</button><button type="button" data-v="7" aria-pressed="false" title="V4 · Crisp (latest)">V4</button></div><p class="rv-note" id="vNote"></p></div>
+    <div class="rv-sec"><span class="rv-k">Sign in</span><div class="rv-seg" id="rvAuth" role="group" aria-label="Sign in and team"><button type="button" data-auth="off">Skip</button><button type="button" data-auth="on">Show</button></div><p class="rv-note" id="rvAuthNote"></p></div>
     <div class="rv-sec rv-v6x"><span class="rv-k">Hero motion</span>
       <div class="rv-rows"><label class="rv-row"><span>Hero glow follows the cursor</span><input type="checkbox" class="switch rv-switch" id="rvGlow6" aria-label="Hero glow follows the cursor"></label></div>
       <p class="rv-note">On the Overview hero, a soft red light sits under the pointer and trails it as you move, then fades out when you leave the card. No click effect. Off on touch screens and when reduced motion is on.</p>
@@ -5532,6 +5534,25 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) .ov8 .ov8-tc:not(.big) b{font-size:1
   (function () {
     if (Q.get("preview") === "1") { startPreview(Q.get("team")); clearQuery(); }
   })();
+  // Review: skip sign in, sign up and team choice. Opens the app as Demo User on the Central data team (every page).
+  var SKIPAUTH = false;
+  try { SKIPAUTH = localStorage.getItem("cip-skipauth") === "on"; } catch (e) {}
+  if (Q.get("auth") === "off" || Q.get("auth") === "on") { SKIPAUTH = Q.get("auth") === "off"; try { localStorage.setItem("cip-skipauth", SKIPAUTH ? "on" : "off"); } catch (e) {} }
+  if (SKIPAUTH && S.step !== "app") startPreview("central");
+  document.documentElement.toggleAttribute("data-skipauth", SKIPAUTH);
+  function authSync() {
+    $$("#rvAuth [data-auth]").forEach(function (b) { b.setAttribute("aria-pressed", (b.getAttribute("data-auth") === "off") === SKIPAUTH); });
+    var n = $("#rvAuthNote"); if (n) n.textContent = SKIPAUTH ? "Opens straight into the app as Demo User on the Central data team (every page). No sign in, sign up or team choice, and no preview bar." : "The full flow: sign in with a work email, the code, choosing a team and the notice.";
+  }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest("#rvAuth [data-auth]"); if (!b) return;
+    SKIPAUTH = b.getAttribute("data-auth") === "off";
+    try { localStorage.setItem("cip-skipauth", SKIPAUTH ? "on" : "off"); } catch (er) {}
+    document.documentElement.toggleAttribute("data-skipauth", SKIPAUTH); authSync();
+    if (SKIPAUTH && S.step !== "app") { startPreview("central"); render(); }
+    if (typeof rvShareSync === "function") rvShareSync();
+  });
+  setTimeout(authSync, 0);
   function clearQuery() { if (location.search) history.replaceState(null, "", location.pathname + location.hash); }
 
   function nameFrom(email) {
@@ -7809,6 +7830,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) .ov8 .ov8-tc:not(.big) b{font-size:1
     if (curV() === "7" && typeof V7DT !== "undefined" && V7THEME === "crisp" && V7DT === "off") q.push("dt=off");
     if (curV() === "7" && typeof V7INS !== "undefined" && V7THEME === "crisp" && V7INS !== "simple") q.push("ins=" + (V7INS === "new" ? "brief" : "current"));
     if (curV() === "7" && typeof V7SR !== "undefined" && V7THEME === "crisp" && V7SR === "current") q.push("sr=current");
+    if (typeof SKIPAUTH !== "undefined" && SKIPAUTH) q.push("auth=off");
     if (curV() === "7" && typeof V7SI !== "undefined" && V7THEME === "crisp" && V7SI === "circle") q.push("si=circle");
     if (curV() === "7" && typeof V7OV !== "undefined" && V7THEME === "crisp" && V7OV === "current") q.push("ov=current");
     if (curV() === "7" && typeof V7PL !== "undefined" && V7THEME === "crisp" && V7PL !== "current") q.push("pl=" + V7PL);
@@ -10701,7 +10723,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) .ov8 .ov8-tc:not(.big) b{font-size:1
     // An exact title wins over a prefix, so "Person card" doesn't pick up "Person card layout".
     var key = function (r) { var k = r.querySelector(":scope > .rv-k"); return k ? k.textContent.trim() : ""; };
     var find = function (t) { return rows.filter(function (r) { return key(r) === t; })[0] || rows.filter(function (r) { return key(r).indexOf(t) === 0; })[0]; };
-    var G = [["Version", ["Design version"]], ["V4 options", ["Theme", "Overview", "Icons", "Tab icons", "Section icons", "Sidebar", "Person card", "Person card layout", "Search bar", "Value dates", "Insights", "Spacing", "Fact icons"]], ["Look up a person", ["Look up layout", "Look up a person"]],
+    var G = [["Version", ["Design version", "Sign in"]], ["V4 options", ["Theme", "Overview", "Icons", "Tab icons", "Section icons", "Sidebar", "Person card", "Person card layout", "Search bar", "Value dates", "Insights", "Spacing", "Fact icons"]], ["Look up a person", ["Look up layout", "Look up a person"]],
       ["Motion", ["Hero motion"]], ["Sharing and access", ["Share this view", "Locked sections", "Sidebar menu"]]];
     var used = [], heads = G.map(function (g, i) {
       var h = document.createElement("p"); h.className = "rv-grp" + (i ? "" : " first"); h.textContent = g[0];
