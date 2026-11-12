@@ -4297,61 +4297,87 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .v5ctas .v5actw > .v5s
 html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .v5ctas .v5actw > .v5sbtn.act.clear svg{width:16px;height:16px}
 </style>
 <style id="v7pl">
-/* Person card layout (Review -> Person card layout). V7 Crisp, wide screens; phones keep the current card. */
+/* Person card layout (Review -> Person card layout): Current, or Centred from the Figma frame "07 · Compact horizontal cards".
+   V4 Crisp, 821px and wider; phones keep the current card. Centred moves the fact cards out of the header into a row under the tabs. */
 @media (min-width:821px){
-html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard{display:grid !important;grid-template-columns:auto minmax(0,1fr) auto;column-gap:16px;align-items:start;padding:20px 24px !important}
-html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard .pcard-top{display:contents !important}
-html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard .pcard-top > .avatar{grid-column:1;grid-row:1 / 3;width:56px !important;height:56px !important}
-html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard .pcard-top > .who{grid-column:2;grid-row:1;min-width:0}
-html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard .pcard-top > .v5ctas{grid-column:3;grid-row:1;align-self:start;margin:0 !important;flex-wrap:nowrap}
-html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard .facts{grid-column:2 / 4;grid-row:2;display:flex !important;flex-direction:row !important;flex-wrap:wrap !important;gap:8px;margin:14px 0 0 !important;padding:0 !important;border:none !important}
-html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact{display:inline-flex !important;flex-direction:row !important;flex:0 0 auto !important;width:auto !important;align-items:center !important;gap:6px;padding:4px 12px 4px 4px !important;border:none !important;box-shadow:none !important;border-radius:999px;background:#F3F4FA !important;min-width:0}
-html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact::before{width:24px !important;height:24px !important;border-radius:50% !important;background-size:13px 13px,auto !important;background-color:#fff !important;flex:0 0 24px;margin:0 !important}
-html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact .k{font-size:12px !important;color:var(--cr-3) !important}
-html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact .v{font-size:13px !important;font-weight:600 !important;white-space:nowrap}
-html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact :is(.fs,small,.meter){display:none !important}
-html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard{display:grid !important;grid-template-columns:auto minmax(0,1fr) minmax(0,1.1fr);grid-template-rows:auto 1fr;column-gap:18px;align-items:start;padding:22px 24px !important}
-html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard .pcard-top{display:contents !important}
-html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard .pcard-top > .avatar{grid-column:1;grid-row:1;width:72px !important;height:72px !important}
-html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard .pcard-top > .who{grid-column:2;grid-row:1;min-width:0}
-html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard .pcard-top > .v5ctas{grid-column:1 / 3;grid-row:2;margin:16px 0 0 !important;justify-content:flex-start !important;flex-wrap:wrap}
-html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard .facts{grid-column:3;grid-row:1 / 3;display:grid !important;grid-template-columns:1fr 1fr !important;gap:4px 8px !important;margin:0 !important;padding:0 0 0 24px !important;border:none !important;border-left:1px solid var(--v7-line) !important;align-self:stretch}
-html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact{padding:8px 4px !important;border:none !important;box-shadow:none !important}
-html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact::before{width:34px !important;height:34px !important;border-radius:10px !important;background-size:17px 17px,auto !important}
-html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact[data-f]{grid-template-columns:34px minmax(0,1fr) !important}
-html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact[data-f="filled"]{grid-column:1 / -1}
-html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard{padding-bottom:0 !important;overflow:hidden}
-html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard .facts{margin:20px -24px 0 !important;padding:0 !important;background:#F7F8FC;border-top:1px solid var(--v7-line) !important;gap:0 !important}
-html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact{display:block !important;padding:16px 20px 18px 24px !important;border:none !important;box-shadow:none !important}
-html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact + .fact{box-shadow:inset 1px 0 0 var(--v7-line) !important}
-html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact::before{display:none !important}
-html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact .k{display:block;font-size:12px !important;color:var(--cr-3) !important;margin-bottom:6px}
-html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact .v{display:block;font-size:18px !important;font-weight:600 !important;line-height:1.25;letter-spacing:-.01em}
-html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact .fs{display:block;margin-top:4px}
-html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard .pcard-top{flex-direction:column !important;align-items:center !important;text-align:center;gap:12px !important}
-html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard .pcard-top > .avatar{width:84px !important;height:84px !important}
-html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard .pcard-top > .who{display:flex;flex-direction:column;align-items:center;flex:0 0 auto !important}
-html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard .pcard-top > .v5ctas{margin:4px 0 0 !important;justify-content:center !important;align-self:center !important}
-html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard .facts{margin-top:22px !important}
-html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact[data-f]{display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:flex-start !important;text-align:center !important;gap:2px;padding:16px 12px 6px !important;width:100% !important;max-width:none !important;justify-self:stretch !important;box-sizing:border-box}
-html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact[data-f] > :not(.meter){align-self:stretch !important;width:100% !important;text-align:center !important;margin-left:0 !important;margin-right:0 !important}
-html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact[data-f] > .meter{align-self:center !important;margin-left:auto !important;margin-right:auto !important}
-html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact::before{margin:0 0 8px !important;align-self:center !important}
-html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact .meter{width:80%}
+/* Folding header: the frame's soft panel, with the gradient header inset 8px and the tabs inset 24px */
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5head{padding:8px 8px 8px !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5head .v5bg{background:#F5F4FC !important;border:0 !important;border-radius:24px !important;box-shadow:none !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5head.is-min .v5bg{box-shadow:0 1px 2px rgba(21,22,28,.05),0 14px 30px -22px rgba(21,22,28,.35) !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5head .v5bar.in-head{margin:12px 16px 0 !important}
+/* Header: gradient band; photo, name, headline and meta centred */
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard{position:relative !important;display:block !important;margin:0 !important;padding:16px 20px 13px !important;border:0 !important;border-radius:20px !important;background:linear-gradient(90deg,#E8E6FC 0%,#F5F1FC 52%,#F9E1ED 100%) !important;box-shadow:none !important;text-align:center}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .pcard-top{display:flex !important;flex-direction:column !important;align-items:center !important;gap:0 !important;height:auto !important;min-height:0 !important;margin:0 !important;padding:0 !important;text-align:center}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .pcard-top > .avatar{width:72px !important;height:72px !important;margin:0 0 10px !important;flex:0 0 auto}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .pcard-top > .who{display:flex !important;flex-direction:column !important;align-items:center !important;flex:0 0 auto !important;min-width:0;max-width:100%;margin:0 !important;gap:0 !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .who h1{margin:0 !important;font-size:28px !important;line-height:33.6px !important;font-weight:400 !important;letter-spacing:-.01em !important;color:#14151F !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .who .headline{margin:8px 0 0 !important;font-size:14px !important;line-height:19.6px !important;color:#39445A !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .who .matched{display:flex !important;flex-wrap:wrap;align-items:center;justify-content:center;column-gap:12px;row-gap:4px;margin:11px 0 0 !important;font-size:11.2px !important;line-height:16.8px !important;color:#717480 !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .who .matched .v5gid{height:28px !important;margin:0 !important;padding:0 10px 0 12px !important;gap:10px !important;border:0 !important;border-radius:6px !important;background:#ECEEF5 !important;font-family:inherit !important;font-size:11px !important;font-weight:500 !important;letter-spacing:0 !important;color:#717480 !important;vertical-align:middle !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .who .matched .v5gid svg{width:14px !important;height:14px !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .who .matched .v5sync:not(.v6stale){display:inline-flex !important;align-items:center;gap:9px;margin-left:4px;font-size:12px !important;line-height:16.8px !important;color:#717480 !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .who .matched .v5sync:not(.v6stale) i{width:5px !important;height:5px !important;margin:0 !important;border-radius:50% !important;background:#B7EF00 !important;box-shadow:0 0 0 3px #F1F8D9 !important;animation:none !important}
+/* Contact channels in the top-left corner, Show contact and Open in CRM in the top-right */
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .pcard-top > .v5ctas{position:absolute !important;top:20px !important;left:20px !important;right:20px !important;display:flex !important;align-items:center !important;justify-content:flex-start !important;flex-wrap:nowrap !important;gap:12px !important;width:auto !important;margin:0 !important;padding:0 !important;pointer-events:none}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .v5ctas > *{pointer-events:auto}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .v5ctas .v5mch{display:flex !important;gap:8px !important;margin:0 auto 0 0 !important;padding:0 !important;border:0 !important;box-shadow:none !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .v5ctas .v5ch{width:28px !important;height:28px !important;border:0 !important;border-radius:14px !important;background:#fff !important;box-shadow:none !important;color:#39445A !important;opacity:1 !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .v5ctas .v5ch svg{width:14px !important;height:14px !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .v5ctas :is(.v5sbtn,.btn){height:32px !important;min-height:32px !important;border-radius:16px !important;font-size:12px !important;font-weight:400 !important;line-height:16.8px !important;box-shadow:none !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .v5ctas .v5sbtn{padding:0 10px !important;border:1px solid #DDDFE9 !important;background:#fff !important;color:#14151F !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .v5ctas .v5sbtn.act{display:inline-grid !important;place-items:center;width:32px !important;padding:0 !important;font-size:0 !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .v5ctas .v5sbtn.act svg{width:16px !important;height:16px !important}
+/* The things-to-act-on popover opens over the tabs and fact cards, left-aligned, without being clipped by the folding header */
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5head .v5full:has(.v5pop){clip-path:none !important;position:relative;z-index:30}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard:has(.v5pop){z-index:30}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .v5pop{text-align:left;z-index:30}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard .v5ctas .btn.dark{padding:0 13px !important;border:1px solid #14151F !important;background:#14151F !important;color:#fff !important}
+/* Tabs and Find */
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5bar{column-gap:0 !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5bar .v5findw{margin-left:24px !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult.hdr-off .v5bar .v5id,html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5head.folding .v5bar .v5id{margin-right:16px !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5bar .v4tabs{height:44px !important;padding:4px !important;gap:8px !important;border:0 !important;border-radius:22px !important;background:#E8E5F2 !important;box-shadow:none !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5bar .v4tabs > button{height:36px !important;border-radius:18px !important;font-size:14px !important;font-weight:400 !important;color:#717480 !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5bar .v4tabs > button[aria-selected="true"]{color:#14151F !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5bar .v4tabs > .slider{height:36px !important;border-radius:18px !important;background:#fff !important;box-shadow:none !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5bar .v5findb{width:156px !important;height:32px !important;padding:0 10px 0 13px !important;border:1px solid #D9DCE7 !important;border-radius:16px !important;background:#fff !important;box-shadow:none !important;font-size:12px !important;color:#717480 !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5bar .v5findb svg{width:14px !important;height:14px !important;color:#717480 !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5bar .v5findb kbd{height:18px !important;min-width:23px;border:0 !important;border-radius:5px !important;background:#ECEEF5 !important;color:#717480 !important;box-shadow:none !important}
+/* Fact cards: a row of five under the tabs */
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts{margin:-10px 24px 0}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5-min > section.v5bar,html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5-ovl > section.v5bar{margin-top:-16px !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5-min .plfacts,html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5-ovl .plfacts{margin:-14px 16px 0}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .facts{display:grid !important;grid-template-columns:minmax(0,290fr) minmax(0,156fr) minmax(0,182fr) minmax(0,100fr) minmax(0,192fr) !important;gap:8px !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;box-shadow:none !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact{position:relative;display:grid !important;grid-template-columns:20px minmax(0,1fr) !important;grid-template-rows:auto auto !important;column-gap:10px !important;row-gap:5px !important;align-content:center !important;align-items:center !important;min-height:80px;margin:0 !important;padding:0 12px !important;border:0 !important;border-radius:12px !important;background:#fff !important;box-shadow:none !important;text-align:left !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact::before{content:"" !important;display:block !important;grid-column:1 !important;grid-row:1 / 3 !important;width:20px !important;height:20px !important;margin:0 !important;border:0 !important;border-radius:0 !important;background:#7464A8 !important;box-shadow:none !important;-webkit-mask:var(--plic) center/20px 20px no-repeat;mask:var(--plic) center/20px 20px no-repeat}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact .k{grid-column:2;grid-row:1;align-self:end;margin:0 !important;font-size:12px !important;line-height:16.8px !important;font-weight:400 !important;color:#6E6E7A !important;text-transform:none !important;letter-spacing:0 !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact .v{grid-column:2;grid-row:2;align-self:start;margin:0 !important;font-size:14px !important;line-height:19.6px !important;font-weight:400 !important;color:#14151F !important;white-space:normal}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact :is(.fs,.v4when,.meter){display:none !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact[data-f="stage"]{--plic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M11.25 2c.97 0 1.75.78 1.75 1.75V5h2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-2.85V8a3 3 0 0 1 3-3h2V3.75C7 2.78 7.78 2 8.75 2zM17 11.23c-.53.48-1.23.77-2 .77h-4v.5a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5V12H5c-.77 0-1.47-.3-2-.77V14l.01.2A2 2 0 0 0 5 16h10a2 2 0 0 0 2-2zM5 6a2 2 0 0 0-2 2v1c0 1.1.9 2 2 2h4v-.5c0-.28.22-.5.5-.5h1c.28 0 .5.22.5.5v.5h4a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm3.75-3a.75.75 0 0 0-.75.75V5h4V3.75a.75.75 0 0 0-.75-.75z'/%3E%3C/svg%3E")}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact[data-f="stage-stu"]{--plic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.5 3.4a3 3 0 0 1 3 0l7.25 4.17a.5.5 0 0 1 0 .86L16 10.01v4.49a.5.5 0 0 1-.15.35v.01l-.03.03-.38.32A9.1 9.1 0 0 1 10 17a9 9 0 0 1-5.74-2.05l-.08-.07a.5.5 0 0 1-.18-.4v-4.48L2 8.86v4.64a.5.5 0 0 1-1 0V8q.01-.3.26-.44zm3 9.2a3 3 0 0 1-3 0L5 10.59v3.69l.17.14q.34.27 1 .64A8 8 0 0 0 10 16a8 8 0 0 0 5-1.72v-3.7zM11 4.27a2 2 0 0 0-2 0L2.5 8 9 11.73a2 2 0 0 0 2 0L17.5 8z'/%3E%3C/svg%3E")}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact[data-f="age"]{--plic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7 11a1 1 0 1 0 0-2 1 1 0 0 0 0 2m1 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0m2-2a1 1 0 1 0 0-2 1 1 0 0 0 0 2m1 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0m2-2a1 1 0 1 0 0-2 1 1 0 0 0 0 2m4-5.5A2.5 2.5 0 0 0 14.5 3h-9A2.5 2.5 0 0 0 3 5.5v9A2.5 2.5 0 0 0 5.5 17h9a2.5 2.5 0 0 0 2.5-2.5zM4 7h12v7.5c0 .83-.67 1.5-1.5 1.5h-9A1.5 1.5 0 0 1 4 14.5zm1.5-3h9c.83 0 1.5.67 1.5 1.5V6H4v-.5C4 4.67 4.67 4 5.5 4'/%3E%3C/svg%3E")}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact[data-f="city"]{--plic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M2 4c0-1.1.9-2 2-2h6a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1zm10 13h2v-2h-2zm3 0h2V7a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v10h2v-2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1zM11 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v13h5V7c0-1.1.9-2 2-2h1zm1 4.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m-6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M6 5.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m5.25 6.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M6 14.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m-.75-2.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M15.5 8.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m-.75 3.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5'/%3E%3C/svg%3E")}
+/* Owned by: pink, no icon, the business's short code */
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact[data-f="owner"]{grid-template-columns:minmax(0,1fr) !important;padding:0 14px !important;background:#F8E4EE !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact[data-f="owner"]::before{display:none !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact[data-f="owner"] :is(.k,.v){grid-column:1}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact[data-f="owner"]:has(.pl-sh) .v:not(.pl-sh){display:none !important}
+/* Fields filled: lavender, the share on the right, a bar and when it was updated */
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact[data-f="filled"]{grid-template-columns:minmax(0,1fr) auto !important;grid-template-rows:auto auto auto !important;row-gap:0 !important;align-content:start !important;padding:8px 12px 10px !important;background:#E3E2F8 !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact[data-f="filled"]::before{display:none !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact[data-f="filled"] .k{grid-column:1;grid-row:1;align-self:start}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact[data-f="filled"] .v{grid-column:2;grid-row:1;font-size:20px !important;line-height:24px !important;text-align:right}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact[data-f="filled"] .meter{display:block !important;grid-column:1 / -1;grid-row:2;width:auto !important;max-width:none !important;height:4px !important;margin:7px 0 0 !important;border-radius:1.5px !important;background:#ECEEF5 !important;overflow:hidden}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact[data-f="filled"] .meter i{height:4px !important;border-radius:1.5px !important;background:#7D82DB !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact[data-f="filled"] .v4when{display:block !important;grid-column:1 / -1;grid-row:3;margin:11px 0 0 !important;padding:0 !important;border:0 !important;background:none !important;min-height:0 !important;font-size:11px !important;line-height:15.4px !important;color:#717480 !important;text-align:left !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact[data-f="filled"] .v4when *{color:inherit !important;font:inherit !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .fact[data-f="filled"] .v4when > span::before{display:none !important}
 }
 @media (min-width:821px) and (max-width:1199px){
-html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard .pcard-top > .v5ctas{grid-column:2 / 4 !important;grid-row:2 !important;justify-content:flex-start !important;flex-wrap:wrap !important;margin-top:12px !important;width:auto !important}
-html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard .facts{grid-row:3 !important}
-html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard .pcard-top > .avatar{grid-row:1 / 3 !important}
-html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard{grid-template-columns:auto minmax(0,1fr) minmax(200px,0.8fr) !important}
-html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard .facts{grid-template-columns:1fr !important}
-html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard .pcard-top > .v5ctas{width:auto !important}
-html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard .facts{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important}
-html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact:nth-child(4){box-shadow:inset 0 1px 0 var(--v7-line) !important}
-html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard .facts .fact:nth-child(5){box-shadow:inset 1px 0 0 var(--v7-line),inset 0 1px 0 var(--v7-line) !important}
-html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard .pcard-top{display:flex !important;height:auto !important;min-height:0 !important}
-html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard .pcard-top > .v5ctas{width:auto !important;margin-top:4px !important;flex-wrap:wrap !important}
-html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard .facts{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .facts{grid-template-columns:repeat(3,minmax(0,1fr)) !important}
+}
+@media (min-width:821px) and (max-width:1023px){
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.pcard{padding-top:64px !important}
 }
 </style>
 </head>
@@ -5097,7 +5123,7 @@ html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .p
         css.push(wrap ? wrap + "{" + rule + "}" : rule);
       });
     }
-    Array.prototype.forEach.call(document.styleSheets, function (sh) { try { if (sh.ownerNode && sh.ownerNode.id === "v6sys") return; visit(sh.cssRules, ""); } catch (e) {} });
+    Array.prototype.forEach.call(document.styleSheets, function (sh) { try { if (sh.ownerNode && (sh.ownerNode.id === "v6sys" || sh.ownerNode.id === "v7pl")) return; visit(sh.cssRules, ""); } catch (e) {} });
     var el = document.createElement("style"); el.id = "v6sys"; el.textContent = css.join("\n");
     var ss = document.querySelectorAll("style"), lastSt = ss[ss.length - 1]; if (lastSt) lastSt.parentNode.insertBefore(el, lastSt.nextSibling); else document.head.appendChild(el);
     window.V6SYS = css.length;
@@ -8590,6 +8616,23 @@ html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .p
     if (V6BACK && L.person && box) { var t = titles[V6BACK.route] || "previous screen"; box.insertAdjacentHTML("afterbegin", '<button type="button" class="v6back" data-v6back>‹ Back to ' + esc(t) + "</button>"); }
     fmt6(box);
   };
+  // Person card layout → Centred (V4 Crisp, 821px and wider), from the Figma frame "07 · Compact horizontal cards": the fact cards move
+  // out of the header to a row under the tabs, Owned by shows the business's short code, and the meta row drops the "·" after the ID.
+  function v7plCentre(box) {
+    if (!box || !isV7() || document.documentElement.getAttribute("data-v7pl") !== "centre" || !matchMedia("(min-width:821px)").matches) return;
+    var facts = box.querySelector(".pcard .facts"), head = box.querySelector(".v5head") || box.querySelector("section.v5bar");
+    if (!facts || !head || !head.parentNode) return;
+    var row = document.createElement("div"); row.className = "plfacts"; row.appendChild(facts);
+    head.parentNode.insertBefore(row, head.nextSibling);
+    var ow = facts.querySelector('.fact[data-f="owner"] .v');
+    if (ow) { var nm = ow.textContent.trim(), sh = null; Object.keys(BU4).forEach(function (k) { if (BU4[k][0] === nm) sh = BU4[k][1]; }); if (sh) ow.insertAdjacentHTML("afterend", '<span class="v pl-sh" title="' + esc(nm) + '">' + esc(sh) + "</span>"); }
+    var gid = box.querySelector(".pcard .who .matched .v5gid");
+    for (var n = gid && gid.nextSibling; n; n = n.nextSibling) if (n.nodeType === 3 && /^\s*·\s*$/.test(n.nodeValue)) n.nodeValue = " ";
+  }
+  var _renderLookupPL = renderLookup;
+  renderLookup = function () { var r = _renderLookupPL.apply(this, arguments); try { v7plCentre($("#lookupResult")); } catch (e) {} return r; };
+  var plWide = matchMedia("(min-width:821px)").matches;
+  window.addEventListener("resize", function () { var w = matchMedia("(min-width:821px)").matches; if (w === plWide) return; plWide = w; if (document.documentElement.getAttribute("data-v7pl") === "centre" && L && L.person) renderLookup(); });
   var _v5Sync0 = v5Sync;
   v5Sync = function () { if (isV6() && L.person === "rohan") return '<span class="v5sync v6stale" title="Data may be out of date">Last synced 3 h ago · LSQ export delayed</span>'; return _v5Sync0(); };
   var _v5FindGo0 = v5FindGo;
@@ -9426,7 +9469,7 @@ html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .p
         css.push(wrap ? wrap + "{" + rule + "}" : rule);
       }
     }
-    Array.prototype.forEach.call(document.styleSheets, function (sh) { try { if (sh.ownerNode && (sh.ownerNode.id === "v7sys" || sh.ownerNode.id === "v7layer")) return; visit(sh.cssRules, ""); } catch (e) {} });
+    Array.prototype.forEach.call(document.styleSheets, function (sh) { try { if (sh.ownerNode && (sh.ownerNode.id === "v7sys" || sh.ownerNode.id === "v7layer" || sh.ownerNode.id === "v7pl")) return; visit(sh.cssRules, ""); } catch (e) {} });
     var el = document.createElement("style"); el.id = "v7sys"; el.textContent = css.join("\n");
     // After every page stylesheet (not into <head>, which comes first when the page is embedded in another document).
     var ss = document.querySelectorAll("style"), lastSt = ss[ss.length - 1]; if (lastSt) lastSt.parentNode.insertBefore(el, lastSt.nextSibling); else document.head.appendChild(el);
@@ -9476,7 +9519,7 @@ html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .p
   var V7SB = "current", V7SBS = ["current", "darker", "darkest"];
   try { var sb7 = localStorage.getItem("cip-v7sb"); if (V7SBS.indexOf(sb7) >= 0) V7SB = sb7; } catch (e) {}
   if (V7SBS.indexOf(Q.get("sb")) >= 0) V7SB = Q.get("sb");
-  var V7PL = "current", V7PLS = ["current", "compact", "split", "stats", "centre"];
+  var V7PL = "current", V7PLS = ["current", "centre"];
   try { var pl7 = localStorage.getItem("cip-v7pl"); if (V7PLS.indexOf(pl7) >= 0) V7PL = pl7; } catch (e) {}
   if (V7PLS.indexOf(Q.get("pl")) >= 0) V7PL = Q.get("pl");
   var V7PC = "current";
@@ -9572,20 +9615,17 @@ html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .p
     })();
     (function () {
       var row = document.createElement("div"); row.className = "rv-sec rv-v7pl";
-      row.innerHTML = '<span class="rv-k">Person card layout</span><div class="rv-seg" role="group" aria-label="Person card layout"><button type="button" data-pl7="current">Current</button><button type="button" data-pl7="compact">Compact</button><button type="button" data-pl7="split">Split</button><button type="button" data-pl7="stats">Stats</button><button type="button" data-pl7="centre">Centred</button></div><p class="rv-note"></p>';
+      row.innerHTML = '<span class="rv-k">Person card layout</span><div class="rv-seg" role="group" aria-label="Person card layout"><button type="button" data-pl7="current">Current</button><button type="button" data-pl7="centre">Centred</button></div><p class="rv-note"></p>';
       host.parentNode.insertBefore(row, host);
       var NOTE = { current: "Name and actions on top, a row of five fact tiles below.",
-        compact: "One short header: the facts become small chips under the name, so the card is about half as tall.",
-        split: "Who they are on the left, with the actions under the name; the facts as a two-column grid on the right.",
-        stats: "The facts as a stat strip along the bottom of the card, with large values and no icons.",
-        centred: "A centred profile: a larger photo, the name and actions centred, and the facts as centred tiles." };
-      NOTE.centre = NOTE.centred;
+        centre: "From the Figma design: a gradient header with the photo, name and details centred, contact in its top-left corner and Show contact and Open in CRM top-right, then the tabs, then the facts as a row of cards." };
       var sync = function () { $$("[data-pl7]", row).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-pl7") === V7PL); }); $(".rv-note", row).textContent = NOTE[V7PL] + " Phones keep the current card."; };
       sync();
       row.addEventListener("click", function (e) {
         var b = e.target.closest("[data-pl7]"); if (!b) return;
         V7PL = b.getAttribute("data-pl7"); try { localStorage.setItem("cip-v7pl", V7PL); } catch (er) {}
         sync(); v7theme(); if (typeof rvShareSync === "function") rvShareSync();
+        if (typeof renderLookup === "function" && L && L.person) renderLookup();
         window.dispatchEvent(new Event("resize"));
       });
     })();
