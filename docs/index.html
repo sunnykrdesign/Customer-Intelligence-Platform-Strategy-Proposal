@@ -5690,7 +5690,7 @@ html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#cri
           var e = x.e, idx = p.events.indexOf(e), open = V.evx === idx, ci = CAT4.filter(function (c) { return c[0] === e[2]; })[0] || ["", "Other", "inbox"];
           return '<li class="v4ev c-' + e[2] + '"><span class="v4when">' + (x.at && x.at.day ? "<b>" + x.at.d.getDate() + "</b><small>" + DAY4[x.at.d.getDay()] + "</small>" : "<b>—</b>") + '</span><span class="v4evic">' + ic4(ci[2], 15) + '</span><div class="v4evc"><div class="v4evh"><span class="v4bu bu-' + e[0] + '">' + esc((BU4[e[0]] || [e[0], e[0]])[1]) + "</span><b>" + esc(e[3]) + "</b>" + src4(e[5]) + "</div><p>" + esc(e[4]) + "</p>" +
             '<button type="button" class="v4more" data-evx="' + idx + '" aria-expanded="' + open + '">' + (open ? "Hide details" : "Show details") + "</button>" +
-            (open ? '<dl class="v4dl"><div><dt>Business</dt><dd>' + esc((BU4[e[0]] || [BU[e[0]] || e[0]])[0]) + "</dd></div><div><dt>Type</dt><dd>" + esc(ci[1]) + "</dd></div><div><dt>When</dt><dd>" + (x.at ? (x.at.day ? x.at.d.getDate() + " " : "") + MON4[x.at.d.getMonth()] + " " + x.at.d.getFullYear() : esc(e[1])) + "</dd></div><div><dt>Source</dt><dd>" + esc(e[5]) + " · source record kept</dd></div></dl>" : "") + "</div></li>";
+            (open ? '<dl class="v4dl"><div><dt>Business</dt><dd>' + esc((BU4[e[0]] || [BU[e[0]] || e[0]])[0]) + "</dd></div><div><dt>Type</dt><dd>" + esc(ci[1]) + "</dd></div>" + (AC6[L.person + "|" + e[1] + "|" + e[3]] ? "<div><dt>Admission counsellor</dt><dd>" + esc(AC6[L.person + "|" + e[1] + "|" + e[3]]) + "</dd></div>" : "<div><dt>When</dt><dd>" + (x.at ? (x.at.day ? x.at.d.getDate() + " " : "") + MON4[x.at.d.getMonth()] + " " + x.at.d.getFullYear() : esc(e[1])) + "</dd></div>") + "<div><dt>Source</dt><dd>" + esc(e[5]) + " · source record kept</dd></div></dl>" : "") + "</div></li>";
         }).join("") + "</ol></div>";
       }).join("") + (full.length > list.length ? '<button type="button" class="btn ghost sm v4wide v4older" data-more>Show ' + Math.min(PAGE, full.length - list.length) + " older · " + (full.length - list.length) + " left</button>" : "") : '<p class="v4note pad">No events of this type for this business.</p>');
     } else if (sub === "business") {
@@ -8170,7 +8170,7 @@ html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#cri
         var e = x.e, idx = p.events.indexOf(e), open = V.evx === idx, ci = CAT4.filter(function (c) { return c[0] === e[2]; })[0] || ["", "Other", "inbox"];
         return '<li class="t6ev' + (open ? " open" : "") + '" style="--c:' + (CC6[e[2]] || "#8E8E93") + ";--i:" + (k++) + '"><span class="t6ic">' + ic4(ci[2], 15) + '</span><div class="t6b"><div class="t6h"><b>' + esc(e[3]) + '</b><span class="t6bu" style="--b:' + (BC6P[e[0]] || "#8E8E93") + '"><i></i>' + esc(buS6(e[0])) + "</span>" + src4(e[5]) + "<time>" + (x.at && x.at.day ? x.at.d.getDate() + " " + MON4[x.at.d.getMonth()] + " · " + DAY4[x.at.d.getDay()] : x.at ? MON4[x.at.d.getMonth()] + " " + x.at.d.getFullYear() : esc(e[1])) + "</time></div><p>" + esc(e[4]) + "</p>" +
           '<button type="button" class="t6more" data-evx="' + idx + '" aria-expanded="' + open + '">' + (open ? "Hide details" : "Details") + "</button>" +
-          (open ? '<dl class="t6dl"><div><dt>Business</dt><dd>' + esc(buN6(e[0])) + "</dd></div><div><dt>Type</dt><dd>" + esc(ci[1]) + "</dd></div><div><dt>When</dt><dd>" + (x.at ? (x.at.day ? x.at.d.getDate() + " " : "") + MON4[x.at.d.getMonth()] + " " + x.at.d.getFullYear() : esc(e[1])) + "</dd></div><div><dt>Source</dt><dd>" + esc(e[5]) + " · source record kept</dd></div></dl>" : "") + "</div></li>";
+          (open ? '<dl class="t6dl"><div><dt>Business</dt><dd>' + esc(buN6(e[0])) + "</dd></div><div><dt>Type</dt><dd>" + esc(ci[1]) + "</dd></div>" + (AC6[L.person + "|" + e[1] + "|" + e[3]] ? "<div><dt>Admission counsellor</dt><dd>" + esc(AC6[L.person + "|" + e[1] + "|" + e[3]]) + "</dd></div>" : "<div><dt>When</dt><dd>" + (x.at ? (x.at.day ? x.at.d.getDate() + " " : "") + MON4[x.at.d.getMonth()] + " " + x.at.d.getFullYear() : esc(e[1])) + "</dd></div>") + "<div><dt>Source</dt><dd>" + esc(e[5]) + " · source record kept</dd></div></dl>" : "") + "</div></li>";
       }).join("") + "</ol></div>";
     }).join("") + (full.length > list.length ? '<button type="button" class="t6older" data-more>Show ' + Math.min(PAGE, full.length - list.length) + " older · " + (full.length - list.length) + " left</button>" : "") : '<p class="a6note">No events of this type for this business.</p>';
     return hist + cats + feed;
@@ -9381,6 +9381,8 @@ html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#cri
   // A call is an Interactions event whose title names a call. V6 adds a Calls filter to the Timeline,
   // and a few more sample calls (inbound and outbound; missed calls were removed in review) so the filter has something to show.
   function isCall6(e) { return e && e[2] === "X" && /call/i.test(e[3]); }
+  // Activity details: the admission counsellor (AC) who handled a counselling call, shown in place of the date, which already sits beside the event.
+  var AC6 = { "arjun|20 Aug|Counselling call": "Rahul Kanth" };
   (function () {
     if (!isV6()) return;
     var ADD = {
