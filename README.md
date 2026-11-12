@@ -44,6 +44,7 @@ A **Review** button in the bottom-right corner opens the review controls. They'r
 
 - **Share this view:** **Copy link** gives a link that opens exactly what you're looking at: the design version, the profile layout, the pinned search bar, the sidebar menu items you've left on, the screen you're on and, on Look up a person, the person who's open. It skips sign-in and hides the Review panel, so the person you send it to sees only that view. For example: `…/?preview=1&ver=1&card=top&tabs=left&bar=high&pin=1&nav=overview,people,lookup&p=ananya&review=0#/lookup`
 - **Design version:** four versions, named in order. A note under the switcher says which one is on screen. Links use `?ver=1` to `?ver=4`, and older links with the previous numbers still open the right version. Retired drafts, and old links or saved choices for them, open V4. Switching away from V4 puts every colour it changed back, so its theme never shows in another version. A V3 or V4 link also keeps the trend style, for example `&tr=stack`, and a V4 link keeps the theme, for example `&t=ocean`.
+- **Sign in:** **Skip** or **Show** (default). Skip opens the prototype straight into the app as Demo User on the Central data team, which can see every page: no sign in, sign up, code, team choice or notice, and no preview bar. Show keeps the full flow. The choice is remembered in this browser, and a link keeps Skip with `&auth=off`.
   - **V1 · Classic** (previously V3)
   - **V2 · Learner 360** (previously V4)
   - **V3 · Master** (previously V6)
