@@ -4275,6 +4275,17 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) #secp .xp-e .xp-g{margin-top:2px !im
 html[data-v7t="crisp"][data-v6]:not(#crisp) #secp .xp-e .v4when{margin-top:10px !important;padding-top:0 !important}
 html[data-v7t="crisp"][data-v6]:not(#crisp) #secp .xp .src{font-family:inherit !important;font-size:12px !important;font-weight:500;line-height:16px;padding:2px 8px !important;border-radius:999px !important;background:#ECEEF6 !important;color:#5F616B !important;border:none !important}
 </style>
+<style id="v7act">
+@media (min-width:1280px){html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .pcard-top{flex-wrap:nowrap !important}html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .pcard-top .who{flex:1 1 auto !important;min-width:0 !important}html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .pcard-top .v5ctas{flex:0 0 auto !important;margin-left:auto;align-self:flex-start;margin-top:4px}}
+/* Things to act on in the person card: a compact flag button with a count badge, so the actions stay on one line (V7 Crisp) */
+html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .v5ctas .v5actw > .v5sbtn.act{position:relative;width:36px;min-width:36px;height:36px;padding:0 !important;border-radius:50% !important;display:inline-grid;place-items:center;background:#fff !important;border:1px solid var(--v7-line) !important;color:#15161C !important}
+html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .v5ctas .v5actw > .v5sbtn.act:hover{background:#F6F7FB !important}
+html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .v5ctas .v5actw > .v5sbtn.act:not(.clear)::before{content:"";width:16px;height:16px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 1.75a.75.75 0 0 0-1.5 0v12.5a.75.75 0 0 0 1.5 0V10h9.25a.75.75 0 0 0 .6-1.2L11.19 6l2.16-2.8A.75.75 0 0 0 12.75 2H3.5z'/%3E%3C/svg%3E") center/16px 16px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 1.75a.75.75 0 0 0-1.5 0v12.5a.75.75 0 0 0 1.5 0V10h9.25a.75.75 0 0 0 .6-1.2L11.19 6l2.16-2.8A.75.75 0 0 0 12.75 2H3.5z'/%3E%3C/svg%3E") center/16px 16px no-repeat}
+html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .v5ctas .v5actw > .v5sbtn.act .v5n{position:absolute;top:-5px;right:-5px;min-width:18px;height:18px;padding:0 5px;font-size:11px;box-shadow:0 0 0 2px #fff}
+html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .v5ctas .v5actw > .v5sbtn.act :is(.lg,.sh){position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .v5ctas .v5actw > .v5sbtn.act.clear{font-size:0}
+html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .v5ctas .v5actw > .v5sbtn.act.clear svg{width:16px;height:16px}
+</style>
 </head>
 <body>
 
@@ -5712,7 +5723,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) #secp .xp .src{font-family:inherit !
     if (!(m.act || []).length) return "";
     var n = m.act.filter(function (a, i) { return !(V.acted && V.acted[i]); }).length;
     var pop = V.actOpen ? '<div class="v5pop" role="dialog" aria-label="Things to act on"><button type="button" class="v5popx" data-actopen aria-label="Close">' + ic4("x", 16) + "</button>" + v4Act(m) + "</div>" : "";
-    return '<span class="v5actw"><button type="button" class="' + (dark ? "v5dbtn" : "v5sbtn") + " act" + (n ? "" : " clear") + '" data-actopen aria-expanded="' + !!V.actOpen + '">' +
+    return '<span class="v5actw"><button type="button" class="' + (dark ? "v5dbtn" : "v5sbtn") + " act" + (n ? "" : " clear") + '" data-actopen aria-expanded="' + !!V.actOpen + '" title="' + (n ? n + (n === 1 ? " thing" : " things") + " to act on" : "All handled") + '">' +
       (n ? '<span class="v5n">' + n + '</span><span class="lg">' + (n === 1 ? "thing" : "things") + ' to act on</span><span class="sh">To act on</span>' : ic4("check", 14) + "All handled") + "</button>" + pop + "</span>";
   }
 
