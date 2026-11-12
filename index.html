@@ -4751,6 +4751,26 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) .ov8 .ov8-tc:not(.big) b{font-size:1
 @container (max-width:56px){html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tm .ov8-tc b{display:block !important}html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tm .ov8-tc span{display:block !important;font-size:10.5px}}
 </style>
 <style id="skipauth">html[data-skipauth] #previewBar{display:none !important}</style>
+<style id="ov8fn">
+/* Funnel: full-height step columns, bands for who continues, share of first step on each bar, continue chips between */
+.ov8-fn{display:flex;flex-direction:column;gap:12px}
+.ov8-fn .pl{position:relative;height:250px;margin-top:40px}
+.ov8-fn svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ov8-fn .tr{fill:#F1F2FA}
+.ov8-fn .cl{position:absolute;top:0;bottom:0}
+.ov8-fn .cl:hover{background:rgba(100,110,194,.05);border-radius:8px}
+.ov8-fn .sh{position:absolute;left:0;right:0;text-align:center;font-style:normal;font-size:15px;font-weight:600;letter-spacing:-.01em;color:#15161C;font-variant-numeric:tabular-nums}
+.ov8-fn .cv{position:absolute;transform:translateX(-50%);display:inline-flex;align-items:center;gap:3px;height:22px;padding:0 8px;border-radius:999px;background:#fff;box-shadow:0 0 0 1px #E2E3EA,0 1px 2px rgba(16,24,40,.06);font-size:11.5px;font-weight:600;color:#3F4796;white-space:nowrap;font-variant-numeric:tabular-nums}
+.ov8-fn .cv i{font-style:normal;font-weight:500;opacity:.7}
+.ov8-fn .cv.hi{background:#D03A70;box-shadow:none;color:#fff}
+.ov8-fn .lb{display:flex}
+.ov8-fn .lb > div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ov8-fn .lb b{font-size:14px;font-weight:600;letter-spacing:-.01em;color:#15161C;font-variant-numeric:tabular-nums}
+.ov8-fn .lb span{font-size:12px;color:#5F616B}
+html[data-v6] .ov8-card:has(.ov8-fn) .ov8-two{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) !important;gap:44px !important;align-items:stretch !important}
+html[data-v6] .ov8-card:has(.ov8-fn) .ov8-two > div:last-child .ov8-hb{flex:1;justify-content:space-evenly}
+@media (max-width:1199px){html[data-v6] .ov8-card:has(.ov8-fn) .ov8-two{grid-template-columns:minmax(0,1fr) !important}}
+</style>
 </head>
 <body>
 
@@ -9114,12 +9134,29 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) .ov8 .ov8-tc:not(.big) b{font-size:1
   // A funnel as the design's gradient columns: height = people at each step, a white pill with the share that passed the step
   // before, the biggest loss in rose. Narrow cards turn the columns into rows.
   function ov8funnel(steps, dropText) {
-    var base = steps[0].v, drops = steps.map(function (s, i) { return i ? 1 - s.v / steps[i - 1].v : -1; }), worst = drops.indexOf(Math.max.apply(null, drops));
-    return '<div class="ov8-fuw"><div class="ov8-fu" style="--n:' + steps.length + '">' + steps.map(function (s, i) {
-      var p = i ? s.v / steps[i - 1].v * 100 : 100, pt = p < 10 ? p.toFixed(1) : String(Math.round(p));
-      return '<div class="ov8-fst' + (i === worst ? " hi" : "") + '" style="--f:' + Math.max(0.02, s.v / base).toFixed(3) + ";--fc:" + ["#646EC2", "#8B6FD6", "#D06A9A", "#0F8A63", "#0F8A63"][i] + '"' + ov8tip([s.display, s.label].concat(i ? [pt + "% of " + steps[i - 1].label.toLowerCase() + " · " + dropText(steps[i - 1], s)] : [])) + '><span class="bar"><i></i>' +
-        (i ? '<em class="ov8-fdrop' + (i === worst ? " hi" : "") + '">' + pt + "%</em>" : "") + "</span><b>" + esc(s.display) + '</b><span class="lab">' + esc(s.label) + "</span></div>";
-    }).join("") + "</div></div>";
+    // Funnel (Mixpanel, Google Analytics, Visitors): each step stands in a full-height column, a soft band carries the people
+    // who continue to the next step, the bar is labelled with its share of the first step and the chip between says how many continue.
+    var n = steps.length, base = steps[0].v, W = 100 / n, BW = W * 0.58;
+    var drops = steps.map(function (s, i) { return i ? 1 - s.v / steps[i - 1].v : -1; }), worst = drops.indexOf(Math.max.apply(null, drops));
+    var stops = ["#646EC2", "#8B6FD6", "#D06A9A"], col = function (i) { return i === n - 1 ? "#0F8A63" : stops[Math.min(2, Math.round(i / Math.max(1, n - 2) * 2))]; };
+    var hs = steps.map(function (s) { return Math.max(2.5, s.v / base * 100); });
+    var fmt = function (v) { return v >= 10 ? Math.round(v) + "%" : v.toFixed(1) + "%"; };
+    var svg = '<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs>' + steps.map(function (s, i) { return '<linearGradient id="ov8fg' + i + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="' + col(i) + '" stop-opacity=".72"/><stop offset="1" stop-color="' + col(i) + '"/></linearGradient>'; }).join("") + "</defs>";
+    steps.forEach(function (s, i) {
+      var x = i * W, h = hs[i];
+      svg += '<rect x="' + x.toFixed(2) + '" y="0" width="' + BW.toFixed(2) + '" height="100" rx="1.2" class="tr"/>';
+      if (i < n - 1) { var x2 = (i + 1) * W, h2 = hs[i + 1]; svg += '<path d="M' + (x + BW).toFixed(2) + " " + (100 - h).toFixed(2) + " L" + x2.toFixed(2) + " " + (100 - h2).toFixed(2) + " L" + x2.toFixed(2) + " 100 L" + (x + BW).toFixed(2) + ' 100 Z" fill="' + col(i + 1) + '" fill-opacity=".14"/>'; }
+      svg += '<rect x="' + x.toFixed(2) + '" y="' + (100 - h).toFixed(2) + '" width="' + BW.toFixed(2) + '" height="' + h.toFixed(2) + '" rx="1.2" fill="url(#ov8fg' + i + ')"/>';
+    });
+    svg += "</svg>";
+    var over = steps.map(function (s, i) {
+      var x = i * W, p = i ? s.v / steps[i - 1].v * 100 : 100;
+      var tip = [s.display, s.label, fmt(s.v / base * 100) + " of " + steps[0].label.toLowerCase()].concat(i ? [fmt(p) + " of " + steps[i - 1].label.toLowerCase() + " · " + dropText(steps[i - 1], s)] : []);
+      return '<div class="cl" style="left:' + x.toFixed(2) + "%;width:" + BW.toFixed(2) + '%"' + ov8tip(tip) + '><em class="sh" style="bottom:calc(' + hs[i].toFixed(2) + '% + 8px)">' + fmt(s.v / base * 100) + "</em></div>" +
+        (i && (n <= 5 || i === worst) ? '<span class="cv' + (i === worst ? " hi" : "") + '" style="left:' + ((i - 1) * W + BW + (W - BW) / 2).toFixed(2) + "%;bottom:calc(" + (n > 5 ? Math.max(hs[i - 1], hs[i]) : Math.max(hs[i], 14)).toFixed(2) + (n > 5 ? "% + 32px" : "% + 34px") + ')" title="' + esc(fmt(p) + " of " + steps[i - 1].label.toLowerCase() + " continue · " + dropText(steps[i - 1], s)) + '">' + fmt(p) + ' <i aria-hidden="true">→</i></span>' : "");
+    }).join("");
+    var lab = '<div class="lb">' + steps.map(function (s, i) { return '<div style="width:' + BW.toFixed(2) + "%;margin-right:" + (i < n - 1 ? (W - BW).toFixed(2) : 0) + '%"><b>' + esc(s.display) + '</b><span>' + esc(s.label) + "</span></div>"; }).join("") + "</div>";
+    return '<div class="ov8-fn"><div class="pl">' + svg + over + "</div>" + lab + "</div>";
   }
   // A year ago to now: two dots joined by a line for each row.
   function ov8dumb(rows, max) {
