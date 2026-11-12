@@ -7,7 +7,7 @@
 <meta name="description" content="Phase 1 prototype of the upGrad Customer Intelligence Platform, from sign-in to dashboard. Sample data.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <script>(function(){var v='7';try{var m=/[?&]v=([12345678])/.exec(location.search),vm=/[?&]ver=([1-4])/.exec(location.search);if(vm)m=[0,'3467'.charAt(vm[1]-1)];v=m?m[1]:(localStorage.getItem('cip-version')||'7');if(m)localStorage.setItem('cip-version',v);}catch(e){}if(v==='1'||v==='2'||v==='5'||v==='8'){v='7';try{localStorage.setItem('cip-version','7');}catch(e){}}var d=document.documentElement;d.setAttribute('data-v',v>'3'?'3':v);if(v>'3')d.setAttribute('data-v4','');if(v>='5')d.setAttribute('data-v5','');if(v>='6')d.setAttribute('data-v6','');if(v==='7'){d.setAttribute('data-v7','');var t='crisp';try{var tm=/[?&]t=(crisp|ocean)/.exec(location.search);t=tm?tm[1]:(localStorage.getItem('cip-v7t')||'crisp');if(t!=='crisp'&&t!=='ocean'){t='crisp';localStorage.setItem('cip-v7t',t);}if(tm)localStorage.setItem('cip-v7t',t);}catch(e){}d.setAttribute('data-v7t',t);try{var im=/[?&]ic=(color|mono)/.exec(location.search),ic=im?im[1]:localStorage.getItem('cip-v7i');if(im)localStorage.setItem('cip-v7i',ic);if(t==='crisp'&&ic==='color')d.setAttribute('data-v7i','color');}catch(e){}try{var tim=/[?&]ti=(on|off)/.exec(location.search),ti=tim?tim[1]:localStorage.getItem('cip-v7ti');if(tim)localStorage.setItem('cip-v7ti',ti);if(t==='crisp'&&ti==='off')d.setAttribute('data-v7ti','off');}catch(e){}try{var spm=/[?&]sp=(compact|current)/.exec(location.search),sp=spm?spm[1]:(localStorage.getItem('cip-v7sp')||'compact');if(spm)localStorage.setItem('cip-v7sp',sp);if(t==='crisp'&&sp==='compact')d.setAttribute('data-v7sp','compact');var fim=/[?&]fi=(on|off)/.exec(location.search),fi=fim?fim[1]:(localStorage.getItem('cip-v7fi')||'on');if(fim)localStorage.setItem('cip-v7fi',fi);if(t==='crisp'&&fi==='on')d.setAttribute('data-v7fi','on');}catch(e){}try{var sbm=/[?&]sb=(current|darker|darkest)/.exec(location.search),sb=sbm?sbm[1]:localStorage.getItem('cip-v7sb');if(sbm)localStorage.setItem('cip-v7sb',sb);if(t==='crisp'&&(sb==='darker'||sb==='darkest'))d.setAttribute('data-v7sb',sb);}catch(e){}try{var pcm=/[?&]pc=(current|darker|darkest)/.exec(location.search),pc=pcm?pcm[1]:localStorage.getItem('cip-v7pc');if(pcm)localStorage.setItem('cip-v7pc',pc);if(t==='crisp'&&(pc==='darker'||pc==='darkest'))d.setAttribute('data-v7pc',pc);}catch(e){}try{var dtm=/[?&]dt=(on|off)/.exec(location.search),dt=dtm?dtm[1]:(localStorage.getItem('cip-v7dt')||'on');if(dtm)localStorage.setItem('cip-v7dt',dt);if(t==='crisp'&&dt==='on')d.setAttribute('data-v7dt','on');}catch(e){}try{var inm=/[?&]ins=(simple|brief|current)/.exec(location.search),ins=inm?(inm[1]==='brief'?'new':inm[1]):localStorage.getItem('cip-v7in');if(ins!=='new'&&ins!=='current')ins='simple';if(inm)localStorage.setItem('cip-v7in',ins);if(t==='crisp'&&ins!=='current')d.setAttribute('data-v7ins',ins);}catch(e){}try{var srm=/[?&]sr=(compact|current)/.exec(location.search),sr=srm?srm[1]:(localStorage.getItem('cip-v7sr')||'compact');if(srm)localStorage.setItem('cip-v7sr',sr);if(t==='crisp'&&sr==='compact')d.setAttribute('data-v7sr','compact');}catch(e){}try{var sim=/[?&]si=(line|circle)/.exec(location.search),si=sim?sim[1]:(localStorage.getItem('cip-v7si')||'line');if(sim)localStorage.setItem('cip-v7si',si);if(t==='crisp'&&si==='line')d.setAttribute('data-v7si','line');}catch(e){}try{var ovm=/[?&]ov=(new|current)/.exec(location.search),ov=ovm?ovm[1]:(localStorage.getItem('cip-v7ov')||'new');if(ovm)localStorage.setItem('cip-v7ov',ov);if(t==='crisp'&&ov==='new')d.setAttribute('data-v7ov','new');}catch(e){}}})();</script>
 <style>
 :root{
@@ -4381,225 +4381,264 @@ html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#cri
 }
 </style>
 <style id="v7ov">
-/* Overview → New (V4 Crisp): the shared design's visual language, used for the Overview only. Plus Jakarta Sans, a neutral
-   #F6F6F7 page, white cards with a hairline border, a dark headline band with a red glow, upGrad reds with charcoal and greys,
-   pill bars on light tracks. Kept out of the app's token passes so these values stay as designed. */
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp):has(.view[data-view="overview"]:not([hidden]) .ov8){--cr-shell:#F6F6F7}
+/* Overview → New (V4 Crisp): the visual language of the Crisp Overview design (Figma "Customer Intelligence Platform", node 48:12213).
+   Figtree, the lavender page, white 16px cards with no border, pastel pink-to-lavender KPI tiles with a white icon circle, pill
+   segmented controls, periwinkle, ink and rose marks, lavender tint panels and white pills with a soft ring shadow.
+   Kept out of the app's token passes so these values stay as designed. */
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .view[data-view="overview"] > :not(.ov8){display:none !important}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8{grid-column:1 / -1;display:flex;flex-direction:column;gap:22px;min-width:0;font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:14px;line-height:1.45;color:#17181C;--o-2:#61666F;--o-3:#4A4E57;--o-line:#E4E5E8;--o-track:#F4F4F6}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8{grid-column:1 / -1;display:flex;flex-direction:column;gap:24px;min-width:0;font-family:Figtree,Inter,-apple-system,BlinkMacSystemFont,sans-serif;font-size:14px;line-height:1.45;letter-spacing:-.006em;color:#15161C;--o-ink:#15161C;--o-2:#5F616B;--o-3:#6E7078;--o-4:#475467;--o-line:#E7E8EF;--o-hair:#F2F4F7;--o-tint:#F3F4FB;--o-sub:#ECEEF6;--o-acc:#4F57A8;--o-ring:0 0 0 1px rgba(16,16,24,.05),0 1px 3px rgba(16,16,24,.05)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(h1,h2,h3,p,b,strong,em,button,select,label,span,li,th,td,small){font-family:inherit}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tt{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tt h1{margin:0;font-size:28px;line-height:1.2;font-weight:800 !important;letter-spacing:-.01em !important;color:#17181C}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tag{padding:3px 10px;border-radius:999px;background:#FFF3DC;color:#8A4B05;font-size:12px;font-weight:700}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-upd{margin:4px 0 0;font-size:14px;color:var(--o-2)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fil{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-seg{display:inline-flex;gap:2px;padding:3px;border-radius:10px;background:#ECEDEF}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-seg button{min-height:34px;padding:0 14px;border:0;border-radius:8px;background:transparent;font-size:13px;font-weight:700;color:var(--o-2);cursor:pointer}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-seg button[aria-pressed="true"]{background:#fff;color:#17181C;box-shadow:0 1px 2px rgba(0,0,0,.12)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(button,select):focus-visible{outline:2px solid #4F57A8;outline-offset:2px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+/* header: title, updated pill, the Prospects/Learners switch */
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-top h1{margin:0;font-size:30px;line-height:1.2;font-weight:500 !important;letter-spacing:-.022em !important;color:#15161C}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-upd{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:8px 0 0;font-size:12px;color:var(--o-3)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-live{display:inline-flex;align-items:center;gap:8px;height:26px;padding:0 12px;border-radius:999px;background:#fff;font-weight:500;color:#15161C;letter-spacing:-.008em}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-live i{width:7px;height:7px;border-radius:50%;background:#C6EE1A;box-shadow:0 0 0 2px #fff}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-seg,.ov8-tabs){display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:var(--o-sub)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-seg,.ov8-tabs) button{display:inline-flex;align-items:center;justify-content:center;min-height:32px;padding:0 14px;border:0;border-radius:999px;background:transparent;font-size:13px;font-weight:500;color:var(--o-3);white-space:nowrap;cursor:pointer}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-seg button[aria-pressed="true"],.ov8-tabs button[aria-selected="true"]){background:#fff;color:#15161C;box-shadow:var(--o-ring)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-seg,.ov8-tabs) button:hover{color:#15161C}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs{padding:4px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs button{min-height:38px;padding:0 20px;font-size:14px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs button b{font-weight:500}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-seg.sm{align-self:flex-start}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-seg.sm button{min-height:32px;padding:0 12px;font-size:12px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sel{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--o-2)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sel select{height:40px;padding:0 34px 0 12px !important;border:1px solid #CDD0D6 !important;border-radius:10px !important;background-color:#fff !important;background-repeat:no-repeat !important;background-position:right 12px center !important;background-size:12px 12px !important;box-shadow:none !important;font-size:14px;font-weight:600;color:#17181C;-webkit-appearance:none;appearance:none;cursor:pointer}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs{display:flex;gap:6px;border-bottom:1px solid var(--o-line)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-height:56px;margin-bottom:-1px;padding:8px 18px 10px;border:0;border-bottom:3px solid transparent;background:none;color:var(--o-2);text-align:left;cursor:pointer}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs button b{font-size:17px;font-weight:800}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs button span{font-size:12px;font-weight:500;color:var(--o-2)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs button[aria-selected="true"]{border-bottom-color:#D6262D;color:#17181C}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(button,select):focus-visible{outline:3px solid #F2A33A;outline-offset:2px}
-/* headline: dark band, red glow, KPI tiles with sparklines */
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hero{position:relative;display:flex;flex-direction:column;gap:16px;padding:22px 26px 24px;border-radius:18px;background:#17181C;color:#fff;overflow:hidden}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hero::before{content:"";position:absolute;right:-120px;top:-160px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(214,38,45,.55) 0,rgba(214,38,45,0) 70%);pointer-events:none}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-kick{position:relative;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#F4A5A8}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-kpis{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;border-radius:12px;background:#33353C;overflow:hidden}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k{display:flex;flex-direction:column;gap:6px;min-width:0;padding:16px 18px;background:#1F2026}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kl{font-size:12px;color:#B4B7BF}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kr{display:flex;align-items:center;justify-content:space-between;gap:12px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kv{font-size:30px;line-height:1;font-weight:800;letter-spacing:-.01em;color:#fff}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kd{font-size:12px;font-weight:700}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kd.up{color:#7EE0A8}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kd.dn{color:#FFA3A6}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kn{font-size:12px;color:#9DA1AA}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-seg.xs{flex:0 0 auto}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-seg.xs button{min-height:28px;padding:0 12px;font-size:12px}
+/* toolbar: what this tab counts, and the filters */
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 16px;margin-top:-4px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-kick{margin:0;font-size:13px;color:var(--o-2)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-kick b{font-weight:500;color:#15161C}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fil{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sel{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--o-3)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sel select{height:38px;padding:0 34px 0 14px !important;border:0 !important;border-radius:999px !important;background-color:#fff !important;background-repeat:no-repeat !important;background-position:right 14px center !important;background-size:12px 12px !important;box-shadow:var(--o-ring) !important;font-size:13px;font-weight:500;color:#15161C;-webkit-appearance:none;appearance:none;cursor:pointer}
+/* headline: pastel KPI tiles with a white icon circle, a white change chip and an area sparkline */
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k{display:flex;flex-direction:column;gap:8px;min-width:0;padding:26px 22px 22px;border-radius:16px;background:linear-gradient(100deg,#F8EBF1 0%,#F1DBE5 100%)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k:nth-child(2){background:linear-gradient(100deg,#F1D9E4 0%,#E3D9EF 100%)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k:nth-child(3){background:linear-gradient(100deg,#E0D9F1 0%,#D4D9F4 100%)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k:nth-child(4){background:linear-gradient(100deg,#D6DBF4 0%,#E7E8F9 100%)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k:nth-child(5){background:linear-gradient(100deg,#E4E6F8 0%,#EFF0FA 100%)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kh{display:flex;align-items:center;gap:12px;min-height:40px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .ki{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:#fff;box-shadow:var(--o-ring);color:#15161C}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .ki svg{display:block;width:20px;height:20px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kt{display:flex;flex-direction:column;gap:2px;min-width:0}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kl{overflow:hidden;font-size:13px;line-height:1.35;color:rgba(21,22,28,.68);white-space:nowrap;text-overflow:ellipsis}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .ks{font-size:12px;line-height:1.35;font-weight:500;color:var(--o-2)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin-top:4px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kv{font-size:28px;line-height:1.15;font-weight:500;letter-spacing:-.03em;color:#15161C;font-variant-numeric:tabular-nums;white-space:nowrap}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k{container-type:inline-size}
+@container (max-width:236px){
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kv{font-size:24px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kr{gap:4px 8px}
+}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kd{padding:2px 8px;border-radius:6px;background:#fff;font-size:12px;line-height:18px;font-style:normal;font-weight:500;white-space:nowrap}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kd.up{color:#4F57A8}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kd.dn{color:#B4285C}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ksp{display:block;width:100%;height:46px;overflow:visible}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kn{font-size:12px;line-height:1.35;color:rgba(21,22,28,.68)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v7i="color"][data-v6]:not(#crisp) .ov8 .ov8-k .ki{color:#5B63C4}
+/* trend sparkline in lists */
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-spk{position:relative;display:inline-block;flex:0 0 auto;width:72px;height:22px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-spk svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-spk i{position:absolute;right:-3px;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:#D6262D;box-shadow:0 0 0 2px #fff}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hero .ov8-spk{width:84px;height:28px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hero .ov8-spk path{stroke:#6B6F78}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hero .ov8-spk i{background:#FF7378;box-shadow:0 0 0 2px #1F2026}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-spk i{position:absolute;right:-3px;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:#646EC2;box-shadow:0 0 0 2px #fff}
 /* sections and cards */
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sh{margin:6px 0 -8px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sh h2{margin:0;font-size:20px;font-weight:800 !important;letter-spacing:normal !important;color:#17181C}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sh p{margin:4px 0 0;color:var(--o-2)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card{display:flex;flex-direction:column;gap:14px;min-width:0;padding:20px;border:1px solid var(--o-line);border-radius:16px;background:#fff;box-shadow:none}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sh{margin:8px 0 -8px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sh h2{margin:0;font-size:22px;line-height:1.3;font-weight:500 !important;letter-spacing:-.022em !important;color:#15161C}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sh p{margin:4px 0 0;font-size:13px;color:var(--o-2)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card{display:flex;flex-direction:column;gap:18px;min-width:0;padding:28px;border:0;border-radius:16px;background:#fff;box-shadow:none}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card.w{grid-column:1 / -1}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch h3{margin:0;font-size:16px;font-weight:700 !important;letter-spacing:normal !important;color:#17181C}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sub{margin:2px 0 0;font-size:12px;color:var(--o-2)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tbtn{flex:0 0 auto;height:30px;padding:0 12px;border:1px solid #CDD0D6;border-radius:8px;background:#fff;font-size:12px;font-weight:700;color:var(--o-3);cursor:pointer}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tbtn:hover{border-color:#17181C;color:#17181C}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ins{margin:0;padding:1px 0 1px 12px;border-left:3px solid #D6262D;font-size:14px;line-height:1.45;font-weight:600;color:#17181C}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-note{margin:0;padding:6px 10px;border-radius:8px;background:#FFF6E6;font-size:12px;color:#8A4B05}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mini{margin:2px 0 0;font-size:12px;font-weight:600;color:var(--o-2)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-leg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--o-3)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-leg span{display:inline-flex;align-items:center;gap:6px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch h3{margin:0;font-size:20px;line-height:27px;font-weight:500 !important;letter-spacing:-.022em !important;color:#15161C}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sub{margin:4px 0 0;font-size:13px;line-height:1.5;color:var(--o-2)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-viz:not([hidden]){display:flex;flex-direction:column;gap:14px;min-width:0}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-viz > .ov8-leg + :is(.ov8-segs,.ov8-st,.ov8-db,.ov8-lc){margin-top:-2px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ins{margin:0;padding:14px 16px;border-radius:14px;background:var(--o-tint);font-size:14px;line-height:1.5;font-weight:500;color:#15161C}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-note{margin:0;padding-top:14px;border-top:1px solid var(--o-hair);font-size:12px;color:var(--o-4)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mini{margin:2px 0 0;font-size:12px;font-weight:600;color:var(--o-4)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-leg{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--o-4)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-leg span{display:inline-flex;align-items:center;gap:8px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-leg i{flex:0 0 auto}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-leg i.sq{width:12px;height:12px;border-radius:3px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-leg i.ln{width:14px;height:4px;border-radius:2px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-leg i.sq{width:10px;height:10px;border-radius:4px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-leg i.ln{width:14px;height:3px;border-radius:2px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-leg i.dt{width:10px;height:10px;border-radius:50%}
-/* segmented bars */
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-segs{display:flex;flex-direction:column;gap:10px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sr{display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center;gap:12px}
+/* segmented bars: 2px gaps between parts */
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-segs{display:flex;flex-direction:column;gap:12px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sr{display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center;gap:14px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sr.tl{grid-template-columns:150px minmax(0,1fr) 168px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sr.nl{grid-template-columns:minmax(0,1fr)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sl{overflow:hidden;font-size:13px;font-weight:600;white-space:nowrap;text-overflow:ellipsis}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tail{overflow:hidden;font-size:12px;font-weight:600;color:var(--o-3);white-space:nowrap;text-overflow:ellipsis}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sb{display:flex;height:28px;border-radius:6px;overflow:hidden}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sb span{display:flex;align-items:center;justify-content:center;min-width:0;font-size:11px;font-weight:700;white-space:nowrap;container-type:inline-size}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sb span.ov8-on{filter:brightness(1.12)}
-/* columns */
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-vb,.ov8-st){display:flex;flex-direction:column;gap:6px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-vbp,.ov8-stp){display:flex;align-items:flex-end;gap:8px;height:var(--h)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sl{overflow:hidden;font-size:13px;font-weight:500;white-space:nowrap;text-overflow:ellipsis}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tail{overflow:hidden;font-size:12px;color:var(--o-2);white-space:nowrap;text-overflow:ellipsis}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sb{display:flex;gap:2px;height:30px;border-radius:8px;overflow:hidden}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sb span{display:flex;align-items:center;justify-content:center;min-width:0;font-size:11.5px;font-weight:600;white-space:nowrap;container-type:inline-size}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sb span:first-child{border-radius:8px 0 0 8px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sb span:last-child{border-radius:0 8px 8px 0}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sb span.ov8-on{filter:brightness(1.1)}
+/* columns: a soft top-light wash like the design's funnel columns */
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-vb,.ov8-st){display:flex;flex-direction:column;gap:8px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-vbp,.ov8-stp){display:flex;align-items:flex-end;gap:10px;height:var(--h)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-vc,.ov8-sc){display:flex;flex:1;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-vc i{display:block;width:100%;max-width:56px;height:calc((var(--h) - 22px) * var(--f));min-height:2px;border-radius:6px 6px 2px 2px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-vv{margin-bottom:6px;font-size:12px;font-weight:700;color:#17181C;white-space:nowrap;font-variant-numeric:tabular-nums}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-vc.mu .ov8-vv{font-weight:600;color:var(--o-2)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-vbl{display:flex;gap:8px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-vbl span{flex:1;min-width:0;font-size:11px;line-height:1.3;color:var(--o-2);text-align:center}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-scol{display:flex;flex-direction:column-reverse;width:100%;max-width:64px;height:calc((var(--h) - 24px) * var(--f));border-radius:6px 6px 2px 2px;overflow:hidden}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-scol i{display:block;min-height:1px;border-top:1px solid #fff}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-vc,.ov8-sc).ov8-on :is(i,.ov8-scol){filter:brightness(1.12)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-vc i{display:block;width:100%;max-width:60px;height:calc((var(--h) - 22px) * var(--f));min-height:2px;border-radius:10px 10px 4px 4px;background-image:linear-gradient(180deg,rgba(255,255,255,.4),rgba(255,255,255,0) 75%)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-vv{margin-bottom:6px;font-size:12px;font-weight:600;color:#15161C;white-space:nowrap;font-variant-numeric:tabular-nums}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-vc.mu .ov8-vv{font-weight:500;color:var(--o-3)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-vbl{display:flex;gap:10px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-vbl span{flex:1;min-width:0;font-size:11.5px;line-height:1.3;color:var(--o-2);text-align:center}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-scol{display:flex;flex-direction:column-reverse;gap:2px;width:100%;max-width:68px;height:calc((var(--h) - 24px) * var(--f));border-radius:10px 10px 4px 4px;overflow:hidden}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-scol i{display:block;min-height:1px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-vc,.ov8-sc).ov8-on :is(i,.ov8-scol){filter:brightness(1.1)}
 /* horizontal bars, change bars, dot pairs */
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-hb,.ov8-dv,.ov8-db){display:flex;flex-direction:column;gap:9px;margin:0;padding:0;list-style:none}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hb li{display:grid;grid-template-columns:minmax(110px,38%) minmax(0,1fr) 64px;align-items:center;gap:10px;font-size:13px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hl{min-width:0;overflow:hidden;font-weight:600;white-space:nowrap;text-overflow:ellipsis}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hl small{font-size:12px;font-weight:500;color:var(--o-2)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ht{display:block;height:12px;border-radius:999px;background:var(--o-track);overflow:hidden}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-hb,.ov8-dv,.ov8-db){display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hb li{display:grid;grid-template-columns:minmax(110px,38%) minmax(0,1fr) 64px;align-items:center;gap:12px;font-size:13px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hl{min-width:0;overflow:hidden;font-weight:500;white-space:nowrap;text-overflow:ellipsis}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hl small{font-size:12px;font-weight:400;color:var(--o-2)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ht{display:block;height:10px;border-radius:999px;background:var(--o-tint);overflow:hidden}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ht i{display:block;height:100%;border-radius:999px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hv{font-weight:700;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 li.mu .ov8-hv{font-weight:600;color:var(--o-2)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 li.mu .ov8-hl{font-weight:500;color:var(--o-3)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-hb li,.ov8-dv li,.ov8-db li).ov8-on{background:#FAFAFB;border-radius:6px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dv li{display:grid;grid-template-columns:minmax(120px,30%) minmax(0,1fr) 62px 76px;align-items:center;gap:10px;font-size:13px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dvt{display:grid;grid-template-columns:1fr 4fr;height:14px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dvt .n{display:flex;justify-content:flex-end;border-right:1px solid #CDD0D6}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hv{font-weight:600;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 li.mu .ov8-hv{font-weight:500;color:var(--o-3)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 li.mu .ov8-hl{font-weight:400;color:var(--o-2)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-hb li,.ov8-dv li,.ov8-db li).ov8-on{background:var(--o-tint);border-radius:8px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dv li{display:grid;grid-template-columns:minmax(120px,30%) minmax(0,1fr) 62px 76px;align-items:center;gap:12px;font-size:13px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dvt{display:grid;grid-template-columns:1fr 4fr;height:12px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dvt .n{display:flex;justify-content:flex-end;border-right:1px solid #C9CCDA}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dvt .n i{display:block;height:100%;border-radius:999px 0 0 999px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dvt .p i{display:block;height:100%;border-radius:0 999px 999px 0}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hv.up{color:#1E7A4C}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hv.dn{color:#B81F25}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-db li{display:grid;grid-template-columns:minmax(110px,32%) minmax(0,1fr) 44px 84px;align-items:center;gap:10px;font-size:13px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dbt{position:relative;height:16px;border-radius:999px;background:var(--o-track)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dbt .ln{position:absolute;top:7px;height:2px;background:#8A8F99}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hv.up{color:#4F57A8}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hv.dn{color:#B4285C}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-db li{display:grid;grid-template-columns:minmax(110px,32%) minmax(0,1fr) 44px 84px;align-items:center;gap:12px;font-size:13px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dbt{position:relative;height:16px;border-radius:999px;background:var(--o-tint)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dbt .ln{position:absolute;top:7px;height:2px;background:#9AA2DE}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dbt :is(.d0,.d1){position:absolute;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;box-shadow:0 0 0 2px #fff}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dbt .d0{background:#C9CBD1}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dbt .d1{background:#D6262D}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dd{font-size:12px;font-weight:600;color:var(--o-2);white-space:nowrap}
-/* butterfly */
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly{display:grid;grid-template-columns:minmax(0,1fr) 92px minmax(0,1fr);align-items:center;gap:9px 10px;font-size:13px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly .hd{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--o-2)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dbt .d0{background:#C9CCDA}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dbt .d1{background:#646EC2}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dd{font-size:12px;color:var(--o-2);white-space:nowrap}
+/* butterfly: ruled out in rose, first choice in periwinkle */
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly{display:grid;grid-template-columns:minmax(0,1fr) 92px minmax(0,1fr);align-items:center;gap:10px 12px;font-size:13px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly .hd{font-size:12px;font-weight:600;color:var(--o-4)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly .hd.l{text-align:right}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly .c{font-weight:600;text-align:center}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly .c{font-weight:500;text-align:center}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly :is(.l,.r):not(.hd){display:flex;align-items:center;gap:8px;height:16px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly .l:not(.hd){justify-content:flex-end}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly .l i{display:block;height:14px;border-radius:999px 3px 3px 999px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly .r i{display:block;height:14px;border-radius:3px 999px 999px 3px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly b{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly span.ov8-on i{filter:brightness(1.12)}
-/* funnel */
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fu{display:flex;flex-direction:column;gap:3px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fst{display:grid;grid-template-columns:110px minmax(0,1fr);align-items:center;gap:10px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fst .lab{font-size:13px;font-weight:600}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fst .bar{display:flex;justify-content:center}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fst .bar i{display:flex;align-items:center;justify-content:center;height:30px;border-radius:6px;font-style:normal}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fst .bar b{font-size:12.5px;font-weight:700;font-variant-numeric:tabular-nums}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fst.ov8-on .bar i{filter:brightness(1.12)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fdrop{display:grid;grid-template-columns:110px minmax(0,1fr);gap:10px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fdrop span{grid-column:2;justify-self:center;padding:1px 8px;border-radius:999px;background:#FBE7E8;color:#B81F25;font-size:11px;font-weight:700}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fdrop.hi span{background:#D6262D;color:#fff}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-two{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start;gap:28px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-two > div{display:flex;flex-direction:column;gap:10px;min-width:0}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-big{display:flex;flex-direction:column;justify-content:center;gap:10px;padding:18px;border-radius:12px;background:#FBE7E8}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-big b{font-size:44px;line-height:1;font-weight:800;color:#B81F25}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-big span{font-size:13px;font-weight:600;color:#17181C}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly .l i{display:block;height:12px;border-radius:999px 3px 3px 999px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly .r i{display:block;height:12px;border-radius:3px 999px 999px 3px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly b{font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fly span.ov8-on i{filter:brightness(1.1)}
+/* funnel: gradient columns, a white pill with the share that passed each step; the biggest loss in rose */
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fuw{container-type:inline-size;min-width:0}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fu{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:12px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fst{display:flex;flex-direction:column;min-width:0}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fst .bar{position:relative;display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch;height:220px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fst .bar i{display:block;width:100%;height:calc((100% - 34px) * var(--f));min-height:6px;border-radius:10px;background:linear-gradient(180deg,#D2D7F1 0%,#7983CD 100%)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fst.ov8-on .bar i{filter:brightness(1.06) saturate(1.15)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fdrop{position:absolute;left:50%;bottom:calc((100% - 34px) * var(--f) + 8px);display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;background:#fff;box-shadow:var(--o-ring);font-size:12px;font-style:normal;font-weight:700;color:#15161C;white-space:nowrap;transform:translateX(-50%)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fdrop.hi{background:#D03A70;box-shadow:none;color:#fff}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fst b{margin-top:12px;font-size:14px;line-height:17.5px;font-weight:600;letter-spacing:-.02em;color:#15161C;font-variant-numeric:tabular-nums}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fst .lab{margin-top:2px;font-size:12px;line-height:15px;color:var(--o-2)}
+@container (max-width:440px){
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fu{grid-template-columns:minmax(0,1fr);gap:10px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fst{display:grid;grid-template-columns:96px minmax(0,1fr);grid-template-rows:auto auto;column-gap:12px;align-items:center}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fst .bar{grid-row:1 / 3;grid-column:2;flex-direction:row;justify-content:flex-start;align-items:center;height:26px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fst .bar i{width:calc((100% - 52px) * var(--f));height:100%;min-width:6px;background:linear-gradient(90deg,#D2D7F1 0%,#7983CD 100%)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fdrop{left:calc((100% - 52px) * var(--f) + 8px);bottom:auto;top:2px;transform:none}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fst b{grid-row:1;grid-column:1;margin:0}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-fst .lab{grid-row:2;grid-column:1;margin:0}
+}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-two{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start;gap:32px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-two > div{display:flex;flex-direction:column;gap:12px;min-width:0}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-big{display:flex;flex-direction:column;justify-content:center;gap:12px;padding:20px;border-radius:14px;background:var(--o-tint)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-big b{font-size:44px;line-height:1.15;font-weight:500;letter-spacing:-.03em;color:#15161C}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-big span{font-size:13px;color:var(--o-2)}
 /* treemap */
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tm{display:flex;flex-direction:column;gap:4px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tm .r{display:flex;gap:4px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tm .r:first-child{height:160px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tm .r:last-child{height:104px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tc{display:flex;flex-direction:column;justify-content:space-between;min-width:0;padding:12px;border-radius:10px;font-size:12px;overflow:hidden;container-type:inline-size}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tc{display:flex;flex-direction:column;justify-content:space-between;min-width:0;padding:12px 14px;border-radius:12px;font-size:12px;overflow:hidden;container-type:inline-size}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tc.big{font-size:14px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tc span{font-weight:700}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tc b{font-size:16px;font-weight:800}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tc.big b{font-size:22px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tc.ov8-on{filter:brightness(1.08)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tc span{font-weight:500}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tc b{font-size:16px;font-weight:600;letter-spacing:-.02em}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tc.big b{font-size:24px;font-weight:500;letter-spacing:-.03em}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tc.ov8-on{filter:brightness(1.06)}
 @container (max-width:56px){html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tc :is(span,b){display:none}}
 @container (max-width:30px){html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sb span{font-size:0}}
 /* line charts */
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-lc{display:grid;grid-template-columns:36px minmax(0,1fr);grid-template-rows:var(--h) 24px;column-gap:8px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-lc{display:grid;grid-template-columns:38px minmax(0,1fr);grid-template-rows:var(--h) 26px;column-gap:10px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ly{position:relative;grid-row:1}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ly span{position:absolute;right:0;transform:translateY(-50%);font-size:11px;color:var(--o-2);font-variant-numeric:tabular-nums}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ly span{position:absolute;right:0;transform:translateY(-50%);font-size:12px;color:var(--o-4);font-variant-numeric:tabular-nums}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-lp{position:relative;grid-row:1;grid-column:2}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-lp svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-lp svg .g{fill:none;stroke:#ECEDEF;stroke-width:1}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dot{position:absolute;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;box-shadow:0 0 0 2px #fff;pointer-events:none}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-lp svg .g{fill:none;stroke:#EAECF0;stroke-width:1}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dot{position:absolute;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;box-shadow:0 0 0 2px #fff;pointer-events:none}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mk{position:absolute;pointer-events:none}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mk i{position:absolute;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#17181C;box-shadow:0 0 0 2px #fff}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mk em{position:absolute;left:10px;top:-30px;padding:2px 6px;border:1px solid var(--o-line);border-radius:6px;background:#fff;font-size:12px;font-style:normal;font-weight:700;white-space:nowrap}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mk i{position:absolute;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#15161C;box-shadow:0 0 0 2px #fff}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mk em{position:absolute;left:10px;top:-32px;display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:999px;background:#fff;box-shadow:var(--o-ring);font-size:12px;font-style:normal;font-weight:600;white-space:nowrap}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-mk.lf em{left:auto;right:10px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hx{position:absolute;top:0;bottom:0}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hx.ov8-on::after{content:"";position:absolute;top:0;bottom:0;left:var(--x);width:1px;background:#8A8F99}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hx.ov8-on::after{content:"";position:absolute;top:0;bottom:0;left:var(--x);border-left:1px dashed #98A2B3}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-lx{position:relative;grid-row:2;grid-column:2}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-lx span{position:absolute;top:6px;transform:translateX(-50%);font-size:11px;color:var(--o-2);white-space:nowrap}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-lx span{position:absolute;top:8px;transform:translateX(-50%);font-size:12px;color:var(--o-4);white-space:nowrap}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-lx span:first-child{transform:none}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-lx span:last-child{transform:translateX(-100%)}
 /* bubble chart */
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bub{display:grid;grid-template-columns:36px minmax(0,1fr);grid-template-rows:240px auto;column-gap:8px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bp{position:relative;grid-column:2;border-left:1px solid #DADCE0;border-bottom:1px solid #DADCE0}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bp .g{position:absolute;left:0;right:0;height:1px;background:#F4F4F6}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bp .q{position:absolute;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#9DA1AA}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bp .q1{left:8px;top:6px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bp .q2{right:8px;bottom:6px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bb{position:absolute;border-radius:50%;opacity:.92;box-shadow:0 0 0 2px #fff;transform:translate(-50%,50%)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bub{display:grid;grid-template-columns:38px minmax(0,1fr);grid-template-rows:240px auto;column-gap:10px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bp{position:relative;grid-column:2;border-left:1px solid var(--o-line);border-bottom:1px solid var(--o-line)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bp .g{position:absolute;left:0;right:0;height:1px;background:var(--o-hair)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bp .q{position:absolute;font-size:12px;color:#9A9CA6}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bp .q1{left:10px;top:6px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bp .q2{right:10px;bottom:6px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bb{position:absolute;border-radius:50%;opacity:.9;box-shadow:0 0 0 2px #fff;transform:translate(-50%,50%)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bb.ov8-on{opacity:1}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bb em{position:absolute;top:50%;left:100%;margin-left:8px;font-size:12px;font-style:normal;font-weight:700;color:#17181C;white-space:nowrap;transform:translateY(-50%)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bb em{position:absolute;top:50%;left:100%;margin-left:8px;font-size:12px;font-style:normal;font-weight:600;color:#15161C;white-space:nowrap;transform:translateY(-50%)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-bb.lf em{left:auto;right:100%;margin:0 8px 0 0}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ax{grid-column:2;margin:8px 0 0;font-size:11px;color:var(--o-2);text-align:center}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ax{grid-column:2;margin:8px 0 0;font-size:12px;color:var(--o-4);text-align:center}
 /* flow */
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow{display:grid;grid-template-columns:minmax(150px,26%) minmax(0,1fr) minmax(130px,22%);gap:12px;height:var(--h)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fcol{position:relative}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fl{position:absolute;font-size:12.5px;color:var(--o-2);white-space:nowrap;transform:translateY(-50%)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fl{position:absolute;font-size:12px;color:var(--o-2);white-space:nowrap;transform:translateY(-50%)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fl.l{right:0;text-align:right}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fl.r{left:0}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fl b{font-weight:700;color:#17181C}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fl b{font-weight:500;color:#15161C}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fmid{position:relative}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow svg{position:absolute;top:0;bottom:0;left:10px;width:calc(100% - 20px);height:100%}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow svg path{fill-opacity:.32;cursor:default}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow svg path.ov8-on{fill-opacity:.62}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow svg path{fill-opacity:.26;cursor:default}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow svg path.ov8-on{fill-opacity:.55}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fn{position:absolute;width:10px;border-radius:3px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fn.l{left:0}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fn.r{right:0}
 /* table view and trust strip */
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tbl{overflow-x:auto}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tbl table{width:100%;border-collapse:collapse;font-size:13px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tbl :is(th,td){padding:8px 10px;border-bottom:1px solid #EEEFF1;text-align:left;white-space:nowrap}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tbl thead th{font-size:12px;font-weight:700;color:var(--o-2)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tbl tbody th{font-weight:600;color:#17181C}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tbl :is(th,td){padding:9px 10px;border-bottom:1px solid var(--o-hair);text-align:left;white-space:nowrap}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tbl thead th{font-size:12px;font-weight:600;color:var(--o-4)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tbl tbody th{font-weight:500;color:#15161C}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tbl .n{text-align:right;font-variant-numeric:tabular-nums}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-trust{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;padding:14px 18px;border:1px solid var(--o-line);border-radius:14px;background:#fff;font-size:12px;color:var(--o-3)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-trust :is(b,strong){font-weight:700;color:#17181C}
-#ov8tip{position:fixed;z-index:1000;display:flex;flex-direction:column;gap:2px;max-width:280px;padding:8px 10px;border-radius:10px;background:#17181C;color:#fff;font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:12px;line-height:1.4;box-shadow:0 10px 24px -12px rgba(0,0,0,.5);pointer-events:none}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-trust{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding:16px 20px;border-radius:16px;background:#fff;font-size:12px;color:var(--o-2)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-trust :is(b,strong){font-weight:500;color:#15161C}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-trust .ov8-sample{flex-basis:100%;color:var(--o-3)}
+#ov8tip{position:fixed;z-index:1000;display:flex;flex-direction:column;gap:2px;max-width:280px;padding:8px 12px;border-radius:10px;background:#15161C;color:#fff;font-family:Figtree,Inter,system-ui,sans-serif;font-size:12px;line-height:1.4;box-shadow:0 12px 28px -14px rgba(21,22,28,.55);pointer-events:none}
 #ov8tip[hidden]{display:none}
-#ov8tip b{font-size:13px;font-weight:700}
+#ov8tip b{font-size:13px;font-weight:600}
 #ov8tip span{color:#D9DBE0}
-@media (max-width:1100px){html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-grid{grid-template-columns:minmax(0,1fr)}S .ov8-two{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:1100px){
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-grid{grid-template-columns:minmax(0,1fr)}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-two{grid-template-columns:minmax(0,1fr)}
+}
 @media (max-width:720px){
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8{gap:18px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hero{padding:18px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k{padding:12px 14px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kv{font-size:24px}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-hero .ov8-spk{display:none}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card{padding:16px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8{gap:20px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-top h1{font-size:26px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs{width:100%}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs button{flex:1}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k{padding:16px 14px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .ki{width:32px;height:32px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .ki svg{width:16px;height:16px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kh{gap:8px;min-height:32px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-k .kv{font-size:22px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ksp{height:32px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-grid{gap:16px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-card{padding:20px;gap:16px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch h3{font-size:18px;line-height:24px}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-sr,.ov8-sr.tl){grid-template-columns:92px minmax(0,1fr)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-sr.nl{grid-template-columns:minmax(0,1fr)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tail{display:none}
@@ -4611,8 +4650,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-db li{gri
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-dd{display:none}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow{grid-template-columns:minmax(96px,32%) minmax(0,1fr) minmax(84px,28%)}
 html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-flow .fl{font-size:11px;line-height:1.2;white-space:normal}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 :is(.ov8-fst,.ov8-fdrop){grid-template-columns:84px minmax(0,1fr)}
-html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs button{padding:8px 12px 10px}
+html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-ch{flex-wrap:wrap}
 }
 </style>
 </head>
@@ -8831,19 +8869,22 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs butt
 
 
   /* ================= V4 Crisp · Overview → New: prospects and learners ================= */
-  // From the shared "Insights dashboard" design, used as the Overview, and made visual-first to cut reading effort: every card
+  // Content from the shared "Insights dashboard" design, used as the Overview, made visual-first to cut reading effort: every card
   // opens with its takeaway, the mark that matters is in the accent colour and the rest is muted, KPI tiles carry a 12-month
   // sparkline, and dense forms became simpler ones (change bars, a butterfly chart, one funnel plus a ranking, ranked bars,
   // year-ago-to-now dots, a flow diagram). Exact figures stay one click away in each card's Table view. All figures are sample data.
+  // Look: the Crisp Overview design (Figma node 48:12213): pastel KPI tiles, pill controls, periwinkle, ink and rose marks.
   var OV8 = { tab: "prospects", range: "90D", biz: "All", seg: "stage", tbl: {} };
   try { var ov8s = JSON.parse(sessionStorage.getItem("cip-ov8") || "{}"); ["tab", "range", "biz", "seg"].forEach(function (k) { if (ov8s[k]) OV8[k] = ov8s[k]; }); } catch (e) {}
   var OV8_BIZ = ["WP", "SA", "KH", "International", "LC", "Internshala"];
   var OV8_BN = { WP: "Working Professionals", SA: "Study Abroad", KH: "KnowledgeHut", International: "International", LC: "Learning Centres", Internshala: "Internshala" };
-  // Colours from the shared design: upGrad reds, charcoal and greys; its business colours; its life-stage scale.
-  var OV8_BC = { WP: "#D6262D", SA: "#3A3D46", KH: "#E9A23B", International: "#3F7D6E", LC: "#8A6FB3", Internshala: "#9AA3B2" };
-  var OV8_CAT = ["#9E1A20", "#D6262D", "#E9767B", "#3A3D46", "#8A8F99", "#C9CBD1"];
-  var OV8_ORD = ["#F4B6B9", "#E9767B", "#D6262D", "#3A3D46", "#8A8F99", "#C9CBD1"];
-  var OV8_ACC = "#D6262D", OV8_DEEP = "#9E1A20", OV8_MUTE = "#F4B6B9", OV8_CHAR = "#3A3D46", OV8_ROSE = "#3A3D46", OV8_ROSE_M = "#C9CBD1", OV8_GREY = "#C9CBD1";
+  // Colours from the Crisp Overview design: periwinkle for the mark that matters, ink, rose, lavender tints for the rest.
+  // Business colours start with the design's periwinkle and rose and are checked for colour-blind separation of neighbours.
+  // Life stage runs from light to dark rose for students and light periwinkle to deep indigo for working people.
+  var OV8_BC = { WP: "#646EC2", SA: "#D03A70", KH: "#7C9A12", International: "#A260CB", LC: "#C77B2A", Internshala: "#2D93B8" };
+  var OV8_CAT = ["#3F4796", "#646EC2", "#8F97DA", "#B9BFEC", "#DADDF5", "#EEF0FA"];
+  var OV8_ORD = ["#F4C9D9", "#E486AA", "#C2306A", "#B3B9EA", "#6A74C6", "#2F3684"];
+  var OV8_ACC = "#646EC2", OV8_DEEP = "#3F4796", OV8_MUTE = "#C9CEEF", OV8_CHAR = "#182230", OV8_ROSE = "#D03A70", OV8_ROSE_M = "#F2C4D5", OV8_GREY = "#CDD0DE";
   var OV8_STAGES = ["School", "UG student", "Final-year UG", "Early career, 0 to 3 yrs", "Mid career, 3 to 8 yrs", "Senior, 8 yrs plus"];
   var OV8_STAGE_S = ["school students", "UG students", "final-year UG students", "early career", "mid career", "senior"];
   var OV8_MON = ["Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"];
@@ -8861,7 +8902,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs butt
     var tbl = t ? '<div class="ov8-tbl"' + (on ? "" : " hidden") + '><table><thead><tr>' + t.head.map(function (h, i) { return "<th" + (i ? ' class="n"' : "") + ' scope="col">' + esc(h) + "</th>"; }).join("") + "</tr></thead><tbody>" +
       t.rows.map(function (r) { return "<tr>" + r.map(function (c, i) { return i ? '<td class="n">' + esc(c) + "</td>" : '<th scope="row">' + esc(c) + "</th>"; }).join("") + "</tr>"; }).join("") + "</tbody></table></div>" : "";
     return '<section class="ov8-card' + (o.cls ? " " + o.cls : "") + '" aria-labelledby="ov8h-' + o.id + '"><div class="ov8-ch"><div><h3 id="ov8h-' + o.id + '">' + esc(o.title) + '</h3><p class="ov8-sub">' + esc(o.sub) + "</p></div>" +
-      (t ? '<button type="button" class="ov8-tbtn" data-tbl="' + o.id + '" aria-pressed="' + on + '">' + (on ? "Chart" : "Table") + "</button>" : "") + "</div>" +
+      (t ? '<div class="ov8-seg xs" role="group" aria-label="View"><button type="button" data-tbl="' + o.id + '" data-v="0" aria-pressed="' + !on + '">Chart</button><button type="button" data-tbl="' + o.id + '" data-v="1" aria-pressed="' + on + '">Table</button></div>' : "") + "</div>" +
       (o.ins ? '<p class="ov8-ins">' + esc(o.ins) + "</p>" : "") + (o.ctrl || "") + '<div class="ov8-viz"' + (on ? " hidden" : "") + ">" + o.body + "</div>" + tbl + (o.note ? '<p class="ov8-note">' + esc(o.note) + "</p>" : "") + "</section>";
   }
   function ov8leg(items, kind) { return '<div class="ov8-leg">' + items.map(function (x) { return '<span><i class="' + (kind || "sq") + '" style="background:' + x[1] + '"></i>' + esc(x[0]) + "</span>"; }).join("") + "</div>"; }
@@ -8871,6 +8912,13 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs butt
     var mn = Math.min.apply(null, vals), mx = Math.max.apply(null, vals), r = mx - mn || 1;
     var pts = vals.map(function (v, i) { return [(i / (vals.length - 1) * 100).toFixed(1), (88 - (v - mn) / r * 76).toFixed(1)]; });
     return '<span class="ov8-spk" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M' + pts.map(function (p) { return p.join(" "); }).join(" L") + '" fill="none" stroke="' + OV8_GREY + '" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg><i style="top:' + pts[pts.length - 1][1] + '%"></i></span>';
+  }
+  function ov8icon(n) { var g = typeof FLU !== "undefined" && FLU[n]; return g ? '<svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor" aria-hidden="true">' + g[1].split("|").map(function (d) { return '<path d="' + d + '"/>'; }).join("") + "</svg>" : ""; }
+  // KPI tile sparkline: a 2px periwinkle line over a fading wash, as in the design's tiles.
+  function ov8kspark(vals, i) {
+    var mn = Math.min.apply(null, vals), mx = Math.max.apply(null, vals), r = mx - mn || 1;
+    var d = "M" + vals.map(function (v, k) { return (k / (vals.length - 1) * 100).toFixed(1) + " " + (40 - (v - mn) / r * 32).toFixed(1); }).join(" L");
+    return '<svg class="ov8-ksp" viewBox="0 0 100 46" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="ov8kg' + i + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#646EC2" stop-opacity=".22"/><stop offset="1" stop-color="#646EC2" stop-opacity="0"/></linearGradient></defs><path d="' + d + ' L100 46 L0 46 Z" fill="url(#ov8kg' + i + ')"/><path d="' + d + '" fill="none" stroke="#646EC2" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>';
   }
   // One whole split into parts: 28px segmented bars, share printed inside when it fits, the largest part named at the end.
   function ov8segs(rows) {
@@ -8925,7 +8973,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs butt
     var mx = Math.max.apply(null, rows.map(function (r) { return Math.abs(r.pct); }));
     return '<ul class="ov8-dv">' + rows.map(function (r) {
       var w = (Math.abs(r.pct) / mx * 100).toFixed(1), up = r.pct >= 0;
-      return "<li" + ov8tip([(up ? "+" : "−") + Math.abs(r.pct) + "% in 12 months", r.label, "Now " + r.now + " of new enquiries"]) + '><span class="ov8-hl">' + esc(r.label) + '</span><span class="ov8-dvt"><span class="n">' + (up ? "" : '<i style="width:' + Math.min(100, Math.abs(r.pct) / (mx / 4) * 100).toFixed(1) + "%;background:" + OV8_CHAR + '"></i>') + '</span><span class="p">' + (up ? '<i style="width:' + w + "%;background:" + (r.hot ? OV8_ACC : OV8_MUTE) + '"></i>' : "") + "</span></span>" +
+      return "<li" + ov8tip([(up ? "+" : "−") + Math.abs(r.pct) + "% in 12 months", r.label, "Now " + r.now + " of new enquiries"]) + '><span class="ov8-hl">' + esc(r.label) + '</span><span class="ov8-dvt"><span class="n">' + (up ? "" : '<i style="width:' + Math.min(100, Math.abs(r.pct) / (mx / 4) * 100).toFixed(1) + "%;background:" + OV8_ROSE + '"></i>') + '</span><span class="p">' + (up ? '<i style="width:' + w + "%;background:" + (r.hot ? OV8_ACC : OV8_MUTE) + '"></i>' : "") + "</span></span>" +
         '<span class="ov8-hv ' + (up ? "up" : "dn") + '">' + (up ? "↑ " : "↓ ") + Math.abs(r.pct) + "%</span>" + ov8spark(r.vals) + "</li>";
     }).join("") + "</ul>";
   }
@@ -8936,13 +8984,15 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs butt
       return '<span class="l"' + ov8tip([d[2] + "% rule it out", d[0]]) + "><b>" + d[2] + '%</b><i style="width:' + (d[2] / mx * 100).toFixed(1) + "%;background:" + (d[2] === topO ? OV8_ROSE : OV8_ROSE_M) + '"></i></span><span class="c">' + esc(d[0]) + '</span><span class="r"' + ov8tip([d[1] + "% first choice", d[0]]) + '><i style="width:' + (d[1] / mx * 100).toFixed(1) + "%;background:" + (d[1] === topF ? OV8_ACC : OV8_MUTE) + '"></i><b>' + d[1] + "%</b></span>";
     }).join("") + "</div>";
   }
-  // A funnel: centred bars that narrow step by step, with the drop between steps; the biggest drop is highlighted.
-  function ov8funnel(steps, dropText, cols) {
+  // A funnel as the design's gradient columns: height = people at each step, a white pill with the share that passed the step
+  // before, the biggest loss in rose. Narrow cards turn the columns into rows.
+  function ov8funnel(steps, dropText) {
     var base = steps[0].v, drops = steps.map(function (s, i) { return i ? 1 - s.v / steps[i - 1].v : -1; }), worst = drops.indexOf(Math.max.apply(null, drops));
-    return '<div class="ov8-fu">' + steps.map(function (s, i) {
-      return (i ? '<div class="ov8-fdrop' + (i === worst ? " hi" : "") + '"><span>' + esc(dropText(steps[i - 1], s)) + "</span></div>" : "") +
-        '<div class="ov8-fst"' + ov8tip([s.display, s.label]) + '><span class="lab">' + esc(s.label) + '</span><span class="bar"><i style="width:' + Math.max(16, s.v / base * 100).toFixed(1) + "%;background:" + cols[i] + ";color:" + ov8ink(cols[i]) + '"><b>' + esc(s.display) + "</b></i></span></div>";
-    }).join("") + "</div>";
+    return '<div class="ov8-fuw"><div class="ov8-fu" style="--n:' + steps.length + '">' + steps.map(function (s, i) {
+      var p = i ? s.v / steps[i - 1].v * 100 : 100, pt = p < 10 ? p.toFixed(1) : String(Math.round(p));
+      return '<div class="ov8-fst' + (i === worst ? " hi" : "") + '" style="--f:' + Math.max(0.02, s.v / base).toFixed(3) + '"' + ov8tip([s.display, s.label].concat(i ? [pt + "% of " + steps[i - 1].label.toLowerCase() + " · " + dropText(steps[i - 1], s)] : [])) + '><span class="bar"><i></i>' +
+        (i ? '<em class="ov8-fdrop' + (i === worst ? " hi" : "") + '">' + pt + "%</em>" : "") + "</span><b>" + esc(s.display) + '</b><span class="lab">' + esc(s.label) + "</span></div>";
+    }).join("") + "</div></div>";
   }
   // A year ago to now: two dots joined by a line for each row.
   function ov8dumb(rows, max) {
@@ -8968,12 +9018,16 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs butt
       return '<path d="M0 ' + y0.toFixed(1) + " C50 " + y0.toFixed(1) + " 50 " + y1.toFixed(1) + " 100 " + y1.toFixed(1) + " L100 " + (y1 + t).toFixed(1) + " C50 " + (y1 + t).toFixed(1) + " 50 " + (y0 + t).toFixed(1) + " 0 " + (y0 + t).toFixed(1) + ' Z" fill="' + (OV8_BC[code[r[1]]] || OV8_ACC) + '"' + ov8tip([ov8inr(r[2] * scale) + " people", r[0] + " → " + r[1]]) + "/>";
     }).join("");
     var lab = function (N, side) { return N.map(function (n) { return '<span class="fl ' + side + '" style="top:' + (n.y + n.h / 2).toFixed(1) + 'px"><b>' + esc(n.n) + "</b> " + ov8inr(n.v * scale) + "</span>"; }).join(""); };
-    var node = function (N, side) { return N.map(function (n) { return '<i class="fn ' + side + '" style="top:' + n.y.toFixed(1) + "px;height:" + n.h.toFixed(1) + "px;background:" + (side === "r" ? OV8_BC[code[n.n]] || OV8_ACC : "#8A8F99") + '"></i>'; }).join(""); };
+    var node = function (N, side) { return N.map(function (n) { return '<i class="fn ' + side + '" style="top:' + n.y.toFixed(1) + "px;height:" + n.h.toFixed(1) + "px;background:" + (side === "r" ? OV8_BC[code[n.n]] || OV8_ACC : OV8_CHAR) + '"></i>'; }).join(""); };
     return '<div class="ov8-flow" style="--h:' + Math.ceil(H) + 'px"><div class="fcol">' + lab(L, "l") + '</div><div class="fmid">' + node(L, "l") + '<svg viewBox="0 0 100 ' + Math.ceil(H) + '" preserveAspectRatio="none" aria-hidden="true">' + paths + "</svg>" + node(R, "r") + '</div><div class="fcol">' + lab(R, "r") + "</div></div>";
   }
-  function ov8hero(kicker, kpis) {
-    return '<section class="ov8-hero" aria-label="Headline"><span class="ov8-kick">' + esc(kicker) + '</span><div class="ov8-kpis">' + kpis.map(function (k) {
-      return '<div class="ov8-k"><span class="kl">' + esc(k[0]) + '</span><div class="kr"><b class="kv">' + esc(k[1]) + "</b>" + (k[5] ? ov8spark(k[5]) : "") + '</div><span class="kd ' + (k[3] ? "up" : "dn") + '">' + (/^\+/.test(k[2]) ? "↑ " : /^[−-]/.test(k[2]) ? "↓ " : "") + esc(k[2]) + '</span><span class="kn">' + esc(k[4]) + "</span></div>";
+  // Headline: the design's pastel KPI tiles. k = [label, value, change, good?, note, 12-point trend, icon, period, change in words]
+  function ov8hero(label, kpis) {
+    return '<section class="ov8-hero" aria-label="' + esc(label) + '"><div class="ov8-kpis">' + kpis.map(function (k, i) {
+      var up = /^\+/.test(k[2]), dn = /^[−-]/.test(k[2]);
+      return '<div class="ov8-k"><div class="kh"><span class="ki" aria-hidden="true">' + ov8icon(k[6]) + '</span><span class="kt"><span class="kl">' + esc(k[0]) + '</span><span class="ks">' + esc(k[7]) + "</span></span></div>" +
+        '<div class="kr"><b class="kv">' + esc(k[1]) + '</b><em class="kd ' + (k[3] ? "up" : "dn") + '"' + (k[8] ? ' title="' + esc(k[8]) + '"' : "") + ">" + (up ? "↑ " : dn ? "↓ " : "") + esc(k[2].replace(/^[+−-]/, "")) + "</em></div>" +
+        (k[5] ? ov8kspark(k[5], i) : "") + '<span class="kn">' + esc(k[4]) + "</span></div>";
     }).join("") + "</div></section>";
   }
   // Which life stage leads in each business, as a sentence.
@@ -8984,40 +9038,41 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs butt
 
   // ---------- the dashboard ----------
   function ov8html() {
-    var st = OV8, scale = { "30D": 0.36, "90D": 1, "12M": 3.6 }[st.range] || 1, rangeL = { "30D": "last 30 days", "90D": "last 90 days", "12M": "last 12 months" }[st.range];
+    var st = OV8, scale = { "30D": 0.36, "90D": 1, "12M": 3.6 }[st.range] || 1, rangeL = { "30D": "last 30 days", "90D": "last 90 days", "12M": "last 12 months" }[st.range], rangeC = rangeL.charAt(0).toUpperCase() + rangeL.slice(1);
     var keep = function (b) { return st.biz === "All" || st.biz === b; }, fb = OV8_BIZ.filter(keep), isP = st.tab === "prospects", h = "";
     var stageLeg = ov8leg(OV8_STAGES.map(function (s, i) { return [s, OV8_ORD[i]]; }));
     var stageRows = function (D) { return fb.map(function (b) { var row = D[b], m = row.indexOf(Math.max.apply(null, row)); return { label: OV8_BN[b], tail: "Mostly " + OV8_STAGE_S[m].replace(/ students$/, "") + " · " + row[m] + "%", segs: row.map(function (v, i) { return { v: v, c: OV8_ORD[i], name: OV8_STAGES[i] }; }) }; }); };
     var stageTbl = function (D) { return { head: ["Business"].concat(OV8_STAGES), rows: fb.map(function (b) { return [OV8_BN[b]].concat(D[b].map(function (v) { return v + "%"; })); }) }; };
-    var expBars = function (rows, hot) { var mx = Math.max.apply(null, rows.map(function (r) { return r[1]; })); return { body: ov8vbars(rows.map(function (r, i) { return { label: i ? r[0] + " yrs" : r[0], v: r[1], display: r[1] + "K", c: i === 0 ? (hot.indexOf(0) >= 0 ? OV8_CHAR : "#8A8F99") : hot.indexOf(i) >= 0 ? OV8_ACC : hot.indexOf(0) >= 0 ? "#E9767B" : OV8_MUTE, mu: hot.indexOf(i) < 0, tip: (i ? r[0] + " yrs" : "Students") + " · thousands" }; }), mx), table: { head: ["Experience", "People (thousands)"], rows: rows.map(function (r, i) { return [i ? r[0] + " yrs" : r[0], r[1] + "K"]; }) } }; };
+    var expBars = function (rows, hot) { var mx = Math.max.apply(null, rows.map(function (r) { return r[1]; })); return { body: ov8vbars(rows.map(function (r, i) { return { label: i ? r[0] + " yrs" : r[0], v: r[1], display: r[1] + "K", c: i === 0 ? (hot.indexOf(0) >= 0 ? OV8_CHAR : "#A3A8BC") : hot.indexOf(i) >= 0 ? OV8_ACC : hot.indexOf(0) >= 0 ? "#9AA2DE" : OV8_MUTE, mu: hot.indexOf(i) < 0, tip: (i ? r[0] + " yrs" : "Students") + " · thousands" }; }), mx), table: { head: ["Experience", "People (thousands)"], rows: rows.map(function (r, i) { return [i ? r[0] + " yrs" : r[0], r[1] + "K"]; }) } }; };
     var crossCard = function (id, title, rows) {
       var total = rows.reduce(function (a, c) { return a + c[2]; }, 0) * scale, top = rows.slice().sort(function (a, b) { return b[2] - a[2]; })[0];
       return ov8card({ id: id, cls: "w", title: title, sub: "People, " + rangeL + ". Each person counted once, for their latest move.", ins: ov8inr(total) + " people moved to another upGrad business. The biggest flow is " + top[0] + " to " + top[1] + ".", body: ov8flow(rows, scale),
         table: { head: ["From", "To", "People"], rows: rows.map(function (c) { return [c[0], c[1], ov8inr(c[2] * scale)]; }) } });
     };
 
-    // Header, filters and tabs
-    h += '<header class="ov8-top"><div class="ov8-tl"><div class="ov8-tt"><h1>Overview</h1><span class="ov8-tag">Sample data for design review</span></div><p class="ov8-upd">Updated today, 09:00 · ' + esc(rangeL) + " · " + esc(st.biz === "All" ? "All businesses" : OV8_BN[st.biz]) + "</p></div>" +
-      '<div class="ov8-fil"><div class="ov8-seg" role="group" aria-label="Time range">' + ["30D", "90D", "12M"].map(function (r) { return '<button type="button" data-ov8-range="' + r + '" aria-pressed="' + (st.range === r) + '">' + r + "</button>"; }).join("") + "</div>" +
-      '<label class="ov8-sel"><span>Business</span><select data-ov8-biz aria-label="Business"><option value="All">All businesses</option>' + OV8_BIZ.map(function (b) { return '<option value="' + b + '"' + (st.biz === b ? " selected" : "") + ">" + esc(OV8_BN[b]) + "</option>"; }).join("") + "</select></label></div></header>";
-    h += '<div class="ov8-tabs" role="tablist" aria-label="Overview">' + [["prospects", "Prospects", "In the lead journey now"], ["learners", "Learners", "Paid with us"]].map(function (t) { return '<button type="button" role="tab" data-ov8-tab="' + t[0] + '" aria-selected="' + (st.tab === t[0]) + '"><b>' + t[1] + "</b><span>" + t[2] + "</span></button>"; }).join("") + "</div>";
+    // Header: title, the design's "Updated" pill, the Prospects/Learners switch; then what the tab counts and the filters
+    h += '<header class="ov8-top"><div class="ov8-tl"><h1>Overview</h1><p class="ov8-upd"><span class="ov8-live"><i aria-hidden="true"></i>Updated today, 09:00</span><span>' + esc(rangeC) + " · " + esc(st.biz === "All" ? "All businesses" : OV8_BN[st.biz]) + "</span></p></div>" +
+      '<div class="ov8-tabs" role="tablist" aria-label="Overview">' + [["prospects", "Prospects", "In the lead journey now"], ["learners", "Learners", "Paid with us"]].map(function (t) { return '<button type="button" role="tab" data-ov8-tab="' + t[0] + '" aria-selected="' + (st.tab === t[0]) + '"><b>' + t[1] + '</b><span class="ov8-vh">, ' + t[2] + "</span></button>"; }).join("") + "</div></header>";
+    h += '<div class="ov8-bar"><p class="ov8-kick">' + (isP ? "<b>Prospects</b> · people in the lead journey now" : "<b>Learners</b> · everyone who has paid with us") + "</p>" +
+      '<div class="ov8-fil"><div class="ov8-seg" role="group" aria-label="Time range">' + [["30D", "30 days"], ["90D", "90 days"], ["12M", "12 months"]].map(function (r) { return '<button type="button" data-ov8-range="' + r[0] + '" aria-pressed="' + (st.range === r[0]) + '">' + r[1] + "</button>"; }).join("") + "</div>" +
+      '<label class="ov8-sel"><span class="ov8-vh">Business</span><select data-ov8-biz aria-label="Business"><option value="All">All businesses</option>' + OV8_BIZ.map(function (b) { return '<option value="' + b + '"' + (st.biz === b ? " selected" : "") + ">" + esc(OV8_BN[b]) + "</option>"; }).join("") + "</select></label></div></div>";
 
     if (isP) {
       var FUN = { WP: [142000, 51000, 9800, 8900], SA: [68000, 29000, 6100, 3200], KH: [54000, 17000, 3900, 3700], International: [21000, 8400, 1600, 1400], LC: [18000, 9100, 2400, 2200], Internshala: [81000, null, 7300, 7000] };
       var REACH = { WP: 71, SA: 64, KH: 69, International: 58, LC: 74, Internshala: 66 }, MED = { WP: 29, SA: 61, KH: 18, International: 44, LC: 25, Internshala: 9 };
       var pEnq = fb.reduce(function (a, b) { return a + FUN[b][0]; }, 0) * scale, pEnr = fb.reduce(function (a, b) { return a + FUN[b][3]; }, 0) * scale;
       var active = pEnq + (st.biz === "All" ? 212 * scale : 0), conv = pEnr / pEnq * 100;
-      h += ov8hero("Prospects · in the lead journey now", [
-        ["Active prospects", ov8inr(active), "+4.2% vs previous period", 1, "Unique people with an open enquiry", [3.52, 3.55, 3.58, 3.6, 3.63, 3.66, 3.68, 3.7, 3.73, 3.76, 3.8, 3.84]],
-        ["Reachable", (st.biz === "All" ? 68 : REACH[st.biz]) + "%", "+1.1 pts", 1, "Consented, verified, adult", [64, 64.5, 65, 65.3, 65.8, 66.2, 66.5, 66.9, 67.2, 67.5, 67.8, 68]],
-        ["90-day conversion", conv.toFixed(1) + "%", "−0.3 pts", 0, "Enquiry to enrolment", [7.4, 7.3, 7.3, 7.2, 7.2, 7.1, 7.1, 7.0, 7.0, 7.0, 6.9, 6.9]],
-        ["Median days to enrol", String(st.biz === "All" ? 34 : MED[st.biz]), "2 days faster", 1, "For those who enrolled", [41, 40, 40, 39, 38, 38, 37, 36, 36, 35, 35, 34]]]);
+      h += ov8hero("Prospects headline", [
+        ["Active prospects", ov8inr(active), "+4.2%", 1, "Unique people with an open enquiry", [3.52, 3.55, 3.58, 3.6, 3.63, 3.66, 3.68, 3.7, 3.73, 3.76, 3.8, 3.84], "person", rangeC, "Up 4.2% on the previous period"],
+        ["Reachable", (st.biz === "All" ? 68 : REACH[st.biz]) + "%", "+1.1 pts", 1, "Consented, verified, adult", [64, 64.5, 65, 65.3, 65.8, 66.2, 66.5, 66.9, 67.2, 67.5, 67.8, 68], "call", rangeC, "Up 1.1 points on the previous period"],
+        ["90-day conversion", conv.toFixed(1) + "%", "−0.3 pts", 0, "Enquiry to enrolment", [7.4, 7.3, 7.3, 7.2, 7.2, 7.1, 7.1, 7.0, 7.0, 7.0, 6.9, 6.9], "target_arrow", rangeC, "Down 0.3 points on the previous period"],
+        ["Median days to enrol", String(st.biz === "All" ? 34 : MED[st.biz]), "−2 days", 1, "For those who enrolled", [41, 40, 40, 39, 38, 38, 37, 36, 36, 35, 35, 34], "data_trending", rangeC, "2 days faster than the previous period"]]);
 
       // Who they are
       var PST = { WP: [0, 3, 5, 22, 45, 25], SA: [6, 30, 34, 22, 7, 1], KH: [0, 4, 6, 30, 40, 20], International: [0, 8, 12, 30, 35, 15], LC: [2, 18, 20, 35, 20, 5], Internshala: [8, 52, 30, 8, 2, 0] };
       var pe = expBars([["Student", 118], ["Under 1", 46], ["1 to 3", 64], ["3 to 5", 58], ["5 to 8", 49], ["8 to 12", 31], ["12 plus", 18]], [0]);
       var states = [["Maharashtra", 16], ["Karnataka", 13], ["Delhi NCR", 12], ["Telangana", 9], ["Tamil Nadu", 8], ["Uttar Pradesh", 7], ["West Bengal", 5], ["Gujarat", 4], ["Other states", 26]];
-      var tiers = [["Tier 1", 54], ["Tier 2", 28], ["Tier 3 and below", 12], ["Outside India", 6]], TIERC = ["#9E1A20", "#D6262D", "#F4B6B9", "#E4E5E8"];
+      var tiers = [["Tier 1", 54], ["Tier 2", 28], ["Tier 3 and below", 12], ["Outside India", 6]], TIERC = ["#3F4796", "#7983CD", "#B9BFEC", "#E7E8EF"];
       h += ov8head("Who they are", "The people deciding whether to learn with us") + '<div class="ov8-grid">' +
         ov8card({ id: "pstage", cls: "w", title: "Life stage, by business", sub: "Share of prospects in each business", ins: ov8stageIns(PST, fb), body: stageLeg + ov8segs(stageRows(PST)), table: stageTbl(PST) }) +
         ov8card({ id: "pexp", title: "Experience when they enquire", sub: "People, thousands", ins: "Students are the biggest single group: 31% of prospects. Most working enquirers have 1 to 8 years of experience.", body: pe.body, table: pe.table }) +
@@ -9028,7 +9083,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs butt
 
       // What they want
       var T1 = [["Data science and AI", 24], ["MBA and management", 17], ["Masters abroad", 14]], T2 = [["Software and cloud", 12], ["Internships", 9], ["Marketing", 7], ["Finance", 6], ["Doctorate", 6], ["Other", 3], ["Law", 2]];
-      var TRC = ["#9E1A20", "#D6262D", "#E9767B", "#F4B6B9", "#FBE7E8"];
+      var TRC = ["#3F4796", "#646EC2", "#9AA2DE", "#C9CEEF", "#E3E6F7"];
       var tcell = function (t, big, rk) { return '<div class="ov8-tc' + (big ? " big" : "") + '" style="flex:' + t[1] + " 1 0;background:" + TRC[rk] + ";color:" + ov8ink(TRC[rk]) + '"' + ov8tip([t[1] + "% of prospects", t[0]]) + "><span>" + esc(t[0]) + "</span><b>" + t[1] + "%</b></div>"; };
       var TS = [["Generative AI", [3.1, 3.4, 3.9, 4.4, 4.9, 5.5, 6.0, 6.4, 6.6, 7.0, 7.3, 7.5], 142], ["Cloud and DevOps", [5.0, 5.1, 5.3, 5.5, 5.6, 5.8, 6.0, 6.2, 6.4, 6.6, 6.7, 6.9], 38], ["Product management", [3.3, 3.3, 3.4, 3.5, 3.6, 3.7, 3.7, 3.8, 3.9, 3.9, 4.0, 4.0], 21],
         ["Data science", [11.8, 11.9, 11.7, 12.0, 11.9, 12.1, 12.0, 12.2, 12.1, 12.0, 12.1, 12.0], 2], ["MBA", [9.4, 9.3, 9.2, 9.1, 9.0, 8.9, 8.8, 8.7, 8.6, 8.6, 8.5, 8.6], -9]];
@@ -9053,7 +9108,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs butt
       var seg = SEG[st.seg] || SEG.stage, segRows = seg[0].map(function (r) { return [r[0], r[1], r[2], r[3], +(r[1] * r[2] * r[3] / 10000).toFixed(1)]; }), segSorted = segRows.slice().sort(function (a, b) { return b[4] - a[4]; });
       var segCtrl = '<div class="ov8-seg sm" role="group" aria-label="Segment by">' + [["stage", "Life stage"], ["channel", "Channel"], ["tier", "City tier"]].map(function (s) { return '<button type="button" data-ov8-seg="' + s[0] + '" aria-pressed="' + (st.seg === s[0]) + '">' + s[1] + "</button>"; }).join("") + "</div>";
       var COH = [["May", 6.1, 90], ["Jun", 6.4, 90], ["Jul", 6.6, 90], ["Aug", 7.0, 90], ["Sep", 7.3, 60], ["Oct", 7.6, 30]];
-      var cohC = ["#E4E5E8", "#C9CBD1", "#F4B6B9", "#E9767B", "#D6262D", "#9E1A20"];
+      var cohC = ["#D9DBE5", "#C9CCDA", "#B4BAE6", "#959DDB", "#6E78C8", "#2F3684"];
       var cohS = COH.map(function (c, i) { var xs = [], vs = []; for (var t = 0; t <= c[2]; t += 5) { xs.push(t / 90); vs.push(+(c[1] * (1 - Math.exp(-t / 28)) / (1 - Math.exp(-90 / 28))).toFixed(2)); } return { c: cohC[i], w: i === 5 ? 3 : 2, x: xs, y: vs, name: c[0] + (c[2] < 90 ? " (so far)" : ""), dot: i === 5 }; });
       var hx = []; for (var t9 = 0; t9 <= 90; t9 += 10) hx.push(t9 / 90);
       var cohort = ov8line({ label: "Share of each month's enquiries enrolled, by days since enquiry", yMax: 8, yTicks: [0, 2, 4, 6, 8], yFmt: function (t) { return t + "%"; }, xTicks: [[0, "Day 0"], [1 / 3, "30"], [2 / 3, "60"], [1, "90"]], series: cohS, hx: hx,
@@ -9061,8 +9116,8 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs butt
         hlines: function (i) { var day = Math.round(hx[i] * 90); return ["Day " + day].concat(cohS.map(function (s) { var k = Math.round(day / 5); return s.name + ": " + (s.y[k] !== undefined ? s.y[k] + "%" : "not yet"); })); } });
       h += ov8head("How they convert", "Each step counts only people who passed the step before") + '<div class="ov8-grid">' +
         ov8card({ id: "pfun", cls: "w", title: "From enquiry to enrolment", sub: "People, " + rangeL, ins: conv.toFixed(1) + "% of enquiries end in an enrolment. The biggest drop is from " + fsteps[fw - 1].label.toLowerCase() + " to " + fsteps[fw].label.toLowerCase() + ".",
-          body: '<div class="ov8-two"><div><p class="ov8-mini">All selected businesses</p>' + ov8funnel(fsteps, function (a, b) { return "−" + Math.round((1 - b.v / a.v) * 100) + "%"; }, fsteps.length === 4 ? ["#3A3D46", "#9E1A20", "#D6262D", "#E9767B"] : ["#3A3D46", "#D6262D", "#E9767B"]) + '</div><div><p class="ov8-mini">Enrolment rate, by business</p>' +
-            ov8hbars(rates.map(function (r, i) { return { label: OV8_BN[r[0]], v: r[1], display: r[1].toFixed(1) + "%", c: OV8_BC[r[0]], tip: OV8_BN[r[0]] + " · enquiry to enrolment" }; }), Math.max.apply(null, rates.map(function (r) { return r[1]; }))) + "</div></div>",
+          body: '<div class="ov8-two"><div><p class="ov8-mini">All selected businesses</p>' + ov8funnel(fsteps, function (a, b) { return Math.round((1 - b.v / a.v) * 100) + "% dropped"; }) + '</div><div><p class="ov8-mini">Enrolment rate, by business</p>' +
+            ov8hbars(rates.map(function (r, i) { return { label: OV8_BN[r[0]], v: r[1], display: r[1].toFixed(1) + "%", c: i === 0 ? OV8_ACC : OV8_MUTE, tip: OV8_BN[r[0]] + " · enquiry to enrolment" }; }), Math.max.apply(null, rates.map(function (r) { return r[1]; }))) + "</div></div>",
           table: { head: ["Business"].concat(stepN).concat(["Enrol rate"]), rows: fb.map(function (b) { return [OV8_BN[b]].concat(FUN[b].map(function (v) { return v === null ? "Self-serve" : ov8inr(v * scale); })).concat([(FUN[b][3] / FUN[b][0] * 100).toFixed(1) + "%"]); }) },
           note: fb.indexOf("Internshala") >= 0 ? "Internshala is self-serve, so its enquirers skip counselling; the Counselled step counts the other businesses only." : "" }) +
         ov8card({ id: "pwho", title: "Who converts", sub: "Enquiry to enrolment, by segment", ctrl: segCtrl, ins: seg[1],
@@ -9076,7 +9131,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs butt
       var CH = [["Paid search", 34, 30], ["Paid social", 24, 27], ["Organic", 18, 17], ["Referral", 8, 9], ["Affiliate", 9, 8], ["Webinar and events", 7, 9]];
       var BUB = [["Paid search", 118, 5.7, 1.9], ["Paid social", 92, 3.0, 1.4], ["Organic", 66, 9.4, 2.2], ["Referral", 34, 15.3, 2.6], ["Affiliate", 31, 4.1, 1.5], ["Webinar", 43, 11.9, 2.4]];
       var bub = '<div class="ov8-bub"><div class="ov8-ly">' + [0, 5, 10, 15, 20].map(function (t) { return '<span style="top:' + (100 - t / 20 * 100).toFixed(2) + '%">' + t + "%</span>"; }).join("") + '</div><div class="ov8-bp"><span class="q q1">Few people, high quality</span><span class="q q2">Many people, low quality</span>' + [0, 5, 10, 15, 20].map(function (t) { return '<i class="g" style="top:' + (100 - t / 20 * 100).toFixed(2) + '%"></i>'; }).join("") +
-        BUB.map(function (b) { var sz = Math.round(b[3] * 16), good = b[2] >= 9; return '<span class="ov8-bb' + (b[1] / 130 > 0.72 ? " lf" : "") + '" style="left:' + (b[1] / 130 * 100).toFixed(1) + "%;bottom:" + (b[2] / 20 * 100).toFixed(1) + "%;width:" + sz + "px;height:" + sz + "px;background:" + (good ? OV8_ACC : "#8A8F99") + '"' + ov8tip(["₹" + b[3] + " lakh average value", b[0], ov8inr(b[1] * 1000 * scale) + " prospects · " + b[2] + "% conversion"]) + '><em>' + esc(b[0]) + "</em></span>"; }).join("") +
+        BUB.map(function (b) { var sz = Math.round(b[3] * 16), good = b[2] >= 9; return '<span class="ov8-bb' + (b[1] / 130 > 0.72 ? " lf" : "") + '" style="left:' + (b[1] / 130 * 100).toFixed(1) + "%;bottom:" + (b[2] / 20 * 100).toFixed(1) + "%;width:" + sz + "px;height:" + sz + "px;background:" + (good ? OV8_ACC : "#A3A8BC") + '"' + ov8tip(["₹" + b[3] + " lakh average value", b[0], ov8inr(b[1] * 1000 * scale) + " prospects · " + b[2] + "% conversion"]) + '><em>' + esc(b[0]) + "</em></span>"; }).join("") +
         '</div><p class="ov8-ax">More prospects →</p></div>';
       h += ov8head("Where they come from", "How people first found us") + '<div class="ov8-grid">' +
         ov8card({ id: "pmix", title: "Channel mix, a year ago and now", sub: "Share of new prospects", ins: "Paid social gained 3 points and paid search lost 4. Webinars and events are growing too.", body: ov8dumb(CH, 36),
@@ -9085,12 +9140,12 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs butt
           table: { head: ["Channel", "Prospects", "Conversion", "Average value"], rows: BUB.map(function (b) { return [b[0], ov8inr(b[1] * 1000 * scale), b[2] + "%", "₹" + b[3] + " lakh"]; }) } }) +
         crossCard("pcross", "Crossover: our learners, now enquiring elsewhere in upGrad", [["WP learners", "KnowledgeHut", 3420], ["Internshala trainees", "WP", 2980], ["SA alumni", "WP", 1610], ["WP alumni", "International", 1240], ["Internshala trainees", "SA", 1180], ["KH learners", "WP", 960], ["LC learners", "WP", 720], ["SA alumni", "KnowledgeHut", 410]]) + "</div>";
     } else {
-      h += ov8hero("Learners · paid with us", [
-        ["Active learners", "2,12,480", "+3.1% vs previous period", 1, "In a paid programme now", [1.95, 1.97, 1.98, 2.0, 2.01, 2.03, 2.04, 2.06, 2.07, 2.09, 2.1, 2.12]],
-        ["Lifetime revenue", "₹2,846 Cr", "+₹318 Cr in 12 months", 1, "All learners, payments minus refunds", [2528, 2554, 2580, 2606, 2634, 2660, 2688, 2716, 2742, 2770, 2808, 2846]],
-        ["Repeat buyers", "9.6%", "+0.4 pts", 1, "Bought a second programme", [8.9, 9.0, 9.0, 9.1, 9.1, 9.2, 9.3, 9.3, 9.4, 9.5, 9.5, 9.6]],
-        ["Completion", "58%", "+2 pts", 1, "Closed cohorts", [54, 54.5, 55, 55.3, 55.8, 56, 56.4, 56.8, 57.1, 57.4, 57.7, 58]],
-        ["Refund or deferral", "7.2%", "−0.5 pts", 1, "Of enrolments in the period", [8.1, 8.0, 7.9, 7.9, 7.8, 7.7, 7.6, 7.5, 7.5, 7.4, 7.3, 7.2]]]);
+      h += ov8hero("Learners headline", [
+        ["Active learners", "2,12,480", "+3.1%", 1, "In a paid programme now", [1.95, 1.97, 1.98, 2.0, 2.01, 2.03, 2.04, 2.06, 2.07, 2.09, 2.1, 2.12], "hat_graduation", "Right now", "Up 3.1% on the previous period"],
+        ["Lifetime revenue", "₹2,846 Cr", "+₹318 Cr", 1, "Payments minus refunds", [2528, 2554, 2580, 2606, 2634, 2660, 2688, 2716, 2742, 2770, 2808, 2846], "wallet", "All time", "₹318 Cr added in 12 months"],
+        ["Repeat buyers", "9.6%", "+0.4 pts", 1, "Bought a second programme", [8.9, 9.0, 9.0, 9.1, 9.1, 9.2, 9.3, 9.3, 9.4, 9.5, 9.5, 9.6], "arrow_swap", "All learners", "Up 0.4 points in 12 months"],
+        ["Completion", "58%", "+2 pts", 1, "Closed cohorts", [54, 54.5, 55, 55.3, 55.8, 56, 56.4, 56.8, 57.1, 57.4, 57.7, 58], "ribbon", "Last 12 months", "Up 2 points in 12 months"],
+        ["Refund or deferral", "7.2%", "−0.5 pts", 1, "Of enrolments in the period", [8.1, 8.0, 7.9, 7.9, 7.8, 7.7, 7.6, 7.5, 7.5, 7.4, 7.3, 7.2], "payment", rangeC, "Down 0.5 points, which is good"]]);
       var LST = { WP: [0, 1, 2, 18, 50, 29], SA: [2, 22, 38, 28, 9, 1], KH: [0, 2, 3, 28, 44, 23], International: [0, 4, 8, 28, 40, 20], LC: [1, 12, 16, 40, 24, 7], Internshala: [5, 48, 33, 11, 3, 0] };
       var le = expBars([["Student", 31], ["Under 1", 12], ["1 to 3", 34], ["3 to 5", 41], ["5 to 8", 46], ["8 to 12", 30], ["12 plus", 18]], [4]);
       var EMP = [["Employer A", "IT services", 4210], ["Employer B", "IT services", 3870], ["Employer C", "Consulting", 2140], ["Employer D", "IT services", 1980], ["Employer E", "Banking", 1460], ["Employer F", "IT services", 1390], ["Employer G", "E-commerce", 1120], ["Employer H", "Telecom", 940], ["Employer I", "Banking", 880], ["Employer J", "Consulting", 760]];
@@ -9117,7 +9172,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs butt
       var rev = ov8leg(fb.map(function (b) { return [OV8_BN[b], OV8_BC[b]]; })) + ov8stack(Q.map(function (q, i) { return { label: q, v: fb.map(function (b) { return REV[b][i]; }) }; }), fb.map(function (b) { return OV8_BN[b]; }), fb.map(function (b) { return OV8_BC[b]; }), { total: true, h: 190, fmt: function (v) { return "₹" + v + " Cr"; } });
       h += ov8head("What they're worth", "Lifetime value = payments minus refunds, in rupees, from OMS") + '<div class="ov8-grid">' +
         ov8card({ id: "lltv", title: "Lifetime value per learner", sub: "% of learners", ins: "Median ₹1.4 lakh: most learners buy one mid-priced programme (highlighted).", body: ov8vbars(LTV.map(function (b, i) { return { label: b[0], v: b[1], display: b[1] + "%", c: ov8em(i, [2]) }; }), 24), table: { head: ["Lifetime value", "Learners"], rows: LTV.map(function (b) { return [b[0], b[1] + "%"]; }) } }) +
-        ov8card({ id: "lent", title: "Value by how they first came in", sub: "Average lifetime value", ins: "A referred learner is worth almost twice a paid-social one.", body: ov8hbars(ENT.map(function (e) { return { label: e[0], v: e[1], display: "₹" + e[1] + "L", c: e[1] >= 2.2 ? OV8_DEEP : "#E9767B", mu: e[1] < 2.2 }; }), 2.6), table: { head: ["First came in through", "Average value"], rows: ENT.map(function (e) { return [e[0], "₹" + e[1] + " lakh"]; }) } }) +
+        ov8card({ id: "lent", title: "Value by how they first came in", sub: "Average lifetime value", ins: "A referred learner is worth almost twice a paid-social one.", body: ov8hbars(ENT.map(function (e) { return { label: e[0], v: e[1], display: "₹" + e[1] + "L", c: e[1] >= 2.2 ? OV8_DEEP : "#B9BFEC", mu: e[1] < 2.2 }; }), 2.6), table: { head: ["First came in through", "Average value"], rows: ENT.map(function (e) { return [e[0], "₹" + e[1] + " lakh"]; }) } }) +
         ov8card({ id: "lpar", title: "How concentrated value is", sub: "Cumulative revenue against learners, ranked by value", ins: "The top 10% of learners bring 38% of all revenue.", body: pareto, table: { head: ["Top learners", "Share of revenue"], rows: parX.map(function (x, i) { return [Math.round(x * 100) + "%", parY[i] + "%"]; }) } }) +
         ov8card({ id: "lrep", title: "Time to a second purchase", sub: "% of learners who have bought again", ins: "Repeat buying is slow: under 5% buy again within a year.", body: repeat, table: { head: ["Months since first purchase", "Bought again"], rows: repX.map(function (x, i) { return [String(Math.round(x * 36)), repY[i] + "%"]; }) } }) +
         ov8card({ id: "lrev", cls: "w", title: "Revenue by business, by quarter", sub: "₹ crore", ins: "Revenue grew " + grow + "% from Q1 to Q4. " + OV8_BN[lead] + " brings the most.", body: rev, table: { head: ["Quarter"].concat(fb.map(function (b) { return OV8_BN[b]; })).concat(["Total"]), rows: Q.map(function (q, i) { return [q].concat(fb.map(function (b) { return "₹" + REV[b][i] + " Cr"; })).concat(["₹" + qt[i] + " Cr"]); }) } }) + "</div>";
@@ -9128,7 +9183,7 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs butt
       var RS = [["Time or work pressure", 31], ["Money", 18], ["Personal reasons", 14], ["Programme fit", 12], ["Batch timing", 9], ["Job change", 8], ["Other", 8]];
       h += ov8head("How they learn and finish", "Closed cohorts only, so every learner has had time to finish") + '<div class="ov8-grid">' +
         ov8card({ id: "lcomp", title: "From enrolment to certificate", sub: "% of enrolled learners", ins: "58% complete. The biggest drop is in the middle modules, between 25% and 50% done.",
-          body: ov8funnel(CF.map(function (c) { return { label: c[0], v: c[1], display: c[1] + "%" }; }), function (a, b) { return "−" + (a.v - b.v) + " pts"; }, CF.map(function (c, i) { return i >= 5 ? "#9E1A20" : i === 3 ? "#D6262D" : "#E9767B"; })), table: { head: ["Step", "Learners"], rows: CF.map(function (c) { return [c[0], c[1] + "%"]; }) } }) +
+          body: ov8funnel(CF.map(function (c) { return { label: c[0], v: c[1], display: c[1] + "%" }; }), function (a, b) { return (a.v - b.v) + " pts lost"; }), table: { head: ["Step", "Learners"], rows: CF.map(function (c) { return [c[0], c[1] + "%"]; }) } }) +
         ov8card({ id: "lfin", title: "Who finishes", sub: "% who complete, by life stage", ins: "Mid-career learners finish most (65%). Students who enrol while still in school finish least (28%).",
           body: ov8hbars(fin.map(function (r, i) { return { label: r[0], v: r[5], display: r[5] + "%", c: i === 0 ? OV8_ACC : OV8_MUTE, tip: r[0] + " · completed" }; }), 70),
           table: { head: ["Life stage", "Under 25%", "25 to 50%", "50 to 75%", "75 to 99%", "Completed"], rows: CH2.map(function (r) { return [r[0]].concat(r.slice(1).map(function (v) { return v + "%"; })); }) } }) +
@@ -9139,17 +9194,17 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs butt
 
       var SK = [["Python", 48], ["SQL", 44], ["Machine learning", 31], ["Statistics", 29], ["Product strategy", 18], ["Cloud (AWS)", 16], ["Financial modelling", 12], ["Digital marketing", 11], ["Leadership", 10], ["GenAI tools", 9]];
       var CE = [6.1, 6.4, 6.9, 7.2, 7.6, 7.9, 8.1, 8.4, 8.6, 8.9, 9.1, 9.4];
-      var AL = ["Data and AI", "Management", "Tech and cloud", "Study abroad", "Other"], ALC = ["#9E1A20", "#D6262D", "#E9767B", "#3A3D46", "#C9CBD1"];
+      var AL = ["Data and AI", "Management", "Tech and cloud", "Study abroad", "Other"], ALC = ["#646EC2", "#D03A70", "#7C9A12", "#A260CB", "#CDD0DE"];
       var ALD = [["2022", [52, 41, 22, 18, 21]], ["2023", [68, 49, 29, 24, 24]], ["2024", [81, 55, 37, 29, 26]], ["2025", [92, 58, 44, 33, 27]], ["2026 so far", [43, 26, 21, 12, 12]]];
       h += ov8head("What they gain, and what's next", "Skills graded by upGrad, certificates, and the alumni we keep") + '<div class="ov8-grid">' +
         ov8card({ id: "lskill", title: "Skills gained", sub: "Learners with a graded skill, thousands", ins: "Python, SQL and machine learning are the most-gained skills.", body: ov8hbars(SK.map(function (s, i) { return { label: s[0], v: s[1], display: s[1] + "K", c: i < 3 ? OV8_CHAR : OV8_GREY }; }), 48), table: { head: ["Skill", "Learners (thousands)"], rows: SK.map(function (s) { return [s[0], s[1] + "K"]; }) } }) +
-        ov8card({ id: "lcert", title: "Certificates issued", sub: "Thousands per month", ins: "97,400 certificates in 12 months, up 34% on the year before. Every month beat the last.", body: ov8vbars(CE.map(function (v, i) { return { label: OV8_MON[i], v: v, display: i === 11 ? v + "K" : "", tipv: v + "K", c: i === 11 ? OV8_DEEP : "#E9767B", mu: i !== 11, tip: OV8_MON[i] + " · certificates" }; }), 9.4, 150),
+        ov8card({ id: "lcert", title: "Certificates issued", sub: "Thousands per month", ins: "97,400 certificates in 12 months, up 34% on the year before. Every month beat the last.", body: ov8vbars(CE.map(function (v, i) { return { label: OV8_MON[i], v: v, display: i === 11 ? v + "K" : "", tipv: v + "K", c: i === 11 ? OV8_DEEP : "#C9CEEF", mu: i !== 11, tip: OV8_MON[i] + " · certificates" }; }), 9.4, 150),
           table: { head: ["Month", "Certificates"], rows: CE.map(function (v, i) { return [OV8_MON[i], v + "K"]; }) } }) +
         ov8card({ id: "lalum", cls: "w", title: "Alumni we keep", sub: "Completed learners by year, thousands", ins: "8.6 lakh alumni in total, the warmest audience upGrad owns. Data and AI is the largest group every year.", body: ov8leg(AL.map(function (a, i) { return [a, ALC[i]]; })) + ov8stack(ALD.map(function (a) { return { label: a[0], v: a[1] }; }), AL, ALC, { total: true, h: 180, fmt: function (v) { return v + "K"; } }),
           table: { head: ["Year"].concat(AL).concat(["Total"]), rows: ALD.map(function (a) { return [a[0]].concat(a[1].map(function (v) { return v + "K"; })).concat([a[1].reduce(function (x, y) { return x + y; }, 0) + "K"]); }) } }) +
         crossCard("lcross", "Crossover: learners enquiring elsewhere", [["WP learners", "KnowledgeHut", 3420], ["Internshala trainees", "WP", 2980], ["SA alumni", "WP", 1610], ["WP alumni", "International", 1240], ["KH learners", "WP", 960], ["LC learners", "WP", 720]]) + "</div>";
     }
-    h += '<footer class="ov8-trust"><b>Can you trust these numbers?</b><span>Leads resolved to a person: <strong>71.4%</strong></span><span>Wrong merges in audits: <strong>0.08%</strong></span><span>Sources: LSQ, HubSpot, Prism, OMS, Sales Insights</span><span>Internshala: <strong>pending lookups</strong></span><span>Hover any chart for exact figures, or open its table</span></footer>';
+    h += '<footer class="ov8-trust"><span class="ov8-sample">Sample data for design review</span><b>Can you trust these numbers?</b><span>Leads resolved to a person: <strong>71.4%</strong></span><span>Wrong merges in audits: <strong>0.08%</strong></span><span>Sources: LSQ, HubSpot, Prism, OMS, Sales Insights</span><span>Internshala: <strong>pending lookups</strong></span><span>Hover any chart for exact figures, or open its table</span></footer>';
     return h;
   }
   function ov8render() {
@@ -9166,8 +9221,8 @@ html[data-v7t="crisp"][data-v7ov="new"][data-v6]:not(#crisp) .ov8 .ov8-tabs butt
       if (b.hasAttribute("data-ov8-tab")) OV8.tab = b.getAttribute("data-ov8-tab");
       else if (b.hasAttribute("data-ov8-range")) OV8.range = b.getAttribute("data-ov8-range");
       else if (b.hasAttribute("data-ov8-seg")) OV8.seg = b.getAttribute("data-ov8-seg");
-      else { var id = b.getAttribute("data-tbl"); OV8.tbl[id] = !OV8.tbl[id]; }
-      ov8save(); var y = window.scrollY, key = b.getAttribute("data-ov8-tab") ? '[data-ov8-tab="' + OV8.tab + '"]' : b.getAttribute("data-ov8-range") ? '[data-ov8-range="' + OV8.range + '"]' : b.getAttribute("data-ov8-seg") ? '[data-ov8-seg="' + OV8.seg + '"]' : '[data-tbl="' + b.getAttribute("data-tbl") + '"]';
+      else { var id = b.getAttribute("data-tbl"); OV8.tbl[id] = b.getAttribute("data-v") === "1"; }
+      ov8save(); var y = window.scrollY, key = b.getAttribute("data-ov8-tab") ? '[data-ov8-tab="' + OV8.tab + '"]' : b.getAttribute("data-ov8-range") ? '[data-ov8-range="' + OV8.range + '"]' : b.getAttribute("data-ov8-seg") ? '[data-ov8-seg="' + OV8.seg + '"]' : '[data-tbl="' + b.getAttribute("data-tbl") + '"][data-v="' + b.getAttribute("data-v") + '"]';
       ov8hide(); root.innerHTML = ov8html(); window.scrollTo(0, y); var f = root.querySelector(key); if (f) f.focus();
     });
     root.addEventListener("change", function (e) { if (!e.target.matches("[data-ov8-biz]")) return; OV8.biz = e.target.value; ov8save(); var y = window.scrollY; ov8hide(); root.innerHTML = ov8html(); window.scrollTo(0, y); var s = root.querySelector("[data-ov8-biz]"); if (s) s.focus(); });
