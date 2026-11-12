@@ -9311,13 +9311,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#ppl-i) [data-view="people"] .kp
           body: '<div class="ov8-two"><div><p class="ov8-mini">All selected businesses</p>' + ov8funnel(fsteps, function (a, b) { return Math.round((1 - b.v / a.v) * 100) + "% dropped"; }) + '</div><div><p class="ov8-mini">Enrolment rate, by business</p>' +
             ov8hbars(rates.map(function (r, i) { return { label: OV8_BN[r[0]], v: r[1], display: r[1].toFixed(1) + "%", c: OV8_BC[r[0]] || OV8_ACC, tip: OV8_BN[r[0]] + " · enquiry to enrolment" }; }), Math.max.apply(null, rates.map(function (r) { return r[1]; }))) + "</div></div>",
           table: { head: ["Business"].concat(stepN).concat(["Enrol rate"]), rows: fb.map(function (b) { return [OV8_BN[b]].concat(FUN[b].map(function (v) { return v === null ? "Self-serve" : ov8inr(v * scale); })).concat([(FUN[b][3] / FUN[b][0] * 100).toFixed(1) + "%"]); }) },
-          note: fb.indexOf("Internshala") >= 0 ? "Internshala is self-serve, so its enquirers skip counselling; the Counselled step counts the other businesses only." : "" }) +
-        ov8card({ id: "pwho", cls: "fill", title: "Who converts", sub: "Enquiry to enrolment, by segment", ctrl: segCtrl, ins: seg[1],
-          body: ov8hbars(segSorted.map(function (r, i) { return { label: r[0], v: r[4], display: r[4] + "%", c: i === 0 ? OV8_UP : i === segSorted.length - 1 ? OV8_ROSE : OV8_MUTE, mu: i > 0 && i < segSorted.length - 1, tip: r[0] + " · counselled " + r[1] + "%, paid " + r[2] + "%, enrolled " + r[3] + "%" }; }), segSorted[0][4]),
-          table: { head: ["Segment", "Enquiry to counselled", "Counselled to paid", "Paid to enrolled", "Overall"], rows: segRows.map(function (r) { return [r[0]].concat(r.slice(1).map(function (v) { return v + "%"; })); }) } }) +
-        ov8card({ id: "pcoh", title: "How fast enquiries convert", sub: "% enrolled by days since enquiry, one line per month", ins: "Each newer month converts a little faster. October (pink) is ahead of every earlier month at the same age.",
-          body: cohort + ov8leg(cohS.map(function (s) { return [s.name, s.c]; }), "ln"),
-          table: { head: ["Cohort", "Day 30", "Day 60", "Day 90"], rows: cohS.map(function (s) { return [s.name, s.y[6] + "%", s.y[12] !== undefined ? s.y[12] + "%" : "—", s.y[18] !== undefined ? s.y[18] + "%" : "—"]; }) } }) + "</div>";
+          note: fb.indexOf("Internshala") >= 0 ? "Internshala is self-serve, so its enquirers skip counselling; the Counselled step counts the other businesses only." : "" }) + "</div>";
 
       // Where they come from
       var CH = [["Paid search", 34, 30], ["Paid social", 24, 27], ["Organic", 18, 17], ["Referral", 8, 9], ["Affiliate", 9, 8], ["Webinar and events", 7, 9]];
