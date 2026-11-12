@@ -4344,7 +4344,8 @@ html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#cri
 html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5bar .v5findb svg{width:14px !important;height:14px !important;color:#717480 !important}
 html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5bar .v5findb kbd{height:18px !important;min-width:23px;border:0 !important;border-radius:5px !important;background:#ECEEF5 !important;color:#717480 !important;box-shadow:none !important}
 /* Fact cards: a row of five under the tabs */
-html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts{margin:-10px 24px 0}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts{margin:-4px 0 16px !important;position:relative;z-index:1}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5-fold .plfacts{margin:12px 0 16px !important}
 html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5-min > section.v5bar,html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5-ovl > section.v5bar{margin-top:-16px !important}
 html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5-min .plfacts,html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .v5-ovl .plfacts{margin:-14px 16px 0}
 html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .plfacts .facts{display:grid !important;grid-template-columns:minmax(0,290fr) minmax(0,156fr) minmax(0,182fr) minmax(0,100fr) minmax(0,192fr) !important;gap:8px !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;box-shadow:none !important}
@@ -9457,13 +9458,14 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#ppl-i) [data-view="people"] .kp
     fmt6(box);
   };
   // Person card layout → Centred (V4 Crisp, 821px and wider), from the Figma frame "07 · Compact horizontal cards": the fact cards move
-  // out of the header to a row under the tabs, Owned by shows the business's short code, and the meta row drops the "·" after the ID.
+  // out of the header to a row between the card and the tabs, Owned by shows the business's short code, and the meta row drops the "·" after the ID.
   function v7plCentre(box) {
     if (!box || !isV7() || document.documentElement.getAttribute("data-v7pl") !== "centre" || !matchMedia("(min-width:821px)").matches) return;
     var facts = box.querySelector(".pcard .facts"), head = box.querySelector(".v5head") || box.querySelector("section.v5bar");
     if (!facts || !head || !head.parentNode) return;
     var row = document.createElement("div"); row.className = "plfacts"; row.appendChild(facts);
-    head.parentNode.insertBefore(row, head.nextSibling);
+    // Facts describe the person, so they sit with the person card, above the tabs that switch the content below.
+    var bar = box.querySelector(".v5bar") || head; bar.parentNode.insertBefore(row, bar);
     var ow = facts.querySelector('.fact[data-f="owner"] .v');
     if (ow) { var nm = ow.textContent.trim(), sh = null; Object.keys(BU4).forEach(function (k) { if (BU4[k][0] === nm) sh = BU4[k][1]; }); if (sh) ow.insertAdjacentHTML("afterend", '<span class="v pl-sh" title="' + esc(nm) + '">' + esc(sh) + "</span>"); }
     var gid = box.querySelector(".pcard .who .matched .v5gid");
