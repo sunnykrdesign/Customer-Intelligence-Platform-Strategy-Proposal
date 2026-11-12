@@ -9379,15 +9379,13 @@ html[data-v7t="crisp"][data-v7pl="centre"][data-v7pl="centre"][data-v6]:not(#cri
 
   /* ================= V6 Activity: calls ================= */
   // A call is an Interactions event whose title names a call. V6 adds a Calls filter to the Timeline,
-  // and a few more sample calls (inbound, outbound, missed) so the filter has something to show.
+  // and a few more sample calls (inbound and outbound; missed calls were removed in review) so the filter has something to show.
   function isCall6(e) { return e && e[2] === "X" && /call/i.test(e[3]); }
   (function () {
     if (!isV6()) return;
     var ADD = {
-      arjun: [["3 Nov", ["W", "24 Oct", "X", "Learner success call", "Outbound · 11 min · check-in after Module 3 · on plan", "Sales Insights"], "after"],
-              ["12 Aug", ["W", "13 Aug", "X", "Missed call", "Outbound · no answer · retried 2 hours later", "LSQ"], "before"]],
-      ananya: [["28 Oct", ["W", "4 Nov", "X", "Counselling call", "Outbound · 18 min · Data Science, part-time · callback booked", "LSQ"], "before"],
-               ["28 Oct", ["I", "30 Oct", "X", "Missed call", "Inbound · no answer · called back the next day", "LSQ"], "before"]],
+      arjun: [["3 Nov", ["W", "24 Oct", "X", "Learner success call", "Outbound · 11 min · check-in after Module 3 · on plan", "Sales Insights"], "after"]],
+      ananya: [["28 Oct", ["W", "4 Nov", "X", "Counselling call", "Outbound · 18 min · Data Science, part-time · callback booked", "LSQ"], "before"]],
       rohan: [["24 Oct", ["S", "27 Oct", "X", "Follow-up call", "Outbound · 9 min · loan partners shared on WhatsApp", "SA"], "before"]]
     };
     Object.keys(ADD).forEach(function (k) {
