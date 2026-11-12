@@ -4290,6 +4290,50 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .v5ctas .v5actw > .v5s
 html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .v5ctas .v5actw > .v5sbtn.act.clear{font-size:0}
 html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .v5ctas .v5actw > .v5sbtn.act.clear svg{width:16px;height:16px}
 </style>
+<style id="v7pl">
+/* Person card layout (Review -> Person card layout). V7 Crisp, wide screens; phones keep the current card. */
+@media (min-width:1024px){
+html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard.v5card{display:grid !important;grid-template-columns:auto minmax(0,1fr) auto;column-gap:16px;align-items:start;padding:20px 24px !important}
+html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .pcard-top{display:contents !important}
+html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .pcard-top > .avatar{grid-column:1;grid-row:1 / 3;width:56px !important;height:56px !important}
+html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .pcard-top > .who{grid-column:2;grid-row:1;min-width:0}
+html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .pcard-top > .v5ctas{grid-column:3;grid-row:1;align-self:start;margin:0 !important;flex-wrap:nowrap}
+html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts{grid-column:2 / 4;grid-row:2;display:flex !important;flex-direction:row !important;flex-wrap:wrap !important;gap:8px;margin:14px 0 0 !important;padding:0 !important;border:none !important}
+html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact{display:inline-flex !important;flex-direction:row !important;flex:0 0 auto !important;width:auto !important;align-items:center !important;gap:6px;padding:4px 12px 4px 4px !important;border:none !important;box-shadow:none !important;border-radius:999px;background:#F3F4FA !important;min-width:0}
+html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact::before{width:24px !important;height:24px !important;border-radius:50% !important;background-size:13px 13px,auto !important;background-color:#fff !important;flex:0 0 24px;margin:0 !important}
+html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact .k{font-size:12px !important;color:var(--cr-3) !important}
+html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact .v{font-size:13px !important;font-weight:600 !important;white-space:nowrap}
+html[data-v7t="crisp"][data-v7pl="compact"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact :is(.fs,small,.meter){display:none !important}
+html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard.v5card{display:grid !important;grid-template-columns:auto minmax(0,1fr) minmax(0,1.1fr);grid-template-rows:auto 1fr;column-gap:18px;align-items:start;padding:22px 24px !important}
+html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .pcard-top{display:contents !important}
+html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .pcard-top > .avatar{grid-column:1;grid-row:1;width:72px !important;height:72px !important}
+html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .pcard-top > .who{grid-column:2;grid-row:1;min-width:0}
+html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .pcard-top > .v5ctas{grid-column:1 / 3;grid-row:2;margin:16px 0 0 !important;justify-content:flex-start !important;flex-wrap:wrap}
+html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts{grid-column:3;grid-row:1 / 3;display:grid !important;grid-template-columns:1fr 1fr !important;gap:4px 8px !important;margin:0 !important;padding:0 0 0 24px !important;border:none !important;border-left:1px solid var(--v7-line) !important;align-self:stretch}
+html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact{padding:8px 4px !important;border:none !important;box-shadow:none !important}
+html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact::before{width:34px !important;height:34px !important;border-radius:10px !important;background-size:17px 17px,auto !important}
+html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact[data-f]{grid-template-columns:34px minmax(0,1fr) !important}
+html[data-v7t="crisp"][data-v7pl="split"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact[data-f="filled"]{grid-column:1 / -1}
+html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard.v5card{padding-bottom:0 !important;overflow:hidden}
+html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts{margin:20px -24px 0 !important;padding:0 !important;background:#F7F8FC;border-top:1px solid var(--v7-line) !important;gap:0 !important}
+html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact{display:block !important;padding:16px 20px 18px 24px !important;border:none !important;box-shadow:none !important}
+html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact + .fact{box-shadow:inset 1px 0 0 var(--v7-line) !important}
+html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact::before{display:none !important}
+html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact .k{display:block;font-size:12px !important;color:var(--cr-3) !important;margin-bottom:6px}
+html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact .v{display:block;font-size:18px !important;font-weight:600 !important;line-height:1.25;letter-spacing:-.01em}
+html[data-v7t="crisp"][data-v7pl="stats"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact .fs{display:block;margin-top:4px}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .pcard-top{flex-direction:column !important;align-items:center !important;text-align:center;gap:12px !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .pcard-top > .avatar{width:84px !important;height:84px !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .pcard-top > .who{display:flex;flex-direction:column;align-items:center}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .pcard-top > .v5ctas{margin:4px 0 0 !important;justify-content:center !important;align-self:center !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts{margin-top:22px !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact[data-f]{display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:flex-start !important;text-align:center !important;gap:2px;padding:16px 12px 6px !important;width:100% !important;max-width:none !important;justify-self:stretch !important;box-sizing:border-box}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact[data-f] > :not(.meter){align-self:stretch !important;width:100% !important;text-align:center !important;margin-left:0 !important;margin-right:0 !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact[data-f] > .meter{align-self:center !important;margin-left:auto !important;margin-right:auto !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact::before{margin:0 0 8px !important;align-self:center !important}
+html[data-v7t="crisp"][data-v7pl="centre"][data-v6]:not(#crisp) #lookupResult .pcard.v5card .facts .fact .meter{width:80%}
+}
+</style>
 </head>
 <body>
 
@@ -7349,6 +7393,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .v5ctas .v5actw > .v5s
     if (curV() === "7" && typeof V7DT !== "undefined" && V7THEME === "crisp" && V7DT === "off") q.push("dt=off");
     if (curV() === "7" && typeof V7INS !== "undefined" && V7THEME === "crisp" && V7INS !== "simple") q.push("ins=" + (V7INS === "new" ? "brief" : "current"));
     if (curV() === "7" && typeof V7SR !== "undefined" && V7THEME === "crisp" && V7SR === "current") q.push("sr=current");
+    if (curV() === "7" && typeof V7PL !== "undefined" && V7THEME === "crisp" && V7PL !== "current") q.push("pl=" + V7PL);
     if (curV() === "7" && typeof V7FI !== "undefined" && V7THEME === "crisp" && V7FI === "off") q.push("fi=off");
     if (route === "lookup" && L.person) q.push("p=" + L.person);
     q.push("review=0");
@@ -9410,6 +9455,9 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .v5ctas .v5actw > .v5s
   var V7SB = "current", V7SBS = ["current", "darker", "darkest"];
   try { var sb7 = localStorage.getItem("cip-v7sb"); if (V7SBS.indexOf(sb7) >= 0) V7SB = sb7; } catch (e) {}
   if (V7SBS.indexOf(Q.get("sb")) >= 0) V7SB = Q.get("sb");
+  var V7PL = "current", V7PLS = ["current", "compact", "split", "stats", "centre"];
+  try { var pl7 = localStorage.getItem("cip-v7pl"); if (V7PLS.indexOf(pl7) >= 0) V7PL = pl7; } catch (e) {}
+  if (V7PLS.indexOf(Q.get("pl")) >= 0) V7PL = Q.get("pl");
   var V7PC = "current";
   try { var pc7 = localStorage.getItem("cip-v7pc"); if (V7SBS.indexOf(pc7) >= 0) V7PC = pc7; } catch (e) {}
   if (V7SBS.indexOf(Q.get("pc")) >= 0) V7PC = Q.get("pc");
@@ -9439,10 +9487,11 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .v5ctas .v5actw > .v5s
     if (isV7() && V7THEME === "crisp" && V7FI === "on") d.setAttribute("data-v7fi", "on"); else d.removeAttribute("data-v7fi");
     if (isV7() && V7THEME === "crisp" && V7SB !== "current") d.setAttribute("data-v7sb", V7SB); else d.removeAttribute("data-v7sb");
     if (isV7() && V7THEME === "crisp" && V7PC !== "current") d.setAttribute("data-v7pc", V7PC); else d.removeAttribute("data-v7pc");
+    if (isV7() && V7THEME === "crisp" && V7PL !== "current") d.setAttribute("data-v7pl", V7PL); else d.removeAttribute("data-v7pl");
     if (isV7() && V7THEME === "crisp" && V7DT === "on") d.setAttribute("data-v7dt", "on"); else d.removeAttribute("data-v7dt");
     if (isV7() && V7THEME === "crisp" && V7INS !== "current") d.setAttribute("data-v7ins", V7INS); else d.removeAttribute("data-v7ins");
     if (isV7() && V7THEME === "crisp" && V7SR === "compact") d.setAttribute("data-v7sr", "compact"); else d.removeAttribute("data-v7sr");
-    $$(".rv-v7sp,.rv-v7fi,.rv-v7sb,.rv-v7pc,.rv-v7dt,.rv-v7ins,.rv-v7sr").forEach(function (r) { r.hidden = !(isV7() && V7THEME === "crisp"); }); }
+    $$(".rv-v7sp,.rv-v7fi,.rv-v7sb,.rv-v7pc,.rv-v7pl,.rv-v7dt,.rv-v7ins,.rv-v7sr").forEach(function (r) { r.hidden = !(isV7() && V7THEME === "crisp"); }); }
   function v7data() {
     v7theme();
     var on = isV7(), T = V7T[V7THEME];
@@ -9494,6 +9543,25 @@ html[data-v7t="crisp"][data-v6]:not(#crisp) #lookupResult .v5ctas .v5actw > .v5s
         var b = e.target.closest("[data-sb7]"); if (!b) return;
         V7SB = b.getAttribute("data-sb7"); try { localStorage.setItem("cip-v7sb", V7SB); } catch (er) {}
         sync(); v7theme(); if (typeof rvShareSync === "function") rvShareSync();
+      });
+    })();
+    (function () {
+      var row = document.createElement("div"); row.className = "rv-sec rv-v7pl";
+      row.innerHTML = '<span class="rv-k">Person card layout</span><div class="rv-seg" role="group" aria-label="Person card layout"><button type="button" data-pl7="current">Current</button><button type="button" data-pl7="compact">Compact</button><button type="button" data-pl7="split">Split</button><button type="button" data-pl7="stats">Stats</button><button type="button" data-pl7="centre">Centred</button></div><p class="rv-note"></p>';
+      host.parentNode.insertBefore(row, host);
+      var NOTE = { current: "Name and actions on top, a row of five fact tiles below.",
+        compact: "One short header: the facts become small chips under the name, so the card is about half as tall.",
+        split: "Who they are on the left, with the actions under the name; the facts as a two-column grid on the right.",
+        stats: "The facts as a stat strip along the bottom of the card, with large values and no icons.",
+        centred: "A centred profile: a larger photo, the name and actions centred, and the facts as centred tiles." };
+      NOTE.centre = NOTE.centred;
+      var sync = function () { $$("[data-pl7]", row).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-pl7") === V7PL); }); $(".rv-note", row).textContent = NOTE[V7PL] + " Wide screens only; phones keep the current card."; };
+      sync();
+      row.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-pl7]"); if (!b) return;
+        V7PL = b.getAttribute("data-pl7"); try { localStorage.setItem("cip-v7pl", V7PL); } catch (er) {}
+        sync(); v7theme(); if (typeof rvShareSync === "function") rvShareSync();
+        window.dispatchEvent(new Event("resize"));
       });
     })();
     (function () {
