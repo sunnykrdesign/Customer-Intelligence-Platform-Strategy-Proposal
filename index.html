@@ -5080,11 +5080,11 @@ html[data-v9]:not(#v9a):not(#v9b) #lookupResult .xp-b > .src.s-li{background:#E8
 html[data-v9] #lookupResult .v4meta > span:not([class]):first-child{margin-left:0}
 </style>
 <style id="v9ugc">
-/* V5 Courses: status and percentage in the row, one sentence when open */
+/* V5 Courses: status and percentage in the row, five short points when open */
 html[data-v9] #lookupResult .ugc-h{grid-template-columns:40px minmax(0,1fr) auto auto 20px}
 html[data-v9] #lookupResult .ugc-p b{min-width:0;color:#5F616B;font-weight:500}
 html[data-v9] #lookupResult .ugc-b{padding:0 16px 16px 70px}
-html[data-v9] #lookupResult .ugc-s{margin:0;font-size:13.5px;line-height:1.5;color:#3A3B44}
+html[data-v9] #lookupResult .ugc-pts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}html[data-v9] #lookupResult .ugc-pts li{position:relative;padding-left:14px;font-size:13.5px;line-height:1.45;color:#3A3B44}html[data-v9] #lookupResult .ugc-pts li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--uc,#7983CD)}html[data-v9] #lookupResult .ugc-pts b{font-weight:600;color:#15161C}
 @media (max-width:820px){html[data-v9] #lookupResult .ugc-h{grid-template-columns:36px minmax(0,1fr) 20px}html[data-v9] #lookupResult .ugc-p{grid-column:2;grid-row:2;justify-self:end}html[data-v9] #lookupResult .ugc-b{padding:0 16px 14px 66px}}
 </style>
 <style id="v9actalign">
@@ -11876,20 +11876,22 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
         name: name, biz: biz, st: pct >= 100 ? "done" : "live", pct: pct, mods: [done, tot], hours: hrs ? +hrs[1] : null, score: stats.Result || "—",
         start: stats.Enrolled || stats.Started || "—", end: pct >= 100 ? "Completed" : "Expected " + (stats.Ends || "Jun 2027"), next: m ? "Module " + m[1] + " in progress" : "—", cur: true };
     }
-    // V5: the course's progress as one sentence a counsellor can read out ("5 of 10 modules done since Sep 2025 (121 h); now on module 6.").
-    function line9(c) {
-      var lc = function (t) { return t ? t.charAt(0).toLowerCase() + t.slice(1) : ""; }, cl = function (t) { return String(t || "").replace(/ · /g, ", "); };
-      var d = c.mods[0], tot = c.mods[1], h = c.hours != null ? c.hours + " h" : "", sc = c.score && c.score !== "—" ? cl(c.score) : "", nx = c.next && c.next !== "—" ? cl(c.next) : "";
+    // V5: five short points per course, each about one thing: progress, time spent, result, dates and the next step.
+    function pts9(c) {
+      var cl = function (t) { return String(t || "").replace(/ · /g, ", "); }, up = function (t) { return t ? t.charAt(0).toUpperCase() + t.slice(1) : ""; };
+      var d = c.mods[0], tot = c.mods[1], sc = c.score && c.score !== "—" ? cl(c.score) : "", nx = c.next && c.next !== "—" ? cl(c.next) : "";
       var sp = String(c.start && c.start !== "—" ? c.start : "").split(/\s*·\s*/), st = sp[0], rg = sp.filter(function (x) { return /–/.test(x); })[0] || (/–/.test(st) ? st : "");
+      var end = String(c.end || ""), now = /^Module (\d+) in progress$/i.exec(nx), done = c.st === "done", paused = c.st === "paused";
       if (/^\d+(\.\d+)?%$/.test(sc)) sc = "Scored " + sc;
-      if (c.st === "done") {
-        var fin = String(c.end || "").replace(/^Completed\s*/i, ""), yr = /(\d{4})$/.exec(st), when = rg ? rg : st && fin ? (yr && fin.slice(-4) === yr[1] ? st.replace(/\s*\d{4}$/, "") : st) + " to " + fin : st;
-        if (/in progress/i.test(nx)) nx = "";
-        return "Completed all " + tot + " modules" + (h ? " in " + h : "") + (when ? ", " + when : "") + (sc ? ", " + lc(sc) : "") + (nx ? "; " + lc(nx) : "") + ".";
-      }
-      if (c.st === "paused") return "Paused after " + d + " of " + tot + " modules" + (h ? " (" + h + ")" : "") + " " + lc(String(c.end || "").replace(/^Paused\s*/i, "")) + (nx ? "; " + lc(nx) : "") + ".";
-      var now = /^Module (\d+) in progress$/i.exec(nx);
-      return d + " of " + tot + " modules done" + (st ? " since " + st : "") + (h ? " (" + h + ")" : "") + (sc ? ", " + lc(sc) : "") + (now ? "; now on module " + now[1] : nx ? "; next: " + lc(nx) : "") + ".";
+      var prog = done ? "All " + tot + " modules completed." : paused ? "Stopped at " + d + " of " + tot + " modules." : d + " of " + tot + " modules done.";
+      var time = c.hours != null ? c.hours + " hours of learning" + (done ? " in total." : " so far.") : "Not recorded yet.";
+      var res = sc ? up(sc) + "." : done ? "No final grade on record." : "No graded work yet.";
+      var when;
+      if (done) { var fin = end.replace(/^Completed\s*/i, ""), yr = /(\d{4})$/.exec(st); when = rg ? "Studied " + rg + "." : st && fin ? "Studied " + (yr && fin.slice(-4) === yr[1] ? st.replace(/\s*\d{4}$/, "") : st) + " to " + fin + "." : st ? "Studied " + st + "." : "Dates not recorded."; }
+      else if (paused) when = (st ? "Started " + st + "; " : "") + (st ? end.charAt(0).toLowerCase() + end.slice(1) : end) + ".";
+      else when = (st ? "Started " + st : "Start not recorded") + (/^Expected /i.test(end) ? "; expected to finish " + end.replace(/^Expected\s*/i, "") : end ? "; " + end.charAt(0).toLowerCase() + end.slice(1) : "") + ".";
+      var next = done ? (nx && !/in progress/i.test(nx) ? up(nx) + "." : "Nothing left to complete on this course.") : now ? "Module " + now[1] + " is in progress." : nx ? (paused ? "Pick up from " + nx.replace(/^Resume from\s*/i, "") : up(nx)) + "." : "No next step recorded.";
+      return [["Progress", prog], ["Time spent", time], ["Result", res], ["Dates", when], [done ? "Outcome" : paused ? "To resume" : "Next step", next]];
     }
     function item(c, i, open) {
       var v9 = typeof isV9 === "function" && isV9();
@@ -11899,7 +11901,7 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
       return '<li class="ugc-i' + (open ? " open" : "") + '" style="--uc:' + col + '"><button type="button" class="ugc-h" aria-expanded="' + !!open + '" aria-controls="' + id + '">' +
         '<span class="ugc-ic" aria-hidden="true">' + esc2(ini) + '</span><span class="ugc-t"><b>' + esc2(c.name) + (c.cur ? ' <em class="ugc-cur">' + (c.st === "done" ? "Latest" : "Current") + "</em>" : "") + '</b><small><code>' + esc2(c.code) + "</code> · " + esc2(c.biz) + "</small></span>" +
         '<span class="ugc-st ' + c.st + '">' + ST[c.st] + '</span><span class="ugc-p">' + (v9 ? "" : '<span class="ugc-bar"><i style="width:' + c.pct + '%"></i></span>') + "<b>" + c.pct + '%</b></span><span class="ugc-ch" aria-hidden="true"></span></button>' +
-        '<div class="ugc-b" id="' + id + '" role="region"' + (open ? "" : " hidden") + '>' + (v9 ? '<p class="ugc-s">' + esc2(line9(c)) + "</p></div></li>" : '<dl class="ugc-g">' +
+        '<div class="ugc-b" id="' + id + '" role="region"' + (open ? "" : " hidden") + '>' + (v9 ? '<ul class="ugc-pts">' + pts9(c).map(function (x) { return "<li><b>" + esc2(x[0]) + ":</b> " + esc2(x[1]) + "</li>"; }).join("") + "</ul></div></li>" : '<dl class="ugc-g">' +
         "<div><dt>Modules</dt><dd>" + c.mods[0] + " of " + c.mods[1] + " done</dd></div><div><dt>Time spent</dt><dd>" + (c.hours != null ? c.hours + " h" : "—") + "</dd></div>" +
         "<div><dt>Score</dt><dd>" + esc2(c.score) + "</dd></div><div><dt>Started</dt><dd>" + esc2(c.start) + "</dd></div><div><dt>" + (c.st === "done" ? "Finished" : "End") + "</dt><dd>" + esc2(c.end) + "</dd></div></dl>" +
         '<div class="ugc-m" aria-label="' + c.mods[0] + " of " + c.mods[1] + ' modules done">' + dots + '</div><p class="ugc-n"><span>' + (c.st === "done" ? "Outcome" : c.st === "paused" ? "To resume" : "Next") + "</span>" + esc2(c.next) + "</p></div></li>");
