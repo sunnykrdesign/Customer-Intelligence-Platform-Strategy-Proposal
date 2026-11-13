@@ -5202,14 +5202,6 @@ html[data-v7t="crisp"][data-v9pv^="cc"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) 
 html[data-v7t="crisp"][data-v9pv^="cc"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top > .v5ctas{top:20px !important}
 }
 @media (min-width:821px){
-/* Cover · Fade: the band melts into white behind the photo */
-html[data-v7t="crisp"][data-v9pv="ccfade"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard::after{height:150px !important;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 38%,#fff 100%),linear-gradient(90deg,#DCD7FB 0%,#F4F0FC 50%,#F6D3E5 100%) !important}
-/* Cover · Curve: a gently bowed lower edge */
-html[data-v7t="crisp"][data-v9pv="cccurve"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard::after{height:104px !important;border-radius:19px 19px 50% 50% / 19px 19px 30px 30px !important}
-html[data-v7t="crisp"][data-v9pv="cccurve"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard .pcard-top{padding-top:52px !important}
-/* Cover · Inset: the band floats inside the card */
-html[data-v7t="crisp"][data-v9pv="ccinset"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard::after{left:8px !important;right:8px !important;top:8px !important;height:88px !important;border-radius:14px !important}
-html[data-v7t="crisp"][data-v9pv="ccinset"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard .pcard-top > .v5ctas{top:22px !important;left:22px !important;right:22px !important}
 /* Cover · Ink: a deep indigo band with light controls */
 html[data-v7t="crisp"][data-v9pv="ccink"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard::after{background:linear-gradient(90deg,#2C2850 0%,#3F3F86 55%,#5B4A8E 100%) !important}
 html[data-v7t="crisp"][data-v9pv="ccink"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard .v5ctas .v5ch{background:rgba(255,255,255,.14) !important;color:#fff !important}
@@ -5223,6 +5215,14 @@ html[data-v7t="crisp"][data-v9pv="ccink"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4
 html[data-v7t="crisp"][data-v7sb="ink"][data-v6]:not(#crisp):not(#sbi) .side{background:linear-gradient(180deg,#2C2850 0%,#3F3F86 55%,#5B4A8E 100%) !important}
 html[data-v7t="crisp"][data-v7sb="ink"][data-v6]:not(#crisp):not(#sbi){--cr-side-line:#3D3866}
 html[data-v7t="crisp"][data-v7sb="ink"][data-v6]:not(#crisp):not(#sbi) .side .brand .tail{color:#C9C5E6 !important}
+</style>
+<style id="rvclose">
+/* Review panel: the close button sits outside the panel, beside its top-left corner, so it stays put while the panel scrolls */
+.review > .rv-x{position:absolute;top:0;left:-44px;z-index:2;width:34px;height:34px;flex:none;border-radius:50%;background:rgba(24,24,28,.97);color:#F5F5F7;box-shadow:0 10px 30px rgba(0,0,0,.28)}
+.review > .rv-x:hover{background:#000;color:#fff}
+.review > .rv-x:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.review:has(> #rvPanel[hidden]) > .rv-x{display:none}
+@media (max-width:640px){.review > .rv-x{top:auto;bottom:3px;left:0;right:auto}}
 </style>
 <style id="ugtab">@media (max-width:640px){html[data-v7][data-v6] #ptabs #tab-academic .v4tabl{white-space:normal;line-height:1.1;text-align:center;max-width:84px;display:inline-block}html[data-v7][data-v6] #ptabs #tab-academic{white-space:normal}}</style>
 <style id="ugc-css">
@@ -5948,8 +5948,9 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
   </div>
 </dialog>
 <div class="review" id="review">
+  <button type="button" class="rv-x" id="rvClose" aria-label="Close review panel"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1l10 10M11 1L1 11"/></svg></button>
   <div class="rv-panel" id="rvPanel" role="dialog" aria-label="Review controls" tabindex="-1" hidden>
-    <div class="rv-head"><b>Review</b><span>For design review, not part of the product</span><button type="button" class="rv-x" id="rvClose" aria-label="Close review panel"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1l10 10M11 1L1 11"/></svg></button></div>
+    <div class="rv-head"><b>Review</b><span>For design review, not part of the product</span></div>
     <div class="rv-sec"><span class="rv-k">Design version</span><div class="rv-seg" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="3" aria-pressed="false" title="V1 · Classic">V1</button><button type="button" data-v="4" aria-pressed="false" title="V2 · Learner 360">V2</button><button type="button" data-v="6" aria-pressed="false" title="V3 · Master">V3</button><button type="button" data-v="7" aria-pressed="false" title="V4 · Crisp">V4</button><button type="button" data-v="9" aria-pressed="false" title="V5 · Learner 360 data (latest)">V5</button></div><p class="rv-note" id="vNote"></p></div>
     <div class="rv-sec"><span class="rv-k">Sign in</span><div class="rv-seg" id="rvAuth" role="group" aria-label="Sign in and team"><button type="button" data-auth="off">Skip</button><button type="button" data-auth="on">Show</button></div><p class="rv-note" id="rvAuthNote"></p></div>
     <div class="rv-sec rv-v6x"><span class="rv-k">Hero motion</span>
@@ -11556,9 +11557,9 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
   var V7SB = "current", V7SBS = ["current", "darker", "darkest", "ink"];
   try { var sb7 = localStorage.getItem("cip-v7sb"); if (V7SBS.indexOf(sb7) >= 0) V7SB = sb7; } catch (e) {}
   if (V7SBS.indexOf(Q.get("sb")) >= 0) V7SB = Q.get("sb");
-  var V7PL = "current", V7PLS = ["current", "ccover", "ccfade", "cccurve", "ccinset", "ccink"];
-  try { var pl7 = localStorage.getItem("cip-v7pl"); if (pl7 === "centre") pl7 = "ccover"; if (V7PLS.indexOf(pl7) >= 0) V7PL = pl7; } catch (e) {}
-  if (V7PLS.indexOf(Q.get("pl")) >= 0) V7PL = Q.get("pl"); else if (Q.get("pl") === "centre") V7PL = "ccover"; // Centred was removed in review
+  var V7PL = "current", V7PLS = ["current", "ccover", "ccink"];
+  try { var pl7 = localStorage.getItem("cip-v7pl"); if (["centre", "ccfade", "cccurve", "ccinset"].indexOf(pl7) >= 0) pl7 = "ccover"; if (V7PLS.indexOf(pl7) >= 0) V7PL = pl7; } catch (e) {}
+  if (V7PLS.indexOf(Q.get("pl")) >= 0) V7PL = Q.get("pl"); else if (["centre", "ccfade", "cccurve", "ccinset"].indexOf(Q.get("pl")) >= 0) V7PL = "ccover"; // Centred, Fade, Curve and Inset were removed in review
   var V7PC = "current";
   try { var pc7 = localStorage.getItem("cip-v7pc"); if (V7SBS.indexOf(pc7) >= 0) V7PC = pc7; } catch (e) {}
   if (V7SBS.indexOf(Q.get("pc")) >= 0) V7PC = Q.get("pc");
@@ -11657,14 +11658,11 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
     })();
     (function () {
       var row = document.createElement("div"); row.className = "rv-sec rv-v7pl";
-      row.innerHTML = '<span class="rv-k">Person card layout</span><div class="rv-seg" role="group" aria-label="Person card layout"><button type="button" data-pl7="current">Current</button><button type="button" data-pl7="ccover">Centred cover</button><button type="button" data-pl7="ccfade">Cover · Fade</button><button type="button" data-pl7="cccurve">Cover · Curve</button><button type="button" data-pl7="ccinset">Cover · Inset</button><button type="button" data-pl7="ccink">Cover · Ink</button></div><p class="rv-note"></p>';
+      row.innerHTML = '<span class="rv-k">Person card layout</span><div class="rv-seg" role="group" aria-label="Person card layout"><button type="button" data-pl7="current">Current</button><button type="button" data-pl7="ccover">Centred cover</button><button type="button" data-pl7="ccink">Cover · Ink</button></div><p class="rv-note"></p>';
       host.parentNode.insertBefore(row, host);
       var NOTE = { current: "Name and actions on top, a row of five fact tiles below.",
         centre: "From the Figma design: a gradient header with the photo, name and details centred, contact in its top-left corner and Show contact and Open in CRM top-right, then the tabs, then the facts as a row of cards.",
         ccover: "The Centred card with the Cover design: a gradient band across the top half with contact and the actions on it, the photo centred on the band's lower edge, and the name and details centred below on white.",
-        ccfade: "Centred cover with a softer band: the gradient fades into white behind the photo, so there is no hard edge.",
-        cccurve: "Centred cover with a curved band: its lower edge bows down gently behind the photo.",
-        ccinset: "Centred cover with the band floating inside the card, 8px from its edges, with its own rounded corners.",
         ccink: "Centred cover with a deep indigo band: light contact icons, white buttons, and the photo ringed in white." };
       var sync = function () { $$("[data-pl7]", row).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-pl7") === V7PL); }); $(".rv-note", row).textContent = NOTE[V7PL] + " Phones keep the current card."; };
       sync();
