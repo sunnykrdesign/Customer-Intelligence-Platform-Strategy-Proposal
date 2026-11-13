@@ -9102,6 +9102,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
     var evs = (p.events || []).filter(function (e) { return !(otherBu && e[2] === "P"); }).map(function (e) { return { e: e, at: e[6] ? d4(e[6]) : d4(e[1]) }; });
     var sub = V.sub || "timeline", bu = V.ebu || "all", cat = V.ecat || "all";
     var subs = [["timeline", "Timeline", "inbox"], ["journey", "Journey", "target"], ["business", "By business", "card"], ["rhythm", "Learning rhythm", "book"]];
+    if (p.v9) { subs = subs.filter(function (s) { return s[0] !== "rhythm"; }); if (sub === "rhythm") sub = V.sub = "timeline"; } // V5 has no Learning rhythm
     var buList = ["all"].concat(Object.keys(BU4).filter(function (k) { return evs.some(function (x) { return x.e[0] === k; }); }));
     var inBu = evs.filter(function (x) { return bu === "all" || x.e[0] === bu; });
     var showBu = sub === "timeline" || sub === "business";
