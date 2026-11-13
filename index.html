@@ -5054,6 +5054,13 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .t6ev .t6i
 html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic,html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic{width:26px !important;height:26px !important;flex:0 0 26px !important;border-radius:50% !important;background:#fff !important;color:#15161C !important;box-shadow:0 0 0 1px #E2E3EA !important}
 html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,html[data-v7t="crisp"][data-v7i="color"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg{width:14px !important;height:14px !important}
 </style>
+<style id="v9evtint">
+/* V5 Activity icons: tinted by event type. A soft fill and hairline ring in the type's colour, the line in a deeper shade of it. */
+html[data-v9][data-v6]:not(#crisp):not(#act-i):not(#v9a) #lookupResult .t6ev .t6ic{background:color-mix(in srgb,var(--c) 12%,#fff) !important;color:color-mix(in srgb,var(--c) 82%,#15161C) !important;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 22%,#fff),0 0 0 5px #fff !important}
+html[data-v9][data-v6]:not(#crisp):not(#act-i):not(#v9a) #lookupResult .t6ev .t6ic svg{width:17px !important;height:17px !important;stroke-width:1.75 !important}
+html[data-v9][data-v6]:not(#crisp):not(#act-i):not(#v9a) #lookupResult .b6ic{background:color-mix(in srgb,var(--c2) 12%,#fff) !important;color:color-mix(in srgb,var(--c2) 82%,#15161C) !important;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c2) 22%,#fff) !important}
+html[data-v9][data-v6]:not(#crisp):not(#act-i):not(#v9a) #lookupResult .b6ic svg{stroke-width:1.75 !important}
+</style>
 <style id="ugtab">@media (max-width:640px){html[data-v7][data-v6] #ptabs #tab-academic .v4tabl{white-space:normal;line-height:1.1;text-align:center;max-width:84px;display:inline-block}html[data-v7][data-v6] #ptabs #tab-academic{white-space:normal}}</style>
 <style id="ugc-css">
 /* UG learning journey: Courses accordion */
@@ -7598,7 +7605,10 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
     building: '<path d="M5 20V5.5A1.5 1.5 0 0 1 6.5 4h7A1.5 1.5 0 0 1 15 5.5V20M15 10h3.5A1.5 1.5 0 0 1 20 11.5V20M3 20h18"/><path d="M8.5 8h3M8.5 11.5h3M8.5 15h3"/>',
     cap: '<path d="M2.5 9.5L12 5l9.5 4.5L12 14z"/><path d="M6.5 11.5v4.2c0 1.3 2.5 2.8 5.5 2.8s5.5-1.5 5.5-2.8v-4.2M21.5 9.5v5"/>',
     flag: '<path d="M5 21V4.5M5 5h11l-2 3.5 2 3.5H5"/>',
-    clipboard: '<rect x="5" y="4.5" width="14" height="16" rx="2"/><path d="M9 4.5V3.5h6v1M8.8 13l2.2 2.2 4.4-4.4"/>',
+    clipboard: '<rect x="5" y="4.5" width="14" height="16.5" rx="2"/><rect x="8.5" y="2.8" width="7" height="3.6" rx="1"/><path d="M8.8 13.6l2.2 2.2 4.2-4.3"/>',
+    search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.4 15.4l5.1 5.1"/>',
+    refer: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6 1.4 0 2.7.4 3.8 1.1"/><path d="M15 17.5h6M18.5 15l2.5 2.5-2.5 2.5"/>',
+    receipt: '<path d="M6 3.5h12v17l-2-1.3-2 1.3-2-1.3-2 1.3-2-1.3-2 1.3z"/><path d="M9 11.6l2 2 4-4.1"/>',
     award: '<circle cx="12" cy="9" r="5.5"/><path d="M8.6 13.4L7.5 21l4.5-2.6 4.5 2.6-1.1-7.6"/>',
     briefcase: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 12.5h18"/>',
     file: '<path d="M6.5 3.5h7l4.5 4.5v12a1 1 0 0 1-1 1h-10.5a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M13.5 3.5V8H18M9 14l2 2 4-4"/>',
@@ -7614,7 +7624,7 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
     // Title and event type decide; the detail line is never used, so "an email about a webinar" stays an email.
     var ty = e[8] || "", ti = e[3] || "", c = e[2], t = ty + " | " + ti;
     if (c === "J" || /job \/ internship/i.test(ty) || /^applied\b|internship/i.test(ti)) return "briefcase";
-    if (c === "A" || /first touch|ad click/i.test(t)) return "pointer";
+    if (c === "A" || /first touch|ad click/i.test(t)) { var a9 = ti + " | " + (e[4] || ""); return /ad click|paid social|lead ad/i.test(a9) ? "pointer" : /search/i.test(a9) ? "search" : /email|newsletter/i.test(a9) ? "mail" : /referr|ambassador/i.test(a9) ? "refer" : "pointer"; }
     if (c === "C" || /consent|opt-out|opt out/i.test(ti)) return "shield";
     if (/web visit|page view|site visit/i.test(t)) return "globe";
     if (/whatsapp/i.test(ti)) return "whatsapp";
@@ -7624,7 +7634,8 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
     if (/deferr|paused/i.test(t)) return "pause";
     if (/extend|extension/i.test(ti)) return "clock";
     if (/refund/i.test(t)) return "refund";
-    if (/corporate|b2b/i.test(ty) || /employer|purchase order|reimburs/i.test(ti)) return "building";
+    if (/reimburs/i.test(ti)) return "receipt";
+    if (/corporate|b2b/i.test(ty) || /employer|purchase order/i.test(ti)) return "building";
     if (c === "P" || /instalment|payment|paid in full/i.test(ti)) return "card";
     if (/certificate|course completed|completed .*course/i.test(t)) return "award";
     if (/assignment|assessment|quiz|graded|exam/i.test(ti)) return "clipboard";
@@ -7633,10 +7644,11 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
     if (/application/i.test(ti)) return "file";
     if (/opportunity|deal/i.test(t) || /\bwon\b/i.test(ti)) return "trophy";
     if (/lead created|account created|signed up|contact created|sign-up|registered/i.test(t)) return "userplus";
+    if (/\bcall\b/i.test(ti)) return "phone";
     if (/meeting|visit|admissions/i.test(t)) return "users";
     if (/call/i.test(t) || c === "X") return "phone";
     if (/feedback|rating|rated|review/i.test(t)) return "star";
-    if (/referr/i.test(t)) return "share";
+    if (/referr/i.test(t)) return "refer";
     if (/consent/i.test(t) || c === "C") return "shield";
     if (/message|marketing/i.test(t) || c === "M") return "megaphone";
     if (c === "L") return "book";
