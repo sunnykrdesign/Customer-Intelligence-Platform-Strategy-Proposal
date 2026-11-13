@@ -11556,9 +11556,9 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
   var V7SB = "current", V7SBS = ["current", "darker", "darkest", "ink"];
   try { var sb7 = localStorage.getItem("cip-v7sb"); if (V7SBS.indexOf(sb7) >= 0) V7SB = sb7; } catch (e) {}
   if (V7SBS.indexOf(Q.get("sb")) >= 0) V7SB = Q.get("sb");
-  var V7PL = "current", V7PLS = ["current", "centre", "ccover", "ccfade", "cccurve", "ccinset", "ccink"];
-  try { var pl7 = localStorage.getItem("cip-v7pl"); if (V7PLS.indexOf(pl7) >= 0) V7PL = pl7; } catch (e) {}
-  if (V7PLS.indexOf(Q.get("pl")) >= 0) V7PL = Q.get("pl");
+  var V7PL = "current", V7PLS = ["current", "ccover", "ccfade", "cccurve", "ccinset", "ccink"];
+  try { var pl7 = localStorage.getItem("cip-v7pl"); if (pl7 === "centre") pl7 = "ccover"; if (V7PLS.indexOf(pl7) >= 0) V7PL = pl7; } catch (e) {}
+  if (V7PLS.indexOf(Q.get("pl")) >= 0) V7PL = Q.get("pl"); else if (Q.get("pl") === "centre") V7PL = "ccover"; // Centred was removed in review
   var V7PC = "current";
   try { var pc7 = localStorage.getItem("cip-v7pc"); if (V7SBS.indexOf(pc7) >= 0) V7PC = pc7; } catch (e) {}
   if (V7SBS.indexOf(Q.get("pc")) >= 0) V7PC = Q.get("pc");
@@ -11657,7 +11657,7 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
     })();
     (function () {
       var row = document.createElement("div"); row.className = "rv-sec rv-v7pl";
-      row.innerHTML = '<span class="rv-k">Person card layout</span><div class="rv-seg" role="group" aria-label="Person card layout"><button type="button" data-pl7="current">Current</button><button type="button" data-pl7="centre">Centred</button><button type="button" data-pl7="ccover">Centred cover</button><button type="button" data-pl7="ccfade">Cover · Fade</button><button type="button" data-pl7="cccurve">Cover · Curve</button><button type="button" data-pl7="ccinset">Cover · Inset</button><button type="button" data-pl7="ccink">Cover · Ink</button></div><p class="rv-note"></p>';
+      row.innerHTML = '<span class="rv-k">Person card layout</span><div class="rv-seg" role="group" aria-label="Person card layout"><button type="button" data-pl7="current">Current</button><button type="button" data-pl7="ccover">Centred cover</button><button type="button" data-pl7="ccfade">Cover · Fade</button><button type="button" data-pl7="cccurve">Cover · Curve</button><button type="button" data-pl7="ccinset">Cover · Inset</button><button type="button" data-pl7="ccink">Cover · Ink</button></div><p class="rv-note"></p>';
       host.parentNode.insertBefore(row, host);
       var NOTE = { current: "Name and actions on top, a row of five fact tiles below.",
         centre: "From the Figma design: a gradient header with the photo, name and details centred, contact in its top-left corner and Show contact and Open in CRM top-right, then the tabs, then the facts as a row of cards.",
