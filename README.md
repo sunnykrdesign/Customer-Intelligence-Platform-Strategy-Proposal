@@ -161,13 +161,18 @@ Five versions are in the switcher: V1 · Classic, V2 · Learner 360, V3 · Maste
 - **V5 · Learner 360 data** (the latest; `?ver=5`): V4 Crisp, unchanged, filled with the five sample people from the PM's `data/learner360_sample_people.json` (as of 13 Nov 2026; the page embeds a copy): Riya Deshmukh, Karan Malhotra, Sneha Iyer, an under-18 profile in Kochi, and Vikram Rao. All names, IDs and numbers in that file are invented. Every V4 option applies, except Theme: V5 is always Crisp.
   - **People:** the directory lists only these five, all openable: life stage and city, businesses, overall relationship state, lifetime revenue, reachable channels and last active.
   - **Person card:** name, headline, how long upGrad has known them, the person ID and sync. The facts row shows life stage, age band, city, each business with its state and since when, and known since with last active. The owning business and profile completeness are stored but not shown, as the file decides, so there's no "Owned by" or "Fields filled".
-  - **Profile:** the file's seven sections with its attribute names: Identity & contact, Personal details, Education (prior, outside upGrad), Career / profession, Aspiration, Financial profile (locked as in V4), and Consent & preferences.
+  - **Profile:** the file's sections with its attribute names: Identity & contact, Personal details, Life stage, Education (prior, outside upGrad), Career / profession, Aspiration, Financial profile (locked as in V4), and Consent & preferences.
+    - Life stage is its own section, kept apart from personal information. Personal details holds age band, city, country, timezone, language, gender and account status, and its summary no longer mentions life stage.
     - Each value shows its source and whether it was declared, observed or derived. It also shows the date it was added; there's no verified date.
     - Sales Insights values show "Counselling call on {date}".
     - Emails and phones stay masked until Show contact, and say whether they're verified.
     - Linked system IDs become Linked records.
     - Conflicts show how they were resolved.
     - "Consent to share across upGrad" says it has no source yet.
+    - Values worked out by the system say "Worked out by the identity layer".
+    - Fields with several values show one per line, for example emails, phones, programmes of interest, roles applied for, languages, interest areas and study-abroad preferences.
+    - **Career comes from LinkedIn:** professional history is sourced through the LinkedIn API, not CV fields. A banner says so, with the sync date. Every Career value and role carries a LinkedIn source chip, and a "Professional profile link" row says the LinkedIn profile is connected.
+    - **Budget by programme:** budgets differ a lot between programmes, so the Financial section lists each programme the person is pursuing with its business's own options. The bands are Working Professionals (under ₹1 lakh to ₹6 lakh plus), KnowledgeHut (under ₹25K to ₹1 lakh plus), Study Abroad (under ₹10 lakh to ₹40 lakh plus), International (under ₹5 lakh to ₹15 lakh plus) and Internshala (free to ₹10K plus). The stated band is highlighted, along with where it was stated. Programmes without a stated budget say "Not captured yet".
     - Education and Career show profile-style entries, as in V4. They're built from the file's "Education history" and "Work history". Each school gets a crest: a school crest for Class 12 and boards, a university crest for degrees, including a B-school. Each employer gets an initials logo. Entries show years, grade, type (full-time or internship) and total experience. Fields they don't cover are listed under "Also on file". The under-18 profile has no history, so it keeps plain rows.
   - **UG learning journey:** upGrad courses with status, progress and results.
     - Programmes with module data (Prism's "module x of y") get the programme path.
@@ -183,6 +188,7 @@ Five versions are in the switcher: V1 · Classic, V2 · Learner 360, V3 · Maste
   - **Things to act on:** the person's moment, plus a re-acquisition when there is one.
   - **By business:** no business is labelled as owning the relationship, and the owner isn't listed first, because the owning business is stored but not shown.
   - **Today:** dates are worked out from 13 Nov 2026, the file's as-of date.
+  - **Worst-case density test:** a sixth profile, Venkata Lakshmi Narasimha Subrahmanyam, tagged "Density test" in the directory. It is added for design review and is not part of the PM's file. It has a long name and five businesses. It also has five emails, three phones, ten linked records, six languages, four schools, six roles, five programmes of interest, eight roles applied for, fourteen skills, three courses, twenty-four events and nineteen insights. With three or more businesses, the card shows business short codes and a count of states, so its facts row stays one line high.
 - **V4 · Crisp** (previously V7; the default): V3 with a new visual layer and two themes (Review → Theme). Bold and Vivid were removed.
   - **Crisp (default): soft lavender.** Built from a reference dashboard's visual language, not its content or layout:
     - **Shell:** one light app surface that runs edge to edge, with no canvas margin or rounded outer corners. On desktop the sidebar has its own deeper lavender surface (#E5E3F0) and a firmer divider down the full height, so it stands apart from the lighter page; the search field and the current page sit on it as white pills.
