@@ -5240,6 +5240,251 @@ html[data-v9]:not(#t1):not(#t2):not(#t3) #lookupResult #ptabs > button[aria-sele
 html[data-v9]:not(#t1):not(#t2):not(#t3) #lookupResult #ptabs > .slider{background:#fff !important;box-shadow:0 1px 2px rgba(21,22,28,.08),0 6px 14px -8px rgba(79,87,168,.45) !important}
 html[data-v9]:not(#t1):not(#t2):not(#t3) #lookupResult #ptabs > button .v4tabl + :is(span,b,em,small),html[data-v9]:not(#t1):not(#t2):not(#t3) #lookupResult #ptabs > button :is(.v4tabc,.cnt){color:inherit;opacity:.7}
 </style>
+<style id="v8css">
+/* ===== V6 (data-v8): V5 taken to a finished level. Everything here is scoped to html[data-v8]. ===== */
+/* --- Tokens --- */
+html[data-v8]{
+  --dur-fast:140ms;--dur-base:220ms;--dur-slow:340ms;
+  --ease-out:cubic-bezier(.16,1,.3,1);--ease-in:cubic-bezier(.7,0,.84,0);--ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --ease:var(--ease-out);--v6e:var(--ease-out);--v6s:var(--ease-spring);
+  --sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:20px;--sp-6:24px;--sp-8:32px;--sp-10:40px;
+  --r-sm:6px;--r-md:10px;--r-lg:16px;--r-xl:20px;--r-pill:999px;
+  --sh-1:0 1px 2px rgba(21,22,28,.05);--sh-2:0 1px 2px rgba(21,22,28,.05),0 8px 20px -14px rgba(21,22,28,.22);--sh-3:0 14px 32px -16px rgba(21,22,28,.28);--sh-4:0 28px 64px -24px rgba(21,22,28,.42);
+  --ink:#15161C;--ink-2:#5F616B;--ink-3:#6E7078;--line:#E2E3EA;--line-2:#EEEFF4;--peri:#4F57A8;--peri-2:#B7BDEB;--peri-bg:#ECEEFA;--shell:#F3F4FB;--track:#ECEEF6;
+  --fs-1:11px;--fs-2:12px;--fs-3:13px;--fs-4:14px;--fs-5:16px;--fs-6:20px;--fs-7:28px;
+  --focus-ring:0 0 0 2px #fff,0 0 0 4px var(--peri);
+}
+/* --- Motion: one reduced-motion rule for the whole layer --- */
+@media (prefers-reduced-motion:reduce){html[data-v8]:not(#x1):not(#x2):not(#x3):not(#x4):not(#x5):not(#x6):not(#x7) *,html[data-v8]:not(#x1):not(#x2):not(#x3):not(#x4):not(#x5):not(#x6):not(#x7) *::before,html[data-v8]:not(#x1):not(#x2):not(#x3):not(#x4):not(#x5):not(#x6):not(#x7) *::after{animation-duration:0s !important;animation-delay:0s !important;transition-duration:0s !important}}
+@keyframes v8in{from{opacity:0;transform:translateY(8px)}}
+@keyframes v8fade{from{opacity:0;transform:translateY(4px)}}
+@keyframes v8pop{from{opacity:0;transform:scale(.96)}}
+@keyframes v8out{to{opacity:0;transform:scale(.98)}}
+@keyframes v8bd{from{opacity:0}}
+@keyframes v8bdout{to{opacity:0}}
+@keyframes v8sh{to{background-position:-200% 0}}
+@keyframes v8spin{to{transform:rotate(360deg)}}
+/* Entrance: one animation, 40ms stagger from 0, on a view's first visit only (.v8enter is set by the layer and removed afterwards) */
+html[data-v8] .view.v6in{animation:none}
+html[data-v8] .view.v8enter > :not(.v8skel),html[data-v8] .view.v8enter .ov8 > *,html[data-v8] .view.v8enter .ov8-kpis > *,html[data-v8] .view.v8enter .kpis > *,html[data-v8] .view.v8enter #pRows > .prow,html[data-v8] .view.v8enter #lookupResult > *,html[data-v8] .view.v8enter #panel > *,html[data-v8] .view.v8enter .a6 > *,html[data-v8] .view.v8enter .i8 > *{animation:v8in var(--dur-slow) var(--ease-out) backwards;animation-delay:calc(var(--v8i,0) * 40ms)}
+html[data-v8] .view.v8enter > .ov8{animation:none}
+html[data-v8] .v8enter > :nth-child(2),html[data-v8] .v8enter .ov8 > :nth-child(2),html[data-v8] .v8enter .ov8-kpis > :nth-child(2),html[data-v8] .v8enter .kpis > :nth-child(2),html[data-v8] .v8enter #pRows > :nth-child(2),html[data-v8] .v8enter #panel > :nth-child(2),html[data-v8] .v8enter .a6 > :nth-child(2),html[data-v8] .v8enter .i8 > :nth-child(2){--v8i:1}
+html[data-v8] .v8enter > :nth-child(3),html[data-v8] .v8enter .ov8 > :nth-child(3),html[data-v8] .v8enter .ov8-kpis > :nth-child(3),html[data-v8] .v8enter .kpis > :nth-child(3),html[data-v8] .v8enter #pRows > :nth-child(3),html[data-v8] .v8enter #panel > :nth-child(3),html[data-v8] .v8enter .a6 > :nth-child(3),html[data-v8] .v8enter .i8 > :nth-child(3){--v8i:2}
+html[data-v8] .v8enter > :nth-child(4),html[data-v8] .v8enter .ov8 > :nth-child(4),html[data-v8] .v8enter .ov8-kpis > :nth-child(4),html[data-v8] .v8enter .kpis > :nth-child(4),html[data-v8] .v8enter #pRows > :nth-child(4),html[data-v8] .v8enter #panel > :nth-child(4),html[data-v8] .v8enter .a6 > :nth-child(4),html[data-v8] .v8enter .i8 > :nth-child(4){--v8i:3}
+html[data-v8] .v8enter > :nth-child(5),html[data-v8] .v8enter .ov8 > :nth-child(5),html[data-v8] .v8enter .kpis > :nth-child(5),html[data-v8] .v8enter #pRows > :nth-child(5),html[data-v8] .v8enter #panel > :nth-child(5),html[data-v8] .v8enter .a6 > :nth-child(5),html[data-v8] .v8enter .i8 > :nth-child(5){--v8i:4}
+html[data-v8] .v8enter > :nth-child(6),html[data-v8] .v8enter .ov8 > :nth-child(6),html[data-v8] .v8enter #pRows > :nth-child(6),html[data-v8] .v8enter #panel > :nth-child(6),html[data-v8] .v8enter .a6 > :nth-child(6),html[data-v8] .v8enter .i8 > :nth-child(6){--v8i:5}
+html[data-v8] .v8enter > :nth-child(7),html[data-v8] .v8enter .ov8 > :nth-child(7),html[data-v8] .v8enter #pRows > :nth-child(7),html[data-v8] .v8enter .i8 > :nth-child(7){--v8i:6}
+html[data-v8] .v8enter > :nth-child(8),html[data-v8] .v8enter .ov8 > :nth-child(8),html[data-v8] .v8enter #pRows > :nth-child(8),html[data-v8] .v8enter .i8 > :nth-child(8){--v8i:7}
+html[data-v8] .v8enter > :nth-child(n+9),html[data-v8] .v8enter .ov8 > :nth-child(n+9),html[data-v8] .v8enter #pRows > :nth-child(n+9),html[data-v8] .v8enter .i8 > :nth-child(n+9){--v8i:8}
+/* After the first paint nothing replays on a re-render: filters, sorting, tabs and periods keep the page still. Live things (spinners, shimmer, V6's own transitions) are allowed through. */
+html[data-v8][data-v8-ready] #app *:not(.v8enter *):not(.v8a):not(.v8new):not(.v8flip):not(.fresh):not(.v6in):not(.spinner):not(.sk):not(.v8sk):not(.v5pop):not(.v5pop *):not(.v9flash):not(.toast):not(.v6pal):not(.v6pal *):not(.v8dd):not(.v8dd *):not(.v8skel *){animation-duration:0s !important;animation-delay:0s !important}
+html[data-v8]:not(#x1):not(#x2):not(#x3) #app :is(#panel,.v4sec,#secp,.ov8-card,.ov8-hero).v8a{animation:v8fade var(--dur-base) var(--ease-out) both !important;animation-delay:0s !important}
+html[data-v8]:not(#x1):not(#x2):not(#x3) #app #panel.fresh{animation:v8fade var(--dur-base) var(--ease-out) both !important}
+html[data-v8]:not(#x1):not(#x2):not(#x3) #app #panel.fresh > *{animation:none !important}
+html[data-v8]:not(#x1):not(#x2):not(#x3) #app #panel .v4sec.v6in{animation:v8fade var(--dur-base) var(--ease-out) both !important}
+html[data-v8]:not(#x1):not(#x2):not(#x3) #app .t6ev.v8new,html[data-v8]:not(#x1):not(#x2):not(#x3) #app .prow.v8new{animation:v8in var(--dur-base) var(--ease-out) both !important;animation-delay:calc(var(--v8i,0) * 30ms) !important}
+html[data-v8]:not(#x1):not(#x2):not(#x3) #app .prow.v8flip{transition:transform var(--dur-slow) var(--ease-out)}
+/* Layout properties don't animate: the segmented sliders move with transform, the progress bar with scaleX */
+html[data-v8]:not(#x1):not(#x2):not(#x3) .slider{transition:transform var(--dur-base) var(--ease-out) !important}
+html[data-v8]:not(#x1):not(#x2):not(#x3) .v6aprog em{transition:none !important}
+html[data-v8] #v6aBar em,html[data-v8] .v6abar em{transition:transform var(--dur-slow) var(--ease-out) !important;transform-origin:left}
+/* --- Control family: one state set for every control --- */
+html[data-v8] #app button,html[data-v8] #app a.btn,html[data-v8] #app [role="button"],html[data-v8] #app .nav a,html[data-v8] #app .v4tabs > button,html[data-v8] #app .v6seg button,html[data-v8] #app .v4sn,html[data-v8] #app .xbtn,html[data-v8] #app .t6cats button,html[data-v8] #app .prow,html[data-v8] #app .ugc-h,html[data-v8] #app .v9ac > summary,html[data-v8] #app input,html[data-v8] #app select,html[data-v8] #app .v8dd-b{transition:background-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out),opacity var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)}
+html[data-v8] #app button:not(:disabled):active,html[data-v8] #app a.btn:active,html[data-v8] #app .v4sn:active,html[data-v8] #app .ugc-h:active,html[data-v8] #app .v9ac > summary:active,html[data-v8] #app .v8dd-b:active{transform:scale(.97)}
+html[data-v8] #app .v4tabs > button:active,html[data-v8] #app .v6seg button:active,html[data-v8] #app .nav a:active{transform:scale(.985)}
+html[data-v8] #app :is(button,a,input,select,textarea,summary,[tabindex],[role="button"]):focus-visible,html[data-v8] .review :is(button,a,input,select):focus-visible{outline:2px solid var(--peri) !important;outline-offset:2px !important;box-shadow:none}
+html[data-v8] #app input:focus-visible,html[data-v8] #app select:focus-visible{outline-offset:0 !important}
+html[data-v8] #app button:disabled,html[data-v8] #app [aria-disabled="true"]{opacity:.45;cursor:not-allowed;pointer-events:none}
+html[data-v8] #app button[aria-busy="true"]{position:relative;color:transparent !important;pointer-events:none}
+html[data-v8] #app button[aria-busy="true"]::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;color:var(--ink);animation:v8spin .7s linear infinite}
+html[data-v8] #app .btn.dark[aria-busy="true"]::after,html[data-v8] #app [aria-busy="true"].v5dbtn::after{color:#fff}
+html[data-v8] #app .btn.soft:hover,html[data-v8] #app .v5sbtn:hover,html[data-v8] #app .v8dd-b:hover{background:#FAFAFD;border-color:var(--peri-2)}
+html[data-v8] #app .btn.dark:hover{background:#000}
+html[data-v8] #app .xbtn:hover,html[data-v8] #app .t6more:hover{background:var(--peri-bg);color:var(--peri)}
+html[data-v8] #app .nav a:not([aria-current="page"]):hover{background:rgba(255,255,255,.55)}
+/* Segmented controls: one track, one pill, one height per size */
+html[data-v8]:not(#x1):not(#x2) #app .v6seg,html[data-v8]:not(#x1):not(#x2) #app .ov8-seg,html[data-v8]:not(#x1):not(#x2) #app .ov8-tabs,html[data-v8]:not(#x1):not(#x2) #app #pSegs{background:var(--track);border-radius:var(--r-pill);padding:3px;gap:2px}
+html[data-v8]:not(#x1):not(#x2) #app :is(.v6seg,.ov8-seg,.ov8-tabs,#pSegs) > button{height:32px;min-height:32px;padding:0 14px;border-radius:var(--r-pill);font-size:var(--fs-3);font-weight:500;color:var(--ink-2);border:0;box-shadow:none;outline:none}
+html[data-v8]:not(#x1):not(#x2) #app :is(.v6seg,.ov8-seg,.ov8-tabs,#pSegs) > button:hover{color:var(--ink)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.v6seg,.ov8-seg,.ov8-tabs,#pSegs) > button[aria-pressed="true"]{color:var(--ink);font-weight:600;background:#fff;box-shadow:var(--sh-1)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.v6seg,.ov8-seg,.ov8-tabs,#pSegs) > button[aria-pressed="true"]:focus-visible{outline-offset:1px !important}
+html[data-v8]:not(#x1):not(#x2) #app .ov8-seg.xs > button{height:32px;padding:0 12px}
+html[data-v8]:not(#x1):not(#x2) #app .ov8-tabs > button{height:36px;padding:0 18px;font-size:var(--fs-4)}
+html[data-v8]:not(#x1):not(#x2) #app #pSegs > button span{color:var(--ink-3);font-weight:400;margin-left:4px}
+html[data-v8]:not(#x1):not(#x2) #app .v4tabs > button:not([aria-selected="true"]){color:var(--ink-2)}
+/* Chips / filters */
+html[data-v8]:not(#x1):not(#x2) #app :is(.t6cats,.d9f,.ov8-fil) > button{height:32px;border-radius:var(--r-pill);font-size:var(--fs-3)}
+/* Links that act as buttons read as controls */
+html[data-v8]:not(#x1):not(#x2) #app .t6more{display:inline-flex;align-items:center;height:28px;margin-top:8px;padding:0 10px;border-radius:var(--r-pill);background:var(--peri-bg);color:var(--peri);font-size:var(--fs-2);font-weight:600;opacity:1;text-decoration:none}
+html[data-v8]:not(#x1):not(#x2) #app .t6older{height:40px;border-radius:var(--r-md);border:1px solid var(--line);background:#fff;font-weight:500}
+html[data-v8]:not(#x1):not(#x2) #app .t6older:hover{background:#FAFAFD;border-color:var(--peri-2)}
+/* --- Surfaces: four radii, four shadows --- */
+html[data-v8]:not(#x1):not(#x2) #app :is(.a6card,.i8card,.v9i-sec,.ov8-card,.i8sum,.v6card,.card,.dir,.v6skel,.v8skel-card){border-radius:var(--r-lg)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.kpi,.ov8-k,.pcard,.v5head .v5bg){border-radius:var(--r-xl)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.ov8-sm,.v9t,.v9r,.i8bu,.ugx-dl,.ov8-mini){border-radius:var(--r-md)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.src,.src4,.bdg,.ov8-tag,.v6minor){border-radius:var(--r-sm)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.a6card,.i8card,.v9i-sec,.ov8-card,.kpi,.ov8-k){box-shadow:var(--sh-1)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.a6card,.ov8-card):hover{box-shadow:var(--sh-2)}
+html[data-v8]:not(#x1):not(#x2) #app .v5pop,html[data-v8] .v8dd-m{box-shadow:var(--sh-3);border-radius:var(--r-lg)}
+html[data-v8] dialog,html[data-v8] .v6pal-box{box-shadow:var(--sh-4);border-radius:var(--r-xl)}
+/* --- Type: a 7-step scale, tabular numbers everywhere data is shown --- */
+html[data-v8] #app{font-variant-numeric:tabular-nums}
+html[data-v8]:not(#x1):not(#x2) #app :is(.ov8-k .ks,.ov8-k .kn,.kpi .k,.kpi small,.v4when .a,.v4meta,.t6h time,.t6h .t6flag,.src,.src4,.b6h small,.ov8-sub,.ov8-note,.v9q,.ugx-t small,.j6c li small,.v5srcl,.a6note,.ov8-leg,.ov8-sl,.ov8-tail){font-size:var(--fs-2)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.t6b p,.v4rv,.v4rl,.prow .pc,.ov8-ins,.b6list b,.j6c li b,.i8bu b,.ugx-dl dd,.v9told dd b,.v9cnx,.ugx-nx){font-size:var(--fs-3)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.t6h b,.v4rv > b,.xp-top b,.ugx-t b,.b6h b,.a6h h3,.ov8-card h3,.i8card h3,.v9i-sec h3,.i8sum h3){font-size:var(--fs-4)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.ov8-sh h2,.j6head h2,.v9evh h3){font-size:var(--fs-6)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.kpi .v,.ov8-k .kv){font-size:var(--fs-7);letter-spacing:-.02em}
+html[data-v8]:not(#x1):not(#x2) #app :is(.ov8-k .kv,.kpi .v,.v9t b,.ov8-sm b,.t6h time,.v4when .a,.prow .pc.num,.ov8-tbl td.n,.ov8-tbl th.n,.ugx-s,.ov8-k .kd){font-variant-numeric:tabular-nums}
+/* --- Contrast (WCAG AA) --- */
+html[data-v8]:not(#x1):not(#x2) .brand .up{color:#BE2330 !important}
+html[data-v8]:not(#x1):not(#x2) .brand .tail{color:var(--ink-2) !important}
+html[data-v8]:not(#x1):not(#x2) #app .v6arr{color:var(--ink-3);font-size:var(--fs-2)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.ov8-k .ks,.ov8-k .kn,.kpi .k,.ov8-sub,.v9q,.ov8-leg,.ov8-note,.v4rl,.b6h small){color:var(--ink-2)}
+html[data-v8]:not(#x1):not(#x2) #app .ov8-sb > span{font-weight:600}
+html[data-v8]:not(#x1):not(#x2) #app .ov8-sb > span{font-size:var(--fs-2)}
+html[data-v8]:not(#x1):not(#x2) #app .ov8-sb > span.v8tiny{color:transparent !important;font-size:0}
+/* --- Spacing: cards and rows on the 4/8 scale --- */
+html[data-v8]:not(#x1):not(#x2) #app :is(.a6card,.i8card,.v9i-sec,.ov8-card,.i8sum){padding:var(--sp-5) var(--sp-6)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.a6card,.ov8-card) > :is(.a6h,.ov8-ch){margin-bottom:var(--sp-4)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.kpi,.ov8-k){padding:var(--sp-5)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.kpis,.ov8-kpis,.ov8-grid,.i8.v9i){gap:var(--sp-4)}
+html[data-v8]:not(#x1):not(#x2) #app .prow{padding:var(--sp-3) var(--sp-4)}
+html[data-v8]:not(#x1):not(#x2) #app .t6ev .t6b{padding:var(--sp-2) var(--sp-3)}
+html[data-v8]:not(#x1):not(#x2) #app .v4row{padding:var(--sp-4) 0}
+html[data-v8]:not(#x1):not(#x2) #app :is(.v9t,.v9r,.ov8-sm,.i8bu){padding:var(--sp-3) var(--sp-4)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.t6tools,.v9evh,.a6h,.ov8-ch,.j6head){gap:var(--sp-3)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.ov8-sh,.v6sh){margin:var(--sp-8) 0 var(--sp-4)}
+html[data-v8]:not(#x1):not(#x2) #app .ov8-seg,html[data-v8]:not(#x1):not(#x2) #app .ov8-fil{gap:var(--sp-1)}
+/* People list: hover, numbers right-aligned, the selected segment without a stuck ring */
+html[data-v8]:not(#x1):not(#x2) #app #pRows .prow{transition:background-color var(--dur-fast) var(--ease-out),transform var(--dur-slow) var(--ease-out)}
+html[data-v8]:not(#x1):not(#x2) #app #pRows .prow.v6click:hover{background:#FAFAFD}
+html[data-v8]:not(#x1):not(#x2) #app #pRows .prow .pc.num,html[data-v8]:not(#x1):not(#x2) #app .dir-head [data-v6sort="rev"]{text-align:right;justify-content:flex-end}
+html[data-v8]:not(#x1):not(#x2):not(#x3):not(#x4) #app #pSegs > button[aria-pressed="true"]{background:#fff !important;color:var(--ink) !important;box-shadow:var(--sh-1) !important}
+/* Chapters: every card the same frame; Today keeps its tint */
+html[data-v8]:not(#x1):not(#x2) #app .v4jt .j6c{box-shadow:inset 0 0 0 1px var(--line-2) !important;border-radius:var(--r-lg)}
+html[data-v8]:not(#x1):not(#x2) #app .v4jt .j6c.now{box-shadow:inset 0 0 0 1px #D2D7F1 !important}
+/* --- Overlays: popover from its trigger, dialogs scale in and out, backdrop fades, tooltip with a pointer --- */
+html[data-v8]:not(#x1):not(#x2) #app .v5pop{transform-origin:top right;animation:v8pop var(--dur-base) var(--ease-out) both !important}
+html[data-v8]:not(#x1):not(#x2) #app .pcard .v5pop{transform-origin:top right}
+html[data-v8] dialog[open]{animation:v8pop var(--dur-slow) var(--ease-out) both}
+html[data-v8] dialog[open]::backdrop{animation:v8bd var(--dur-slow) var(--ease-out) both;background:rgba(12,17,29,.4)}
+html[data-v8] dialog.v8out{animation:v8out var(--dur-base) var(--ease-in) both}
+html[data-v8] dialog.v8out::backdrop{animation:v8bdout var(--dur-base) var(--ease-in) both}
+html[data-v8] .v6pal{animation:v8bd var(--dur-base) var(--ease-out) both}
+html[data-v8] .v6pal-box{animation:v8pop var(--dur-slow) var(--ease-out) both}
+html[data-v8] #ov8tip{border-radius:var(--r-md);box-shadow:var(--sh-3);padding:8px 10px;animation:v8pop var(--dur-fast) var(--ease-out) both}
+html[data-v8] #ov8tip::after{content:"";position:absolute;left:50%;bottom:-5px;width:10px;height:10px;margin-left:-5px;background:inherit;transform:rotate(45deg);border-radius:2px}
+/* --- Toasts --- */
+html[data-v8] .toast{display:inline-flex;align-items:center;gap:10px;max-width:min(92vw,520px);padding:10px 12px 10px 14px;border-radius:var(--r-md);background:#1D1D1F;color:#fff;font-size:var(--fs-3);box-shadow:var(--sh-3);transition:opacity var(--dur-base) var(--ease-out),transform var(--dur-base) var(--ease-out)}
+html[data-v8] .toast:not(.show){transition-timing-function:var(--ease-in)}
+html[data-v8] .toast .v8ti{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;flex:0 0 20px}
+html[data-v8] .toast.ok .v8ti{background:#1C7F52;color:#fff}
+html[data-v8] .toast.err .v8ti{background:#D7192A;color:#fff}
+html[data-v8] .toast.info .v8ti{background:rgba(255,255,255,.16);color:#fff}
+html[data-v8] .toast .v8ta{margin-left:4px;padding:4px 10px;border:0;border-radius:var(--r-pill);background:rgba(255,255,255,.14);color:#fff;font:inherit;font-weight:600;cursor:pointer;pointer-events:auto}
+html[data-v8] .toast .v8ta:hover{background:rgba(255,255,255,.24)}
+html[data-v8] .toast.show{pointer-events:auto}
+/* --- Custom dropdown (replaces native <select>) --- */
+html[data-v8] .v8dd{position:relative;display:inline-block}
+html[data-v8] .v8dd > select{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+html[data-v8] .v8dd-b{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 12px 0 14px;border:1px solid var(--line);border-radius:var(--r-pill);background:#fff;color:var(--ink);font:inherit;font-size:var(--fs-3);font-weight:500;cursor:pointer;white-space:nowrap;max-width:100%}
+html[data-v8] .v8dd-b svg{flex:0 0 auto;color:var(--ink-3);transition:transform var(--dur-base) var(--ease-out)}
+html[data-v8] .v8dd.open .v8dd-b{border-color:var(--peri-2);background:#FAFAFD}
+html[data-v8] .v8dd.open .v8dd-b svg{transform:rotate(180deg)}
+html[data-v8] .v8dd-m{position:absolute;z-index:40;top:calc(100% + 6px);left:0;min-width:100%;max-height:320px;overflow:auto;margin:0;padding:6px;list-style:none;background:#fff;border:1px solid var(--line);transform-origin:top left;animation:v8pop var(--dur-base) var(--ease-out) both}
+html[data-v8] .v8dd-m.right{left:auto;right:0;transform-origin:top right}
+html[data-v8] .v8dd-m.v8out{animation:v8out var(--dur-fast) var(--ease-in) both}
+html[data-v8] .v8dd-m li{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:36px;padding:0 10px;border-radius:var(--r-md);font-size:var(--fs-3);color:var(--ink);cursor:pointer;white-space:nowrap}
+html[data-v8] .v8dd-m li:hover,html[data-v8] .v8dd-m li.on{background:var(--peri-bg)}
+html[data-v8] .v8dd-m li[aria-selected="true"]{font-weight:600}
+html[data-v8] .v8dd-m li[aria-selected="true"]::after{content:"";width:14px;height:14px;flex:0 0 14px;background:var(--peri);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/contain no-repeat}
+/* --- Sidebar: a sliding indicator behind the current page (desktop only; phones keep the bottom bar) --- */
+@media (min-width:821px){
+html[data-v8]:not(#x1):not(#x2) .side .nav{position:relative}
+html[data-v8]:not(#x1):not(#x2) .side .nav .v8ind{position:absolute;left:0;top:0;width:100%;height:44px;border-radius:var(--r-pill);background:#fff;box-shadow:var(--sh-1);transform:translateY(var(--y,0));transition:transform var(--dur-base) var(--ease-out);opacity:0;pointer-events:none}
+html[data-v8]:not(#x1):not(#x2) .side .nav .v8ind.on{opacity:1}
+html[data-v8]:not(#x1):not(#x2) .side .nav a{position:relative;z-index:1}
+html[data-v8]:not(#x1):not(#x2) .side .nav.v8has a[aria-current="page"]{background:transparent !important;box-shadow:none !important}
+html[data-v8]:not(#x1):not(#x2):is([data-v7sb="darker"],[data-v7sb="darkest"],[data-v7sb="ink"]) .side .nav .v8ind{background:#fff}
+}
+/* --- Skeletons (layout-matched, soft shimmer) --- */
+html[data-v8] .view.v8loading{position:relative;min-height:70vh}
+html[data-v8] .view.v8loading > :not(.v8skel){visibility:hidden}
+html[data-v8] .v8skel{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;gap:var(--sp-4);visibility:visible}
+html[data-v8] .v8sk{background:linear-gradient(90deg,#ECEDF3 0%,#F6F6FA 40%,#ECEDF3 80%);background-size:200% 100%;border-radius:var(--r-sm);animation:v8sh 1.4s linear infinite}
+html[data-v8] .v8skel-card{padding:var(--sp-5) var(--sp-6);background:#fff;border:1px solid var(--line-2);display:flex;flex-direction:column;gap:12px}
+html[data-v8] .v8skel-row{display:grid;gap:var(--sp-4)}
+html[data-v8] .v8skel .t{height:28px;width:220px}
+html[data-v8] .v8skel .s{height:14px;width:60%}
+html[data-v8] .v8skel .l{height:12px;width:40%}
+html[data-v8] .v8skel .b{height:36px;width:180px;border-radius:var(--r-pill)}
+html[data-v8] .v8skel .kpi-sk{height:128px;border-radius:var(--r-xl)}
+html[data-v8] .v8skel .av{width:72px;height:72px;border-radius:50%}
+html[data-v8] .v8skel .ln{height:12px}
+html[data-v8] #lookupResult .v8skel{position:static}
+/* --- Responsive --- */
+@media (max-width:900px){
+  html[data-v8]:not(#x1):not(#x2):not(#x3) #app .view[data-view="people"] .dir-head{grid-template-columns:minmax(0,1fr) !important;grid-template-areas:"title" "segs" "search" "tools" !important}
+  html[data-v8]:not(#x1):not(#x2):not(#x3) #app .view[data-view="people"] .dir-head > #pSegs{justify-self:start !important}
+  html[data-v8]:not(#x1):not(#x2) #app .preview-bar{display:flex;flex-wrap:nowrap;align-items:center;gap:var(--sp-3)}
+  html[data-v8]:not(#x1):not(#x2) #app .preview-bar > :first-child{min-width:0;flex:1 1 auto}
+  html[data-v8]:not(#x1):not(#x2) #app [data-view="people"] .kpis,html[data-v8]:not(#x1):not(#x2) #app #dmKpis{grid-template-columns:repeat(6,minmax(0,1fr))}
+  html[data-v8]:not(#x1):not(#x2) #app :is([data-view="people"] .kpis,#dmKpis) > .kpi{grid-column:span 2}
+  html[data-v8]:not(#x1):not(#x2) #app :is([data-view="people"] .kpis,#dmKpis) > .kpi:nth-child(4),html[data-v8]:not(#x1):not(#x2) #app :is([data-view="people"] .kpis,#dmKpis) > .kpi:nth-child(5){grid-column:span 3}
+  html[data-v8]:not(#x1):not(#x2) #app .kpi .spark{display:none}
+}
+@media (max-width:620px){
+  html[data-v8]:not(#x1):not(#x2) #app :is([data-view="people"] .kpis,#dmKpis) > .kpi{grid-column:span 3}
+  html[data-v8]:not(#x1):not(#x2) #app :is([data-view="people"] .kpis,#dmKpis) > .kpi:nth-child(5){grid-column:span 6}
+}
+@media (max-width:480px){
+  html[data-v8]:not(#x1):not(#x2) #app .ov8-k .kl{white-space:normal;overflow:visible;text-overflow:clip}
+  html[data-v8]:not(#x1):not(#x2) #app :is(.ov8-seg,.v6seg,#pSegs,.ov8-fil,.t6cats,.d9f) > button{min-height:40px;min-width:44px}
+  html[data-v8]:not(#x1):not(#x2) #app .t6more{min-height:36px;min-width:44px}
+  html[data-v8]:not(#x1):not(#x2) #app .xbtn{width:40px;height:40px;flex-basis:40px}
+}
+/* --- Spacing and type snap (from the measured vocabulary): chips by height not 1-2px padding, 14/18/22/30 to the 4/8 scale, fractional sizes to the scale --- */
+html[data-v8]:not(#x1):not(#x2) #app :is(code,.tag,.tier,.t6bu,.v6samp,.st,.ov8-chip,em.kd,.src,.src4){display:inline-flex;align-items:center;height:20px;padding-top:0;padding-bottom:0;line-height:1}
+html[data-v8]:not(#x1):not(#x2) #app :is(code,.tag,.tier,.src,.src4,.v6samp){padding-left:var(--sp-2);padding-right:var(--sp-2)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.st,.ov8-chip){padding-left:var(--sp-2);padding-right:var(--sp-2);height:24px}
+html[data-v8]:not(#x1):not(#x2) #app .t6bu{padding:0 6px;height:20px}
+html[data-v8]:not(#x1):not(#x2) #app .ov8-ins{padding:var(--sp-4)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.ov8-viz,.ov8-card,.wrap.view,.ov8-card.w,.ov8-card.fill){gap:var(--sp-4)}
+html[data-v8]:not(#x1):not(#x2) #app .ov8-seg.xs,html[data-v8]:not(#x1):not(#x2) #app .v6seg{padding:var(--sp-1)}
+html[data-v8]:not(#x1):not(#x2) #app main.main{padding-top:var(--sp-4)}
+html[data-v8]:not(#x1):not(#x2) #app .preview-bar{padding-left:var(--sp-5);padding-right:var(--sp-5)}
+html[data-v8]:not(#x1):not(#x2) #app aside.side{padding-top:var(--sp-8);padding-bottom:var(--sp-6)}
+html[data-v8]:not(#x1):not(#x2) #app .ov8-tc.big{padding-left:var(--sp-4);padding-right:var(--sp-4)}
+html[data-v8]:not(#x1):not(#x2) #app .b6list li{padding:var(--sp-3) var(--sp-4);gap:var(--sp-4)}
+html[data-v8]:not(#x1):not(#x2) #app .v4rl{padding-top:0}
+html[data-v8]:not(#x1):not(#x2) #app .search{padding-left:var(--sp-4)}
+html[data-v8]:not(#x1):not(#x2) #app .v5bar.in-head{margin-top:var(--sp-3)}
+html[data-v8]:not(#x1):not(#x2) #app :is(.v4when.li,.v4when.v9when){column-gap:var(--sp-4)}
+@media (min-width:821px){html[data-v8]:not(#x1):not(#x2) #app .side .nav .ni{font-size:var(--fs-4)}}
+html[data-v8]:not(#x1):not(#x2) #app :is(.count,.st,.src4,.src,.v4when.li,.v4when .a,.t6bu,.tier,.tag,code){font-size:var(--fs-2)}
+html[data-v8]:not(#x1):not(#x2) #app h1{font-size:var(--fs-7)}
+/* --- Contrast, second pass --- */
+html[data-v8]:not(#x1):not(#x2):not(#x3):not(#x4) #app [role="group"] > button:not([aria-pressed="true"]):not([aria-selected="true"]){color:var(--ink-2) !important}
+html[data-v8]:not(#x1):not(#x2):not(#x3):not(#x4) #app [role="group"] > button:not([aria-pressed="true"]):hover{color:var(--ink) !important}
+html[data-v8]:not(#x1):not(#x2) #app .ov8-sb > span[style*="color:#fff" i],html[data-v8]:not(#x1):not(#x2) #app .ov8-sb > span[style*="color:#FFFFFF" i],html[data-v8]:not(#x1):not(#x2) #app .ov8-sb > span[style*="color: rgb(255" i]{filter:brightness(.88)}
+html[data-v8]:not(#x1):not(#x2) #app .ov8-tm [style*="color:#FFFFFF"]{filter:brightness(.94)}
+html[data-v8]:not(#x1):not(#x2) #app .ov8 [style*="background:#A260CB"]{color:#fff !important}
+html[data-v8]:not(#x1):not(#x2) #app [style*="background:#7983CD"]{background:#5F69B9 !important}
+html[data-v8]:not(#x1):not(#x2):not(#x3) #app :is(.ov8-ax,.ov8-ax span,.i8ax span,.i8ms span,.ov8-vbl,.ov8-leg){color:var(--ink-2) !important}
+html[data-v8]:not(#x1):not(#x2):not(#x3) #app :is(.ugx-s.done,.v9st.done){color:#176B45 !important}
+html[data-v8]:not(#x1):not(#x2):not(#x3) #app .t6cats button span{color:var(--ink-2) !important}
+html[data-v8]:not(#x1):not(#x2):not(#x3) #app .v6arr{font-size:var(--fs-2) !important;color:var(--ink-3) !important}
+/* --- Type, second pass: sizes V5 sets with its own priority --- */
+html[data-v8]:not(#x1):not(#x2):not(#x3):not(#x4) #app :is(.src4,.st,.bdg,.i8chip,.i8tip,.ov8-vbl,.i8ms span,.i8ms,.v4when.li){font-size:var(--fs-2) !important}
+html[data-v8]:not(#x1):not(#x2):not(#x3):not(#x4) #app :is(.i8il span,.i8il b){font-size:var(--fs-3) !important}
+html[data-v8]:not(#x1):not(#x2):not(#x3):not(#x4) #app .ov8-tc span{font-size:var(--fs-1) !important}
+@media (max-width:480px){
+  html[data-v8]:not(#x1):not(#x2):not(#x3) #app :is(.ov8-tabs,[role="group"]) > button{min-height:40px;min-width:44px}
+  html[data-v8]:not(#x1):not(#x2):not(#x3) #app .t6more{min-height:40px}
+}
+html[data-v8]:not(#x1):not(#x2):not(#x3) #app .a6now span{background:#5F69B9 !important}
+html[data-v8]:not(#x1):not(#x2):not(#x3) #app .ov8-bp .q{color:var(--ink-2) !important}
+</style>
 <style id="ugtab">@media (max-width:640px){html[data-v7][data-v6] #ptabs #tab-academic .v4tabl{white-space:normal;line-height:1.1;text-align:center;max-width:84px;display:inline-block}html[data-v7][data-v6] #ptabs #tab-academic{white-space:normal}}</style>
 <style id="ugc-css">
 /* UG learning journey: Courses accordion */
@@ -12077,6 +12322,185 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
     var box = document.getElementById("lookupResult");
     if (box) new MutationObserver(function () { inject(); }).observe(box, { childList: true, subtree: true });
   })();
+  /* v8js start */
+  /* ================= V6 (data-v8): behaviour layer. Only runs in V6; wraps V5's renderers, never edits them. ================= */
+  (function () {
+    if (!isV8()) return;
+    var H = document.documentElement, SEEN = {}, NUMRX = /(-?\d[\d,]*(?:\.\d+)?)/;
+    function allowMotion() { return !REDUCED; }
+    // ---- 1. First visit of a screen: a layout-matched skeleton, then the content enters with one stagger. Later visits and re-renders stay still.
+    function skel(name) {
+      var k = function (h, cls) { return '<div class="v8sk ' + (cls || "") + '" style="' + (h ? "height:" + h + "px" : "") + '"></div>'; };
+      var kpis = function (n) { var s = '<div class="v8skel-row" style="grid-template-columns:repeat(' + n + ',1fr)">'; for (var i = 0; i < n; i++) s += k(0, "kpi-sk"); return s + "</div>"; };
+      var card = function (rows) { var s = '<div class="v8skel-card">' + k(16, "s"); for (var i = 0; i < rows; i++) s += '<div class="v8skel-row" style="grid-template-columns:1fr 2fr 1fr;align-items:center">' + k(12) + k(12) + k(12) + "</div>"; return s + "</div>"; };
+      if (name === "overview") return k(28, "t") + k(14, "l") + '<div class="v8skel-row" style="grid-template-columns:auto auto;justify-content:space-between">' + k(36, "b") + k(36, "b") + "</div>" + kpis(4) + k(22, "t") + card(5) + '<div class="v8skel-row" style="grid-template-columns:1fr 1fr">' + card(4) + card(4) + "</div>";
+      if (name === "people") return k(28, "t") + k(14, "s") + kpis(5) + '<div class="v8skel-row" style="grid-template-columns:1fr auto;align-items:center">' + k(22, "t") + k(36, "b") + "</div>" + k(44) + card(8);
+      if (name === "identity") return k(28, "t") + k(14, "s") + k(22, "t") + card(5) + k(22, "t") + card(4);
+      if (name === "data") return k(28, "t") + k(14, "s") + k(36, "b") + kpis(5) + k(22, "t") + kpis(4) + k(44) + card(6);
+      return k(28, "t") + card(5);
+    }
+    function lookupSkel(label) {
+      var k = function (h, w, cls) { return '<div class="v8sk ' + (cls || "") + '" style="height:' + h + 'px;width:' + w + '"></div>'; };
+      return '<div class="v8skel" aria-busy="true" aria-label="Looking up ' + esc(label) + '"><div class="v8skel-card" style="padding:20px 24px"><div style="display:flex;gap:16px;align-items:center"><div class="v8sk av"></div><div style="flex:1;display:flex;flex-direction:column;gap:10px">' + k(22, "40%") + k(14, "70%") + k(12, "45%") + '</div><div style="display:flex;gap:8px">' + k(32, "120px", "b") + k(32, "100px", "b") + '</div></div><div class="v8skel-row" style="grid-template-columns:repeat(5,1fr);margin-top:8px">' + [1, 2, 3, 4, 5].map(function () { return '<div style="display:flex;flex-direction:column;gap:8px">' + k(12, "50%") + k(16, "80%") + "</div>"; }).join("") + '</div>' + k(44, "100%", "b") + '</div><div class="v8skel-card">' + k(18, "30%") + [1, 2, 3, 4].map(function () { return '<div class="v8skel-row" style="grid-template-columns:1fr 2fr 1fr;align-items:center">' + k(12, "60%") + k(12, "70%") + k(12, "50%") + "</div>"; }).join("") + "</div></div>";
+    }
+    function enter(view, name) {
+      if (SEEN[name]) return;
+      SEEN[name] = true;
+      if (REDUCED) return;
+      var sk = document.createElement("div"); sk.className = "v8skel"; sk.setAttribute("aria-busy", "true"); sk.setAttribute("aria-label", "Loading " + name); sk.innerHTML = skel(name);
+      view.classList.add("v8loading"); view.appendChild(sk);
+      setTimeout(function () {
+        sk.remove(); view.classList.remove("v8loading"); view.classList.add("v8enter"); countUp(view);
+        setTimeout(function () { view.classList.remove("v8enter"); }, 1400);
+      }, 380);
+    }
+    var _renderApp8 = renderApp;
+    renderApp = function () {
+      _renderApp8();
+      var name = currentRoute(), view = $('.view[data-view="' + name + '"]');
+      if (view) enter(view, name);
+      navInd();
+      if (!H.hasAttribute("data-v8-ready")) requestAnimationFrame(function () { H.setAttribute("data-v8-ready", ""); });
+    };
+    // ---- 2. KPI numbers count up on entry, and tween between values on a filter change (same formatting as the text they replace).
+    function fmtLike(sample, n) {
+      var m = NUMRX.exec(sample); if (!m) return String(n);
+      var dec = (m[1].split(".")[1] || "").length, s = n.toFixed(dec);
+      if (m[1].indexOf(",") >= 0) { var p = s.split("."); var ip = p[0], neg = ip[0] === "-"; if (neg) ip = ip.slice(1); var indian = /\d,\d\d,\d\d\d/.test(m[1]); ip = indian ? ip.replace(/\B(?=(\d\d)+(?!\d)(?=\d{3}$))/g, ",").replace(/(\d)(?=(\d{3})$)/, "$1,") : ip.replace(/\B(?=(\d{3})+(?!\d))/g, ","); if (indian) { var raw = p[0].replace("-", ""); var last3 = raw.slice(-3), rest = raw.slice(0, -3); ip = (rest ? rest.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + "," : "") + last3; } s = (neg ? "-" : "") + ip + (p[1] ? "." + p[1] : ""); }
+      return sample.replace(NUMRX, s);
+    }
+    function tween(el, from, to, dur) {
+      var txt = el.textContent, t0 = performance.now(); if (el.__v8raf) cancelAnimationFrame(el.__v8raf);
+      var step = function (t) { var k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = fmtLike(txt, from + (to - from) * e); if (k < 1) el.__v8raf = requestAnimationFrame(step); else { el.textContent = txt; el.__v8raf = null; } };
+      el.__v8raf = requestAnimationFrame(step);
+    }
+    function numEls(root) { return $$(".ov8-k .kv, .kpi .v, .ov8-sm b, .v9t b", root).filter(function (e) { return NUMRX.test(e.textContent) && !/[a-zA-Z]{3,}/.test(e.textContent.replace(/[LK]$/, "")); }); }
+    function countUp(view) { if (REDUCED) return; numEls(view).forEach(function (e) { var m = NUMRX.exec(e.textContent); var to = parseFloat(m[1].replace(/,/g, "")); if (isNaN(to)) return; tween(e, 0, to, 700); }); }
+    function keyOf(e, root) { var p = []; var n = e; while (n && n !== root) { var i = 0, s = n; while ((s = s.previousElementSibling)) i++; p.unshift(n.tagName + i); n = n.parentElement; } return p.join("/"); }
+    function snapshot(root) { var m = {}; numEls(root).forEach(function (e) { m[keyOf(e, root)] = e.textContent; }); return m; }
+    function tweenFrom(root, before) {
+      if (REDUCED) return;
+      numEls(root).forEach(function (e) { var k = keyOf(e, root), old = before[k]; if (!old || old === e.textContent) return; var a = NUMRX.exec(old), b = NUMRX.exec(e.textContent); if (!a || !b) return; var from = parseFloat(a[1].replace(/,/g, "")), to = parseFloat(b[1].replace(/,/g, "")); if (isNaN(from) || isNaN(to)) return; tween(e, from, to, 520); });
+    }
+    function fadeCards(root) { if (REDUCED) return; $$(".ov8-card, .ov8-hero", root).forEach(function (c) { c.classList.remove("v8a"); void c.offsetWidth; c.classList.add("v8a"); }); }
+    function tinyLabels(root) { $$(".ov8-sb > span", root).forEach(function (s) { s.classList.toggle("v8tiny", s.textContent.trim() !== "" && s.offsetWidth < 34); }); }
+    document.addEventListener("click", function (e) {
+      var ov = e.target.closest && e.target.closest(".ov8"); if (!ov) return;
+      var b = e.target.closest("[data-ov8-tab],[data-ov8-range],[data-ov8-seg]"); if (!b) return;
+      var before = snapshot(ov);
+      setTimeout(function () { tweenFrom(ov, before); fadeCards(ov); tinyLabels(ov); enhanceSelects(ov); }, 0);
+    }, true);
+    document.addEventListener("change", function (e) {
+      if (!e.target.matches || !e.target.matches("[data-ov8-biz]")) return; var ov = e.target.closest(".ov8"); if (!ov) return;
+      var before = snapshot(ov); setTimeout(function () { tweenFrom(ov, before); fadeCards(ov); tinyLabels(ov); enhanceSelects(ov); }, 0);
+    }, true);
+    // ---- 3. People: sorting and segment changes reorder in place (FLIP); new rows fade in; nothing re-plays.
+    var _renderPeople8 = renderPeople;
+    renderPeople = function (stagger) {
+      var box = $("#pRows"), before = {};
+      if (box) $$(".prow[data-row]", box).forEach(function (r) { before[r.getAttribute("data-row")] = r.getBoundingClientRect().top; });
+      _renderPeople8(stagger);
+      if (!box || REDUCED || !H.hasAttribute("data-v8-ready")) return;
+      box.classList.remove("stagger");
+      var rows = $$(".prow[data-row]", box), moves = [], fresh = 0;
+      rows.forEach(function (r) { var k = r.getAttribute("data-row"); if (k in before) { var d = before[k] - r.getBoundingClientRect().top; if (Math.abs(d) > 1) moves.push([r, d]); } else { r.classList.add("v8new"); r.style.setProperty("--v8i", Math.min(fresh++, 10)); } });
+      moves.forEach(function (m) { m[0].style.transition = "none"; m[0].style.transform = "translateY(" + m[1] + "px)"; });
+      void box.offsetWidth;
+      moves.forEach(function (m) { m[0].style.transition = ""; m[0].classList.add("v8flip"); m[0].style.transform = ""; });
+      setTimeout(function () { moves.forEach(function (m) { m[0].classList.remove("v8flip"); }); rows.forEach(function (r) { r.classList.remove("v8new"); }); }, 420);
+    };
+    // ---- 4. Activity: Show older reveals only the new rows; tab and section switches cross-fade; the empty state gets a way out.
+    document.addEventListener("click", function (e) {
+      var b = e.target.closest && e.target.closest(".t6older"); if (!b) return;
+      var n = $$("#lookupResult .t6ev").length;
+      setTimeout(function () { $$("#lookupResult .t6ev").slice(n).forEach(function (r, i) { r.classList.add("v8new"); r.style.setProperty("--v8i", Math.min(i, 8)); }); }, 0);
+    }, true);
+    var _renderLookup8 = renderLookup;
+    renderLookup = function () {
+      if (L.status === "loading") { var box = $("#lookupResult"); if (box) { box.innerHTML = lookupSkel(L.label); var lb = $("#lookupForm button[type=submit], #lookupBtn"); if (lb) lb.setAttribute("aria-busy", "true"); } return; }
+      _renderLookup8();
+      var lb2 = $("#lookupForm button[type=submit], #lookupBtn"); if (lb2) lb2.removeAttribute("aria-busy");
+      if (REDUCED || !H.hasAttribute("data-v8-ready")) return;
+      $$("#lookupResult .a6note").forEach(function (n) { if (/No events of this type/.test(n.textContent) && !n.querySelector("button")) n.insertAdjacentHTML("beforeend", ' <button type="button" class="t6more" data-ecat="all">Show all types</button>'); });
+      enhanceSelects($("#lookupResult"));
+    };
+    // The things-to-act-on popover closes on an outside click, like every other overlay.
+    document.addEventListener("pointerdown", function (e) {
+      if (!V.actOpen) return; if (e.target.closest && e.target.closest(".v5actw, .v5pop")) return;
+      V.actOpen = false; renderLookup();
+    }, true);
+    // Inline validation on the Look up field: a quiet hint while typing something that can't be a phone or an email.
+    (function () {
+      var inp = $("#lookup"), err = $("#lookupErr"), t; if (!inp || !err) return;
+      inp.addEventListener("input", function () {
+        clearTimeout(t); var v = inp.value.trim();
+        if (!v) { err.hidden = true; inp.removeAttribute("aria-invalid"); return; }
+        t = setTimeout(function () { var n = normalize(v); if (n.err && v.length >= 6) { err.textContent = n.err; err.hidden = false; inp.setAttribute("aria-invalid", "true"); } else { err.hidden = true; inp.removeAttribute("aria-invalid"); } }, 450);
+      });
+    })();
+    // ---- 5. Dialogs: scale in, scale out (ease-in), backdrop fades.
+    $$("dialog").forEach(function (d) {
+      var close0 = d.close.bind(d), closing = false;
+      d.close = function (v) { if (closing || !d.open || REDUCED) return close0(v); closing = true; d.classList.add("v8out"); setTimeout(function () { d.classList.remove("v8out"); closing = false; close0(v); }, 200); };
+      d.addEventListener("cancel", function (e) { if (!REDUCED) { e.preventDefault(); d.close(); } });
+    });
+    // ---- 6. Toasts: an icon for the kind, an optional action.
+    var _toast8 = toast;
+    toast = function (msg, opts) {
+      opts = opts || {};
+      var t = $("#toast"); if (!t) return _toast8(msg);
+      var kind = opts.kind || (/copied|saved|done|updated/i.test(msg) ? "ok" : /can't|cannot|only|no |not |fail/i.test(msg) ? "info" : "info");
+      var icon = kind === "ok" ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>' : kind === "err" ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' : '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 8v5M12 16.5v.5"/></svg>';
+      t.className = "toast " + kind; t.innerHTML = '<span class="v8ti" aria-hidden="true">' + icon + '</span><span>' + esc(msg) + "</span>" + (opts.action ? '<button type="button" class="v8ta">' + esc(opts.action.label) + "</button>" : "");
+      if (opts.action) t.querySelector(".v8ta").addEventListener("click", function () { t.classList.remove("show"); opts.action.fn(); });
+      void t.offsetWidth; t.classList.add("show");
+      clearTimeout(toastTimer); toastTimer = setTimeout(function () { t.classList.remove("show"); }, opts.action ? 4000 : 2200);
+    };
+    // ---- 7. Native selects become a styled menu (the <select> stays, hidden, so existing listeners keep working).
+    function enhanceSelects(root) {
+      $$("select", root || document).forEach(function (sel) {
+        if (sel.closest(".review, dialog") || sel.__v8) return; sel.__v8 = true;
+        var wrap = document.createElement("div"); wrap.className = "v8dd"; sel.parentNode.insertBefore(wrap, sel); wrap.appendChild(sel);
+        var btn = document.createElement("button"); btn.type = "button"; btn.className = "v8dd-b"; btn.setAttribute("aria-haspopup", "listbox"); btn.setAttribute("aria-expanded", "false");
+        if (sel.getAttribute("aria-label")) btn.setAttribute("aria-label", sel.getAttribute("aria-label"));
+        var label = function () { var o = sel.options[sel.selectedIndex]; btn.innerHTML = '<span>' + esc(o ? o.textContent : "") + '</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'; };
+        label(); wrap.appendChild(btn); sel.addEventListener("change", label);
+        var menu = null, idx = -1;
+        var close = function () { if (!menu) return; var m = menu; menu = null; btn.setAttribute("aria-expanded", "false"); wrap.classList.remove("open"); if (REDUCED) m.remove(); else { m.classList.add("v8out"); setTimeout(function () { m.remove(); }, 150); } };
+        var choose = function (i) { if (sel.selectedIndex !== i) { sel.selectedIndex = i; sel.dispatchEvent(new Event("change", { bubbles: true })); } close(); btn.focus(); };
+        var hi = function (i) { idx = i; $$("li", menu).forEach(function (li, j) { li.classList.toggle("on", j === i); if (j === i) li.scrollIntoView({ block: "nearest" }); }); };
+        var open = function () {
+          if (menu) return close();
+          menu = document.createElement("ul"); menu.className = "v8dd-m"; menu.setAttribute("role", "listbox");
+          var r = wrap.getBoundingClientRect(); if (r.left + 260 > window.innerWidth) menu.classList.add("right");
+          Array.prototype.forEach.call(sel.options, function (o, i) { var li = document.createElement("li"); li.setAttribute("role", "option"); li.setAttribute("aria-selected", i === sel.selectedIndex); li.textContent = o.textContent; li.addEventListener("click", function () { choose(i); }); li.addEventListener("mousemove", function () { hi(i); }); menu.appendChild(li); });
+          wrap.appendChild(menu); wrap.classList.add("open"); btn.setAttribute("aria-expanded", "true"); hi(sel.selectedIndex);
+        };
+        btn.addEventListener("click", open);
+        btn.addEventListener("keydown", function (e) {
+          if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); if (!menu) open(); hi(Math.max(0, Math.min(sel.options.length - 1, idx + (e.key === "ArrowDown" ? 1 : -1)))); }
+          else if ((e.key === "Enter" || e.key === " ") && menu) { e.preventDefault(); choose(idx); }
+          else if (e.key === "Escape" && menu) { e.preventDefault(); close(); }
+        });
+        document.addEventListener("pointerdown", function (e) { if (menu && !wrap.contains(e.target)) close(); }, true);
+        btn.addEventListener("blur", function () { setTimeout(function () { if (menu && !wrap.contains(document.activeElement)) close(); }, 0); });
+      });
+    }
+    // ---- 8. Sidebar: the current page is marked by one pill that slides between items.
+    function navInd() {
+      var nav = $(".side .nav"); if (!nav) return;
+      var ind = $(".v8ind", nav); if (!ind) { ind = document.createElement("span"); ind.className = "v8ind"; ind.setAttribute("aria-hidden", "true"); nav.insertBefore(ind, nav.firstChild); }
+      var a = $('a[aria-current="page"]', nav);
+      if (!a || a.hidden) { ind.classList.remove("on"); nav.classList.remove("v8has"); return; }
+      ind.style.setProperty("--y", a.offsetTop + "px"); ind.style.height = a.offsetHeight + "px"; ind.classList.add("on"); nav.classList.add("v8has");
+    }
+    window.addEventListener("resize", navInd);
+    // ---- Boot
+    enhanceSelects(document);
+    new MutationObserver(function () { clearTimeout(enhanceSelects.__t); enhanceSelects.__t = setTimeout(function () { enhanceSelects(document); tinyLabels(document); }, 60); }).observe($("#app"), { childList: true, subtree: true });
+    setTimeout(function () { tinyLabels(document); navInd(); }, 50);
+  })();
+  /* v8js end */
   renderAudit();
   render();
 })();
