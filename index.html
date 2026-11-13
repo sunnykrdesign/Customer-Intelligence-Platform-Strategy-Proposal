@@ -4469,9 +4469,9 @@ html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .plfacts > .facts:has(
 html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .plfacts > .facts:has(> .v9bzf) > .v9bzf .v9bz:not(.many){flex-direction:row !important;flex-wrap:wrap;column-gap:20px}
 }
 html[data-v9] #lookupResult .v9bzf .many small{font-size:12px;color:var(--cr-3,#6E7078)}
-/* Centre person layout (V5): a little more contrast in the card's gradient, and a white hairline rim that is brightest along the top edge and fades out down the sides. */
+/* Centre person layout (V5): a little more contrast in the card's gradient, and a white hairline rim that is brightest along the bottom edge and fades out up the sides, so it fades away towards the top. */
 html[data-v9][data-v7t="crisp"][data-v7pl="centre"]:not(#v9a):not(#v9b) #lookupResult .pcard.pcard{background:linear-gradient(90deg,#DCD7FB 0%,#F4F0FC 50%,#F6D3E5 100%) !important}
-html[data-v9][data-v7t="crisp"][data-v7pl="centre"]:not(#v9a):not(#v9b) #lookupResult .pcard.pcard::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,.7) 22%,rgba(255,255,255,0) 62%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);pointer-events:none;z-index:1}
+html[data-v9][data-v7t="crisp"][data-v7pl="centre"]:not(#v9a):not(#v9b) #lookupResult .pcard.pcard::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(0deg,#fff 0%,rgba(255,255,255,.7) 22%,rgba(255,255,255,0) 62%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);pointer-events:none;z-index:1}
 html[data-v9] .v9pg{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin:14px 0 14px;padding:0 4px;font-family:Figtree,Inter,system-ui,sans-serif;color:#15161C}
 html[data-v9] .v9pg[hidden]{display:none}
 html[data-v9] .v9pg-size{display:inline-flex;align-items:center;gap:10px;font-size:13px;color:#5F616B;white-space:nowrap}
