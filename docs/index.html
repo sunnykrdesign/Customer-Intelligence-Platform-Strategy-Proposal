@@ -11567,9 +11567,7 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
   var V7PL = "current", V7PLS = ["current", "ccover", "ccink"];
   try { var pl7 = localStorage.getItem("cip-v7pl"); if (["centre", "ccfade", "cccurve", "ccinset"].indexOf(pl7) >= 0) pl7 = "ccover"; if (V7PLS.indexOf(pl7) >= 0) V7PL = pl7; } catch (e) {}
   if (V7PLS.indexOf(Q.get("pl")) >= 0) V7PL = Q.get("pl"); else if (["centre", "ccfade", "cccurve", "ccinset"].indexOf(Q.get("pl")) >= 0) V7PL = "ccover"; // Centred, Fade, Curve and Inset were removed in review
-  var V7PC = "current";
-  try { var pc7 = localStorage.getItem("cip-v7pc"); if (V7SBS.indexOf(pc7) >= 0) V7PC = pc7; } catch (e) {}
-  if (V7SBS.indexOf(Q.get("pc")) >= 0) V7PC = Q.get("pc");
+  var V7PC = "current"; // Person card shade was settled on Current (white) in review, so it is no longer a choice
   var V7DT = "on";
   try { if (localStorage.getItem("cip-v7dt") === "off") V7DT = "off"; } catch (e) {}
   if (Q.get("dt") === "on" || Q.get("dt") === "off") V7DT = Q.get("dt");
@@ -11679,19 +11677,6 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
         sync(); v7theme(); if (typeof rvShareSync === "function") rvShareSync();
         if (typeof renderLookup === "function" && L && L.person) renderLookup();
         window.dispatchEvent(new Event("resize"));
-      });
-    })();
-    (function () {
-      var row = document.createElement("div"); row.className = "rv-sec rv-v7pc";
-      row.innerHTML = '<span class="rv-k">Person card</span><div class="rv-seg" role="group" aria-label="Person card shade"><button type="button" data-pc7="current">Current</button><button type="button" data-pc7="darker">Darker</button><button type="button" data-pc7="darkest">Darkest</button></div><p class="rv-note"></p>';
-      host.parentNode.insertBefore(row, host);
-      var NOTE = { current: "White, as it is now.", darker: "Deep lavender-indigo (#2C2850) with light text; Open in CRM turns white so it stays the main action.", darkest: "Near-black (#1B1B1B, the same as the Darkest sidebar) with light grey text; Open in CRM stays white." };
-      var sync = function () { $$("[data-pc7]", row).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-pc7") === V7PC); }); $(".rv-note", row).textContent = NOTE[V7PC]; };
-      sync();
-      row.addEventListener("click", function (e) {
-        var b = e.target.closest("[data-pc7]"); if (!b) return;
-        V7PC = b.getAttribute("data-pc7"); try { localStorage.setItem("cip-v7pc", V7PC); } catch (er) {}
-        sync(); v7theme(); if (typeof rvShareSync === "function") rvShareSync();
       });
     })();
     (function () {
