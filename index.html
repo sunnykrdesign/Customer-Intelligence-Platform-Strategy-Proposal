@@ -6869,6 +6869,8 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
   var V9 = document.documentElement.hasAttribute("data-v9");
   function isV9() { return document.documentElement.hasAttribute("data-v9"); }
   var V9BU = { "Internshala": "I", "Study Abroad": "S", "Working Professionals": "W", "KnowledgeHut": "K", "International": "N" };
+  // Profile photos: V4's sample photos, matched by age and role. The under-18 profile keeps a hidden avatar.
+  var V9PHOTO = { "upg_R3D7K9Q1": "assets/profile-ananya.jpg", "upg_K8M2W5T4": "assets/profile-arjun.jpg", "upg_S5I1Y8N3": "assets/profile-ananya.jpg", "upg_V2R6S9P7": "assets/profile-rohan.jpg", "upg_D3N5T7X9": "assets/profile-harsh.jpg" };
   var V9MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   function v9Date(s) { var m = /^(\d{4})-(\d{2})(?:-(\d{2}))?/.exec(s || ""); return m ? new Date(+m[1], +m[2] - 1, m[3] ? +m[3] : 1) : null; }
   function v9DayY(s) { var d = v9Date(s); return d ? d.getDate() + " " + V9MON[d.getMonth()] + " " + d.getFullYear() : ""; }
@@ -7056,7 +7058,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
     }
     var known = v9Date(h.known_since), yrs = known ? (TODAY4 - known) / (365.25 * 864e5) : 0;
     var p = {
-      v9: true, density: !!j.density_test, j: j, name: h.name, gid: j.person_id, photo: null, headline: h.headline, stage: h.life_stage, ageBand: h.age_band, city: h.city,
+      v9: true, density: !!j.density_test, j: j, name: h.name, gid: j.person_id, photo: minor ? null : V9PHOTO[j.person_id] || null, headline: h.headline, stage: h.life_stage, ageBand: h.age_band, city: h.city,
       owner: ((j.stored_not_shown || {}).owning_business || {}).business || (h.businesses[0] || {}).business, since: v9MonY(h.known_since), complete: (j.stored_not_shown || {}).profile_completeness_pct || 0,
       restricted: !!h.restricted, restriction: h.restriction_note || "", phones: phones, emails: emails, linked: [], ids: records.map(function (r) { return [r[2], r[0], r[1]]; }),
       consent: consent, lifecycle: lifecycle, courses: courses, skills: { declared: [], graded: [] }, ins: ins, moments: [], events: events, summary: j.summary, interest: j.interest_by_area || [], v9added: added,

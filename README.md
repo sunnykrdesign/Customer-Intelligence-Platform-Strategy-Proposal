@@ -163,6 +163,7 @@ Five versions are in the switcher: V1 · Classic, V2 · Learner 360, V3 · Maste
     - **Headline metrics:** known to 2+ businesses (37%), paid leads already known (28%), spent re-acquiring (₹1.92 Cr) and how much better known leads convert (2×).
     - **Who overlaps with whom:** a matrix of people known to both businesses, shaded by the share of the row's business.
     - **Paid leads upGrad already knew:** each business's share of paid leads that another business already had, and the spend on them.
+  - **Photos:** V5 uses V4's sample profile photos. Riya and Sneha share the one photo of a woman (as V4's two Ananyas do); Karan has Arjun's photo, Vikram Rohan's and the density test profile Harsh's. The under-18 profile stays hidden with no photo.
   - **People:** the directory lists only these five, all openable: life stage and city, businesses, overall relationship state, lifetime revenue, reachable channels and last active.
   - **Person card:** name, headline, how long upGrad has known them, the person ID and sync. The facts row shows life stage, age band, city, each business with its state and since when, and known since with last active. The owning business and profile completeness are stored but not shown, as the file decides, so there's no "Owned by" or "Fields filled".
   - **Profile:** the file's sections with its attribute names: Identity & contact, Personal details, Life stage, Education (prior, outside upGrad), Career / profession, Aspiration, Financial profile (locked as in V4), and Consent & preferences.
