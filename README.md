@@ -43,12 +43,13 @@ Preview links look like this:
 A **Review** button in the bottom-right corner opens the review controls. They're for design review only, not part of the product. The controls sit in groups: **Version**, **V4 options**, **Look up a person**, **Motion** and **Sharing and access**. A group's title hides when none of its controls apply to the version on screen.
 
 - **Share this view:** **Copy link** gives a link that opens exactly what you're looking at: the design version, the profile layout, the pinned search bar, the sidebar menu items you've left on, the screen you're on and, on Look up a person, the person who's open. It skips sign-in and hides the Review panel, so the person you send it to sees only that view. For example: `…/?preview=1&ver=1&card=top&tabs=left&bar=high&pin=1&nav=overview,people,lookup&p=ananya&review=0#/lookup`
-- **Design version:** four versions, named in order. A note under the switcher says which one is on screen. Links use `?ver=1` to `?ver=4`, and older links with the previous numbers still open the right version. Retired drafts, and old links or saved choices for them, open V4. Switching away from V4 puts every colour it changed back, so its theme never shows in another version. A V3 or V4 link also keeps the trend style, for example `&tr=stack`, and a V4 link keeps the theme, for example `&t=ocean`.
+- **Design version:** five versions, named in order. A note under the switcher says which one is on screen. Links use `?ver=1` to `?ver=5`, and older links with the previous numbers still open the right version. Retired drafts, and old links or saved choices for them, open V4. Switching away from V4 puts every colour it changed back, so its theme never shows in another version. A V3 or V4 link also keeps the trend style, for example `&tr=stack`, and a V4 link keeps the theme, for example `&t=ocean`.
 - **Sign in:** **Skip** or **Show** (default). Skip opens the prototype straight into the app as Demo User on the Central data team, which can see every page: no sign in, sign up, code, team choice or notice, and no preview bar. Show keeps the full flow. The choice is remembered in this browser, and a link keeps Skip with `&auth=off`.
   - **V1 · Classic** (previously V3)
   - **V2 · Learner 360** (previously V4)
   - **V3 · Master** (previously V6)
-  - **V4 · Crisp** (previously V7): the latest, and the default for new visitors.
+  - **V4 · Crisp** (previously V7): the default for new visitors.
+  - **V5 · Learner 360 data**: the latest. V4 Crisp with the PM's sample people (see Design versions). Switching into or out of V5 reloads the page, because V5 loads different people.
 - **Theme (V4 options):** **Crisp** (default) or **Ocean**. Shown only in V4. A saved or linked Bold or Vivid theme opens as Crisp.
 - **Overview:** **New** (default) or **Current**. Shown only in V4 with the Crisp theme. New is the Overview from the shared design, which that design called "Insights". Its content comes from that design; its look follows the Crisp Overview design in Figma (Customer Intelligence Platform file, node 48:12213). The data is laid out to be read at a glance. All figures are sample data.
   - **Look:** Figtree on the Crisp lavender page (#F3F4FB), white 16px cards with no border and 28px padding, 20px card titles. Controls are pills on #ECEEF6 with a white selected pill. Marks are periwinkle (#646EC2) for the one that matters, lavender tints for the rest, ink (#182230) and rose (#D03A70). Takeaways sit in a lavender tint panel. Businesses use periwinkle (WP), rose (SA), olive (KH), violet (International), amber (LC) and blue (Internshala); neighbours were checked for colour-blind separation. Life stage runs light to dark rose for students and light periwinkle to deep indigo for working people.
@@ -115,7 +116,7 @@ Your choices are remembered on that browser.
 
 ## Design versions
 
-Four versions are in the switcher: V1 · Classic, V2 · Learner 360, V3 · Master and V4 · Crisp. Earlier drafts are retired, and links to them open V4.
+Five versions are in the switcher: V1 · Classic, V2 · Learner 360, V3 · Master, V4 · Crisp and V5 · Learner 360 data. Earlier drafts are retired, and links to them open V4.
 
 - **V1 · Classic** (previously V3): a soft grey canvas with white cards, monospace table headers and status chips, and upGrad red as the accent colour. Its Overview is built for live monitoring:
   - **Top numbers:** a row of six key figures. The numbers roll in digit by digit when the page opens, and the live counters keep ticking.
@@ -156,7 +157,30 @@ Four versions are in the switcher: V1 · Classic, V2 · Learner 360, V3 · Maste
   - **Look up a person · Activity (V3):** **Journey** is a roadmap with one row per business over time (lead, counselled, paid, completed and lost bars, milestones, the life stage on top and a Today line), then chapters by year. **Timeline** opens with a stacked chart of events per month, then filters by business and event type and a feed grouped by month. **By business** gives a card per business with its event mix, when things happened and every event. **Learning rhythm** has the headline figures, weekly bars with the average, a day-by-day heatmap and busy times. The same roadmap is used for Life with upGrad on the Profile tab. References: Productboard, Plane and Miro (roadmaps), Calendly, Shopify and Mixpanel (activity feeds), Base44, Peerlist and Cursor (heatmaps), Quo (busy times), and Headspace, Codecademy and Babbel (course progress).
   - **Look up a person · Insights (V3):** opens with **Before you call**, a short summary built from the signals (learning, reach, how often they've been contacted this week, any re-acquisition and the best next step). Then come scorecards for lifetime value (paid against still due, owner only), learning health, refund risk and how many businesses know them; re-acquisition and next-best programme cards; reach as open and closed channels with contact fatigue for 7 and 30 days; model scores as meters; and any other signals. Every figure keeps its **How** note. References: HubSpot's record summary, Xero and Searchable scorecards, Whop's risk gauge and Vanta's status cards.
   - **Motion:** screens fade in as you open them, cards rise into view as you scroll, a soft spotlight follows the cursor on cards, and segmented controls slide with a spring. If reduced motion is turned on, all of this is switched off.
-- **V4 · Crisp** (previously V7; the latest and the default): V3 with a new visual layer and two themes (Review → Theme). Bold and Vivid were removed.
+- **V5 · Learner 360 data** (the latest; `?ver=5`): V4 Crisp, unchanged, filled with the five sample people from the PM's `data/learner360_sample_people.json` (as of 13 Nov 2026; the page embeds a copy): Riya Deshmukh, Karan Malhotra, Sneha Iyer, an under-18 profile in Kochi, and Vikram Rao. All names, IDs and numbers in that file are invented. Every V4 option applies, except Theme: V5 is always Crisp.
+  - **People:** the directory lists only these five, all openable: life stage and city, businesses, overall relationship state, lifetime revenue, reachable channels and last active.
+  - **Person card:** name, headline, how long upGrad has known them, the person ID and sync. The facts row shows life stage, age band, city, each business with its state and since when, and known since with last active. The owning business and profile completeness are stored but not shown, as the file decides, so there's no "Owned by" or "Fields filled".
+  - **Profile:** the file's seven sections with its attribute names: Identity & contact, Personal details, Education (prior, outside upGrad), Career / profession, Aspiration, Financial profile (locked as in V4), and Consent & preferences.
+    - Each value shows its source and whether it was declared, observed or derived. It also shows the date it was added; there's no verified date.
+    - Sales Insights values show "Counselling call on {date}".
+    - Emails and phones stay masked until Show contact, and say whether they're verified.
+    - Linked system IDs become Linked records.
+    - Conflicts show how they were resolved.
+    - "Consent to share across upGrad" says it has no source yet.
+  - **UG learning journey:** upGrad courses with status, progress and results.
+    - Programmes with module data (Prism's "module x of y") get the programme path.
+    - Internshala Trainings say they have no module data.
+    - Skills keep graded ones (proven) apart from self-declared ones.
+    - Projects and trainings on the resume are listed under credentials.
+  - **Activity:** every event under the model's sub-sections: Attribution, Marketing engagement, Enquiries & business relationships, Interactions, Payments & commerce, Learning activity, Career activity (new) and Support, feedback & referrals. Consent changes aren't shown, as the model decides.
+    - Flags show on the event ("Re-acquired", "Under 18").
+    - Details show the event type and the source record.
+    - Counselling calls show "Counselling call on {date}".
+  - **Insights:** the file's summary, lifetime value, programmes and relationship state, then each business, every insight with what it's built from, activity over the last six months, and interest by area.
+  - **Under 18:** the profile shows "Name hidden" and its restriction note. It shows only the basics the file gives: contact hidden, every channel blocked, and no intent or next-best programme.
+  - **Things to act on:** the person's moment, plus a re-acquisition when there is one.
+  - **Today:** dates are worked out from 13 Nov 2026, the file's as-of date.
+- **V4 · Crisp** (previously V7; the default): V3 with a new visual layer and two themes (Review → Theme). Bold and Vivid were removed.
   - **Crisp (default): soft lavender.** Built from a reference dashboard's visual language, not its content or layout:
     - **Shell:** one light app surface that runs edge to edge, with no canvas margin or rounded outer corners. On desktop the sidebar has its own deeper lavender surface (#E5E3F0) and a firmer divider down the full height, so it stands apart from the lighter page; the search field and the current page sit on it as white pills.
     - **Surfaces:** white cards with no borders and 16px corners. Type is Figtree, with medium-weight headings and figures.
