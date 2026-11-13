@@ -11409,28 +11409,7 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
     return open + big + small + extra + "</svg>";
   }
   function spark6Apply() { $$(".i6spark").forEach(function (el) { if (el.querySelector(".i6sp")) el.innerHTML = spark6svg(); }); }
-  (function () {
-    var rows = $(".rv-v6x .rv-rows"); if (!rows) return;
-    var box = document.createElement("div"); box.className = "rv-sp6";
-    box.innerHTML = '<span class="rv-sub">Before you call mark</span><div class="rv-seg" id="rvSpark6" role="group" aria-label="Before you call mark">' +
-      Object.keys(SP6).map(function (k) { return '<button type="button" data-sp6="' + k + '" aria-pressed="' + (k === SPARK6) + '"><span class="rvsp">' + spark6svg(k) + "</span>" + SP6[k] + "</button>"; }).join("") + "</div>" +
-      '<p class="rv-note" id="rvSpark6Note"></p>';
-    rows.parentNode.appendChild(box);
-    var NOTE = {
-      pulse: "The star turns slowly; the dot grows into a small star and back, in place (3.2s).",
-      swap: "The star and the dot trade corners: the star shrinks into a dot at the top left while the dot grows into the star at the bottom right, then they swap back (5s).",
-      orbit: "Two marks travel crossing, tilted orbits around the star, as if in 3D: each grows into a star and brightens as it comes towards you, then shrinks to a dot, dims and passes behind the star as it goes away (6s per lap).",
-      ring: "A tilted ring circles the star, half behind it and half in front. A small mark travels the ring, opening into a star as it passes in front and fading to a dot behind (5s per lap).",
-      cycle: "Three marks take turns: the big star moves down and shrinks, the small star becomes a dot, and the dot grows into the big star (7.5s)."
-    };
-    function sync() { $$("#rvSpark6 [data-sp6]").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-sp6") === SPARK6); }); $("#rvSpark6Note").textContent = NOTE[SPARK6] + " Still when reduced motion is on."; }
-    sync();
-    $("#rvSpark6").addEventListener("click", function (e) {
-      var b = e.target.closest("[data-sp6]"); if (!b) return;
-      SPARK6 = b.getAttribute("data-sp6"); try { localStorage.setItem("cip-spark6", SPARK6); } catch (er) {}
-      sync(); spark6Apply(); if (typeof rvShareSync === "function") rvShareSync();
-    });
-  })();
+  // The Before you call mark choice was removed from the Review panel in review; the mark keeps its saved or default motion.
 
   /* ================= V6 Activity: calls ================= */
   // A call is an Interactions event whose title names a call. V6 adds a Calls filter to the Timeline,
