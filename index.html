@@ -5067,6 +5067,18 @@ html[data-v9] .j6c .j6cy:has(.j6cm){display:flex;align-items:center;flex-wrap:no
 @media (max-width:640px){html[data-v9] .j6c .j6cy .j6cm{margin-left:6px !important;padding:0 7px !important}html[data-v9] .j6c .j6cy .j6cmw{display:none}}
 html[data-v9] .j6c .j6cy .j6cm{display:inline-flex;align-items:center;height:22px;margin-left:8px;padding:0 8px;border-radius:999px;background:#ECEEFA;color:#4F57A8;font-size:12px;font-weight:500;font-style:normal;letter-spacing:0;line-height:1;vertical-align:middle;cursor:help;white-space:nowrap}
 </style>
+<style id="v9xpdate">
+/* V5 Education and Career entries: the Added date at the right end of the title line, as in every other profile row */
+html[data-v9] #lookupResult .xp-top:has(> .v9when),html[data-v9] #lookupResult .xp-rt{display:flex;align-items:flex-start;flex-wrap:nowrap;gap:8px}
+html[data-v9] #lookupResult :is(.xp-top,.xp-rt):has(> .v9when) > b{min-width:0;line-height:22px}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :is(.xp-top,.xp-rt) > .v9when{margin:0 0 0 auto !important;padding:0 0 0 16px !important;flex:0 0 auto;display:block}
+html[data-v9] #lookupResult :is(.xp-top,.xp-rt) > .v9when > .a{display:block;color:var(--cr-3,#6E7078);font-size:11.5px;font-weight:400;line-height:22px;font-variant-numeric:tabular-nums;white-space:nowrap}
+html[data-v9] #lookupResult :is(.xp-top,.xp-rt) > .v9when > .a::before{display:none !important;content:none !important}
+html[data-v9] #lookupResult .xp-top .xp-now{margin-left:2px;margin-top:1px;flex:0 0 auto}
+html[data-v9]:not(#v9a):not(#v9b) #lookupResult .xp-b > .src{display:inline-flex;align-items:center;margin-top:8px;height:17px;padding:0 8px !important;font-size:11.5px !important;line-height:17px;background:#ECEEF6 !important;color:#5F616B !important}
+html[data-v9]:not(#v9a):not(#v9b) #lookupResult .xp-b > .src.s-li{background:#E8F1FB !important;color:#0A66C2 !important}
+html[data-v9] #lookupResult .v4meta > span:not([class]):first-child{margin-left:0}
+</style>
 <style id="ugtab">@media (max-width:640px){html[data-v7][data-v6] #ptabs #tab-academic .v4tabl{white-space:normal;line-height:1.1;text-align:center;max-width:84px;display:inline-block}html[data-v7][data-v6] #ptabs #tab-academic{white-space:normal}}</style>
 <style id="ugc-css">
 /* UG learning journey: Courses accordion */
@@ -7253,7 +7265,7 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
       var sum = s[1] === "identity" ? (minor ? "Contact hidden · under 18" : emails.length + (emails.length === 1 ? " email, " : " emails, ") + phones.length + (phones.length === 1 ? " mobile" : " mobiles") + " · " + records.length + " linked records")
         : s[1] === "personal" ? h.age_band + " · " + h.city
         : s[1] === "lifestage" ? (first ? String(first.v).split(" · ")[0] : h.life_stage)
-        : s[1] === "education" ? ""
+        : s[1] === "education" ? (first ? String(first.v).split(/\s*;\s*/)[0] : "") // the highest qualification, like every other section's summary line
         : s[1] === "career" && LI ? "From LinkedIn · " + (first ? first.v : "no roles yet")
         : s[1] === "consent" ? (rn || "Not captured yet") : first ? first.v : "Not captured yet";
       return { key: s[1], t: s[1] === "education" ? "Education" : s[0], ic: s[2], sum: sum, filled: [have, Math.max(s[3], have)], fin: s[1] === "financial", rows: rows };
@@ -7423,8 +7435,8 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
   }
   // When a value came in. V5 shows only that: the file has no verified date.
   function v9When(p, key, src) {
-    var a = (p.v9added || {})[key]; if (!a) return "";
-    return '<div class="v4when v9when"><span class="a" title="When this value first came in">Added ' + v9DayY(a) + "</span></div>";
+    var a = (p.v9added || {})[key], d = a ? v9DayY(a) : ""; if (!d) return "";
+    return '<div class="v4when v9when"><span class="a" title="When this value first came in">Added ' + d + "</span></div>";
   }
   // The facts row: life stage, age band, city, known since, then each business with its state (the owning business and completeness aren't shown).
   function v9Facts(p, fact) {
@@ -11713,19 +11725,19 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
     var list = kind === "edu" ? p.edu : p.exp; if (!list) return "";
     if (!list.length) return '<div class="xp xp-none"><span class="xp-logo c5" aria-hidden="true">' + ic4("brief", 18) + "</span><div><b>No work experience yet</b><p>" + esc(p.expTotal || "") + (p.stage ? " · " + esc(p.stage) : "") + "</p></div></div>";
     if (kind === "edu") return '<div class="xp">' + list.map(function (e) {
-      return '<article class="xp-e">' + xpLogo(e.s, null, xpEduImg(e)) + '<div class="xp-b"><div class="xp-top"><b>' + esc(e.s) + "</b>" + (e.src ? '<span class="src">' + esc(e.src) + "</span>" : "") + '</div><p class="xp-sub">' + esc(e.d) + '</p><p class="xp-meta">' + esc(e.y) + "</p>" + (e.g ? '<p class="xp-g">' + esc(e.g) + "</p>" : "") + xpDesc(e.a) + v4WhenHTML(p, "edu|" + e.s + "|" + e.d, e.src) + "</div></article>";
+      return '<article class="xp-e">' + xpLogo(e.s, null, xpEduImg(e)) + '<div class="xp-b"><div class="xp-top"><b>' + esc(e.s) + "</b>" + (e.src && !p.v9 ? '<span class="src">' + esc(e.src) + "</span>" : "") + (p.v9 ? v4WhenHTML(p, "edu|" + e.s + "|" + e.d, e.src) : "") + '</div><p class="xp-sub">' + esc(e.d) + '</p><p class="xp-meta">' + esc(e.y) + "</p>" + (e.g ? '<p class="xp-g">' + esc(e.g) + "</p>" : "") + xpDesc(e.a) + (e.src && p.v9 ? '<span class="src">' + esc(e.src) + "</span>" : "") + (p.v9 ? "" : v4WhenHTML(p, "edu|" + e.s + "|" + e.d, e.src)) + "</div></article>";
     }).join("") + "</div>";
     var tot = (p.v9 && p.v9li ? '<p class="v9li"><span class="v9in" aria-hidden="true">in</span><span><b>From LinkedIn</b> · professional history comes through the LinkedIn API, not CV fields · synced ' + esc(p.v9li) + "</span></p>" : "") + (p.expTotal ? '<p class="xp-total">Total experience: <b>' + esc(p.expTotal) + "</b></p>" : "");
     return tot + '<div class="xp">' + list.map(function (c) {
       var r0 = c.roles[0], cur = c.roles.some(function (r) { return r.to === "Present"; }), badge = cur ? '<span class="xp-now">Present</span>' : r0.soon ? '<span class="xp-now soon">' + esc(r0.soon) + "</span>" : "";
       var range = function (r) { var d = xpDur(r.from, r.to); return esc(r.from) + (r.to ? " – " + esc(r.to) : "") + (d ? " · " + d : ""); };
       if (c.roles.length === 1) {
-        return '<article class="xp-e">' + xpLogo(c.c, c.lg) + '<div class="xp-b"><div class="xp-top"><b>' + esc(r0.t) + "</b>" + badge + '</div><p class="xp-sub">' + esc(c.c) + (c.type ? " · " + esc(c.type) : "") + '</p><p class="xp-meta">' + range(r0) + "</p>" + (c.loc ? '<p class="xp-meta">' + esc(c.loc) + "</p>" : "") +
-          xpSkills(r0.sk) + xpDesc(r0.desc) + (r0.src ? '<span class="src' + (r0.src === "LinkedIn" ? " s-li" : "") + '">' + esc(r0.src) + "</span>" : "") + v4WhenHTML(p, "exp|" + c.c + "|" + r0.t, r0.src) + "</div></article>";
+        return '<article class="xp-e">' + xpLogo(c.c, c.lg) + '<div class="xp-b"><div class="xp-top"><b>' + esc(r0.t) + "</b>" + badge + (p.v9 ? v4WhenHTML(p, "exp|" + c.c + "|" + r0.t, r0.src) : "") + '</div><p class="xp-sub">' + esc(c.c) + (c.type ? " · " + esc(c.type) : "") + '</p><p class="xp-meta">' + range(r0) + "</p>" + (c.loc ? '<p class="xp-meta">' + esc(c.loc) + "</p>" : "") +
+          xpSkills(r0.sk) + xpDesc(r0.desc) + (r0.src ? '<span class="src' + (r0.src === "LinkedIn" ? " s-li" : "") + '">' + esc(r0.src) + "</span>" : "") + (p.v9 ? "" : v4WhenHTML(p, "exp|" + c.c + "|" + r0.t, r0.src)) + "</div></article>";
       }
       var first = c.roles[c.roles.length - 1].from, last = c.roles[0].to, td = xpDur(first, last);
       return '<article class="xp-e grp">' + xpLogo(c.c, c.lg) + '<div class="xp-b"><div class="xp-top"><b>' + esc(c.c) + "</b>" + badge + '</div><p class="xp-sub">' + esc(c.type || "") + (td ? " · " + td : "") + "</p>" + (c.loc ? '<p class="xp-meta">' + esc(c.loc) + "</p>" : "") +
-        '<ol class="xp-roles">' + c.roles.map(function (r) { return '<li><i aria-hidden="true"></i><div><b>' + esc(r.t) + '</b><p class="xp-meta">' + range(r) + "</p>" + xpSkills(r.sk) + xpDesc(r.desc) + v4WhenHTML(p, "exp|" + c.c + "|" + r.t, r.src) + "</div></li>"; }).join("") + "</ol></div></article>";
+        '<ol class="xp-roles">' + c.roles.map(function (r) { return '<li><i aria-hidden="true"></i><div>' + (p.v9 ? '<div class="xp-rt"><b>' + esc(r.t) + "</b>" + v4WhenHTML(p, "exp|" + c.c + "|" + r.t, r.src) + "</div>" : "<b>" + esc(r.t) + "</b>") + '<p class="xp-meta">' + range(r) + "</p>" + xpSkills(r.sk) + xpDesc(r.desc) + (p.v9 ? "" : v4WhenHTML(p, "exp|" + c.c + "|" + r.t, r.src)) + "</div></li>"; }).join("") + "</ol></div></article>";
     }).join("") + "</div>";
   }
   var XPCOVER = { education: /^(Highest qualification|Degree|Class 12|Scores|Institution|Education history|Academic scores)$/i, career: /^(Current role|Work history|Previous role|Experience|Current role and employer|Total experience)$/i };
