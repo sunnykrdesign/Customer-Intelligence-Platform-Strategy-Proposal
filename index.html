@@ -4417,31 +4417,56 @@ html[data-v9] #lookupResult .v9bzf .bz b{font-size:14px !important;line-height:2
 html[data-v9] #lookupResult .v9bzf .bz small{font-size:12px;color:var(--cr-3,#6E7078);white-space:nowrap}
 html[data-v9] #lookupResult .v9bzf i{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-width:24px;height:18px;padding:0 5px;border-radius:6px;background:color-mix(in srgb,var(--b) 16%,#fff);color:color-mix(in srgb,var(--b) 72%,#15161C);font-size:10.5px;font-style:normal;font-weight:700;letter-spacing:.02em}
 html[data-v9] #lookupResult .v9bzf .bzc{display:flex;flex-wrap:wrap;gap:4px}
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf){border:0 !important;background:none !important;display:flex !important;flex-direction:row !important;flex-wrap:wrap !important;align-items:stretch !important;grid-template-columns:none !important;gap:0 !important;overflow:hidden !important;container-type:inline-size;margin:16px 0 0 !important;padding:1px 0 0 !important;scroll-snap-type:none !important}
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact{flex:1 0 auto;width:auto !important;max-width:none !important;min-width:0;margin:0 !important;padding:12px 20px 4px !important;position:relative !important;border:0 !important;background:none !important;box-shadow:none !important}
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact::after{content:"" !important;display:block !important;position:absolute !important;top:-1px;left:-1px;right:0;bottom:0;border-top:1px solid #E7E8EF;border-left:1px solid #E7E8EF;background:none !important;pointer-events:none}
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact:first-child{padding-left:0 !important}
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact > :is(.k,.v,.fs){white-space:nowrap}
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .v9bzf{flex:1 1 auto}
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .v9bzf .many .fs{white-space:normal}
+/* Person card facts (V5): each fact gets the room its content needs. Default card, 821px and wider: one row with hairline dividers, or a 3x2 grid on a narrower card. */
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf){--g:0px;border:0 !important;background:none !important;display:flex !important;flex-direction:row !important;flex-wrap:wrap !important;align-items:stretch !important;grid-template-columns:none !important;gap:var(--g) !important;overflow:hidden !important;container-type:inline-size;margin:16px 0 0 !important;padding:1px 0 0 !important;scroll-snap-type:none !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .fact{flex:1 0 auto;width:auto !important;max-width:none !important;min-width:0;margin:0 !important;padding:12px 20px 4px !important;position:relative !important;border:0 !important;background:none !important;box-shadow:none !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .fact::after{content:"" !important;display:block !important;position:absolute !important;top:-1px;left:-1px;right:0;bottom:0;border-top:1px solid #E7E8EF;border-left:1px solid #E7E8EF;background:none !important;pointer-events:none}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .fact:first-child{padding-left:0 !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .fact > :is(.k,.v,.fs){white-space:nowrap}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .v9bzf{flex:1 1 auto}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .v9bzf .many .fs{white-space:normal}
 @container (max-width:979px){
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact{flex:0 0 33.333%;padding:14px 16px 14px 20px !important}
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact:nth-child(3n+1){padding-left:0 !important}
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .v9bzf{flex:0 0 66.667%}
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact > .v{white-space:normal}
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .v9bzf .v9bz:not(.many){flex-direction:row !important;flex-wrap:wrap;column-gap:20px}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .fact{flex:0 0 calc((100% - 2 * var(--g)) / 3);padding:14px 16px 14px 20px !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .fact:nth-child(3n+1){padding-left:0 !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .v9bzf{flex:0 0 calc((100% - 2 * var(--g)) * 2 / 3 + var(--g))}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .fact > .v{white-space:normal}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .v9bzf .v9bz:not(.many){flex-direction:row !important;flex-wrap:wrap;column-gap:20px}
 }
 @container (max-width:599px){
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact:nth-child(n){flex:0 0 50%;padding:12px 12px 12px 16px !important}
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact:nth-child(odd){padding-left:0 !important}
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .v9bzf:nth-child(n){flex:0 0 100%}
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .v9bzf .v9bz:not(.many){flex-direction:column !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .fact:nth-child(n){flex:0 0 calc((100% - var(--g)) / 2);padding:12px 12px 12px 16px !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .fact:nth-child(odd){padding-left:0 !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .v9bzf:nth-child(n){flex:0 0 100%}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .v9bzf .v9bz:not(.many){flex-direction:column !important}
 }
 @container (max-width:419px){
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact{grid-template-columns:minmax(0,1fr) !important;column-gap:0 !important}
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact::before{grid-row:auto !important;grid-column:1 !important;margin-bottom:8px}
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact > *{grid-column:1 !important}
-html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact > :is(.k,.v,.fs){white-space:normal}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .fact{grid-template-columns:minmax(0,1fr) !important;column-gap:0 !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .fact::before{grid-row:auto !important;grid-column:1 !important;margin-bottom:8px}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .fact > *{grid-column:1 !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .fact > :is(.k,.v,.fs){white-space:normal}
+}
+/* 820px and narrower: the earlier soft tiles, in the same grid (they wrap instead of scrolling sideways, so no fact is hidden). */
+@media (max-width:820px){
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf){--g:8px;overflow:visible !important;padding:0 !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .fact:nth-child(n){padding:12px 14px !important;border-radius:12px !important;background:#F8F9FB !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult :not(.plfacts) > .facts:has(> .v9bzf) > .fact::after{display:none !important}
+}
+/* Person layout: Centre (821px and wider). The tiles stay as they were: white Life stage, Age band and City, a lavender Known since and a pink Businesses. Each tile is sized by its content. */
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .plfacts > .facts:has(> .v9bzf){display:flex !important;flex-wrap:wrap !important;grid-template-columns:none !important;gap:8px !important;container-type:inline-size}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .plfacts > .facts:has(> .v9bzf) > .fact{flex:1 0 auto;width:auto !important;max-width:none !important;min-width:0}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .plfacts > .facts:has(> .v9bzf) > .fact > :is(.k,.v){white-space:nowrap}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .plfacts > .facts:has(> .v9bzf) > .v9bzf{flex:1 1 auto;padding:10px 14px !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .plfacts > .facts:has(> .v9bzf) > .fact[data-f="since"]{grid-template-columns:minmax(0,1fr) !important;grid-template-rows:auto auto auto !important;row-gap:2px !important;align-content:center !important;padding:10px 14px !important;background:#E3E2F8 !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .plfacts > .facts:has(> .v9bzf) > .fact[data-f="since"]::before{display:none !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .plfacts > .facts:has(> .v9bzf) > .fact[data-f="since"] > *{grid-column:1 !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .plfacts > .facts:has(> .v9bzf) > .fact[data-f="since"] .k{grid-row:1}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .plfacts > .facts:has(> .v9bzf) > .fact[data-f="since"] .v{grid-row:2}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .plfacts > .facts:has(> .v9bzf) > .fact[data-f="since"] .fs{display:block !important;grid-row:3;margin:0 !important;font-size:11px !important;line-height:15px !important;color:#717480 !important;white-space:nowrap}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .plfacts > .facts:has(> .v9bzf) > .v9bzf .many .fs{display:block !important;margin-top:4px;font-size:11px !important;line-height:15px;color:#717480 !important;white-space:normal}
+@container (max-width:899px){
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .plfacts > .facts:has(> .v9bzf) > .fact{flex:0 0 calc((100% - 16px) / 3)}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .plfacts > .facts:has(> .v9bzf) > .v9bzf{flex:0 0 calc((100% - 16px) * 2 / 3 + 8px)}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .plfacts > .facts:has(> .v9bzf) > .fact > .v{white-space:normal}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .plfacts > .facts:has(> .v9bzf) > .v9bzf .v9bz:not(.many){flex-direction:row !important;flex-wrap:wrap;column-gap:20px}
 }
 html[data-v9] #lookupResult .v9bzf .many small{font-size:12px;color:var(--cr-3,#6E7078)}
 html[data-v9] .v9pg{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin:14px 0 14px;padding:0 4px;font-family:Figtree,Inter,system-ui,sans-serif;color:#15161C}
