@@ -9509,13 +9509,13 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
     else if (isV7()) { subs = subs.filter(function (s) { return s[0] !== "journey"; }); if (sub === "journey") sub = V.sub = "timeline"; } // V4: the journey sits at the top of Timeline too
     var buList = ["all"].concat(Object.keys(BU4).filter(function (k) { return evs.some(function (x) { return x.e[0] === k; }); }));
     var inBu = evs.filter(function (x) { return bu === "all" || x.e[0] === bu; });
-    var showBu = sub === "timeline" || sub === "business";
+    var showBu = !p.v9 && (sub === "timeline" || sub === "business"); // V5: no business chips; the journey rows filter the events
     var tools = '<div class="t6tools"><div class="v6seg" role="group" aria-label="Activity view" id="v6sub" data-slide>' + subs.map(function (s) { return '<button type="button" data-sub="' + s[0] + '" aria-pressed="' + (s[0] === sub) + '">' + ic4(s[2], 14) + s[1] + "</button>"; }).join("") + "</div>" +
       (showBu ? '<div class="t6bus" role="group" aria-label="Business">' + buList.map(function (k) { var nn = k === "all" ? evs.length : evs.filter(function (x) { return x.e[0] === k; }).length; return '<button type="button" data-ebu="' + k + '" aria-pressed="' + (k === bu) + '">' + (k === "all" ? "" : '<i style="background:' + (BC6P[k] || "#8E8E93") + '"></i>') + (k === "all" ? "All" : esc(buS6(k))) + "<span>" + nn + "</span></button>"; }).join("") + "</div>" : "") + "</div>";
     var body = "";
     if (sub === "journey") body = v6Life(v4Of(p), { bare: true });
     else if (sub === "timeline") body = (p.v9 || isV7() ? '<div class="v4jt">' + v6Life(v4Of(p), { bare: true }) + "</div>" : "") + v6Timeline(p, inBu, cat); // V4 and V5: the Journey design (with Chapters) on top of every event
-    else if (sub === "business") body = v6ByBusiness(inBu);
+    else if (sub === "business") body = v6ByBusiness(p.v9 ? evs : inBu);
     else body = v6Rhythm(p, inBu);
     return '<section class="a6card t6" data-sub6="' + sub + '">' + tools + body + (otherBu ? '<p class="a6note">Payments are shown to the owning business only.</p>' : "") + "</section>";
   }
