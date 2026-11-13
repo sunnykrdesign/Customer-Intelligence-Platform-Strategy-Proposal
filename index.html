@@ -6973,7 +6973,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
         : s[1] === "education" ? ""
         : s[1] === "career" && LI ? "From LinkedIn · " + (first ? first.v : "no roles yet")
         : s[1] === "consent" ? (rn || "Not captured yet") : first ? first.v : "Not captured yet";
-      return { key: s[1], t: s[0], ic: s[2], sum: sum, filled: [have, Math.max(s[3], have)], fin: s[1] === "financial", rows: rows };
+      return { key: s[1], t: s[1] === "education" ? "Education" : s[0], ic: s[2], sum: sum, filled: [have, Math.max(s[3], have)], fin: s[1] === "financial", rows: rows };
     });
     // UG learning journey: upGrad courses and skills.
     var cRow = getA("Courses with upGrad", "Course"), cSt = getA("Courses with upGrad", "Current status"), cPr = getA("Courses with upGrad", "Progress"), cRes = getA("Courses with upGrad", "Programme results"), cCert = getA("Courses with upGrad", "Certificates earned");
