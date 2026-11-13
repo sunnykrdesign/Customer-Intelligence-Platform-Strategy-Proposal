@@ -5191,52 +5191,31 @@ html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9t
 html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9tiles > .v9t + .v9t,html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9reach > .v9r + .v9r{box-shadow:none !important}
 }
 </style>
-<style id="v9pv">
-/* Person card layout options beside Current and Centred: Split, Cover, Compact (821px and wider; phones keep the current card) */
-@media (min-width:821px){
-/* Split: left to right */
-html[data-v7t="crisp"][data-v9pv="split"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard{padding:22px 24px !important}
-html[data-v7t="crisp"][data-v9pv="split"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top{flex-direction:row !important;align-items:center !important;text-align:left !important;gap:20px !important}
-html[data-v7t="crisp"][data-v9pv="split"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top > .avatar{width:88px !important;height:88px !important;margin:0 !important}
-html[data-v7t="crisp"][data-v9pv="split"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top > .who{align-items:flex-start !important;flex:1 1 auto !important}
-html[data-v7t="crisp"][data-v9pv="split"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .who .headline{margin-top:6px !important}
-html[data-v7t="crisp"][data-v9pv="split"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .who .matched{justify-content:flex-start !important;margin-top:10px !important}
-html[data-v7t="crisp"][data-v9pv="split"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top > .v5ctas{position:static !important;flex:0 1 auto !important;display:flex !important;flex-wrap:wrap !important;justify-content:flex-end !important;align-items:center !important;row-gap:12px !important;column-gap:8px !important;max-width:430px;margin:0 0 0 auto !important}
-html[data-v7t="crisp"][data-v9pv="split"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .v5ctas .v5mch{flex:0 0 100% !important;justify-content:flex-end !important;margin:0 !important}
-/* Cover: a gradient band, the photo overlapping it, the details on white */
-html[data-v7t="crisp"][data-v9pv="cover"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard{padding:0 !important;overflow:visible !important;background:#fff !important;border:1px solid #E2E3EA !important}
-html[data-v7t="crisp"][data-v9pv="cover"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard::before{display:none !important;content:none !important}
-html[data-v7t="crisp"][data-v9pv="cover"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard::after{content:"" !important;display:block !important;position:absolute !important;left:0 !important;right:0 !important;top:0 !important;bottom:auto !important;height:96px !important;z-index:0 !important;border-radius:19px 19px 0 0 !important;background:linear-gradient(90deg,#DCD7FB 0%,#F4F0FC 50%,#F6D3E5 100%) !important;-webkit-mask:none !important;mask:none !important;opacity:1 !important;pointer-events:none}
-html[data-v7t="crisp"][data-v9pv="cover"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top{position:relative !important;z-index:1;display:block !important;padding:150px 24px 20px !important;text-align:left !important}
-html[data-v7t="crisp"][data-v9pv="cover"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top > .avatar{position:absolute !important;top:44px;left:24px;width:96px !important;height:96px !important;margin:0 !important;box-shadow:0 0 0 4px #fff !important}
-html[data-v7t="crisp"][data-v9pv="cover"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top > .who{align-items:flex-start !important}
-html[data-v7t="crisp"][data-v9pv="cover"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .who .headline{margin-top:6px !important}
-html[data-v7t="crisp"][data-v9pv="cover"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .who .matched{justify-content:flex-start !important;margin-top:10px !important}
-html[data-v7t="crisp"][data-v9pv="cover"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top > .v5ctas{position:absolute !important;top:106px !important;left:auto !important;right:24px !important;width:auto !important;justify-content:flex-end !important;gap:8px !important}
-html[data-v7t="crisp"][data-v9pv="cover"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .v5ctas .v5mch{margin:0 8px 0 0 !important;padding-right:12px !important;box-shadow:inset -1px 0 0 #E2E3EA !important}
-html[data-v7t="crisp"][data-v9pv="cover"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .v5ctas .v5ch{background:#F3F4FB !important}
-/* Compact: one slim row */
-html[data-v7t="crisp"][data-v9pv="compact"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard{padding:14px 18px !important}
-html[data-v7t="crisp"][data-v9pv="compact"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top{flex-direction:row !important;align-items:center !important;text-align:left !important;gap:14px !important}
-html[data-v7t="crisp"][data-v9pv="compact"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top > .avatar{width:52px !important;height:52px !important;margin:0 !important}
-html[data-v7t="crisp"][data-v9pv="compact"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top > .who{align-items:flex-start !important;flex:1 1 auto !important;min-width:0 !important}
-html[data-v7t="crisp"][data-v9pv="compact"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .who h1{font-size:20px !important;line-height:26px !important;font-weight:500 !important}
-html[data-v7t="crisp"][data-v9pv="compact"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .who .headline{margin-top:2px !important;font-size:13px !important;line-height:18px !important;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-html[data-v7t="crisp"][data-v9pv="compact"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .who .matched{justify-content:flex-start !important;margin-top:4px !important;flex-wrap:nowrap !important;white-space:nowrap}
-html[data-v7t="crisp"][data-v9pv="compact"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .who .matched .v5gid{height:22px !important}
-html[data-v7t="crisp"][data-v9pv="compact"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top > .v5ctas{position:static !important;flex:0 0 auto !important;display:flex !important;flex-wrap:nowrap !important;align-items:center !important;gap:8px !important;margin:0 0 0 auto !important}
-html[data-v7t="crisp"][data-v9pv="compact"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .v5ctas .v5mch{margin:0 4px 0 0 !important;padding-right:12px !important;box-shadow:inset -1px 0 0 rgba(21,22,28,.12) !important}
-}
-</style>
 <style id="v9pvcc">
 /* Person card layout: Centred cover (821px and wider; phones keep the current card) */
 @media (min-width:821px){
-html[data-v7t="crisp"][data-v9pv="ccover"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard{padding:0 !important;overflow:visible !important;background:#fff !important;border:1px solid #E2E3EA !important}
-html[data-v7t="crisp"][data-v9pv="ccover"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard::before{display:none !important;content:none !important}
-html[data-v7t="crisp"][data-v9pv="ccover"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard::after{content:"" !important;display:block !important;position:absolute !important;left:0 !important;right:0 !important;top:0 !important;bottom:auto !important;height:92px !important;z-index:0 !important;border-radius:19px 19px 0 0 !important;background:linear-gradient(90deg,#DCD7FB 0%,#F4F0FC 50%,#F6D3E5 100%) !important;-webkit-mask:none !important;mask:none !important;opacity:1 !important;pointer-events:none}
-html[data-v7t="crisp"][data-v9pv="ccover"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top{position:relative !important;z-index:1;padding:46px 20px 18px !important}
-html[data-v7t="crisp"][data-v9pv="ccover"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top > .avatar{width:92px !important;height:92px !important;margin:0 0 12px !important;box-shadow:0 0 0 4px #fff !important}
-html[data-v7t="crisp"][data-v9pv="ccover"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top > .v5ctas{top:20px !important}
+html[data-v7t="crisp"][data-v9pv^="cc"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard{padding:0 !important;overflow:visible !important;background:#fff !important;border:1px solid #E2E3EA !important}
+html[data-v7t="crisp"][data-v9pv^="cc"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard::before{display:none !important;content:none !important}
+html[data-v7t="crisp"][data-v9pv^="cc"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard::after{content:"" !important;display:block !important;position:absolute !important;left:0 !important;right:0 !important;top:0 !important;bottom:auto !important;height:92px !important;z-index:0 !important;border-radius:19px 19px 0 0 !important;background:linear-gradient(90deg,#DCD7FB 0%,#F4F0FC 50%,#F6D3E5 100%) !important;-webkit-mask:none !important;mask:none !important;opacity:1 !important;pointer-events:none}
+html[data-v7t="crisp"][data-v9pv^="cc"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top{position:relative !important;z-index:1;padding:46px 20px 18px !important}
+html[data-v7t="crisp"][data-v9pv^="cc"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top > .avatar{width:92px !important;height:92px !important;margin:0 0 12px !important;box-shadow:0 0 0 4px #fff !important}
+html[data-v7t="crisp"][data-v9pv^="cc"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4) #lookupResult .pcard.pcard .pcard-top > .v5ctas{top:20px !important}
+}
+@media (min-width:821px){
+/* Cover · Fade: the band melts into white behind the photo */
+html[data-v7t="crisp"][data-v9pv="ccfade"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard::after{height:150px !important;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 38%,#fff 100%),linear-gradient(90deg,#DCD7FB 0%,#F4F0FC 50%,#F6D3E5 100%) !important}
+/* Cover · Curve: a gently bowed lower edge */
+html[data-v7t="crisp"][data-v9pv="cccurve"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard::after{height:104px !important;border-radius:19px 19px 50% 50% / 19px 19px 30px 30px !important}
+html[data-v7t="crisp"][data-v9pv="cccurve"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard .pcard-top{padding-top:52px !important}
+/* Cover · Inset: the band floats inside the card */
+html[data-v7t="crisp"][data-v9pv="ccinset"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard::after{left:8px !important;right:8px !important;top:8px !important;height:88px !important;border-radius:14px !important}
+html[data-v7t="crisp"][data-v9pv="ccinset"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard .pcard-top > .v5ctas{top:22px !important;left:22px !important;right:22px !important}
+/* Cover · Ink: a deep indigo band with light controls */
+html[data-v7t="crisp"][data-v9pv="ccink"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard::after{background:linear-gradient(90deg,#2C2850 0%,#3F3F86 55%,#5B4A8E 100%) !important}
+html[data-v7t="crisp"][data-v9pv="ccink"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard .v5ctas .v5ch{background:rgba(255,255,255,.14) !important;color:#fff !important}
+html[data-v7t="crisp"][data-v9pv="ccink"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard .v5ctas .v5ch svg,html[data-v7t="crisp"][data-v9pv="ccink"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard .v5ctas .v5ch svg *{color:#fff !important;fill:#fff !important}
+html[data-v7t="crisp"][data-v9pv="ccink"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard .v5ctas .btn.dark{background:#fff !important;border-color:#fff !important;color:#14151F !important}
+html[data-v7t="crisp"][data-v9pv="ccink"]:not(#pv1):not(#pv2):not(#pv3):not(#pv4):not(#pv5) #lookupResult .pcard.pcard .v5ctas .v5sbtn{border-color:rgba(255,255,255,.35) !important}
 }
 </style>
 <style id="ugtab">@media (max-width:640px){html[data-v7][data-v6] #ptabs #tab-academic .v4tabl{white-space:normal;line-height:1.1;text-align:center;max-width:84px;display:inline-block}html[data-v7][data-v6] #ptabs #tab-academic{white-space:normal}}</style>
@@ -11571,7 +11550,7 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
   var V7SB = "current", V7SBS = ["current", "darker", "darkest"];
   try { var sb7 = localStorage.getItem("cip-v7sb"); if (V7SBS.indexOf(sb7) >= 0) V7SB = sb7; } catch (e) {}
   if (V7SBS.indexOf(Q.get("sb")) >= 0) V7SB = Q.get("sb");
-  var V7PL = "current", V7PLS = ["current", "centre", "ccover", "split", "cover", "compact"];
+  var V7PL = "current", V7PLS = ["current", "centre", "ccover", "ccfade", "cccurve", "ccinset", "ccink"];
   try { var pl7 = localStorage.getItem("cip-v7pl"); if (V7PLS.indexOf(pl7) >= 0) V7PL = pl7; } catch (e) {}
   if (V7PLS.indexOf(Q.get("pl")) >= 0) V7PL = Q.get("pl");
   var V7PC = "current";
@@ -11672,14 +11651,15 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
     })();
     (function () {
       var row = document.createElement("div"); row.className = "rv-sec rv-v7pl";
-      row.innerHTML = '<span class="rv-k">Person card layout</span><div class="rv-seg" role="group" aria-label="Person card layout"><button type="button" data-pl7="current">Current</button><button type="button" data-pl7="centre">Centred</button><button type="button" data-pl7="ccover">Centred cover</button><button type="button" data-pl7="split">Split</button><button type="button" data-pl7="cover">Cover</button><button type="button" data-pl7="compact">Compact</button></div><p class="rv-note"></p>';
+      row.innerHTML = '<span class="rv-k">Person card layout</span><div class="rv-seg" role="group" aria-label="Person card layout"><button type="button" data-pl7="current">Current</button><button type="button" data-pl7="centre">Centred</button><button type="button" data-pl7="ccover">Centred cover</button><button type="button" data-pl7="ccfade">Cover · Fade</button><button type="button" data-pl7="cccurve">Cover · Curve</button><button type="button" data-pl7="ccinset">Cover · Inset</button><button type="button" data-pl7="ccink">Cover · Ink</button></div><p class="rv-note"></p>';
       host.parentNode.insertBefore(row, host);
       var NOTE = { current: "Name and actions on top, a row of five fact tiles below.",
         centre: "From the Figma design: a gradient header with the photo, name and details centred, contact in its top-left corner and Show contact and Open in CRM top-right, then the tabs, then the facts as a row of cards.",
         ccover: "The Centred card with the Cover design: a gradient band across the top half with contact and the actions on it, the photo centred on the band's lower edge, and the name and details centred below on white.",
-        split: "The Centred card read left to right: a larger photo on the left, the name, headline and ID beside it, and contact and the actions stacked on the right.",
-        cover: "A profile-style card: a gradient cover band across the top, the photo overlapping its lower edge, the name and details below on white, and contact and the actions on the right.",
-        compact: "One slim row: a small photo, the name with the headline and ID on one line each, and contact and the actions on the right. The shortest header, so the details start higher." };
+        ccfade: "Centred cover with a softer band: the gradient fades into white behind the photo, so there is no hard edge.",
+        cccurve: "Centred cover with a curved band: its lower edge bows down gently behind the photo.",
+        ccinset: "Centred cover with the band floating inside the card, 8px from its edges, with its own rounded corners.",
+        ccink: "Centred cover with a deep indigo band: light contact icons, white buttons, and the photo ringed in white." };
       var sync = function () { $$("[data-pl7]", row).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-pl7") === V7PL); }); $(".rv-note", row).textContent = NOTE[V7PL] + " Phones keep the current card."; };
       sync();
       row.addEventListener("click", function (e) {
