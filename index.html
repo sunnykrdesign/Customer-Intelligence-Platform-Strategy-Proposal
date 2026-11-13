@@ -5142,6 +5142,55 @@ html[data-v9][data-v6]:not(#crisp):not(#v9a):not(#v9b):not(#v9c) #lookupResult .
 html[data-v9][data-v6]:not(#crisp):not(#v9a):not(#v9b):not(#v9c) #lookupResult .v5ctas .v5actw > .v5sbtn.act:not(.clear)::before{width:16px !important;height:16px !important;flex:0 0 16px}
 html[data-v9][data-v6]:not(#crisp):not(#v9a):not(#v9b):not(#v9c) #lookupResult .v5ctas .v5actw > .v5sbtn.act .v5n{position:static !important;min-width:0 !important;height:auto !important;padding:0 !important;background:none !important;box-shadow:none !important;color:#4F57A8 !important;font-size:12.5px !important;font-weight:600 !important;line-height:1}
 </style>
+<style id="v9insui">
+/* V5 Insights layout: separate cards on the page background, Summary across the top, then
+   Before you reach out + Interest by area, What to talk about + Activity over time, then full-width rows. */
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i{display:grid !important;grid-template-columns:minmax(0,1.85fr) minmax(0,1fr) !important;gap:16px !important;padding:0 !important;background:transparent !important;border:0 !important;box-shadow:none !important;border-radius:0 !important;align-items:stretch !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i > .i8main,html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i > .i8side{display:contents !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i :is(.i8sum,.v9i-sec,.i8card){margin:0 !important;background:#fff !important;border:1px solid #E2E3EA !important;border-radius:16px !important;padding:20px 22px !important;box-shadow:none !important;min-width:0}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9how{margin:0 !important;background:#fff !important;border:1px solid #E2E3EA !important;border-radius:16px !important;box-shadow:none !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .i8sum{order:1;grid-column:1 / -1}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9i-reach{order:2;grid-column:1}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .i8side > .i8card:nth-child(2){order:3;grid-column:2}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9i-talk{order:4;grid-column:1}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .i8side > .i8card:nth-child(1){order:5;grid-column:2}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .i8side > .i8card:nth-child(n+3){order:5;grid-column:2}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9i-told{order:6;grid-column:1 / -1}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9i-bus{order:7;grid-column:1 / -1}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9how{order:8;grid-column:1 / -1}
+/* One heading style */
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i :is(.i8sum,.v9i-sec,.i8card) > h3{margin:0 0 4px !important;font-size:15.5px !important;line-height:22px !important;font-weight:600 !important;color:#15161C !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9q{margin:0 0 16px !important;font-size:13px !important;line-height:1.45 !important;color:#6E7078 !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .i8sum > p{margin:6px 0 16px !important;font-size:14px !important;line-height:1.6 !important;color:#3A3B44 !important}
+/* Summary figures and the reach columns: one strip with hairline dividers, not boxes inside a box */
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i :is(.v9tiles,.v9reach){gap:0 !important;border:1px solid #EEEFF4 !important;border-radius:12px !important;overflow:hidden;background:#FAFAFD !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9tiles > .v9t,html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9reach > .v9r{border:0 !important;border-radius:0 !important;background:transparent !important;box-shadow:none !important;padding:14px 16px !important;min-height:0 !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9tiles > .v9t + .v9t,html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9reach > .v9r + .v9r{box-shadow:inset 1px 0 0 #EEEFF4 !important}
+/* What to talk about: the offer stays highlighted; the moment and the counsellor's read are plain rows */
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9i-talk{gap:0 !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9nb{background:#F3F4FB !important;border:0 !important;border-radius:12px !important;box-shadow:none !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9mo,html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9sig > .v9s{background:transparent !important;border:0 !important;border-radius:0 !important;box-shadow:inset 0 1px 0 #EEEFF4 !important;padding:14px 4px !important;margin:0 !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9mo{margin-top:12px !important}
+/* What they told us: the section is the card */
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9told{border:0 !important;border-radius:0 !important;background:transparent !important;padding:0 !important;box-shadow:none !important}
+/* With upGrad: light business tiles, a softer callout */
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .i8bu{background:#F7F8FC !important;border:0 !important;border-radius:12px !important;box-shadow:none !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9ra{border-radius:12px !important;margin-top:12px !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .i8bus{grid-template-columns:repeat(auto-fit,minmax(220px,1fr)) !important}
+/* Activity over time: a shorter chart so it sits level with What to talk about */
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .i8plot{height:150px !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .i8plot :is(.i8ax,.i8cols,.i8b){height:150px !important}
+@media (max-width:900px){
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i{grid-template-columns:minmax(0,1fr) !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i :is(.i8sum,.v9i-sec,.i8card,.v9how,.i8side > .i8card){grid-column:1 !important}
+}
+@media (max-width:640px){
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i :is(.i8sum,.v9i-sec,.i8card){padding:16px !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i :is(.v9tiles,.v9reach){gap:8px !important;border:0 !important;background:transparent !important;overflow:visible}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9tiles > .v9t,html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9reach > .v9r{background:#F7F8FC !important;border-radius:12px !important;box-shadow:none !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9tiles > .v9t + .v9t,html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9reach > .v9r + .v9r{box-shadow:none !important}
+}
+</style>
 <style id="ugtab">@media (max-width:640px){html[data-v7][data-v6] #ptabs #tab-academic .v4tabl{white-space:normal;line-height:1.1;text-align:center;max-width:84px;display:inline-block}html[data-v7][data-v6] #ptabs #tab-academic{white-space:normal}}</style>
 <style id="ugc-css">
 /* UG learning journey: Courses accordion */
