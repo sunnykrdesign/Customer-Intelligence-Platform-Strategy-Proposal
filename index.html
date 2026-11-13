@@ -6515,7 +6515,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
       });
     });
     m.insights.forEach(function (c) { c.items.forEach(function (it) { var hide = it.fin && otherBu; out.push({ tab: "insights", where: "Insights · " + c.t, l: it.k, v: hide ? "Owner only" : it.v || "", find: it.k + " " + (hide ? "" : it.v || "") }); }); });
-    (m.skills || []).forEach(function (sk) { out.push({ tab: "academic", where: "Skills", l: sk[0], v: sk[3], find: sk[0] + " " + sk[3] + " skill" }); });
+    (p.v9 ? [] : m.skills || []).forEach(function (sk) { out.push({ tab: "academic", where: "Skills", l: sk[0], v: sk[3], find: sk[0] + " " + sk[3] + " skill" }); });
     return out;
   }
   function v5FindRender() {
@@ -9393,7 +9393,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
     // Skills, rebuilt: what they can prove (graded by upGrad) apart from what they say (self-declared), each proven skill on a 4-step ladder.
     var sk = m.skills || [], who = esc(first(p)), LV = ["Beginner", "Developing", "Proficient", "Expert"];
     var proven = sk.filter(function (x) { return x[4]; }), claimed = sk.filter(function (x) { return !x[4]; });
-    if (!sk.length) h += '<section class="a6card skp skp-empty"><div class="skp-h"><div><h3>Skills</h3><p>No skills recorded yet. They appear once ' + who + ' finishes a graded module or adds them to a profile.</p></div></div></section>';
+    if (p.v9) { /* V5: no Skills section */ } else if (!sk.length) h += '<section class="a6card skp skp-empty"><div class="skp-h"><div><h3>Skills</h3><p>No skills recorded yet. They appear once ' + who + ' finishes a graded module or adds them to a profile.</p></div></div></section>';
     else {
       var best = proven.slice().sort(function (a, b) { return b[2] - a[2]; })[0], share = Math.round(proven.length / sk.length * 100), RC = 2 * Math.PI * 30;
       var mono = function (n) { var w = n.replace(/ for data analysis$/i, "").split(/\s+/); return esc((w.length > 1 ? w[0][0] + w[1][0] : w[0].slice(0, 2)).toUpperCase()); };
