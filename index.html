@@ -7107,9 +7107,9 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
       var d = v9Date(e.occurred_at), lab = d ? d.getDate() + " " + V9MON[d.getMonth()] + (d.getFullYear() !== 2026 ? " " + d.getFullYear() : "") : "";
       return [V9BU[e.business] || "G", lab, V9CAT[e.sub_section] || "S", e.title, e.detail, e.source_label || e.source_system, e.occurred_at.slice(0, 10), e.flag || "", e.event_type, e.source_record_id];
     });
-    // Profile sections, in the file's order and with its names. Life stage gets its own section after Personal details,
-    // so personal information is kept apart from where the person is in life.
-    var SECS = [["Identity & contact", "identity", "user", 7], ["Personal details", "personal", "home", 7], ["Life stage", "lifestage", "stage", 1], ["Education (prior, outside upGrad)", "education", "cap", 5], ["Career / profession", "career", "brief", 5],
+    // Profile sections, in the file's order and with its names. Life stage has no section of its own: it is one value,
+    // already in the person card's facts, so a one-field section only added a pill (and it stays out of Personal details).
+    var SECS = [["Identity & contact", "identity", "user", 7], ["Personal details", "personal", "home", 7], ["Education (prior, outside upGrad)", "education", "cap", 5], ["Career / profession", "career", "brief", 5],
       ["Aspiration", "aspiration", "star", 12], ["Financial profile", "financial", "money", 8], ["Consent & preferences", "consent", "shield", 9]];
     var CONF = { declared: "Declared", observed: "Observed", derived: "Derived" }, srcCount = {};
     // Professional history comes from LinkedIn through the API, not from CV fields (V5).
