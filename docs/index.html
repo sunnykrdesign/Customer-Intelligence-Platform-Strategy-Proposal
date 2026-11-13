@@ -4411,6 +4411,14 @@ html[data-v9] #lookupResult .v9in{display:inline-flex;align-items:center;justify
 html[data-v9] #lookupResult :is(.src4.s-li,.xp .src.s-li){background:#E8F1FB !important;color:#0A66C2 !important}
 html[data-v9] #pRows .v9tag{background:#EEF0FA !important;color:#4F57A8 !important}
 html[data-v9] #lookupResult .v4sec-h .v4acc-t small:empty{display:none}
+html[data-v9] #lookupResult .v9bzf .v9bz{display:flex !important;flex-direction:column;gap:5px;margin-top:3px;white-space:normal}
+html[data-v9] #lookupResult .v9bzf .bz{display:flex;flex-wrap:wrap;align-items:center;column-gap:5px;row-gap:1px;min-width:0;font-size:14px;line-height:20px}
+html[data-v9] #lookupResult .v9bzf .bz b{font-size:14px !important;line-height:20px !important;font-weight:500;white-space:nowrap}
+html[data-v9] #lookupResult .v9bzf .bz small{font-size:12px;color:var(--cr-3,#6E7078);white-space:nowrap}
+html[data-v9] #lookupResult .v9bzf i{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-width:24px;height:18px;padding:0 5px;border-radius:6px;background:color-mix(in srgb,var(--b) 16%,#fff);color:color-mix(in srgb,var(--b) 72%,#15161C);font-size:10.5px;font-style:normal;font-weight:700;letter-spacing:.02em}
+html[data-v9] #lookupResult .v9bzf .bzc{display:flex;flex-wrap:wrap;gap:4px}
+@media (min-width:1000px){html[data-v9] #lookupResult .facts:has(> .v9bzf){grid-template-columns:minmax(0,1.1fr) minmax(0,.75fr) minmax(0,.85fr) minmax(0,1.6fr) minmax(0,.95fr) !important}}
+html[data-v9] #lookupResult .v9bzf .many small{font-size:12px;color:var(--cr-3,#6E7078)}
 html[data-v9] #lookupResult .v9ph{display:flex;align-items:baseline;gap:10px;margin:8px 0 -4px;font-size:15px;font-weight:600;color:var(--cr-ink,#15161C)}
 html[data-v9] #lookupResult .v9ph:first-child{margin-top:0}
 html[data-v9] #lookupResult .v9ph span{font-size:12px;font-weight:500;color:var(--cr-3,#6E7078)}
@@ -7109,11 +7117,15 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
   }
   // The facts row: life stage, age band, city, then each business with its state (the owning business and completeness aren't shown).
   function v9Facts(p, fact) {
-    // Two businesses read in full; three or more (the density case) fold into short codes and a count of states, so the row stays one line high.
-    var many = p.lifecycle.length > 2, bus = p.lifecycle.map(function (l) { return many ? (BU4[l.bu] || [l.bu, l.bu])[1] : (BU4[l.bu] || [l.bu])[0]; }).join(" · "), cnt = {};
+    // Businesses: one short line each (code chip, state, since when). Three or more (the density case) fold into chips and a count of states.
+    // The card can render before the business colour table exists, so these are the Crisp business colours, inline.
+    var BCV = { I: "#D63F76", W: "#7983CD", K: "#DA6E9C", S: "#9A6BD0", N: "#3E8FB0", G: "#8A8C98" };
+    var chip = function (bu) { return '<i style="--b:' + (BCV[bu] || "#8E8E93") + '">' + esc((BU4[bu] || [bu, bu])[1]) + "</i>"; };
+    var many = p.lifecycle.length > 2, cnt = {}, bz;
     p.lifecycle.forEach(function (l) { var k = String(l.stage).toLowerCase(); cnt[k] = (cnt[k] || 0) + 1; });
-    var sub = many ? Object.keys(cnt).map(function (k) { return cnt[k] + " " + k; }).join(" · ") : p.lifecycle.map(function (l) { return l.stage + " since " + v9MonY(l.since); }).join(" · ");
-    return fact("Life stage", p.stage) + fact("Age band", p.ageBand) + fact("City", p.city) + fact("Businesses", bus, sub) +
+    if (many) bz = '<span class="v v9bz many" title="' + esc(p.lifecycle.map(function (l) { return (BU4[l.bu] || [l.bu])[0] + ": " + l.stage + " since " + v9MonY(l.since); }).join(" · ")) + '"><span class="bzc">' + p.lifecycle.map(function (l) { return chip(l.bu); }).join("") + '</span><small class="fs">' + esc(Object.keys(cnt).map(function (k) { return cnt[k] + " " + k; }).join(" · ")) + "</small></span>";
+    else bz = '<span class="v v9bz">' + p.lifecycle.map(function (l) { return '<span class="bz" title="' + esc((BU4[l.bu] || [l.bu])[0] + ": " + l.stage + " since " + v9MonY(l.since)) + '">' + chip(l.bu) + "<b>" + esc(l.stage) + "</b><small>" + esc(v9MonY(l.since).replace(/ 20(\d\d)$/, " ’$1")) + "</small></span>"; }).join("") + "</span>";
+    return fact("Life stage", p.stage) + fact("Age band", p.ageBand) + fact("City", p.city) + '<div class="fact v9bzf" data-f="owner"><span class="k">Businesses</span>' + bz + "</div>" +
       fact("Known since", p.since, (p.ins.last && p.ins.last !== "—" ? "Last active " + p.ins.last : ""));
   }
   // Insights (Simple style): the file's summary, figures, businesses, every insight with what it's built from, and interest by area.
