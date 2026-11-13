@@ -7075,6 +7075,36 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
     PEOPLE = v9People();
   }
   if (V9) v9Init();
+  // People directory (V5): more rows so the list reads like the real product. Fields: name, ID, life stage, city, businesses, state, owning business (stored, not shown), revenue, last active, reach, photo, known since. These are directory rows only ("Sample"); only the PM's people and the density test open.
+  // Businesses are V5's five (no Unacademy). States and life stages use the PM file's words. The under-18 row carries no name, so search can't reveal one.
+  function v9Extra() {
+    return [
+      ["Aarav Shah", "upg_T4K8N2Q6", "Final-year undergraduate", "Ahmedabad", ["I", "S"], "Counselled", "Study Abroad", "₹4,999", "Today", [1, 1, 1, 1, 0], "assets/profile-aditya.jpg", "Jan 2025"],
+      ["Neha Gupta", "upg_B7R3M9X2", "Working professional", "Noida", ["W"], "Learning", "Working Professionals", "₹2,45,000", "Yesterday", [1, 1, 0, 1, 1], null, "Feb 2026"],
+      ["Mohammed Irfan", "upg_H2W6P4L8", "Early career", "Hyderabad", ["I", "W"], "Lead", "Working Professionals", "₹3,499", "12 Nov", [1, 1, 1, 1, 1], null, "Aug 2024"],
+      ["Pooja Banerjee", "upg_Q9F1D5S3", "Recent graduate", "Kolkata", ["I"], "Alumni", "Internshala", "₹5,998", "9 Nov", [1, 1, 0, 1, 0], null, "Mar 2023"],
+      ["Siddharth Kulkarni", "upg_C5J8V2T7", "Working professional", "Pune", ["W", "K"], "Alumni", "Working Professionals", "₹3,62,000", "4 Nov", [1, 1, 0, 0, 1], null, "Nov 2021"],
+      ["Divya Reddy", "upg_X3N7G1K9", "Working professional", "Hyderabad", ["K"], "Learning", "KnowledgeHut", "₹42,500", "Today", [1, 1, 1, 1, 1], null, "Jul 2026"],
+      ["Manish Yadav", "upg_L8Q2R6B4", "Working professional", "Lucknow", ["W"], "Counselled", "Working Professionals", "₹0", "11 Nov", [1, 0, 1, 1, 0], "assets/profile-rahul.jpg", "Oct 2026"],
+      ["Tanvi Joshi", "upg_P6D4H9W1", "Undergraduate", "Nagpur", ["I"], "Learning", "Internshala", "₹2,999", "Today", [1, 1, 1, 1, 1], null, "Sep 2025"],
+      ["Kabir Anand", "upg_S1V9T3M5", "Final-year undergraduate", "Delhi", ["I", "S"], "Prospect", "Study Abroad", "₹1,499", "7 Nov", [1, 1, 1, 0, 1], null, "May 2026"],
+      ["Lakshmi Narayanan", "upg_E4K7Q2N8", "Senior professional", "Chennai", ["W", "N"], "Learning", "International", "₹7,80,000", "Yesterday", [1, 1, 0, 0, 0], null, "Jun 2022"],
+      ["Name hidden", "upg_Z7M3B8R2", "School", "Patna", ["I"], "Restricted", "Internshala", "—", "—", [0, 0, 0, 0, 0], null, "Sep 2026"],
+      ["Gaurav Mehra", "upg_N5T1X6J4", "Working professional", "Jaipur", ["W"], "Refunded", "Working Professionals", "₹0", "23 Oct", [0, 1, 0, 0, 0], null, "Aug 2026"],
+      ["Shreya Pillai", "upg_R2G8L5C9", "Early career", "Kochi", ["I", "K"], "Lead", "KnowledgeHut", "₹3,999", "10 Nov", [1, 1, 1, 1, 0], null, "Dec 2024"],
+      ["Nikhil Agarwal", "upg_W9B4F7D1", "Working professional", "Indore", ["K", "S"], "Counselled", "Study Abroad", "₹38,500", "8 Nov", [1, 1, 0, 1, 1], null, "Apr 2024"],
+      ["Zoya Khan", "upg_J6C2S8V3", "Recent graduate", "Bhopal", ["I", "W"], "Learning", "Working Professionals", "₹1,12,000", "Today", [1, 1, 1, 1, 1], null, "Jun 2024"],
+      ["Rajesh Subramanian", "upg_D8P5K1H6", "Senior professional", "Bengaluru", ["W", "K", "N"], "Alumni", "International", "₹5,40,000", "2 Nov", [1, 1, 0, 1, 1], null, "Mar 2020"],
+      ["Ishaan Kapoor", "upg_M3X9W4T2", "Gap year", "Chandigarh", ["S"], "Lead", "Study Abroad", "₹0", "12 Nov", [1, 1, 1, 1, 1], null, "Oct 2026"],
+      ["Meghna Chatterjee", "upg_V1L6Q8N7", "Working professional", "Mumbai", ["W"], "Paid", "Working Professionals", "₹1,98,000", "Yesterday", [1, 1, 0, 1, 0], null, "Jan 2026"],
+      ["Abhishek Tiwari", "upg_G7H3D9P5", "Early career", "Varanasi", ["I"], "Alumni", "Internshala", "₹4,499", "30 Oct", [1, 1, 1, 0, 0], null, "Feb 2024"],
+      ["Sanjana Hegde", "upg_K4S2B7X8", "Final-year undergraduate", "Mangaluru", ["I", "S"], "Lead", "Study Abroad", "₹2,999", "6 Nov", [1, 1, 1, 1, 1], null, "Jul 2025"],
+      ["Farhan Qureshi", "upg_Y5N8R3G1", "Working professional", "Mumbai", ["K"], "Alumni", "KnowledgeHut", "₹56,000", "19 Oct", [1, 1, 0, 0, 1], null, "Sep 2023"],
+      ["Priyanka Saxena", "upg_U2T7J4M9", "Career break", "Gurugram", ["W"], "Counselled", "Working Professionals", "₹0", "11 Nov", [1, 1, 1, 1, 0], null, "Sep 2026"],
+      ["Deepak Naidu", "upg_F9W1C6K3", "Senior professional", "Visakhapatnam", ["N"], "Prospect", "International", "₹0", "5 Nov", [1, 1, 0, 1, 0], null, "Nov 2026"],
+      ["Ritika Goel", "upg_A3Q8M5D7", "Undergraduate", "Delhi", ["I"], "Learning", "Internshala", "₹5,499", "Today", [1, 1, 1, 1, 1], null, "Aug 2025"]
+    ];
+  }
   // When a value came in. V5 shows only that: the file has no verified date.
   function v9When(p, key, src) {
     var a = (p.v9added || {})[key]; if (!a) return "";
@@ -7847,8 +7877,8 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
         state: p.restricted ? "Restricted" : (p.ins.state || last.stage), owner: p.owner, rev: p.restricted ? "—" : p.ins.revenue, last: p.restricted ? "—" : p.ins.last,
         reach: reach(p, TEAMS.central).map(function (x) { return x[1] ? 1 : 0; }), minor: !!p.restricted };
     });
-    return full.concat((V9 ? [] : EXTRA).map(function (r) {
-      return { id: null, p: { name: r[0], photo: r[10] }, name: r[0], gid: r[1], stage: r[2], city: r[3], bus: r[4], state: r[5], owner: r[6], rev: r[7], last: r[8], reach: r[9], minor: r[2] === "School" };
+    return full.concat((V9 ? v9Extra() : EXTRA).map(function (r) {
+      return { id: null, p: { name: r[0], photo: r[10] }, name: r[0], gid: r[1], stage: r[2], city: r[3], bus: r[4], state: r[5], owner: r[6], rev: r[7], last: r[8], reach: r[9], since: r[11], minor: r[2] === "School" };
     }));
   }
   var SEGS = [["all", "Everyone"], ["lead", "Leads"], ["learning", "Learning"], ["alumni", "Alumni"], ["restricted", "Minors"]];
@@ -8144,7 +8174,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
   function expHTML(r) {
     var p = r.id ? PEOPLE[r.id] : null, ins = (p && p.ins) || {};
     var chans = ["Call", "Email", "SMS", "WhatsApp", "Ads"].filter(function (n, i) { return r.reach[i]; });
-    var f = [["Known to", r.bus.map(function (b) { return BU[b]; }).join(", ")], ["Known since", p ? p.since : "—"], (r.p && r.p.v9 ? ["Relationship", (r.p.ins || {}).state || "—"] : ["Owned by", r.owner]), ["Reachable on", chans.length ? chans.join(", ") : "No channel"],
+    var f = [["Known to", r.bus.map(function (b) { return BU[b]; }).join(", ")], ["Known since", p ? p.since : r.since || "—"], (V9 ? ["Relationship", r.p && r.p.v9 ? (r.p.ins || {}).state || "—" : r.state] : ["Owned by", r.owner]), ["Reachable on", chans.length ? chans.join(", ") : "No channel"],
       ["Next-best programme", r.minor ? "Not profiled · minor" : ins.nbp || "Not scored yet", 1], ["Intent", r.minor ? "Not scored · minor" : ins.intent || "Not scored yet", 1]];
     return '<div class="pexp"><div class="lt-grid">' + f.map(function (x) { return "<div><span>" + esc(x[0]) + (x[2] ? ' <i class="ai">AI</i>' : "") + "</span><b>" + esc(x[1]) + "</b></div>"; }).join("") +
       '</div><div class="lt-act">' + (r.id ? '<button type="button" class="btn red sm" data-person="' + r.id + '">Open profile ↗</button>' : '<button type="button" class="btn red sm" data-sample>Open profile ↗</button>') + '<button type="button" class="btn redsoft sm" data-assign>Assign to team</button></div></div>';
@@ -10132,6 +10162,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
     var head = $('.view[data-view="people"] .dir-head'); if (!head) return;
     var cnt = {}; _dirRows0().forEach(function (r) { r.bus.forEach(function (b) { cnt[b] = (cnt[b] || 0) + 1; }); });
     var keys = Object.keys(BU4).sort(function (a, b) { return BU4[a][0].localeCompare(BU4[b][0]); });
+    if (V9) keys = keys.filter(function (k) { return cnt[k]; }); // V5: only the businesses in its data (no Unacademy)
     var lab = document.createElement("label"); lab.className = "v6busel";
     lab.innerHTML = '<span class="sr">Business</span><select id="pBu6"><option value="">All businesses</option>' + keys.filter(function (k) { return cnt[k]; }).map(function (k) { return '<option value="' + k + '">' + esc(BU4[k][0]) + " (" + cnt[k] + ")</option>"; }).join("") + "</select>";
     var tools = document.createElement("div"); tools.className = "v6ptools"; head.appendChild(tools); tools.appendChild(lab);
