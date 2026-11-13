@@ -4584,6 +4584,55 @@ html[data-v9]:not(#v9a):not(#v9b) #lookupResult .v4secnav > .v4sn{background:#ff
 html[data-v9]:not(#v9a):not(#v9b) #lookupResult .v4secnav > .v4sn:hover:not(.on){border-color:#B7BDEB !important;color:#15161C !important}
 html[data-v9]:not(#v9a):not(#v9b) #lookupResult .v4secnav > .v4sn.on{background:#4F57A8 !important;border-color:#4F57A8 !important;color:#fff !important;box-shadow:0 6px 14px -8px rgba(79,87,168,.75) !important}
 html[data-v9]:not(#v9a):not(#v9b) #lookupResult .v4secnav > .v4sn:focus-visible{outline:2px solid #4F57A8 !important;outline-offset:2px}
+/* UG learning journey (V5): Other courses, an accordion */
+html[data-v9] #lookupResult .v9more .a6h h3 em{margin-left:6px;font-size:13px;font-style:normal;font-weight:400;color:#6E7078}
+html[data-v9] #lookupResult .v9more .v9mn{margin:-4px 0 14px;font-size:13px;line-height:1.45;color:#6E7078}
+html[data-v9] #lookupResult .v9ac{border:1px solid #E7E8EF;border-radius:14px;background:#fff;transition:border-color .15s,box-shadow .15s}
+html[data-v9] #lookupResult .v9ac + .v9ac{margin-top:10px}
+html[data-v9] #lookupResult .v9ac[open]{border-color:#D2D7F1;box-shadow:0 6px 18px -12px rgba(79,87,168,.35)}
+html[data-v9] #lookupResult .v9ac > summary{display:grid;grid-template-columns:auto minmax(0,1fr) auto minmax(150px,220px) auto;align-items:center;gap:14px;padding:14px 16px;cursor:pointer;list-style:none;border-radius:14px}
+html[data-v9] #lookupResult .v9ac > summary::-webkit-details-marker{display:none}
+html[data-v9] #lookupResult .v9ac > summary:hover{background:#FAFAFD}
+html[data-v9] #lookupResult .v9ac > summary:focus-visible{outline:2px solid #4F57A8;outline-offset:2px}
+html[data-v9] #lookupResult .v9ac .bdg{display:inline-grid;place-items:center;min-width:40px;height:40px;padding:0 6px;border-radius:12px;background:color-mix(in srgb,var(--c) 15%,#fff);color:color-mix(in srgb,var(--c) 75%,#15161C);font-size:12px;font-weight:700;letter-spacing:.02em}
+html[data-v9] #lookupResult .v9ac .t{display:flex;flex-direction:column;gap:2px;min-width:0}
+html[data-v9] #lookupResult .v9ac .t b{font-size:14.5px;line-height:1.35;font-weight:600;color:#15161C}
+html[data-v9] #lookupResult .v9ac .t small{font-size:12.5px;color:#6E7078}
+html[data-v9] #lookupResult .v9ac .t em{font-style:normal;color:#8E909A}
+html[data-v9] #lookupResult .v9ac .v9st{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+html[data-v9] #lookupResult .v9ac .v9st.done{background:#E3F3EA;color:#1C7F52}
+html[data-v9] #lookupResult .v9ac .v9st.now{background:#ECEEFA;color:#4F57A8}
+html[data-v9] #lookupResult .v9ac .v9st.not{background:#F1F2F6;color:#5F616B}
+html[data-v9] #lookupResult .v9ac .pr{display:flex;align-items:center;gap:10px}
+html[data-v9] #lookupResult .v9ac .bar{flex:1;height:8px;border-radius:999px;background:#ECEEF6;overflow:hidden}
+html[data-v9] #lookupResult .v9ac .bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#7983CD,#4F57A8)}
+html[data-v9] #lookupResult .v9ac.done .bar i{background:linear-gradient(90deg,#4FB07F,#1C7F52)}
+html[data-v9] #lookupResult .v9ac .pr b{min-width:38px;font-size:13px;font-weight:600;color:#15161C;text-align:right;font-variant-numeric:tabular-nums}
+html[data-v9] #lookupResult .v9ac .chev{width:9px;height:9px;margin:0 4px;border-right:1.7px solid #5F616B;border-bottom:1.7px solid #5F616B;transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s}
+html[data-v9] #lookupResult .v9ac[open] .chev{transform:rotate(-135deg) translate(-2px,-2px)}
+html[data-v9] #lookupResult .v9ac .bd{padding:4px 16px 16px 70px}
+html[data-v9] #lookupResult .v9ac .trk{display:flex;flex-wrap:wrap;gap:8px 6px;margin:0 0 14px;padding:0;list-style:none}
+html[data-v9] #lookupResult .v9ac .trk li{display:flex;align-items:center;gap:6px;padding:4px 10px 4px 4px;border-radius:999px;background:#F6F7FB;font-size:12px;color:#6E7078}
+html[data-v9] #lookupResult .v9ac .trk li i{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 1.5px #D6D8E6;font-size:10.5px;font-style:normal;font-weight:600;color:#6E7078}
+html[data-v9] #lookupResult .v9ac .trk li.done{color:#15161C}
+html[data-v9] #lookupResult .v9ac .trk li.done i{background:#4F57A8;color:#fff;box-shadow:none}
+html[data-v9] #lookupResult .v9ac.done .trk li.done i{background:#1C7F52}
+html[data-v9] #lookupResult .v9ac .trk li.now{background:#ECEEFA;color:#3F4AA8;font-weight:600}
+html[data-v9] #lookupResult .v9ac .trk li.now i{box-shadow:inset 0 0 0 2px #4F57A8;color:#4F57A8}
+html[data-v9] #lookupResult .v9ac .sts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0}
+html[data-v9] #lookupResult .v9ac .sts > div{padding:10px 12px;border-radius:12px;background:#F6F7FB}
+html[data-v9] #lookupResult .v9ac .sts dt{font-size:12px;color:#6E7078}
+html[data-v9] #lookupResult .v9ac .sts dd{margin:3px 0 0;font-size:13.5px;font-weight:600;color:#15161C}
+html[data-v9] #lookupResult .v9ac .nx{margin:12px 0 0;font-size:13px;color:#4F5160}
+@media (max-width:760px){
+html[data-v9] #lookupResult .v9ac > summary{grid-template-columns:auto minmax(0,1fr) auto;row-gap:10px}
+html[data-v9] #lookupResult .v9ac .v9st{grid-column:2;grid-row:2;justify-self:start}
+html[data-v9] #lookupResult .v9ac .pr{grid-column:1 / -1;grid-row:3}
+html[data-v9] #lookupResult .v9ac .chev{grid-column:3;grid-row:1}
+html[data-v9] #lookupResult .v9ac .bd{padding:4px 16px 16px !important}
+html[data-v9] #lookupResult .v9ac .sts{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){html[data-v9] #lookupResult .v9ac .chev{transition:none}}
 html[data-v9] #lookupResult .t6 .j6wrap.v9j{margin:4px 0 0;padding:0 0 24px;border-bottom:1px solid #EEEFF4}
 html[data-v9] #lookupResult .t6 .v9evh{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin:24px 0 12px}
 html[data-v9] #lookupResult .t6 .v9evh h3{margin:0;font-size:17px;line-height:1.3;font-weight:500 !important;letter-spacing:-.01em;color:#15161C}
@@ -7190,7 +7239,8 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
     // Every programme is its own card (stacked, not behind a switcher), so credentials list only certificates, projects and trainings.
     var creds = courses.filter(function (c) { return c.cert; }).map(function (c) { return [c.p, c.cert.replace(/^Certificate: /, "Certificate issued ") + " · " + (BU4[c.bu] || [c.bu])[0], 1]; })
       .concat(proj ? proj.value.split(/\s*·\s*/).map(function (x) { return [x, "Project · declared on " + v9Src(proj), 0]; }) : [])
-      .concat(tr ? tr.value.split(/\s*;\s*/).map(function (x) { return [x, "Training listed on resume · " + v9Src(tr), 0]; }) : []);
+      .concat(tr ? tr.value.split(/\s*;\s*/).map(function (x) { return [x, "Training listed on resume · " + v9Src(tr), 0]; }) : [])
+      .concat(v9MoreCreds({ gid: j.person_id }));
     // The line carries no month and year: the programme path reads the last one in it as a due date, and the file has none.
     var cmodel = function (cur) {
       return { t: cur.p, bu: cur.bu, pct: cur.pct, status: cur.status, line: [cur.mod ? "Module " + cur.mod[0] + " of " + cur.mod[1] + " (Prism)" : "", cur.time !== "—" && /h spent/.test(cur.time) ? cur.time : "", cur.note].filter(Boolean).join(" · ") || "Course with " + (BU4[cur.bu] || [cur.bu])[0],
@@ -7277,6 +7327,42 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
     p.v9asp = aspRows;
     return p;
   }
+  // UG learning journey (V5): short courses beside the main programme, as sample data for design review (the PM's file has only the programmes).
+  // Each: title, business, status, modules done, modules in all, hours, enrolled, last active, score or result, certificate month.
+  var V9MORE = {
+    upg_R3D7K9Q1: [["Data Analytics with Excel", "I", "In progress", 4, 6, 14, "Aug 2026", "8 Nov 2026", "Quiz average 78%", ""],
+      ["IELTS Preparation (Academic)", "S", "In progress", 2, 8, 6, "Oct 2026", "5 Nov 2026", "Mock test band 6.0", ""],
+      ["Resume Writing and Interview Prep", "I", "Completed", 3, 3, 5, "Jun 2026", "18 Jul 2026", "Passed", "Jul 2026"]],
+    upg_K8M2W5T4: [["Product Analytics with SQL", "W", "In progress", 2, 5, 9, "Sep 2026", "10 Nov 2026", "Assignment 1: 82%", ""],
+      ["Agile and Scrum Fundamentals (free)", "K", "Not started", 0, 4, 0, "Oct 2026", "", "", ""],
+      ["Stakeholder Management", "W", "Completed", 3, 3, 6, "Feb 2026", "21 Mar 2026", "Grade A", "Mar 2026"]],
+    upg_S5I1Y8N3: [["Digital Marketing Foundations (free masterclass)", "W", "In progress", 5, 7, 8, "Oct 2026", "4 Nov 2026", "", ""],
+      ["Google Analytics 4 Essentials", "I", "Completed", 4, 4, 10, "Jan 2024", "26 Feb 2024", "Score 88%", "Feb 2024"]],
+    upg_V2R6S9P7: [["Research Methods for Doctoral Study", "N", "In progress", 2, 6, 7, "Oct 2026", "2 Nov 2026", "Essay draft submitted", ""],
+      ["Leading with Data (masterclass)", "W", "Completed", 2, 2, 3, "May 2025", "14 Jun 2025", "Attended both sessions", "Jun 2025"],
+      ["SAFe Agilist", "K", "Completed", 5, 5, 16, "Aug 2024", "20 Sep 2024", "Exam 87%", "Sep 2024"]],
+    upg_D3N5T7X9: [["MLOps on the Cloud", "K", "In progress", 3, 7, 12, "Sep 2026", "12 Nov 2026", "Lab average 74%", ""],
+      ["German A1 for Study Abroad", "S", "In progress", 6, 10, 22, "Jun 2026", "9 Nov 2026", "Speaking test pending", ""],
+      ["Academic Writing for Research", "N", "Not started", 0, 5, 0, "Nov 2026", "", "", ""]]
+  };
+  function v9MoreCourses(p) {
+    var list = V9MORE[p.gid] || []; if (!list.length || p.restricted) return "";
+    var BCC = { I: "#D63F76", W: "#7983CD", K: "#DA6E9C", S: "#9A6BD0", N: "#3E8FB0" };
+    var nDone = list.filter(function (c) { return c[2] === "Completed"; }).length, nNow = list.filter(function (c) { return c[2] === "In progress"; }).length, nNot = list.length - nDone - nNow;
+    var head = [nDone ? nDone + " completed" : "", nNow ? nNow + " in progress" : "", nNot ? nNot + " not started" : ""].filter(Boolean).join(" · ");
+    var items = list.map(function (c, i) {
+      var pct = Math.round(c[3] / c[4] * 100), bu = (BU4[c[1]] || [c[1], c[1]]), st = c[2], kind = st === "Completed" ? "done" : st === "In progress" ? "now" : "not";
+      var track = Array.apply(null, Array(c[4])).map(function (x, k) { var s = k < c[3] ? "done" : k === c[3] && kind === "now" ? "now" : "next"; return '<li class="' + s + '"><i aria-hidden="true">' + (s === "done" ? ic4("check", 11) : k + 1) + "</i><span>Module " + (k + 1) + "</span></li>"; }).join("");
+      var next = kind === "done" ? "Finished. " + (c[9] ? "Certificate issued " + c[9] + "." : "") : kind === "now" ? "Next: module " + (c[3] + 1) + " of " + c[4] + "." : "Enrolled, not started yet. Module 1 is ready.";
+      var stats = [["Progress", c[3] + " of " + c[4] + " modules"], ["Time spent", c[5] ? c[5] + " h" : "—"], ["Enrolled", c[6]], ["Last activity", c[7] || "—"], ["Score or result", c[8] || "—"], ["Certificate", c[9] ? "Issued " + c[9] : kind === "done" ? "—" : "On completion"]];
+      return '<details class="v9ac ' + kind + '"' + (i === 0 ? " open" : "") + '><summary><span class="bdg" style="--c:' + (BCC[c[1]] || "#8E8E93") + '">' + esc(bu[1]) + '</span><span class="t"><b>' + esc(c[0]) + "</b><small>" + esc(bu[0]) + ' · <em>Sample</em></small></span>' +
+        '<span class="v9st ' + kind + '">' + esc(st) + '</span><span class="pr" role="img" aria-label="' + pct + '% complete"><span class="bar"><i style="width:' + pct + '%"></i></span><b>' + pct + '%</b></span><span class="chev" aria-hidden="true"></span></summary>' +
+        '<div class="bd"><ol class="trk" aria-label="Modules: ' + c[3] + " of " + c[4] + ' done">' + track + '</ol><dl class="sts">' + stats.map(function (s) { return "<div><dt>" + esc(s[0]) + "</dt><dd>" + esc(s[1]) + "</dd></div>"; }).join("") + '</dl><p class="nx">' + esc(next) + "</p></div></details>";
+    }).join("");
+    return '<section class="a6card v9more" aria-label="Other courses"><div class="a6h"><h3>Other courses <em>' + list.length + '</em></h3><span>' + esc(head) + '</span></div><p class="v9mn">Short courses and masterclasses beside the main programme. Sample data for design review. Open a course to see its modules and progress.</p>' + items + "</section>";
+  }
+  // Certificates from those sample courses also show under Credentials.
+  function v9MoreCreds(p) { return (V9MORE[p.gid] || []).filter(function (c) { return c[9]; }).map(function (c) { return [c[0], "Certificate issued " + c[9] + " · " + (BU4[c[1]] || [c[1]])[0] + " · sample", 1]; }); }
   var V9P = null;
   function v9People() {
     if (V9P) return V9P;
@@ -9300,6 +9386,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
     } else h += '<section class="a6card a6empty"><p class="a6note">No programme with upGrad yet.</p></section>';
     });
 
+    if (p.v9) h += v9MoreCourses(p);
     // Skills, rebuilt: what they can prove (graded by upGrad) apart from what they say (self-declared), each proven skill on a 4-step ladder.
     var sk = m.skills || [], who = esc(first(p)), LV = ["Beginner", "Developing", "Proficient", "Expert"];
     var proven = sk.filter(function (x) { return x[4]; }), claimed = sk.filter(function (x) { return !x[4]; });
@@ -9321,9 +9408,9 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
       h += '<section class="a6card skp" aria-label="Skills"><div class="skp-h"><div><h3>Skills</h3><p>What ' + who + " can prove, kept apart from what " + who + ' says.</p></div><div class="skp-key"><span><i class="g"></i>Proven by upGrad</span><span><i class="c"></i>Self-declared</span></div></div>' + hero +
         '<div class="skp-cols"><div class="skp-sec"><h4>Proven by upGrad<em>' + proven.length + "</em></h4>" + plist + '</div><div class="skp-sec skp-cl"><h4>Self-declared, not verified<em>' + claimed.length + "</em></h4>" + clist + "</div></div></section>";
     }
-    h += '<section class="a6card a6creds"><div class="a6h"><h3>Credentials and other courses</h3></div>' + ((m.creds || []).length ? m.creds.map(function (c2, i) {
+    h += '<section class="a6card a6creds"><div class="a6h"><h3>' + (p.v9 ? "Credentials" : "Credentials and other courses") + '</h3></div>' + ((m.creds || []).length ? m.creds.map(function (c2, i) {
       return '<div class="a6cr' + (c2[2] ? " got" : " due") + '" style="--i:' + i + '"><span class="a6medal">' + ic4("award", 20) + "</span><span><b>" + esc(c2[0]) + "</b><small>" + esc(c2[1]) + "</small></span>" + (c2[2] ? '<span class="a6st">Issued</span>' : '<span class="a6st due">In progress</span>') + "</div>";
-    }).join("") : '<p class="a6note">No other courses or certificates.</p>') + "</section>";
+    }).join("") : '<p class="a6note">' + (p.v9 ? "No certificates, projects or trainings yet." : "No other courses or certificates.") + '</p>') + "</section>";
     return '<div class="a6">' + h + "</div>";
   }
 
