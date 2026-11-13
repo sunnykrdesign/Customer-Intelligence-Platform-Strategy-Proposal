@@ -4633,6 +4633,9 @@ html[data-v9] #lookupResult .v9ac .bd{padding:4px 16px 16px !important}
 html[data-v9] #lookupResult .v9ac .sts{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (prefers-reduced-motion:reduce){html[data-v9] #lookupResult .v9ac .chev{transition:none}}
+/* Programme title in the hero card (V5): a step smaller */
+html[data-v9]:not(#v9a) #lookupResult .a6hero .a6ctx h2{font-size:20px !important;line-height:26px !important;letter-spacing:-.01em !important}
+@media (max-width:640px){html[data-v9]:not(#v9a) #lookupResult .a6hero .a6ctx h2{font-size:18px !important;line-height:24px !important}}
 html[data-v9] #lookupResult .t6 .j6wrap.v9j{margin:4px 0 0;padding:0 0 24px;border-bottom:1px solid #EEEFF4}
 html[data-v9] #lookupResult .t6 .v9evh{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin:24px 0 12px}
 html[data-v9] #lookupResult .t6 .v9evh h3{margin:0;font-size:17px;line-height:1.3;font-weight:500 !important;letter-spacing:-.01em;color:#15161C}
@@ -9354,7 +9357,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
         '<div class="a6ctx"><div class="a6tags"><span class="a6tag live"><i></i>' + esc(c.status) + '</span><span class="a6tag">' + esc(buN6(c.bu)) + "</span></div><h2>" + esc(c.t) + "</h2><p>" + esc(c.line) + "</p>" +
         (cur >= 0 ? '<div class="a6now"><span>Now</span><b>' + esc(mods[cur][0]) + "</b><small>Module " + (cur + 1) + " of " + mods.length + "</small></div>" : "") + "</div>" +
         '<div class="a6stats">' + (c.stats || []).map(function (s, i) { return '<div style="--i:' + i + '"><small>' + esc(s[0]) + "</small><b>" + esc(s[1]) + "</b></div>"; }).join("") + "</div></section>";
-      if (mods.length) {
+      if (mods.length && !p.v9) {
         var at = cur >= 0 ? cur : Math.max(0, done - 1), fill = mods.length > 1 ? at / (mods.length - 1) * 100 : 100;
         h += '<section class="a6card"><div class="a6h"><h3>Programme path</h3><span>' + done + " of " + mods.length + " modules done" + plan6(c) + '</span></div><ol class="a6path" style="--n:' + mods.length + ";--f:" + fill.toFixed(1) + '">' + mods.map(function (x, i) {
           return '<li class="a6m ' + x[1] + '" style="--i:' + i + '"><span class="a6n">' + (x[1] === "done" ? ic4("check", 15) : i + 1) + "</span><b>" + esc(x[0]) + "</b><small>" + (x[1] === "done" ? "Done" : x[1] === "now" ? "In progress" : "Upcoming") + "</small></li>";
