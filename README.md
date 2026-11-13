@@ -167,6 +167,7 @@ Five versions are in the switcher: V1 · Classic, V2 · Learner 360, V3 · Maste
     - Linked system IDs become Linked records.
     - Conflicts show how they were resolved.
     - "Consent to share across upGrad" says it has no source yet.
+    - Education and Career show profile-style entries, as in V4. They're built from the file's "Education history" and "Work history". Each school gets a crest: a school crest for Class 12 and boards, a university crest for degrees, including a B-school. Each employer gets an initials logo. Entries show years, grade, type (full-time or internship) and total experience. Fields they don't cover are listed under "Also on file". The under-18 profile has no history, so it keeps plain rows.
   - **UG learning journey:** upGrad courses with status, progress and results.
     - Programmes with module data (Prism's "module x of y") get the programme path.
     - Internshala Trainings say they have no module data.

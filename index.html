@@ -6902,6 +6902,41 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#ppl-i) [data-view="people"] .kp
       ["Counselling model scores", "Sales Insights", ["Counselling lead score (SA)", "Momentum (SA)", "Counselling sub-levels (WP)"]]];
     var built = {}; (j.insights || []).forEach(function (x) { built[x.insight] = x.built_from; });
     var insights = G.map(function (g) { return { t: g[0], tag: g[1], items: g[2].filter(function (k) { return I[k] != null; }).map(function (k, n) { return { k: k, v: I[k], big: n === 0 ? 1 : 0, fin: k === "Lifetime revenue", how: "Built from " + String(built[k] || "").replace(/^./, function (c) { return c.toLowerCase(); }) + "." }; }) }; }).filter(function (g) { return g.items.length; });
+    // Education and career as profile entries (school crest or employer logo, years, grade), like V4. Built from the file's
+    // "Education history" and "Work history"; scores attach to the matching qualification.
+    var eh = get("Education (prior, outside upGrad)", "Education history"), sc = get("Education (prior, outside upGrad)", "Academic scores");
+    var scores = sc ? sc.value.split(/\s*·\s*/) : [], edu = null, exp = null;
+    if (eh && !minor) edu = eh.value.split(/\s*;\s*/).filter(Boolean).map(function (x) {
+      var parts = x.split(/\s*·\s*/), e = { src: v9Src(eh) }, sch = /^(1[02])th,\s*([^,]+)(?:,\s*(.*))?$/.exec(parts[0]);
+      if (sch) { e.s = sch[2]; e.d = "Class " + sch[1] + (sch[3] ? " · " + sch[3] : ""); e.y = parts[1] || ""; }
+      else { e.s = parts[0]; e.d = parts[1] || ""; e.y = parts[2] || ""; }
+      var key = sch ? sch[1] + "th" : (e.d.split(" ")[0] || "#"), hit = scores.filter(function (q) { return q.indexOf(key + " ") === 0; })[0];
+      if (hit) e.g = "Grade: " + hit.slice(key.length + 1);
+      added["edu|" + e.s + "|" + e.d] = eh.added_at;
+      return e;
+    });
+    var cr = get("Career / profession", "Current role and employer"), wh = get("Career / profession", "Work history"), te = get("Career / profession", "Total experience");
+    var role = function (txt, row, current) {
+      var m = /^(.*?),\s*(\[[^\]]+\])\s*(.*)$/.exec(txt); if (!m) return null;
+      var rest = m[3].replace(/^·\s*/, ""), note = (/\(([^)]*)\)/.exec(rest) || [])[1] || "", r = { t: m[1].trim(), src: v9Src(row) }, c = m[2], type = "", loc = "";
+      rest = rest.replace(/\([^)]*\)/, "").trim();
+      var mm = /(\w{3})–(\w{3}) (\d{4})/.exec(rest), yy = /(\d{4})–(\d{4})/.exec(rest), since = /since (?:(\w{3}) )?(\d{4})/.exec(rest);
+      if (mm) { r.from = mm[1] + " " + mm[3]; r.to = mm[2] + " " + mm[3]; } else if (yy) { r.from = yy[1]; r.to = yy[2]; } else if (since) { r.from = (since[1] ? since[1] + " " : "") + since[2]; r.to = "Present"; } else if (current) { r.from = ""; r.to = "Present"; }
+      if (/full-time/i.test(rest)) type = "Full-time"; if (/intern/i.test(r.t)) type = "Internship"; if (/remote/i.test(rest)) loc = "Remote";
+      if (note) r.desc = note.charAt(0).toUpperCase() + note.slice(1) + ".";
+      added["exp|" + c + "|" + r.t] = row.added_at;
+      return { c: c, type: type, loc: loc, roles: [r] };
+    };
+    if ((cr || wh) && !minor) {
+      var list = [];
+      if (cr && /,\s*\[/.test(cr.value) && !/^student/i.test(cr.value)) { var c0 = role(cr.value, cr, true); if (c0) list.push(c0); }
+      if (wh) {
+        var ents = [], segs = wh.value.split(/\s+·\s+/);
+        segs.forEach(function (g) { if (/^[^,]+,\s*\[/.test(g) || !ents.length) ents.push(g); else ents[ents.length - 1] += " · " + g; });
+        ents.forEach(function (x) { var c1 = role(x, wh, false); if (!c1) return; var same = list.filter(function (q) { return q.c === c1.c; })[0]; if (same) same.roles.push(c1.roles[0]); else list.push(c1); });
+      }
+      exp = list.length ? list : null;
+    }
     var known = v9Date(h.known_since), yrs = known ? (TODAY4 - known) / (365.25 * 864e5) : 0;
     var p = {
       v9: true, j: j, name: h.name, gid: j.person_id, photo: null, headline: h.headline, stage: h.life_stage, ageBand: h.age_band, city: h.city,
@@ -6910,6 +6945,8 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#ppl-i) [data-view="people"] .kp
       consent: consent, lifecycle: lifecycle, courses: courses, skills: { declared: [], graded: [] }, ins: ins, moments: [], events: events, summary: j.summary, interest: j.interest_by_area || [], v9added: added,
       personal: [], education: [], career: [], aspiration: [], finance: []
     };
+    if (edu) p.edu = edu;
+    if (exp) { p.exp = exp; if (te) { p.expTotal = te.value; added["Total experience"] = te.added_at; } }
     p.v4 = {
       initials: minor ? "—" : initials(h.name), place: h.city, known: known ? "Known for " + (yrs >= 1 ? Math.floor(yrs) + (Math.floor(yrs) === 1 ? " year" : " years") : "under a year") : "Known since " + p.since,
       kpis: [{ k: "Lifetime revenue", v: inr4(ins.revenue), pct: Math.min(100, Math.round(num4(ins.revenue) / 3e5 * 100)), d: ins.revenueD, fin: true },
@@ -10882,7 +10919,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#ppl-i) [data-view="people"] .kp
   }
   // Sample institution crests (shown in V7 Crisp only): a school crest for Class 12 and boards, one of two university crests for degrees.
   function xpEduImg(e) {
-    if (/class 1[02]|board|school|secondary|cbse/i.test((e.d || "") + " " + (e.s || ""))) return "edu-school.webp";
+    if (/class 1[02]|board|(^|[^-])school|secondary|cbse/i.test((e.d || "") + " " + (e.s || ""))) return "edu-school.webp";
     var h = 0, n = e.s || ""; for (var i = 0; i < n.length; i++) h = (h * 31 + n.charCodeAt(i)) % 2;
     return h ? "edu-seal.webp" : "edu-crest.webp";
   }
@@ -10908,7 +10945,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#ppl-i) [data-view="people"] .kp
         '<ol class="xp-roles">' + c.roles.map(function (r) { return '<li><i aria-hidden="true"></i><div><b>' + esc(r.t) + '</b><p class="xp-meta">' + range(r) + "</p>" + xpSkills(r.sk) + xpDesc(r.desc) + v4WhenHTML(p, "exp|" + c.c + "|" + r.t, r.src) + "</div></li>"; }).join("") + "</ol></div></article>";
     }).join("") + "</div>";
   }
-  var XPCOVER = { education: /^(Highest qualification|Degree|Class 12|Scores|Institution)$/i, career: /^(Current role|Work history|Previous role|Experience)$/i };
+  var XPCOVER = { education: /^(Highest qualification|Degree|Class 12|Scores|Institution|Education history|Academic scores)$/i, career: /^(Current role|Work history|Previous role|Experience|Current role and employer|Total experience)$/i };
   var _v4Rows0 = v4Rows;
   v4Rows = function (p, s, otherBu, m) {
     var kind = s.key === "education" ? "edu" : s.key === "career" ? "exp" : null;
