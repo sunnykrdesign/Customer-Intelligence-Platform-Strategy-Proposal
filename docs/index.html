@@ -5061,6 +5061,12 @@ html[data-v9][data-v6]:not(#crisp):not(#act-i):not(#v9a) #lookupResult .t6ev .t6
 html[data-v9][data-v6]:not(#crisp):not(#act-i):not(#v9a) #lookupResult .b6ic{background:color-mix(in srgb,var(--c2) 12%,#fff) !important;color:color-mix(in srgb,var(--c2) 82%,#15161C) !important;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c2) 22%,#fff) !important}
 html[data-v9][data-v6]:not(#crisp):not(#act-i):not(#v9a) #lookupResult .b6ic svg{stroke-width:1.75 !important}
 </style>
+<style id="v9chcap">
+/* V5 Chapters: the count of points left out, beside the year */
+html[data-v9] .j6c .j6cy:has(.j6cm){display:flex;align-items:center;flex-wrap:nowrap}
+@media (max-width:640px){html[data-v9] .j6c .j6cy .j6cm{margin-left:6px !important;padding:0 7px !important}html[data-v9] .j6c .j6cy .j6cmw{display:none}}
+html[data-v9] .j6c .j6cy .j6cm{display:inline-flex;align-items:center;height:22px;margin-left:8px;padding:0 8px;border-radius:999px;background:#ECEEFA;color:#4F57A8;font-size:12px;font-weight:500;font-style:normal;letter-spacing:0;line-height:1;vertical-align:middle;cursor:help;white-space:nowrap}
+</style>
 <style id="ugtab">@media (max-width:640px){html[data-v7][data-v6] #ptabs #tab-academic .v4tabl{white-space:normal;line-height:1.1;text-align:center;max-width:84px;display:inline-block}html[data-v7][data-v6] #ptabs #tab-academic{white-space:normal}}</style>
 <style id="ugc-css">
 /* UG learning journey: Courses accordion */
@@ -9489,9 +9495,31 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
     ev.forEach(function (e) { var y = e.d.getFullYear(); (g[y] = g[y] || []).push(e); });
     var ys = Object.keys(g).sort();
     var now = m.lanes.filter(function (l) { return !l.empty && (l.segs || []).some(function (s) { return !s[2]; }); });
+    var cap9 = isV9() ? 3 : 0; // V5: at most 3 points per chapter
+    function more9(hid) { return hid.length ? '<em class="j6cm" title="' + esc("Also: " + hid.join("; ")) + '">+' + hid.length + '<span class="j6cmw"> more</span></em>' : ""; }
+    function top9(list, rank, key) { // the highest-ranked points, a different business first, then shown in their original order
+      if (!cap9 || list.length <= cap9) return { keep: list, hid: [] };
+      var ord = list.map(function (x, k) { return { x: x, k: k, r: rank(x) }; }).sort(function (a, b) { return b.r - a.r || b.k - a.k; }), pick = [], bus = {};
+      ord.forEach(function (o) { if (pick.length < cap9 && !bus[key(o.x)]) { pick.push(o); bus[key(o.x)] = 1; } });
+      ord.forEach(function (o) { if (pick.length < cap9 && pick.indexOf(o) < 0) pick.push(o); });
+      pick.sort(function (a, b) { return a.k - b.k; });
+      return { keep: pick.map(function (o) { return o.x; }), hid: ord.filter(function (o) { return pick.indexOf(o) < 0; }).map(function (o) { return o.x; }) };
+    }
+    function rankEv9(list) {
+      return function (e) {
+        if (e.k === "done") return 6; if (e.k === "paid") return 5; if (e.k === "lost") return 4; if (e.k === "counselled") return 3; if (e.k === "lead") return 2;
+        var t = e.t + " " + (e.sub || "");
+        if (/complet|certificate/i.test(t) && list.some(function (o) { return o.k === "done" && o.bu === e.bu; })) return 1.5; // the Completed point already says it
+        if (/enrol|certificate|complet|hired|won|application submitted/i.test(t)) return 5;
+        if (/instalment|payment|paid/i.test(t)) return 1;
+        return 2;
+      };
+    }
     return '<div class="j6chs"><h3>Chapters</h3><ol class="j6ch">' + ys.map(function (y, i) {
-      return '<li class="j6c" style="--i:' + i + '"><span class="j6cy">' + y + "</span><ul>" + g[y].map(function (e) { return '<li><i style="background:' + (BC6P[e.bu] || "#8E8E93") + '"></i><span><b>' + esc(e.t) + "</b><small>" + esc(buS6(e.bu)) + " · " + MON4[e.d.getMonth()] + (e.sub ? " · " + esc(e.sub) : "") + "</small></span></li>"; }).join("") + "</ul></li>";
-    }).join("") + '<li class="j6c now" style="--i:' + ys.length + '"><span class="j6cy">Today</span><ul>' + (now.length ? now.map(function (l) { return '<li><i style="background:' + (BC6P[l.bu] || "#8E8E93") + '"></i><span><b>' + esc(buN6(l.bu)) + "</b><small>" + esc(l.note) + "</small></span></li>"; }).join("") : "<li><span><b>No open relationship</b></span></li>") + "</ul></li></ol></div>";
+      var cut = top9(g[y], rankEv9(g[y]), function (e) { return e.bu; });
+      g[y] = cut.keep;
+      return '<li class="j6c" style="--i:' + i + '"><span class="j6cy">' + y + more9(cut.hid.map(function (e) { return e.t + " (" + buS6(e.bu) + " · " + MON4[e.d.getMonth()] + ")"; })) + "</span><ul>" + g[y].map(function (e) { return '<li><i style="background:' + (BC6P[e.bu] || "#8E8E93") + '"></i><span><b>' + esc(e.t) + "</b><small>" + esc(buS6(e.bu)) + " · " + MON4[e.d.getMonth()] + (e.sub ? " · " + esc(e.sub) : "") + "</small></span></li>"; }).join("") + "</ul></li>";
+    }).join("") + (function () { var c9 = top9(now, function (l) { var n = l.note || ""; return /learning|paid/i.test(n) ? 5 : /applied/i.test(n) ? 4 : /counselled/i.test(n) ? 3 : /lead/i.test(n) ? 2 : /account/i.test(n) ? 1.5 : 1; }, function (l) { return l.bu; }); now = c9.keep; return '<li class="j6c now" style="--i:' + ys.length + '"><span class="j6cy">Today' + more9(c9.hid.map(function (l) { return buN6(l.bu) + " (" + l.note + ")"; })) + "</span>"; })() + '<ul>' + (now.length ? now.map(function (l) { return '<li><i style="background:' + (BC6P[l.bu] || "#8E8E93") + '"></i><span><b>' + esc(buN6(l.bu)) + "</b><small>" + esc(l.note) + "</small></span></li>"; }).join("") : "<li><span><b>No open relationship</b></span></li>") + "</ul></li></ol></div>";
   }
   function v6Life(m, opts) {
     var head = '<div class="j6head"><h2 id="v4lifeh">Life with upGrad</h2><span>' + (opts && opts.noCh ? "Every business on one line of time. Select a business or a milestone to see its events below." : "Every business, on one line of time") + '</span><div class="v6seg sm j6zoom" role="group" aria-label="Time range"><button type="button" data-jz="all" aria-pressed="' + (V.jz !== "12m") + '">All time</button><button type="button" data-jz="12m" aria-pressed="' + (V.jz === "12m") + '">Last 12 months</button></div></div>';
