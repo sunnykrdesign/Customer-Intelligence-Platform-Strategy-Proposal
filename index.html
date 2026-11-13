@@ -4540,6 +4540,14 @@ html[data-v9] #lookupResult .v9how dd small{display:block;margin-top:3px;font-si
 @media (max-width:400px){html[data-v9] #lookupResult .v9reach{grid-template-columns:minmax(0,1fr)}}
 html[data-v9] #lookupResult .v9fn{display:flex;align-items:flex-start;gap:6px;margin-top:4px;padding-top:9px;border-top:1px solid #E7E8EF;width:100%;font-size:12px;line-height:1.4;color:#5F616B}
 html[data-v9] #lookupResult .v9fn svg{flex:0 0 auto;margin-top:1px}
+/* sanity */
+@media (max-width:640px){html[data-v9] #lookupResult .v4tabs .v4tabl[data-s]{font-size:0}
+html[data-v9] #lookupResult .v4tabs .v4tabl[data-s]::after{content:attr(data-s);font-size:13.5px}
+html[data-v9] #lookupResult .v4tabs button{white-space:nowrap;padding-left:9px !important;padding-right:9px !important;font-size:13.5px !important}
+html[data-v9] #lookupResult .v5bar .v5id{display:none !important}}
+@media (max-width:820px){html[data-v9] #lookupResult .v5li{min-height:44px;align-items:center}}
+@media (min-width:1101px){html[data-v9] #lookupResult .a6hero{grid-template-columns:auto minmax(0,1.1fr) minmax(0,1fr)}}
+html[data-v9] #lookupResult .a6stats b{overflow-wrap:anywhere}
 html[data-v9] #lookupResult .t6 .j6wrap.v9j{margin:4px 0 0;padding:0 0 24px;border-bottom:1px solid #EEEFF4}
 html[data-v9] #lookupResult .t6 .v9evh{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin:24px 0 12px}
 html[data-v9] #lookupResult .t6 .v9evh h3{margin:0;font-size:17px;line-height:1.3;font-weight:500 !important;letter-spacing:-.01em;color:#15161C}
@@ -6391,7 +6399,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
     var tabs = (withOverview ? [["overview", "Overview"]] : []).concat(TABS4.map(function (t) { return [t[0], SHORT5[t[0]]]; }));
     return '<div class="tabs v4tabs" role="tablist" aria-label="Learner 360 sections" id="ptabs" data-slide>' + tabs.map(function (t) {
       var on = t[0] === cur;
-      return '<button type="button" role="tab" id="tab-' + t[0] + '" aria-controls="panel" aria-selected="' + on + '" tabindex="' + (on ? 0 : -1) + '" data-tab="' + t[0] + '"><span class="v4tabl">' + t[1] + "</span>" + (counts[t[0]] !== undefined ? '<span class="v4cnt">' + esc(String(counts[t[0]])) + "</span>" : "") + "</button>";
+      return '<button type="button" role="tab" id="tab-' + t[0] + '" aria-controls="panel" aria-selected="' + on + '" tabindex="' + (on ? 0 : -1) + '" data-tab="' + t[0] + '"><span class="v4tabl"' + (V9 && t[0] === "academic" ? ' data-s="Learning"' : "") + '>' + t[1] + "</span>" + (counts[t[0]] !== undefined ? '<span class="v4cnt">' + esc(String(counts[t[0]])) + "</span>" : "") + "</button>";
     }).join("") + "</div>";
   }
   function v5Kpis(m, otherBu, cls) {
@@ -8623,6 +8631,15 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
     { on: "verified phone", summary: "Unacademy alumnus later applied for internships.", left: "Unacademy · 2020", right: "Internshala · 2024",
       rows: [["Name", "Rohan Mehta", "Rohan M."], ["Phone", "+91 97•• ••30 61", "+91 97•• ••30 61"], ["Email", "rohan.m•••@gmail.com", "rohan.m•••@gmail.com"], ["City", "Indore", "Pune"]] }
   ];
+  // V5: the same audit cases with V5's businesses (Unacademy is out of scope) and people from V5's own directory.
+  if (V9) cases = [
+    { on: "verified phone", summary: "Same verified phone, but the dates of birth are four years apart.", left: "KnowledgeHut · 2019", right: "Internshala · 2025",
+      rows: [["Name", "Priya Sharma", "Priya Sharma"], ["Phone", "+91 99•• ••12 08", "+91 99•• ••12 08"], ["Email", "priya.s•••@gmail.com", "sharma.p•••@outlook.com"], ["Date of birth", "14 Mar 2003", "02 Aug 1999"]] },
+    { on: "verified email", summary: "One learner moved from Internshala to Working Professionals.", left: "Internshala · 2022", right: "Working Professionals · 2026",
+      rows: [["Name", "Zoya Khan", "Zoya Khan"], ["Phone", "+91 90•• ••58 44", "+91 90•• ••58 44"], ["Email", "zoya.k•••@gmail.com", "zoya.k•••@gmail.com"], ["City", "Bhopal", "Bhopal"]] },
+    { on: "verified phone", summary: "An Internshala alumnus later enquired with Study Abroad.", left: "Internshala · 2023", right: "Study Abroad · 2026",
+      rows: [["Name", "Aarav Shah", "Aarav S."], ["Phone", "+91 97•• ••30 61", "+91 97•• ••30 61"], ["Email", "aarav.s•••@gmail.com", "aarav.s•••@gmail.com"], ["City", "Ahmedabad", "Pune"]] }
+  ];
   var audit = { i: 0, decisions: {} };
   var labels = { right: "Confirmed as the same person.", wrong: "Unmerged into two people. Counted toward the false-merge rate." };
   function renderAudit() {
@@ -8653,6 +8670,12 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
     { who: "Kabir and Meera Rao", action: "Linked, not merged", rule: "shared parent phone", when: "09:58", reverse: "Unlink" },
     { who: "Priya Sharma", action: "Unmerged in audit", rule: "different dates of birth", when: "09:02", reverse: "Re-merge" },
     { who: "Arjun Kumar", action: "Merged automatically", rule: "verified email", when: "Yesterday", reverse: "Unmerge" }
+  ];
+  if (V9) log = [
+    { who: "Siddharth Kulkarni", action: "Merged automatically", rule: "verified phone", when: "10:14", reverse: "Unmerge" },
+    { who: "Kabir and Tara Anand", action: "Linked, not merged", rule: "shared parent phone", when: "09:58", reverse: "Unlink" },
+    { who: "Priya Sharma", action: "Unmerged in audit", rule: "different dates of birth", when: "09:02", reverse: "Re-merge" },
+    { who: "Neha Gupta", action: "Merged automatically", rule: "verified email", when: "Yesterday", reverse: "Unmerge" }
   ];
   $("#mergeLog").innerHTML = log.map(function (l) {
     return '<div class="row"><span class="txt"><span class="title">' + esc(l.who) + '</span><span class="desc">' + esc(l.action) + " · " + esc(l.rule) +
@@ -9265,7 +9288,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
         if (s[2] && d4(s[2]).d.getTime() < start) return ""; var a = x(s[1]), w = Math.max(1.8, x(s[2]) - a);
         return '<span class="j6seg k-' + s[0] + '" style="left:' + a.toFixed(2) + "%;width:" + w.toFixed(2) + "%;--i:" + (n++) + '" data-tip="' + esc(buN6(l.bu) + " · " + NAME[s[0]] + " · " + fmt(s[1]) + (s[2] ? " to " + fmt(s[2]) : " to today")) + '"></span>';
       }).join("");
-      var grp = []; (l.dots || []).filter(function (dd) { return d4(dd[0]).d.getTime() >= start; }).sort(function (a2, b2) { return x(a2[0]) - x(b2[0]); }).forEach(function (dd) { var g = grp[grp.length - 1]; if (g && x(dd[0]) - g.x < 2.5) { g.t.push(fmt(dd[0]) + " · " + dd[1]); g.tt.push(dd[1]); } else grp.push({ x: x(dd[0]), t: [fmt(dd[0]) + " · " + dd[1]], d: dd[0], tt: [dd[1]] }); });
+      var grp = []; (l.dots || []).filter(function (dd) { return d4(dd[0]).d.getTime() >= start; }).sort(function (a2, b2) { return x(a2[0]) - x(b2[0]); }).forEach(function (dd) { var g = grp[grp.length - 1]; if (g && x(dd[0]) - g.x < (act9 && matchMedia("(max-width:640px)").matches ? 8 : 2.5)) { g.t.push(fmt(dd[0]) + " · " + dd[1]); g.tt.push(dd[1]); } else grp.push({ x: x(dd[0]), t: [fmt(dd[0]) + " · " + dd[1]], d: dd[0], tt: [dd[1]] }); });
       var dots = grp.map(function (g) { return '<span class="j6dot' + (g.t.length > 1 ? " many" : "") + '" style="left:' + g.x.toFixed(2) + "%;--i:" + (n++) + '" data-tip="' + esc(g.t.join(" | ")) + '"' + (act9 ? ' role="button" tabindex="0" data-jmk="' + d4(g.d).d.getFullYear() + "-" + d4(g.d).d.getMonth() + '" data-jt="' + esc(g.tt.join("|")) + '" aria-label="' + esc(g.t.join("; ") + ". Show in the list below") + '"' : "") + '>' + (g.t.length > 1 ? "<b>" + g.t.length + "</b>" : "") + "</span>"; }).join("");
       var live = (l.segs || []).some(function (s) { return !s[2] && (s[0] === "lead" || s[0] === "counselled" || s[0] === "paid"); });
       var on9 = act9 && V.ebu && V.ebu !== "all", me9 = V.ebu === l.bu; // V5 Timeline: a business row filters the events below
