@@ -5224,6 +5224,13 @@ html[data-v7t="crisp"][data-v7sb="ink"][data-v6]:not(#crisp):not(#sbi) .side .br
 .review:has(> #rvPanel[hidden]) > .rv-x{display:none}
 @media (max-width:640px){.review > .rv-x{top:auto;bottom:3px;left:0;right:auto}}
 </style>
+<style id="v7sbactive">
+/* Darker and Ink sidebars: the current page is a solid white pill (it was 60% white, which read as grey on the dark panel) */
+html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="ink"])[data-v6]:not(#crisp):not(#sba):not(#sbb):not(#sbc) .side .nav a:is([aria-current="page"],.on,.active){background:#fff !important;color:#15161C !important;box-shadow:0 8px 20px -10px rgba(0,0,0,.55) !important}
+html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="ink"])[data-v6]:not(#crisp):not(#sba):not(#sbb):not(#sbc) .side .nav a:is([aria-current="page"],.on,.active) .ni{color:#15161C !important}
+html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="ink"])[data-v6]:not(#crisp):not(#sba):not(#sbb):not(#sbc) .side .nav a:is([aria-current="page"],.on,.active) .ni::before{background:#4F57A8 !important}
+html[data-v7t="crisp"]:is([data-v7sb="darker"],[data-v7sb="ink"])[data-v6]:not(#crisp):not(#sba):not(#sbb):not(#sbc) .side .nav a:is([aria-current="page"],.on,.active) svg{color:#4F57A8 !important}
+</style>
 <style id="ugtab">@media (max-width:640px){html[data-v7][data-v6] #ptabs #tab-academic .v4tabl{white-space:normal;line-height:1.1;text-align:center;max-width:84px;display:inline-block}html[data-v7][data-v6] #ptabs #tab-academic{white-space:normal}}</style>
 <style id="ugc-css">
 /* UG learning journey: Courses accordion */
