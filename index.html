@@ -4419,6 +4419,20 @@ html[data-v9] #lookupResult .v9bzf i{display:inline-flex;align-items:center;just
 html[data-v9] #lookupResult .v9bzf .bzc{display:flex;flex-wrap:wrap;gap:4px}
 @media (min-width:1000px){html[data-v9] #lookupResult .facts:has(> .v9bzf){grid-template-columns:minmax(0,1.1fr) minmax(0,.75fr) minmax(0,.85fr) minmax(0,1.6fr) minmax(0,.95fr) !important}}
 html[data-v9] #lookupResult .v9bzf .many small{font-size:12px;color:var(--cr-3,#6E7078)}
+html[data-v9] .v9pg{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin:14px 0 14px;padding:0 4px;font-family:Figtree,Inter,system-ui,sans-serif;color:#15161C}
+html[data-v9] .v9pg[hidden]{display:none}
+html[data-v9] .v9pg-size{display:inline-flex;align-items:center;gap:10px;font-size:13px;color:#5F616B;white-space:nowrap}
+html[data-v9] .v9pg-size select{height:36px;min-width:76px;padding:0 30px 0 14px;border:1px solid #E2E3EA;border-radius:999px;background-color:#fff;font:inherit;font-size:13px;color:#15161C;cursor:pointer}
+html[data-v9] .v9pg-range{margin:0 0 0 auto;font-size:13px;color:#5F616B;white-space:nowrap}
+html[data-v9] .v9pg-range b{font-weight:500;color:#15161C;font-variant-numeric:tabular-nums}
+html[data-v9] .v9pg-btns{display:flex;align-items:center;gap:6px}
+html[data-v9] .v9pg-b{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;padding:0 8px;border:1px solid #E2E3EA;border-radius:10px;background:#fff;font:inherit;font-size:13px;font-weight:500;color:#5F616B;font-variant-numeric:tabular-nums;cursor:pointer;transition:border-color .15s,color .15s,background-color .15s}
+html[data-v9] .v9pg-b:hover:not(:disabled):not([aria-current]){border-color:#C9CBD8;color:#15161C}
+html[data-v9] .v9pg-b[aria-current="page"]{background:#D2D7F1;border-color:#D2D7F1;color:#4F57A8;cursor:default}
+html[data-v9] .v9pg-b:disabled{opacity:.4;cursor:default}
+html[data-v9] .v9pg-b:focus-visible,html[data-v9] .v9pg-size select:focus-visible{outline:2px solid #4F57A8;outline-offset:2px}
+html[data-v9] .v9pg-gap{min-width:20px;text-align:center;font-size:13px;color:#8E909A}
+@media (max-width:560px){html[data-v9] .v9pg{gap:10px 12px}html[data-v9] .v9pg-n,html[data-v9] .v9pg-gap{display:none}html[data-v9] .v9pg-b{min-width:40px;height:40px}html[data-v9] .v9pg-size select{height:40px}}
 html[data-v9] #lookupResult .v4row:has(> .v4rv > .v9when){position:relative}
 html[data-v9] #lookupResult .v4row > .v4rv:has(> .v9when){padding-right:156px}
 html[data-v9] #lookupResult .v4row > .v4rv > .v9when{position:absolute;top:12px;right:0;margin:0 !important;padding:0 !important;display:block}
@@ -10203,6 +10217,56 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
     paintBu6($("#pRows"));
   };
   if (isV6()) renderPeople();
+  // People directory pages (V5): one page of rows at a time, with a rows-per-page choice and page controls,
+  // as the real directory of 19.4 lakh people would need. A new segment, search, business or sort goes back to page 1.
+  if (V9) (function () {
+    var PG9 = { size: 10, page: 1, sig: "" }, SIZES9 = [10, 25, 50];
+    var foot = $('.view[data-view="people"] .dir-foot'); if (!foot) return;
+    var nav = document.createElement("nav"); nav.className = "v9pg"; nav.setAttribute("aria-label", "Directory pages");
+    foot.parentNode.insertBefore(nav, foot);
+    var arrow = function (d) { return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + (d < 0 ? "M15 6l-6 6 6 6" : "M9 6l6 6-6 6") + '"/></svg>'; };
+    // Page numbers: all of them up to 7 pages, else first, last and the two either side of the current one, with gaps.
+    var nums = function (n, cur) {
+      if (n <= 7) return Array.from({ length: n }, function (_, i) { return i + 1; });
+      var out = [1], lo = Math.max(2, cur - 1), hi = Math.min(n - 1, cur + 1);
+      if (cur <= 3) hi = 4; if (cur >= n - 2) lo = n - 3;
+      if (lo > 2) out.push(0); for (var i = lo; i <= hi; i++) out.push(i); if (hi < n - 1) out.push(0); out.push(n);
+      return out;
+    };
+    var go = function (pg, focusSel) {
+      PG9.page = pg; P.open = null; renderPeople(true);
+      var t = $('.view[data-view="people"] .dir-head'); if (t && t.getBoundingClientRect().top < 0) t.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+      var f = focusSel && $(focusSel, nav); if (f && !f.disabled) f.focus(); else if (focusSel) { var c = $('[aria-current="page"]', nav); if (c) c.focus(); }
+    };
+    nav.addEventListener("click", function (e) {
+      var b = e.target.closest("button[data-pg]"); if (!b || b.disabled) return;
+      var v = b.getAttribute("data-pg"), pg = v === "prev" ? PG9.page - 1 : v === "next" ? PG9.page + 1 : Number(v);
+      go(pg, 'button[data-pg="' + v + '"]');
+    });
+    nav.addEventListener("change", function (e) {
+      if (e.target.id !== "pSize9") return;
+      PG9.size = Number(e.target.value) || 10; go(1, "#pSize9");
+    });
+    var _renderPeople9 = renderPeople;
+    renderPeople = function (stagger) {
+      var sig = [P.seg, P.q, typeof P6BU === "undefined" ? "" : P6BU, PS6.k, PS6.dir].join("|");
+      if (sig !== PG9.sig) { PG9.sig = sig; PG9.page = 1; }
+      _renderPeople9(stagger);
+      var rows = $$("#pRows .prow[data-row]"), total = rows.length, pages = Math.max(1, Math.ceil(total / PG9.size));
+      if (PG9.page > pages) PG9.page = pages; if (PG9.page < 1) PG9.page = 1;
+      var a = (PG9.page - 1) * PG9.size, z = Math.min(total, a + PG9.size);
+      rows.forEach(function (r, i) { if (i < a || i >= z) r.remove(); else r.style.setProperty("--i", Math.min(i - a, 12)); });
+      $("#pCount").textContent = "19,42,118 people in all · this preview has " + _dirRows0().length + " sample rows";
+      nav.hidden = !total;
+      if (!total) return;
+      nav.innerHTML = '<label class="v9pg-size"><span>Rows per page</span><select id="pSize9">' + SIZES9.map(function (n) { return '<option value="' + n + '"' + (n === PG9.size ? " selected" : "") + ">" + n + "</option>"; }).join("") + "</select></label>" +
+        '<p class="v9pg-range" aria-live="polite"><b>' + (a + 1) + "–" + z + "</b> of " + total + "</p>" +
+        '<div class="v9pg-btns"><button type="button" class="v9pg-b v9pg-arr" data-pg="prev" aria-label="Previous page"' + (PG9.page === 1 ? " disabled" : "") + ">" + arrow(-1) + "</button>" +
+        nums(pages, PG9.page).map(function (n) { return n ? '<button type="button" class="v9pg-b v9pg-n" data-pg="' + n + '" aria-label="Page ' + n + '"' + (n === PG9.page ? ' aria-current="page"' : "") + ">" + n + "</button>" : '<span class="v9pg-gap" aria-hidden="true">…</span>'; }).join("") +
+        '<button type="button" class="v9pg-b v9pg-arr" data-pg="next" aria-label="Next page"' + (PG9.page === pages ? " disabled" : "") + ">" + arrow(1) + "</button></div>";
+    };
+    renderPeople();
+  })();
 
   // Look up goes quiet once it has run; editing the field makes it the main action again.
   $("#lookupForm").addEventListener("submit", function () { this.classList.add("v6done"); });
