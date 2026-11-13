@@ -4417,7 +4417,32 @@ html[data-v9] #lookupResult .v9bzf .bz b{font-size:14px !important;line-height:2
 html[data-v9] #lookupResult .v9bzf .bz small{font-size:12px;color:var(--cr-3,#6E7078);white-space:nowrap}
 html[data-v9] #lookupResult .v9bzf i{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-width:24px;height:18px;padding:0 5px;border-radius:6px;background:color-mix(in srgb,var(--b) 16%,#fff);color:color-mix(in srgb,var(--b) 72%,#15161C);font-size:10.5px;font-style:normal;font-weight:700;letter-spacing:.02em}
 html[data-v9] #lookupResult .v9bzf .bzc{display:flex;flex-wrap:wrap;gap:4px}
-@media (min-width:1000px){html[data-v9] #lookupResult .facts:has(> .v9bzf){grid-template-columns:minmax(0,1.1fr) minmax(0,.75fr) minmax(0,.85fr) minmax(0,1.6fr) minmax(0,.95fr) !important}}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf){border:0 !important;background:none !important;display:flex !important;flex-direction:row !important;flex-wrap:wrap !important;align-items:stretch !important;grid-template-columns:none !important;gap:0 !important;overflow:hidden !important;container-type:inline-size;margin:16px 0 0 !important;padding:1px 0 0 !important;scroll-snap-type:none !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact{flex:1 0 auto;width:auto !important;max-width:none !important;min-width:0;margin:0 !important;padding:12px 20px 4px !important;position:relative !important;border:0 !important;background:none !important;box-shadow:none !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact::after{content:"" !important;display:block !important;position:absolute !important;top:-1px;left:-1px;right:0;bottom:0;border-top:1px solid #E7E8EF;border-left:1px solid #E7E8EF;background:none !important;pointer-events:none}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact:first-child{padding-left:0 !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact > :is(.k,.v,.fs){white-space:nowrap}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .v9bzf{flex:1 1 auto}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .v9bzf .many .fs{white-space:normal}
+@container (max-width:979px){
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact{flex:0 0 33.333%;padding:14px 16px 14px 20px !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact:nth-child(3n+1){padding-left:0 !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .v9bzf{flex:0 0 66.667%}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact > .v{white-space:normal}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .v9bzf .v9bz:not(.many){flex-direction:row !important;flex-wrap:wrap;column-gap:20px}
+}
+@container (max-width:599px){
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact:nth-child(n){flex:0 0 50%;padding:12px 12px 12px 16px !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact:nth-child(odd){padding-left:0 !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .v9bzf:nth-child(n){flex:0 0 100%}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .v9bzf .v9bz:not(.many){flex-direction:column !important}
+}
+@container (max-width:419px){
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact{grid-template-columns:minmax(0,1fr) !important;column-gap:0 !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact::before{grid-row:auto !important;grid-column:1 !important;margin-bottom:8px}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact > *{grid-column:1 !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c) #lookupResult .facts:has(> .v9bzf) > .fact > :is(.k,.v,.fs){white-space:normal}
+}
 html[data-v9] #lookupResult .v9bzf .many small{font-size:12px;color:var(--cr-3,#6E7078)}
 html[data-v9] .v9pg{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin:14px 0 14px;padding:0 4px;font-family:Figtree,Inter,system-ui,sans-serif;color:#15161C}
 html[data-v9] .v9pg[hidden]{display:none}
@@ -7124,7 +7149,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
     var a = (p.v9added || {})[key]; if (!a) return "";
     return '<div class="v4when v9when"><span class="a" title="When this value first came in">Added ' + v9DayY(a) + "</span></div>";
   }
-  // The facts row: life stage, age band, city, then each business with its state (the owning business and completeness aren't shown).
+  // The facts row: life stage, age band, city, known since, then each business with its state (the owning business and completeness aren't shown).
   function v9Facts(p, fact) {
     // Businesses: one short line each (code chip, state, since when). Three or more (the density case) fold into chips and a count of states.
     // The card can render before the business colour table exists, so these are the Crisp business colours, inline.
@@ -7134,8 +7159,10 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
     p.lifecycle.forEach(function (l) { var k = String(l.stage).toLowerCase(); cnt[k] = (cnt[k] || 0) + 1; });
     if (many) bz = '<span class="v v9bz many" title="' + esc(p.lifecycle.map(function (l) { return (BU4[l.bu] || [l.bu])[0] + ": " + l.stage + " since " + v9MonY(l.since); }).join(" · ")) + '"><span class="bzc">' + p.lifecycle.map(function (l) { return chip(l.bu); }).join("") + '</span><small class="fs">' + esc(Object.keys(cnt).map(function (k) { return cnt[k] + " " + k; }).join(" · ")) + "</small></span>";
     else bz = '<span class="v v9bz">' + p.lifecycle.map(function (l) { return '<span class="bz" title="' + esc((BU4[l.bu] || [l.bu])[0] + ": " + l.stage + " since " + v9MonY(l.since)) + '">' + chip(l.bu) + "<b>" + esc(l.stage) + "</b><small>" + esc(v9MonY(l.since).replace(/ 20(\d\d)$/, " ’$1")) + "</small></span>"; }).join("") + "</span>";
-    return fact("Life stage", p.stage) + fact("Age band", p.ageBand) + fact("City", p.city) + '<div class="fact v9bzf" data-f="owner"><span class="k">Businesses</span>' + bz + "</div>" +
-      fact("Known since", p.since, (p.ins.last && p.ins.last !== "—" ? "Last active " + p.ins.last : ""));
+    // Businesses goes last: it is the one fact whose size depends on the person (one to five businesses), so it takes the room left over.
+    return fact("Life stage", p.stage) + fact("Age band", p.ageBand) + fact("City", p.city) +
+      fact("Known since", p.since, (p.ins.last && p.ins.last !== "—" ? "Last active " + p.ins.last : "")) +
+      '<div class="fact v9bzf" data-f="owner"><span class="k">Businesses</span>' + bz + "</div>";
   }
   // Insights (Simple style): the file's summary, figures, businesses, every insight with what it's built from, and interest by area.
   function v9Ins(p, m, otherBu) {
