@@ -7363,12 +7363,14 @@ html[data-v9] #lookupResult .v4jt .j6c.now{background:transparent !important;box
     return V9P;
   }
   // Switch the page's data to V5's people. Runs once, at load, when ?ver=5 (or a saved V5) is open; switching versions reloads the page.
+  var CAT4V4 = null; // V4's event types, kept for Karan's sample timeline
+  var PEOPLE4 = null; // V4's people, kept when V5 swaps the table (Karan's Activity uses Arjun's sample timeline)
   function v9Init() {
     TODAY4 = new Date(2026, 10, 13);
     BU4.N = ["International", "INTL"]; BU.K = "KnowledgeHut"; BU.N = "International"; BUS.K = "KH"; BUS.N = "INTL";
     if (LANES4.indexOf("N") < 0) LANES4.push("N");
-    CAT4 = v9Cats();
-    PEOPLE = v9People();
+    CAT4V4 = CAT4; CAT4 = v9Cats();
+    PEOPLE4 = PEOPLE; PEOPLE = v9People();
   }
   if (V9) v9Init();
   // People directory (V5): more rows so the list reads like the real product. Fields: name, ID, life stage, city, businesses, state, owning business (stored, not shown), revenue, last active, reach, photo, known since. These are directory rows only ("Sample"); only the PM's people and the density test open.
@@ -9428,7 +9430,7 @@ html[data-v9] #lookupResult .v4jt .j6c.now{background:transparent !important;box
     }).join("");
     return '<div class="j6metro"><div class="j6legend" aria-hidden="true"><span><i class="k-lead"></i>Lead</span><span><i class="k-counselled"></i>Counselled</span><span><i class="k-paid"></i>Paid, learning</span><span><i class="k-done"></i>Completed</span><span><i class="k-lost"></i>Lost</span><span><i class="dm"></i>Milestone</span>' + (act9 ? '<span><i class="j9cl">2</i>Milestones close together</span>' : "") + '</div>' +
       '<div class="j6body"><div class="j6ov" aria-hidden="true">' + years + '<span class="j6today" style="left:' + today.toFixed(2) + '%"><em>Today</em></span></div>' + stage + rows + "</div>" +
-      (none.length ? '<p class="j6none">No record yet: ' + esc(none.map(function (l) { return buN6(l.bu); }).join(" · ")) + "</p>" : "") + '<div class="j6tip" role="tooltip"></div></div>';
+      (none.length ? '<p class="j6none">No record yet: ' + esc(none.map(function (l) { return buN6(l.bu); }).filter(function (n, i, all) { return all.indexOf(n) === i && !all.some(function (o) { return o !== n && o.split(/,\s*/).indexOf(n) >= 0; }); }).join(" · ")) + "</p>" : "") + '<div class="j6tip" role="tooltip"></div></div>';
   }
   // Activity → Timeline (V5): the journey and the list work together. A milestone on the journey finds its event in the list below.
   function v9Jump(dot) {
@@ -9489,6 +9491,12 @@ html[data-v9] #lookupResult .v4jt .j6c.now{background:transparent !important;box
 
   /* ----- Activity ----- */
   function v6Activity(p, otherBu) {
+    // V5, Karan: the Activity timeline uses the sample data from the Figma frame (Internshala and Working Professionals, 15 events), the rest of his profile stays his own.
+    var fig9 = !p._fig9 && p.v9 && L.person === "karan" && (PEOPLE.arjun || PEOPLE4 && PEOPLE4.arjun);
+    if (fig9) { // these events use V4's event types, so draw them with V4's type names
+      var m9 = v4Of(fig9), p9 = Object.create(p), cats9 = CAT4; p9.events = fig9.events; p9.v4 = m9; p9._v4 = m9; p9._fig9 = true;
+      if (CAT4V4) CAT4 = CAT4V4; try { return v6Activity(p9, otherBu); } finally { CAT4 = cats9; }
+    }
     var evs = (p.events || []).filter(function (e) { return !(otherBu && e[2] === "P"); }).map(function (e) { return { e: e, at: e[6] ? d4(e[6]) : d4(e[1]) }; });
     var sub = V.sub || "timeline", bu = V.ebu || "all", cat = V.ecat || "all";
     var subs = [["timeline", "Timeline", "inbox"], ["journey", "Journey", "target"], ["business", "By business", "card"], ["rhythm", "Learning rhythm", "book"]];
@@ -11209,7 +11217,7 @@ html[data-v9] #lookupResult .v4jt .j6c.now{background:transparent !important;box
   // and a few more sample calls (inbound and outbound; missed calls were removed in review) so the filter has something to show.
   function isCall6(e) { return e && e[2] === "X" && /call/i.test(e[3]); }
   // Activity details: the admission counsellor (AC) who handled a counselling call, shown in place of the date, which already sits beside the event.
-  var AC6 = { "arjun|20 Aug|Counselling call": "Rahul Kanth" };
+  var AC6 = { "arjun|20 Aug|Counselling call": "Rahul Kanth", "karan|20 Aug|Counselling call": "Rahul Kanth" };
   (function () {
     if (!isV6()) return;
     var ADD = {
@@ -11221,11 +11229,11 @@ html[data-v9] #lookupResult .v4jt .j6c.now{background:transparent !important;box
     // Events taken out in review (V3 and V4): Arjun's consent record on 12 Aug.
     var DROP = { arjun: [["12 Aug", "Consent recorded"]] };
     Object.keys(DROP).forEach(function (k) {
-      var p = PEOPLE[k]; if (!p || !p.events) return;
+      var p = PEOPLE[k] || (typeof PEOPLE4 !== "undefined" && PEOPLE4 && PEOPLE4[k]); if (!p || !p.events) return;
       p.events = p.events.filter(function (e) { return !DROP[k].some(function (d) { return e[1] === d[0] && e[3] === d[1]; }); });
     });
     Object.keys(ADD).forEach(function (k) {
-      var p = PEOPLE[k]; if (!p || !p.events || p._calls6) return; p._calls6 = true;
+      var p = PEOPLE[k] || (typeof PEOPLE4 !== "undefined" && PEOPLE4 && PEOPLE4[k]); if (!p || !p.events || p._calls6) return; p._calls6 = true;
       ADD[k].forEach(function (a) {
         var i = -1; p.events.forEach(function (e, n) { if (i < 0 && e[1] === a[0]) i = n; });
         if (i < 0) { p.events.unshift(a[1]); return; }
