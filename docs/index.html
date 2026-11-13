@@ -4410,6 +4410,7 @@ html[data-v9] #lookupResult .v9li b{font-weight:600}
 html[data-v9] #lookupResult .v9in{display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;width:22px;height:22px;border-radius:5px;background:#0A66C2;color:#fff;font:700 12px/1 Arial,sans-serif}
 html[data-v9] #lookupResult :is(.src4.s-li,.xp .src.s-li){background:#E8F1FB !important;color:#0A66C2 !important}
 html[data-v9] #pRows .v9tag{background:#EEF0FA !important;color:#4F57A8 !important}
+html[data-v9] #lookupResult .v4sec-h .v4acc-t small:empty{display:none}
 html[data-v9] #lookupResult .v9ph{display:flex;align-items:baseline;gap:10px;margin:8px 0 -4px;font-size:15px;font-weight:600;color:var(--cr-ink,#15161C)}
 html[data-v9] #lookupResult .v9ph:first-child{margin-top:0}
 html[data-v9] #lookupResult .v9ph span{font-size:12px;font-weight:500;color:var(--cr-3,#6E7078)}
@@ -6969,6 +6970,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
       var sum = s[1] === "identity" ? (minor ? "Contact hidden · under 18" : emails.length + (emails.length === 1 ? " email, " : " emails, ") + phones.length + (phones.length === 1 ? " mobile" : " mobiles") + " · " + records.length + " linked records")
         : s[1] === "personal" ? h.age_band + " · " + h.city
         : s[1] === "lifestage" ? (first ? String(first.v).split(" · ")[0] : h.life_stage)
+        : s[1] === "education" ? ""
         : s[1] === "career" && LI ? "From LinkedIn · " + (first ? first.v : "no roles yet")
         : s[1] === "consent" ? (rn || "Not captured yet") : first ? first.v : "Not captured yet";
       return { key: s[1], t: s[0], ic: s[2], sum: sum, filled: [have, Math.max(s[3], have)], fin: s[1] === "financial", rows: rows };
