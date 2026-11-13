@@ -7236,10 +7236,10 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
       var pool = s[1] === "lifestage" ? (lp["Personal details"] || []).filter(function (r) { return r.attribute === "Life stage"; })
         : (lp[s[0]] || []).filter(function (r) { return !(s[1] === "personal" && r.attribute === "Life stage"); });
       var rows = pool.filter(function (r) { return r.attribute !== "Linked system IDs" && r.attribute !== "Email verified" && r.attribute !== "Phone verified"; }).map(function (r) {
-        var src = v9Src(r), row = { l: r.attribute, v: r.value, src: src ? [src] : [], n: r.source_system === "—" ? "New attribute · no source today" : r.source_system === "Derived" ? "Worked out by the identity layer" : CONF[r.confidence] || "", c: r.conflict || "", t2: r.tier === "T2" };
+        var src = v9Src(r), row = { l: r.attribute, v: r.value, src: src ? [src] : [], n: r.source_system === "—" ? "New attribute · no source today" : r.source_system === "Derived" ? "Worked out by the identity layer" : "", c: r.conflict || "", t2: r.tier === "T2" };
         if (LI && s[1] === "career") { src = "LinkedIn"; row.src = ["LinkedIn"]; row.n = "Via the LinkedIn API"; if (row.c) row.c = row.c.replace(/Declared Prism value wins\.?/, "The LinkedIn value wins."); if (r.attribute === "Professional profile link") row.v = "LinkedIn profile connected"; }
-        if (r.attribute === "Emails (all known)") { if (minor) row.restricted = true; else { row.mask = "emails"; if (emv) row.n = (CONF[r.confidence] || "") + " · " + (/^yes/i.test(emv.value) ? "verified" : "not verified"); } }
-        else if (r.attribute === "Phones (all known)") { if (minor) row.restricted = true; else { row.mask = "phones"; if (phv) row.n = (CONF[r.confidence] || "") + " · " + (/^yes/i.test(phv.value) ? "verified" : "not verified"); } }
+        if (r.attribute === "Emails (all known)") { if (minor) row.restricted = true; else { row.mask = "emails"; } }
+        else if (r.attribute === "Phones (all known)") { if (minor) row.restricted = true; else { row.mask = "phones"; } }
         else if (r.attribute === "Budget band" && !minor) { row.l = "Budget by programme"; row.budgets = budgetRow(r); var b0 = row.budgets.filter(function (b) { return b.stated; })[0]; row.v = b0 ? b0.stated + " for " + b0.prog : r.value; }
         else { var mv = splitMulti(r.attribute, r.value); if (mv) row.multi = mv; }
         added[r.attribute] = r.added_at; added[row.l] = r.added_at; if (src) srcCount[src] = (srcCount[src] || 0) + 1;
@@ -7282,7 +7282,7 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
     var proj = getA("Skills", "Projects and responsibilities"), tr = getA("Skills", "Trainings listed on resume");
     // Every programme is its own card (stacked, not behind a switcher), so credentials list only certificates, projects and trainings.
     var creds = courses.filter(function (c) { return c.cert; }).map(function (c) { return [c.p, c.cert.replace(/^Certificate: /, "Certificate issued ") + " · " + (BU4[c.bu] || [c.bu])[0], 1]; })
-      .concat(proj ? proj.value.split(/\s*·\s*/).map(function (x) { return [x, "Project · declared on " + v9Src(proj), 0]; }) : [])
+      .concat(proj ? proj.value.split(/\s*·\s*/).map(function (x) { return [x, "Project · " + v9Src(proj), 0]; }) : [])
       .concat(tr ? tr.value.split(/\s*;\s*/).map(function (x) { return [x, "Training listed on resume · " + v9Src(tr), 0]; }) : []);
     // The line carries no month and year: the programme path reads the last one in it as a due date, and the file has none.
     var cmodel = function (cur) {
@@ -7365,7 +7365,7 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
       reachNotes: { call: phones[0] ? maskPhone4(phones[0].d) + (phones[0].v ? " · verified" : "") : "", email: emails[0] ? maskEmail4(emails[0].e) + (emails[0].v ? " · verified" : "") : "", emailState: /updates only/i.test(rn) ? "Updates only" : null },
       records: records, matched: ids ? "Linked by the identity layer · " + v9DayY(ids.added_at) : "", owners: [], sources: Object.keys(srcCount).map(function (k) { return [k, srcCount[k]]; }).sort(function (a, b) { return b[1] - a[1]; }),
       act: act, sections: sections, course: course, courses9: courses9, skills: skills, creds: creds,
-      insights: insights.concat(aspRows.length ? [{ t: "What they told us", tag: "", items: aspRows.filter(function (r) { return r.v && !/^not captured/i.test(r.v); }).map(function (r) { return { k: r.l, v: r.multi ? r.multi.join(", ") : r.v, how: "Declared" }; }) }] : [])
+      insights: insights.concat(aspRows.length ? [{ t: "What they told us", tag: "", items: aspRows.filter(function (r) { return r.v && !/^not captured/i.test(r.v); }).map(function (r) { return { k: r.l, v: r.multi ? r.multi.join(", ") : r.v }; }) }] : [])
     };
     p.v9asp = aspRows;
     return p;
@@ -7574,7 +7574,7 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
         '<section class="i8sum"><h3>Summary</h3><p>' + esc(p.summary || "") + "</p>" + tiles + "</section>" +
         sec("v9i-reach", "Before you reach out", "Can you contact them now, and how interested are they?", reach.length ? '<div class="v9reach">' + reach.join("") + "</div>" : "") +
         sec("v9i-talk", "What to talk about", "What to offer, and what is going on for them right now.", talk + (sigs ? '<div class="v9sig">' + sigs + "</div>" : "")) +
-        sec("v9i-told", "What they told us", "Their goals and plans in their own words, from counselling calls and forms. Declared by them, not worked out by us.", told) +
+        sec("v9i-told", "What they told us", "Their goals and plans in their own words, from counselling calls and forms.", told) +
         sec("v9i-bus", "With upGrad <small class=\"v9cnt\">" + nBus + (nBus === 1 ? " business" : " businesses") + "</small>", "Who else at upGrad knows them, and whether we paid to bring them back.", '<div class="i8bus">' + bus + "</div>" + raHTML) +
         how +
       "</div>" +
