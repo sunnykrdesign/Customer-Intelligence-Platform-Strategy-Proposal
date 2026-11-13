@@ -4555,6 +4555,20 @@ html[data-v9]:not(#v9a):not(#v9b) #lookupResult .v4lock.open .eyebtn:hover{borde
 html[data-v9]:not(#v9a):not(#v9b) #lookupResult .v4lock.open .eyebtn:focus-visible{outline:2px solid #4F57A8 !important;outline-offset:2px}
 html[data-v9]:not(#v9a):not(#v9b) #lookupResult .v4lock.open > span svg{display:none !important}
 html[data-v9]:not(#v9a):not(#v9b) #lookupResult .v4lock.open > span::before{content:"";display:block;width:16px;height:16px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='10.5' width='14' height='10' rx='2.5'/%3E%3Cpath d='M8.5 10.5V7.5a3.5 3.5 0 0 1 6.6-1.6'/%3E%3Ccircle cx='12' cy='15.5' r='1.2'/%3E%3C/svg%3E") center/16px 16px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='10.5' width='14' height='10' rx='2.5'/%3E%3Cpath d='M8.5 10.5V7.5a3.5 3.5 0 0 1 6.6-1.6'/%3E%3Ccircle cx='12' cy='15.5' r='1.2'/%3E%3C/svg%3E") center/16px 16px no-repeat}
+/* Insights: What they told us (V5) */
+html[data-v9] #lookupResult .v9told{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;margin:0;padding:4px 20px;border:1px solid #E7E8EF;border-radius:14px;background:#fff}
+html[data-v9] #lookupResult .v9told > div{min-width:0;padding:14px 0;border-top:1px solid #EEEFF4}
+html[data-v9] #lookupResult .v9told > div:nth-child(-n+2){border-top:0}
+html[data-v9] #lookupResult .v9told dt{font-size:12.5px;color:#6E7078}
+html[data-v9] #lookupResult .v9told dd{margin:4px 0 0}
+html[data-v9] #lookupResult .v9told dd > b{display:block;font-size:14px;line-height:1.45;font-weight:500;color:#15161C}
+html[data-v9] #lookupResult .v9tl{display:flex;flex-direction:column;gap:3px;margin:0;padding:0;list-style:none;font-size:14px;line-height:1.4;font-weight:500;color:#15161C}
+html[data-v9] #lookupResult .v9told small{display:block;margin-top:5px;font-size:11.5px;line-height:1.4;color:#8E909A}
+html[data-v9] #lookupResult .v9told small.v9tc{color:#8F5300}
+html[data-v9] #lookupResult .v9told > div.v5flash{background:#EEF0FB;border-radius:10px;margin:0 -10px;padding-left:10px;padding-right:10px}
+html[data-v9] #lookupResult .v9gap{margin:10px 2px 0;font-size:12.5px;line-height:1.5;color:#6E7078}
+html[data-v9] #lookupResult .v9gap b{font-weight:500;color:#4F5160}
+@media (max-width:760px){html[data-v9] #lookupResult .v9told{grid-template-columns:minmax(0,1fr)}html[data-v9] #lookupResult .v9told > div:nth-child(2){border-top:1px solid #EEEFF4}}
 /* Profile section tabs (V5): option A in the Crisp colours. The selected section is solid periwinkle (--cr-peri-d #4F57A8) with white text; the others are white with the hairline (--cr-line).
    Icons are line icons in the text colour in every state: never filled, never multicoloured. */
 html[data-v9]:not(#v9a):not(#v9b) #lookupResult .v4secnav > .v4sn[data-sec="identity"]::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M11.5 8c.83 0 1.5.67 1.5 1.5v.5c0 1.97-1.86 4-5 4s-5-2.03-5-4v-.5C3 8.67 3.67 8 4.5 8zm0 1h-7a.5.5 0 0 0-.5.5v.5c0 1.44 1.43 3 4 3s4-1.56 4-3v-.5a.5.5 0 0 0-.5-.5M8 1.5A2.75 2.75 0 1 1 8 7a2.75 2.75 0 0 1 0-5.5m0 1A1.75 1.75 0 1 0 8 6a1.75 1.75 0 0 0 0-3.5'/%3E%3C/svg%3E") !important;mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M11.5 8c.83 0 1.5.67 1.5 1.5v.5c0 1.97-1.86 4-5 4s-5-2.03-5-4v-.5C3 8.67 3.67 8 4.5 8zm0 1h-7a.5.5 0 0 0-.5.5v.5c0 1.44 1.43 3 4 3s4-1.56 4-3v-.5a.5.5 0 0 0-.5-.5M8 1.5A2.75 2.75 0 1 1 8 7a2.75 2.75 0 0 1 0-5.5m0 1A1.75 1.75 0 1 0 8 6a1.75 1.75 0 0 0 0-3.5'/%3E%3C/svg%3E") !important}
@@ -7151,6 +7165,9 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
         : s[1] === "consent" ? (rn || "Not captured yet") : first ? first.v : "Not captured yet";
       return { key: s[1], t: s[1] === "education" ? "Education" : s[0], ic: s[2], sum: sum, filled: [have, Math.max(s[3], have)], fin: s[1] === "financial", rows: rows };
     });
+    // Aspiration lives in Insights (What they told us): out of the Profile sections, kept on the person, and in the Insights index so Find still reaches it.
+    var aspSec = sections.filter(function (s) { return s.key === "aspiration"; })[0], aspRows = aspSec ? aspSec.rows : [];
+    sections = sections.filter(function (s) { return s.key !== "aspiration"; });
     // UG learning journey: upGrad courses and skills.
     var cRow = getA("Courses with upGrad", "Course"), cSt = getA("Courses with upGrad", "Current status"), cPr = getA("Courses with upGrad", "Progress"), cRes = getA("Courses with upGrad", "Programme results"), cCert = getA("Courses with upGrad", "Certificates earned");
     var courses = cRow ? cRow.value.split(/\s*;\s*/).filter(Boolean).map(function (x, i) {
@@ -7254,8 +7271,10 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
       stageBand: [[h.life_stage, (h.known_since || "2024-01") + "-01", null]], lanes: lanes,
       reachNotes: { call: phones[0] ? maskPhone4(phones[0].d) + (phones[0].v ? " · verified" : "") : "", email: emails[0] ? maskEmail4(emails[0].e) + (emails[0].v ? " · verified" : "") : "", emailState: /updates only/i.test(rn) ? "Updates only" : null },
       records: records, matched: ids ? "Linked by the identity layer · " + v9DayY(ids.added_at) : "", owners: [], sources: Object.keys(srcCount).map(function (k) { return [k, srcCount[k]]; }).sort(function (a, b) { return b[1] - a[1]; }),
-      act: act, sections: sections, course: course, courses9: courses9, skills: skills, creds: creds, insights: insights
+      act: act, sections: sections, course: course, courses9: courses9, skills: skills, creds: creds,
+      insights: insights.concat(aspRows.length ? [{ t: "What they told us", tag: "", items: aspRows.filter(function (r) { return r.v && !/^not captured/i.test(r.v); }).map(function (r) { return { k: r.l, v: r.multi ? r.multi.join(", ") : r.v, how: "Declared" }; }) }] : [])
     };
+    p.v9asp = aspRows;
     return p;
   }
   var V9P = null;
@@ -7327,8 +7346,8 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
       fact("Known since", p.since, (p.ins.last && p.ins.last !== "—" ? "Last active " + p.ins.last : "")) +
       '<div class="fact v9bzf" data-f="owner"><span class="k">Businesses</span>' + bz + "</div>";
   }
-  // Insights (V5). Someone looking a person up needs four answers, in this order: who is this to us, can I contact them now,
-  // what should I talk about, and does anyone else at upGrad have them. The file's insights are grouped under those questions.
+  // Insights (V5). Someone looking a person up needs these answers, in this order: who is this to us, can I contact them now,
+  // what should I talk about, what have they told us they want (the old Aspiration section), and does anyone else at upGrad have them. The file's insights are grouped under those questions.
   // The ones the page already shows (relationship, revenue, programmes, first and last seen, the businesses) become the headline tiles and
   // the business cards; long values become a short headline with a reason underneath; and the full list with its sources stays one click
   // away under "How these are worked out", for the data team.
@@ -7409,6 +7428,21 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
       return '<div class="v9s"><span class="k">' + esc(label(x.insight)) + '</span><b class="hd">' + (warn ? pill("warn", h) : esc(h) + meter(h)) + "</b>" + (after(v) ? '<span class="why">' + esc(up(after(v))) + "</span>" : "") + "</div>";
     }).join("");
 
+    // 3b. What they told us: the person's own answers (the Profile's old Aspiration section), conversation-changing ones first.
+    // Each keeps its source, how we know it and when it came in; the ones nobody has captured yet are one line at the end.
+    var ORDER = ["Programme of interest (first + latest)", "Concerns / objections", "Purchase timeline", "Competitors considered", "Career goal", "Dream role / company", "Learning objective",
+      "Motivation and type of move", "Interest areas", "Study Abroad preferences", "Roles applied for", "Study time available"];
+    var asp = (p.v9asp || []).slice().sort(function (a, b) { var x = ORDER.indexOf(a.l), y = ORDER.indexOf(b.l); return (x < 0 ? 99 : x) - (y < 0 ? 99 : y); });
+    var got = asp.filter(function (r) { return r.v && !/^not captured/i.test(r.v); }), gap = asp.filter(function (r) { return !r.v || /^not captured/i.test(r.v); });
+    var told = got.length ? '<dl class="v9told">' + got.map(function (r) {
+      var when = (p.v9added || {})[r.l], src0 = (r.src || [])[0] || "", wd = when ? v9DayY(when) : "";
+      var meta = [src0, r.n, wd && src0.indexOf(wd) < 0 ? "Added " + wd : ""].filter(Boolean).join(" · "); // no second date when the source already names it
+      var short = r.l.replace(" (first + latest)", ""); // the file's own field names, as in Find in profile and the Data dictionary
+      return '<div data-hl="' + esc(r.l) + '"><dt>' + esc(short) + "</dt><dd>" + (r.multi ? '<ul class="v9tl">' + r.multi.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>" : "<b>" + esc(r.v) + "</b>") +
+        (meta ? "<small>" + esc(meta) + "</small>" : "") + (r.c ? '<small class="v9tc">' + esc(r.c) + "</small>" : "") + "</dd></div>";
+    }).join("") + "</dl>" : "";
+    if (gap.length) told += '<p class="v9gap"><b>Not captured yet:</b> ' + esc(gap.map(function (r) { return r.l.replace(" (first + latest)", ""); }).join(" · ")) + "</p>";
+
     // 4. With upGrad: each business, any warning on it, and whether another business paid to bring them back.
     var life = {}; val("Lifecycle state per business").split(" · ").forEach(function (s) { var mm = s.match(/^([^:]+):\s*[^,]+,\s*(.+)$/); if (mm) life[mm[1].trim()] = mm[2]; });
     var bus = p.lifecycle.map(function (l) {
@@ -7445,6 +7479,7 @@ html[data-v7t="crisp"][data-v6]:not(#crisp):not(#act-i) #lookupResult .b6ic svg,
         '<section class="i8sum"><h3>Summary</h3><p>' + esc(p.summary || "") + "</p>" + tiles + "</section>" +
         sec("v9i-reach", "Before you reach out", "Can you contact them now, and how interested are they?", reach.length ? '<div class="v9reach">' + reach.join("") + "</div>" : "") +
         sec("v9i-talk", "What to talk about", "What to offer, and what is going on for them right now.", talk + (sigs ? '<div class="v9sig">' + sigs + "</div>" : "")) +
+        sec("v9i-told", "What they told us", "Their goals and plans in their own words, from counselling calls and forms. Declared by them, not worked out by us.", told) +
         sec("v9i-bus", "With upGrad <small class=\"v9cnt\">" + nBus + (nBus === 1 ? " business" : " businesses") + "</small>", "Who else at upGrad knows them, and whether we paid to bring them back.", '<div class="i8bus">' + bus + "</div>" + raHTML) +
         how +
       "</div>" +
