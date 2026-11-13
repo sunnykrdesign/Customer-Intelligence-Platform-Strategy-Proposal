@@ -171,6 +171,7 @@ Five versions are in the switcher: V1 · Classic, V2 · Learner 360, V3 · Maste
     - **Phones:** the "UG learning journey" tab reads "Learning" and tab labels stay on one line; the sticky bar drops the avatar, so all four tabs fit beside Find in profile.
     - **Tablets:** each linked record row is 44px tall, so the copy buttons' tap areas no longer overlap.
     - **Narrow journeys:** milestones close together merge into one numbered circle sooner, so they don't sit on top of each other.
+    - **Career:** the "From LinkedIn" banner has 16px above it, so it no longer sits on the section's header line.
     - **Identity and audits:** V5's audit cases and merge log use V5's businesses (no Unacademy) and names from V5's directory; V4 keeps its own.
   - **No overlap block on People:** People goes straight from the KPI tiles to the directory. A cross-business overlap section (matrix, re-acquisition spend) was tried there and taken out, because totals belong in Overview, whose Crossover section already covers who moved between businesses.
   - **Photos:** V5 uses V4's sample profile photos. Riya and Sneha share the one photo of a woman (as V4's two Ananyas do); Karan has Arjun's photo, Vikram Rohan's and the density test profile Harsh's. The under-18 profile stays hidden with no photo.
