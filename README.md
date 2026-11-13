@@ -202,7 +202,13 @@ Five versions are in the switcher: V1 · Classic, V2 · Learner 360, V3 · Maste
     - Flags show on the event ("Re-acquired", "Under 18").
     - Details show the event type and the source record.
     - Counselling calls show "Counselling call on {date}".
-  - **Insights:** the file's summary, lifetime value, programmes and relationship state, then each business, every insight with what it's built from, activity over the last six months, and interest by area.
+  - **Insights:** built around the four questions someone looking a person up has, in order. Every insight in the file is still there; nothing is invented.
+    - **Who this is to us:** the file's summary and four tiles: Lifetime value (with "Fully paid" or the employer-paid share), Bought (with "Repeat buyer" or not), Relationship (with "Applying again" or "Restricted") and Last active (with first seen). These replace four text insights.
+    - **Before you reach out:** Interest as a three-step meter with its reason; Contact this week with a clear call (OK to contact for 0–1 touches, Go easy for 2, Hold off for 3 or more) and, as a footnote, how fast upGrad called after the latest enquiry; and the five channels as icons, open, limited (for example "Email: updates only") or closed. Under-18 profiles say Interest is not computed and show only the guardian call.
+    - **What to talk about:** the next-best programme (tagged "Sample rule" where the file marks it as sample rule output, or "Already applying"), the moment, and the signals this person has, such as graduating, job search, employability, the Study Abroad lead score and momentum, and the counsellor's read as one meter per factor. "Stalling" shows as a warning.
+    - **With upGrad:** each business, with a warning when the file notes one (for example "No movement in 7 months"), and one callout for re-acquisition: "Paid to bring back someone upGrad already knew" or "Came back without paid media", with the acquisition cost (or "Needs ad cost data").
+    - **How these are worked out:** folded by default, every insight with its value and what it's built from, for the data team.
+    - Status colours always come with an icon and a word. Activity over the last six months and Interest by area stay in the side column. A viewer from another business still doesn't see lifetime value or acquisition cost.
   - **Under 18:** the profile shows "Name hidden" and its restriction note. It shows only the basics the file gives: contact hidden, every channel blocked, and no intent or next-best programme.
   - **Things to act on:** the person's moment, plus a re-acquisition when there is one.
   - **By business:** no business is labelled as owning the relationship, and the owner isn't listed first, because the owning business is stored but not shown.
