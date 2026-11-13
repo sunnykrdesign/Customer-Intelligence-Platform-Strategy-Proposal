@@ -170,7 +170,7 @@ Five versions are in the switcher: V1 · Classic, V2 · Learner 360, V3 · Maste
   - **Person card:** name, headline, how long upGrad has known them, the person ID and sync. The facts row shows life stage, age band, city, each business with its state and since when, and known since with last active. The owning business and profile completeness are stored but not shown, as the file decides, so there's no "Owned by" or "Fields filled".
   - **Profile:** the file's sections with its attribute names: Identity & contact, Personal details, Life stage, Education (the file calls it "Education (prior, outside upGrad)"), Career / profession, Aspiration, Financial profile (locked as in V4), and Consent & preferences.
     - Life stage is its own section, kept apart from personal information. Personal details holds age band, city, country, timezone, language, gender and account status, and its summary no longer mentions life stage.
-    - Each value shows its source and whether it was declared, observed or derived. It also shows the date it was added; there's no verified date.
+    - Each value shows its source and whether it was declared, observed or derived. It also shows the date it was added, in the row's top-right corner where V4 puts its verified date, as plain quiet text with no icon. On phones the label wraps before it reaches the date. There's no verified date. Education and career entries keep the added date under the entry, as in V4.
     - Sales Insights values show "Counselling call on {date}".
     - Emails and phones stay masked until Show contact, and say whether they're verified.
     - Linked system IDs become Linked records.
