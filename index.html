@@ -11729,7 +11729,7 @@ html[data-v6] .ugc-b{padding:2px 14px 14px}html[data-v6] .ugc-g{grid-template-co
     sync();
   })();
 
-  // UG learning journey (V4 and V5): every course the person has taken with upGrad, as an accordion. The first is the programme in the
+  // UG learning journey (V4 and V5): every course the person has taken with upGrad, as an accordion, in place of the programme path and skills. The first is the programme in the
   // hero above; the other two are sample courses, picked per person so profiles differ.
   (function () {
     var POOL = [
@@ -11771,6 +11771,8 @@ html[data-v6] .ugc-b{padding:2px 14px 14px}html[data-v6] .ugc-g{grid-template-co
       var panel = document.querySelector('#lookupResult #panel[aria-labelledby="tab-academic"]');
       if (!panel || panel.querySelector(".ugc") || typeof isV7 !== "function" || !isV7()) return;
       var cur = current(panel); if (!cur) return;
+      // The Courses list replaces the programme path and the skills card.
+      var pathCard = panel.querySelector(".a6path") && panel.querySelector(".a6path").closest("section"), skills = panel.querySelector("section.skp");
       var who = ((document.querySelector("#lookupResult .pcard h1") || {}).textContent || "x"), h = 0;
       for (var i = 0; i < who.length; i++) h = (h * 31 + who.charCodeAt(i)) % 3;
       var others = [POOL[h], POOL[(h + 1) % 3]].filter(function (c) { return c.name !== cur.name; });
@@ -11778,8 +11780,9 @@ html[data-v6] .ugc-b{padding:2px 14px 14px}html[data-v6] .ugc-g{grid-template-co
       var done = list.filter(function (c) { return c.st === "done"; }).length;
       var sec = document.createElement("section"); sec.className = "a6card ugc"; sec.setAttribute("aria-label", "Courses");
       sec.innerHTML = '<div class="a6h"><h3>Courses</h3><span>' + list.length + " with upGrad · " + done + " completed</span></div><ol class=\"ugc-l\">" + list.map(function (c, k) { return item(c, k, k === 0); }).join("") + "</ol>";
-      var after = panel.querySelector(".a6path") ? panel.querySelector(".a6path").closest("section") : panel.querySelector(".a6hero");
+      var after = panel.querySelector(".a6hero");
       after.parentNode.insertBefore(sec, after.nextSibling);
+      [pathCard, skills].forEach(function (el) { if (el && el.parentNode) el.parentNode.removeChild(el); });
     }
     document.addEventListener("click", function (e) {
       var b = e.target.closest && e.target.closest(".ugc-h"); if (!b) return;
