@@ -1,0 +1,66 @@
+# V7 · Atmosphere — changelog and V6 → V7 comparison
+
+V7 is V6's content in a new look. Every screen, number, label and flow is the one V6 shows; what changed is the surface it sits on and the way it moves. Open it with `?ver=7` or from Review → Design versions.
+
+Like V6, V7 is a layer: it sets V5's and V6's flags as well as its own (`data-v10`), so everything they do still applies, and every V7 rule lives under `html[data-v10]` in one `<style id="v10css">` block and one `/* v10js */` block gated by `isV10()`. V1–V6 are unchanged: their screenshots are byte-identical to the build before V7 existed.
+
+The references were the shared dashboard video (coloured figure tiles, pill tabs, charts that draw in, a floating frame on a gradient) and five Figma frames (a frosted "Tickets" layout with an icon rail, Iconly's gradient chart card and pill bottom bar with filled active icons, Intellecta's floating round rail buttons on a lavender gradient, and a soft feature-card grid).
+
+## 1. The look
+
+- **Atmosphere.** The page is a soft periwinkle → lavender → peach gradient with three large, slow-drifting blobs. The app sits in a floating frame (30px radius, frosted white, one soft shadow) 16px in from the viewport edges. Below 1100px the frame goes full-bleed.
+- **The rail.** The sidebar is a 104px rail: the upGrad mark as a red tile with INTELLIGENCE beneath, a round search button, and five round white icon buttons with small labels. The current page is a filled periwinkle circle with a white, duotone icon; the audit count is a small rose badge on the icon's corner. Hover lifts a button; the labels the rail hides (search shortcut, user name and team) remain as tooltips and accessible names. On phones the bottom bar floats as a frosted pill with the same filled active icon.
+- **Type.** Headlines in Figtree at 38px (30px on phones), tight tracking; section titles 24px; figures 34px with tabular numbers (inherited from V6).
+- **Figure tiles.** On Overview, People and Data dictionary the first tile is solid periwinkle, the second soft periwinkle, the third coral, the rest white; the fifth People/Data tile is ink. Gradients run dark → light from the top-left corner so the labels sit on the darker end. Icons, deltas and sparklines inside coloured tiles turn white. Tiles lift on hover.
+- **Surfaces.** Cards lose their borders and get 24px corners and one soft, periwinkle-tinted shadow; inner tiles (summary figures, chapter cards, insight tiles) sit on a pale well. The Directory card gets its own padding; the audit hero on UG learning journey is a navy gradient with white stat tiles; the Look up head card is frosted glass on a soft gradient cover; the sticky bands behind the Look up search and section chips are frosted glass rather than the page colour.
+- **Controls.** Segmented controls and chips share one family: a pale track, pills, and a black pill for the selected state (the sliding pill in the People, Activity and Data controls is black too). The profile tabs become text tabs with a rose underline that slides. Primary buttons are black pills with a soft highlight that follows the pointer. Secondary buttons, the search fields, the styled menus and the Key button are white pills with a soft shadow. Menus open as rounded white sheets; tooltips are black bubbles with larger corners.
+- **Charts.** Stacked-bar segments and horizontal bars get 10px corners and a 3px gap; treemap cells 16px; bubbles a white ring; sparklines in coloured tiles are white.
+- **Tables and lists.** Column headers are small caps; rows get 16px corners and a pale hover; avatars are 40px squircles; activity icons 40px tiles.
+
+## 2. Motion
+
+- **Entrance, once per screen.** V6's skeleton stays. When a screen first appears, its cards spring up (26px rise with a slight scale, 850ms, soft spring curve, 70ms stagger), bars grow from their baseline (scaleX or scaleY only), sparklines, trend lines and rings draw themselves along their length (Web Animations on `stroke-dashoffset`), and the headline numbers count up (V6). None of it replays on a re-render: V6's no-replay gate still applies.
+- **Navigation.** The rail's active icon pops in with a spring when the route changes; a page revisit slides up and fades in over 400ms.
+- **Tabs.** When a Look up tab opens for the first time, the charts and bars in that panel draw in the same way.
+- **Backdrop.** The three blobs drift over 26–38s; the whole backdrop leans a few pixels with the pointer (fine pointers only, transform only, rAF-throttled).
+- **Reduced motion.** V6's rule stops every animation and transition in the layer; V7's JavaScript checks the same preference before drawing charts in or moving the backdrop.
+
+## 3. What did not change
+
+Content, data, copy, routes, tabs, sections, sorting, filters, dialogs, toasts, the command palette, the Review panel, the sample people. The three V6 behaviour fixes (popover outside-click, "Show all types", inline validation) carry over unchanged.
+
+## 4. Verification
+
+Playwright (Chromium), 1440×900 unless stated.
+
+| Check | Result |
+|---|---|
+| V1–V6 unchanged (screenshots vs HEAD) | 14 of 14 identical |
+| Horizontal overflow at 1440 / 1280 / 1024 / 834 / 390 | none |
+| Cumulative layout shift: first load, period change, menu open, People first visit, sort, tab switch | 0 on all |
+| Focusables without a visible ring (Look up, Overview, People) | 0 of 80 |
+| Reduced motion: animations running on all 8 screens | 0 |
+| Transitions on layout properties | 0 |
+| Animations 3.5s after load (should be only the backdrop) | only the backdrop drift and V5's live dots |
+| Fixed elements inside the frame (the frame's backdrop filter would capture them) | none |
+| Console errors across every screen | 0 |
+
+Contrast was measured per text node against its nearest solid background. The measurement reads the base colour of the gradient tiles as white, so every white label on a coloured tile is reported as failing; on screen they sit on the dark end of each gradient (periwinkle `#4A52B3` 6.9:1, coral `#C9411F` 5.6:1, ink 15:1). The two remaining items are the brand mark (same artefact, red tile) and a visually hidden "Business" label.
+
+## 5. V6 → V7 at a glance
+
+| | V6 | V7 |
+|---|---|---|
+| Page | flat lavender page | gradient atmosphere, floating frosted frame |
+| Sidebar | 264px list with a sliding pill | 104px icon rail, round buttons, filled active icon, badge on the icon |
+| Headline | 28px | 38px Figtree, tight |
+| Figure tiles | white, pink/lavender tints | solid periwinkle, soft periwinkle, coral, white, ink |
+| Cards | 16px, hairline border | 24px, no border, soft tinted shadow, pale inner wells |
+| Selected state | white pill | black pill; rose underline on profile tabs |
+| Primary button | dark pill | black pill with a pointer-following highlight |
+| Charts | flat marks | rounded marks, white sparklines in tiles, draw-in on first view |
+| Entrance | 8px fade-up, 40ms stagger | 26px spring, 70ms stagger, bars grow, lines draw, numbers count |
+| Navigation | pill slides | icon pops, page slides in |
+| Phones | bottom bar | floating pill bar |
+| Reduced motion | everything off | everything off |
+| Content | — | identical |
