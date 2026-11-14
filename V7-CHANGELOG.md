@@ -81,6 +81,12 @@ Measured rather than eyeballed this time: chip gaps, every font size and weight 
 - **Activity**: event rows separated by hairlines with consistent 12px padding (they had none and relied on a connector line); month labels are small caps; the per-event "Details" pill became a quiet "Details ›" link; filter chips match the profile chips.
 - Checked at 1440, 834 and 390 with motion on; V1–V6 unchanged.
 
+## 3g. Review note (profile section card spacing)
+
+The section card (Identity & contact, Personal details, …) is on one spacing system: 24px sides throughout; a 20px header with the section icon in a 36px circle, a 16px title and a 13px subtitle; 16px rows with the source chip 6px under its value and a hairline between rows; the sources line at 12px with its own hairline closes the card. The prev/next pager under each section is gone: the chips above navigate, and its buttons sat 2px from the card's edge. The chip row sits 24px below the tab bar and 16px above the card (it was 40 and 32).
+
+Underneath all of this: V3's normaliser clones every rule for versions that carry `data-v6` and snaps spacing to a 4px grid, radii to a fixed set and literal shadows to three elevations, placing the clones later so they win. V7 inherits it, so its 6px became 8px, 10px gaps became 12px, 18px radii became 16px and the ink pills' shadows became hairline rings. V7's own sheet is now exempt, like the V4 option sheets already were, so V7's values apply as written; V1–V6 are untouched by this (their clones of V7 rules never matched anything).
+
 ## 4. What did not change
 
 Content, data, copy, routes, tabs, sections, sorting, filters, dialogs, toasts, the command palette, the Review panel, the sample people. The three V6 behaviour fixes (popover outside-click, "Show all types", inline validation) carry over unchanged.
