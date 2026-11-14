@@ -8,8 +8,8 @@ The references were the shared dashboard video (coloured figure tiles, pill tabs
 
 ## 1. The look
 
-- **Atmosphere.** The page is a soft periwinkle → lavender → peach gradient with three large, slow-drifting blobs. The app sits in a floating frame (30px radius, frosted white, one soft shadow) 16px in from the viewport edges. Below 1100px the frame goes full-bleed.
-- **The rail.** The sidebar is a 104px rail: the upGrad mark as a red tile with INTELLIGENCE beneath, a round search button, and five round white icon buttons with small labels. The current page is a filled periwinkle circle with a white, duotone icon; the audit count is a small rose badge on the icon's corner. Hover lifts a button; the labels the rail hides (search shortcut, user name and team) remain as tooltips and accessible names. On phones the bottom bar floats as a frosted pill with the same filled active icon.
+- **Atmosphere.** The page is a soft periwinkle → lavender → peach gradient with three large, slow-drifting blobs, seen through a frosted white layer. The app is full-bleed on every width (an earlier draft floated it in a rounded frame; that was dropped for desktop).
+- **The sidebar.** Two modes, chosen in Review → V7 sidebar or with the chevron on the sidebar's edge, remembered per browser. **Expanded** (the default, 260px): the upGrad Intelligence wordmark, a full-width search pill, five rows of a 40px icon circle plus a 14px label, the current page as a white row with a filled periwinkle icon, the audit count as a rose badge at the row's end, and the user's name and team at the bottom. **Rail** (104px): the red upGrad mark, a round search button and five round white icon buttons; the current page is a filled periwinkle circle with a white duotone icon; the audit count sits on the icon's corner; labels, the search shortcut and the user's name stay as tooltips and accessible names. Tablets (821–1100px) always use the rail; phones keep a floating frosted pill bar with the same filled active icon.
 - **Type.** Headlines in Figtree at 38px (30px on phones), tight tracking; section titles 24px; figures 34px with tabular numbers (inherited from V6).
 - **Figure tiles.** On Overview, People and Data dictionary the first tile is solid periwinkle, the second soft periwinkle, the third coral, the rest white; the fifth People/Data tile is ink. Gradients run dark → light from the top-left corner so the labels sit on the darker end. Icons, deltas and sparklines inside coloured tiles turn white. Tiles lift on hover.
 - **Surfaces.** Cards lose their borders and get 24px corners and one soft, periwinkle-tinted shadow; inner tiles (summary figures, chapter cards, insight tiles) sit on a pale well. The Directory card gets its own padding; the audit hero on UG learning journey is a navy gradient with white stat tiles; the Look up head card is frosted glass on a soft gradient cover; the sticky bands behind the Look up search and section chips are frosted glass rather than the page colour.
@@ -25,11 +25,20 @@ The references were the shared dashboard video (coloured figure tiles, pill tabs
 - **Backdrop.** The three blobs drift over 26–38s; the whole backdrop leans a few pixels with the pointer (fine pointers only, transform only, rAF-throttled).
 - **Reduced motion.** V6's rule stops every animation and transition in the layer; V7's JavaScript checks the same preference before drawing charts in or moving the backdrop.
 
-## 3. What did not change
+## 3. Review notes (second pass)
+
+- Desktop is full-bleed: the rounded floating frame was removed; the atmosphere stays behind a frosted layer.
+- The sidebar has an expanded mode (default) and a rail, with a chevron on its edge and a Review → V7 sidebar option, so the labels are readable at 14px.
+- The wordmark is back as "upGrad Intelligence" in the expanded sidebar; the rail shows only the red mark.
+- The Activity feed's "Details" buttons and "Show older" are quiet white pills; only primary actions are black.
+- The Data dictionary groups inside "All items" get a hairline frame so they read as groups on the white card.
+- The Credentials card no longer has a gap under its title.
+
+## 4. What did not change
 
 Content, data, copy, routes, tabs, sections, sorting, filters, dialogs, toasts, the command palette, the Review panel, the sample people. The three V6 behaviour fixes (popover outside-click, "Show all types", inline validation) carry over unchanged.
 
-## 4. Verification
+## 5. Verification
 
 Playwright (Chromium), 1440×900 unless stated.
 
@@ -42,17 +51,17 @@ Playwright (Chromium), 1440×900 unless stated.
 | Reduced motion: animations running on all 8 screens | 0 |
 | Transitions on layout properties | 0 |
 | Animations 3.5s after load (should be only the backdrop) | only the backdrop drift and V5's live dots |
-| Fixed elements inside the frame (the frame's backdrop filter would capture them) | none |
+| Fixed elements inside the frosted layer (its backdrop filter would capture them) | none |
 | Console errors across every screen | 0 |
 
 Contrast was measured per text node against its nearest solid background. The measurement reads the base colour of the gradient tiles as white, so every white label on a coloured tile is reported as failing; on screen they sit on the dark end of each gradient (periwinkle `#4A52B3` 6.9:1, coral `#C9411F` 5.6:1, ink 15:1). The two remaining items are the brand mark (same artefact, red tile) and a visually hidden "Business" label.
 
-## 5. V6 → V7 at a glance
+## 6. V6 → V7 at a glance
 
 | | V6 | V7 |
 |---|---|---|
-| Page | flat lavender page | gradient atmosphere, floating frosted frame |
-| Sidebar | 264px list with a sliding pill | 104px icon rail, round buttons, filled active icon, badge on the icon |
+| Page | flat lavender page | gradient atmosphere behind a frosted layer, full-bleed |
+| Sidebar | 264px list with a sliding pill | expanded (icon circles + labels, white active row) or a 104px rail, with a collapse chevron and a Review option |
 | Headline | 28px | 38px Figtree, tight |
 | Figure tiles | white, pink/lavender tints | solid periwinkle, soft periwinkle, coral, white, ink |
 | Cards | 16px, hairline border | 24px, no border, soft tinted shadow, pale inner wells |

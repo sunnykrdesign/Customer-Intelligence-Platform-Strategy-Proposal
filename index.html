@@ -5505,25 +5505,24 @@ html[data-v10] .v10-bg i:nth-child(1){width:54vw;height:54vw;left:-14vw;top:-20v
 html[data-v10] .v10-bg i:nth-child(2){width:48vw;height:48vw;right:-16vw;top:-10vw;background:#F6AABB;animation-duration:32s;animation-delay:-9s}
 html[data-v10] .v10-bg i:nth-child(3){width:42vw;height:42vw;left:28vw;bottom:-24vw;background:#FACBA9;animation-duration:38s;animation-delay:-17s}
 @keyframes v10drift{to{transform:translate(6vw,5vw) scale(1.12)}}
-html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .app{position:relative;z-index:1;margin:16px !important;min-height:calc(100vh - 32px) !important;border-radius:30px !important;background:var(--frame) !important;backdrop-filter:blur(44px) saturate(1.3);-webkit-backdrop-filter:blur(44px) saturate(1.3);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 0 0 1px rgba(255,255,255,.55),var(--sh-float);overflow:clip}
-@media (max-width:1100px){html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .app{margin:0 !important;min-height:100vh !important;border-radius:0 !important}}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .app{position:relative;z-index:1;margin:0 !important;min-height:100vh !important;border-radius:0 !important;background:var(--frame) !important;backdrop-filter:blur(44px) saturate(1.3);-webkit-backdrop-filter:blur(44px) saturate(1.3);box-shadow:none;overflow:clip}
+
 html[data-v10] .review,html[data-v10] .v6pal,html[data-v10] #toast,html[data-v10] #ov8tip{z-index:1200}
 /* --- The rail: round icon buttons with small labels, the current page filled --- */
 @media (min-width:821px){
-  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side{flex:0 0 104px !important;width:104px !important;position:sticky !important;top:16px !important;height:calc(100vh - 32px) !important;padding:22px 14px 18px !important;gap:18px !important;align-items:center !important;background:transparent !important;border-right:1px solid rgba(255,255,255,.6) !important;box-shadow:none !important}
-  @media (max-width:1100px){html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side{top:0 !important;height:100vh !important}}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side{flex:0 0 104px !important;width:104px !important;position:sticky !important;top:0 !important;height:100vh !important;padding:22px 14px 18px !important;gap:18px !important;align-items:center !important;background:transparent !important;border-right:1px solid rgba(255,255,255,.6) !important;box-shadow:none !important}
   html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .top{width:auto;padding:0}
   html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .brand{display:flex;flex-direction:column;align-items:center;gap:7px;font-size:0 !important;line-height:1}
   html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .brand .up{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#EE2C3C,#BE2330);color:#fff !important;font:600 15px/1 var(--font-d);letter-spacing:-.02em;box-shadow:0 12px 22px -10px rgba(190,35,48,.65)}
-  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .brand .tail{font-size:9px !important;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3) !important;font-weight:600}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .brand .tail{display:none !important}
   html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .v6k-btn{width:44px;height:44px;padding:0 !important;margin:0;border-radius:50% !important;justify-content:center;background:#fff !important;border:0 !important;box-shadow:var(--sh-ctl) !important;color:var(--ink) !important;transition:transform .35s var(--ease-spring),box-shadow .25s}
   html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .v6k-btn:hover{transform:translateY(-2px);box-shadow:var(--sh-card-h) !important}
   html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .v6k-btn span,html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .v6k-btn kbd{display:none !important}
   html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .v6k-btn svg{width:18px;height:18px;margin:0}
   html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .nav{position:static;width:76px;padding:0;margin:0;gap:2px;background:transparent !important;border:0 !important;box-shadow:none !important}
   html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .nav .v8ind{display:none !important}
-  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .nav a{display:flex;justify-content:center;padding:6px 0 8px !important;margin:0;border-radius:18px;background:transparent !important;box-shadow:none !important;color:var(--ink-2) !important;text-decoration:none}
-  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .nav a .ni{display:flex;flex-direction:column;align-items:center;gap:7px;width:100%;font:500 10.5px/1.15 var(--font-d) !important;text-align:center;letter-spacing:.01em;color:inherit;white-space:normal}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .nav a{display:flex;justify-content:center;padding:5px 0 !important;margin:0;border-radius:18px;background:transparent !important;box-shadow:none !important;color:var(--ink-2) !important;text-decoration:none}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .nav a .ni{display:flex;flex-direction:column;align-items:center;gap:0;width:100%;font-size:0 !important;line-height:0 !important;color:inherit}
   html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .nav a .ni::before,html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .nav a .ni::after{display:none !important;content:none !important}
   html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .nav a{position:relative}
   html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .nav a .ni svg{display:block !important;box-sizing:content-box;width:20px !important;height:20px !important;padding:12px !important;margin:0;border-radius:50% !important;background:#fff !important;color:var(--ink) !important;box-shadow:var(--sh-ctl);stroke-width:1.8;fill:transparent;transition:transform .4s var(--ease-spring),background .25s,color .25s,box-shadow .25s,fill .3s}
@@ -5589,9 +5588,9 @@ html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app #ptabs > button
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app :is(.t6cats > button,.i8chip,.a6tag,.v9cnt,.ov8-leg > span,.bdg,.st){border-radius:999px !important;border:0 !important;background:var(--well) !important;color:var(--ink-2) !important}
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app .t6cats > button[aria-pressed="true"]{background:var(--ink) !important;color:#fff !important}
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app .t6cats > button[aria-pressed="true"] span{color:#fff !important;background:rgba(255,255,255,.18) !important}
-html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app :is(.btn.dark,.t6more,.v6fold,.v4pager button,.ov8-hero .btn){background:radial-gradient(140px 90px at var(--gx,50%) var(--gy,50%),#3B3E58,var(--ink)) !important;color:#fff !important;border:0 !important;border-radius:var(--r-ctl) !important;box-shadow:0 12px 24px -12px rgba(21,22,28,.65) !important;transition:transform .3s var(--ease-soft),box-shadow .3s}
-html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app :is(.btn.dark,.t6more,.v6fold,.v4pager button):hover{transform:translateY(-1px);box-shadow:0 18px 30px -12px rgba(21,22,28,.7) !important}
-html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app :is(.btn.dark,.t6more,.v6fold,.v4pager button):active{transform:scale(.97)}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app :is(.btn.dark,.t6older,.v6fold,.v4pager button,.ov8-hero .btn){background:radial-gradient(140px 90px at var(--gx,50%) var(--gy,50%),#3B3E58,var(--ink)) !important;color:#fff !important;border:0 !important;border-radius:var(--r-ctl) !important;box-shadow:0 12px 24px -12px rgba(21,22,28,.65) !important;transition:transform .3s var(--ease-soft),box-shadow .3s}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app :is(.btn.dark,.t6older,.v6fold,.v4pager button):hover{transform:translateY(-1px);box-shadow:0 18px 30px -12px rgba(21,22,28,.7) !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app :is(.btn.dark,.t6older,.v6fold,.v4pager button):active{transform:scale(.97)}
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app :is(.v6keyb,.v5findb,.v8dd-b,.v9pg-b,.ov8-sel .v8dd-b,.v6ptools button,.v4secnav button){border:0 !important;border-radius:var(--r-ctl) !important;background:#fff !important;box-shadow:var(--sh-ctl) !important;color:var(--ink) !important}
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app :is(.v4secnav button)[aria-pressed="true"],html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app :is(.v9pg-b)[aria-current="page"]{background:var(--ink) !important;color:#fff !important}
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app :is(.search,.v6k-input,.lookup-wrap){border:0 !important;border-radius:var(--r-ctl) !important;background:#fff !important;box-shadow:var(--sh-ctl) !important}
@@ -5659,7 +5658,7 @@ html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):no
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .a6hero h2{color:#fff !important}
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .a6hero .a6ctx > p{color:rgba(255,255,255,.72) !important}
 /* Below the frame width the app is full-bleed and keeps no backdrop filter, so fixed children (the phone bar) stay fixed to the viewport. */
-@media (max-width:1100px){html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .app{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(255,255,255,.72) !important;box-shadow:none}}
+@media (max-width:820px){html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .app{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(255,255,255,.72) !important}}
 /* --- Look up: the sticky bands behind the search, the person head and the section chips are frosted glass, not the page colour --- */
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app .view[data-view="lookup"] #lookupForm::before{background:rgba(255,255,255,.55) !important;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app .v4secbar::before,html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app .v5bar::before,html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app .v5head::after{background:transparent !important}
@@ -5668,6 +5667,47 @@ html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app .v4secnav{backg
 /* --- Third pass: the audit count badge reads at AA; phone segment buttons are 44px tall --- */
 @media (min-width:821px){html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a .count{background:#C42C64 !important}}
 @media (max-width:480px){html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app :is(.ov8-seg,.v6seg,.ov8-tabs,.fchips) > button,html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .v6fold,html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .t6cats > button{min-height:44px !important}}
+/* --- Sidebar, expanded (the default; Review → V7 sidebar): icon circles with labels, the current page as a white row. Tablets keep the rail. --- */
+@media (min-width:1101px){
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side{flex:0 0 260px !important;width:260px !important;padding:22px 16px 18px !important;align-items:stretch !important;gap:14px !important}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .top{display:flex;align-items:center;min-height:44px;padding:0 6px}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .brand{flex-direction:row;align-items:center;gap:0;font-size:19px !important;font-weight:700 !important;letter-spacing:-.03em !important;line-height:1;color:var(--ink) !important}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .brand .up{display:inline;width:auto;height:auto;border-radius:0;background:none;box-shadow:none;color:#E3262F !important;font:inherit !important;letter-spacing:inherit}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .brand .tail{display:inline !important;margin-left:6px;font:inherit !important;font-weight:500 !important;color:var(--ink-2) !important;letter-spacing:inherit}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .v6k-btn{width:100% !important;height:44px !important;border-radius:999px !important;justify-content:flex-start;gap:10px;padding:0 14px 0 16px !important;color:var(--ink-2) !important;font-size:13.5px}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .v6k-btn span{display:inline !important;flex:1;text-align:left}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .v6k-btn kbd{display:inline-flex !important;font-size:11px;padding:2px 7px;border-radius:999px;background:var(--well);color:var(--ink-3);border:0;box-shadow:none}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav{width:100% !important;gap:4px !important}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a{justify-content:flex-start;padding:6px 8px 6px 6px !important;border-radius:999px;transition:background .2s}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a:hover{background:rgba(255,255,255,.55) !important}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a[aria-current="page"]{background:#fff !important;box-shadow:var(--sh-ctl) !important}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a .ni{flex:1 1 auto;width:auto;min-width:0;flex-direction:row;align-items:center;gap:12px;font:500 14px/1.2 var(--font-d) !important;line-height:1.2 !important;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a[aria-current="page"] .ni{font-weight:600 !important}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a .ni svg{width:18px !important;height:18px !important;padding:11px !important;box-shadow:none !important;background:var(--well) !important}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a[aria-current="page"] .ni svg{background:linear-gradient(145deg,#4A52B3,#7079DE) !important;color:#fff !important}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a{width:100%;align-items:center;gap:8px}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a .count{position:static;flex:0 0 auto;margin-left:auto;box-shadow:none;font-size:10.5px !important;padding:3px 7px !important}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me{width:100%}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .id{flex-direction:row;align-items:center;gap:10px;padding:6px 6px;border-radius:999px;width:100%}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .id:hover{background:rgba(255,255,255,.55)}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .nm{display:flex !important;flex-direction:column;min-width:0}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .nm b{font:600 13.5px/1.3 var(--font-d);color:var(--ink)}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .nm span{font-size:12px;color:var(--ink-2)}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .av{width:38px;height:38px;box-shadow:none}
+  /* the collapse control straddles the rail's edge */
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .v10-fold{position:absolute;top:30px;right:-14px;z-index:5;display:grid;place-items:center;width:28px;height:28px;padding:0;border:0;border-radius:50%;background:#fff;color:var(--ink-2);box-shadow:var(--sh-ctl);cursor:pointer;transition:transform .35s var(--ease-spring),color .2s}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .v10-fold:hover{color:var(--ink);transform:scale(1.08)}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .v10-fold svg{width:14px;height:14px;transition:transform .35s var(--ease-soft)}
+  html[data-v10][data-v10nav="rail"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .v10-fold svg{transform:rotate(180deg)}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side{transition:flex-basis .35s var(--ease-soft),width .35s var(--ease-soft)}
+}
+@media (max-width:1100px){html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .v10-fold{display:none !important}}
+/* --- Review notes --- */
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .t6b button,html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .t6ev button{background:#fff !important;color:var(--ink) !important;border:0 !important;border-radius:999px !important;box-shadow:var(--sh-ctl) !important;transition:transform .25s var(--ease-soft),box-shadow .25s}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .t6b button:hover,html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .t6ev button:hover{transform:translateY(-1px);box-shadow:var(--sh-card-h) !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .a6creds .a6h{margin-bottom:6px !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .t6older{width:auto !important;margin:8px auto 0 !important;padding:0 22px !important;background:#fff !important;color:var(--ink) !important;border:0 !important;border-radius:999px !important;box-shadow:var(--sh-ctl) !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .dgroup{border:1px solid var(--line) !important;border-radius:18px !important;box-shadow:none !important;background:#fff !important}
 </style>
 <style id="ugtab">@media (max-width:640px){html[data-v7][data-v6] #ptabs #tab-academic .v4tabl{white-space:normal;line-height:1.1;text-align:center;max-width:84px;display:inline-block}html[data-v7][data-v6] #ptabs #tab-academic{white-space:normal}}</style>
 <style id="ugc-css">
@@ -8995,7 +9035,7 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
     "6": ["V3", "Master", "Everything so far with less on screen: three Look up layouts, Find, a rebuilt Overview with richer charts, and a motion layer."],
     "9": ["V5", "Learner 360 data", "V4 Crisp, unchanged, with the PM's Learner 360 sample people: five profiles with every value's source and date added, their activity in the model's sub-sections, and their insights."],
     "8": ["V6", "Polished", "V5 taken to a finished level: the same product, structure and look, with refined spacing, hierarchy and states, and purposeful motion."],
-    "5": ["V7", "Atmosphere", "The latest. V6's content in a new look: a floating frame on a soft gradient, an icon rail, coloured figure tiles, gradient charts and richer motion."],
+    "5": ["V7", "Atmosphere", "The latest. V6's content in a new look: a soft gradient atmosphere, a sidebar that expands or collapses to a rail, coloured figure tiles, gradient charts and richer motion."],
     "7": ["V4", "Crisp", "V3 with a new visual layer: the Crisp and Ocean themes, upGrad Design System icons and new profile layouts."]
   };
   function vName(v) { var n = VNAMES[v] || VNAMES["7"]; return n[0] + " · " + n[1]; }
@@ -12693,8 +12733,39 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
   /* v10js start */
   // V7 · Atmosphere: the backdrop, the rail's labels, charts that draw in, and a glow that follows the pointer on primary buttons. Everything is gated by isV10().
   (function () {
-    if (!isV10()) return;
-    var H10 = document.documentElement;
+    var H10 = document.documentElement, WAS10 = isV10();
+    var vs = $("#vswitch");
+    if (vs) vs.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-v]"); if (!b) return;
+      if ((b.getAttribute("data-v") === "5") !== WAS10) { var u = new URL(location.href); u.searchParams.delete("ver"); u.searchParams.delete("v"); setTimeout(function () { location.replace(u.toString()); }, 0); }
+    });
+    if (!WAS10) return;
+    // 0. The sidebar: expanded (icons with labels) or a rail (icons with tooltips); remembered, and a Review-panel option.
+    var NAV10 = "wide"; try { NAV10 = localStorage.getItem("cip-v10nav") || "wide"; } catch (e) {}
+    function navMode(m, keep) {
+      NAV10 = m === "rail" ? "rail" : "wide";
+      if (NAV10 === "rail") H10.setAttribute("data-v10nav", "rail"); else H10.removeAttribute("data-v10nav");
+      if (keep) { try { localStorage.setItem("cip-v10nav", NAV10); } catch (e) {} }
+      var f = $(".side .v10-fold"); if (f) { f.setAttribute("aria-label", NAV10 === "rail" ? "Expand the sidebar" : "Collapse the sidebar"); f.title = f.getAttribute("aria-label"); f.setAttribute("aria-expanded", NAV10 !== "rail"); }
+      $$("[data-v10nav]", document.getElementById("review") || document).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v10nav") === NAV10); });
+      var note = $(".rv-v10nav .rv-note"); if (note) note.textContent = NAV10 === "rail" ? "A 104px rail of icon buttons; labels show on hover. The chevron on the rail's edge expands it." : "Icon buttons with labels, the current page as a white row. The chevron on the sidebar's edge collapses it to a rail.";
+    }
+    var side = $(".side"), nav = $(".side .nav");
+    if (side && nav) {
+      var fold = document.createElement("button"); fold.type = "button"; fold.className = "v10-fold";
+      fold.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>';
+      fold.addEventListener("click", function () { navMode(NAV10 === "rail" ? "wide" : "rail", true); if (typeof navInd === "function") setTimeout(navInd, 400); });
+      side.appendChild(fold);
+      $$("a", nav).forEach(function (a) { var l = a.querySelector(".ni"); if (l && !a.title) a.title = l.textContent.trim(); });
+    }
+    var vsec = vs && vs.closest(".rv-sec");
+    if (vsec) {
+      var row = document.createElement("div"); row.className = "rv-sec rv-v10nav";
+      row.innerHTML = '<span class="rv-k">V7 sidebar</span><div class="rv-seg" role="group" aria-label="V7 sidebar"><button type="button" data-v10nav="wide">Expanded</button><button type="button" data-v10nav="rail">Rail</button></div><p class="rv-note"></p>';
+      row.addEventListener("click", function (e) { var b = e.target.closest("[data-v10nav]"); if (!b) return; navMode(b.getAttribute("data-v10nav"), true); if (typeof navInd === "function") setTimeout(navInd, 400); });
+      vsec.insertAdjacentElement("afterend", row);
+    }
+    navMode(NAV10);
     // 1. The backdrop: three blobs behind the frame; the whole layer leans a little with the pointer.
     var bg = document.createElement("div"); bg.className = "v10-bg"; bg.setAttribute("aria-hidden", "true"); bg.innerHTML = "<i></i><i></i><i></i>";
     document.body.insertBefore(bg, document.body.firstChild);
@@ -12748,7 +12819,7 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
     }, true);
     // 4. Primary buttons carry a soft highlight that follows the pointer.
     document.addEventListener("pointermove", function (e) {
-      var b = e.target.closest && e.target.closest(".btn.dark,.t6more,.v6fold"); if (!b) return;
+      var b = e.target.closest && e.target.closest(".btn.dark,.t6older,.v6fold"); if (!b) return;
       var r = b.getBoundingClientRect(); if (!r.width) return;
       b.style.setProperty("--gx", ((e.clientX - r.left) / r.width * 100).toFixed(1) + "%"); b.style.setProperty("--gy", ((e.clientY - r.top) / r.height * 100).toFixed(1) + "%");
     }, { passive: true });
