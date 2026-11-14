@@ -60,6 +60,17 @@ The moving gradient looked uneven and got in the way of reading data. The backdr
 
 The frosted sidebar and the content column were the same tone, so they faded into each other. The sidebar is now a panel in its own right (hairline edge, soft shadow), and the Review panel's old V4 "Sidebar" row, of which only Current and Ink did anything in V7, drives four working V7 shades: Frosted, Tinted, Dark and Ink. The layout row is named "V7 sidebar layout" and the shade row sits under it.
 
+## 3e. Review note (Profile tab, every Look up layout)
+
+Every earlier V7 check of Look up forced the Folding header layout. V5's default is **Minimal**, and the Overview-first layout exists too, so these had never been looked at under V7:
+
+- **The current section chip had no selected state** (Identity, Personal, Education…): V7 styled `aria-pressed`, but these chips use `aria-selected` and `.on`. The current chip is now an ink pill with a white icon, in every layout.
+- **The person card's meta line wrapped with a dangling separator** ("Known for 1 year · matched on verified email · ID ·" then "Synced 4 min ago" on its own line): V7's larger pill buttons narrowed the text column. The line stays on one line from 821px up, with a slightly tighter ID chip.
+- **"All time / Last 12 months" showed white text with no pill behind it** in the Overview-first layout's Life with upGrad card: the selected state relied on a JavaScript-positioned slider that this card never positions. Segmented controls (People directory, Activity, Data dictionary tabs, this one) now select by the button itself; the slider is off in V7.
+- The stuck chip row casts a soft shadow on the content scrolling under it.
+
+The section cards themselves (Identity, Personal, Education, Career, Financial, Consent) were checked for all six sample people, including the worst-case density profile and the under-18 profile, at 1440, 1280 and 1100, with no clipped or overlapping text.
+
 ## 4. What did not change
 
 Content, data, copy, routes, tabs, sections, sorting, filters, dialogs, toasts, the command palette, the Review panel, the sample people. The three V6 behaviour fixes (popover outside-click, "Show all types", inline validation) carry over unchanged.

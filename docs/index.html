@@ -5860,6 +5860,27 @@ html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):no
 /* --- Sidebar labels: never clipped (the icon animates inside them), and always the row's own colour (V4's shade rules painted the current label dark) --- */
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a .ni{overflow:visible !important;text-overflow:clip !important;clip-path:none !important;-webkit-mask:none !important;mask:none !important;color:inherit !important}
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a{overflow:visible !important}
+/* --- Review pass 9: the Profile tab in every Look up layout (Minimal is the default and had not been checked) --- */
+/* The current section chip is an ink pill; it had no selected state because these chips use aria-selected and .on, not aria-pressed */
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .v4sn.on,html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .v4sn[aria-selected="true"]{background:var(--ink) !important;color:#fff !important;border-color:transparent !important;box-shadow:0 10px 18px -10px rgba(21,22,28,.6) !important;font-weight:600 !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .v4sn.on :is(svg,.v4snf,.v4snl),html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .v4sn[aria-selected="true"] :is(svg,.v4snf,.v4snl){color:rgba(255,255,255,.88) !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .v4sn:not(.on):not([aria-selected="true"]):hover{background:var(--well) !important;color:var(--ink) !important}
+/* Segmented controls select by the button itself: the sliding pill, which some cards never position (the Life with upGrad zoom in the Overview-first layout), is off */
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app :is(.v6seg,.fchips,#pSegs) > .slider{display:none !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app :is(.v6seg,.fchips,#pSegs) > button[aria-pressed="true"]{background:var(--ink) !important;color:#fff !important;box-shadow:0 10px 18px -10px rgba(21,22,28,.6) !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app :is(.v6seg,.fchips,#pSegs) > button[aria-pressed="true"] *{color:#fff !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app :is(.v6seg,.fchips,#pSegs) > button:not([aria-pressed="true"]){color:var(--ink-2) !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app :is(.v6seg,.fchips,#pSegs) > button:not([aria-pressed="true"]):hover{color:var(--ink) !important;background:rgba(255,255,255,.7) !important}
+/* The person card's meta line ("Known for … · matched on … · ID · Synced …") stays on one line where the card is wide enough; it was wrapping with a dangling separator */
+@media (min-width:821px){
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .pcard .who{min-width:0;overflow:visible}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .pcard .who .matched{white-space:nowrap;overflow:visible}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .pcard .matched .v5gid{padding-left:7px !important;padding-right:7px !important}
+}
+/* The stuck chip row casts a soft shadow onto the content scrolling under it */
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app #lookupResult.chips-stuck .v4secbar::before{box-shadow:0 14px 28px -22px rgba(31,34,72,.5) !important}
+/* tablets (821–900px): the meta line drops a point so it fits the card on one line */
+@media (min-width:821px) and (max-width:900px){html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .pcard .who .matched{font-size:12px !important}}
 </style>
 <style id="ugtab">@media (max-width:640px){html[data-v7][data-v6] #ptabs #tab-academic .v4tabl{white-space:normal;line-height:1.1;text-align:center;max-width:84px;display:inline-block}html[data-v7][data-v6] #ptabs #tab-academic{white-space:normal}}</style>
 <style id="ugc-css">
