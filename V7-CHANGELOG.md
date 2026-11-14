@@ -48,6 +48,7 @@ The earlier passes were checked with motion off, which hid two of these. Everyth
 - **Figure-tile titles** truncated with an ellipsis on tablets ("Median days to en…"): they wrap.
 - **Phones**: the People and Data dictionary tiles sat in a narrow/wide pair; they are two equal columns with the fifth tile full width. Tablets get the same 3+2 tile layout on the Data dictionary as on People.
 - **Credentials card**: the gap under its title is gone.
+- **Sidebar icons smeared when the current page changed**: the active icon's translucent fill faded in over the outline while its circle changed colour and popped, so open icon shapes filled in like a mask. The fill is gone, colours switch at once, only scale and shadow animate, and the pop is a gentle 0.9 → 1.05 settle.
 
 ## 3c. Review note (backdrop)
 
