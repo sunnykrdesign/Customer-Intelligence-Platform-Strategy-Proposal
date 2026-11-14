@@ -48,6 +48,8 @@ The earlier passes were checked with motion off, which hid two of these. Everyth
 - **Figure-tile titles** truncated with an ellipsis on tablets ("Median days to en…"): they wrap.
 - **Phones**: the People and Data dictionary tiles sat in a narrow/wide pair; they are two equal columns with the fifth tile full width. Tablets get the same 3+2 tile layout on the Data dictionary as on People.
 - **Credentials card**: the gap under its title is gone.
+- **Sidebar icons were cropped while animating**: the label container around each icon had `overflow:hidden` (for an ellipsis), so the icon's settle, hover lift and glow were cut flat at the top and bottom. The container no longer clips (the labels fit the 276px sidebar without an ellipsis), and nothing on the icon's chain masks or clips.
+- **The current page's label was dark on the Ink panel**: a V4 shade rule coloured the label itself. The label now always takes its row's colour.
 - **Sidebar icons smeared when the current page changed**: the active icon's translucent fill faded in over the outline while its circle changed colour and popped, so open icon shapes filled in like a mask. The fill is gone, colours switch at once, only scale and shadow animate, and the pop is a gentle 0.9 → 1.05 settle.
 
 ## 3c. Review note (backdrop)

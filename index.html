@@ -5666,7 +5666,7 @@ html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app .v4secnav{backg
 @media (max-width:480px){html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app :is(.ov8-seg,.v6seg,.ov8-tabs,.fchips) > button,html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .v6fold,html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .t6cats > button{min-height:44px !important}}
 /* --- Sidebar, expanded (the default; Review → V7 sidebar): icon circles with labels, the current page as a white row. Tablets keep the rail. --- */
 @media (min-width:1101px){
-  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side{flex:0 0 276px !important;width:276px !important;padding:22px 16px 18px !important;align-items:stretch !important;gap:14px !important}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side{flex:0 0 276px !important;width:276px !important;max-width:276px !important;padding:22px 16px 18px !important;align-items:stretch !important;gap:14px !important}
   html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .top{display:flex;align-items:center;min-height:44px;padding:0 6px}
   html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .brand{flex-direction:row;align-items:center;gap:0;font-size:19px !important;font-weight:700 !important;letter-spacing:-.03em !important;line-height:1;color:var(--ink) !important}
   html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .brand .up{display:inline;width:auto;height:auto;border-radius:0;background:none;box-shadow:none;color:#E3262F !important;font:inherit !important;letter-spacing:inherit}
@@ -5678,7 +5678,7 @@ html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) #app .v4secnav{backg
   html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a{justify-content:flex-start;padding:6px 8px 6px 6px !important;border-radius:999px;transition:background .2s}
   html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a:hover{background:rgba(255,255,255,.55) !important}
   html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a[aria-current="page"]{background:#fff !important;box-shadow:var(--sh-ctl) !important}
-  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a .ni{flex:1 1 auto;width:auto;min-width:0;flex-direction:row;align-items:center;gap:12px;font:500 14px/1.2 var(--font-d) !important;line-height:1.2 !important;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a .ni{flex:1 1 auto;width:auto;min-width:0;flex-direction:row;align-items:center;gap:12px;font:500 14px/1.2 var(--font-d) !important;line-height:1.2 !important;text-align:left;white-space:nowrap}
   html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a[aria-current="page"] .ni{font-weight:600 !important}
   html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a .ni svg{width:18px !important;height:18px !important;padding:11px !important;box-shadow:none !important;background:var(--well) !important;transition:transform .4s var(--ease-spring) !important}
   html[data-v10]:not([data-v10nav="rail"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a[aria-current="page"] .ni svg{background:linear-gradient(145deg,#4A52B3,#7079DE) !important;color:#fff !important}
@@ -5857,6 +5857,9 @@ html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):no
   html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8)[data-v10nav="rail"] .side .nav a[aria-current="page"]::after{left:-14px}
   html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8)[data-v10nav="rail"] .side .nav a[aria-current="page"]{background:transparent !important}
 }
+/* --- Sidebar labels: never clipped (the icon animates inside them), and always the row's own colour (V4's shade rules painted the current label dark) --- */
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a .ni{overflow:visible !important;text-overflow:clip !important;clip-path:none !important;-webkit-mask:none !important;mask:none !important;color:inherit !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a{overflow:visible !important}
 </style>
 <style id="ugtab">@media (max-width:640px){html[data-v7][data-v6] #ptabs #tab-academic .v4tabl{white-space:normal;line-height:1.1;text-align:center;max-width:84px;display:inline-block}html[data-v7][data-v6] #ptabs #tab-academic{white-space:normal}}</style>
 <style id="ugc-css">
