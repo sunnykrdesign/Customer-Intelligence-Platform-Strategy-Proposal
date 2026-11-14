@@ -8,7 +8,7 @@ The references were the shared dashboard video (coloured figure tiles, pill tabs
 
 ## 1. The look
 
-- **Atmosphere.** The page is a soft periwinkle → lavender → peach gradient with three large, slow-drifting blobs, seen through a frosted white layer. The app is full-bleed on every width (an earlier draft floated it in a rounded frame; that was dropped for desktop).
+- **Atmosphere.** The page is a still, soft periwinkle → lavender → peach gradient seen through a frosted white layer (78% white, 40px blur). Nothing in it moves: an earlier draft drifted three blurred blobs and leaned the backdrop with the pointer, which read as jitter behind the data and was removed. Review → V7 backdrop switches to a plain flat page. The app is full-bleed on every width (an earlier draft floated it in a rounded frame; that was dropped for desktop).
 - **The sidebar.** Two modes, chosen in Review → V7 sidebar or with the chevron on the sidebar's edge, remembered per browser. **Expanded** (the default, 276px): the upGrad Intelligence wordmark, a full-width search pill, five rows of a 40px icon circle plus a 14px label, the current page as a white row with a filled periwinkle icon, the audit count as a rose badge at the row's end, and the user's name and team at the bottom. **Rail** (104px): the red upGrad mark, a round search button and five round white icon buttons; the current page is a filled periwinkle circle with a white duotone icon; the audit count sits on the icon's corner; labels, the search shortcut and the user's name stay as tooltips and accessible names. Tablets (821–1100px) always use the rail; phones keep a floating frosted pill bar with the same filled active icon.
 - **Type.** Headlines in Figtree at 38px (30px on phones), tight tracking; section titles 24px; figures 34px with tabular numbers (inherited from V6).
 - **Figure tiles.** On Overview, People and Data dictionary the first tile is solid periwinkle, the second soft periwinkle, the third coral, the rest white; the fifth People/Data tile is ink. Gradients run dark → light from the top-left corner so the labels sit on the darker end. Icons, deltas and sparklines inside coloured tiles turn white. Tiles lift on hover.
@@ -22,7 +22,7 @@ The references were the shared dashboard video (coloured figure tiles, pill tabs
 - **Entrance, once per screen.** V6's skeleton stays. When a screen first appears, its cards spring up (26px rise with a slight scale, 850ms, soft spring curve, 70ms stagger), bars grow from their baseline (scaleX or scaleY only), sparklines, trend lines and rings draw themselves along their length (Web Animations on `stroke-dashoffset`), and the headline numbers count up (V6). None of it replays on a re-render: V6's no-replay gate still applies.
 - **Navigation.** The rail's active icon pops in with a spring when the route changes; a page revisit slides up and fades in over 400ms.
 - **Tabs.** When a Look up tab opens for the first time, the charts and bars in that panel draw in the same way.
-- **Backdrop.** The three blobs drift over 26–38s; the whole backdrop leans a few pixels with the pointer (fine pointers only, transform only, rAF-throttled).
+- **Backdrop.** Still. (The drift and pointer lean from the first draft are gone.)
 - **Reduced motion.** V6's rule stops every animation and transition in the layer; V7's JavaScript checks the same preference before drawing charts in or moving the backdrop.
 
 ## 3. Review notes (second pass)
@@ -49,6 +49,10 @@ The earlier passes were checked with motion off, which hid two of these. Everyth
 - **Phones**: the People and Data dictionary tiles sat in a narrow/wide pair; they are two equal columns with the fifth tile full width. Tablets get the same 3+2 tile layout on the Data dictionary as on People.
 - **Credentials card**: the gap under its title is gone.
 
+## 3c. Review note (backdrop)
+
+The moving gradient looked uneven and got in the way of reading data. The backdrop is now a still, layered CSS gradient with no blur filter (which also removes the banding and the cost of re-blurring the whole page every frame), the frosted layer over the content is whiter, and Review → V7 backdrop offers a plain flat page.
+
 ## 4. What did not change
 
 Content, data, copy, routes, tabs, sections, sorting, filters, dialogs, toasts, the command palette, the Review panel, the sample people. The three V6 behaviour fixes (popover outside-click, "Show all types", inline validation) carry over unchanged.
@@ -65,7 +69,7 @@ Playwright (Chromium), 1440×900 unless stated.
 | Focusables without a visible ring (Look up, Overview, People) | 0 of 80 |
 | Reduced motion: animations running on all 8 screens | 0 |
 | Transitions on layout properties | 1: the sidebar's own expand/collapse (350ms on its width, a deliberate exception) |
-| Animations 3.5s after load (should be only the backdrop) | only the backdrop drift and V5's live dots |
+| Animations 3.5s after load | only V5's live dots; the backdrop is still |
 | Fixed elements inside the frosted layer (its backdrop filter would capture them) | none |
 | Console errors across every screen | 0 |
 
@@ -75,7 +79,7 @@ Contrast was measured per text node against its nearest solid background. The me
 
 | | V6 | V7 |
 |---|---|---|
-| Page | flat lavender page | gradient atmosphere behind a frosted layer, full-bleed |
+| Page | flat lavender page | still gradient atmosphere behind a frosted layer, full-bleed (or Plain) |
 | Sidebar | 264px list with a sliding pill | expanded (icon circles + labels, white active row) or a 104px rail, with a collapse chevron and a Review option |
 | Headline | 28px | 38px Figtree, tight |
 | Figure tiles | white, pink/lavender tints | solid periwinkle, soft periwinkle, coral, white, ink |
