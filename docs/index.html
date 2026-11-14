@@ -5709,6 +5709,89 @@ html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):no
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .a6creds .a6h{margin-bottom:6px !important}
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .t6older{width:auto !important;margin:8px auto 0 !important;padding:0 22px !important;background:#fff !important;color:var(--ink) !important;border:0 !important;border-radius:999px !important;box-shadow:var(--sh-ctl) !important}
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .dgroup{border:1px solid var(--line) !important;border-radius:18px !important;box-shadow:none !important;background:#fff !important}
+/* --- Review pass 3 --- */
+/* The head keeps its rounded cover without clipping its sticky band; the three sticky bands (search, head, chips) read as one frosted group when stuck. */
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .v5head{overflow:visible !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .v5bg{border-radius:var(--r-card) !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .view[data-view="lookup"] #lookupForm::before{right:calc(-1 * var(--pin-l,0px)) !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app #lookupResult.chips-stuck .v4secbar::before{top:-8px !important;bottom:-12px !important;left:calc(-1 * var(--pin-l,0px)) !important;right:calc(-1 * var(--pin-l,0px)) !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app #lookupResult.chips-stuck .v5head::after{top:-14px !important;bottom:-10px !important;left:calc(-1 * var(--pin-l,0px)) !important;right:calc(-1 * var(--pin-l,0px)) !important}
+/* Fields inside a pill wrapper show one focus ring, on the wrapper */
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .search input:focus,html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .search input:focus-visible,html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .v6k-input:focus-visible{outline:none !important;box-shadow:none !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .search:focus-within{box-shadow:var(--sh-ctl),0 0 0 2px #fff,0 0 0 4px var(--a) !important}
+/* --- Review pass 4: things the motion-on audit found --- */
+/* A long figure keeps its full width, so the delta chip wraps under it instead of sitting on top of it */
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ov8-k .kv{flex:0 0 auto !important;min-width:0}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ov8-k .kr{row-gap:6px !important}
+/* Figure-tile titles wrap at every width instead of truncating */
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ov8-k .kl{white-space:normal !important;overflow:visible !important;text-overflow:clip !important}
+/* Data dictionary: "Blocks Phase 1" takes its own line above the priority and tier chips */
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .dtags{row-gap:4px !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .dtags .v6block{flex:0 0 100% !important;display:inline-flex;justify-content:flex-end;text-align:right}
+/* Source health: the "Needs attention" chip wraps as a whole, never mid-word */
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .sys .sync{flex-wrap:wrap;row-gap:4px}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .v6stchip{display:inline-flex;align-items:center;height:22px;padding:0 9px !important;border-radius:999px !important;white-space:nowrap}
+/* Insight tiles are separate pills, not one strip with notched corners */
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app :is(.v9tiles,.v9reach,.i8bus){gap:8px !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app :is(.v9tiles > *,.v9reach > *,.i8bus > *){border:0 !important;box-shadow:none !important}
+/* Credentials card: title and body sit together */
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .a6creds{gap:6px !important}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .a6creds .a6h{margin-bottom:0 !important}
+/* --- Review pass 5: the People table fits the width it actually has --- */
+/* Below ~1000px of table width the columns tighten, the type drops to 13px, and nothing overlaps; the laptop and rail layouts also give the content a little more room. */
+@media (max-width:1366px){
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .main{padding:22px 24px 72px !important}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .dir{padding:20px 16px 12px !important}
+}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ptable{container-type:inline-size}
+@media (min-width:981px){@container (max-width:1000px){
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ptable .prow{grid-template-columns:minmax(146px,1.6fr) minmax(110px,1.2fr) minmax(84px,.9fr) minmax(104px,1fr) minmax(72px,.8fr) minmax(96px,1fr) minmax(64px,.7fr) 92px !important;gap:10px !important;font-size:13px}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ptable .prow .pc{min-width:0;overflow:hidden}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ptable .prow .pc.who{gap:8px !important}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ptable .prow .pc.who b{font-size:13px}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ptable .prow .pc code{font-size:11px}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ptable .prow .pc small{font-size:11.5px}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ptable .prow .budots{flex-wrap:wrap;gap:3px !important}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ptable .prow .rdots{gap:3px !important}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ptable .prow .pc.act .btn{padding:0 10px !important}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ptable .prow.phead .pc{font-size:10px !important;letter-spacing:.04em}
+}}
+@media (min-width:981px){@container (max-width:860px){
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ptable .prow{grid-template-columns:minmax(140px,1.6fr) minmax(100px,1.2fr) minmax(78px,.9fr) minmax(106px,1fr) minmax(66px,.8fr) minmax(86px,1fr) minmax(58px,.7fr) 88px !important;gap:8px !important}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ptable .prow .mini-av{width:34px !important;height:34px !important}
+}}
+/* --- Review pass 6 --- */
+/* The figure's box is always as wide as its digits, so the delta chip can never sit on top of it */
+/* (V5 reuses the .kv class for the dictionary's two-column rows, which turned this figure into a 120px grid; V7 makes it a plain block again) */
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ov8-k .kv{display:block !important;grid-template-columns:none !important;width:max-content !important;max-width:100% !important}
+/* Compact People table: a name with a Minor chip wraps the chip under the name instead of cutting it */
+@media (min-width:981px){@container (max-width:1000px){
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ptable .prow .pc.who > span{min-width:0}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .ptable .prow .pc.who b{white-space:normal;line-height:1.25}
+}}
+/* --- Review pass 7: figure tiles on phones and tablets --- */
+@media (min-width:821px) and (max-width:900px){
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app #dmKpis.kpis{display:grid !important;grid-template-columns:repeat(6,minmax(0,1fr)) !important}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app #dmKpis.kpis > :nth-child(-n+3){grid-column:span 2 !important}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app #dmKpis.kpis > :nth-child(n+4){grid-column:span 3 !important}
+}
+@media (max-width:480px){
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .kpis{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .kpis > *{grid-column:auto !important;min-width:0}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .kpis > :nth-child(5):last-child{grid-column:1 / -1 !important}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .kpi{padding:16px !important}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app :is(.kpi .v,.kpi .odo){font-size:28px !important}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .kpi .k{white-space:normal !important;overflow:visible !important}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .kpi .d.up,html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .kpi .d.dn{white-space:nowrap}
+}
+/* --- Review pass 8: phone tap targets --- */
+@media (max-width:480px){
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .v6pbx{min-width:40px !important;min-height:40px !important}
+}
+@media (max-width:820px){
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .id{min-width:40px;min-height:40px}
+}
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .a6creds .a6note{margin-top:0 !important}
 </style>
 <style id="ugtab">@media (max-width:640px){html[data-v7][data-v6] #ptabs #tab-academic .v4tabl{white-space:normal;line-height:1.1;text-align:center;max-width:84px;display:inline-block}html[data-v7][data-v6] #ptabs #tab-academic{white-space:normal}}</style>
 <style id="ugc-css">
@@ -12604,7 +12687,7 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
       var step = function (t) { var k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = fmtLike(txt, from + (to - from) * e); if (k < 1) el.__v8raf = requestAnimationFrame(step); else { el.textContent = txt; el.__v8raf = null; } };
       el.__v8raf = requestAnimationFrame(step);
     }
-    function numEls(root) { return $$(".ov8-k .kv, .kpi .v, .ov8-sm b, .v9t b", root).filter(function (e) { return NUMRX.test(e.textContent) && !/[a-zA-Z]{3,}/.test(e.textContent.replace(/[LK]$/, "")); }); }
+    function numEls(root) { return $$(".ov8-k .kv, .kpi .v, .ov8-sm b, .v9t b", root).filter(function (e) { return !e.querySelector(".odo, .od") && !e.closest(".odo") && NUMRX.test(e.textContent) && !/[a-zA-Z]{3,}/.test(e.textContent.replace(/[LK]$/, "")); }); } // odometers animate themselves
     function countUp(view) { if (REDUCED) return; numEls(view).forEach(function (e) { var m = NUMRX.exec(e.textContent); var to = parseFloat(m[1].replace(/,/g, "")); if (isNaN(to)) return; tween(e, 0, to, 700); }); }
     function keyOf(e, root) { var p = []; var n = e; while (n && n !== root) { var i = 0, s = n; while ((s = s.previousElementSibling)) i++; p.unshift(n.tagName + i); n = n.parentElement; } return p.join("/"); }
     function snapshot(root) { var m = {}; numEls(root).forEach(function (e) { m[keyOf(e, root)] = e.textContent; }); return m; }

@@ -34,6 +34,21 @@ The references were the shared dashboard video (coloured figure tiles, pill tabs
 - The Data dictionary groups inside "All items" get a hairline frame so they read as groups on the white card.
 - The Credentials card no longer has a gap under its title.
 
+## 3b. Review notes (third pass, with motion on)
+
+The earlier passes were checked with motion off, which hid two of these. Everything below was reproduced in the browser before and after the fix.
+
+- **People figure tiles showed a stack of digits** ("0123456789…"): V6's count-up was also feeding the odometer tiles, which animate themselves. The count-up now leaves odometers alone (a V6 change; V6 looked right only because its odometers were 28px and the stack never broke out of the tile).
+- **A second focus ring inside the search pills** (People filter, Look up field): the inner input's own ring is gone; the pill shows one ring.
+- **Rows showing through the stuck chip bar** on Look up: the three sticky bands (search, head, section chips) are 94% white with a blur and extend to the main column's edges, so scrolling content passes under them.
+- **The 12-month figure ran under its delta chip** ("13,83,163 ↑4.2%"): V5 reuses the `.kv` class for the Data dictionary's two-column rows, which turned the Overview figure into a 120px grid. V7 makes it a plain block, so a long figure wraps the chip beneath it. (Latent in V5 and V6, visible there only on the longest figures.)
+- **The People table overlapped its own columns** at 1280 with the expanded sidebar and at 1024 with the rail (V6 has the same overlap at 1280). Below 1000px of table width the table switches to a compact template: tighter columns, 13px type, wrapping business chips, a smaller Open button; the laptop and rail layouts also give the content more room. Below 981px V5's card rows take over as before.
+- **Data dictionary chips** wrapped awkwardly ("Blocks Phase 1 P0" / "T0"): the blocker chip takes its own line above the priority and tier chips. **"Needs attention"** broke mid-word in Source health: it wraps as a whole chip. The dictionary's groups keep their hairline frames.
+- **Insights tiles** (Summary figures, Before you reach out) showed notched corners where tiles touched: they are separate pills with an 8px gap.
+- **Figure-tile titles** truncated with an ellipsis on tablets ("Median days to en…"): they wrap.
+- **Phones**: the People and Data dictionary tiles sat in a narrow/wide pair; they are two equal columns with the fifth tile full width. Tablets get the same 3+2 tile layout on the Data dictionary as on People.
+- **Credentials card**: the gap under its title is gone.
+
 ## 4. What did not change
 
 Content, data, copy, routes, tabs, sections, sorting, filters, dialogs, toasts, the command palette, the Review panel, the sample people. The three V6 behaviour fixes (popover outside-click, "Show all types", inline validation) carry over unchanged.
@@ -44,12 +59,12 @@ Playwright (Chromium), 1440×900 unless stated.
 
 | Check | Result |
 |---|---|
-| V1–V6 unchanged (screenshots vs HEAD) | 14 of 14 identical |
+| V1–V6 unchanged (screenshots vs HEAD, motion off; the V6 count-up change affects only its animation) | 14 of 14 identical |
 | Horizontal overflow at 1440 / 1280 / 1024 / 834 / 390 | none |
 | Cumulative layout shift: first load, period change, menu open, People first visit, sort, tab switch | 0 on all |
 | Focusables without a visible ring (Look up, Overview, People) | 0 of 80 |
 | Reduced motion: animations running on all 8 screens | 0 |
-| Transitions on layout properties | 0 |
+| Transitions on layout properties | 1: the sidebar's own expand/collapse (350ms on its width, a deliberate exception) |
 | Animations 3.5s after load (should be only the backdrop) | only the backdrop drift and V5's live dots |
 | Fixed elements inside the frosted layer (its backdrop filter would capture them) | none |
 | Console errors across every screen | 0 |
