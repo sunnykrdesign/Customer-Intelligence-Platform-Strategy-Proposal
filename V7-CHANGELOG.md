@@ -9,7 +9,7 @@ The references were the shared dashboard video (coloured figure tiles, pill tabs
 ## 1. The look
 
 - **Atmosphere.** The page is a still, soft periwinkle → lavender → peach gradient seen through a frosted white layer (78% white, 40px blur). Nothing in it moves: an earlier draft drifted three blurred blobs and leaned the backdrop with the pointer, which read as jitter behind the data and was removed. The app is full-bleed on every width (an earlier draft floated it in a rounded frame; that was dropped for desktop).
-- **The sidebar.** Two modes, chosen in Review → V7 sidebar or with the chevron on the sidebar's edge, remembered per browser. **Expanded** (the default, 276px): the upGrad Intelligence wordmark, a full-width search pill, five rows of a 40px icon circle plus a 14px label, the current page as a white row with a filled periwinkle icon, the audit count as a rose badge at the row's end, and the user's name and team at the bottom. **Rail** (104px): the red upGrad mark, a round search button and five round white icon buttons; the current page is a filled periwinkle circle with a white duotone icon; the audit count sits on the icon's corner; labels, the search shortcut and the user's name stay as tooltips and accessible names. Tablets (821–1100px) always use the rail; phones keep a floating frosted pill bar with the same filled active icon.
+- **The sidebar.** It reads as its own panel: a hairline edge and a soft shadow separate it from the content, whatever the shade. Two layouts, chosen in Review → V7 sidebar layout or with the chevron on the sidebar's edge, remembered per browser. **Expanded** (the default, 276px): the upGrad Intelligence wordmark, a full-width search pill, five rows of a 40px icon circle plus a 14px label, the current page as a white row with a filled periwinkle icon, the audit count as a rose badge at the row's end, and the user's name and team at the bottom. **Rail** (104px): the red upGrad mark, a round search button and five round white icon buttons; the current page is a filled periwinkle circle with a white duotone icon; the audit count sits on the icon's corner; labels, the search shortcut and the user's name stay as tooltips and accessible names. Tablets (821–1100px) always use the rail; phones keep a floating frosted pill bar with the same filled active icon. Four shades, chosen in Review → V7 sidebar shade (the row V4 used for its sidebar; every option now does something in V7): **Frosted** (default: white glass with a hairline, soft periwinkle current row), **Tinted** (solid periwinkle panel, white controls and current row), **Dark** (deep indigo, light text, the current icon glows periwinkle) and **Ink** (near-black, grey text, a white bar marks the current page). The dark shades keep a white keyboard focus ring.
 - **Type.** Headlines in Figtree at 38px (30px on phones), tight tracking; section titles 24px; figures 34px with tabular numbers (inherited from V6).
 - **Figure tiles.** On Overview, People and Data dictionary the first tile is solid periwinkle, the second soft periwinkle, the third coral, the rest white; the fifth People/Data tile is ink. Gradients run dark → light from the top-left corner so the labels sit on the darker end. Icons, deltas and sparklines inside coloured tiles turn white. Tiles lift on hover.
 - **Surfaces.** Cards lose their borders and get 24px corners and one soft, periwinkle-tinted shadow; inner tiles (summary figures, chapter cards, insight tiles) sit on a pale well. The Directory card gets its own padding; the audit hero on UG learning journey is a navy gradient with white stat tiles; the Look up head card is frosted glass on a soft gradient cover; the sticky bands behind the Look up search and section chips are frosted glass rather than the page colour.
@@ -54,6 +54,10 @@ The earlier passes were checked with motion off, which hid two of these. Everyth
 
 The moving gradient looked uneven and got in the way of reading data. The backdrop is now a still, layered CSS gradient with no blur filter (which also removes the banding and the cost of re-blurring the whole page every frame), and the frosted layer over the content is whiter. (A Plain-backdrop option was offered briefly and removed once the soft gradient was approved.)
 
+## 3d. Review note (sidebar)
+
+The frosted sidebar and the content column were the same tone, so they faded into each other. The sidebar is now a panel in its own right (hairline edge, soft shadow), and the Review panel's old V4 "Sidebar" row, of which only Current and Ink did anything in V7, drives four working V7 shades: Frosted, Tinted, Dark and Ink. The layout row is named "V7 sidebar layout" and the shade row sits under it.
+
 ## 4. What did not change
 
 Content, data, copy, routes, tabs, sections, sorting, filters, dialogs, toasts, the command palette, the Review panel, the sample people. The three V6 behaviour fixes (popover outside-click, "Show all types", inline validation) carry over unchanged.
@@ -81,7 +85,7 @@ Contrast was measured per text node against its nearest solid background. The me
 | | V6 | V7 |
 |---|---|---|
 | Page | flat lavender page | still gradient atmosphere behind a frosted layer, full-bleed |
-| Sidebar | 264px list with a sliding pill | expanded (icon circles + labels, white active row) or a 104px rail, with a collapse chevron and a Review option |
+| Sidebar | 264px list with a sliding pill | a panel with a hairline edge; expanded (icon circles + labels) or a 104px rail; four shades (Frosted, Tinted, Dark, Ink) |
 | Headline | 28px | 38px Figtree, tight |
 | Figure tiles | white, pink/lavender tints | solid periwinkle, soft periwinkle, coral, white, ink |
 | Cards | 16px, hairline border | 24px, no border, soft tinted shadow, pale inner wells |

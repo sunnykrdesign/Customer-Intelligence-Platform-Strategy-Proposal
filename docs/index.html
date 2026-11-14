@@ -5506,7 +5506,7 @@ html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .app{position:relati
 html[data-v10] .review,html[data-v10] .v6pal,html[data-v10] #toast,html[data-v10] #ov8tip{z-index:1200}
 /* --- The rail: round icon buttons with small labels, the current page filled --- */
 @media (min-width:821px){
-  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side{flex:0 0 104px !important;width:104px !important;position:sticky !important;top:0 !important;height:100vh !important;padding:22px 14px 18px !important;gap:18px !important;align-items:center !important;background:transparent !important;border-right:1px solid rgba(255,255,255,.6) !important;box-shadow:none !important}
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side{flex:0 0 104px !important;width:104px !important;position:sticky !important;top:0 !important;height:100vh !important;padding:22px 14px 18px !important;gap:18px !important;align-items:center !important}
   html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .top{width:auto;padding:0}
   html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .brand{display:flex;flex-direction:column;align-items:center;gap:7px;font-size:0 !important;line-height:1}
   html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5) .side .brand .up{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#EE2C3C,#BE2330);color:#fff !important;font:600 15px/1 var(--font-d);letter-spacing:-.02em;box-shadow:0 12px 22px -10px rgba(190,35,48,.65)}
@@ -5788,6 +5788,75 @@ html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):no
   html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .id{min-width:40px;min-height:40px}
 }
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .a6creds .a6note{margin-top:0 !important}
+/* ===== Sidebar shades (Review → V7 sidebar shade). Four looks that each stand apart from the content: Frosted (default), Tinted, Dark, Ink. ===== */
+@media (min-width:821px){
+  /* shared: the panel is a panel */
+  html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side{box-shadow:12px 0 40px -32px rgba(31,34,72,.45) !important;transition:flex-basis .35s var(--ease-soft),width .35s var(--ease-soft),background .25s}
+  /* --- Frosted: white glass, hairline, soft periwinkle active row --- */
+  html[data-v10]:not([data-v7sb="darker"]):not([data-v7sb="darkest"]):not([data-v7sb="ink"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side{background:rgba(255,255,255,.7) !important;backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border-right:1px solid rgba(21,22,28,.08) !important}
+  html[data-v10]:not([data-v7sb="darker"]):not([data-v7sb="darkest"]):not([data-v7sb="ink"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a:not([aria-current="page"]) .ni svg{background:var(--well) !important;box-shadow:none !important}
+  html[data-v10]:not([data-v7sb="darker"]):not([data-v7sb="darkest"]):not([data-v7sb="ink"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .v6k-btn{background:var(--well) !important;box-shadow:none !important}
+  html[data-v10]:not([data-v7sb="darker"]):not([data-v7sb="darkest"]):not([data-v7sb="ink"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a[aria-current="page"]{background:var(--a-xs) !important;box-shadow:none !important}
+  html[data-v10]:not([data-v7sb="darker"]):not([data-v7sb="darkest"]):not([data-v7sb="ink"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a:not([aria-current="page"]):hover{background:rgba(21,22,28,.045) !important}
+  html[data-v10]:not([data-v7sb="darker"]):not([data-v7sb="darkest"]):not([data-v7sb="ink"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a:hover .ni svg{transform:none;box-shadow:none}
+  html[data-v10]:not([data-v7sb="darker"]):not([data-v7sb="darkest"]):not([data-v7sb="ink"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .id:hover{background:rgba(21,22,28,.045)}
+  html[data-v10]:not([data-v7sb="darker"]):not([data-v7sb="darkest"]):not([data-v7sb="ink"]):not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .av{box-shadow:none}
+  /* --- Tinted: a solid periwinkle panel, white controls, white active row --- */
+  html[data-v10][data-v7sb="darker"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side{background:#E6E8F8 !important;border-right:1px solid rgba(21,22,28,.06) !important}
+  html[data-v10][data-v7sb="darker"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a:not([aria-current="page"]) .ni svg{background:#fff !important;box-shadow:0 1px 2px rgba(31,34,72,.08) !important}
+  html[data-v10][data-v7sb="darker"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a[aria-current="page"]{background:#fff !important;box-shadow:var(--sh-ctl) !important}
+  html[data-v10][data-v7sb="darker"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a:not([aria-current="page"]):hover{background:rgba(255,255,255,.6) !important}
+  html[data-v10][data-v7sb="darker"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .v6k-btn{background:#fff !important}
+  /* --- Dark: deep indigo, light text, luminous active icon --- */
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side{background:linear-gradient(180deg,#2F3268 0%,#23264F 100%) !important;border-right:1px solid rgba(255,255,255,.06) !important}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .brand .tail,html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .brand{color:#fff !important}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .brand .up{color:#F58A94 !important}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .v6k-btn{background:rgba(255,255,255,.1) !important;color:#D4D7F0 !important;box-shadow:none !important}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .v6k-btn kbd{background:rgba(255,255,255,.12) !important;color:#C5C9EA !important}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a{color:#CBCFF0 !important}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a:not([aria-current="page"]) .ni svg{background:rgba(255,255,255,.1) !important;color:#E8EAFA !important;box-shadow:none !important}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a:not([aria-current="page"]):hover{background:rgba(255,255,255,.07) !important}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a:not([aria-current="page"]):hover .ni svg{background:rgba(255,255,255,.16) !important}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a[aria-current="page"]{background:rgba(255,255,255,.12) !important;color:#fff !important;box-shadow:none !important}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a[aria-current="page"] .ni svg{background:linear-gradient(145deg,#8E97F0,#5C65C8) !important;color:#fff !important;box-shadow:0 10px 24px -10px rgba(142,151,240,.9) !important}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a .count{box-shadow:0 0 0 2px #2A2D5C}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .nm b{color:#fff !important}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .nm span{color:#AEB2D6 !important}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .id:hover{background:rgba(255,255,255,.07)}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .av{box-shadow:0 0 0 2px rgba(255,255,255,.14)}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .id::after{border-color:#AEB2D6}
+  /* --- Ink: near-black, grey text, a white bar marks the current page --- */
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side{background:#15161C !important;border-right:1px solid rgba(255,255,255,.07) !important}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .brand .tail,html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .brand{color:#fff !important}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .brand .up{color:#F15663 !important}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .v6k-btn{background:rgba(255,255,255,.07) !important;color:#C6C7D2 !important;box-shadow:none !important}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .v6k-btn kbd{background:rgba(255,255,255,.1) !important;color:#AEB0BC !important}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a{position:relative;color:#C6C7D2 !important}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a:not([aria-current="page"]) .ni svg{background:rgba(255,255,255,.08) !important;color:#E6E7EE !important;box-shadow:none !important}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a:not([aria-current="page"]):hover{background:rgba(255,255,255,.06) !important}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a[aria-current="page"]{background:rgba(255,255,255,.08) !important;color:#fff !important;box-shadow:none !important}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a[aria-current="page"] .ni svg{background:#fff !important;color:#15161C !important;box-shadow:none !important}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a[aria-current="page"]::after{content:"";position:absolute;left:-16px;top:50%;width:4px;height:24px;margin-top:-12px;border-radius:0 4px 4px 0;background:#fff;pointer-events:none}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a .count{box-shadow:0 0 0 2px #15161C}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .nm b{color:#fff !important}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .nm span{color:#9FA1AC !important}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .id:hover{background:rgba(255,255,255,.06)}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .av{box-shadow:0 0 0 2px rgba(255,255,255,.12)}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .id::after{border-color:#9FA1AC}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side :is(a,button,[tabindex]):focus-visible,html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side :is(a,button,[tabindex]):focus-visible{outline-color:#fff !important}
+  /* the fold chevron stays readable on every panel */
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .v10-fold,html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .v10-fold{color:var(--ink);box-shadow:0 0 0 1px rgba(21,22,28,.06),var(--sh-ctl)}
+}
+@media (min-width:821px) and (max-width:1100px){
+  /* the rail: the current page is the gradient circle alone */
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a[aria-current="page"]{background:transparent !important}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .nav a[aria-current="page"]::after{left:-14px}
+}
+@media (min-width:1101px){
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8)[data-v10nav="rail"] .side .nav a[aria-current="page"]{background:transparent !important}
+  html[data-v10][data-v7sb="ink"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8)[data-v10nav="rail"] .side .nav a[aria-current="page"]::after{left:-14px}
+  html[data-v10][data-v7sb="darkest"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8)[data-v10nav="rail"] .side .nav a[aria-current="page"]{background:transparent !important}
+}
 </style>
 <style id="ugtab">@media (max-width:640px){html[data-v7][data-v6] #ptabs #tab-academic .v4tabl{white-space:normal;line-height:1.1;text-align:center;max-width:84px;display:inline-block}html[data-v7][data-v6] #ptabs #tab-academic{white-space:normal}}</style>
 <style id="ugc-css">
@@ -12846,6 +12915,18 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
       vsec.insertAdjacentElement("afterend", row);
     }
     navMode(NAV10);
+    // The V4 "Sidebar" row (Current / Darker / Darkest / Ink) drives V7's four shades; it gets V7 names and notes.
+    (function () {
+      var srow = $(".rv-v7sb"); if (!srow) return;
+      var NAMES = { current: "Frosted", darker: "Tinted", darkest: "Dark", ink: "Ink" };
+      var NOTES = { current: "White glass with a hairline; the current page is a soft periwinkle row.", darker: "A solid periwinkle panel; white controls and a white current row.", darkest: "Deep indigo with light text; the current page glows periwinkle.", ink: "Near-black with grey text; a white bar marks the current page." };
+      var k = $(".rv-k", srow); if (k) k.textContent = "V7 sidebar shade";
+      $$("[data-sb7]", srow).forEach(function (b) { var v = b.getAttribute("data-sb7"); if (NAMES[v]) b.textContent = NAMES[v]; });
+      var note = function () { var n = $(".rv-note", srow), on = $('[data-sb7][aria-pressed="true"]', srow); if (n && on && NOTES[on.getAttribute("data-sb7")]) n.textContent = NOTES[on.getAttribute("data-sb7")]; };
+      note(); document.addEventListener("click", function (e) { if (e.target.closest && e.target.closest(".rv-v7sb [data-sb7]")) setTimeout(note, 0); });
+      var lrow = $(".rv-v10nav .rv-k"); if (lrow) lrow.textContent = "V7 sidebar layout";
+      var layoutRow = $(".rv-v10nav"); if (layoutRow) layoutRow.insertAdjacentElement("afterend", srow); // the shade row sits next to the layout row
+    })();
     // 1. The backdrop: a still, soft gradient behind the frosted app (it used to drift and lean with the pointer; that read as jitter behind data).
     var bg = document.createElement("div"); bg.className = "v10-bg"; bg.setAttribute("aria-hidden", "true");
     document.body.insertBefore(bg, document.body.firstChild);
