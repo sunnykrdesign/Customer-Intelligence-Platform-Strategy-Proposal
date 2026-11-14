@@ -8,7 +8,7 @@ The references were the shared dashboard video (coloured figure tiles, pill tabs
 
 ## 1. The look
 
-- **Atmosphere.** The page is a still, soft periwinkle → lavender → peach gradient seen through a frosted white layer (78% white, 40px blur). Nothing in it moves: an earlier draft drifted three blurred blobs and leaned the backdrop with the pointer, which read as jitter behind the data and was removed. Review → V7 backdrop switches to a plain flat page. The app is full-bleed on every width (an earlier draft floated it in a rounded frame; that was dropped for desktop).
+- **Atmosphere.** The page is a still, soft periwinkle → lavender → peach gradient seen through a frosted white layer (78% white, 40px blur). Nothing in it moves: an earlier draft drifted three blurred blobs and leaned the backdrop with the pointer, which read as jitter behind the data and was removed. The app is full-bleed on every width (an earlier draft floated it in a rounded frame; that was dropped for desktop).
 - **The sidebar.** Two modes, chosen in Review → V7 sidebar or with the chevron on the sidebar's edge, remembered per browser. **Expanded** (the default, 276px): the upGrad Intelligence wordmark, a full-width search pill, five rows of a 40px icon circle plus a 14px label, the current page as a white row with a filled periwinkle icon, the audit count as a rose badge at the row's end, and the user's name and team at the bottom. **Rail** (104px): the red upGrad mark, a round search button and five round white icon buttons; the current page is a filled periwinkle circle with a white duotone icon; the audit count sits on the icon's corner; labels, the search shortcut and the user's name stay as tooltips and accessible names. Tablets (821–1100px) always use the rail; phones keep a floating frosted pill bar with the same filled active icon.
 - **Type.** Headlines in Figtree at 38px (30px on phones), tight tracking; section titles 24px; figures 34px with tabular numbers (inherited from V6).
 - **Figure tiles.** On Overview, People and Data dictionary the first tile is solid periwinkle, the second soft periwinkle, the third coral, the rest white; the fifth People/Data tile is ink. Gradients run dark → light from the top-left corner so the labels sit on the darker end. Icons, deltas and sparklines inside coloured tiles turn white. Tiles lift on hover.
@@ -52,7 +52,7 @@ The earlier passes were checked with motion off, which hid two of these. Everyth
 
 ## 3c. Review note (backdrop)
 
-The moving gradient looked uneven and got in the way of reading data. The backdrop is now a still, layered CSS gradient with no blur filter (which also removes the banding and the cost of re-blurring the whole page every frame), the frosted layer over the content is whiter, and Review → V7 backdrop offers a plain flat page.
+The moving gradient looked uneven and got in the way of reading data. The backdrop is now a still, layered CSS gradient with no blur filter (which also removes the banding and the cost of re-blurring the whole page every frame), and the frosted layer over the content is whiter. (A Plain-backdrop option was offered briefly and removed once the soft gradient was approved.)
 
 ## 4. What did not change
 
@@ -80,7 +80,7 @@ Contrast was measured per text node against its nearest solid background. The me
 
 | | V6 | V7 |
 |---|---|---|
-| Page | flat lavender page | still gradient atmosphere behind a frosted layer, full-bleed (or Plain) |
+| Page | flat lavender page | still gradient atmosphere behind a frosted layer, full-bleed |
 | Sidebar | 264px list with a sliding pill | expanded (icon circles + labels, white active row) or a 104px rail, with a collapse chevron and a Review option |
 | Headline | 28px | 38px Figtree, tight |
 | Figure tiles | white, pink/lavender tints | solid periwinkle, soft periwinkle, coral, white, ink |

@@ -5788,11 +5788,6 @@ html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):no
   html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side .me .id{min-width:40px;min-height:40px}
 }
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .a6creds .a6note{margin-top:0 !important}
-/* --- Backdrop option (Review → V7 backdrop): Plain is a flat light page with no gradient --- */
-html[data-v10][data-v10bg="plain"],html[data-v10][data-v10bg="plain"] body{background:#F3F3F8 !important}
-html[data-v10][data-v10bg="plain"] .v10-bg{display:none}
-html[data-v10][data-v10bg="plain"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .app{background:#F3F3F8 !important;backdrop-filter:none;-webkit-backdrop-filter:none}
-html[data-v10][data-v10bg="plain"]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) .side{border-right-color:rgba(21,22,28,.06) !important}
 </style>
 <style id="ugtab">@media (max-width:640px){html[data-v7][data-v6] #ptabs #tab-academic .v4tabl{white-space:normal;line-height:1.1;text-align:center;max-width:84px;display:inline-block}html[data-v7][data-v6] #ptabs #tab-academic{white-space:normal}}</style>
 <style id="ugc-css">
@@ -12849,24 +12844,11 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
       row.innerHTML = '<span class="rv-k">V7 sidebar</span><div class="rv-seg" role="group" aria-label="V7 sidebar"><button type="button" data-v10nav="wide">Expanded</button><button type="button" data-v10nav="rail">Rail</button></div><p class="rv-note"></p>';
       row.addEventListener("click", function (e) { var b = e.target.closest("[data-v10nav]"); if (!b) return; navMode(b.getAttribute("data-v10nav"), true); if (typeof navInd === "function") setTimeout(navInd, 400); });
       vsec.insertAdjacentElement("afterend", row);
-      var brow = document.createElement("div"); brow.className = "rv-sec rv-v10bg";
-      brow.innerHTML = '<span class="rv-k">V7 backdrop</span><div class="rv-seg" role="group" aria-label="V7 backdrop"><button type="button" data-v10bg="soft">Soft gradient</button><button type="button" data-v10bg="plain">Plain</button></div><p class="rv-note"></p>';
-      brow.addEventListener("click", function (e) { var b = e.target.closest("[data-v10bg]"); if (!b) return; bgMode(b.getAttribute("data-v10bg"), true); });
-      row.insertAdjacentElement("afterend", brow);
     }
     navMode(NAV10);
     // 1. The backdrop: a still, soft gradient behind the frosted app (it used to drift and lean with the pointer; that read as jitter behind data).
     var bg = document.createElement("div"); bg.className = "v10-bg"; bg.setAttribute("aria-hidden", "true");
     document.body.insertBefore(bg, document.body.firstChild);
-    var BG10 = "soft"; try { BG10 = localStorage.getItem("cip-v10bg") || "soft"; } catch (e) {}
-    function bgMode(m, keep) {
-      BG10 = m === "plain" ? "plain" : "soft";
-      if (BG10 === "plain") H10.setAttribute("data-v10bg", "plain"); else H10.removeAttribute("data-v10bg");
-      if (keep) { try { localStorage.setItem("cip-v10bg", BG10); } catch (e) {} }
-      $$("[data-v10bg]", document.getElementById("review") || document).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v10bg") === BG10); });
-      var note = $(".rv-v10bg .rv-note"); if (note) note.textContent = BG10 === "plain" ? "A flat light page, no gradient." : "A still periwinkle-to-peach gradient behind a frosted white layer. Nothing moves.";
-    }
-    bgMode(BG10);
     // 2. The rail shows icons; the labels it hides stay available as tooltips and accessible names.
     var kb = $(".side .v6k-btn"); if (kb) { kb.setAttribute("aria-label", "Search all (Ctrl K)"); kb.title = "Search all · Ctrl K"; }
     var meId = $(".side .me .id");
