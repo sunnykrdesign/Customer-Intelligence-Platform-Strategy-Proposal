@@ -71,6 +71,16 @@ Every earlier V7 check of Look up forced the Folding header layout. V5's default
 
 The section cards themselves (Identity, Personal, Education, Career, Financial, Consent) were checked for all six sample people, including the worst-case density profile and the under-18 profile, at 1440, 1280 and 1100, with no clipped or overlapping text.
 
+## 3f. Review note (Look up tabs: spacing, type, UG learning journey, Activity)
+
+Measured rather than eyeballed this time: chip gaps, every font size and weight on each tab, and every container's padding.
+
+- **Chips** (profile sections, Activity filters, the card's channel icons): 36px pills with 10–12px between them and a lighter shadow, so neighbours no longer read as one fused strip.
+- **Type**: one scale across the Look up tabs (12 / 13 / 14 / 16 / 20), 600 as the heaviest weight (the 700s on chapter years, month names and badges are gone), no half-pixel sizes (12.5px) left.
+- **UG learning journey**: the navy hero repeated "module 6 of 10" four times (ring, subtitle, a "Now" pill, a stat tile) in floating white boxes of unequal height. It is now a light card: the progress ring, the status chips, the programme title and one summary line, then a facts strip (Progress, Result, Enrolled, Status) separated by hairlines. The "Now" pill is gone. Courses are a list of rows with hairlines instead of grey boxes inside a white box; the Credentials card is compact.
+- **Activity**: event rows separated by hairlines with consistent 12px padding (they had none and relied on a connector line); month labels are small caps; the per-event "Details" pill became a quiet "Details ›" link; filter chips match the profile chips.
+- Checked at 1440, 834 and 390 with motion on; V1–V6 unchanged.
+
 ## 4. What did not change
 
 Content, data, copy, routes, tabs, sections, sorting, filters, dialogs, toasts, the command palette, the Review panel, the sample people. The three V6 behaviour fixes (popover outside-click, "Show all types", inline validation) carry over unchanged.
