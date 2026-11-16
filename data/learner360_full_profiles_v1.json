@@ -1,0 +1,4338 @@
+{
+  "_about": {
+    "what": "Complete Learner 360 profiles for two new sample leads (not existing users): every model v7 attribute, the full milestone activity from Activity_Fields_v1, and all 22 insights. Names, companies, IDs and numbers are invented.",
+    "sections": "header · learner_profile · academic_skill_profile · activity · insights · stored_not_shown",
+    "values": "Each attribute: value, source_system, source_label (Heard shows as \"Counselling call on {date}\"), source_field, added_at, confidence, tier, shown_on_ui; T2 values carry display = \"Restricted\". Unfilled attributes say \"Not captured\" or \"Not applicable\" with the reason."
+  },
+  "people": [
+    {
+      "person_id": "upg_A4K7L2N9",
+      "sample": true,
+      "existing_user": false,
+      "header": {
+        "name": "Aditya Kulkarni",
+        "journey": "Internshala → WP",
+        "headline": "Associate software engineer in Pune · learning Data Science and AI with upGrad",
+        "life_stage": "Early career",
+        "age_band": "25–34",
+        "city": "Pune",
+        "known_since": "2021-08",
+        "is_minor": false,
+        "businesses": [
+          {
+            "business": "Internshala",
+            "state": "Alumnus",
+            "since": "2021-11"
+          },
+          {
+            "business": "Working Professionals",
+            "state": "Learning",
+            "since": "2025-03"
+          }
+        ],
+        "life_stages": [
+          {
+            "stage": "B.Tech student, Indore",
+            "from": "2021-08",
+            "to": "2023-05"
+          },
+          {
+            "stage": "Early career, software engineer",
+            "from": "2023-07",
+            "to": null
+          }
+        ]
+      },
+      "summary": "Signed up on Internshala as a 2nd-year B.Tech student, completed a Web Development training and found his internship there. Graduated in 2023 and started work. Eighteen months in, an Internshala alumni email introduced him to WP; after a webinar and two counselling calls he applied, enrolled on an EMI and started learning three days later. 91% through today.",
+      "stored_not_shown": {
+        "owning_business": {
+          "business": "Working Professionals",
+          "team": "WP learner success"
+        },
+        "profile_completeness_pct": 88
+      },
+      "learner_profile": {
+        "Identity & contact": [
+          {
+            "attribute": "Global person ID",
+            "value": "upg_A4K7L2N9",
+            "source_system": "Derived",
+            "source_field": "computed by the layer",
+            "added_at": "2025-02-11",
+            "confidence": "derived",
+            "source_label": "Derived",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Emails (all known)",
+            "value": "aditya.k@example.com",
+            "source_system": "Prism",
+            "source_field": "users.email",
+            "added_at": "2025-03-14",
+            "confidence": "declared",
+            "tier": "T1",
+            "display": "a•••••@example.com",
+            "conflict": "Same email on Internshala since 2021. Sources agree.",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Email verified",
+            "value": "Yes",
+            "source_system": "Prism",
+            "source_field": "users.isEmailVerified",
+            "added_at": "2025-03-14",
+            "confidence": "observed",
+            "tier": "T0",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Phones (all known)",
+            "value": "+91 98930 22418",
+            "source_system": "Prism",
+            "source_field": "users.mobile",
+            "added_at": "2025-03-14",
+            "confidence": "declared",
+            "tier": "T1",
+            "display": "+91 98•••••418",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Phone verified",
+            "value": "Yes",
+            "source_system": "Prism",
+            "source_field": "users.isMobileVerify",
+            "added_at": "2025-03-14",
+            "confidence": "observed",
+            "tier": "T0",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Linked system IDs",
+            "value": "Internshala user IS-1822904; Internshala student ST-1640077; Trainings user TU-401266; LSQ WP lead 4120558; Prism user 65f0…a2d1; OMS user 2988140",
+            "source_system": "Derived",
+            "source_field": "computed by the layer",
+            "added_at": "2025-03-14",
+            "confidence": "observed",
+            "tier": "T1",
+            "source_label": "Derived",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Owning business",
+            "value": "Working Professionals · learner success",
+            "source_system": "Derived",
+            "source_field": "computed by the layer",
+            "added_at": "2025-03-14",
+            "confidence": "derived",
+            "source_label": "Derived",
+            "tier": "T0",
+            "shown_on_ui": "No (stored)"
+          },
+          {
+            "attribute": "Device and ad identifiers",
+            "value": "1 Google client ID",
+            "source_system": "LSQ",
+            "source_field": "mx_Google_Client_ID",
+            "added_at": "2025-02-11",
+            "confidence": "observed",
+            "tier": "T1",
+            "source_label": "LSQ",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Name",
+            "value": "Aditya Kulkarni",
+            "source_system": "Prism",
+            "source_field": "users.firstName",
+            "added_at": "2025-03-14",
+            "confidence": "declared",
+            "tier": "T1",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          }
+        ],
+        "Personal details": [
+          {
+            "attribute": "Age band + is_minor",
+            "value": "25–34 · not a minor",
+            "source_system": "Prism",
+            "source_field": "users.dateOfBirth",
+            "added_at": "2025-03-14",
+            "confidence": "derived",
+            "tier": "T2",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes",
+            "display": "Restricted"
+          },
+          {
+            "attribute": "Life stage",
+            "value": "Early career · student until May 2023, working since Jul 2023",
+            "source_system": "Internshala",
+            "source_field": "internshala.students_colleges.is_pursuing",
+            "added_at": "2023-07-01",
+            "confidence": "derived",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "City / state",
+            "value": "Pune, Maharashtra",
+            "source_system": "Prism",
+            "source_field": "users.city",
+            "added_at": "2025-03-14",
+            "confidence": "declared",
+            "tier": "T0",
+            "conflict": "Internshala (2021) says Indore, where he studied. Newer Prism value wins.",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Country of residence",
+            "value": "India",
+            "source_system": "Prism",
+            "source_field": "users.country",
+            "added_at": "2025-03-14",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Detected location",
+            "value": "Pune, Maharashtra (IP)",
+            "source_system": "LSQ",
+            "source_field": "mx_Detected_City",
+            "added_at": "2025-02-11",
+            "confidence": "observed",
+            "source_label": "LSQ",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Timezone",
+            "value": "IST (Asia/Kolkata)",
+            "source_system": "Prism",
+            "source_field": "users.timezone",
+            "added_at": "2025-03-14",
+            "confidence": "observed",
+            "tier": "T0",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Language",
+            "value": "Not captured (no source for WP leads)",
+            "source_system": "—",
+            "source_field": "—",
+            "added_at": "—",
+            "confidence": "—",
+            "source_label": "—",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Nationality / citizenship",
+            "value": "Indian",
+            "source_system": "Prism",
+            "source_field": "users.nationality",
+            "added_at": "2025-03-14",
+            "confidence": "declared",
+            "source_label": "Prism",
+            "tier": "T2",
+            "shown_on_ui": "Yes",
+            "display": "Restricted"
+          },
+          {
+            "attribute": "Gender",
+            "value": "Male",
+            "source_system": "Prism",
+            "source_field": "users.gender",
+            "added_at": "2025-03-14",
+            "confidence": "declared",
+            "tier": "T2",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes",
+            "display": "Restricted"
+          },
+          {
+            "attribute": "Platform account status",
+            "value": "Prism: active since Mar 2025 · Internshala: active since Aug 2021",
+            "source_system": "Prism",
+            "source_field": "users.status",
+            "added_at": "2025-03-14",
+            "confidence": "observed",
+            "tier": "T0",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          }
+        ],
+        "Education (prior, outside upGrad)": [
+          {
+            "attribute": "Highest qualification",
+            "value": "B.Tech, Computer Science",
+            "source_system": "Prism",
+            "source_field": "users.educations[].degree",
+            "added_at": "2025-03-14",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Education history",
+            "value": "[Engineering college], Indore · B.Tech Computer Science · 2019–2023; 12th, CBSE Science · 2019",
+            "source_system": "Internshala",
+            "source_field": "internshala.students_colleges.college_id",
+            "added_at": "2021-08-14",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Currently studying and expected graduation",
+            "value": "No · graduated May 2023",
+            "source_system": "Internshala",
+            "source_field": "internshala.students_colleges.is_pursuing",
+            "added_at": "2023-05-30",
+            "confidence": "derived",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Academic scores",
+            "value": "B.Tech 7.9 CGPA (79 of 100) · 12th 86%",
+            "source_system": "Internshala",
+            "source_field": "internshala.students_colleges.performance",
+            "added_at": "2023-06-02",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Language tests and English fluency",
+            "value": "Not applicable (no study-abroad interest)",
+            "source_system": "—",
+            "source_field": "—",
+            "added_at": "—",
+            "confidence": "—",
+            "source_label": "—",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          }
+        ],
+        "Career / profession": [
+          {
+            "attribute": "Current role and employer",
+            "value": "Associate software engineer, [IT services company] · since Jul 2023 (hired through Internshala)",
+            "source_system": "Prism",
+            "source_field": "users.workExperiences[].designation",
+            "added_at": "2025-03-14",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Work history",
+            "value": "Web developer intern, [Startup name] · May–Jul 2022 (found on Internshala)",
+            "source_system": "Internshala",
+            "source_field": "internshala.student_experiences.start_date",
+            "added_at": "2022-05-28",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Total experience",
+            "value": "3 years 4 months",
+            "source_system": "Prism",
+            "source_field": "users.experience.year",
+            "added_at": "2025-03-14",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Industry / function",
+            "value": "IT services · software engineering",
+            "source_system": "Prism",
+            "source_field": "users.workExperiences[].industry",
+            "added_at": "2025-03-14",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Professional profile link",
+            "value": "LinkedIn profile on file",
+            "source_system": "Prism",
+            "source_field": "users.linkedIn",
+            "added_at": "2025-03-14",
+            "confidence": "declared",
+            "source_label": "Prism",
+            "tier": "T1",
+            "shown_on_ui": "Yes"
+          }
+        ],
+        "Aspiration": [
+          {
+            "attribute": "Career goal",
+            "value": "Move from software engineering into machine learning",
+            "source_system": "Heard",
+            "source_field": "WP: payload.learner_facts.stated_career_goal",
+            "added_at": "2025-02-19",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Counselling call on 19 Feb 2025",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Motivation and type of move",
+            "value": "Function switch: software to data · driver: growth",
+            "source_system": "Heard",
+            "source_field": "WP: payload.learner_facts.primary_driver",
+            "added_at": "2025-02-19",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Counselling call on 19 Feb 2025",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Dream role / company",
+            "value": "ML engineer at a product company",
+            "source_system": "Prism",
+            "source_field": "users.dreamRole",
+            "added_at": "2025-03-14",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Programme of interest (first + latest)",
+            "value": "First: Web Development training (Internshala, 2021) · Latest: Executive PG in Data Science and AI (WP, Feb 2025)",
+            "source_system": "LSQ",
+            "source_field": "mx_Program",
+            "added_at": "2025-02-11",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "LSQ",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Interest areas",
+            "value": "Machine learning, cloud computing",
+            "source_system": "Prism",
+            "source_field": "users.interestAreas.technicalCourses",
+            "added_at": "2025-03-14",
+            "confidence": "declared",
+            "source_label": "Prism",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Roles applied for",
+            "value": "Web developer intern (2022) · Associate software engineer, junior developer (2023) · 19 applications in all",
+            "source_system": "Internshala",
+            "source_field": "internshala.applications.job_id",
+            "added_at": "2023-03-20",
+            "confidence": "observed",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Learning objective",
+            "value": "Get an internship or job",
+            "source_system": "Internshala",
+            "source_field": "trainings.users.objective_of_learning",
+            "added_at": "2021-09-03",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Study Abroad preferences",
+            "value": "Not applicable",
+            "source_system": "—",
+            "source_field": "—",
+            "added_at": "—",
+            "confidence": "—",
+            "source_label": "—",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Purchase timeline",
+            "value": "Within a month",
+            "source_system": "LSQ",
+            "source_field": "mx_By_when_do_you_plan_to_enroll",
+            "added_at": "2025-02-11",
+            "confidence": "declared",
+            "source_label": "LSQ",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Study time available",
+            "value": "10 hours a week, weekends",
+            "source_system": "Heard",
+            "source_field": "WP: payload.learner_facts.weekly_time_availability",
+            "added_at": "2025-02-19",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Counselling call on 19 Feb 2025",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Concerns / objections",
+            "value": "Fee (resolved: 18-month EMI)",
+            "source_system": "Heard",
+            "source_field": "WP: wp_journeys.objections[]",
+            "added_at": "2025-02-19",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Counselling call on 19 Feb 2025",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Competitors considered",
+            "value": "One online ML bootcamp · compared on price · leaned upGrad on mentorship",
+            "source_system": "Heard",
+            "source_field": "WP: wp_journeys.competitors[]",
+            "added_at": "2025-02-19",
+            "confidence": "observed",
+            "source_label": "Counselling call on 19 Feb 2025",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          }
+        ],
+        "Financial profile": [
+          {
+            "attribute": "Budget band",
+            "value": "₹2.5–3.5 lakh",
+            "source_system": "Heard",
+            "source_field": "WP: payload.learner_facts.budget_stated",
+            "added_at": "2025-02-19",
+            "confidence": "declared",
+            "tier": "T2",
+            "source_label": "Counselling call on 19 Feb 2025",
+            "shown_on_ui": "Yes",
+            "display": "Restricted"
+          },
+          {
+            "attribute": "Funding route / loan",
+            "value": "Self, on an 18-month EMI",
+            "source_system": "Heard",
+            "source_field": "WP: payload.learner_facts.funding_source",
+            "added_at": "2025-02-19",
+            "confidence": "declared",
+            "tier": "T2",
+            "source_label": "Counselling call on 19 Feb 2025",
+            "shown_on_ui": "Yes",
+            "display": "Restricted"
+          },
+          {
+            "attribute": "Scholarship need",
+            "value": "Not applicable (SA only)",
+            "source_system": "—",
+            "source_field": "—",
+            "added_at": "—",
+            "confidence": "—",
+            "source_label": "—",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Employer sponsorship / reimbursement",
+            "value": "Not offered by employer",
+            "source_system": "Heard",
+            "source_field": "WP: payload.learner_facts.employer_sponsorship_status",
+            "added_at": "2025-02-19",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Counselling call on 19 Feb 2025",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Salary band",
+            "value": "[Band on file]",
+            "source_system": "LSQ",
+            "source_field": "mx_Salary_Range",
+            "added_at": "2025-02-11",
+            "confidence": "declared",
+            "source_label": "LSQ",
+            "tier": "T2",
+            "shown_on_ui": "Yes",
+            "display": "Restricted"
+          },
+          {
+            "attribute": "Decision maker",
+            "value": "Self",
+            "source_system": "Heard",
+            "source_field": "WP: payload.learner_facts.decision_unit",
+            "added_at": "2025-02-19",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Counselling call on 19 Feb 2025",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Parent involvement and stance",
+            "value": "Not applicable (decides himself)",
+            "source_system": "—",
+            "source_field": "—",
+            "added_at": "—",
+            "confidence": "—",
+            "source_label": "—",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Decision-maker clarity",
+            "value": "Not captured (SA only)",
+            "source_system": "—",
+            "source_field": "—",
+            "added_at": "—",
+            "confidence": "—",
+            "source_label": "—",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          }
+        ],
+        "Consent & preferences": [
+          {
+            "attribute": "Notification preferences",
+            "value": "Email updates on",
+            "source_system": "Prism",
+            "source_field": "users.communicationSettings.enableUpdatesOnEMail",
+            "added_at": "2025-03-14",
+            "confidence": "declared",
+            "source_label": "Prism",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Do not call / contact",
+            "value": "Allowed",
+            "source_system": "LSQ",
+            "source_field": "DoNotCall",
+            "added_at": "2025-02-11",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "LSQ",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Email opt-out / subscriptions",
+            "value": "Allowed",
+            "source_system": "Internshala",
+            "source_field": "internshala.users.do_subscribe",
+            "added_at": "2021-08-14",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "SMS opt-out",
+            "value": "Allowed",
+            "source_system": "LSQ",
+            "source_field": "DoNotSMS",
+            "added_at": "2025-02-11",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "LSQ",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "WhatsApp",
+            "value": "Allowed",
+            "source_system": "Prism",
+            "source_field": "users.communicationSettings.isDoNotWhatsApp",
+            "added_at": "2025-03-14",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Marketing consent",
+            "value": "Given · LSQ web form",
+            "source_system": "LSQ",
+            "source_field": "mx_Marketing_Communications_Consent_Given",
+            "added_at": "2025-02-11",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "LSQ",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Callback consent",
+            "value": "Given",
+            "source_system": "LSQ",
+            "source_field": "mx_Callback_Consent_Given",
+            "added_at": "2025-02-11",
+            "confidence": "declared",
+            "source_label": "LSQ",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Legal basis + regulation",
+            "value": "Consent · DPDP Act, India (default pending Legal)",
+            "source_system": "Derived",
+            "source_field": "computed by the layer",
+            "added_at": "2025-02-11",
+            "confidence": "derived",
+            "tier": "T0",
+            "source_label": "Derived",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Consent to share across upGrad",
+            "value": "Not captured yet",
+            "source_system": "—",
+            "source_field": "computed by the layer",
+            "added_at": "—",
+            "confidence": "—",
+            "tier": "T0",
+            "source_label": "—",
+            "shown_on_ui": "Yes"
+          }
+        ]
+      },
+      "academic_skill_profile": {
+        "Skills": [
+          {
+            "attribute": "Declared skills",
+            "value": "JavaScript (advanced), React (intermediate), SQL (intermediate), Python (beginner)",
+            "source_system": "Internshala",
+            "source_field": "internshala.students_skills.skill_id",
+            "added_at": "2023-02-10",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Graded skills and competencies",
+            "value": "Python for data: proficient · Statistics: proficient · Machine learning: proficient · Deep learning: in progress",
+            "source_system": "Prism",
+            "source_field": "userprogramreports.skills",
+            "added_at": "2026-10-22",
+            "confidence": "observed",
+            "tier": "T0",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Projects and responsibilities",
+            "value": "College event-booking web app (2022) · Placement coordinator, CS department (2022–23)",
+            "source_system": "Internshala",
+            "source_field": "internshala.student_projects.title",
+            "added_at": "2023-01-15",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Trainings listed on resume",
+            "value": "Web Development, Internshala Trainings, 2021",
+            "source_system": "Internshala",
+            "source_field": "internshala.student_trainings.training_id",
+            "added_at": "2021-11-02",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          }
+        ],
+        "Courses with upGrad": [
+          {
+            "attribute": "Course",
+            "value": "Web Development · Internshala Trainings (2021); Executive PG in Data Science and AI [sample] · Working Professionals (2025)",
+            "source_system": "Prism",
+            "source_field": "userprograms.program",
+            "added_at": "2025-03-14",
+            "confidence": "observed",
+            "tier": "T0",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Current status",
+            "value": "Internshala training: completed · WP programme: in progress, near completion",
+            "source_system": "Prism",
+            "source_field": "userprograms.status",
+            "added_at": "2026-10-22",
+            "confidence": "observed",
+            "tier": "T0",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Progress",
+            "value": "WP programme: 91% · module 10 of 11 · 236 hours",
+            "source_system": "Prism",
+            "source_field": "userprograms.containerProgressInfo.{id}.status",
+            "added_at": "2026-10-22",
+            "confidence": "observed",
+            "tier": "T0",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Programme results",
+            "value": "Interim 81%",
+            "source_system": "Prism",
+            "source_field": "userprogramreports.scoreCard.cgpa",
+            "added_at": "2026-10-22",
+            "confidence": "observed",
+            "tier": "T0",
+            "source_label": "Prism",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Certificates earned",
+            "value": "None from the WP programme yet: due on completion",
+            "source_system": "Prism",
+            "source_field": "usercoursecertificates.certificateUID",
+            "added_at": "2026-10-22",
+            "confidence": "observed",
+            "source_label": "Prism",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          }
+        ]
+      },
+      "activity": [
+        {
+          "bu": "Internshala",
+          "step": 1,
+          "activity": "First Touch",
+          "occurred_at": "2021-08-14T19:32",
+          "state": "done",
+          "source_label": "Internshala",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Channel (organic / paid / etc.)",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.students.utm_source; internshala.students.utm_medium; internshala.users.source",
+              "status": "Available",
+              "value": "Organic search (Google)"
+            },
+            {
+              "field": "Page / campaign",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.students.utm_campaign",
+              "status": "Partial",
+              "value": "No campaign · landing page not captured"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.users.created_at",
+              "status": "Available",
+              "value": "14 Aug 2021, 19:32"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "—",
+              "status": "Available",
+              "value": "Internshala"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.users.id",
+              "status": "Available",
+              "value": "IS user 1822904"
+            }
+          ]
+        },
+        {
+          "bu": "Internshala",
+          "step": 2,
+          "activity": "Lead Created",
+          "occurred_at": "2021-08-14T19:40",
+          "state": "done",
+          "source_label": "Internshala",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Source: paid / organic",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.students.utm_medium; internshala.students.referral",
+              "status": "Available",
+              "value": "Organic"
+            },
+            {
+              "field": "Campaign",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.students.utm_campaign",
+              "status": "Available",
+              "value": "—"
+            },
+            {
+              "field": "Page",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "Not captured (Internshala has no landing-page field)",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.users.created_at",
+              "status": "Available",
+              "value": "14 Aug 2021, 19:40"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "—",
+              "status": "Available",
+              "value": "Internshala"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.users.id; internshala.students.id",
+              "status": "Available",
+              "value": "IS user 1822904 · student 1640077"
+            },
+            {
+              "field": "Student status at sign-up",
+              "origin": "Added",
+              "source_system": "Internshala",
+              "source_field": "internshala.students_colleges.degree_type; internshala.students_colleges.end_year; internshala.students_colleges.is_pursuing",
+              "status": "Derived",
+              "value": "2nd-year B.Tech, Computer Science · finishing 2023"
+            }
+          ]
+        },
+        {
+          "bu": "Internshala",
+          "step": 3,
+          "activity": "Purchased",
+          "occurred_at": "2021-09-03T21:10",
+          "state": "done",
+          "source_label": "Internshala",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Training name",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.batch_id; trainings.batches.course_id",
+              "status": "Available",
+              "value": "Web Development"
+            },
+            {
+              "field": "Amount",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.amount_paid",
+              "status": "Available",
+              "value": "₹2,999"
+            },
+            {
+              "field": "Payment type (block / full)",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.signup_amount; trainings.users.amount_paid",
+              "status": "Derived",
+              "value": "Full"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.paid_at",
+              "status": "Available",
+              "value": "3 Sep 2021, 21:10"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "—",
+              "status": "Available",
+              "value": "Internshala"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.id",
+              "status": "Available",
+              "value": "Training enrolment 401266"
+            },
+            {
+              "field": "Coupon",
+              "origin": "Added",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.coupon",
+              "status": "Available",
+              "value": "STUDENT20"
+            },
+            {
+              "field": "Learning objective",
+              "origin": "Added",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.objective_of_learning",
+              "status": "Available",
+              "value": "Get an internship or job"
+            }
+          ]
+        },
+        {
+          "bu": "Internshala",
+          "step": 4,
+          "activity": "Training Completed",
+          "occurred_at": "2021-11-02T18:00",
+          "state": "done",
+          "source_label": "Internshala",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Course / training name",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.batch_id; trainings.batches.course_id",
+              "status": "Available",
+              "value": "Web Development"
+            },
+            {
+              "field": "Batch dates",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.course_start_date; trainings.users.course_end_date; trainings.batches.start_date",
+              "status": "Available",
+              "value": "6 Sep – 31 Oct 2021"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.status_updated_at; trainings.users.status",
+              "status": "Partial",
+              "value": "2 Nov 2021, 18:00"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "—",
+              "status": "Available",
+              "value": "Internshala"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.id",
+              "status": "Available",
+              "value": "Training enrolment 401266"
+            },
+            {
+              "field": "Added to resume",
+              "origin": "Added",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.training_added_to_resume_at",
+              "status": "Available",
+              "value": "4 Nov 2021"
+            }
+          ]
+        },
+        {
+          "bu": "Internshala",
+          "step": 5,
+          "activity": "Internship",
+          "occurred_at": "2022-05-28T12:30",
+          "state": "done",
+          "source_label": "Internshala",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Company",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.applications.job_id",
+              "status": "Partial",
+              "value": "[Startup name], Indore"
+            },
+            {
+              "field": "Duration",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.student_experiences.start_date; internshala.student_experiences.end_date",
+              "status": "Partial",
+              "value": "2 months (Jun–Jul 2022)"
+            },
+            {
+              "field": "Role",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.applications.job_id",
+              "status": "Partial",
+              "value": "Web developer intern"
+            },
+            {
+              "field": "Applied on",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.applications.applied_at",
+              "status": "Available",
+              "value": "12 May 2022"
+            },
+            {
+              "field": "Hired on",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.applications.hired_at",
+              "status": "Available",
+              "value": "28 May 2022"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.applications.hired_at",
+              "status": "Available",
+              "value": "28 May 2022, 12:30"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "—",
+              "status": "Available",
+              "value": "Internshala"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.applications.id",
+              "status": "Available",
+              "value": "Application 60117742"
+            },
+            {
+              "field": "Shortlisted on",
+              "origin": "Added",
+              "source_system": "Internshala",
+              "source_field": "internshala.applications.shortlisted_at",
+              "status": "Available",
+              "value": "19 May 2022"
+            },
+            {
+              "field": "Campaign that drove the application",
+              "origin": "Added",
+              "source_system": "Internshala",
+              "source_field": "internshala.applications.utm_source; internshala.applications.utm_campaign",
+              "status": "Available",
+              "value": "internshala app · summer-internships-2022"
+            },
+            {
+              "field": "Applications before this hire",
+              "origin": "Added",
+              "source_system": "Derived",
+              "source_field": "internshala.applications.applied_at",
+              "status": "Derived",
+              "value": "7"
+            }
+          ]
+        },
+        {
+          "bu": "Internshala",
+          "step": 6,
+          "activity": "Internship Completion",
+          "occurred_at": "2022-07-31T00:00",
+          "state": "done",
+          "source_label": "Internshala",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Role",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.student_experiences.title_id; internshala.student_experiences.profile_id",
+              "status": "Partial",
+              "value": "Web developer intern"
+            },
+            {
+              "field": "Organisation",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.student_experiences.experience_organization_id",
+              "status": "Partial",
+              "value": "[Startup name]"
+            },
+            {
+              "field": "Duration",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.student_experiences.start_date; internshala.student_experiences.end_date",
+              "status": "Available",
+              "value": "1 Jun – 31 Jul 2022"
+            },
+            {
+              "field": "Mode",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.student_experiences.is_work_from_home; internshala.student_experiences.location_id",
+              "status": "Available",
+              "value": "Remote"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.student_experiences.end_date",
+              "status": "Available",
+              "value": "31 Jul 2022"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "—",
+              "status": "Available",
+              "value": "Internshala"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.student_experiences.id",
+              "status": "Available",
+              "value": "Experience 9131442"
+            }
+          ]
+        },
+        {
+          "bu": "WP",
+          "step": 1,
+          "activity": "First Touch / Intro to BU",
+          "occurred_at": "2025-02-11T09:20",
+          "state": "done",
+          "source_label": "RudderStack + LSQ",
+          "moved_from_another_business": "Internshala → WP · alumni email · ₹0 media",
+          "fields": [
+            {
+              "field": "Channel (organic / paid / etc.)",
+              "origin": "Your sheet",
+              "source_system": "RudderStack + LSQ",
+              "source_field": "mx_First_Channel_New; mx_First_UTM_Medium",
+              "status": "Available",
+              "value": "Email · owned channel"
+            },
+            {
+              "field": "Page / campaign",
+              "origin": "Your sheet",
+              "source_system": "RudderStack + LSQ",
+              "source_field": "mx_First_Platform_URL; mx_First_Page_Category; mx_First_UTM_Campaign",
+              "status": "Available",
+              "value": "Data Science and AI programme page · campaign is-alumni-ds"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "RudderStack + LSQ",
+              "source_field": "CreatedOn",
+              "status": "Partial",
+              "value": "11 Feb 2025, 09:20"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "RudderStack + LSQ",
+              "source_field": "mx_Business_Unit_Lead_Journey",
+              "status": "Available",
+              "value": "Working Professionals"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "RudderStack + LSQ",
+              "source_field": "ProspectAutoId",
+              "status": "Available",
+              "value": "LSQ lead 4120558"
+            },
+            {
+              "field": "Introduced by another upGrad business",
+              "origin": "Added",
+              "source_system": "Derived",
+              "source_field": "mx_First_UTM_Source",
+              "status": "Derived",
+              "value": "Internshala (alumni email)"
+            },
+            {
+              "field": "Paid or owned (media cost)",
+              "origin": "Added",
+              "source_system": "Derived",
+              "source_field": "mx_First_UTM_Medium",
+              "status": "Derived",
+              "value": "Owned · ₹0 media"
+            }
+          ]
+        },
+        {
+          "bu": "WP",
+          "step": 2,
+          "activity": "Lead Created",
+          "occurred_at": "2025-02-11T09:20",
+          "state": "done",
+          "source_label": "LSQ",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Source: paid / organic",
+              "origin": "Your sheet",
+              "source_system": "LSQ",
+              "source_field": "Source; SourceMedium",
+              "status": "Available",
+              "value": "Organic (owned email)"
+            },
+            {
+              "field": "Campaign",
+              "origin": "Your sheet",
+              "source_system": "LSQ",
+              "source_field": "SourceCampaign",
+              "status": "Available",
+              "value": "is-alumni-ds"
+            },
+            {
+              "field": "Landing page",
+              "origin": "Your sheet",
+              "source_system": "LSQ",
+              "source_field": "mx_platformUrl",
+              "status": "Available",
+              "value": "/data-science-ai-pg"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "LSQ",
+              "source_field": "CreatedOn",
+              "status": "Available",
+              "value": "11 Feb 2025, 09:20"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "LSQ",
+              "source_field": "mx_Business_Unit_Lead_Journey",
+              "status": "Available",
+              "value": "Working Professionals"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "LSQ",
+              "source_field": "ProspectAutoId",
+              "status": "Available",
+              "value": "LSQ lead 4120558"
+            },
+            {
+              "field": "POI",
+              "origin": "Your sheet",
+              "source_system": "LSQ",
+              "source_field": "mx_Program; mx_Program_Vertical",
+              "status": "Available",
+              "value": "Executive PG in Data Science and AI · Data and AI"
+            },
+            {
+              "field": "Assigned counsellor",
+              "origin": "Added",
+              "source_system": "LSQ",
+              "source_field": "OwnerId; mx_Lead_Owner_Email_ID",
+              "status": "Available",
+              "value": "[Counsellor A]"
+            },
+            {
+              "field": "Already known to upGrad",
+              "origin": "Added",
+              "source_system": "Derived",
+              "source_field": "—",
+              "status": "Derived",
+              "value": "Yes · Internshala since Aug 2021"
+            }
+          ]
+        },
+        {
+          "bu": "Other (common)",
+          "step": 1,
+          "activity": "Webinar / Event Attended",
+          "occurred_at": "2025-02-15T11:00",
+          "state": "done",
+          "source_label": "Forms / LSQ",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Webinar / event name",
+              "origin": "Your sheet",
+              "source_system": "Forms / LSQ",
+              "source_field": "mx_Webinar_Topic_n_Agenda; mx_Event_Type; mx_Zoom_Webinar_ID",
+              "status": "Available",
+              "value": "Careers in ML for software engineers"
+            },
+            {
+              "field": "Webinar / event date-time",
+              "origin": "Your sheet",
+              "source_system": "Forms / LSQ",
+              "source_field": "mx_Webinar_Date; mx1_COCO_Event_Date; mx_Masterclass_Date_n_Time",
+              "status": "Available",
+              "value": "15 Feb 2025, 11:00"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Forms / LSQ",
+              "source_field": "mx_Webinar_Date",
+              "status": "Available",
+              "value": "15 Feb 2025, 11:00"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Forms / LSQ",
+              "source_field": "mx_Business_Unit_Lead_Journey",
+              "status": "Available",
+              "value": "Working Professionals"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Forms / LSQ",
+              "source_field": "mx_Zoom_Webinar_ID; ProspectAutoId",
+              "status": "Available",
+              "value": "Zoom webinar 8841 2207"
+            },
+            {
+              "field": "Attended or registered only",
+              "origin": "Added",
+              "source_system": "LSQ",
+              "source_field": "mx_Webinar_Attendee_Status",
+              "status": "Available",
+              "value": "Attended"
+            },
+            {
+              "field": "Time attended",
+              "origin": "Added",
+              "source_system": "LSQ",
+              "source_field": "mx_Webinar_Attendee_Duration",
+              "status": "Available",
+              "value": "58 of 60 minutes"
+            },
+            {
+              "field": "Speaker",
+              "origin": "Added",
+              "source_system": "LSQ",
+              "source_field": "mx_Webinar_Speaker",
+              "status": "Available",
+              "value": "[Industry speaker]"
+            },
+            {
+              "field": "Venue (offline events)",
+              "origin": "Added",
+              "source_system": "LSQ",
+              "source_field": "mx_COCO_Venue",
+              "status": "Available",
+              "value": "Online"
+            }
+          ]
+        },
+        {
+          "bu": "WP",
+          "step": 3,
+          "activity": "Counselling Call (first)",
+          "occurred_at": "2025-02-19T19:30",
+          "state": "done",
+          "source_label": "Counselling call on 19 Feb 2025",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Counsellor",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "mx_First_counselling_done_by",
+              "status": "Available",
+              "value": "[Counsellor A]"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "mx_Business_Unit_Lead_Journey",
+              "status": "Available",
+              "value": "Working Professionals"
+            },
+            {
+              "field": "Lead score",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "Score; QualityScore01; EngagementScore; WP: wp_scores.sub_levels",
+              "status": "Partial",
+              "value": "72 (LSQ score)"
+            },
+            {
+              "field": "Program pitched / POI",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "mx_Latest_Pitched_Program; mx_Latest_Program_Pitched_Category; mx_Program",
+              "status": "Available",
+              "value": "Executive PG in Data Science and AI"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "mx_First_Counselling_Date",
+              "status": "Available",
+              "value": "19 Feb 2025, 19:30"
+            },
+            {
+              "field": "Call count: #",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "—",
+              "status": "Partial",
+              "value": "1"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "ProspectAutoId",
+              "status": "Available",
+              "value": "LSQ lead 4120558 · Heard call 30921"
+            },
+            {
+              "field": "Concerns raised",
+              "origin": "Added",
+              "source_system": "Heard",
+              "source_field": "WP: payload.objections[]",
+              "status": "Available",
+              "value": "Fee"
+            },
+            {
+              "field": "Motivation",
+              "origin": "Added",
+              "source_system": "Heard",
+              "source_field": "WP: payload.learner_facts.primary_driver",
+              "status": "Available",
+              "value": "Function switch: software to ML"
+            },
+            {
+              "field": "Decision maker",
+              "origin": "Added",
+              "source_system": "Heard",
+              "source_field": "WP: payload.learner_facts.decision_unit",
+              "status": "Available",
+              "value": "Self"
+            },
+            {
+              "field": "Next step agreed",
+              "origin": "Added",
+              "source_system": "Heard",
+              "source_field": "WP: payload.next_steps[]",
+              "status": "Available",
+              "value": "Share EMI options"
+            }
+          ]
+        },
+        {
+          "bu": "WP",
+          "step": 4,
+          "activity": "Counselling Call (follow-up)",
+          "occurred_at": "2025-03-03T18:00",
+          "state": "done",
+          "source_label": "Counselling call on 3 Mar 2025",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Counsellor",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "OwnerId",
+              "status": "Partial",
+              "value": "[Counsellor A]"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "mx_Business_Unit_Lead_Journey",
+              "status": "Available",
+              "value": "Working Professionals"
+            },
+            {
+              "field": "Lead score",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "Score; QualityScore01; EngagementScore; WP: wp_scores.sub_levels",
+              "status": "Partial",
+              "value": "84 (LSQ score)"
+            },
+            {
+              "field": "Program pitched / POI",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "mx_Latest_Pitched_Program; mx_Latest_Program_Pitched_Category; mx_Program",
+              "status": "Available",
+              "value": "Executive PG in Data Science and AI"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "mx_Latest_Counselling_Date",
+              "status": "Partial",
+              "value": "3 Mar 2025, 18:00"
+            },
+            {
+              "field": "Call count: #",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "—",
+              "status": "Partial",
+              "value": "2"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "ProspectAutoId",
+              "status": "Available",
+              "value": "LSQ lead 4120558 · Heard call 31455"
+            },
+            {
+              "field": "Concerns resolved",
+              "origin": "Added",
+              "source_system": "Heard",
+              "source_field": "WP: wp_journeys.objections[].final_status",
+              "status": "Available",
+              "value": "Fee: resolved with an 18-month EMI"
+            },
+            {
+              "field": "Commitments kept",
+              "origin": "Added",
+              "source_system": "Heard",
+              "source_field": "WP: wp_journeys.commitments[].resolution",
+              "status": "Available",
+              "value": "Share EMI options: done · Apply: done"
+            }
+          ]
+        },
+        {
+          "bu": "WP",
+          "step": 5,
+          "activity": "Application Submitted",
+          "occurred_at": "2025-03-06T12:10",
+          "state": "done",
+          "source_label": "application_service (Redshift)",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Programme",
+              "origin": "Your sheet",
+              "source_system": "application_service (Redshift)",
+              "source_field": "mx_Program",
+              "status": "Open question",
+              "value": "Executive PG in Data Science and AI",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Date submitted",
+              "origin": "Your sheet",
+              "source_system": "application_service (Redshift)",
+              "source_field": "mx_Application_Stage",
+              "status": "Open question",
+              "value": "6 Mar 2025",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "application_service (Redshift)",
+              "source_field": "—",
+              "status": "Open question",
+              "value": "6 Mar 2025, 12:10",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "application_service (Redshift)",
+              "source_field": "—",
+              "status": "Available",
+              "value": "Working Professionals"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "application_service (Redshift)",
+              "source_field": "—",
+              "status": "Open question",
+              "value": "Application WP-25-0306-118",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Application stage",
+              "origin": "Added",
+              "source_system": "LSQ",
+              "source_field": "mx_Application_Stage",
+              "status": "Partial",
+              "value": "Submitted → approved 8 Mar 2025"
+            }
+          ]
+        },
+        {
+          "bu": "WP",
+          "step": 6,
+          "activity": "Enrolled",
+          "occurred_at": "2025-03-14T09:00",
+          "state": "done",
+          "source_label": "OMS",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Programme",
+              "origin": "Your sheet",
+              "source_system": "OMS",
+              "source_field": "order_entity.bundle_program_key; order_entity.sku_id; userprograms.program",
+              "status": "Available",
+              "value": "Executive PG in Data Science and AI (POK …DS-AI)"
+            },
+            {
+              "field": "Batch",
+              "origin": "Your sheet",
+              "source_system": "OMS",
+              "source_field": "batch.batch_start_date; batch.learning_start_date; userprograms.workshop",
+              "status": "Available",
+              "value": "March 2025 · learning starts 17 Mar 2025"
+            },
+            {
+              "field": "Payment type (block / full)",
+              "origin": "Your sheet",
+              "source_system": "OMS",
+              "source_field": "user_product_payment_schedule.amount; user_product_payment_schedule.plan_date; billing.payable_amount",
+              "status": "Derived",
+              "value": "Block ₹17,250, then 18-month EMI"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "OMS",
+              "source_field": "billing.created; userprograms.registeredAt",
+              "status": "Available",
+              "value": "14 Mar 2025, 09:00"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "OMS",
+              "source_field": "billing.tenant_id",
+              "status": "Available",
+              "value": "Working Professionals"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "OMS",
+              "source_field": "billing.id",
+              "status": "Available",
+              "value": "Order 5531"
+            },
+            {
+              "field": "Discount",
+              "origin": "Added",
+              "source_system": "OMS",
+              "source_field": "billing.discount_amount",
+              "status": "Available",
+              "value": "₹15,000"
+            }
+          ]
+        },
+        {
+          "bu": "WP",
+          "step": 7,
+          "activity": "Learning Started",
+          "occurred_at": "2025-03-17T20:45",
+          "state": "done",
+          "source_label": "Prism",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "First accessed",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "userprograms.firstAccessedAt",
+              "status": "Available",
+              "value": "17 Mar 2025, 20:45"
+            },
+            {
+              "field": "Days from enrolment to start",
+              "origin": "Your sheet",
+              "source_system": "Derived",
+              "source_field": "userprograms.registeredAt; userprograms.firstAccessedAt",
+              "status": "Derived",
+              "value": "3"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "userprograms.startedAt",
+              "status": "Available",
+              "value": "17 Mar 2025, 20:45"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "userprograms.meta.businessUnit",
+              "status": "Available",
+              "value": "Working Professionals"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "userprograms._id",
+              "status": "Available",
+              "value": "Enrolment 65f0…a2d1"
+            }
+          ]
+        },
+        {
+          "bu": "WP",
+          "step": 8,
+          "activity": "Course Completed",
+          "occurred_at": null,
+          "state": "pending",
+          "source_label": "",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Result",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "userprogramreports.scoreCard.percentage; userprogramreports.scoreCard.cgpa",
+              "status": "Available",
+              "value": "—"
+            },
+            {
+              "field": "Certificate",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "usercoursecertificates.certificateUID",
+              "status": "Available",
+              "value": "—"
+            },
+            {
+              "field": "Time spent",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "userprograms.userSpentLearningDuration",
+              "status": "Available",
+              "value": "236 hours so far"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "usercoursecertificates.createdAt",
+              "status": "Available",
+              "value": "—"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "userprograms.meta.businessUnit",
+              "status": "Available",
+              "value": "Working Professionals"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "userprograms._id",
+              "status": "Available",
+              "value": "Enrolment 65f0…a2d1"
+            },
+            {
+              "field": "Skills earned",
+              "origin": "Added",
+              "source_system": "Prism",
+              "source_field": "userprogramreports.masterData.gradedSkills",
+              "status": "Available",
+              "value": "Python, statistics, ML (graded so far)"
+            }
+          ],
+          "pending_note": "Not yet: 91% done, module 10 of 11, capstone next"
+        }
+      ],
+      "insights": [
+        {
+          "insight": "Lifecycle state per business",
+          "value": "Internshala: alumnus since Nov 2021 · Working Professionals: learning since Mar 2025",
+          "built_from": "Journey milestones (lead created, counselling, enrolled, learning started, completed, RAU) + stored refunds and deferrals"
+        },
+        {
+          "insight": "Overall relationship state",
+          "value": "Learning",
+          "built_from": "Lifecycle per business"
+        },
+        {
+          "insight": "Cross-business flag",
+          "value": "Yes · 2 businesses",
+          "built_from": "Identity + lead/enrolment records"
+        },
+        {
+          "insight": "First seen / last active",
+          "value": "First seen Aug 2021 · last active 22 Oct 2026",
+          "built_from": "All Activity"
+        },
+        {
+          "insight": "Lifetime revenue",
+          "value": "₹3,12,999 (₹2,999 Internshala + ₹3,10,000 WP, fully paid Aug 2026)",
+          "built_from": "Activity: payments − refunds (OMS)"
+        },
+        {
+          "insight": "Programmes purchased / repeat buyer",
+          "value": "2 · repeat buyer across two businesses",
+          "built_from": "Activity: orders, enrolments"
+        },
+        {
+          "insight": "Re-acquisition flag",
+          "value": "No · introduced by an Internshala alumni email, no media cost",
+          "built_from": "Activity: lead created vs first seen; acquisition source"
+        },
+        {
+          "insight": "Reachable now (per channel)",
+          "value": "Call, email, SMS, WhatsApp, ads",
+          "built_from": "Learner: consent + verified contact + minor flag; Activity: recency"
+        },
+        {
+          "insight": "Intent level",
+          "value": "Medium · no open enquiry; highly engaged learner",
+          "built_from": "Learner/Aspiration + Activity engagement; counsellor-captured: mx_Learner_Intent; mx_SA_Learner_Intent_Category; high_intent_leads"
+        },
+        {
+          "insight": "Speed to lead",
+          "value": "8 days from lead to first counselling call",
+          "built_from": "Activity: lead created → first call"
+        },
+        {
+          "insight": "Contact fatigue",
+          "value": "Not computed (outbound calls and messages are not stored)",
+          "built_from": "Activity: calls, messages"
+        },
+        {
+          "insight": "Moments",
+          "value": "Near completion: one module left",
+          "built_from": "Activity"
+        },
+        {
+          "insight": "Acquisition cost",
+          "value": "₹0 media · owned channel",
+          "built_from": "Activity: lead source + ad-platform cost"
+        },
+        {
+          "insight": "Next-best programme",
+          "value": "[Sample rule output] Advanced certificate in generative AI, at alumni pricing",
+          "built_from": "Aspiration + Skills + Activity"
+        },
+        {
+          "insight": "Counselling lead score (SA)",
+          "value": "Not applicable",
+          "built_from": "Sales Insights"
+        },
+        {
+          "insight": "Counselling sub-levels (WP)",
+          "value": "Driver: high · paying capacity: medium · programme alignment: high (Feb 2025)",
+          "built_from": "Sales Insights"
+        },
+        {
+          "insight": "Momentum (SA)",
+          "value": "Not applicable",
+          "built_from": "Sales Insights"
+        },
+        {
+          "insight": "Best-fit vertical (SA)",
+          "value": "Not applicable",
+          "built_from": "Sales Insights"
+        },
+        {
+          "insight": "Graduating soon",
+          "value": "No · graduated May 2023",
+          "built_from": "Learner Profile: currently studying and expected graduation"
+        },
+        {
+          "insight": "Job-search intensity",
+          "value": "Pending decision: needs all Internshala applications stored",
+          "built_from": "Activity: job / internship applications"
+        },
+        {
+          "insight": "Employability",
+          "value": "Hired for his internship after 7 applications",
+          "built_from": "Activity: job / internship applications"
+        },
+        {
+          "insight": "Profile completeness",
+          "value": "88% · 59 of 67 attributes",
+          "built_from": "All Learner Profile and Academic/Skill Profile attributes"
+        }
+      ]
+    },
+    {
+      "person_id": "upg_M6N3R8T1",
+      "sample": true,
+      "existing_user": false,
+      "header": {
+        "name": "Meera Nair",
+        "journey": "Internshala → SA",
+        "headline": "MSc Business Analytics graduate in Manchester · came through the upGrad Study Abroad pathway",
+        "life_stage": "Early career (abroad)",
+        "age_band": "18–24",
+        "city": "Manchester, UK",
+        "known_since": "2022-02",
+        "is_minor": false,
+        "businesses": [
+          {
+            "business": "Internshala",
+            "state": "Alumna",
+            "since": "2022-08"
+          },
+          {
+            "business": "Study Abroad",
+            "state": "Reached university",
+            "since": "2025-09"
+          }
+        ],
+        "life_stages": [
+          {
+            "stage": "BBA student, Kochi",
+            "from": "2022-02",
+            "to": "2024-05"
+          },
+          {
+            "stage": "Pathway year 1, online from India",
+            "from": "2024-08",
+            "to": "2025-06"
+          },
+          {
+            "stage": "Masters year 2, Manchester",
+            "from": "2025-09",
+            "to": "2026-09"
+          },
+          {
+            "stage": "Early career, UK",
+            "from": "2026-10",
+            "to": null
+          }
+        ]
+      },
+      "summary": "Signed up on Internshala as a 1st-year BBA student, completed a Business Analytics training and did an internship found there. In her final year an Internshala banner introduced her to the SA pathway. After a webinar, a counselling call and a face-to-face session with her parents she enrolled, did year 1 online (82%), applied for year 2, got an unconditional offer and her visa, and reached Manchester in September 2025.",
+      "stored_not_shown": {
+        "owning_business": {
+          "business": "Study Abroad",
+          "team": "SA alumni and referrals"
+        },
+        "profile_completeness_pct": 94
+      },
+      "learner_profile": {
+        "Identity & contact": [
+          {
+            "attribute": "Global person ID",
+            "value": "upg_M6N3R8T1",
+            "source_system": "Derived",
+            "source_field": "computed by the layer",
+            "added_at": "2023-11-18",
+            "confidence": "derived",
+            "source_label": "Derived",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Emails (all known)",
+            "value": "meera.nair@example.com",
+            "source_system": "Internshala",
+            "source_field": "internshala.users.email",
+            "added_at": "2022-02-10",
+            "confidence": "declared",
+            "tier": "T1",
+            "display": "m•••••@example.com",
+            "conflict": "Same email on the Study Abroad lead. Sources agree.",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Email verified",
+            "value": "Yes",
+            "source_system": "LSQ",
+            "source_field": "mx_Email_Verification_status",
+            "added_at": "2023-11-18",
+            "confidence": "observed",
+            "tier": "T0",
+            "source_label": "LSQ",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Phones (all known)",
+            "value": "+91 97450 11873 (India) · UK number added 2024",
+            "source_system": "Internshala",
+            "source_field": "internshala.students.phone_primary",
+            "added_at": "2022-02-10",
+            "confidence": "declared",
+            "tier": "T1",
+            "display": "+91 97•••••873",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Phone verified",
+            "value": "Yes",
+            "source_system": "Internshala",
+            "source_field": "internshala.students.is_phone_verified",
+            "added_at": "2022-02-10",
+            "confidence": "observed",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Linked system IDs",
+            "value": "Internshala user IS-1931580; Internshala student ST-1702245; Trainings user TU-488903; LSQ SA lead 3305671; Prism user 66a1…07; OMS user 2604319",
+            "source_system": "Derived",
+            "source_field": "computed by the layer",
+            "added_at": "2024-02-05",
+            "confidence": "observed",
+            "tier": "T1",
+            "source_label": "Derived",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Owning business",
+            "value": "Study Abroad · alumni and referrals",
+            "source_system": "Derived",
+            "source_field": "computed by the layer",
+            "added_at": "2025-09-14",
+            "confidence": "derived",
+            "source_label": "Derived",
+            "tier": "T0",
+            "shown_on_ui": "No (stored)"
+          },
+          {
+            "attribute": "Device and ad identifiers",
+            "value": "1 Google client ID",
+            "source_system": "LSQ",
+            "source_field": "mx_Google_Client_ID",
+            "added_at": "2023-11-18",
+            "confidence": "observed",
+            "source_label": "LSQ",
+            "tier": "T1",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Name",
+            "value": "Meera Nair",
+            "source_system": "Internshala",
+            "source_field": "internshala.students.first_name",
+            "added_at": "2022-02-10",
+            "confidence": "declared",
+            "tier": "T1",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          }
+        ],
+        "Personal details": [
+          {
+            "attribute": "Age band + is_minor",
+            "value": "18–24 · not a minor",
+            "source_system": "LSQ",
+            "source_field": "mx_Date_Of_Birth",
+            "added_at": "2023-11-18",
+            "confidence": "derived",
+            "tier": "T2",
+            "source_label": "LSQ",
+            "shown_on_ui": "Yes",
+            "display": "Restricted"
+          },
+          {
+            "attribute": "Life stage",
+            "value": "Early career, UK · after a pathway Masters (2024–26)",
+            "source_system": "Heard",
+            "source_field": "SA: lead_insights.lead_profile.identity.current_status",
+            "added_at": "2023-12-02",
+            "confidence": "derived",
+            "tier": "T0",
+            "source_label": "Counselling call on 2 Dec 2023",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "City / state",
+            "value": "Manchester, UK",
+            "source_system": "LSQ",
+            "source_field": "mx_City",
+            "added_at": "2025-09-14",
+            "confidence": "declared",
+            "tier": "T0",
+            "conflict": "Internshala still says Kochi (2022). Newer Study Abroad record wins.",
+            "source_label": "LSQ",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Country of residence",
+            "value": "United Kingdom (moved from India, Sep 2025)",
+            "source_system": "LSQ",
+            "source_field": "mx_Resident_Country",
+            "added_at": "2025-09-14",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "LSQ",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Detected location",
+            "value": "Manchester, UK (IP)",
+            "source_system": "LSQ",
+            "source_field": "mx_Detected_Country",
+            "added_at": "2025-10-02",
+            "confidence": "observed",
+            "source_label": "LSQ",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Timezone",
+            "value": "Europe/London",
+            "source_system": "LSQ",
+            "source_field": "TimeZone",
+            "added_at": "2025-09-14",
+            "confidence": "observed",
+            "tier": "T0",
+            "source_label": "LSQ",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Language",
+            "value": "English, Malayalam",
+            "source_system": "Heard",
+            "source_field": "SA: lead_insights.lead_profile.identity.language_of_call",
+            "added_at": "2023-12-02",
+            "confidence": "observed",
+            "tier": "T0",
+            "source_label": "Counselling call on 2 Dec 2023",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Nationality / citizenship",
+            "value": "Indian",
+            "source_system": "LSQ",
+            "source_field": "mx_Citizen",
+            "added_at": "2023-12-02",
+            "confidence": "declared",
+            "source_label": "LSQ",
+            "tier": "T2",
+            "shown_on_ui": "Yes",
+            "display": "Restricted"
+          },
+          {
+            "attribute": "Gender",
+            "value": "Female",
+            "source_system": "Internshala",
+            "source_field": "internshala.students.gender",
+            "added_at": "2022-02-10",
+            "confidence": "declared",
+            "tier": "T2",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes",
+            "display": "Restricted"
+          },
+          {
+            "attribute": "Platform account status",
+            "value": "Internshala account active since Feb 2022",
+            "source_system": "Internshala",
+            "source_field": "internshala.users.status",
+            "added_at": "2022-02-10",
+            "confidence": "observed",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          }
+        ],
+        "Education (prior, outside upGrad)": [
+          {
+            "attribute": "Highest qualification",
+            "value": "MSc Business Analytics (2026) · BBA (2024)",
+            "source_system": "LSQ",
+            "source_field": "mx_Highest_Qualification",
+            "added_at": "2026-09-30",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "LSQ",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Education history",
+            "value": "[College name], Kochi · BBA · 2021–2024 · MSc Business Analytics pathway: year 1 online with upGrad 2024–25, year 2 at [University], Manchester 2025–26",
+            "source_system": "Internshala",
+            "source_field": "internshala.students_colleges.college_id",
+            "added_at": "2022-02-10",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Currently studying and expected graduation",
+            "value": "No · BBA 2024, MSc 2025",
+            "source_system": "Internshala",
+            "source_field": "internshala.students_colleges.is_pursuing",
+            "added_at": "2024-05-30",
+            "confidence": "derived",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Academic scores",
+            "value": "BBA 84% · 12th 92% · Pathway year 1: 82%",
+            "source_system": "Heard",
+            "source_field": "SA: lead_insights.lead_profile.identity.academic_scores.ug_score_normalized",
+            "added_at": "2023-12-02",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Counselling call on 2 Dec 2023",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Language tests and English fluency",
+            "value": "IELTS 7.0 (Jan 2024)",
+            "source_system": "Heard",
+            "source_field": "SA: call_insights.learner_identity.ielts_band",
+            "added_at": "2024-01-20",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Counselling call on 20 Jan 2024",
+            "shown_on_ui": "Yes"
+          }
+        ],
+        "Career / profession": [
+          {
+            "attribute": "Current role and employer",
+            "value": "Junior data analyst, [Retail company], Manchester · since Oct 2026",
+            "source_system": "Internshala",
+            "source_field": "internshala.student_experiences.experience_type",
+            "added_at": "2026-10-20",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Work history",
+            "value": "Market research intern, [Consulting firm], Kochi · May–Jul 2023 (found on Internshala)",
+            "source_system": "Internshala",
+            "source_field": "internshala.student_experiences.start_date",
+            "added_at": "2023-05-12",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Total experience",
+            "value": "Under a year full-time (since Oct 2026), plus one internship",
+            "source_system": "Internshala",
+            "source_field": "internshala.student_experiences.start_date",
+            "added_at": "2026-10-20",
+            "confidence": "derived",
+            "source_label": "Internshala",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Industry / function",
+            "value": "Retail · analytics",
+            "source_system": "Internshala",
+            "source_field": "internshala.student_experiences.profile_id",
+            "added_at": "2025-11-20",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Professional profile link",
+            "value": "LinkedIn profile on file",
+            "source_system": "Prism",
+            "source_field": "users.linkedIn",
+            "added_at": "2024-08-19",
+            "confidence": "declared",
+            "source_label": "Prism",
+            "tier": "T1",
+            "shown_on_ui": "Yes"
+          }
+        ],
+        "Aspiration": [
+          {
+            "attribute": "Career goal",
+            "value": "Analytics career in the UK",
+            "source_system": "Heard",
+            "source_field": "SA: lead_insights.lead_profile.intent.career_goal",
+            "added_at": "2023-12-02",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Counselling call on 2 Dec 2023",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Motivation and type of move",
+            "value": "Masters abroad, then work on the Graduate visa",
+            "source_system": "Heard",
+            "source_field": "SA: lead_insights.lead_profile.intent.motivation",
+            "added_at": "2023-12-02",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Counselling call on 2 Dec 2023",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Dream role / company",
+            "value": "Analytics lead at a retail company",
+            "source_system": "Prism",
+            "source_field": "users.dreamRole",
+            "added_at": "2024-08-19",
+            "confidence": "declared",
+            "source_label": "Prism",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Programme of interest (first + latest)",
+            "value": "First: Business Analytics training (Internshala, 2022) · Latest: MSc Business Analytics, UK (Study Abroad, Nov 2023)",
+            "source_system": "LSQ",
+            "source_field": "mx_Program",
+            "added_at": "2023-11-18",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "LSQ",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Interest areas",
+            "value": "Business analytics, data visualisation",
+            "source_system": "Prism",
+            "source_field": "users.interestAreas.certificationCourses",
+            "added_at": "2024-08-19",
+            "confidence": "declared",
+            "source_label": "Prism",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Roles applied for",
+            "value": "Market research intern, business analyst intern, data analyst intern · 11 applications",
+            "source_system": "Internshala",
+            "source_field": "internshala.applications.job_id",
+            "added_at": "2023-05-12",
+            "confidence": "observed",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Learning objective",
+            "value": "Gain a skill",
+            "source_system": "Internshala",
+            "source_field": "trainings.users.objective_of_learning",
+            "added_at": "2022-06-14",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Study Abroad preferences",
+            "value": "UK first, Ireland backup · 6 universities shortlisted · Sep 2024 intake",
+            "source_system": "Heard",
+            "source_field": "SA: lead_insights.lead_profile.intent.primary_destination",
+            "added_at": "2023-12-02",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Counselling call on 2 Dec 2023",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Purchase timeline",
+            "value": "September 2024 intake",
+            "source_system": "Heard",
+            "source_field": "SA: lead_insights.lead_profile.intent.target_intake.season / .year",
+            "added_at": "2023-12-02",
+            "confidence": "declared",
+            "source_label": "Counselling call on 2 Dec 2023",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Study time available",
+            "value": "Not applicable (full-time study)",
+            "source_system": "—",
+            "source_field": "—",
+            "added_at": "—",
+            "confidence": "—",
+            "source_label": "—",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Concerns / objections",
+            "value": "Loan approval (resolved) · IELTS (resolved: 7.0)",
+            "source_system": "Heard",
+            "source_field": "SA: lead_insights.cumulative_objections[]",
+            "added_at": "2024-01-20",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Counselling call on 20 Jan 2024",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Competitors considered",
+            "value": "One study-abroad consultancy · compared on cost",
+            "source_system": "Heard",
+            "source_field": "SA: call_insights.learner_psychology.competing_consultancy_mentioned.names[]",
+            "added_at": "2023-12-02",
+            "confidence": "observed",
+            "source_label": "Counselling call on 2 Dec 2023",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          }
+        ],
+        "Financial profile": [
+          {
+            "attribute": "Budget band",
+            "value": "₹25–35 lakh",
+            "source_system": "Heard",
+            "source_field": "SA: lead_insights.lead_profile.financial.budget_band",
+            "added_at": "2023-12-02",
+            "confidence": "declared",
+            "tier": "T2",
+            "source_label": "Counselling call on 2 Dec 2023",
+            "shown_on_ui": "Yes",
+            "display": "Restricted"
+          },
+          {
+            "attribute": "Funding route / loan",
+            "value": "Education loan plus family · open to a loan",
+            "source_system": "Heard",
+            "source_field": "SA: lead_insights.lead_profile.financial.funding_source",
+            "added_at": "2023-12-02",
+            "confidence": "declared",
+            "tier": "T2",
+            "source_label": "Counselling call on 2 Dec 2023",
+            "shown_on_ui": "Yes",
+            "display": "Restricted"
+          },
+          {
+            "attribute": "Scholarship need",
+            "value": "Nice to have",
+            "source_system": "Heard",
+            "source_field": "SA: lead_insights.lead_profile.financial.scholarship_need",
+            "added_at": "2023-12-02",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Counselling call on 2 Dec 2023",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Employer sponsorship / reimbursement",
+            "value": "Not applicable",
+            "source_system": "—",
+            "source_field": "—",
+            "added_at": "—",
+            "confidence": "—",
+            "source_label": "—",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Salary band",
+            "value": "Not captured",
+            "source_system": "—",
+            "source_field": "—",
+            "added_at": "—",
+            "confidence": "—",
+            "source_label": "—",
+            "tier": "T2",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Decision maker",
+            "value": "Joint, with parents",
+            "source_system": "Heard",
+            "source_field": "SA: lead_insights.lead_profile.stakeholders.decision_maker",
+            "added_at": "2023-12-02",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Counselling call on 2 Dec 2023",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Parent involvement and stance",
+            "value": "Involved · supportive",
+            "source_system": "Heard",
+            "source_field": "SA: lead_insights.lead_profile.stakeholders.parent_involvement",
+            "added_at": "2023-12-02",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Counselling call on 2 Dec 2023",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Decision-maker clarity",
+            "value": "Aligned",
+            "source_system": "Heard",
+            "source_field": "SA: lead_insights.lead_profile.stakeholders.decision_maker_clarity",
+            "added_at": "2023-12-02",
+            "confidence": "observed",
+            "source_label": "Counselling call on 2 Dec 2023",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          }
+        ],
+        "Consent & preferences": [
+          {
+            "attribute": "Notification preferences",
+            "value": "Email updates on",
+            "source_system": "Prism",
+            "source_field": "users.communicationSettings.enableUpdatesOnEMail",
+            "added_at": "2024-08-19",
+            "confidence": "declared",
+            "source_label": "Prism",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Do not call / contact",
+            "value": "Allowed",
+            "source_system": "LSQ",
+            "source_field": "DoNotCall",
+            "added_at": "2023-11-18",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "LSQ",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Email opt-out / subscriptions",
+            "value": "Allowed",
+            "source_system": "Internshala",
+            "source_field": "internshala.users.do_subscribe",
+            "added_at": "2022-02-10",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "SMS opt-out",
+            "value": "Allowed (Indian number)",
+            "source_system": "LSQ",
+            "source_field": "DoNotSMS",
+            "added_at": "2023-11-18",
+            "confidence": "declared",
+            "source_label": "LSQ",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "WhatsApp",
+            "value": "Allowed",
+            "source_system": "LSQ",
+            "source_field": "mx_CT_Whatsapp_opt_in",
+            "added_at": "2023-11-18",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "LSQ",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Marketing consent",
+            "value": "Given · in-app form on Internshala",
+            "source_system": "LSQ",
+            "source_field": "mx_Marketing_Communications_Consent_Given",
+            "added_at": "2023-11-18",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "LSQ",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Callback consent",
+            "value": "Given",
+            "source_system": "LSQ",
+            "source_field": "mx_Callback_Consent_Given",
+            "added_at": "2023-11-18",
+            "confidence": "declared",
+            "source_label": "LSQ",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Legal basis + regulation",
+            "value": "Consent · DPDP Act, India; UK GDPR since moving (pending Legal)",
+            "source_system": "Derived",
+            "source_field": "computed by the layer",
+            "added_at": "2024-09-10",
+            "confidence": "derived",
+            "tier": "T0",
+            "source_label": "Derived",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Consent to share across upGrad",
+            "value": "Not captured yet",
+            "source_system": "—",
+            "source_field": "computed by the layer",
+            "added_at": "—",
+            "confidence": "—",
+            "tier": "T0",
+            "source_label": "—",
+            "shown_on_ui": "Yes"
+          }
+        ]
+      },
+      "academic_skill_profile": {
+        "Skills": [
+          {
+            "attribute": "Declared skills",
+            "value": "Excel (advanced), SQL (intermediate), Power BI (intermediate), market research (intermediate)",
+            "source_system": "Internshala",
+            "source_field": "internshala.students_skills.skill_id",
+            "added_at": "2023-04-02",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Graded skills and competencies",
+            "value": "Business statistics: proficient · Data visualisation: proficient · Python for analytics: intermediate",
+            "source_system": "Prism",
+            "source_field": "userprogramreports.skills",
+            "added_at": "2025-06-20",
+            "confidence": "observed",
+            "source_label": "Prism",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Projects and responsibilities",
+            "value": "Consumer survey analysis for a local brand (2023) · Treasurer, college business club (2022–23)",
+            "source_system": "Internshala",
+            "source_field": "internshala.student_projects.title",
+            "added_at": "2023-04-02",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Trainings listed on resume",
+            "value": "Business Analytics, Internshala Trainings, 2022",
+            "source_system": "Internshala",
+            "source_field": "internshala.student_trainings.training_id",
+            "added_at": "2022-08-20",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "Internshala",
+            "shown_on_ui": "Yes"
+          }
+        ],
+        "Courses with upGrad": [
+          {
+            "attribute": "Course",
+            "value": "Business Analytics · Internshala Trainings (2022); MSc Business Analytics pathway [sample] · Study Abroad: year 1 online with upGrad (2024–25), year 2 in Manchester (2025–26)",
+            "source_system": "LSQ",
+            "source_field": "mx_Program_Paid_Lead",
+            "added_at": "2024-02-06",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "LSQ",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Current status",
+            "value": "Training completed · pathway completed: year 1 with upGrad, year 2 in Manchester",
+            "source_system": "LSQ",
+            "source_field": "mx_Onboarding_Status",
+            "added_at": "2025-09-30",
+            "confidence": "declared",
+            "tier": "T0",
+            "source_label": "LSQ",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Progress",
+            "value": "Pathway year 1: 100% · module 8 of 8 · 410 hours",
+            "source_system": "Prism",
+            "source_field": "userprograms.containerProgressInfo.{id}.status",
+            "added_at": "2025-06-20",
+            "confidence": "observed",
+            "source_label": "Prism",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Programme results",
+            "value": "Pathway year 1: 82% · CGPA 3.6 of 4",
+            "source_system": "Prism",
+            "source_field": "userprogramreports.scoreCard.cgpa",
+            "added_at": "2025-06-20",
+            "confidence": "observed",
+            "source_label": "Prism",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          },
+          {
+            "attribute": "Certificates earned",
+            "value": "Pathway year 1 completion certificate (Jun 2025)",
+            "source_system": "Prism",
+            "source_field": "usercoursecertificates.certificateUID",
+            "added_at": "2025-06-20",
+            "confidence": "observed",
+            "source_label": "Prism",
+            "tier": "T0",
+            "shown_on_ui": "Yes"
+          }
+        ]
+      },
+      "activity": [
+        {
+          "bu": "Internshala",
+          "step": 1,
+          "activity": "First Touch",
+          "occurred_at": "2022-02-10T20:10",
+          "state": "done",
+          "source_label": "Internshala",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Channel (organic / paid / etc.)",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.students.utm_source; internshala.students.utm_medium; internshala.users.source",
+              "status": "Available",
+              "value": "Organic search (Google)"
+            },
+            {
+              "field": "Page / campaign",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.students.utm_campaign",
+              "status": "Partial",
+              "value": "No campaign · landing page not captured"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.users.created_at",
+              "status": "Available",
+              "value": "10 Feb 2022, 20:10"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "—",
+              "status": "Available",
+              "value": "Internshala"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.users.id",
+              "status": "Available",
+              "value": "IS user 1931580"
+            }
+          ]
+        },
+        {
+          "bu": "Internshala",
+          "step": 2,
+          "activity": "Lead Created",
+          "occurred_at": "2022-02-10T20:15",
+          "state": "done",
+          "source_label": "Internshala",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Source: paid / organic",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.students.utm_medium; internshala.students.referral",
+              "status": "Available",
+              "value": "Organic"
+            },
+            {
+              "field": "Campaign",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.students.utm_campaign",
+              "status": "Available",
+              "value": "—"
+            },
+            {
+              "field": "Page",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "Not captured (Internshala has no landing-page field)",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.users.created_at",
+              "status": "Available",
+              "value": "10 Feb 2022, 20:15"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "—",
+              "status": "Available",
+              "value": "Internshala"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.users.id; internshala.students.id",
+              "status": "Available",
+              "value": "IS user 1931580 · student 1702245"
+            },
+            {
+              "field": "Student status at sign-up",
+              "origin": "Added",
+              "source_system": "Internshala",
+              "source_field": "internshala.students_colleges.degree_type; internshala.students_colleges.end_year; internshala.students_colleges.is_pursuing",
+              "status": "Derived",
+              "value": "1st-year BBA · finishing 2024"
+            }
+          ]
+        },
+        {
+          "bu": "Internshala",
+          "step": 3,
+          "activity": "Purchased",
+          "occurred_at": "2022-06-14T18:40",
+          "state": "done",
+          "source_label": "Internshala",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Training name",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.batch_id; trainings.batches.course_id",
+              "status": "Available",
+              "value": "Business Analytics"
+            },
+            {
+              "field": "Amount",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.amount_paid",
+              "status": "Available",
+              "value": "₹3,999"
+            },
+            {
+              "field": "Payment type (block / full)",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.signup_amount; trainings.users.amount_paid",
+              "status": "Derived",
+              "value": "Block ₹999, then full"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.paid_at",
+              "status": "Available",
+              "value": "14 Jun 2022, 18:40"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "—",
+              "status": "Available",
+              "value": "Internshala"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.id",
+              "status": "Available",
+              "value": "Training enrolment 488903"
+            },
+            {
+              "field": "Coupon",
+              "origin": "Added",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.coupon",
+              "status": "Available",
+              "value": "—"
+            },
+            {
+              "field": "Learning objective",
+              "origin": "Added",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.objective_of_learning",
+              "status": "Available",
+              "value": "Gain a skill"
+            }
+          ]
+        },
+        {
+          "bu": "Internshala",
+          "step": 4,
+          "activity": "Training Completed",
+          "occurred_at": "2022-08-18T17:00",
+          "state": "done",
+          "source_label": "Internshala",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Course / training name",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.batch_id; trainings.batches.course_id",
+              "status": "Available",
+              "value": "Business Analytics"
+            },
+            {
+              "field": "Batch dates",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.course_start_date; trainings.users.course_end_date; trainings.batches.start_date",
+              "status": "Available",
+              "value": "20 Jun – 15 Aug 2022"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.status_updated_at; trainings.users.status",
+              "status": "Partial",
+              "value": "18 Aug 2022, 17:00"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "—",
+              "status": "Available",
+              "value": "Internshala"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.id",
+              "status": "Available",
+              "value": "Training enrolment 488903"
+            },
+            {
+              "field": "Added to resume",
+              "origin": "Added",
+              "source_system": "Internshala",
+              "source_field": "trainings.users.training_added_to_resume_at",
+              "status": "Available",
+              "value": "20 Aug 2022"
+            }
+          ]
+        },
+        {
+          "bu": "Internshala",
+          "step": 5,
+          "activity": "Internship",
+          "occurred_at": "2023-05-12T11:00",
+          "state": "done",
+          "source_label": "Internshala",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Company",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.applications.job_id",
+              "status": "Partial",
+              "value": "[Consulting firm], Kochi"
+            },
+            {
+              "field": "Duration",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.student_experiences.start_date; internshala.student_experiences.end_date",
+              "status": "Partial",
+              "value": "3 months (May–Jul 2023)"
+            },
+            {
+              "field": "Role",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.applications.job_id",
+              "status": "Partial",
+              "value": "Market research intern"
+            },
+            {
+              "field": "Applied on",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.applications.applied_at",
+              "status": "Available",
+              "value": "28 Apr 2023"
+            },
+            {
+              "field": "Hired on",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.applications.hired_at",
+              "status": "Available",
+              "value": "12 May 2023"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.applications.hired_at",
+              "status": "Available",
+              "value": "12 May 2023, 11:00"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "—",
+              "status": "Available",
+              "value": "Internshala"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.applications.id",
+              "status": "Available",
+              "value": "Application 67702213"
+            },
+            {
+              "field": "Shortlisted on",
+              "origin": "Added",
+              "source_system": "Internshala",
+              "source_field": "internshala.applications.shortlisted_at",
+              "status": "Available",
+              "value": "5 May 2023"
+            },
+            {
+              "field": "Campaign that drove the application",
+              "origin": "Added",
+              "source_system": "Internshala",
+              "source_field": "internshala.applications.utm_source; internshala.applications.utm_campaign",
+              "status": "Available",
+              "value": "internshala app · organic"
+            },
+            {
+              "field": "Applications before this hire",
+              "origin": "Added",
+              "source_system": "Derived",
+              "source_field": "internshala.applications.applied_at",
+              "status": "Derived",
+              "value": "11"
+            }
+          ]
+        },
+        {
+          "bu": "Internshala",
+          "step": 6,
+          "activity": "Internship Completion",
+          "occurred_at": "2023-07-31T00:00",
+          "state": "done",
+          "source_label": "Internshala",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Role",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.student_experiences.title_id; internshala.student_experiences.profile_id",
+              "status": "Partial",
+              "value": "Market research intern"
+            },
+            {
+              "field": "Organisation",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.student_experiences.experience_organization_id",
+              "status": "Partial",
+              "value": "[Consulting firm]"
+            },
+            {
+              "field": "Duration",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.student_experiences.start_date; internshala.student_experiences.end_date",
+              "status": "Available",
+              "value": "1 May – 31 Jul 2023"
+            },
+            {
+              "field": "Mode",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.student_experiences.is_work_from_home; internshala.student_experiences.location_id",
+              "status": "Available",
+              "value": "On-site, Kochi"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.student_experiences.end_date",
+              "status": "Available",
+              "value": "31 Jul 2023"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "—",
+              "status": "Available",
+              "value": "Internshala"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Internshala",
+              "source_field": "internshala.student_experiences.id",
+              "status": "Available",
+              "value": "Experience 11208733"
+            }
+          ]
+        },
+        {
+          "bu": "SA",
+          "step": 1,
+          "activity": "Lead Created",
+          "occurred_at": "2023-11-18T21:05",
+          "state": "done",
+          "source_label": "LSQ",
+          "moved_from_another_business": "Internshala → SA · in-app banner · ₹0 media",
+          "fields": [
+            {
+              "field": "Source: paid / organic",
+              "origin": "Your sheet",
+              "source_system": "LSQ",
+              "source_field": "Source; SourceMedium",
+              "status": "Available",
+              "value": "Organic (owned: Internshala in-app banner)"
+            },
+            {
+              "field": "Campaign",
+              "origin": "Your sheet",
+              "source_system": "LSQ",
+              "source_field": "SourceCampaign",
+              "status": "Available",
+              "value": "is-banner-sa-masters"
+            },
+            {
+              "field": "Landing page",
+              "origin": "Your sheet",
+              "source_system": "LSQ",
+              "source_field": "mx_platformUrl",
+              "status": "Available",
+              "value": "/study-abroad/uk-pathway"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "LSQ",
+              "source_field": "CreatedOn",
+              "status": "Available",
+              "value": "18 Nov 2023, 21:05"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "LSQ",
+              "source_field": "mx_Business_Unit_Lead_Journey",
+              "status": "Available",
+              "value": "Study Abroad"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "LSQ",
+              "source_field": "ProspectAutoId",
+              "status": "Available",
+              "value": "LSQ lead 3305671"
+            },
+            {
+              "field": "Country of interest",
+              "origin": "Your sheet",
+              "source_system": "LSQ",
+              "source_field": "mx_SA_Profile_Preferred_Country",
+              "status": "Available",
+              "value": "United Kingdom"
+            },
+            {
+              "field": "POI",
+              "origin": "Your sheet",
+              "source_system": "LSQ",
+              "source_field": "mx_Program; mx_SA_Profile_Preferred_Course",
+              "status": "Available",
+              "value": "MSc Business Analytics"
+            },
+            {
+              "field": "Preferred intake",
+              "origin": "Added",
+              "source_system": "LSQ",
+              "source_field": "mx_SA_Profile_Preferred_Intake_Session",
+              "status": "Available",
+              "value": "September 2024"
+            },
+            {
+              "field": "Introduced by another upGrad business",
+              "origin": "Added",
+              "source_system": "Derived",
+              "source_field": "mx_First_UTM_Source",
+              "status": "Derived",
+              "value": "Internshala (in-app banner)"
+            }
+          ]
+        },
+        {
+          "bu": "Other (common)",
+          "step": 1,
+          "activity": "Webinar / Event Attended",
+          "occurred_at": "2023-11-25T18:00",
+          "state": "done",
+          "source_label": "Forms / LSQ",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Webinar / event name",
+              "origin": "Your sheet",
+              "source_system": "Forms / LSQ",
+              "source_field": "mx_Webinar_Topic_n_Agenda; mx_Event_Type; mx_Zoom_Webinar_ID",
+              "status": "Available",
+              "value": "Study in the UK: pathway Q&A"
+            },
+            {
+              "field": "Webinar / event date-time",
+              "origin": "Your sheet",
+              "source_system": "Forms / LSQ",
+              "source_field": "mx_Webinar_Date; mx1_COCO_Event_Date; mx_Masterclass_Date_n_Time",
+              "status": "Available",
+              "value": "25 Nov 2023, 18:00"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Forms / LSQ",
+              "source_field": "mx_Webinar_Date",
+              "status": "Available",
+              "value": "25 Nov 2023, 18:00"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Forms / LSQ",
+              "source_field": "mx_Business_Unit_Lead_Journey",
+              "status": "Available",
+              "value": "Study Abroad"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Forms / LSQ",
+              "source_field": "mx_Zoom_Webinar_ID; ProspectAutoId",
+              "status": "Available",
+              "value": "Zoom webinar 7730 1154"
+            },
+            {
+              "field": "Attended or registered only",
+              "origin": "Added",
+              "source_system": "LSQ",
+              "source_field": "mx_Webinar_Attendee_Status",
+              "status": "Available",
+              "value": "Attended"
+            },
+            {
+              "field": "Time attended",
+              "origin": "Added",
+              "source_system": "LSQ",
+              "source_field": "mx_Webinar_Attendee_Duration",
+              "status": "Available",
+              "value": "46 of 60 minutes"
+            },
+            {
+              "field": "Speaker",
+              "origin": "Added",
+              "source_system": "LSQ",
+              "source_field": "mx_Webinar_Speaker",
+              "status": "Available",
+              "value": "[SA counsellor lead]"
+            },
+            {
+              "field": "Venue (offline events)",
+              "origin": "Added",
+              "source_system": "LSQ",
+              "source_field": "mx_COCO_Venue",
+              "status": "Available",
+              "value": "Online"
+            }
+          ]
+        },
+        {
+          "bu": "SA",
+          "step": 2,
+          "activity": "Counselling Call",
+          "occurred_at": "2023-12-02T17:00",
+          "state": "done",
+          "source_label": "Counselling call on 2 Dec 2023",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Counsellor",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "mx_First_counselling_done_by",
+              "status": "Available",
+              "value": "[Counsellor B]"
+            },
+            {
+              "field": "Vertical (path / prem / dir)",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "SA: lead_insights.vertical_fit.vertical_suggested; mx_Program_Vertical",
+              "status": "Available",
+              "value": "Pathway (suggested and in play)"
+            },
+            {
+              "field": "Lead score",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "SA: lead_scores.final_score; SA: lead_scores.lead_tier; Score",
+              "status": "Available",
+              "value": "Tier A · 84"
+            },
+            {
+              "field": "Program pitched / POI",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "mx_Latest_SA_Program_Pitched; mx_Latest_SA_Country_Pitched; mx_SA_POI_pitched",
+              "status": "Available",
+              "value": "MSc Business Analytics pathway · UK"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "mx_First_Counselling_Date; mx_Latest_Counselling_Date",
+              "status": "Available",
+              "value": "2 Dec 2023, 17:00"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "mx_Business_Unit_Lead_Journey",
+              "status": "Available",
+              "value": "Study Abroad"
+            },
+            {
+              "field": "Call count: #",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "—",
+              "status": "Partial",
+              "value": "2"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "ProspectAutoId",
+              "status": "Available",
+              "value": "LSQ lead 3305671 · Heard call 20417"
+            },
+            {
+              "field": "Concerns raised",
+              "origin": "Added",
+              "source_system": "Heard",
+              "source_field": "SA: call_insights.call_quality.objections_raised[]",
+              "status": "Available",
+              "value": "Education loan approval · IELTS"
+            },
+            {
+              "field": "Decision maker and parent stance",
+              "origin": "Added",
+              "source_system": "Heard",
+              "source_field": "SA: lead_insights.lead_profile.stakeholders.decision_maker; SA: lead_insights.lead_profile.stakeholders.parent_stance",
+              "status": "Available",
+              "value": "Joint with parents · supportive"
+            },
+            {
+              "field": "Budget band",
+              "origin": "Added",
+              "source_system": "Heard",
+              "source_field": "SA: lead_insights.lead_profile.financial.budget_band",
+              "status": "Available",
+              "value": "₹25–35 lakh"
+            },
+            {
+              "field": "Next step agreed",
+              "origin": "Added",
+              "source_system": "Heard",
+              "source_field": "SA: call_insights.call_quality.next_step_committed.value",
+              "status": "Available",
+              "value": "IELTS diagnostic test: done"
+            }
+          ]
+        },
+        {
+          "bu": "SA",
+          "step": 3,
+          "activity": "VC / F2F",
+          "occurred_at": "2024-01-13T11:00",
+          "state": "done",
+          "source_label": "Counselling call on 13 Jan 2024",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Counsellor",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "mx_First_counselling_done_by",
+              "status": "Available",
+              "value": "[Counsellor B]"
+            },
+            {
+              "field": "Vertical (path / prem / dir)",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "SA: lead_insights.vertical_fit.vertical_suggested; mx_Program_Vertical",
+              "status": "Available",
+              "value": "Pathway"
+            },
+            {
+              "field": "Lead score",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "SA: lead_scores.final_score; SA: lead_scores.lead_tier; Score",
+              "status": "Available",
+              "value": "Tier A · 88"
+            },
+            {
+              "field": "Program pitched / POI",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "mx_Latest_SA_Program_Pitched; mx_Latest_SA_Country_Pitched; mx_SA_POI_pitched",
+              "status": "Available",
+              "value": "MSc Business Analytics pathway · UK"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "mx_First_VC_FOS_Date; mx_First_VC_Done_Date; mx_F2F_Done_on_Date",
+              "status": "Available",
+              "value": "13 Jan 2024, 11:00"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "mx_Business_Unit_Lead_Journey",
+              "status": "Available",
+              "value": "Study Abroad"
+            },
+            {
+              "field": "Call count: #",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "mx_Count_of_VC_Done; mx_Count_of_FOS_Session",
+              "status": "Available",
+              "value": "1 face-to-face session"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "LSQ / Heard",
+              "source_field": "ProspectAutoId",
+              "status": "Available",
+              "value": "LSQ lead 3305671"
+            },
+            {
+              "field": "Session type (VC / F2F)",
+              "origin": "Added",
+              "source_system": "LSQ",
+              "source_field": "mx_SA_Type_of_VC_FOS; mx_VC_FOS_Type_of_Session",
+              "status": "Available",
+              "value": "Face to face"
+            },
+            {
+              "field": "Session outcome",
+              "origin": "Added",
+              "source_system": "LSQ",
+              "source_field": "mx_FOS_Session_Over_Status",
+              "status": "Available",
+              "value": "Completed · parents attended"
+            },
+            {
+              "field": "Session duration",
+              "origin": "Added",
+              "source_system": "LSQ",
+              "source_field": "mx_SA_FOS_Duration_Category",
+              "status": "Available",
+              "value": "60+ minutes"
+            },
+            {
+              "field": "F2F address / centre",
+              "origin": "Added",
+              "source_system": "LSQ",
+              "source_field": "mx_FOS_Address",
+              "status": "Available",
+              "value": "upGrad office, Kochi"
+            }
+          ]
+        },
+        {
+          "bu": "SA",
+          "step": 4,
+          "activity": "Enrolled",
+          "occurred_at": "2024-02-06T10:00",
+          "state": "done",
+          "source_label": "OMS",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Program name",
+              "origin": "Your sheet",
+              "source_system": "OMS",
+              "source_field": "order_entity.bundle_program_key; mx_Program_Paid_Lead",
+              "status": "Available",
+              "value": "MSc Business Analytics pathway (year 1 online with upGrad, year 2 in the UK)"
+            },
+            {
+              "field": "POK",
+              "origin": "Your sheet",
+              "source_system": "OMS",
+              "source_field": "order_entity.bundle_program_key; userprograms.pok",
+              "status": "Available",
+              "value": "POK …SA-BA-PATH"
+            },
+            {
+              "field": "Vertical",
+              "origin": "Your sheet",
+              "source_system": "LSQ",
+              "source_field": "mx_Program_Vertical_Paid",
+              "status": "Available",
+              "value": "Pathway"
+            },
+            {
+              "field": "Payment type",
+              "origin": "Your sheet",
+              "source_system": "OMS",
+              "source_field": "user_product_payment_schedule.amount; user_product_payment_schedule.plan_date",
+              "status": "Derived",
+              "value": "Block ₹50,000, then 2 instalments"
+            },
+            {
+              "field": "Batch date",
+              "origin": "Your sheet",
+              "source_system": "OMS",
+              "source_field": "batch.batch_start_date; mx_Payment_Batch",
+              "status": "Available",
+              "value": "August 2024"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "OMS",
+              "source_field": "billing.created",
+              "status": "Available",
+              "value": "6 Feb 2024, 10:00"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "OMS",
+              "source_field": "billing.tenant_id",
+              "status": "Available",
+              "value": "Study Abroad"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "OMS",
+              "source_field": "billing.id",
+              "status": "Available",
+              "value": "Order 7781"
+            },
+            {
+              "field": "Onboarding status",
+              "origin": "Added",
+              "source_system": "LSQ",
+              "source_field": "mx_Onboarding_Status; mx_Onboarding_Date_and_Time",
+              "status": "Available",
+              "value": "Onboarded · 8 Feb 2024"
+            }
+          ]
+        },
+        {
+          "bu": "SA",
+          "step": 5,
+          "activity": "Application Submitted",
+          "occurred_at": "2024-03-04T15:00",
+          "state": "done",
+          "source_label": "application_service (Redshift)",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Programme",
+              "origin": "Your sheet",
+              "source_system": "application_service (Redshift)",
+              "source_field": "mx_Program_Paid_Lead",
+              "status": "Open question",
+              "value": "MSc Business Analytics pathway",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Date submitted",
+              "origin": "Your sheet",
+              "source_system": "application_service (Redshift)",
+              "source_field": "mx_Application_Stage",
+              "status": "Open question",
+              "value": "4 Mar 2024",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "application_service (Redshift)",
+              "source_field": "—",
+              "status": "Open question",
+              "value": "4 Mar 2024, 15:00",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "application_service (Redshift)",
+              "source_field": "—",
+              "status": "Available",
+              "value": "Study Abroad"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "application_service (Redshift)",
+              "source_field": "—",
+              "status": "Open question",
+              "value": "Application SA-24-0304-071",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Application stage",
+              "origin": "Added",
+              "source_system": "LSQ",
+              "source_field": "mx_Application_Stage",
+              "status": "Partial",
+              "value": "Submitted → accepted 20 Mar 2024"
+            }
+          ]
+        },
+        {
+          "bu": "SA",
+          "step": 6,
+          "activity": "First Year Learning Started",
+          "occurred_at": "2024-08-19T19:00",
+          "state": "done",
+          "source_label": "Prism",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "First accessed",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "userprograms.firstAccessedAt",
+              "status": "Open question",
+              "value": "19 Aug 2024, 19:00",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Days from enrolment to start",
+              "origin": "Your sheet",
+              "source_system": "Derived",
+              "source_field": "userprograms.registeredAt; userprograms.firstAccessedAt",
+              "status": "Open question",
+              "value": "195 (batch start in August)",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "userprograms.startedAt",
+              "status": "Open question",
+              "value": "19 Aug 2024, 19:00",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "userprograms.meta.businessUnit",
+              "status": "Open question",
+              "value": "Study Abroad",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "userprograms._id",
+              "status": "Open question",
+              "value": "Enrolment 66a1…07",
+              "value_note": "Sample value: source not confirmed"
+            }
+          ]
+        },
+        {
+          "bu": "SA",
+          "step": 7,
+          "activity": "FY Learning Scores",
+          "occurred_at": "2025-06-20T12:00",
+          "state": "done",
+          "source_label": "Prism",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Result",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "userprogramreports.scoreCard.cgpa; userprogramreports.scoreCard.percentage",
+              "status": "Open question",
+              "value": "82% · CGPA 3.6 of 4",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Certificate",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "usercoursecertificates.certificateUID",
+              "status": "Open question",
+              "value": "Year 1 completion certificate",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Time spent",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "userprograms.userSpentLearningDuration",
+              "status": "Open question",
+              "value": "410 hours",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "usercoursecertificates.createdAt",
+              "status": "Open question",
+              "value": "20 Jun 2025, 12:00",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "userprograms.meta.businessUnit",
+              "status": "Open question",
+              "value": "Study Abroad",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "Prism",
+              "source_field": "userprograms._id",
+              "status": "Open question",
+              "value": "Enrolment 66a1…07",
+              "value_note": "Sample value: source not confirmed"
+            },
+            {
+              "field": "Eligible for year 2",
+              "origin": "Added",
+              "source_system": "Rule",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "Yes (sample rule: 60% or above)",
+              "value_note": "Sample value: no source today"
+            }
+          ]
+        },
+        {
+          "bu": "SA",
+          "step": 8,
+          "activity": "Application for 2nd Year",
+          "occurred_at": "2025-06-28T16:00",
+          "state": "done",
+          "source_label": "SA LMS (Runway)",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "University",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "[University], Manchester",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Country",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "United Kingdom",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Programme",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "MSc Business Analytics (year 2)",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Applied on",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "28 Jun 2025",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Status",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "Offer received",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "28 Jun 2025, 16:00",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "Study Abroad",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "SA application 118",
+              "value_note": "Sample value: no source today"
+            }
+          ]
+        },
+        {
+          "bu": "SA",
+          "step": 9,
+          "activity": "Offer Letter Received from Uni",
+          "occurred_at": "2025-07-15T09:00",
+          "state": "done",
+          "source_label": "SA LMS (Runway)",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "University",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "[University], Manchester",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Country",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "United Kingdom",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Offer type",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "Unconditional",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Conditions",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "None",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Offer date",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "15 Jul 2025",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "15 Jul 2025, 09:00",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "Study Abroad",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "SA application 118 · offer 1",
+              "value_note": "Sample value: no source today"
+            }
+          ]
+        },
+        {
+          "bu": "SA",
+          "step": 10,
+          "activity": "Visa Approved",
+          "occurred_at": "2025-08-12T10:00",
+          "state": "done",
+          "source_label": "SA LMS (Runway)",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "Country",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "United Kingdom",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Visa type",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "Student visa",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Date",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "mx_SA_Learner_Documents_Status",
+              "status": "Partial",
+              "value": "12 Aug 2025"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "12 Aug 2025, 10:00",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "Study Abroad",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "SA visa 0451",
+              "value_note": "Sample value: no source today"
+            }
+          ]
+        },
+        {
+          "bu": "SA",
+          "step": 11,
+          "activity": "RAU (Reached At University)",
+          "occurred_at": "2025-09-14T18:00",
+          "state": "done",
+          "source_label": "SA LMS (Runway)",
+          "moved_from_another_business": null,
+          "fields": [
+            {
+              "field": "University",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "[University], Manchester",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "City",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "Manchester",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Arrival date",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "mx_Last_Activity_Date_in_SA_LMS",
+              "status": "Partial",
+              "value": "14 Sep 2025"
+            },
+            {
+              "field": "Date and time",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "14 Sep 2025, 18:00",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Business",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "Study Abroad",
+              "value_note": "Sample value: no source today"
+            },
+            {
+              "field": "Record ID",
+              "origin": "Your sheet",
+              "source_system": "SA LMS (Runway)",
+              "source_field": "—",
+              "status": "No source today",
+              "value": "SA arrival 0451",
+              "value_note": "Sample value: no source today"
+            }
+          ]
+        }
+      ],
+      "insights": [
+        {
+          "insight": "Lifecycle state per business",
+          "value": "Internshala: alumna since Aug 2022 · Study Abroad: enrolled Feb 2024, reached university Sep 2025",
+          "built_from": "Journey milestones (lead created, counselling, enrolled, learning started, completed, RAU) + stored refunds and deferrals"
+        },
+        {
+          "insight": "Overall relationship state",
+          "value": "Alumni",
+          "built_from": "Lifecycle per business"
+        },
+        {
+          "insight": "Cross-business flag",
+          "value": "Yes · 2 businesses",
+          "built_from": "Identity + lead/enrolment records"
+        },
+        {
+          "insight": "First seen / last active",
+          "value": "First seen Feb 2022 · last active Oct 2026 (updated her profile with her UK job)",
+          "built_from": "All Activity"
+        },
+        {
+          "insight": "Lifetime revenue",
+          "value": "₹2,43,999 (₹3,999 Internshala + ₹2,40,000 SA pathway)",
+          "built_from": "Activity: payments − refunds (OMS)"
+        },
+        {
+          "insight": "Programmes purchased / repeat buyer",
+          "value": "2 · repeat buyer across two businesses",
+          "built_from": "Activity: orders, enrolments"
+        },
+        {
+          "insight": "Re-acquisition flag",
+          "value": "No · introduced by an Internshala in-app banner, no media cost",
+          "built_from": "Activity: lead created vs first seen; acquisition source"
+        },
+        {
+          "insight": "Reachable now (per channel)",
+          "value": "Email, WhatsApp; calls only on her Indian number",
+          "built_from": "Learner: consent + verified contact + minor flag; Activity: recency"
+        },
+        {
+          "insight": "Intent level",
+          "value": "Low · no open enquiry; upskilling or referral later",
+          "built_from": "Learner/Aspiration + Activity engagement; counsellor-captured: mx_Learner_Intent; mx_SA_Learner_Intent_Category; high_intent_leads"
+        },
+        {
+          "insight": "Speed to lead",
+          "value": "14 days from lead to first counselling call",
+          "built_from": "Activity: lead created → first call"
+        },
+        {
+          "insight": "Contact fatigue",
+          "value": "Not computed (outbound calls and messages are not stored)",
+          "built_from": "Activity: calls, messages"
+        },
+        {
+          "insight": "Moments",
+          "value": "Finished her Masters and started work in the UK: referral and upskilling window",
+          "built_from": "Activity"
+        },
+        {
+          "insight": "Acquisition cost",
+          "value": "₹0 media · owned channel",
+          "built_from": "Activity: lead source + ad-platform cost"
+        },
+        {
+          "insight": "Next-best programme",
+          "value": "[Sample rule output] Ask for a referral; offer an online analytics certificate for her UK career",
+          "built_from": "Aspiration + Skills + Activity"
+        },
+        {
+          "insight": "Counselling lead score (SA)",
+          "value": "Tier A · 84 on the counselling call, 88 after the face-to-face session",
+          "built_from": "Sales Insights"
+        },
+        {
+          "insight": "Counselling sub-levels (WP)",
+          "value": "Not applicable",
+          "built_from": "Sales Insights"
+        },
+        {
+          "insight": "Momentum (SA)",
+          "value": "Converted",
+          "built_from": "Sales Insights"
+        },
+        {
+          "insight": "Best-fit vertical (SA)",
+          "value": "Pathway",
+          "built_from": "Sales Insights"
+        },
+        {
+          "insight": "Graduating soon",
+          "value": "No · graduated 2026",
+          "built_from": "Learner Profile: currently studying and expected graduation"
+        },
+        {
+          "insight": "Job-search intensity",
+          "value": "Pending decision: needs all Internshala applications stored",
+          "built_from": "Activity: job / internship applications"
+        },
+        {
+          "insight": "Employability",
+          "value": "Hired for her internship after 11 applications",
+          "built_from": "Activity: job / internship applications"
+        },
+        {
+          "insight": "Profile completeness",
+          "value": "94% · 63 of 67 attributes",
+          "built_from": "All Learner Profile and Academic/Skill Profile attributes"
+        }
+      ]
+    }
+  ]
+}
