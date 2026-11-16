@@ -5159,6 +5159,12 @@ html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .i8s
 html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9i-told{order:6;grid-column:1 / -1}
 html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9i-bus{order:7;grid-column:1 / -1}
 html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9how{order:8;grid-column:1 / -1}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i.v9i-lean .v9i-told{order:2;grid-column:1}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i.v9i-lean .i8side > .i8card:nth-child(1){order:2;grid-column:2;align-self:start}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i.v9i-lean .i8side > .i8card:nth-child(n+2){order:3;grid-column:2;align-self:start}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9told{gap:8px !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .i8quiet{margin:8px 0 0 !important;font-size:13px !important;line-height:1.5 !important;color:#5F616B !important}
+html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .i8bu .bdg{display:inline-flex !important;align-items:center;justify-content:center;width:auto !important;min-width:28px;height:24px !important;padding:0 8px !important;margin:0 0 4px !important;border-radius:999px !important;background:color-mix(in srgb,var(--c) 14%,#fff) !important;color:color-mix(in srgb,var(--c) 85%,#15161C) !important;font-size:12px !important;font-weight:600 !important;align-self:flex-start}
 /* One heading style */
 html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i :is(.i8sum,.v9i-sec,.i8card) > h3{margin:0 0 4px !important;font-size:15.5px !important;line-height:22px !important;font-weight:600 !important;color:#15161C !important}
 html[data-v9]:not(#v9a):not(#v9b):not(#v9c):not(#v9d) #lookupResult .i8.v9i .v9q{margin:0 0 16px !important;font-size:13px !important;line-height:1.45 !important;color:#6E7078 !important}
@@ -5983,6 +5989,8 @@ html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):no
 /* The prev/next pager under each section is gone: the chips above navigate, and the footer line closes the card */
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .v4pager{display:none !important}
 html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .v5srcl{padding:14px 0 20px !important}
+/* Insights › With upGrad: the business badge is a tinted chip in its business colour */
+html[data-v10]:not(#y1):not(#y2):not(#y3):not(#y4):not(#y5):not(#y6):not(#y7):not(#y8) #app .i8bu .bdg{display:inline-flex !important;align-items:center;justify-content:center;width:auto !important;min-width:28px;height:24px !important;padding:0 8px !important;margin:0 0 4px !important;border-radius:999px !important;background:color-mix(in srgb,var(--c) 14%,#fff) !important;color:color-mix(in srgb,var(--c) 85%,#15161C) !important;font-size:12px !important;font-weight:600 !important;align-self:flex-start}
 </style>
 <style id="ugtab">@media (max-width:640px){html[data-v7][data-v6] #ptabs #tab-academic .v4tabl{white-space:normal;line-height:1.1;text-align:center;max-width:84px;display:inline-block}html[data-v7][data-v6] #ptabs #tab-academic{white-space:normal}}</style>
 <style id="ugc-css">
@@ -8494,7 +8502,8 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
       '<div class="i8ms" aria-hidden="true">' + months.map(function (mo3) { return "<span>" + V9MON[mo3.getMonth()] + "</span>"; }).join("") + "</div>";
 
     var sec = function (cls, title, q, body) { return body ? '<section class="v9i-sec ' + cls + '"><h3>' + title + '</h3><p class="v9q">' + q + "</p>" + body + "</section>" : ""; };
-    return '<div class="i8 v9i">' +
+    var lean = !reach.length && !talk && !sigs, noInt = !p.interest.length && p.j && p.j.journey_sample; // journey samples carry no reach, talk or interest data
+    return '<div class="i8 v9i' + (lean ? " v9i-lean" : "") + '">' +
       '<div class="i8main">' +
         '<section class="i8sum"><h3>Summary</h3><p>' + esc(p.summary || "") + "</p>" + tiles + "</section>" +
         sec("v9i-reach", "Before you reach out", "Can you contact them now, and how interested are they?", reach.length ? '<div class="v9reach">' + reach.join("") + "</div>" : "") +
@@ -8504,8 +8513,8 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
         how +
       "</div>" +
       '<div class="i8side">' +
-        '<section class="i8card"><h3>Activity over time</h3><span class="i8chip">Last 6 months</span><div class="i8big"><b>' + total + "</b><span>" + (total === 1 ? "event" : "events") + " in 6 months</span></div>" + chart + "</section>" +
-        '<section class="i8card"><h3>Interest by area</h3>' + ints + "</section>" +
+        '<section class="i8card"><h3>Activity over time</h3><span class="i8chip">Last 6 months</span><div class="i8big"><b>' + total + "</b><span>" + (total === 1 ? "event" : "events") + " in 6 months</span></div>" + (total ? chart : '<p class="v9none i8quiet">No activity in the last six months. Last event: ' + esc((p.events[0] || [])[3] || "") + (p.events[0] ? ", " + esc(v9DayY(p.events[0][6])) : "") + ".</p>") + "</section>" +
+        (noInt ? "" : '<section class="i8card"><h3>Interest by area</h3>' + ints + "</section>") +
       "</div></div>";
   }
   // Budget by programme: each programme's own bands, the stated one highlighted.
