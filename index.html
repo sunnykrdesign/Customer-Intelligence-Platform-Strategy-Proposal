@@ -13,7 +13,7 @@ if(m&&m[1]==='8'){localStorage.setItem('cip-v8','1');localStorage.setItem('cip-v
 if(localStorage.getItem('cip-v8')!=='1'||localStorage.getItem('cip-version')!=='8')return;
 document.documentElement.setAttribute('data-vfocus','');
 var u=new URLSearchParams(s),P={preview:'1',card:'top',tabs:'top',bar:'high',pin:'0',nav:'overview,people,lookup,identity',lay5:'fold',life:'strip',tr:'focus',glow:'0',sb:'ink',auth:'off',si:'circle',pl:'ccink'};
-for(var k in P)u.set(k,P[k]);u.delete('ver');u.delete('v');u.delete('review');if(m&&!u.get('p'))u.set('p','dindayal');
+for(var k in P)u.set(k,P[k]);u.delete('ver');u.delete('v');if(m&&!u.get('p'))u.set('p','dindayal');
 history.replaceState(null,'',location.pathname+'?'+u.toString()+(m?(location.hash||'#/lookup'):location.hash));}catch(e){}})();</script>
 <script>(function(){var v='7';try{var m=/[?&]v=([1-9])/.exec(location.search),vm=/[?&]ver=([1-7])/.exec(location.search);if(vm)m=[0,'3467985'.charAt(vm[1]-1)];v=m?m[1]:(localStorage.getItem('cip-version')||'7');if(m)localStorage.setItem('cip-version',v);}catch(e){}if(v==='1'||v==='2'){v='7';try{localStorage.setItem('cip-version','7');}catch(e){}}var d=document.documentElement;d.setAttribute('data-v',v>'3'?'3':v);if(v>'3')d.setAttribute('data-v4','');if(v>='5')d.setAttribute('data-v5','');if(v>='6'||v==='5')d.setAttribute('data-v6','');if(v==='7'||v==='9'||v==='8'||v==='5'){d.setAttribute('data-v7','');if(v==='9'||v==='8'||v==='5')d.setAttribute('data-v9','');if(v==='8'||v==='5')d.setAttribute('data-v8','');if(v==='5')d.setAttribute('data-v10','');var t='crisp';try{var tm=/[?&]t=(crisp|ocean)/.exec(location.search);t=tm?tm[1]:(localStorage.getItem('cip-v7t')||'crisp');if(t!=='crisp'&&t!=='ocean'){t='crisp';localStorage.setItem('cip-v7t',t);}if(tm)localStorage.setItem('cip-v7t',t);}catch(e){}if(v==='9'||v==='8'||v==='5')t='crisp';d.setAttribute('data-v7t',t);try{var im=/[?&]ic=(color|mono)/.exec(location.search),ic=im?im[1]:localStorage.getItem('cip-v7i');if(im)localStorage.setItem('cip-v7i',ic);if(t==='crisp'&&ic==='color')d.setAttribute('data-v7i','color');}catch(e){}try{var tim=/[?&]ti=(on|off)/.exec(location.search),ti=tim?tim[1]:localStorage.getItem('cip-v7ti');if(tim)localStorage.setItem('cip-v7ti',ti);if(t==='crisp'&&ti==='off')d.setAttribute('data-v7ti','off');}catch(e){}try{var spm=/[?&]sp=(compact|current)/.exec(location.search),sp=spm?spm[1]:(localStorage.getItem('cip-v7sp')||'compact');if(spm)localStorage.setItem('cip-v7sp',sp);if(t==='crisp'&&sp==='compact')d.setAttribute('data-v7sp','compact');var fim=/[?&]fi=(on|off)/.exec(location.search),fi=fim?fim[1]:(localStorage.getItem('cip-v7fi')||'on');if(fim)localStorage.setItem('cip-v7fi',fi);if(t==='crisp'&&fi==='on')d.setAttribute('data-v7fi','on');}catch(e){}try{var sbm=/[?&]sb=(current|darker|darkest)/.exec(location.search),sb=sbm?sbm[1]:localStorage.getItem('cip-v7sb');if(sbm)localStorage.setItem('cip-v7sb',sb);if(t==='crisp'&&(sb==='darker'||sb==='darkest'))d.setAttribute('data-v7sb',sb);}catch(e){}try{var pcm=/[?&]pc=(current|darker|darkest)/.exec(location.search),pc=pcm?pcm[1]:localStorage.getItem('cip-v7pc');if(pcm)localStorage.setItem('cip-v7pc',pc);if(t==='crisp'&&(pc==='darker'||pc==='darkest'))d.setAttribute('data-v7pc',pc);}catch(e){}try{var dtm=/[?&]dt=(on|off)/.exec(location.search),dt=dtm?dtm[1]:(localStorage.getItem('cip-v7dt')||'on');if(dtm)localStorage.setItem('cip-v7dt',dt);if(t==='crisp'&&dt==='on')d.setAttribute('data-v7dt','on');}catch(e){}try{var inm=/[?&]ins=(simple|brief|current)/.exec(location.search),ins=inm?(inm[1]==='brief'?'new':inm[1]):localStorage.getItem('cip-v7in');if(ins!=='new'&&ins!=='current')ins='simple';if(inm)localStorage.setItem('cip-v7in',ins);if(t==='crisp'&&ins!=='current')d.setAttribute('data-v7ins',ins);}catch(e){}try{var srm=/[?&]sr=(compact|current)/.exec(location.search),sr=srm?srm[1]:(localStorage.getItem('cip-v7sr')||'compact');if(srm)localStorage.setItem('cip-v7sr',sr);if(t==='crisp'&&sr==='compact')d.setAttribute('data-v7sr','compact');}catch(e){}try{var sim=/[?&]si=(line|circle)/.exec(location.search),si=sim?sim[1]:(localStorage.getItem('cip-v7si')||'line');if(sim)localStorage.setItem('cip-v7si',si);if(t==='crisp'&&si==='line')d.setAttribute('data-v7si','line');}catch(e){}try{var ovm=/[?&]ov=(new|current)/.exec(location.search),ov=ovm?ovm[1]:(localStorage.getItem('cip-v7ov')||'new');if(ovm)localStorage.setItem('cip-v7ov',ov);if(t==='crisp'&&ov==='new')d.setAttribute('data-v7ov','new');}catch(e){}}})();</script>
 <style>
@@ -6081,7 +6081,7 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu{position:absolute;left:16p
 html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
 </style>
 <style id="vfocus">/* V8 · Focus: the Review panel keeps only the version switch */
-html[data-vfocus] #rvPanel > :not(.rv-head):not(.rv-sec:has(#vswitch)){display:none !important}
+html[data-vfocus] #rvPanel > :not(.rv-head):not(.rv-sec:has(#vswitch)):not(.rv-sec:has(#rvShareUrl)){display:none !important}
 </style>
 </head>
 <body>
@@ -6865,6 +6865,8 @@ html[data-vfocus] #rvPanel > :not(.rv-head):not(.rv-sec:has(#vswitch)){display:n
     try { sessionStorage.setItem("cip-shared", JSON.stringify(SHARED)); } catch (e) {}
   }
   var FOCUS8 = document.documentElement.hasAttribute("data-vfocus");
+  var SOLO8 = false;
+  if (FOCUS8) { try { if (Q.get("review") === "0") sessionStorage.setItem("cip-v8solo", "1"); SOLO8 = sessionStorage.getItem("cip-v8solo") === "1"; } catch (e) { SOLO8 = Q.get("review") === "0"; } }
   if (FOCUS8) SHARED = { card: "top", tabs: "top", bar: "high", pin: "0", nav: "overview,people,lookup,identity", p: Q.get("p"), lay5: "fold", life: "strip", tr: "focus" };
   (function () {
     if (Q.get("preview") === "1") { startPreview(Q.get("team")); clearQuery(); }
@@ -9701,7 +9703,7 @@ html[data-vfocus] #rvPanel > :not(.rv-head):not(.rv-sec:has(#vswitch)){display:n
     else if (key || !isV6()) { runLookup(key || defaultKey(), true); if (!key) L.auto = true; }
     else L.auto = true;
   })();
-  if (SHARED && !FOCUS8) $("#review").hidden = true;
+  if (SHARED && (!FOCUS8 || SOLO8)) $("#review").hidden = true;
 
   // Review panel: a link that opens exactly this view, without the Review panel.
   function viewLink() {
@@ -9734,7 +9736,8 @@ html[data-vfocus] #rvPanel > :not(.rv-head):not(.rv-sec:has(#vswitch)){display:n
     var base = location.href.split(/[?#]/)[0];
     return base + "?" + q.join("&") + "#/" + route;
   }
-  function rvShareSync() { var i = $("#rvShareUrl"); if (i) i.value = viewLink(); }
+  function rvShareSync() { var i = $("#rvShareUrl"); if (i) i.value = FOCUS8 ? location.href.split(/[?#]/)[0] + "?ver=8&review=0" : viewLink(); }
+  if (FOCUS8) { var shn = $("#rvShareUrl") && $("#rvShareUrl").closest(".rv-sec").querySelector(".rv-note"); if (shn) shn.textContent = "Opens V8 only, on Din Dayal, without this Review panel, so people can't switch to other versions."; }
   $("#rvCopy").addEventListener("click", function () { rvShareSync(); copy($("#rvShareUrl").value, $("#rvShareUrl"), "Link to this view copied"); });
   $("#rvShareUrl").addEventListener("focus", function () { this.select(); });
 
