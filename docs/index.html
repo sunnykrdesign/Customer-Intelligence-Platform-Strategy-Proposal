@@ -9736,7 +9736,7 @@ html[data-vfocus] #rvPanel > :not(.rv-head):not(.rv-sec:has(#vswitch)):not(.rv-s
     var base = location.href.split(/[?#]/)[0];
     return base + "?" + q.join("&") + "#/" + route;
   }
-  function rvShareSync() { var i = $("#rvShareUrl"); if (i) i.value = FOCUS8 ? location.href.split(/[?#]/)[0] + "?ver=8&review=0" : viewLink(); }
+  function rvShareSync() { var i = $("#rvShareUrl"); if (i) i.value = FOCUS8 ? (/github\.io$/.test(location.hostname) ? location.href.split(/[?#]/)[0] : "https://sunnykrdesign.github.io/Customer-Intelligence-Platform-Strategy-Proposal/") + "?ver=8&review=0" : viewLink(); } // V8 always shares the GitHub Pages address, even when copied from a preview
   if (FOCUS8) { var shn = $("#rvShareUrl") && $("#rvShareUrl").closest(".rv-sec").querySelector(".rv-note"); if (shn) shn.textContent = "Opens V8 only, on Din Dayal, without this Review panel, so people can't switch to other versions."; }
   $("#rvCopy").addEventListener("click", function () { rvShareSync(); copy($("#rvShareUrl").value, $("#rvShareUrl"), "Link to this view copied"); });
   $("#rvShareUrl").addEventListener("focus", function () { this.select(); });
