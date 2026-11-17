@@ -8185,7 +8185,7 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
       var sum = s[1] === "identity" ? (minor ? "Contact hidden · under 18" : emails.length + (emails.length === 1 ? " email, " : " emails, ") + phones.length + (phones.length === 1 ? " mobile" : " mobiles") + " · " + records.length + " linked records")
         : s[1] === "personal" ? h.age_band + " · " + h.city
         : s[1] === "lifestage" ? (first ? String(first.v).split(" · ")[0] : h.life_stage)
-        : s[1] === "education" ? (have ? "Schooling and qualifications before upGrad" : "Not captured yet") // a summary that holds for every entry, not just the latest one
+        : s[1] === "education" ? (have ? "Academic background and qualifications" : "Not captured yet") // a summary that holds for every entry, not just the latest one
         : s[1] === "career" && LI ? "From LinkedIn · " + (first ? first.v : "no roles yet")
         : s[1] === "consent" ? (rn || "Not captured yet") : first ? first.v : "Not captured yet";
       return { key: s[1], t: s[1] === "education" ? "Education" : s[0], ic: s[2], sum: sum, filled: [have, Math.max(s[3], have)], fin: s[1] === "financial", rows: rows };
