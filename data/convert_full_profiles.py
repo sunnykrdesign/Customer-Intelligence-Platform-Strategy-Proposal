@@ -1,6 +1,6 @@
 """Convert learner360_full_profiles_v1.json (full Learner 360 profiles + journey activity) into the prototype's person format.
 Profile sections, skills and insights are the file's own rows; activity milestones become events with every field kept.
-Renames: Aditya Kulkarni -> Nikhil Deshpande, Meera Nair -> Anjali Menon (names and emails only)."""
+Renames: Aditya Kulkarni -> Din Dayal, Meera Nair -> Anjali Menon (names and emails only)."""
 import json, re, sys, copy
 SRC, JOURNEY_CONVERTER, OUT = sys.argv[1], sys.argv[2], sys.argv[3]
 # Reuse the activity -> event mapping from the journeys converter (everything above its people loop).
@@ -9,7 +9,7 @@ ns = {"__name__": "jc"}; sys_argv = sys.argv; sys.argv = ["x", SRC, "/dev/null"]
 exec(src[:src.index("people = []")], ns); sys.argv = sys_argv
 event = ns["event"]
 d = json.load(open(SRC, encoding="utf-8"))
-REN = {"upg_A4K7L2N9": [("Aditya Kulkarni", "Nikhil Deshpande"), ("aditya.k@", "nikhil.d@"), ("a•••••@", "n•••••@"), ("Aditya", "Nikhil")],
+REN = {"upg_A4K7L2N9": [("Aditya Kulkarni", "Din Dayal"), ("aditya.k@", "din.dayal@"), ("a•••••@", "d•••••@"), ("Aditya", "Din Dayal")],
        "upg_M6N3R8T1": [("Meera Nair", "Anjali Menon"), ("meera.nair@", "anjali.menon@"), ("m•••••@", "a•••••@"), ("Meera", "Anjali")]}
 COURSES = {  # The UG learning journey's rows, rewritten into the "Title: value; Title: value" shape the page reads. Values are the file's.
     "upg_A4K7L2N9": {
@@ -59,6 +59,6 @@ for p0 in d["people"]:
         "stored_not_shown": p.get("stored_not_shown", {}), "summary": p.get("summary", ""), "interest_by_area": p.get("interest_by_area") or [],
         "learner_profile": lp, "academic_skill_profile": ap, "insights": p["insights"], "ug_courses": UG[pid],
         "activity": [event(a, "") for a in acts]})
-json.dump({"_about": {"what": "Two people converted from learner360_full_profiles_v1.json (renamed: Aditya Kulkarni → Nikhil Deshpande, Meera Nair → Anjali Menon).", "source": "data/learner360_full_profiles_v1.json"}, "people": people},
+json.dump({"_about": {"what": "Two people converted from learner360_full_profiles_v1.json (renamed: Aditya Kulkarni → Din Dayal, Meera Nair → Anjali Menon).", "source": "data/learner360_full_profiles_v1.json"}, "people": people},
           open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 for x in people: print(x["header"]["name"], "|", x["header"]["city"], "|", len(x["activity"]), "events |", sum(len(v) for v in x["learner_profile"].values()), "profile rows |", len(x["insights"]), "insights")

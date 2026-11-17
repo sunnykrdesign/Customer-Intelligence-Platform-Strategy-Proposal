@@ -1,6 +1,6 @@
 {
  "_about": {
-  "what": "Two people converted from learner360_full_profiles_v1.json (renamed: Aditya Kulkarni → Nikhil Deshpande, Meera Nair → Anjali Menon).",
+  "what": "Two people converted from learner360_full_profiles_v1.json (renamed: Aditya Kulkarni → Din Dayal, Meera Nair → Anjali Menon).",
   "source": "data/learner360_full_profiles_v1.json"
  },
  "people": [
@@ -10,7 +10,7 @@
    "journey_sample": true,
    "career_via_linkedin": false,
    "header": {
-    "name": "Nikhil Deshpande",
+    "name": "Din Dayal",
     "headline": "Associate software engineer in Pune · learning Data Science and AI with upGrad",
     "life_stage": "Early career",
     "age_band": "25–34",
@@ -66,13 +66,13 @@
      },
      {
       "attribute": "Emails (all known)",
-      "value": "nikhil.d@example.com",
+      "value": "din.dayal@example.com",
       "source_system": "Prism",
       "source_field": "users.email",
       "added_at": "2025-03-14",
       "confidence": "declared",
       "tier": "T1",
-      "display": "n•••••@example.com",
+      "display": "d•••••@example.com",
       "conflict": "Same email on Internshala since 2021. Sources agree.",
       "source_label": "Prism",
       "shown_on_ui": "Yes"
@@ -135,7 +135,7 @@
      },
      {
       "attribute": "Name",
-      "value": "Nikhil Deshpande",
+      "value": "Din Dayal",
       "source_system": "Prism",
       "source_field": "users.firstName",
       "added_at": "2025-03-14",
