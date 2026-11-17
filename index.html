@@ -6083,6 +6083,18 @@ html[data-v7][data-v6] #lookupResult .t6ev .t6h .t6bu i{display:none}
 <style id="vfocus">/* V8 · Focus: the Review panel keeps only the version switch */
 html[data-vfocus] #rvPanel > :not(.rv-head):not(.rv-sec:has(#vswitch)):not(.rv-sec:has(#rvShareUrl)){display:none !important}
 </style>
+<style id="medark">/* Dark sidebars (Darker, Darkest, Ink): the Demo User corner keeps light text on a soft light tint when hovered or open, and its menu reads on the dark panel */
+html[data-v7sb]:not(#mz1):not(#mz2):not(#mz3) .side .me .id{transition:background-color .18s ease}
+html[data-v7sb]:not(#mz1):not(#mz2):not(#mz3) .side .me .id:hover,html[data-v7sb]:not(#mz1):not(#mz2):not(#mz3) .side .me .id:focus-visible,html[data-v7sb]:not(#mz1):not(#mz2):not(#mz3) .side .me .id[aria-expanded="true"]{background:rgba(255,255,255,.1) !important;box-shadow:none !important}
+html[data-v7sb]:not(#mz1):not(#mz2):not(#mz3) .side .me .id:focus-visible{outline:2px solid rgba(255,255,255,.7) !important;outline-offset:2px}
+html[data-v7sb]:not(#mz1):not(#mz2):not(#mz3) .side .me #meName{color:#fff !important}
+html[data-v7sb]:not(#mz1):not(#mz2):not(#mz3) .side .me #meTeam{color:rgba(255,255,255,.72) !important}
+html[data-v7sb]:not(#mz1):not(#mz2):not(#mz3) .side .me .id::after{color:rgba(255,255,255,.75) !important;border-color:rgba(255,255,255,.75) !important;opacity:1 !important}
+html[data-v7sb]:not(#mz1):not(#mz2):not(#mz3) .side .me .acts button{color:rgba(255,255,255,.82) !important;background:transparent !important;box-shadow:none !important}
+html[data-v7sb]:not(#mz1):not(#mz2):not(#mz3) .side .me .acts button svg{color:inherit !important;fill:currentColor}
+html[data-v7sb]:not(#mz1):not(#mz2):not(#mz3) .side .me .acts button:hover,html[data-v7sb]:not(#mz1):not(#mz2):not(#mz3) .side .me .acts button:focus-visible{background:rgba(255,255,255,.12) !important;color:#fff !important}
+html[data-v7sb]:not(#mz1):not(#mz2):not(#mz3) .side .me .acts button:focus-visible{outline:2px solid rgba(255,255,255,.7) !important;outline-offset:1px}
+</style>
 </head>
 <body>
 
