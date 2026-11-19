@@ -11531,6 +11531,26 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
         ["Repeat buyers", "9.6%", "+0.4 pts", 1, "Bought a second programme", [8.9, 9.0, 9.0, 9.1, 9.1, 9.2, 9.3, 9.3, 9.4, 9.5, 9.5, 9.6], "arrow_swap", "All learners", "Up 0.4 points in 12 months"],
         ["Completion", "58%", "+2 pts", 1, "Closed cohorts", [54, 54.5, 55, 55.3, 55.8, 56, 56.4, 56.8, 57.1, 57.4, 57.7, 58], "ribbon", "Last 12 months", "Up 2 points in 12 months"],
         ["Refund or deferral", "7.2%", "−0.5 pts", 1, "Of enrolments in the period", [8.1, 8.0, 7.9, 7.9, 7.8, 7.7, 7.6, 7.5, 7.5, 7.4, 7.3, 7.2], "payment", rangeC, "Down 0.5 points, which is good"]]);
+      if (FOCUS9) { // V9 (final-data sheet, Learner): New learners – paid (overall + per month for 12 months) and Total learners (overall, active, past, free course, self-paced)
+        var SH9 = { WP: 0.38, SA: 0.14, KH: 0.17, International: 0.08, LC: 0.06, Internshala: 0.17 }, sh9 = fb.reduce(function (a, b) { return a + SH9[b]; }, 0);
+        var NPM = [14.2, 14.8, 15.1, 15.9, 16.4, 15.8, 16.9, 17.3, 17.8, 18.4, 18.9, 19.6].map(function (v) { return +(v * sh9).toFixed(1); }); // thousands per month, Dec to Nov
+        var nN = { "30D": 1, "90D": 3, "12M": 12 }[st.range] || 3, npS = NPM.slice(12 - nN).reduce(function (a, v) { return a + v; }, 0) * 1000, npY = NPM.reduce(function (a, v) { return a + v; }, 0) * 1000;
+        var nMax = Math.ceil(Math.max.apply(null, NPM) / 5) * 5, nX = NPM.map(function (v, i) { return i / 11; });
+        var npLine = ov8line({ label: "New paid learners per month, the past 12 months", yMax: nMax, yTicks: [0, nMax / 2, nMax], yFmt: function (t) { return t + "K"; }, xTicks: [[0, OV8_MON[0]], [3 / 11, OV8_MON[3]], [6 / 11, OV8_MON[6]], [9 / 11, OV8_MON[9]], [1, OV8_MON[11]]],
+          series: [{ c: OV8_ACC, x: nX, y: NPM, area: true }], hx: nX, hlines: function (i) { return [NPM[i] + "K new paid learners", OV8_MON[i]]; } });
+        var TL = { active: 212480, past: 1273820, free: 642000, self: 138500 }, tl9 = function (k) { return Math.round(TL[k] * sh9 / 10) * 10; }, tAct = tl9("active"), tPast = tl9("past"), tAll = tAct + tPast;
+        var aPct = Math.round(tAct / tAll * 100);
+        h += ov8head("How many learners", "New paid learners, and everyone who has learned with us") + '<div class="ov8-grid">' +
+          ov8card({ id: "lnew", title: "New learners, paid", sub: "First paid enrolment · overall for " + rangeL + ", and per month for the past 12 months", ins: ov8inr(npY) + " new paid learners in the past 12 months. " + OV8_MON[11] + " was the highest month (" + NPM[11] + "K).",
+            body: '<div class="ov8-big"><b>' + ov8inr(npS) + "</b><span>New paid learners, " + esc(rangeL) + "</span></div>" + '<p class="ov8-mini">Per month, the past 12 months</p>' + npLine,
+            table: { head: ["Month", "New paid learners"], rows: NPM.map(function (v, i) { return [OV8_MON[i], ov8inr(v * 1000)]; }) } }) +
+          ov8card({ id: "ltot", title: "Total learners", sub: "Everyone with a paid enrolment, all time", ins: aPct + "% of learners are active now: still in a programme they haven't completed.",
+            body: '<div class="ov8-big"><b>' + ov8inr(tAll) + "</b><span>Total learners · active plus past</span></div>" +
+              ov8segs([{ label: "", aria: "Active and past learners", segs: [{ v: aPct, c: OV8_ACC, name: "Active learners" }, { v: 100 - aPct, c: "#C9CEEF", name: "Past learners" }] }]) + ov8leg([["Active learners", OV8_ACC], ["Past learners", "#C9CEEF"]]) +
+              ov8hbars([{ label: "Active learners", sub: "not completed yet", v: tAct, display: ov8inr(tAct), c: OV8_ACC }, { label: "Past learners", sub: "completed or left", v: tPast, display: ov8inr(tPast), c: "#9AA2DE" }, { label: "Free course", v: tl9("free"), display: ov8inr(tl9("free")), c: OV8_MUTE }, { label: "Self-paced", v: tl9("self"), display: ov8inr(tl9("self")), c: OV8_MUTE }], Math.max(tPast, tl9("free"))),
+            table: { head: ["Learners", "Number"], rows: [["Total", ov8inr(tAll)], ["Active", ov8inr(tAct)], ["Past", ov8inr(tPast)], ["Free course", ov8inr(tl9("free"))], ["Self-paced", ov8inr(tl9("self"))]] },
+            note: "Free course and self-paced are counted on their own: a person can be in either and also be an active or past learner." }) + "</div>";
+      }
       var LST = { WP: [0, 1, 2, 18, 50, 29], SA: [2, 22, 38, 28, 9, 1], KH: [0, 2, 3, 28, 44, 23], International: [0, 4, 8, 28, 40, 20], LC: [1, 12, 16, 40, 24, 7], Internshala: [5, 48, 33, 11, 3, 0] };
       var leR = [["Student", 31], ["Under 1", 12], ["1 to 3", 34], ["3 to 5", 41], ["5 to 8", 46], ["8 to 12", 30], ["12 plus", 18]], le = expBars(leR, [4]);
       var EMP = [["Employer A", "IT services", 4210], ["Employer B", "IT services", 3870], ["Employer C", "Consulting", 2140], ["Employer D", "IT services", 1980], ["Employer E", "Banking", 1460], ["Employer F", "IT services", 1390], ["Employer G", "E-commerce", 1120], ["Employer H", "Telecom", 940], ["Employer I", "Banking", 880], ["Employer J", "Consulting", 760]];
