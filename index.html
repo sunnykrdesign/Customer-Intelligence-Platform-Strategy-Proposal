@@ -6265,6 +6265,9 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
 @keyframes me8in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q6):not(#q7):not(#q8):not(#q9):not(#q10) .side .me.v6open .acts{animation:none}}
 </style>
+<style id="ov9">/* V9 · Final data: the programme-area interest list keeps all its rows inside the card */
+html[data-vf9] #app .ov8 .ov8-card.fill .ov8-mo{max-height:none !important}
+</style>
 <style id="me8h">/* V8 · Focus: a calmer, clearer hover on the Demo User row */
 html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q6):not(#q7):not(#q8):not(#q9):not(#q10):not(#q11) .side .me .id{cursor:pointer;transition:background-color .18s ease,box-shadow .18s ease,transform .12s ease !important}
 html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q6):not(#q7):not(#q8):not(#q9):not(#q10):not(#q11) .side .me .id:hover{background:rgba(255,255,255,.08) !important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14) !important}
@@ -11421,19 +11424,40 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
       var REACH = { WP: 71, SA: 64, KH: 69, International: 58, LC: 74, Internshala: 66 }, MED = { WP: 29, SA: 61, KH: 18, International: 44, LC: 25, Internshala: 9 };
       var pEnq = fb.reduce(function (a, b) { return a + FUN[b][0]; }, 0) * scale, pEnr = fb.reduce(function (a, b) { return a + FUN[b][3]; }, 0) * scale;
       var active = pEnq + (st.biz === "All" ? 212 * scale : 0), conv = pEnr / pEnq * 100;
-      h += ov8hero("Prospects headline", [
-        ["Active prospects", ov8inr(active), "+4.2%", 1, "Unique people with an open enquiry", [3.52, 3.55, 3.58, 3.6, 3.63, 3.66, 3.68, 3.7, 3.73, 3.76, 3.8, 3.84], "person", rangeC, "Up 4.2% on the previous period"],
+      if (FOCUS9) { // V9 (final-data sheet): Overall prospects = new leads + new opportunities, unique people; Active prospects by last active date; median days from opportunity creation
+        var NL9 = { WP: 61000, SA: 34000, KH: 28000, International: 11000, LC: 12000, Internshala: 68000 }, NO9 = { WP: 38000, SA: 21000, KH: 14000, International: 6800, LC: 7900, Internshala: 8300 };
+        var nl9 = fb.reduce(function (a, b) { return a + NL9[b]; }, 0) * scale, no9 = fb.reduce(function (a, b) { return a + NO9[b]; }, 0) * scale, ov9 = nl9 + no9 * 0.6; // 40% of new opportunities are people who are also new leads, counted once
+        var A9 = { WP: 62, SA: 71, KH: 58, International: 66, LC: 69, Internshala: 44 }, act9 = fb.reduce(function (a, b) { return a + (NL9[b] + NO9[b] * 0.6) * A9[b] / 100; }, 0) * scale; // active is a subset of overall prospects
+        var sp9 = function (v, g) { var a = []; for (var k = 0; k < 12; k++) a.push(+(v * (1 - g + g * k / 11) / 1000).toFixed(1)); return a; };
+        h += ov8hero("Prospects volume", [
+          ["Overall prospects", ov8inr(ov9), "+5.1%", 1, "Unique people: new leads plus new opportunities", sp9(ov9, 0.05), "person", rangeC, "Up 5.1% on the previous period"],
+          ["New leads", ov8inr(nl9), "+4.6%", 1, "People new to upGrad in the period", sp9(nl9, 0.046), "mail_inbox", rangeC, "Up 4.6% on the previous period"],
+          ["New opportunities", ov8inr(no9), "+6.3%", 1, "Programme opportunities created in the period", sp9(no9, 0.063), "briefcase", rangeC, "Up 6.3% on the previous period"],
+          ["Active prospects", ov8inr(act9), "+4.2%", 1, "Overall prospects active in the period, by last active date", sp9(act9, 0.042), "data_bar_vertical", rangeC, "Up 4.2% on the previous period"]]);
+      }
+      h += ov8hero("Prospects headline", (FOCUS9 ? [] : [
+        ["Active prospects", ov8inr(active), "+4.2%", 1, "Unique people with an open enquiry", [3.52, 3.55, 3.58, 3.6, 3.63, 3.66, 3.68, 3.7, 3.73, 3.76, 3.8, 3.84], "person", rangeC, "Up 4.2% on the previous period"]]).concat([
         ["Reachable", (st.biz === "All" ? 68 : REACH[st.biz]) + "%", "+1.1 pts", 1, "Consented, verified, adult", [64, 64.5, 65, 65.3, 65.8, 66.2, 66.5, 66.9, 67.2, 67.5, 67.8, 68], "call", rangeC, "Up 1.1 points on the previous period"],
         ["90-day conversion", conv.toFixed(1) + "%", "−0.3 pts", 0, "Enquiry to enrolment", [7.4, 7.3, 7.3, 7.2, 7.2, 7.1, 7.1, 7.0, 7.0, 7.0, 6.9, 6.9], "target_arrow", rangeC, "Down 0.3 points on the previous period"],
-        ["Median days to enrol", String(st.biz === "All" ? 34 : MED[st.biz]), "−2 days", 1, "For those who enrolled", [41, 40, 40, 39, 38, 38, 37, 36, 36, 35, 35, 34], "data_trending", rangeC, "2 days faster than the previous period"]]);
+        ["Median days to enrol", String(st.biz === "All" ? 34 : MED[st.biz]), "−2 days", 1, FOCUS9 ? "From programme opportunity creation to enrolment" : "For those who enrolled", [41, 40, 40, 39, 38, 38, 37, 36, 36, 35, 35, 34], "data_trending", rangeC, "2 days faster than the previous period"]]));
 
       // Who they are
       var PST = { WP: [0, 3, 5, 22, 45, 25], SA: [6, 30, 34, 22, 7, 1], KH: [0, 4, 6, 30, 40, 20], International: [0, 8, 12, 30, 35, 15], LC: [2, 18, 20, 35, 20, 5], Internshala: [8, 52, 30, 8, 2, 0] };
+      var stIns = ov8stageIns(PST, fb);
+      if (FOCUS9) { // V9: Final-year UG is counted in UG student; a stage with no data in the selected businesses is left out
+        var ST9 = [0, 1, 3, 4, 5], P9 = {}; Object.keys(PST).forEach(function (b) { var r = PST[b]; P9[b] = [r[0], r[1] + r[2], r[3], r[4], r[5]]; }); PST = P9;
+        var keep9 = [0, 1, 2, 3, 4].filter(function (i) { return fb.some(function (b) { return PST[b][i] > 0; }); });
+        stageLeg = ov8leg(keep9.map(function (i) { return [OV8_STAGES[ST9[i]], OV8_ORD[ST9[i]]]; }));
+        stageRows = function (D) { return fb.map(function (b) { var row = D[b], m = row.indexOf(Math.max.apply(null, row)); return { label: OV8_BN[b], tail: "Mostly " + OV8_STAGE_S[ST9[m]].replace(/ students$/, "") + " · " + row[m] + "%", segs: keep9.map(function (i) { return { v: row[i], c: OV8_ORD[ST9[i]], name: OV8_STAGES[ST9[i]] }; }) }; }); };
+        stageTbl = function (D) { return { head: ["Business"].concat(keep9.map(function (i) { return OV8_STAGES[ST9[i]]; })), rows: fb.map(function (b) { return [OV8_BN[b]].concat(keep9.map(function (i) { return D[b][i] + "%"; })); }) }; };
+        var g9 = {}; fb.forEach(function (b) { var row = PST[b], i = row.indexOf(Math.max.apply(null, row)), grp = i >= 2 ? OV8_STAGE_S[ST9[i]] : "students"; (g9[grp] = g9[grp] || []).push(OV8_BN[b]); });
+        stIns = Object.keys(g9).map(function (k) { return ov8list(g9[k]) + (g9[k].length > 1 ? " are" : " is") + " mostly " + k; }).join(". ") + ".";
+      }
       var peR = [["Student", 118], ["Under 1", 46], ["1 to 3", 64], ["3 to 5", 58], ["5 to 8", 49], ["8 to 12", 31], ["12 plus", 18]], pe = expBars(peR, [0]);
       var states = [["Maharashtra", 16], ["Karnataka", 13], ["Delhi NCR", 12], ["Telangana", 9], ["Tamil Nadu", 8], ["Uttar Pradesh", 7], ["West Bengal", 5], ["Gujarat", 4], ["Other states", 26]];
       var tiers = [["Tier 1", 54], ["Tier 2", 28], ["Tier 3 and below", 12], ["Outside India", 6]], TIERC = ["#3F4796", "#7983CD", "#B9BFEC", "#E7E8EF"];
       h += ov8head("Who they are", "The people deciding whether to learn with us") + '<div class="ov8-grid">' +
-        ov8card({ id: "pstage", cls: "w", title: "Life stage, by business", sub: "Share of prospects in each business", ins: ov8stageIns(PST, fb), body: stageLeg + ov8segs(stageRows(PST)), table: stageTbl(PST) }) +
+        ov8card({ id: "pstage", cls: "w", title: "Life stage, by business", sub: "Share of prospects in each business", ins: stIns, body: stageLeg + ov8segs(stageRows(PST)), table: stageTbl(PST), note: FOCUS9 ? "Final-year UG students are counted as UG students." : "" }) +
         ov8card({ id: "pexp", cls: "fill", title: "Experience when they enquire", sub: "People, thousands", ins: "Students are the biggest single group: 31% of prospects. Most working enquirers have 1 to 8 years of experience.", body: pe.body + ov8share(peR, [["Students", [0]], ["1 to 8 years", [2, 3, 4]], ["8 years plus", [5, 6]]], "of prospects"), table: pe.table }) +
         ov8card({ id: "pgeo", title: "Where they are", sub: "Share of prospects", ins: "Over half are in Tier 1 cities (54%). Maharashtra, Karnataka and Delhi NCR lead.",
           body: ov8segs([{ label: "", aria: "City tier", segs: tiers.map(function (t, i) { return { v: t[1], c: TIERC[i], name: t[0] }; }) }]) + ov8leg(tiers.map(function (t, i) { return [t[0], TIERC[i]]; })) +
@@ -11450,22 +11474,24 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
       var momLeg = '<div class="ov8-mleg" aria-hidden="true"><span>Falling</span><i style="background:' + OV8_ROSE + '"></i><i style="background:#F2B8CC"></i><i style="background:#E7E5EF"></i><i style="background:' + OV8_UP_L + '"></i><i style="background:' + OV8_UP + '"></i><span>Rising</span><small>Colour = change in share over 12 months</small></div>';
       var TS = [["Generative AI", [3.1, 3.4, 3.9, 4.4, 4.9, 5.5, 6.0, 6.4, 6.6, 7.0, 7.3, 7.5], 142], ["Cloud and DevOps", [5.0, 5.1, 5.3, 5.5, 5.6, 5.8, 6.0, 6.2, 6.4, 6.6, 6.7, 6.9], 38], ["Product management", [3.3, 3.3, 3.4, 3.5, 3.6, 3.7, 3.7, 3.8, 3.9, 3.9, 4.0, 4.0], 21],
         ["Data science", [11.8, 11.9, 11.7, 12.0, 11.9, 12.1, 12.0, 12.2, 12.1, 12.0, 12.1, 12.0], 2], ["MBA", [9.4, 9.3, 9.2, 9.1, 9.0, 8.9, 8.8, 8.7, 8.6, 8.6, 8.5, 8.6], -9]];
+      if (FOCUS9) TS = T1.concat(T2).filter(function (t) { return t[0] !== "Other"; }).map(function (t) { var m = DMOM[t[0]] || 0, a = +(t[1] / (1 + m / 100)).toFixed(1), v = []; for (var k = 0; k < 12; k++) v.push(+(a + (t[1] - a) * k / 11).toFixed(1)); return [t[0], v, m]; }).sort(function (a, b) { return b[2] - a[2]; }); // V9: by programme area
       var DEST = [["UK", 27, 6], ["Canada", 18, 22], ["Germany", 16, 4], ["Ireland", 11, 3], ["Australia", 10, 9], ["USA", 9, 14], ["France", 5, 2]];
       // Crossover sits high on the page: people moving between businesses is the view reviewers asked to see first.
       h += ov8head("Crossover", "People who moved from one upGrad business to another") + '<div class="ov8-grid">' + crossCard("pcross", "Crossover: our learners, now enquiring elsewhere in upGrad", [["WP learners", "KnowledgeHut", 3420], ["Internshala trainees", "WP", 2980], ["SA alumni", "WP", 1610], ["WP alumni", "International", 1240], ["Internshala trainees", "SA", 1180], ["KH learners", "WP", 960], ["LC learners", "WP", 720], ["SA alumni", "KnowledgeHut", 410]]) + "</div>";
       h += ov8head("What they want", "Interest across every enquiry, form and call") + '<div class="ov8-grid">' +
         ov8card({ id: "pdemand", cls: "fill", title: "Demand by programme area", sub: "Box size = share of prospects; colour = momentum", ins: "Data science and AI is the biggest interest, about 1 in 4 prospects, and still growing (+38%). MBA is big but shrinking.", body: '<div class="ov8-tm"><div class="r">' + T1.map(function (t, i) { return tcell(t, 1, i ? 1 : 0); }).join("") + '</div><div class="r">' + T2.slice(0, 3).map(function (t, i) { return tcell(t, 0, 2); }).join("") + '</div><div class="r">' + T2.slice(3).map(function (t, i) { return tcell(t, 0, 3); }).join("") + "</div></div>" + momLeg,
           table: { head: ["Programme area", "Share of prospects", "12-month change"], rows: T1.concat(T2).map(function (t) { return [t[0], t[1] + "%", momT(DMOM[t[0]] || 0)]; }) } }) +
-        ov8card({ id: "ptrend", cls: "fill", title: "Rising and falling interests", sub: "Change in share of new enquiries over 12 months", ins: "Generative AI interest more than doubled (+142%). MBA is the only area that fell.",
+        ov8card({ id: "ptrend", cls: "fill", title: "Rising and falling interests", sub: FOCUS9 ? "Change in share of new enquiries over 12 months, by programme area" : "Change in share of new enquiries over 12 months", ins: FOCUS9 ? "Data science and AI is rising fastest (+38%), then software and cloud (+31%). Law, MBA and management, and finance are falling." : "Generative AI interest more than doubled (+142%). MBA is the only area that fell.",
           body: ov8mom(TS.map(function (s, i) { return { label: s[0], pct: s[2], vals: s[1], now: s[1][11] + "%", hot: i === 0 }; })),
-          table: { head: ["Interest", "Dec", "Nov", "Change"], rows: TS.map(function (s) { return [s[0], s[1][0] + "%", s[1][11] + "%", (s[2] > 0 ? "+" : "−") + Math.abs(s[2]) + "%"]; }) } }) +
+          table: { head: [FOCUS9 ? "Programme area" : "Interest", "Dec", "Nov", "Change"], rows: TS.map(function (s) { return [s[0], s[1][0] + "%", s[1][11] + "%", (s[2] > 0 ? "+" : "−") + Math.abs(s[2]) + "%"]; }) } }) +
         ov8card({ id: "pdest", cls: "w", title: "Study Abroad destinations", sub: "% of Study Abroad prospects", ins: "The UK is the top first choice (27%). Canada is the most ruled out: about 1 in 5 say no to it.", body: ov8fly(DEST),
           table: { head: ["Country", "First choice", "Ruled out"], rows: DEST.map(function (d) { return [d[0], d[1] + "%", d[2] + "%"]; }) } }) + "</div>";
 
       // How they convert
       var stepN = ["Enquired", "Counselled", "Applied or paid", "Enrolled"], hasC = fb.filter(function (b) { return FUN[b][1] !== null; });
       var fsteps = stepN.map(function (n, i) { var v = (i === 1 ? hasC : fb).reduce(function (a, b) { return a + (FUN[b][i] || 0); }, 0); return { label: n, v: v, display: ov8inr(v * scale) }; }).filter(function (s) { return s.v > 0; });
-      var rates = fb.map(function (b) { return [b, FUN[b][3] / FUN[b][0] * 100]; }).sort(function (a, b) { return b[1] - a[1]; });
+      var ACT9 = { WP: 62, SA: 71, KH: 58, International: 66, LC: 69, Internshala: 44 }; // V9: currently active prospects as a % of overall prospects, drop-offs excluded
+      var rates = fb.map(function (b) { return [b, FOCUS9 ? ACT9[b] : FUN[b][3] / FUN[b][0] * 100]; }).sort(function (a, b) { return b[1] - a[1]; });
       var fdrops = fsteps.map(function (s, i) { return i ? 1 - s.v / fsteps[i - 1].v : -1; }), fw = fdrops.indexOf(Math.max.apply(null, fdrops));
       var SEG = { stage: [[["School", 22, 9, 80], ["UG student", 31, 14, 88], ["Final-year UG", 38, 19, 90], ["Early career", 41, 22, 92], ["Mid career", 39, 24, 94], ["Senior", 33, 21, 95]], "Mid-career enquirers convert best; school students rarely get past counselling."],
         channel: [[["Paid search", 35, 18, 91], ["Paid social", 28, 12, 89], ["Organic", 42, 24, 93], ["Referral", 52, 31, 95], ["Affiliate", 30, 15, 90], ["Webinar", 47, 27, 94]], "Referral converts about five times better than paid social."],
@@ -11481,22 +11507,22 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
         hlines: function (i) { var day = Math.round(hx[i] * 90); return ["Day " + day].concat(cohS.map(function (s) { var k = Math.round(day / 5); return s.name + ": " + (s.y[k] !== undefined ? s.y[k] + "%" : "not yet"); })); } });
       h += ov8head("How they convert", "Each step counts only people who passed the step before") + '<div class="ov8-grid">' +
         ov8card({ id: "pfun", cls: "w", title: "From enquiry to enrolment", sub: "People, " + rangeL, ins: conv.toFixed(1) + "% of enquiries end in an enrolment. The biggest drop is from " + fsteps[fw - 1].label.toLowerCase() + " to " + fsteps[fw].label.toLowerCase() + ".",
-          body: '<div class="ov8-two"><div><p class="ov8-mini">All selected businesses</p>' + ov8funnel(fsteps, function (a, b) { return Math.round((1 - b.v / a.v) * 100) + "% dropped"; }) + '</div><div><p class="ov8-mini">Enrolment rate, by business</p>' +
-            ov8hbars(rates.map(function (r, i) { return { label: OV8_BN[r[0]], v: r[1], display: r[1].toFixed(1) + "%", c: OV8_BC[r[0]] || OV8_ACC, tip: OV8_BN[r[0]] + " · enquiry to enrolment" }; }), Math.max.apply(null, rates.map(function (r) { return r[1]; }))) + "</div></div>",
-          table: { head: ["Business"].concat(stepN).concat(["Enrol rate"]), rows: fb.map(function (b) { return [OV8_BN[b]].concat(FUN[b].map(function (v) { return v === null ? "Self-serve" : ov8inr(v * scale); })).concat([(FUN[b][3] / FUN[b][0] * 100).toFixed(1) + "%"]); }) },
-          note: fb.indexOf("Internshala") >= 0 ? "Internshala is self-serve, so its enquirers skip counselling; the Counselled step counts the other businesses only." : "" }) + "</div>";
+          body: '<div class="ov8-two"><div><p class="ov8-mini">All selected businesses</p>' + ov8funnel(fsteps, function (a, b) { return Math.round((1 - b.v / a.v) * 100) + "% dropped"; }) + '</div><div><p class="ov8-mini">' + (FOCUS9 ? "Currently active, by business" : "Enrolment rate, by business") + "</p>" +
+            ov8hbars(rates.map(function (r, i) { return { label: OV8_BN[r[0]], v: r[1], display: (FOCUS9 ? r[1] : r[1].toFixed(1)) + "%", c: OV8_BC[r[0]] || OV8_ACC, tip: OV8_BN[r[0]] + (FOCUS9 ? " · active now, of overall prospects" : " · enquiry to enrolment") }; }), FOCUS9 ? 100 : Math.max.apply(null, rates.map(function (r) { return r[1]; }))) + "</div></div>",
+          table: { head: ["Business"].concat(stepN).concat([FOCUS9 ? "Currently active" : "Enrol rate"]), rows: fb.map(function (b) { return [OV8_BN[b]].concat(FUN[b].map(function (v) { return v === null ? "Self-serve" : ov8inr(v * scale); })).concat([FOCUS9 ? ACT9[b] + "%" : (FUN[b][3] / FUN[b][0] * 100).toFixed(1) + "%"]); }) },
+          note: (FOCUS9 ? "Currently active: active prospects as a share of overall prospects in each business, drop-offs excluded. " : "") + (fb.indexOf("Internshala") >= 0 ? "Internshala is self-serve, so its enquirers skip counselling; the Counselled step counts the other businesses only." : "") }) + "</div>";
 
       // Where they come from
       var CH = [["Paid search", 34, 30], ["Paid social", 24, 27], ["Organic", 18, 17], ["Referral", 8, 9], ["Affiliate", 9, 8], ["Webinar and events", 7, 9]];
       var BUB = [["Paid search", 118, 5.7, 1.9], ["Paid social", 92, 3.0, 1.4], ["Organic", 66, 9.4, 2.2], ["Referral", 34, 15.3, 2.6], ["Affiliate", 31, 4.1, 1.5], ["Webinar", 43, 11.9, 2.4]];
       var bub = '<div class="ov8-bub"><div class="ov8-ly">' + [0, 5, 10, 15, 20].map(function (t) { return '<span style="top:' + (100 - t / 20 * 100).toFixed(2) + '%">' + t + "%</span>"; }).join("") + '</div><div class="ov8-bp"><span class="q q1">Few people, high quality</span><span class="q q2">Many people, low quality</span>' + [0, 5, 10, 15, 20].map(function (t) { return '<i class="g" style="top:' + (100 - t / 20 * 100).toFixed(2) + '%"></i>'; }).join("") +
-        BUB.map(function (b) { var sz = Math.round(b[3] * 16), good = b[2] >= 9; return '<span class="ov8-bb' + (b[1] / 130 > 0.72 ? " lf" : "") + '" style="left:' + (b[1] / 130 * 100).toFixed(1) + "%;bottom:" + (b[2] / 20 * 100).toFixed(1) + "%;width:" + sz + "px;height:" + sz + "px;background:" + (OV8_CHC[b[0]] || OV8_ACC) + '"' + ov8tip(["₹" + b[3] + " lakh average value", b[0], ov8inr(b[1] * 1000 * scale) + " prospects · " + b[2] + "% conversion"]) + '><em>' + esc(b[0]) + "</em></span>"; }).join("") +
+        BUB.map(function (b) { var sz = FOCUS9 ? 30 : Math.round(b[3] * 16), good = b[2] >= 9; return '<span class="ov8-bb' + (b[1] / 130 > 0.72 ? " lf" : "") + '" style="left:' + (b[1] / 130 * 100).toFixed(1) + "%;bottom:" + (b[2] / 20 * 100).toFixed(1) + "%;width:" + sz + "px;height:" + sz + "px;background:" + (OV8_CHC[b[0]] || OV8_ACC) + '"' + ov8tip(FOCUS9 ? [b[2] + "% conversion", b[0], ov8inr(b[1] * 1000 * scale) + " prospects"] : ["₹" + b[3] + " lakh average value", b[0], ov8inr(b[1] * 1000 * scale) + " prospects · " + b[2] + "% conversion"]) + '><em>' + esc(b[0]) + "</em></span>"; }).join("") +
         '</div><p class="ov8-ax">More prospects →</p></div>';
       h += ov8head("Where they come from", "How people first found us") + '<div class="ov8-grid">' +
         ov8card({ id: "pmix", title: "Channel mix, a year ago and now", sub: "Share of new prospects", ins: "Paid social gained 3 points and paid search lost 4. Webinars and events are growing too.", body: ov8dumb(CH, 36),
           table: { head: ["Channel", "A year ago", "Now"], rows: CH.map(function (c) { return [c[0], c[1] + "%", c[2] + "%"]; }) } }) +
-        ov8card({ id: "pqual", title: "Channel quality", sub: "Conversion (up) against volume (right); bubble size = average lifetime value", ins: "Referral and webinar bring the fewest people but convert best and are worth the most. Paid social brings volume at the lowest quality.", body: bub,
-          table: { head: ["Channel", "Prospects", "Conversion", "Average value"], rows: BUB.map(function (b) { return [b[0], ov8inr(b[1] * 1000 * scale), b[2] + "%", "₹" + b[3] + " lakh"]; }) } }) +
+        ov8card({ id: "pqual", title: "Channel quality", sub: FOCUS9 ? "Conversion (up) against volume (right)" : "Conversion (up) against volume (right); bubble size = average lifetime value", ins: FOCUS9 ? "Referral and webinar bring the fewest people but convert best. Paid social brings volume at the lowest quality." : "Referral and webinar bring the fewest people but convert best and are worth the most. Paid social brings volume at the lowest quality.", body: bub,
+          table: { head: ["Channel", "Prospects", "Conversion"].concat(FOCUS9 ? [] : ["Average value"]), rows: BUB.map(function (b) { return [b[0], ov8inr(b[1] * 1000 * scale), b[2] + "%"].concat(FOCUS9 ? [] : ["₹" + b[3] + " lakh"]); }) } }) +
         "</div>";
     } else {
       h += ov8hero("Learners headline", [
