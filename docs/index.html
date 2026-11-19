@@ -11535,16 +11535,18 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
           series: [{ c: OV8_ACC, x: nX, y: NPM, area: true }], hx: nX, hlines: function (i) { return [NPM[i] + "K new paid learners", OV8_MON[i]]; } });
         var TL = { active: 212480, past: 1273820, free: 642000, self: 138500 }, tl9 = function (k) { return Math.round(TL[k] * sh9 / 10) * 10; }, tAct = tl9("active"), tPast = tl9("past"), tAll = tAct + tPast;
         var aPct = Math.round(tAct / tAll * 100);
-        h += ov8head("How many learners", "New paid learners, and everyone who has learned with us") + '<div class="ov8-grid">' +
-          ov8card({ id: "lnew", title: "New learners, paid", sub: "First paid enrolment · overall for " + rangeL + ", and per month for the past 12 months", ins: ov8inr(npY) + " new paid learners in the past 12 months. " + OV8_MON[11] + " was the highest month (" + NPM[11] + "K).",
-            body: '<div class="ov8-big"><b>' + ov8inr(npS) + "</b><span>New paid learners, " + esc(rangeL) + "</span></div>" + '<p class="ov8-mini">Per month, the past 12 months</p>' + npLine,
-            table: { head: ["Month", "New paid learners"], rows: NPM.map(function (v, i) { return [OV8_MON[i], ov8inr(v * 1000)]; }) } }) +
-          ov8card({ id: "ltot", title: "Total learners", sub: "Everyone with a paid enrolment, all time", ins: aPct + "% of learners are active now: still in a programme they haven't completed.",
-            body: '<div class="ov8-big"><b>' + ov8inr(tAll) + "</b><span>Total learners · active plus past</span></div>" +
+        h += ov8head("New learners", "People who paid for their first programme with us") + '<div class="ov8-grid">' +
+          ov8card({ id: "lnew", cls: "w", title: "New learners, paid", sub: "First paid enrolment · overall for " + rangeL + ", and per month for the past 12 months", ins: ov8inr(npY) + " new paid learners in the past 12 months. " + OV8_MON[11] + " was the highest month (" + NPM[11] + "K).",
+            body: '<div class="ov8-two ov9-cert"><div class="ov8-big"><b>' + ov8inr(npS) + "</b><span>New paid learners, " + esc(rangeL) + '</span></div><div><p class="ov8-mini">Per month, the past 12 months</p>' + npLine + "</div></div>",
+            table: { head: ["Month", "New paid learners"], rows: NPM.map(function (v, i) { return [OV8_MON[i], ov8inr(v * 1000)]; }) } }) + "</div>" +
+          ov8head("Total learners", "Everyone who has learned with us, active or past, and on free or self-paced courses") + '<div class="ov8-grid">' +
+          ov8card({ id: "ltot", cls: "w", title: "Total learners", sub: "Everyone with a paid enrolment, all time", ins: aPct + "% of learners are active now: still in a programme they haven't completed.",
+            body: '<div class="ov8-two ov9-cert"><div class="ov8-big"><b>' + ov8inr(tAll) + "</b><span>Total learners · active plus past</span></div><div>" +
               ov8segs([{ label: "", aria: "Active and past learners", segs: [{ v: aPct, c: OV8_ACC, name: "Active learners" }, { v: 100 - aPct, c: "#C9CEEF", name: "Past learners" }] }]) + ov8leg([["Active learners", OV8_ACC], ["Past learners", "#C9CEEF"]]) +
-              ov8hbars([{ label: "Active learners", sub: "not completed yet", v: tAct, display: ov8inr(tAct), c: OV8_ACC }, { label: "Past learners", sub: "completed or left", v: tPast, display: ov8inr(tPast), c: "#9AA2DE" }, { label: "Free course", v: tl9("free"), display: ov8inr(tl9("free")), c: OV8_MUTE }, { label: "Self-paced", v: tl9("self"), display: ov8inr(tl9("self")), c: OV8_MUTE }], Math.max(tPast, tl9("free"))),
+              ov8hbars([{ label: "Active learners", sub: "not completed yet", v: tAct, display: ov8inr(tAct), c: OV8_ACC }, { label: "Past learners", sub: "completed or left", v: tPast, display: ov8inr(tPast), c: "#9AA2DE" }, { label: "Free course", v: tl9("free"), display: ov8inr(tl9("free")), c: OV8_MUTE }, { label: "Self-paced", v: tl9("self"), display: ov8inr(tl9("self")), c: OV8_MUTE }], Math.max(tPast, tl9("free"))) + "</div></div>",
             table: { head: ["Learners", "Number"], rows: [["Total", ov8inr(tAll)], ["Active", ov8inr(tAct)], ["Past", ov8inr(tPast)], ["Free course", ov8inr(tl9("free"))], ["Self-paced", ov8inr(tl9("self"))]] },
-            note: "Free course and self-paced are counted on their own: a person can be in either and also be an active or past learner." }) +
+            note: "Free course and self-paced are counted on their own: a person can be in either and also be an active or past learner." }) + "</div>" +
+          ov8head("Top enrolled programmes", "The programmes learners enrol in most, overall and month by month") + '<div class="ov8-grid">' +
           (function () { // Top enrolled programmes (sample programme names); monthly counts in hundreds, Dec to Nov
             var TP = [["Executive PG in Data Science and AI", "WP", 412, [21, 22, 22, 23, 24, 23, 25, 26, 26, 27, 28, 29]], ["MBA (online)", "WP", 365, [24, 24, 23, 23, 22, 22, 22, 21, 21, 21, 20, 20]], ["Master's in Business Analytics abroad", "SA", 238, [12, 13, 15, 14, 12, 11, 13, 16, 17, 14, 13, 12]],
               ["Full Stack Development", "WP", 221, [13, 13, 12, 13, 12, 12, 12, 12, 11, 12, 11, 11]], ["Generative AI certificate", "KH", 184, [4, 5, 6, 8, 9, 11, 13, 15, 17, 19, 21, 24]], ["Business Analytics training", "Internshala", 176, [11, 10, 12, 12, 11, 13, 14, 13, 12, 13, 12, 13]],
@@ -11560,7 +11562,16 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
               table: { head: ["Programme", "Business", "Overall"].concat(OV8_MON), rows: all.map(function (p) { return [p[0], OV8_BN[p[1]], ov8inr(p[2] * 100)].concat(p[3].map(function (v) { return ov8inr(v * 100); })); }) },
               note: "Programme names are samples. Pick a month to see its top five." });
           })() + "</div>";
+        h += ov8head("Crossover", "Learners in one upGrad business who became learners in another") + '<div class="ov8-grid">' +
+          crossCard("lcross9", "Crossover: learners who enrolled in another business", [["WP learners", "KnowledgeHut", 2140], ["Internshala trainees", "WP", 1860], ["SA alumni", "WP", 920], ["WP alumni", "International", 610], ["Internshala trainees", "SA", 540], ["KH learners", "WP", 430]]).replace("Now enquiring in", "Now learning in") + "</div>";
+        var CE9 = [6.1, 6.4, 6.9, 7.2, 7.6, 7.9, 8.1, 8.4, 8.6, 8.9, 9.1, 9.4].map(function (v) { return +(v * sh9).toFixed(1); }), cAll9 = Math.round(312600 * sh9 / 10) * 10, cY9 = Math.round(CE9.reduce(function (a, v) { return a + v; }, 0) * 1000), cx9 = CE9.map(function (v, i) { return i / 11; }), cMax9 = Math.ceil(Math.max.apply(null, CE9) / 2) * 2;
+        h += ov8head("Certificates issued", "Certificates learners earned, overall and month by month") + '<div class="ov8-grid">' +
+          ov8card({ id: "lcert9", cls: "w", title: "Certificates issued", sub: "Overall, and per month for the past 12 months", ins: ov8inr(cY9) + " certificates in the past 12 months, " + Math.round((CE9[11] / CE9[0] - 1) * 100) + "% more in " + OV8_MON[11] + " than in " + OV8_MON[0] + ".",
+            body: '<div class="ov8-two ov9-cert"><div class="ov8-big"><b>' + ov8inr(cAll9) + '</b><span>Certificates issued, all time</span></div><div><p class="ov8-mini">Per month, the past 12 months</p>' +
+              ov8line({ label: "Certificates issued per month, the past 12 months", yMax: cMax9, yTicks: [0, cMax9 / 2, cMax9], yFmt: function (t) { return t ? t + "K" : "0"; }, xTicks: [[0, OV8_MON[0]], [3 / 11, OV8_MON[3]], [6 / 11, OV8_MON[6]], [9 / 11, OV8_MON[9]], [1, OV8_MON[11]]], series: [{ c: OV8_ACC, x: cx9, y: CE9, area: true }], hx: cx9, hlines: function (i) { return [CE9[i] + "K certificates", OV8_MON[i]]; } }) + "</div></div>",
+            table: { head: ["Month", "Certificates"], rows: CE9.map(function (v, i) { return [OV8_MON[i], v + "K"]; }).concat([["All time", ov8inr(cAll9)]]) } }) + "</div>";
       }
+      if (!FOCUS9) { // V8: the rest of Learners
       var LST = { WP: [0, 1, 2, 18, 50, 29], SA: [2, 22, 38, 28, 9, 1], KH: [0, 2, 3, 28, 44, 23], International: [0, 4, 8, 28, 40, 20], LC: [1, 12, 16, 40, 24, 7], Internshala: [5, 48, 33, 11, 3, 0] };
       var leR = [["Student", 31], ["Under 1", 12], ["1 to 3", 34], ["3 to 5", 41], ["5 to 8", 46], ["8 to 12", 30], ["12 plus", 18]], le = expBars(leR, [4]);
       var EMP = [["Employer A", "IT services", 4210], ["Employer B", "IT services", 3870], ["Employer C", "Consulting", 2140], ["Employer D", "IT services", 1980], ["Employer E", "Banking", 1460], ["Employer F", "IT services", 1390], ["Employer G", "E-commerce", 1120], ["Employer H", "Telecom", 940], ["Employer I", "Banking", 880], ["Employer J", "Consulting", 760]];
@@ -11623,6 +11634,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
         ov8card({ id: "lalum", cls: "w", title: "Alumni we keep", sub: "Completed learners by year, thousands", ins: "8.6 lakh alumni in total, the warmest audience upGrad owns. Data and AI is the largest group every year.", body: ov8leg(AL.map(function (a, i) { return [a, ALC[i]]; })) + ov8stack(ALD.map(function (a) { return { label: a[0], v: a[1] }; }), AL, ALC, { total: true, h: 180, fmt: function (v) { return v + "K"; } }),
           table: { head: ["Year"].concat(AL).concat(["Total"]), rows: ALD.map(function (a) { return [a[0]].concat(a[1].map(function (v) { return v + "K"; })).concat([a[1].reduce(function (x, y) { return x + y; }, 0) + "K"]); }) } }) +
         "</div>";
+      }
     }
     h += '<footer class="ov8-trust"><span class="ov8-sample">Sample data for design review</span><b>Can you trust these numbers?</b><span>Leads resolved to a person: <strong>71.4%</strong></span><span>Wrong merges in audits: <strong>0.08%</strong></span><span>Sources: LSQ, HubSpot, Prism, OMS, Sales Insights</span><span>Internshala: <strong>pending lookups</strong></span><span>Hover any chart for exact figures, or open its table</span></footer>';
     return h;
