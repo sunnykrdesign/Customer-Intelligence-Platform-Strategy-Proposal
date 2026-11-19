@@ -9,9 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <script>/* V8 · Focus: V6 locked to one view (the settings below), Review panel with the version switch only */(function(){try{var s=location.search,m=/[?&]ver=(\d)/.exec(s),vm=/[?&]v=(\d)/.exec(s);
-if(m&&m[1]==='8'){localStorage.setItem('cip-v8','1');localStorage.setItem('cip-version','8');}else if(m||vm){localStorage.removeItem('cip-v8');}
-if(localStorage.getItem('cip-v8')!=='1'||localStorage.getItem('cip-version')!=='8')return;
-document.documentElement.setAttribute('data-vfocus','');
+if(m&&(m[1]==='8'||m[1]==='9')){localStorage.setItem('cip-v8',m[1]==='9'?'9':'1');localStorage.setItem('cip-version','8');}else if(m||vm){localStorage.removeItem('cip-v8');}
+var fv=localStorage.getItem('cip-v8');if((fv!=='1'&&fv!=='9')||localStorage.getItem('cip-version')!=='8')return;
+document.documentElement.setAttribute('data-vfocus','');if(fv==='9')document.documentElement.setAttribute('data-vf9',''); /* V9: a copy of V8 where the final data goes; V8 stays as it is */
 var u=new URLSearchParams(s),P={preview:'1',card:'top',tabs:'top',bar:'high',pin:'0',nav:'overview,people,lookup,identity',lay5:'fold',life:'strip',tr:'focus',glow:'0',sb:'ink',auth:'off',si:'circle',pl:'ccink'};
 for(var k in P)u.set(k,P[k]);u.delete('ver');u.delete('v');if(m&&!u.get('p'))u.set('p','dindayal');
 history.replaceState(null,'',location.pathname+'?'+u.toString()+(m?(location.hash||'#/lookup'):location.hash));}catch(e){}})();</script>
@@ -6925,7 +6925,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
   <button type="button" class="rv-x" id="rvClose" aria-label="Close review panel"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1l10 10M11 1L1 11"/></svg></button>
   <div class="rv-panel" id="rvPanel" role="dialog" aria-label="Review controls" tabindex="-1" hidden>
     <div class="rv-head"><b>Review</b><span>For design review, not part of the product</span></div>
-    <div class="rv-sec"><span class="rv-k">Design version</span><div class="rv-seg" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="3" aria-pressed="false" title="V1 · Classic">V1</button><button type="button" data-v="4" aria-pressed="false" title="V2 · Learner 360">V2</button><button type="button" data-v="6" aria-pressed="false" title="V3 · Master">V3</button><button type="button" data-v="7" aria-pressed="false" title="V4 · Crisp">V4</button><button type="button" data-v="9" aria-pressed="false" title="V5 · Learner 360 data">V5</button><button type="button" data-v="8" aria-pressed="false" title="V6 · Polished">V6</button><button type="button" data-v="5" aria-pressed="false" title="V7 · Atmosphere">V7</button><button type="button" data-v="8f" aria-pressed="false" title="V8 · Focus (latest)">V8</button></div><p class="rv-note" id="vNote"></p></div>
+    <div class="rv-sec"><span class="rv-k">Design version</span><div class="rv-seg" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="3" aria-pressed="false" title="V1 · Classic">V1</button><button type="button" data-v="4" aria-pressed="false" title="V2 · Learner 360">V2</button><button type="button" data-v="6" aria-pressed="false" title="V3 · Master">V3</button><button type="button" data-v="7" aria-pressed="false" title="V4 · Crisp">V4</button><button type="button" data-v="9" aria-pressed="false" title="V5 · Learner 360 data">V5</button><button type="button" data-v="8" aria-pressed="false" title="V6 · Polished">V6</button><button type="button" data-v="5" aria-pressed="false" title="V7 · Atmosphere">V7</button><button type="button" data-v="8f" aria-pressed="false" title="V8 · Focus">V8</button><button type="button" data-v="9f" aria-pressed="false" title="V9 · Final data (latest)">V9</button></div><p class="rv-note" id="vNote"></p></div>
     <div class="rv-sec"><span class="rv-k">Sign in</span><div class="rv-seg" id="rvAuth" role="group" aria-label="Sign in and team"><button type="button" data-auth="off">Skip</button><button type="button" data-auth="on">Show</button></div><p class="rv-note" id="rvAuthNote"></p></div>
     <div class="rv-sec rv-v6x"><span class="rv-k">Hero motion</span>
       <div class="rv-rows"><label class="rv-row"><span>Hero glow follows the cursor</span><input type="checkbox" class="switch rv-switch" id="rvGlow6" aria-label="Hero glow follows the cursor"></label></div>
@@ -7061,6 +7061,8 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
     try { sessionStorage.setItem("cip-shared", JSON.stringify(SHARED)); } catch (e) {}
   }
   var FOCUS8 = document.documentElement.hasAttribute("data-vfocus");
+  var FOCUS9 = FOCUS8 && document.documentElement.hasAttribute("data-vf9"); // V9 · Final data: V8's view, kept separate so V8 stays as it is
+  var FV = FOCUS9 ? "9f" : "8f";
   var SOLO8 = false;
   if (FOCUS8) { try { if (Q.get("review") === "0") sessionStorage.setItem("cip-v8solo", "1"); SOLO8 = sessionStorage.getItem("cip-v8solo") === "1"; } catch (e) { SOLO8 = Q.get("review") === "0"; } }
   if (FOCUS8) SHARED = { card: "top", tabs: "top", bar: "high", pin: "0", nav: "overview,people,lookup,identity", p: Q.get("p"), lay5: "fold", life: "strip", tr: "focus" };
@@ -9532,11 +9534,12 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
     "6": ["V3", "Master", "Everything so far with less on screen: three Look up layouts, Find, a rebuilt Overview with richer charts, and a motion layer."],
     "9": ["V5", "Learner 360 data", "V4 Crisp, unchanged, with the PM's Learner 360 sample people: five profiles with every value's source and date added, their activity in the model's sub-sections, and their insights."],
     "8": ["V6", "Polished", "V5 taken to a finished level: the same product, structure and look, with refined spacing, hierarchy and states, and purposeful motion."],
-    "8f": ["V8", "Focus", "The latest. V6 fixed to one view for review: the folding Look up layout with the strip journey, tabs on top, the Ink sidebar and the Cover · Ink person card, opening on Din Dayal. No layout options to switch."],
+    "9f": ["V9", "Final data", "The latest. A copy of V8, where the final data and its changes go, so V8 stays as it is."],
+    "8f": ["V8", "Focus", "V6 fixed to one view for review: the folding Look up layout with the strip journey, tabs on top, the Ink sidebar and the Cover · Ink person card, opening on Din Dayal. No layout options to switch."],
     "5": ["V7", "Atmosphere", "V6's content in a new look: a soft gradient atmosphere, a sidebar that expands or collapses to a rail, coloured figure tiles, gradient charts and richer motion."],
     "7": ["V4", "Crisp", "V3 with a new visual layer: the Crisp and Ocean themes, upGrad Design System icons and new profile layouts."]
   };
-  function vName(v) { if (FOCUS8 && v === "8") v = "8f"; var n = VNAMES[v] || VNAMES["7"]; return n[0] + " · " + n[1]; }
+  function vName(v) { if (FOCUS8 && v === "8") v = FV; var n = VNAMES[v] || VNAMES["7"]; return n[0] + " · " + n[1]; }
   function setVersion(v, keep) {
     if (["3", "4", "6", "7", "9", "8", "5"].indexOf(v) < 0) v = "7"; // V1 and V2 are retired from the switcher; 9 is the new V5, 8 is V6, 5 is V7
     // V5 swaps the people at load, so moving into or out of it reloads the page (without a ?ver= that would undo the choice).
@@ -9549,8 +9552,8 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
     if (v === "9" || v === "8" || v === "5") document.documentElement.setAttribute("data-v9", ""); else document.documentElement.removeAttribute("data-v9");
     if (v === "8" || v === "5") document.documentElement.setAttribute("data-v8", ""); else document.documentElement.removeAttribute("data-v8");
     if (v === "5") document.documentElement.setAttribute("data-v10", ""); else document.documentElement.removeAttribute("data-v10");
-    $$("#vswitch button").forEach(function (b) { b.setAttribute("aria-pressed", FOCUS8 ? b.getAttribute("data-v") === "8f" : b.getAttribute("data-v") === v); });
-    var vn = $("#vNote"); if (vn) vn.textContent = vName(v) + ": " + VNAMES[FOCUS8 && v === "8" ? "8f" : v][2];
+    $$("#vswitch button").forEach(function (b) { b.setAttribute("aria-pressed", FOCUS8 ? b.getAttribute("data-v") === FV : b.getAttribute("data-v") === v); });
+    var vn = $("#vNote"); if (vn) vn.textContent = vName(v) + ": " + VNAMES[FOCUS8 && v === "8" ? FV : v][2];
     if (keep) { try { localStorage.setItem("cip-version", v); } catch (e) {} }
     v3Enter((location.hash.replace(/^#\/?/, "") || "overview").split("/")[0]);
   }
@@ -9558,7 +9561,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
   document.addEventListener("click", function (e) {
     var b = e.target.closest && e.target.closest("#vswitch [data-v]"); if (!b) return;
     var to = b.getAttribute("data-v");
-    if (to === "8f") { e.stopImmediatePropagation(); if (FOCUS8) return; location.replace(location.pathname + "?ver=8#/lookup"); return; }
+    if (to === "8f" || to === "9f") { e.stopImmediatePropagation(); if (FOCUS8 && to === FV) return; location.replace(location.pathname + "?ver=" + to.charAt(0) + "#/lookup"); return; }
     if (FOCUS8) { e.stopImmediatePropagation(); try { localStorage.setItem("cip-v8", "0"); localStorage.setItem("cip-version", to); sessionStorage.setItem("cip-shared", "null"); } catch (er) {} location.replace(location.pathname + "?v=" + to + location.hash); }
   }, true);
   $("#vswitch").addEventListener("click", function (e) { var b = e.target.closest("[data-v]"); if (!b) return; setVersion(b.getAttribute("data-v"), true); applyLookupLayout(); if (L.auto) { if (isV6()) { L = { status: "idle", label: "", matches: [], person: null, how: "", auto: true }; $("#lookup").value = ""; } else { runLookup(defaultKey(), true); L.auto = true; } } renderLookup(); requestAnimationFrame(slideAll); });
@@ -9806,7 +9809,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
     $$("#rvTabs button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-tabs-at") === TABS); });
     $("#rvThumb").innerHTML = rvThumb(PERSON, TABS);
     $("#rvLayoutNote").textContent = describeLayout();
-    $("#rvSummary").textContent = FOCUS8 ? "V8 · Focus" : (VNAMES[v] ? VNAMES[v][0] : "V" + v) + " · " + (v >= "5" ? (LAYS5.filter(function (x) { return x[0] === LAY5; })[0] || ["", ""])[1] + " · " + (LIFES.filter(function (x) { return x[0] === LIFE; })[0] || ["", ""])[1].toLowerCase() : layoutLabel()) + (NAVHIDE.length ? " · " + NAVHIDE.length + " hidden" : "");
+    $("#rvSummary").textContent = FOCUS8 ? vName("8") : (VNAMES[v] ? VNAMES[v][0] : "V" + v) + " · " + (v >= "5" ? (LAYS5.filter(function (x) { return x[0] === LAY5; })[0] || ["", ""])[1] + " · " + (LIFES.filter(function (x) { return x[0] === LIFE; })[0] || ["", ""])[1].toLowerCase() : layoutLabel()) + (NAVHIDE.length ? " · " + NAVHIDE.length + " hidden" : "");
     $$("#rvNav [data-navitem]").forEach(function (c) { c.checked = NAVHIDE.indexOf(c.getAttribute("data-navitem")) < 0; });
     if (typeof rvShareSync === "function") rvShareSync();
   }
@@ -9932,8 +9935,8 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
     var base = location.href.split(/[?#]/)[0];
     return base + "?" + q.join("&") + "#/" + route;
   }
-  function rvShareSync() { var i = $("#rvShareUrl"); if (i) i.value = FOCUS8 ? (/github\.io$/.test(location.hostname) ? location.href.split(/[?#]/)[0] : "https://sunnykrdesign.github.io/Customer-Intelligence-Platform-Strategy-Proposal/") + "?ver=8&review=0" : viewLink(); } // V8 always shares the GitHub Pages address, even when copied from a preview
-  if (FOCUS8) { var shn = $("#rvShareUrl") && $("#rvShareUrl").closest(".rv-sec").querySelector(".rv-note"); if (shn) shn.textContent = "Opens V8 only, on Din Dayal, without this Review panel, so people can't switch to other versions."; }
+  function rvShareSync() { var i = $("#rvShareUrl"); if (i) i.value = FOCUS8 ? (/github\.io$/.test(location.hostname) ? location.href.split(/[?#]/)[0] : "https://sunnykrdesign.github.io/Customer-Intelligence-Platform-Strategy-Proposal/") + "?ver=" + FV.charAt(0) + "&review=0" : viewLink(); } // V8 always shares the GitHub Pages address, even when copied from a preview
+  if (FOCUS8) { var shn = $("#rvShareUrl") && $("#rvShareUrl").closest(".rv-sec").querySelector(".rv-note"); if (shn) shn.textContent = "Opens " + vName("8").split(" · ")[0] + " only, on Din Dayal, without this Review panel, so people can't switch to other versions."; }
   $("#rvCopy").addEventListener("click", function () { rvShareSync(); copy($("#rvShareUrl").value, $("#rvShareUrl"), "Link to this view copied"); });
   $("#rvShareUrl").addEventListener("focus", function () { this.select(); });
 
