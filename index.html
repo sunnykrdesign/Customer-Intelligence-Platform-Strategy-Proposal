@@ -11214,7 +11214,10 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
   function ov8em(i, hot) { return hot.indexOf(i) >= 0 ? OV8_ACC : OV8_MUTE; }
 
   // ---------- building blocks ----------
+  var OV9_DROP = { pexp: 1, pgeo: 1, pdest: 1, lltv: 1, lpar: 1, lrep: 1, lfin: 1, lwhy: 1, lskill: 1 }, OV9_WIDE = { lcomp: 1, lcert: 1 }; // V9: removed per the final-data sheet; cards left alone in a row go full width
   function ov8card(o) {
+    if (FOCUS9 && OV9_DROP[o.id]) return "";
+    if (FOCUS9 && OV9_WIDE[o.id]) o.cls = "w";
     var t = o.table, on = !!OV8.tbl[o.id];
     var tbl = t ? '<div class="ov8-tbl"' + (on ? "" : " hidden") + '><table><thead><tr>' + t.head.map(function (h, i) { return "<th" + (i ? ' class="n"' : "") + ' scope="col">' + esc(h) + "</th>"; }).join("") + "</tr></thead><tbody>" +
       t.rows.map(function (r) { return "<tr>" + r.map(function (c, i) { return i ? '<td class="n">' + esc(c) + "</td>" : '<th scope="row">' + esc(c) + "</th>"; }).join("") + "</tr>"; }).join("") + "</tbody></table></div>" : "";
@@ -11378,6 +11381,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
   }
   // Headline: the design's pastel KPI tiles. k = [label, value, change, good?, note, 12-point trend, icon, period, change in words]
   function ov8hero(label, kpis) {
+    if (FOCUS9) kpis = kpis.filter(function (k) { return k[0] !== "Refund or deferral"; }); // V9: removed per the final-data sheet
     return '<section class="ov8-hero" aria-label="' + esc(label) + '"><div class="ov8-kpis">' + kpis.map(function (k, i) {
       var up = /^\+/.test(k[2]), dn = /^[−-]/.test(k[2]);
       return '<div class="ov8-k"><div class="kh"><span class="ki" aria-hidden="true">' + ov8icon(k[6]) + '</span><span class="kt"><span class="kl">' + esc(k[0]) + '</span><span class="ks">' + esc(k[7]) + "</span></span></div>" +
