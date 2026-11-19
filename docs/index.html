@@ -6265,7 +6265,23 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
 @keyframes me8in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q6):not(#q7):not(#q8):not(#q9):not(#q10) .side .me.v6open .acts{animation:none}}
 </style>
-<style id="ov9">html[data-vf9] #app .ov8 .ov9-hero2 .ov8-kpis{grid-template-columns:repeat(2,minmax(0,1fr)) !important;align-items:stretch}
+<style id="ov9">html[data-vf9] #app .ov8 .ov8-hx .pd{position:absolute;left:var(--x);width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#fff;border:2px solid #5B63C4;opacity:0;transition:opacity .12s;pointer-events:none}
+html[data-vf9] #app .ov8 .ov8-hx.ov8-on .pd{opacity:1}
+html[data-vf9] #app .ov8 .ov9-tsp .pl:has(.ov8-on) .lv{opacity:0}
+html[data-vf9] #app .ov8 .ov9-lb li:hover{background:#F1F2F9}
+html[data-vf9] #ov8tip{background:#fff !important;color:#15161C !important;border:1px solid #E3E5EE;border-radius:10px !important;padding:6px 10px !important;gap:0 !important;box-shadow:0 10px 24px -10px rgba(21,22,40,.28) !important;max-width:240px}
+html[data-vf9] #ov8tip b{font-size:13px;font-weight:600;color:#15161C}html[data-vf9] #ov8tip span{font-size:11.5px;color:#6B6E7A !important}
+html[data-vf9] #ov8tip::after{left:var(--ax,50%) !important;bottom:-6px !important;background:#fff !important;border-right:1px solid #E3E5EE;border-bottom:1px solid #E3E5EE;width:10px !important;height:10px !important}
+html[data-vf9] #ov8tip.below::after{bottom:auto !important;top:-6px;transform:rotate(225deg) !important}
+html[data-vf9] #app .ov8 .ov9-tsp .hv{display:block !important}html[data-vf9] #app .ov8 .ov9-tsp .hv span{position:absolute;top:0;bottom:0;width:9.09%;transform:translateX(-50%);cursor:default}
+html[data-vf9] #app .ov8 .ov9-tsp .hv span:first-child{transform:none}html[data-vf9] #app .ov8 .ov9-tsp .hv span:last-child{transform:translateX(-100%)}
+html[data-vf9] #app .ov8 .ov9-tsp .hv span:hover{background:none !important}
+html[data-vf9] #app .ov8 .ov9-tsp .hv span::before{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:1px dashed #A9AEC4;opacity:0;transition:opacity .12s}
+html[data-vf9] #app .ov8 .ov9-tsp .hv span:first-child::before{left:0}html[data-vf9] #app .ov8 .ov9-tsp .hv span:last-child::before{left:100%}
+html[data-vf9] #app .ov8 .ov9-tsp .hv span .pd{position:absolute;left:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#fff;border:2px solid #5B63C4;opacity:0;transition:opacity .12s}
+html[data-vf9] #app .ov8 .ov9-tsp .hv span:first-child .pd{left:0}html[data-vf9] #app .ov8 .ov9-tsp .hv span:last-child .pd{left:100%}
+html[data-vf9] #app .ov8 .ov9-tsp .hv span.ov8-on::before,html[data-vf9] #app .ov8 .ov9-tsp .hv span.ov8-on .pd{opacity:1}
+html[data-vf9] #app .ov8 .ov9-hero2 .ov8-kpis{grid-template-columns:repeat(2,minmax(0,1fr)) !important;align-items:stretch}
 html[data-vf9] #app .ov8 .ov9-hero2 .ov8-k{display:flex;flex-direction:column;gap:6px;box-shadow:0 1px 2px rgba(20,22,40,.04),0 0 0 1px rgba(226,228,240,.7) !important}
 html[data-vf9] #app .ov8 .ov9-hero2 .ov8-k:nth-child(1){background:linear-gradient(135deg,#FFFFFF 0%,#FFFFFF 38%,#FBF1F5 72%,#F4E3EC 100%) !important}
 html[data-vf9] #app .ov8 .ov9-hero2 .ov8-k:nth-child(2){background:linear-gradient(135deg,#FFFFFF 0%,#FFFFFF 38%,#F3F1FB 72%,#E6E6F7 100%) !important}
@@ -11353,7 +11369,8 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
     var hov = "", n = o.hx.length;
     o.hx.forEach(function (x, i) {
       var l = i ? (x + o.hx[i - 1]) / 2 : 0, r = i < n - 1 ? (x + o.hx[i + 1]) / 2 : 1;
-      hov += '<span class="ov8-hx" style="left:' + (l * 100).toFixed(2) + "%;width:" + ((r - l) * 100).toFixed(2) + "%;--x:" + (((x - l) / (r - l)) * 100).toFixed(1) + '%"' + ov8tip(o.hlines(i)) + "></span>";
+      var s0 = FOCUS9 && o.series.length === 1 && o.series[0].y.length === n ? o.series[0] : null, ty = s0 ? (100 - s0.y[i] / o.yMax * 100).toFixed(1) : null;
+      hov += '<span class="ov8-hx" style="left:' + (l * 100).toFixed(2) + "%;width:" + ((r - l) * 100).toFixed(2) + "%;--x:" + (((x - l) / (r - l)) * 100).toFixed(1) + '%"' + (ty !== null ? ' data-ty="' + ty + '"' : "") + ov8tip(o.hlines(i)) + ">" + (ty !== null ? '<i class="pd" style="top:' + ty + '%;border-color:' + s0.c + '"></i>' : "") + "</span>";
     });
     return '<div class="ov8-lc" style="--h:' + H + 'px" role="img" aria-label="' + esc(o.label) + '"><div class="ov8-ly">' + o.yTicks.map(function (t) { return '<span style="top:' + (100 - t / o.yMax * 100).toFixed(2) + '%">' + esc(o.yFmt(t)) + "</span>"; }).join("") +
       '</div><div class="ov8-lp">' + svg + dots + hov + '</div><div class="ov8-lx">' + o.xTicks.map(function (x) { return '<span style="left:' + (x[0] * 100).toFixed(2) + '%">' + esc(x[1]) + "</span>"; }).join("") + "</div></div>";
@@ -11607,13 +11624,13 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
         // Row 1 in the headline-tile language: two large tiles, New learners (number + 12-month trend) and Total learners (number + its four parts)
         var spark9 = function (vals, tip) { var mn = Math.min.apply(null, vals), mx = Math.max.apply(null, vals), r = (mx - mn) || 1, Y = function (v) { return 54 - (v - mn) / r * 44; }, pts = vals.map(function (v, i) { return (i * 100 / 11).toFixed(2) + "," + Y(v).toFixed(2); }).join(" ");
           return '<div class="ov9-tsp"><div class="pl"><svg viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><polygon points="0,60 ' + pts + ' 100,60" fill="#EEF0F5"/><polyline points="' + pts + '" fill="none" stroke="#5B63C4" stroke-width="2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg>' +
-            '<span class="dot" style="top:' + (Y(vals[11]) / 60 * 100).toFixed(1) + '%"></span><span class="lv" style="top:' + (Y(vals[11]) / 60 * 100).toFixed(1) + '%">' + esc(tip(vals[11], 11)[0].split(" ")[0]) + '</span><div class="hv">' + vals.map(function (v, i) { return "<span" + ov8tip(tip(v, i)) + "></span>"; }).join("") + '</div></div><div class="mx">' + OV8_MON.map(function (m) { return "<span>" + m + "</span>"; }).join("") + "</div></div>"; };
+            '<span class="dot" style="top:' + (Y(vals[11]) / 60 * 100).toFixed(1) + '%"></span><span class="lv" style="top:' + (Y(vals[11]) / 60 * 100).toFixed(1) + '%">' + esc(tip(vals[11], 11)[0].split(" ")[0]) + '</span><div class="hv">' + vals.map(function (v, i) { var ty = (Y(v) / 60 * 100).toFixed(1); return '<span style="left:' + (i * 100 / 11).toFixed(2) + '%" data-ty="' + ty + '"' + ov8tip(tip(v, i)) + '><i class="pd" style="top:' + ty + '%"></i></span>'; }).join("") + '</div></div><div class="mx">' + OV8_MON.map(function (m) { return "<span>" + m + "</span>"; }).join("") + "</div></div>"; };
         var kd9 = function (d, t) { return '<em class="kd ' + (d >= 0 ? "up" : "dn") + '">' + (d >= 0 ? "↑ " : "↓ ") + Math.abs(d) + '%<span class="kc"> ' + esc(t.replace(/^On /, "vs ")) + "</span></em>"; };
         var part9 = function (l, v, n, pc) { return '<div class="ov9-pt"><span>' + esc(l) + "</span><b>" + ov8inr(v) + "</b>" + (pc !== undefined ? '<i class="pb"><em style="width:' + pc + '%"></em></i>' : "") + "<small>" + esc(n) + "</small></div>"; };
         h += '<section class="ov8-hero ov9-hero2" aria-label="Learners headline"><div class="ov8-kpis">' +
           '<div class="ov8-k"><div class="kh"><span class="ki" aria-hidden="true">' + ov8icon("data_trending") + '</span><span class="kt"><span class="kl">New learners, paid</span><span class="ks">' + esc(rangeC) + "</span></span></div>" +
             '<div class="kr"><b class="kv">' + ov8inr(npS) + "</b>" + kd9(npD, nN === 12 ? "On the 12 months before" : nN === 1 ? "On the month before" : "On the 90 days before") + "</div>" +
-            '<span class="kn">First paid enrolment</span><span class="ov9-tl">New paid learners per month, past 12 months</span>' + spark9(NPM, function (v, i) { return [ov8inr(v * 1000) + " new paid learners", OV8_MON[i]]; }) + "</div>" +
+            '<span class="kn">First paid enrolment</span><span class="ov9-tl">New paid learners per month, past 12 months</span>' + spark9(NPM, function (v, i) { return [ov8inr(v * 1000), OV8_MON[i] + " · new paid learners"]; }) + "</div>" +
           '<div class="ov8-k"><div class="kh"><span class="ki" aria-hidden="true">' + ov8icon("person") + '</span><span class="kt"><span class="kl">Total learners</span><span class="ks">All time</span></span></div>' +
             '<div class="kr"><b class="kv">' + ov8inr(tAll) + "</b>" + kd9(2, "On the 90 days before") + "</div>" +
             '<span class="kn">Everyone with a paid enrolment · active plus past</span><div class="ov9-parts">' +
@@ -11639,7 +11656,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
             var body = (ov || !pm ? "" : '<div class="ov9-lleg"><span><i class="a"></i>' + ML(pm) + '</span><span><i class="b"></i>' + ML(pm - 1) + "</span></div>") + '<ol class="ov9-lb ov9-lb2">' + rows.map(function (r, k) {
               var d = r.pk - (k + 1), mvs = ov || !pm || !d ? "" : '<em class="' + (d > 0 ? "up" : "dn") + '">' + (d > 0 ? "▲ " : "▼ ") + Math.abs(d) + "</em> · ", c = r.prev ? Math.round((r.cur / r.prev - 1) * 100) : null;
               var bar = '<span class="ov9-bar">' + (ov || !pm ? "" : '<i class="g" style="width:' + (r.prev / mx * 100).toFixed(1) + '%"></i>') + '<i class="v" style="width:' + ((ov ? r.all : r.cur) / mx * 100).toFixed(1) + '%"></i></span>';
-              return "<li" + ov8tip(ov ? [ov8inr(r.all) + " paid enrolments, all time", r.p[0]] : [ov8inr(r.cur) + " in " + ML(pm), r.p[0]].concat(pm ? [ov8inr(r.prev) + " in " + ML(pm - 1)] : [])) + '><span class="bd' + (k < 3 ? " top" : "") + '">' + (k + 1) + '</span><span class="nm"><b>' + esc(r.p[0]) + "</b><small>" + mvs + esc(OV8_BN[r.p[1]]) + "</small></span>" +
+              return '<li><span class="bd' + (k < 3 ? " top" : "") + '">' + (k + 1) + '</span><span class="nm"><b>' + esc(r.p[0]) + "</b><small>" + mvs + esc(OV8_BN[r.p[1]]) + (ov || !pm ? "" : " · " + esc(OV8_MON[pm - 1]) + ": " + ov8inr(r.prev)) + "</small></span>" +
                 '<b class="vl">' + ov8inr(ov ? r.all : r.cur) + "</b>" + (ov ? '<span class="sh">' + Math.round(r.all / tot * 100) + "%</span>" : c === null ? '<span class="sh">–</span>' : '<span class="ch ' + (c >= 0 ? "pos" : "neg") + '">' + (c >= 0 ? "↑ " : "↓ ") + Math.abs(c) + "%</span>") + bar + "</li>";
             }).join("") + "</ol>";
             var byAll = TP.slice().sort(function (a, b) { return b[2] - a[2]; });
@@ -11650,7 +11667,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
           ov8card({ id: "lcert9", title: "Certificates issued", sub: "All time, and per month for the past 12 months",
             body: '<div class="ov9-chead"><span class="ov9-rib">' + ov8icon("ribbon") + "</span><div><b>" + ov8inr(cAll9) + "</b><span>certificates issued since launch</span></div></div>" +
               '<div class="ov9-facts"><div><b>' + per100 + "</b><span>per 100 learners</span></div><div><b>" + ov8inr(cY9) + '</b><span>past 12 months</span><small class="pos">↑ 35% on the year before</small></div><div><b>' + ov8inr(CE9[11] * 1000) + "</b><span>in " + OV8_MON[11] + (cTop ? ", the most in a month" : "") + "</span></div></div>" +
-              '<p class="ov8-mini">Per month, past 12 months</p>' + ov8line({ label: "Certificates issued per month, the past 12 months", h: 230, yMax: cMax9, yTicks: [0, cMax9 / 2, cMax9], yFmt: function (t) { return t ? t + "K" : "0"; }, xTicks: [[0, OV8_MON[0]], [3 / 11, OV8_MON[3]], [6 / 11, OV8_MON[6]], [9 / 11, OV8_MON[9]], [1, OV8_MON[11]]], series: [{ c: OV8_ACC, x: cx9, y: CE9, area: true }], hx: cx9, hlines: function (i) { return [CE9[i] + "K certificates", OV8_MON[i]]; } }),
+              '<p class="ov8-mini">Per month, past 12 months</p>' + ov8line({ label: "Certificates issued per month, the past 12 months", h: 230, yMax: cMax9, yTicks: [0, cMax9 / 2, cMax9], yFmt: function (t) { return t ? t + "K" : "0"; }, xTicks: [[0, OV8_MON[0]], [3 / 11, OV8_MON[3]], [6 / 11, OV8_MON[6]], [9 / 11, OV8_MON[9]], [1, OV8_MON[11]]], series: [{ c: OV8_ACC, x: cx9, y: CE9, area: true }], hx: cx9, hlines: function (i) { return [ov8inr(CE9[i] * 1000), OV8_MON[i] + " · certificates issued"]; } }),
             table: { head: ["Month", "Certificates"], rows: CE9.map(function (v, i) { return [OV8_MON[i], ov8inr(v * 1000)]; }).concat([["Past 12 months", ov8inr(cY9)], ["All time", ov8inr(cAll9)]]) },
             note: "Per 100 learners counts certificates, so a learner with two certificates counts twice." }) + "</div>";
       }
@@ -11749,10 +11766,19 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
       tip.textContent = ""; t.getAttribute("data-tip").split("|").forEach(function (line, i) { var d = document.createElement(i ? "span" : "b"); d.textContent = line; tip.appendChild(d); });
       tip.hidden = false; var r = t.getBoundingClientRect(), w = tip.offsetWidth, hh = tip.offsetHeight;
       var x = Math.min(window.innerWidth - w - 8, Math.max(8, (e.clientX || r.left + r.width / 2) - w / 2)), y = (e.clientY || r.top) - hh - 14; if (y < 8) y = (e.clientY || r.bottom) + 18;
+      if (FOCUS9) { // V9: a compact label anchored to the thing hovered, so it never covers it
+        var ty = t.getAttribute("data-ty"), ay = ty !== null ? r.top + r.height * (+ty) / 100 : r.top, cx = r.width > 220 ? (e.clientX || r.left + r.width / 2) : r.left + r.width / 2;
+        x = Math.min(window.innerWidth - w - 8, Math.max(8, cx - w / 2)); y = ay - hh - (ty !== null ? 14 : 8);
+        var below = y < 8; if (below) y = (ty !== null ? ay + 14 : r.bottom + 8); tip.classList.toggle("below", below);
+        var cb = t.closest(".ov8-card,.ov8-k"); if (cb) { var cr = cb.getBoundingClientRect(); x = Math.max(cr.left + 8, Math.min(cr.right - w - 8, x)); } // keep it inside its card
+        tip.style.setProperty("--ax", Math.max(12, Math.min(w - 12, cx - x)) + "px");
+      }
       tip.style.left = x + "px"; tip.style.top = y + "px"; $$(".ov8 .ov8-on").forEach(function (x2) { if (x2 !== t) x2.classList.remove("ov8-on"); }); t.classList.add("ov8-on");
     };
     root.addEventListener("mousemove", show); root.addEventListener("focusin", show);
-    root.addEventListener("mouseout", function (e) { var t = e.target.closest && e.target.closest("[data-tip]"); if (t) t.classList.remove("ov8-on"); if (!e.relatedTarget || !root.contains(e.relatedTarget)) ov8hide(); });
+    root.addEventListener("mouseout", function (e) { var t = e.target.closest && e.target.closest("[data-tip]"); if (FOCUS9 && t && e.relatedTarget && t.contains(e.relatedTarget)) return; if (t) t.classList.remove("ov8-on"); if (!e.relatedTarget || !root.contains(e.relatedTarget)) ov8hide();
+      else if (FOCUS9 && t) { var to = e.relatedTarget.closest && e.relatedTarget.closest("[data-tip]"); if (to !== t && (!to || !root.contains(to))) ov8hide(); } });
+    if (FOCUS9) { window.addEventListener("scroll", ov8hide, { passive: true }); document.addEventListener("pointerdown", function (e) { if (!(e.target.closest && e.target.closest(".ov8 [data-tip]"))) ov8hide(); }); }
     root.addEventListener("focusout", ov8hide);
   }
   function ov8hide() { var tip = $("#ov8tip"); if (tip) tip.hidden = true; $$(".ov8 .ov8-on").forEach(function (x) { x.classList.remove("ov8-on"); }); }
