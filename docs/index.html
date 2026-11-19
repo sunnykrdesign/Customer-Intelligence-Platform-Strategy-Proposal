@@ -11520,7 +11520,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
           table: { head: ["Channel", "Prospects", "Conversion"].concat(FOCUS9 ? [] : ["Average value"]), rows: BUB.map(function (b) { return [b[0], ov8inr(b[1] * 1000 * scale), b[2] + "%"].concat(FOCUS9 ? [] : ["₹" + b[3] + " lakh"]); }) } }) +
         "</div>";
     } else {
-      h += ov8hero("Learners headline", [
+      if (!FOCUS9) h += ov8hero("Learners headline", [
         ["Active learners", "2,12,480", "+3.1%", 1, "In a paid programme now", [1.95, 1.97, 1.98, 2.0, 2.01, 2.03, 2.04, 2.06, 2.07, 2.09, 2.1, 2.12], "hat_graduation", "Right now", "Up 3.1% on the previous period"],
         ["Lifetime revenue", "₹2,846 Cr", "+₹318 Cr", 1, "Payments minus refunds", [2528, 2554, 2580, 2606, 2634, 2660, 2688, 2716, 2742, 2770, 2808, 2846], "wallet", "All time", "₹318 Cr added in 12 months"],
         ["Repeat buyers", "9.6%", "+0.4 pts", 1, "Bought a second programme", [8.9, 9.0, 9.0, 9.1, 9.1, 9.2, 9.3, 9.3, 9.4, 9.5, 9.5, 9.6], "arrow_swap", "All learners", "Up 0.4 points in 12 months"],
@@ -11535,18 +11535,13 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
           series: [{ c: OV8_ACC, x: nX, y: NPM, area: true }], hx: nX, hlines: function (i) { return [NPM[i] + "K new paid learners", OV8_MON[i]]; } });
         var TL = { active: 212480, past: 1273820, free: 642000, self: 138500 }, tl9 = function (k) { return Math.round(TL[k] * sh9 / 10) * 10; }, tAct = tl9("active"), tPast = tl9("past"), tAll = tAct + tPast;
         var aPct = Math.round(tAct / tAll * 100);
-        h += ov8head("New learners", "People who paid for their first programme with us") + '<div class="ov8-grid">' +
-          ov8card({ id: "lnew", cls: "w", title: "New learners, paid", sub: "First paid enrolment · overall for " + rangeL + ", and per month for the past 12 months", ins: ov8inr(npY) + " new paid learners in the past 12 months. " + OV8_MON[11] + " was the highest month (" + NPM[11] + "K).",
-            body: '<div class="ov8-two ov9-cert"><div class="ov8-big"><b>' + ov8inr(npS) + "</b><span>New paid learners, " + esc(rangeL) + '</span></div><div><p class="ov8-mini">Per month, the past 12 months</p>' + npLine + "</div></div>",
-            table: { head: ["Month", "New paid learners"], rows: NPM.map(function (v, i) { return [OV8_MON[i], ov8inr(v * 1000)]; }) } }) + "</div>" +
-          ov8head("Total learners", "Everyone who has learned with us, active or past, and on free or self-paced courses") + '<div class="ov8-grid">' +
-          ov8card({ id: "ltot", cls: "w", title: "Total learners", sub: "Everyone with a paid enrolment, all time", ins: aPct + "% of learners are active now: still in a programme they haven't completed.",
-            body: '<div class="ov8-two ov9-cert"><div class="ov8-big"><b>' + ov8inr(tAll) + "</b><span>Total learners · active plus past</span></div><div>" +
-              ov8segs([{ label: "", aria: "Active and past learners", segs: [{ v: aPct, c: OV8_ACC, name: "Active learners" }, { v: 100 - aPct, c: "#C9CEEF", name: "Past learners" }] }]) + ov8leg([["Active learners", OV8_ACC], ["Past learners", "#C9CEEF"]]) +
-              ov8hbars([{ label: "Active learners", sub: "not completed yet", v: tAct, display: ov8inr(tAct), c: OV8_ACC }, { label: "Past learners", sub: "completed or left", v: tPast, display: ov8inr(tPast), c: "#9AA2DE" }, { label: "Free course", v: tl9("free"), display: ov8inr(tl9("free")), c: OV8_MUTE }, { label: "Self-paced", v: tl9("self"), display: ov8inr(tl9("self")), c: OV8_MUTE }], Math.max(tPast, tl9("free"))) + "</div></div>",
-            table: { head: ["Learners", "Number"], rows: [["Total", ov8inr(tAll)], ["Active", ov8inr(tAct)], ["Past", ov8inr(tPast)], ["Free course", ov8inr(tl9("free"))], ["Self-paced", ov8inr(tl9("self"))]] },
-            note: "Free course and self-paced are counted on their own: a person can be in either and also be an active or past learner." }) + "</div>" +
-          ov8head("Top enrolled programmes", "The programmes learners enrol in most, overall and month by month") + '<div class="ov8-grid">' +
+        var lk9 = function (n) { return (n / 100000).toFixed(1) + "L"; };
+        h += ov8hero("Learners headline", [
+          ["Total learners", ov8inr(tAll), "+1.8%", 1, "Past " + lk9(tPast) + " · Free course " + lk9(tl9("free")) + " · Self-paced " + lk9(tl9("self")), [13.6, 13.7, 13.8, 13.9, 14.0, 14.1, 14.2, 14.3, 14.4, 14.6, 14.7, 14.86], "person", "All time", "Up 1.8% on the previous period"],
+          ["Active learners", ov8inr(tAct), "+3.1%", 1, "Not completed yet", [1.95, 1.97, 1.98, 2.0, 2.01, 2.03, 2.04, 2.06, 2.07, 2.09, 2.1, 2.12], "hat_graduation", "Right now", "Up 3.1% on the previous period"],
+          ["New learners, paid", ov8inr(npS), "+6.2%", 1, "First paid enrolment · line: past 12 months", NPM, "data_trending", rangeC, "Up 6.2% on the previous period"],
+          ["Lifetime revenue", "₹2,846 Cr", "+₹318 Cr", 1, "Payments minus refunds", [2528, 2554, 2580, 2606, 2634, 2660, 2688, 2716, 2742, 2770, 2808, 2846], "wallet", "All time", "₹318 Cr added in 12 months"]]);
+        h += ov8head("Top enrolled programmes", "The programmes learners enrol in most, overall and month by month") + '<div class="ov8-grid">' +
           (function () { // Top enrolled programmes (sample programme names); monthly counts in hundreds, Dec to Nov
             var TP = [["Executive PG in Data Science and AI", "WP", 412, [21, 22, 22, 23, 24, 23, 25, 26, 26, 27, 28, 29]], ["MBA (online)", "WP", 365, [24, 24, 23, 23, 22, 22, 22, 21, 21, 21, 20, 20]], ["Master's in Business Analytics abroad", "SA", 238, [12, 13, 15, 14, 12, 11, 13, 16, 17, 14, 13, 12]],
               ["Full Stack Development", "WP", 221, [13, 13, 12, 13, 12, 12, 12, 12, 11, 12, 11, 11]], ["Generative AI certificate", "KH", 184, [4, 5, 6, 8, 9, 11, 13, 15, 17, 19, 21, 24]], ["Business Analytics training", "Internshala", 176, [11, 10, 12, 12, 11, 13, 14, 13, 12, 13, 12, 13]],
