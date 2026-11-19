@@ -11430,19 +11430,8 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
       var REACH = { WP: 71, SA: 64, KH: 69, International: 58, LC: 74, Internshala: 66 }, MED = { WP: 29, SA: 61, KH: 18, International: 44, LC: 25, Internshala: 9 };
       var pEnq = fb.reduce(function (a, b) { return a + FUN[b][0]; }, 0) * scale, pEnr = fb.reduce(function (a, b) { return a + FUN[b][3]; }, 0) * scale;
       var active = pEnq + (st.biz === "All" ? 212 * scale : 0), conv = pEnr / pEnq * 100;
-      if (FOCUS9) { // V9 (final-data sheet): Overall prospects = new leads + new opportunities, unique people; Active prospects by last active date; median days from opportunity creation
-        var NL9 = { WP: 61000, SA: 34000, KH: 28000, International: 11000, LC: 12000, Internshala: 68000 }, NO9 = { WP: 38000, SA: 21000, KH: 14000, International: 6800, LC: 7900, Internshala: 8300 };
-        var nl9 = fb.reduce(function (a, b) { return a + NL9[b]; }, 0) * scale, no9 = fb.reduce(function (a, b) { return a + NO9[b]; }, 0) * scale, ov9 = nl9 + no9 * 0.6; // 40% of new opportunities are people who are also new leads, counted once
-        var A9 = { WP: 62, SA: 71, KH: 58, International: 66, LC: 69, Internshala: 44 }, act9 = fb.reduce(function (a, b) { return a + (NL9[b] + NO9[b] * 0.6) * A9[b] / 100; }, 0) * scale; // active is a subset of overall prospects
-        var sp9 = function (v, g) { var a = []; for (var k = 0; k < 12; k++) a.push(+(v * (1 - g + g * k / 11) / 1000).toFixed(1)); return a; };
-        h += ov8hero("Prospects volume", [
-          ["Overall prospects", ov8inr(ov9), "+5.1%", 1, "Unique people: new leads plus new opportunities", sp9(ov9, 0.05), "person", rangeC, "Up 5.1% on the previous period"],
-          ["New leads", ov8inr(nl9), "+4.6%", 1, "People new to upGrad in the period", sp9(nl9, 0.046), "mail_inbox", rangeC, "Up 4.6% on the previous period"],
-          ["New opportunities", ov8inr(no9), "+6.3%", 1, "Programme opportunities created in the period", sp9(no9, 0.063), "briefcase", rangeC, "Up 6.3% on the previous period"],
-          ["Active prospects", ov8inr(act9), "+4.2%", 1, "Overall prospects active in the period, by last active date", sp9(act9, 0.042), "data_bar_vertical", rangeC, "Up 4.2% on the previous period"]]);
-      }
-      h += ov8hero("Prospects headline", (FOCUS9 ? [] : [
-        ["Active prospects", ov8inr(active), "+4.2%", 1, "Unique people with an open enquiry", [3.52, 3.55, 3.58, 3.6, 3.63, 3.66, 3.68, 3.7, 3.73, 3.76, 3.8, 3.84], "person", rangeC, "Up 4.2% on the previous period"]]).concat([
+      h += ov8hero("Prospects headline", ([
+        ["Active prospects", ov8inr(active), "+4.2%", 1, FOCUS9 ? "Unique people active in the period, by last active date" : "Unique people with an open enquiry", [3.52, 3.55, 3.58, 3.6, 3.63, 3.66, 3.68, 3.7, 3.73, 3.76, 3.8, 3.84], "person", rangeC, "Up 4.2% on the previous period"]]).concat([
         ["Reachable", (st.biz === "All" ? 68 : REACH[st.biz]) + "%", "+1.1 pts", 1, "Consented, verified, adult", [64, 64.5, 65, 65.3, 65.8, 66.2, 66.5, 66.9, 67.2, 67.5, 67.8, 68], "call", rangeC, "Up 1.1 points on the previous period"],
         ["90-day conversion", conv.toFixed(1) + "%", "−0.3 pts", 0, "Enquiry to enrolment", [7.4, 7.3, 7.3, 7.2, 7.2, 7.1, 7.1, 7.0, 7.0, 7.0, 6.9, 6.9], "target_arrow", rangeC, "Down 0.3 points on the previous period"],
         ["Median days to enrol", String(st.biz === "All" ? 34 : MED[st.biz]), "−2 days", 1, FOCUS9 ? "From programme opportunity creation to enrolment" : "For those who enrolled", [41, 40, 40, 39, 38, 38, 37, 36, 36, 35, 35, 34], "data_trending", rangeC, "2 days faster than the previous period"]]));
