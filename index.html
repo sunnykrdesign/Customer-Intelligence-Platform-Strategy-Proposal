@@ -11624,7 +11624,10 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
       open.forEach(function (m) { if (!b || m.previousElementSibling !== b) { m.hidden = true; m.previousElementSibling.setAttribute("aria-expanded", "false"); } });
       if (b) { var m = b.nextElementSibling, show = m.hidden; m.hidden = !show; b.setAttribute("aria-expanded", String(show)); if (show) { var first = $('[aria-checked="true"],button', m); if (first) first.focus(); } return; }
       var dl = e.target.closest && e.target.closest("[data-xcsv]");
-      if (dl) { try { var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([dl.getAttribute("data-xcsv")], { type: "text/csv" })); a.download = dl.getAttribute("data-xname"); document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000); } catch (x) {} var mm = dl.closest(".ov9-ddm"); mm.hidden = true; mm.previousElementSibling.setAttribute("aria-expanded", "false"); }
+      if (dl) { var fn = dl.getAttribute("data-xname"), data = dl.getAttribute("data-xcsv"), mm = dl.closest(".ov9-ddm"); mm.hidden = true; mm.previousElementSibling.setAttribute("aria-expanded", "false");
+        var plain = function () { try { var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([data], { type: "text/csv" })); a.download = fn; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000); } catch (x) {} };
+        // In the Claude artifact viewer a page may only offer files through its downloads capability (the viewer confirms); elsewhere a plain download link
+        if (window.claude && typeof window.claude.use === "function") window.claude.use("downloads").then(function (d) { if (d) return d.save({ filename: fn, data: data }); plain(); }).catch(function () {}); else plain(); }
     });
     document.addEventListener("keydown", function (e) {
       var m = e.target.closest && e.target.closest(".ov9-dd"); if (!m) return; var menu = $(".ov9-ddm", m);
