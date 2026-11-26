@@ -6437,136 +6437,128 @@ html[data-vf9] #app .ov8 .ov9-pm button{min-width:0;padding:0 2px !important;bor
 html[data-vf9] #app .ov8 .ov8-card.fill .ov8-mo{max-height:none !important}
 </style>
 <style id="ov10">
-/* V10 · Ask the data: a question dock at the bottom of the Overview, and Your questions, answers pinned above the dashboard. Only under html[data-vf10]. */
+/* V10 · Ask the data: the header button, the right-hand panel, its turns, skeletons and cards. Only under html[data-vf10]. */
+html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-askb{display:inline-flex;align-items:center;gap:8px;height:46px;margin-left:auto;padding:0 18px 0 15px;border:1px solid transparent;border-radius:999px;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(90deg,#A99CE0,#E5A3BE) border-box;color:#15161C;font:500 14px/1 Figtree,Inter,sans-serif;letter-spacing:-.006em;cursor:pointer;transition:background .18s,box-shadow .18s}
+html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-askb svg{color:#8E6FCB;flex:none}
+html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-askb:hover{background:linear-gradient(#F7F5FD,#F7F5FD) padding-box,linear-gradient(90deg,#8E7FD0,#D9789E) border-box;box-shadow:0 4px 14px rgba(110,90,190,.14)}
+html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-askb[aria-expanded="true"]{background:linear-gradient(#F1EFFB,#F1EFFB) padding-box,linear-gradient(90deg,#8E7FD0,#D9789E) border-box}
+html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-askb:focus-visible{outline:2px solid #646EC2;outline-offset:2px}
+html[data-vf10].ov10-push:not(#a):not(#b) #app .ov8 .ov10-askb{width:46px;padding:0;justify-content:center}
+html[data-vf10].ov10-push:not(#a):not(#b) #app .ov8 .ov10-askb span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 html[data-vf10] .ov10-vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
-/* the dock, centred on the main column; content fades out beneath it */
-html[data-vf10] .ov10-dock{position:fixed;z-index:70;bottom:20px;left:50%;width:680px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-family:Figtree,Inter,-apple-system,sans-serif;letter-spacing:-.006em;pointer-events:none}
-html[data-vf10] .ov10-dock[hidden],html[data-vf10] .ov10-fade[hidden]{display:none}
-html[data-vf10] .ov10-dock > *{pointer-events:auto}
-html[data-vf10] .ov10-dchips{display:none;flex-wrap:wrap;justify-content:center;gap:8px;max-width:100%}
-html[data-vf10] .ov10-dock.chipson .ov10-dchips{display:flex;animation:ov10up .24s cubic-bezier(.2,.7,.2,1) both}
-html[data-vf10] .ov10-dchips button{flex:none;height:34px;padding:0 14px;border:1px solid #E3E4EF;border-radius:999px;background:#fff;color:#2B2F3E;font:500 13px/1 Figtree,Inter,sans-serif;box-shadow:0 4px 14px rgba(21,22,28,.06);cursor:pointer;transition:background .15s,border-color .15s}
-html[data-vf10] .ov10-dchips button:hover{border-color:#C9C1E6;background:#F6F4FD}
-html[data-vf10] .ov10-dbar{display:flex;align-items:center;gap:10px;width:100%;height:60px;padding:0 8px 0 12px;border:1px solid transparent;border-radius:999px;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(100deg,#B8ACE6,#EBB4C8) border-box;box-shadow:0 16px 44px rgba(60,40,140,.16);transition:box-shadow .18s}
-html[data-vf10] .ov10-dbar:focus-within{box-shadow:0 16px 44px rgba(60,40,140,.2),0 0 0 4px rgba(142,127,208,.18)}
-html[data-vf10] .ov10-dic{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:999px;background:linear-gradient(135deg,#8E7FD0,#D9789E);color:#fff;box-shadow:0 4px 12px rgba(142,127,208,.3)}
-html[data-vf10] .ov10-dock.busy .ov10-dic{animation:ov10pulse .9s ease-in-out infinite alternate}
-html[data-vf10] .ov10-dbar input{flex:1;min-width:0;height:100%;margin:0;padding:0;border:0;outline:0;background:transparent;color:#15161C;font:15px/1.4 Figtree,Inter,sans-serif;letter-spacing:-.006em}
-html[data-vf10] .ov10-dbar input::placeholder{color:#8A90A8}
-html[data-vf10]:not(#a):not(#b) #app .ov10-dbar input:focus-visible{outline:0 !important}
-html[data-vf10] .ov10-dk{flex:none;display:grid;place-items:center;min-width:24px;height:24px;padding:0 6px;border:1px solid #E1E3EC;border-bottom-width:2px;border-radius:6px;background:#FAFAFD;color:#646A7E;font:600 11px/1 Inter,sans-serif}
-html[data-vf10] .ov10-dbar:focus-within .ov10-dk{display:none}
-html[data-vf10] .ov10-send{flex:none;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:999px;background:#15161C;color:#fff;cursor:pointer;transition:background .15s}
-html[data-vf10] .ov10-send:hover,html[data-vf10] .ov10-send.stop{background:#2F3684}
-html[data-vf10] .ov10-dock :is(button,input):focus-visible{outline:2px solid #646EC2;outline-offset:2px}
-html[data-vf10] .ov10-fade{position:fixed;z-index:69;right:0;bottom:0;left:0;height:150px;background:linear-gradient(to top,rgba(243,244,251,.96) 38%,rgba(243,244,251,0));pointer-events:none}
-html[data-vf10].ov10-docked:not(#a) #app .main{padding-bottom:160px !important}
-html[data-vf10].ov10-docked.ov10-dockhi .review{bottom:100px}
-@media (max-width:720px){html[data-vf10] .ov10-dock{bottom:12px}html[data-vf10] .ov10-dchips{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;padding:2px 2px 6px}html[data-vf10] .ov10-dbar{height:54px}html[data-vf10].ov10-docked .review{display:none}}
+/* the panel: beside the dashboard from 1200px, over it below that, full screen on phones */
+html[data-vf10] .ov10-ask{position:fixed;z-index:58;top:0;right:0;bottom:0;width:420px;max-width:100vw;display:flex;flex-direction:column;background:#FAFAFD;border-left:1px solid #E7E8F1;box-shadow:-16px 0 40px rgba(26,20,64,.07);font-family:Figtree,Inter,-apple-system,sans-serif;font-size:14px;line-height:1.45;letter-spacing:-.006em;color:#15161C;animation:ov10in .28s cubic-bezier(.2,.7,.2,1) both}
+html[data-vf10] .ov10-ask[hidden]{display:none}
+@keyframes ov10in{from{transform:translateX(24px);opacity:0}to{transform:none;opacity:1}}
+html[data-vf10].ov10-push #app .main{margin-right:420px}
+@media (max-width:1679px){html[data-vf10].ov10-push:not(#a) #app .ov8 .ov8-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+html[data-vf10]:has(#ov10ask:not([hidden])) .review{right:436px}
+@media (max-width:720px){html[data-vf10]:has(#ov10ask:not([hidden])) .review{display:none}html[data-vf10] .ov10-ask{width:100vw;border-left:0}}
+html[data-vf10] .ov10-hd{display:flex;align-items:center;gap:10px;padding:16px 12px 14px 18px;border-bottom:1px solid #EDEEF5;background:#fff}
+html[data-vf10] .ov10-ic{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#8E7FD0,#D9789E);color:#fff;box-shadow:0 4px 12px rgba(142,127,208,.3)}
+html[data-vf10] .ov10-ht{flex:1;min-width:0}
+html[data-vf10] .ov10-ht h2{margin:0;font-size:16px;line-height:1.3;font-weight:600;letter-spacing:-.012em}
+html[data-vf10] .ov10-mode{display:flex;align-items:center;gap:6px;margin:2px 0 0;font-size:12px;color:#646A7E}
+html[data-vf10] .ov10-mode::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:#B8BCCB}
+html[data-vf10] .ov10-mode.claude::before{background:#2BA275;box-shadow:0 0 0 3px rgba(43,162,117,.16)}
+html[data-vf10] .ov10-mode.checking::before{background:#C9C1E6;animation:ov10pulse 1s ease-in-out infinite alternate}
+html[data-vf10] .ov10-ib{flex:none;display:grid;place-items:center;width:36px;height:36px;padding:0;border:0;border-radius:10px;background:transparent;color:#4A4F63;cursor:pointer}
+html[data-vf10] .ov10-ib:hover{background:#F0F1F7;color:#15161C}
+html[data-vf10] .ov10-ask :is(button,textarea):focus-visible{outline:2px solid #646EC2;outline-offset:2px}
 
-/* Your questions */
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-board{display:flex;flex-direction:column;gap:14px}
-html[data-vf10] #app .ov10-bh{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px 16px}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-bh h2{display:flex;align-items:center;gap:10px;margin:0;font-size:22px;line-height:1.25;font-weight:500 !important;letter-spacing:-.02em !important;color:#15161C}
-html[data-vf10] #app .ov10-bic{display:grid;place-items:center;width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,#8E7FD0,#D9789E);color:#fff}
-html[data-vf10] #app .ov10-bic svg{width:15px;height:15px}
-html[data-vf10] #app .ov10-bh p{margin:4px 0 0;font-size:13px;line-height:1.45;color:#646A7E}
-html[data-vf10] #app .ov10-bx{display:flex;align-items:center;gap:14px}
-html[data-vf10] #app .ov10-mode{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#646A7E}
-html[data-vf10] #app .ov10-mode::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:#B8BCCB}
-html[data-vf10] #app .ov10-mode.claude::before{background:#2BA275;box-shadow:0 0 0 3px rgba(43,162,117,.16)}
-html[data-vf10] #app .ov10-mode.checking::before{background:#C9C1E6;animation:ov10pulse 1s ease-in-out infinite alternate}
-html[data-vf10] #app .ov10-clear,html[data-vf10] #app .ov10-retry{height:38px;padding:0 16px;border:1px solid #D9DBE8;border-radius:999px;background:#fff;color:#15161C;font:500 13.5px/1 Figtree,Inter,sans-serif;cursor:pointer}
-html[data-vf10] #app .ov10-clear:hover,html[data-vf10] #app .ov10-retry:hover{background:#F4F4F9}
-html[data-vf10] #app .ov10-retry{align-self:flex-start;height:34px;font-size:13px}
-html[data-vf10] #app .ov10-more{align-self:center;height:36px;padding:0 18px;border:1px solid #D9DBE8;border-radius:999px;background:#fff;color:#4F57B8;font:500 13px/1 Figtree,Inter,sans-serif;cursor:pointer}
-html[data-vf10] #app .ov10-more:hover{background:#F6F4FD;border-color:#C9C1E6}
-html[data-vf10] #app .ov10-more:focus-visible{outline:2px solid #646EC2;outline-offset:2px}
-html[data-vf10] #app .ov10-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;grid-auto-flow:row dense}
-html[data-vf10] #app .ov10-qa.sp2{grid-column:span 2}
-html[data-vf10] #app .ov10-qa.sp3{grid-column:1 / -1}
-@media (max-width:1199px){html[data-vf10] #app .ov10-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:760px){html[data-vf10] #app .ov10-grid{grid-template-columns:minmax(0,1fr)}html[data-vf10] #app .ov10-qa.sp2{grid-column:1 / -1}html[data-vf10] #app .ov10-cs{grid-template-columns:minmax(0,1fr) !important}html[data-vf10] #app .ov10-cs > .ov10-c + .ov10-c{padding:16px 0 0;border-left:0;border-top:1px solid #EEEFF5}}
+/* the thread */
+html[data-vf10]:not(#a):not(#b) #app .ov8.ov10-th{flex:1;display:flex;flex-direction:column;gap:26px;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:20px 16px 28px;font-size:14px}
+html[data-vf10] .ov10-empty{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin:auto 0;padding:4px 4px 12px}
+html[data-vf10] .ov10-orb{display:grid;place-items:center;width:46px;height:46px;border-radius:15px;background:linear-gradient(135deg,#EEEAFB,#FBE8F0);color:#8E6FCB}
+html[data-vf10] .ov10-orb svg{width:22px;height:22px}
+html[data-vf10] .ov10-lead{margin:0;font-size:15px;line-height:1.5;color:#2B2F3E}
+html[data-vf10] .ov10-k{margin:8px 0 0;font-size:12px;font-weight:600;color:#8A90A8}
+html[data-vf10] .ov10-chips{display:flex;flex-wrap:wrap;gap:8px}
+html[data-vf10] .ov10-chips button{padding:8px 12px;border:1px solid #E3E4EF;border-radius:12px;background:#fff;color:#2B2F3E;font:500 13px/1.35 Figtree,Inter,sans-serif;text-align:left;cursor:pointer;transition:background .15s,border-color .15s}
+html[data-vf10] .ov10-chips button:hover{border-color:#C9C1E6;background:#F6F4FD}
+html[data-vf10] .ov10-t{display:flex;flex-direction:column;gap:12px}
+html[data-vf10] .ov10-q{align-self:flex-end;max-width:86%;margin:0;padding:10px 14px;border-radius:16px 16px 4px 16px;background:#ECEAF9;color:#15161C;font-size:14px;line-height:1.45;overflow-wrap:anywhere}
+html[data-vf10] .ov10-a{display:flex;flex-direction:column;gap:12px;min-width:0}
+html[data-vf10] .ov10-st{display:none;align-items:center;gap:8px;margin:0;font-size:13px;color:#646A7E}
+html[data-vf10] .ov10-t.run .ov10-st{display:flex}
+html[data-vf10] .ov10-st i{width:22px;height:6px;background:radial-gradient(circle,#8E7FD0 2.4px,transparent 2.6px) 0 50%/8px 6px repeat-x;animation:ov10dots 1s steps(3) infinite}
+@keyframes ov10dots{from{clip-path:inset(0 66% 0 0)}to{clip-path:inset(0 -10% 0 0)}}
+@keyframes ov10pulse{to{opacity:.35}}
+html[data-vf10] .ov10-sum{margin:0;font-size:14.5px;line-height:1.55;color:#15161C}
+html[data-vf10] .ov10-sum:empty{display:none}
+html[data-vf10] .ov10-cs{display:flex;flex-direction:column;gap:12px}
+html[data-vf10] .ov10-cs:empty{display:none}
 
-/* an answer card */
-html[data-vf10] #app .ov10-qa{display:flex;flex-direction:column;gap:12px;min-width:0;padding:20px;border:1px solid transparent;border-radius:16px;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(120deg,#DCD5F2,#F3D6E1) border-box;animation:ov10up .32s cubic-bezier(.2,.7,.2,1) both}
-html[data-vf10] #app .ov10-qh{display:flex;align-items:flex-start;gap:8px}
-html[data-vf10] #app .ov10-qq{flex:1;min-width:0;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:12.5px;line-height:1.4;font-weight:500;color:#7A6BB8}
-html[data-vf10] #app .ov10-del{flex:none;display:grid;place-items:center;width:28px;height:28px;margin:-6px -8px -4px 0;padding:0;border:0;border-radius:8px;background:transparent;color:#8A90A8;cursor:pointer}
-html[data-vf10] #app .ov10-del:hover{background:#F0F1F7;color:#15161C}
-html[data-vf10] #app .ov10-st{display:none;align-items:center;gap:8px;margin:0;font-size:13px;color:#646A7E}
-html[data-vf10] #app .ov10-qa.run .ov10-st{display:flex}
-html[data-vf10] #app .ov10-st i{width:22px;height:6px;background:radial-gradient(circle,#8E7FD0 2.4px,transparent 2.6px) 0 50%/8px 6px repeat-x;animation:ov10dots 1s steps(3) infinite}
-html[data-vf10] #app .ov10-sum{margin:0;font-size:14px;line-height:1.5;color:#15161C}
-html[data-vf10] #app .ov10-sum:empty{display:none}
-html[data-vf10] #app .ov10-cs{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;flex:1}
-html[data-vf10] #app .ov10-cs.n2{grid-template-columns:repeat(2,minmax(0,1fr))}
-html[data-vf10] #app .ov10-cs.n3{grid-template-columns:repeat(3,minmax(0,1fr))}
-html[data-vf10] #app .ov10-cs > .ov10-c + .ov10-c{padding-left:20px;border-left:1px solid #EEEFF5}
-html[data-vf10] #app .ov10-cs > .ov10-c.lead{grid-column:1 / -1}
-html[data-vf10] #app .ov10-cs > .ov10-c.lead + .ov10-c{padding-left:0;border-left:0}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c.lead .ov8-sum{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
-html[data-vf10] #app .ov10-c{display:flex;flex-direction:column;gap:12px;min-width:0}
-html[data-vf10] #app .ov10-c.in{animation:ov10up .34s cubic-bezier(.2,.7,.2,1) both}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c .ov8-ch{margin:0}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c .ov8-ch h3{font-size:15.5px;line-height:21px;font-weight:600 !important;letter-spacing:-.01em !important}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c .ov8-sub{margin-top:2px;font-size:12.5px}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c .ov8-viz{flex:1}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c .ov8-sum{grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c .ov8-sm{padding:12px 13px;gap:4px}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c .ov8-sm .l{overflow:visible;white-space:normal;line-height:1.35}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c .ov8-sm b{font-size:21px}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c .ov8-sm .f{line-height:1.35}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c .ov8-hb li{grid-template-columns:minmax(80px,36%) minmax(0,1fr) 52px;gap:10px}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c.ov10-stk .ov8-hb{gap:12px}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c.ov10-stk .ov8-hb li{grid-template-columns:minmax(0,1fr) auto;row-gap:6px;padding:2px 0}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c.ov10-stk .ov8-hl{grid-column:1;grid-row:1;overflow:visible;white-space:normal;line-height:1.35}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c.ov10-stk .ov8-hv{grid-column:2;grid-row:1;align-self:start}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c.ov10-stk .ov8-ht{grid-column:1 / -1;grid-row:2;height:8px}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c .ov8-tbl{max-height:300px;overflow:auto;margin:0 -4px}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c .ov8-tbl :is(th,td){padding:8px 6px;font-size:12.5px}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c .ov8-tbl tbody th{white-space:normal;min-width:120px}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-c .ov8-tbl thead th{position:sticky;top:0;background:#fff}
-html[data-vf10] #app .ov10-go{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin:-2px 0 -4px;padding:6px 0;border:0;background:none;color:#4F57B8;font:500 13px/1 Figtree,Inter,sans-serif;cursor:pointer}
-html[data-vf10] #app .ov10-go:hover{color:#2F3684;text-decoration:underline;text-underline-offset:3px}
-html[data-vf10] #app .ov10-go svg{transition:transform .18s}
-html[data-vf10] #app .ov10-go:hover svg{transform:translateX(2px)}
-html[data-vf10] #app .ov10-chips{display:flex;flex-wrap:wrap;gap:8px}
-html[data-vf10] #app .ov10-chips button{padding:8px 12px;border:1px solid #E3E4EF;border-radius:12px;background:#fff;color:#2B2F3E;font:500 13px/1.35 Figtree,Inter,sans-serif;text-align:left;cursor:pointer}
-html[data-vf10] #app .ov10-chips button:hover{border-color:#C9C1E6;background:#F6F4FD}
+/* cards: the dashboard's own, sized for the panel */
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov8-card.ov10-c{gap:14px;padding:16px;border:1px solid #ECEDF4;border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(26,20,64,.04)}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-ch{margin:0}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-ch h3{font-size:15px;line-height:20px;font-weight:600 !important;letter-spacing:-.01em !important}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sub{margin-top:2px;font-size:12px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sum{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sm{padding:12px 13px;gap:4px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sm b{font-size:21px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sm .f{line-height:1.35}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-tbl{max-height:320px;overflow:auto;margin:0 -4px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-tbl :is(th,td){padding:8px 6px;font-size:12.5px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-tbl tbody th{white-space:normal;min-width:120px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-tbl thead th{position:sticky;top:0;background:#fff}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sm .l{overflow:visible;white-space:normal;line-height:1.35}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-hb li{grid-template-columns:minmax(96px,40%) minmax(0,1fr) 58px;gap:10px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c.ov10-stk .ov8-hb{gap:12px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c.ov10-stk .ov8-hb li{grid-template-columns:minmax(0,1fr) auto;row-gap:6px;padding:2px 0}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c.ov10-stk .ov8-hl{grid-column:1;grid-row:1;overflow:visible;white-space:normal;line-height:1.35}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c.ov10-stk .ov8-hv{grid-column:2;grid-row:1;align-self:start}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c.ov10-stk .ov8-ht{grid-column:1 / -1;grid-row:2;height:8px}
+html[data-vf10] .ov10-c.in{animation:ov10up .34s cubic-bezier(.2,.7,.2,1) both}
+@keyframes ov10up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+html[data-vf10] .ov10-go{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin:-2px 0 -4px;padding:6px 0;border:0;background:none;color:#4F57B8;font:500 13px/1 Figtree,Inter,sans-serif;cursor:pointer}
+html[data-vf10] .ov10-go:hover{color:#2F3684;text-decoration:underline;text-underline-offset:3px}
+html[data-vf10] .ov10-go svg{transition:transform .18s}
+html[data-vf10] .ov10-go:hover svg{transform:translateX(2px)}
 
-/* skeletons, shaped like the part that is coming */
-html[data-vf10] #app .ov10-skc .ov10-sk i,html[data-vf10] #app .ov10-skc .ov10-sk span{display:block;border-radius:8px;background:linear-gradient(90deg,#EFF0F6 0,#F7F7FB 45%,#EFF0F6 90%) 0 0/220% 100%;animation:ov10sh 1.3s linear infinite}
-html[data-vf10] #app .ov10-sk{display:flex;flex-direction:column;gap:10px}
-html[data-vf10] #app .ov10-sk.h i:first-child{width:62%;height:14px}
-html[data-vf10] #app .ov10-sk.h i:last-child{width:38%;height:10px}
-html[data-vf10] #app .ov10-sk.k{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-html[data-vf10] #app .ov10-sk.k i{height:70px;border-radius:12px}
-html[data-vf10] #app .ov10-sk.k i:last-child{grid-column:1 / -1}
-html[data-vf10] #app .ov10-sk.l i{height:170px;border-radius:12px}
-html[data-vf10] #app .ov10-sk.t i,html[data-vf10] #app .ov10-sk.b i{height:16px}
-html[data-vf10]:not(#a) #app .ov10-skc .ov10-sk.b span{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px;background:none;animation:none}
-html[data-vf10] #app .ov10-sk.b span i{height:58px;border-radius:12px}
+/* skeletons, shaped like the card that is coming */
+html[data-vf10] .ov10-skc .ov10-sk i,html[data-vf10] .ov10-skc .ov10-sk span{display:block;border-radius:8px;background:linear-gradient(90deg,#EFF0F6 0,#F7F7FB 45%,#EFF0F6 90%) 0 0/220% 100%;animation:ov10sh 1.3s linear infinite}
+@keyframes ov10sh{from{background-position:120% 0}to{background-position:-120% 0}}
+html[data-vf10] .ov10-sk{display:flex;flex-direction:column;gap:10px}
+html[data-vf10] .ov10-sk.h i:first-child{width:56%;height:14px}
+html[data-vf10] .ov10-sk.h i:last-child{width:34%;height:10px}
+html[data-vf10] .ov10-sk.k{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+html[data-vf10] .ov10-sk.k i{height:70px;border-radius:12px}
+html[data-vf10] .ov10-sk.k i:last-child{grid-column:1 / -1}
+html[data-vf10] .ov10-sk.l i{height:150px;border-radius:12px}
+html[data-vf10] .ov10-sk.t i{height:16px}
+html[data-vf10] .ov10-sk.b i{height:16px}
+html[data-vf10]:not(#a) .ov10-skc .ov10-sk.b span{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px;background:none;animation:none}
+html[data-vf10] .ov10-sk.b span i{height:56px;border-radius:12px}
 
 /* proposals, notes, the by-line */
-html[data-vf10] #app .ov10-act{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px 12px 14px;border-radius:14px;background:linear-gradient(90deg,#F2F0FB,#FBEFF4)}
-html[data-vf10] #app .ov10-act b{display:block;font-size:12px;font-weight:500;color:#646A7E}
-html[data-vf10] #app .ov10-act span{font-size:14px;font-weight:500}
-html[data-vf10] #app .ov10-act button{flex:none;height:34px;padding:0 16px;border:0;border-radius:999px;background:#15161C;color:#fff;font:500 13px/1 Figtree,Inter,sans-serif;cursor:pointer}
-html[data-vf10] #app .ov10-act button:hover{background:#2F3684}
-html[data-vf10] #app .ov10-note{margin:0;padding-left:10px;border-left:2px solid #E5A3BE;font-size:12.5px;line-height:1.5;color:#585E73}
-html[data-vf10] #app .ov10-by{margin:auto 0 0;padding-top:2px;font-size:11.5px;color:#8A90A8}
-html[data-vf10] #app .ov10-qa :is(button):focus-visible{outline:2px solid #646EC2;outline-offset:2px}
+html[data-vf10] .ov10-act{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px 12px 14px;border-radius:14px;background:linear-gradient(90deg,#F2F0FB,#FBEFF4)}
+html[data-vf10] .ov10-act b{display:block;font-size:12px;font-weight:500;color:#646A7E}
+html[data-vf10] .ov10-act span{font-size:14px;font-weight:500}
+html[data-vf10] .ov10-act button,html[data-vf10] .ov10-retry{flex:none;height:34px;padding:0 16px;border:0;border-radius:999px;background:#15161C;color:#fff;font:500 13px/1 Figtree,Inter,sans-serif;cursor:pointer}
+html[data-vf10] .ov10-act button:hover{background:#2F3684}
+html[data-vf10] .ov10-retry{align-self:flex-start;border:1px solid #D9DBE8;background:#fff;color:#15161C}
+html[data-vf10] .ov10-retry:hover{background:#F4F4F9}
+html[data-vf10] .ov10-note{margin:0;padding-left:10px;border-left:2px solid #E5A3BE;font-size:12.5px;line-height:1.5;color:#585E73}
+html[data-vf10] .ov10-by{margin:-2px 0 0;font-size:11.5px;color:#8A90A8}
 
-/* motion */
-@keyframes ov10up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-@keyframes ov10sh{from{background-position:120% 0}to{background-position:-120% 0}}
-@keyframes ov10dots{from{clip-path:inset(0 66% 0 0)}to{clip-path:inset(0 -10% 0 0)}}
-@keyframes ov10pulse{to{opacity:.55}}
+/* the question box */
+html[data-vf10] .ov10-in{padding:12px 16px 14px;border-top:1px solid #EDEEF5;background:#fff}
+html[data-vf10] .ov10-box{display:flex;align-items:flex-end;gap:8px;padding:6px 6px 6px 14px;border:1px solid #DADCE8;border-radius:16px;background:#fff;transition:border-color .15s,box-shadow .15s}
+html[data-vf10] .ov10-box:focus-within{border-color:#8E97DA;box-shadow:0 0 0 3px rgba(100,110,194,.14)}
+html[data-vf10] .ov10-box textarea{flex:1;min-width:0;max-height:120px;margin:0;padding:8px 0;border:0;outline:0;resize:none;background:transparent;color:#15161C;font:14px/1.45 Figtree,Inter,sans-serif;letter-spacing:-.006em}
+html[data-vf10]:not(#a):not(#b) #app .ov10-box textarea:focus-visible{outline:0 !important}
+html[data-vf10] .ov10-box textarea::placeholder{color:#8A90A8}
+html[data-vf10] .ov10-send{flex:none;display:grid;place-items:center;width:36px;height:36px;padding:0;border:0;border-radius:12px;background:#15161C;color:#fff;cursor:pointer;transition:background .15s}
+html[data-vf10] .ov10-send:hover{background:#2F3684}
+html[data-vf10] .ov10-send.stop{background:#2F3684}
+html[data-vf10] .ov10-fine{margin:8px 2px 0;font-size:11.5px;color:#8A90A8}
+
+/* the dashboard card an answer points at */
 html[data-vf10] .ov10-flash{animation:ov10flash 1.8s ease-out}
 @keyframes ov10flash{0%,30%{box-shadow:0 0 0 3px rgba(142,127,208,.55),0 10px 30px rgba(142,127,208,.18)}100%{box-shadow:0 0 0 3px rgba(142,127,208,0)}}
-@media (prefers-reduced-motion:reduce){html[data-vf10] :is(.ov10-qa,.ov10-c.in,.ov10-flash,.ov10-st i,.ov10-sk i,.ov10-sk span,.ov10-mode::before,.ov10-dic,.ov10-dchips){animation:none !important}}
+@media (prefers-reduced-motion:reduce){html[data-vf10] :is(.ov10-ask,.ov10-c.in,.ov10-flash,.ov10-st i,.ov10-sk i,.ov10-sk span,.ov10-mode::before){animation:none !important}}
 </style>
 <style id="me8h">/* V8 · Focus: a calmer, clearer hover on the Demo User row */
 html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q6):not(#q7):not(#q8):not(#q9):not(#q10):not(#q11) .side .me .id{cursor:pointer;transition:background-color .18s ease,box-shadow .18s ease,transform .12s ease !important}
@@ -11852,11 +11844,10 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
 
     // Header: title, the design's "Updated" pill, the Prospects/Learners switch; then what the tab counts and the filters
     h += '<header class="ov8-top"><div class="ov8-tl"><h1>Overview</h1><p class="ov8-upd"><span class="ov8-live"><i aria-hidden="true"></i>Updated today, 09:00</span><span>' + esc(rangeC) + " · " + esc(st.biz === "All" ? "All businesses" : OV8_BN[st.biz]) + "</span></p></div>" +
-      '<div class="ov8-tabs" role="tablist" aria-label="Overview">' + [["prospects", "Prospects", "In the lead journey now"], ["learners", "Learners", "Paid with us"]].map(function (t) { return '<button type="button" role="tab" data-ov8-tab="' + t[0] + '" aria-selected="' + (st.tab === t[0]) + '"><b>' + t[1] + '</b><span class="ov8-vh">, ' + t[2] + "</span></button>"; }).join("") + "</div></header>";
+      (FOCUS10 ? ov10Btn() : "") + '<div class="ov8-tabs" role="tablist" aria-label="Overview">' + [["prospects", "Prospects", "In the lead journey now"], ["learners", "Learners", "Paid with us"]].map(function (t) { return '<button type="button" role="tab" data-ov8-tab="' + t[0] + '" aria-selected="' + (st.tab === t[0]) + '"><b>' + t[1] + '</b><span class="ov8-vh">, ' + t[2] + "</span></button>"; }).join("") + "</div></header>";
     h += '<div class="ov8-bar"><p class="ov8-kick">' + (isP ? "<b>Prospects</b> · people in the lead journey now" : "<b>Learners</b> · everyone who has paid with us") + "</p>" +
       '<div class="ov8-fil"><div class="ov8-seg" role="group" aria-label="Time range">' + [["30D", "30 days"], ["90D", "90 days"], ["12M", "12 months"]].map(function (r) { return '<button type="button" data-ov8-range="' + r[0] + '" aria-pressed="' + (st.range === r[0]) + '">' + r[1] + "</button>"; }).join("") + "</div>" +
       '<label class="ov8-sel"><span class="ov8-vh">Business</span><select data-ov8-biz aria-label="Business"><option value="All">All businesses</option>' + OV8_BIZ.map(function (b) { return '<option value="' + b + '"' + (st.biz === b ? " selected" : "") + ">" + esc(OV8_BN[b]) + "</option>"; }).join("") + "</select></label></div></div>";
-    if (FOCUS10) h += ov10Board(); // V10: Your questions, pinned above the dashboard
 
     if (isP) {
       var FUN = OVD.FUN;
@@ -12159,9 +12150,8 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
   // every figure comes from OVD/ovdCalc, never from the model. Where Claude isn't available (GitHub Pages, declined, an error) a
   // deterministic phrase matcher answers instead. Nothing here runs outside V10.
   var ov10Open = null;
-  var ov10BoardFn = null; // Your questions, drawn into the Overview by ov8html (set below in V10)
-  function ov10Board() { return ov10BoardFn ? ov10BoardFn() : ""; }
-  var OV10 = { turns: [], busy: null, mode: "checking", sample: null, tools: true };
+  function ov10Btn() { return '<button type="button" class="ov10-askb" data-ov10-ask aria-controls="ov10ask" aria-expanded="' + !!(typeof OV10 !== "undefined" && OV10.open) + '"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M10 2.5l1.6 4.3a2.5 2.5 0 0 0 1.5 1.5l4.4 1.7-4.4 1.6a2.5 2.5 0 0 0-1.5 1.5L10 17.5l-1.6-4.4a2.5 2.5 0 0 0-1.5-1.5L2.5 10l4.4-1.7a2.5 2.5 0 0 0 1.5-1.5z" fill="currentColor"/></svg><span>Ask the data</span></button>'; }
+  var OV10 = { open: false, turns: [], busy: null, mode: "checking", sample: null, tools: true, err: 0 };
   if (FOCUS10) (function () {
     var RANGES = ["30D", "90D", "12M"], BIZE = ["All"].concat(OV8_BIZ), RL = { "30D": "Last 30 days", "90D": "Last 90 days", "12M": "Last 12 months" };
     var MON = OV8_MON, fmt = ov8inr, MAXC = 3;
@@ -12420,7 +12410,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
       return os.length > 1 && specs[0].c === "kpi_tiles" && specs[1].c === "trend_chart" ? one(os[0]) + " " + one(os[1]) : os[0].cap; }
     var actLabel = function (a) { return (a.tab === "learners" ? "Learners" : "Prospects") + " · " + RL[a.range] + " · " + bizL(a.biz); };
     var HELP = "I couldn't match that to this Overview. Ask about prospects, learners, certificates, channels, programme areas or people moving between businesses.";
-    var ERR = { rate_limited: "Claude is busy for you right now. Try again in a minute.", session_expired: "Your Claude session has ended. Sign in again to ask Claude.", refused: "Claude couldn't answer that one.", empty_completion: "Claude didn't write an answer.", prompt_too_large: "This conversation got too long for Claude. Clear some questions and ask again.", upstream_error: "The connection to Claude dropped." };
+    var ERR = { rate_limited: "Claude is busy for you right now. Try again in a minute.", session_expired: "Your Claude session has ended. Sign in again to ask Claude.", refused: "Claude couldn't answer that one.", empty_completion: "Claude didn't write an answer.", prompt_too_large: "This conversation got too long for Claude. Start a new one.", upstream_error: "The connection to Claude dropped." };
     var GONE = { not_granted: 1, sampling_disabled: 1, not_declared: 1, capability_disabled: 1, capability_removed: 1 };
 
     // ---------- Claude: present in the Claude viewer (the artifact's sample capability); absent on GitHub Pages ----------
@@ -12435,8 +12425,8 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
       }, off);
     });
     function prompt(q) {
-      var st = OV8, hist = OV10.turns.filter(function (x) { return !x.run; }).slice(-3).map(function (x) { return "- " + x.q + " → shown: " + (x.specs.map(function (sp) { var o = build(sp); return o ? o.title + " (" + o.sub + ")" : ""; }).filter(Boolean).join("; ") || "nothing") + (x.sum ? ". Answer: " + x.sum : ""); }).join("\n");
-      return ["You are Ask the data in upGrad's Customer Intelligence prototype (sample data). Answer the viewer's question by calling the page's show_* tools: each one draws one of the dashboard's own charts as a card pinned to the Overview and returns the exact figures it shows.",
+      var st = OV8, hist = OV10.turns.slice(0, -1).slice(-3).map(function (x) { return "- " + x.q + " → shown: " + (x.specs.map(function (sp) { var o = build(sp); return o ? o.title + " (" + o.sub + ")" : ""; }).filter(Boolean).join("; ") || "nothing") + (x.sum ? ". Answer: " + x.sum : ""); }).join("\n");
+      return ["You are the Ask the data panel in upGrad's Customer Intelligence prototype (sample data). Answer the viewer's question by calling the page's show_* tools: each one draws one of the dashboard's own charts in the panel and returns the exact figures it shows.",
         "", "The dashboard is set to: " + (st.tab === "learners" ? "Learners" : "Prospects") + " tab, " + RL[st.range] + " (" + st.range + "), " + bizL(st.biz) + (st.biz === "All" ? "" : " (" + st.biz + ")") + ". Use these unless the question names another range or business.",
         "", "What the data covers:",
         "- Prospects (in the lead journey): active prospects, reachable %, 90-day conversion, median days to enrol; life stage by business; demand by programme area and its 12-month change; channel mix and channel conversion; the funnel (enquired, counselled, applied or paid, enrolled) by business; currently active % by business.",
@@ -12448,19 +12438,20 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
         "2. Then write the answer: one or two plain sentences, at most 40 words. No preamble, headings or lists. Quote figures exactly as the tools returned them. Never calculate, estimate or round a new figure, and never mention a number the tools did not return.",
         "3. If a tool returns an error, fix the input and call it once more.",
         "4. Call propose_filters only when the viewer asks to change or apply the dashboard's view, for example \"switch to learners\" or \"filter to Study Abroad\".",
-        "5. If the question isn't about this data, call no tools and say in one sentence what you can answer."].concat(hist ? ["", "Earlier questions:", hist] : []).concat(["", "Question: " + q]).join("\n");
+        "5. If the question isn't about this data, call no tools and say in one sentence what you can answer."].concat(hist ? ["", "Earlier in this conversation:", hist] : []).concat(["", "Question: " + q]).join("\n");
     }
     function jsonPrompt(q) {
       return prompt(q).replace(/\nRules:[\s\S]*?(?=\n\n(Earlier|Question))/, "\nReply with only JSON: {\"components\": [{\"tool\": <name>, \"input\": {...}}]}, 1 to 3 components, the fewest that answer the question. Tools:\n" +
         Object.keys(TOOLS).map(function (k) { return "- " + k + ": " + TOOLS[k].d + " Input schema: " + JSON.stringify(TOOLS[k].s); }).join("\n") + "\nIf the question isn't about this data, reply {\"components\": []}.");
     }
-    function viaClaude(t, pred) {
+    function viaClaude(t, el, pred) {
       var ctl = new AbortController(), allowed = nums(t.q).concat(["2025", "2026"]), fails = {}, at = 0, last = "", used = false;
       OV10.busy = ctl; busy(true);
       var keepNums = function (o) { allowed.push.apply(allowed, nums(JSON.stringify(o))); };
-      var done = function () { end(t); };
+      var done = function () { end(el, t); };
       var fall = function (note) { var a = t.specs.length || t.action; if (!a) { t.specs = pred.specs; t.action = pred.action; t.by = "offline"; } t.sum = t.specs.length ? caption(t.specs) : pred.action ? "" : HELP; t.note = note; };
       if (!OV10.tools) { // the viewer can't run page tools: Claude picks components as JSON, the captions come from the data
+        status(el, "Thinking…");
         OV10.sample.json(jsonPrompt(t.q), { modelTier: "quick", signal: ctl.signal }).then(function (v) {
           (v && Array.isArray(v.components) ? v.components : []).forEach(function (c) { var r = c && toSpec(String(c.tool), c.input); if (!r || !r.spec) return; if (r.spec.c === "action") t.action = r.spec; else if (t.specs.length < MAXC && build(r.spec)) t.specs.push(r.spec); });
           t.by = "claude"; if (!t.specs.length && !t.action) fall("Claude's choice didn't pass the check, so this is the offline answer."); else t.sum = caption(t.specs);
@@ -12474,14 +12465,15 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
           var r = toSpec(name, input);
           if (r.errs) { fails[name] = (fails[name] || 0) + 1; throw new Error((fails[name] > 1 ? "Still invalid, nothing was shown. Don't call " + name + " again; answer with what is shown. " : "Invalid input, nothing was shown. Fix it and call " + name + " again. ") + r.errs.join("; ")); }
           used = true; at = last.length;
-          if (r.spec.c === "action") { t.action = r.spec; paintTurn(t, true); return { shown: "A button that sets the dashboard to " + actLabel(r.spec) + ". Nothing changes until the viewer presses it." }; }
+          if (r.spec.c === "action") { t.action = r.spec; paintTurn(el, t, true); return { shown: "A button that sets the dashboard to " + actLabel(r.spec) + ". Nothing changes until the viewer presses it." }; }
           if (t.specs.length >= MAXC) throw new Error("Nothing was shown: at most " + MAXC + " charts per answer. Write the answer now.");
           var o = build(r.spec); if (!o) throw new Error("Nothing was shown: no crossover route matches. Routes run from " + XFROM.join(", ") + ".");
-          t.specs.push(r.spec); t.status = "Drawing " + o.title.toLowerCase() + "…"; paintTurn(t, true); keepNums(o.data);
+          t.specs.push(r.spec); paintTurn(el, t, true); scroll(); status(el, "Drawing " + o.title.toLowerCase() + "…"); keepNums(o.data);
           return { shown: o.title, filters: o.sub, figures: o.data };
         } };
       });
-      OV10.sample(prompt(t.q), { modelTier: "quick", tools: tools, signal: ctl.signal, onText: function (u) { last = u.text; if (used) sumLive(t, tail(u.text, at)); } }).then(function (res) {
+      status(el, "Thinking…");
+      OV10.sample(prompt(t.q), { modelTier: "quick", tools: tools, signal: ctl.signal, onText: function (u) { last = u.text; if (used) sumLive(el, tail(u.text, at)); } }).then(function (res) {
         t.by = "claude";
         var txt = used ? tail(res.text, at) : res.text.trim(), bad = unknownNums(txt, allowed);
         if (!used && !t.action) { if (bad.length || !txt || nums(txt).length) fall("Claude answered without the data, so this is the offline answer."); else t.sum = txt; }
@@ -12500,170 +12492,141 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
     }
     function tail(text, at) { var segs = String(text).slice(at).split(/\n\s*\n/).map(function (x) { return x.trim(); }).filter(Boolean); return (segs.pop() || "").replace(/^[-*#>\s]+/, "").slice(0, 400); }
 
-    // ---------- Your questions: every answer is a card pinned to the top of the Overview ----------
+    // ---------- the panel ----------
     var SPK = '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 2.5l1.6 4.3a2.5 2.5 0 0 0 1.5 1.5l4.4 1.7-4.4 1.6a2.5 2.5 0 0 0-1.5 1.5L10 17.5l-1.6-4.4a2.5 2.5 0 0 0-1.5-1.5L2.5 10l4.4-1.7a2.5 2.5 0 0 0 1.5-1.5z" fill="currentColor"/></svg>';
-    var IX = '<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+    var IX = '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+    var INEW = '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4.5 10a5.5 5.5 0 1 0 1.7-4M4.5 3.5V7H8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     var ISEND = '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 16V4M5 9l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     var ISTOP = '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><rect x="5.5" y="5.5" width="9" height="9" rx="2" fill="currentColor"/></svg>';
     var IGO = '<svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M5 10h10M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-    var MAXQ = 9;
-    function ago(ts) { var m = Math.round((Date.now() - ts) / 60000); if (m < 1) return "just now"; if (m < 60) return m + " min ago"; var h = Math.round(m / 60); if (h < 24) return h + " h ago"; return new Date(ts).toLocaleDateString("en-GB", { day: "numeric", month: "short" }); }
-    function partHTML(sp, key, lead) {
+    var P = document.createElement("aside"); P.id = "ov10ask"; P.className = "ov10-ask"; P.hidden = true; P.setAttribute("aria-labelledby", "ov10h");
+    P.innerHTML = '<header class="ov10-hd"><span class="ov10-ic">' + SPK + '</span><div class="ov10-ht"><h2 id="ov10h">Ask the data</h2><p id="ov10mode"></p></div>' +
+      '<button type="button" class="ov10-ib" data-ov10-clear title="New conversation" aria-label="Start a new conversation">' + INEW + '</button><button type="button" class="ov10-ib" data-ov10-close title="Close" aria-label="Close Ask the data">' + IX + "</button></header>" +
+      '<div class="ov8 ov10-th" id="ov10th"></div>' +
+      '<form class="ov10-in" id="ov10f" novalidate><label class="ov10-vh" for="ov10q">Ask a question about this Overview</label><div class="ov10-box"><textarea id="ov10q" rows="1" maxlength="300" placeholder="Ask about prospects, learners or crossover" autocomplete="off"></textarea>' +
+      '<button type="submit" class="ov10-send" aria-label="Send">' + ISEND + '</button></div><p class="ov10-fine">Built from this page\'s sample data. Charts are the dashboard\'s own.</p></form><span class="ov10-vh" aria-live="polite" id="ov10live"></span>';
+    $("#app").appendChild(P);
+    var TH = $("#ov10th", P), Q = $("#ov10q", P), SEND = $(".ov10-send", P);
+    function mode() { var m = $("#ov10mode", P); m.textContent = OV10.mode === "checking" ? "Connecting…" : OV10.mode === "claude" ? "Answers by Claude, from this dashboard's numbers" : "Offline answers · phrase matching"; m.className = "ov10-mode " + OV10.mode; }
+    function live(t) { var l = $("#ov10live", P); l.textContent = ""; setTimeout(function () { l.textContent = "Answer: " + (t.sum || "") + (t.specs.length ? " " + t.specs.length + " chart" + (t.specs.length > 1 ? "s" : "") + " shown." : ""); }, 60); }
+    function busy(on) { SEND.innerHTML = on ? ISTOP : ISEND; SEND.setAttribute("aria-label", on ? "Stop" : "Send"); SEND.classList.toggle("stop", on); P.classList.toggle("busy", on); }
+    function cardHTML(sp, k) {
       var o = build(sp); if (!o) return "";
-      if (lead) return '<section class="ov10-c lead" aria-label="' + esc(o.title + ", " + o.sub) + '"><div class="ov8-viz">' + o.body + "</div></section>";
-      return '<section class="ov10-c' + (o.cls ? " " + o.cls : "") + '" aria-label="' + esc(o.title) + '"><div class="ov8-ch"><div><h3>' + esc(o.title) + '</h3><p class="ov8-sub">' + esc(o.sub) + "</p></div></div>" + '<div class="ov8-viz">' + o.body + "</div>" +
-        '<button type="button" class="ov10-go" data-ov10-go="' + key + '">Show on dashboard' + IGO + "</button></section>";
+      return '<section class="ov8-card ov10-c' + (o.cls ? " " + o.cls : "") + '" aria-label="' + esc(o.title) + '"><div class="ov8-ch"><div><h3>' + esc(o.title) + '</h3><p class="ov8-sub">' + esc(o.sub) + "</p></div></div>" + '<div class="ov8-viz">' + o.body + "</div>" +
+        '<button type="button" class="ov10-go" data-ov10-go="' + k + '">Show on dashboard' + IGO + "</button></section>";
     }
-    function skel(c, lead) {
+    function skel(c) {
       var b = c === "kpi_tiles" ? '<div class="ov10-sk k"><i></i><i></i><i></i></div>' : c === "trend_chart" ? '<div class="ov10-sk l"><i></i></div>' : c === "data_table" ? '<div class="ov10-sk t"><i></i><i></i><i></i><i></i><i></i></div>' :
-        '<div class="ov10-sk b">' + (c === "crossover_flow" ? "<span><i></i><i></i></span>" : "") + [94, 76, 62, 48, 34].map(function (w) { return '<i style="width:' + w + '%"></i>'; }).join("") + "</div>";
-      return '<section class="ov10-c ov10-skc' + (lead ? " lead" : "") + '" aria-hidden="true">' + (lead ? "" : '<div class="ov10-sk h"><i></i><i></i></div>') + b + "</section>";
+        '<div class="ov10-sk b">' + (c === "crossover_flow" ? '<span><i></i><i></i></span>' : "") + [94, 76, 62, 48, 34].map(function (w) { return '<i style="width:' + w + '%"></i>'; }).join("") + "</div>";
+      return '<section class="ov8-card ov10-c ov10-skc" aria-hidden="true"><div class="ov10-sk h"><i></i><i></i></div>' + b + "</section>";
     }
-    // Card layout. A KPI part followed by other parts leads the card as a strip of tiles above them, so a figure and its trend read as one.
-    function lay(t) {
-      var cs = t.run && t.pred.length > t.specs.length ? t.specs.map(function (sp) { return sp.c; }).concat(t.pred.slice(t.specs.length)) : t.specs.map(function (sp) { return sp.c; });
-      var lead = cs.length > 1 && cs[0] === "kpi_tiles", rest = Math.max(1, cs.length - (lead ? 1 : 0)), wide = lead && t.specs[0] && t.specs[0].metrics && t.specs[0].metrics.length >= 3;
-      return { lead: lead, n: rest, span: Math.min(3, Math.max(rest, wide ? 2 : 1)) };
+    function turnHTML(t, i) {
+      var a = t.action ? '<div class="ov10-act"><div><b>Set the dashboard to</b><span>' + esc(actLabel(t.action)) + '</span></div><button type="button" data-ov10-apply="' + i + '">Apply</button></div>' : "";
+      var by = t.by === "claude" ? "Answered by Claude · figures checked against the data" : t.by === "offline" ? "Offline answer · phrase matching" : "";
+      var hlp = !t.run && !t.specs.length && !t.action ? '<div class="ov10-chips">' + SUGG.slice(0, 4).map(function (s) { return '<button type="button" data-ov10-q="' + esc(s) + '">' + esc(s) + "</button>"; }).join("") + "</div>" : "";
+      return '<article class="ov10-t' + (t.run ? " run" : "") + '" data-i="' + i + '"><p class="ov10-q">' + esc(t.q) + '</p><div class="ov10-a"><p class="ov10-st" role="status"><i aria-hidden="true"></i><span></span></p>' +
+        '<p class="ov10-sum">' + esc(t.sum || "") + "</p>" + hlp + '<div class="ov10-cs">' + t.specs.map(function (sp, k) { return cardHTML(sp, i + ":" + k); }).join("") + "</div>" + a +
+        (t.note ? '<p class="ov10-note">' + esc(t.note) + "</p>" : "") + (t.retry && OV10.mode === "claude" ? '<button type="button" class="ov10-retry" data-ov10-retry="' + i + '">Ask Claude again</button>' : "") +
+        (by && !t.run ? '<p class="ov10-by">' + by + "</p>" : "") + "</div></article>";
     }
-    function span(t) { return lay(t).span; }
-    function qaHTML(t) {
-      var L = lay(t), n = L.span, parts = t.specs.map(function (sp, k) { return partHTML(sp, t.id + ":" + k, L.lead && !k); }).join("") + (t.run ? t.pred.slice(t.specs.length).map(function (c, k) { return skel(c, L.lead && !k && !t.specs.length); }).join("") : "");
-      var a = t.action ? '<div class="ov10-act"><div><b>Set the dashboard to</b><span>' + esc(actLabel(t.action)) + '</span></div><button type="button" data-ov10-apply="' + t.id + '">Apply</button></div>' : "";
-      var by = t.run ? "" : t.by === "claude" ? "Answered by Claude · figures checked against the data" : t.by === "offline" ? "Offline answer · phrase matching" : "";
-      var hlp = !t.run && !t.specs.length && !t.action ? '<div class="ov10-chips">' + SUGG.slice(0, 3).map(function (s) { return '<button type="button" data-ov10-q="' + esc(s) + '">' + esc(s) + "</button>"; }).join("") + "</div>" : "";
-      return '<article class="ov10-qa sp' + n + (t.run ? " run" : "") + '" data-id="' + t.id + '" aria-label="' + esc(t.q) + '"' + (t.run ? ' aria-busy="true"' : "") + ">" +
-        '<header class="ov10-qh"><p class="ov10-qq"><span>“' + esc(t.q) + "”</span> · " + (t.run ? "now" : ago(t.at)) + "</p>" +
-        '<button type="button" class="ov10-del" data-ov10-del="' + t.id + '" aria-label="Remove this question" title="Remove">' + IX + "</button></header>" +
-        '<p class="ov10-st"><i aria-hidden="true"></i><span>' + esc(t.status || "") + "</span></p>" + '<p class="ov10-sum">' + esc(t.sum || "") + "</p>" + hlp +
-        '<div class="ov10-cs n' + L.n + '">' + parts + "</div>" + a + (t.note ? '<p class="ov10-note">' + esc(t.note) + "</p>" : "") +
-        (t.retry && OV10.mode === "claude" ? '<button type="button" class="ov10-retry" data-ov10-retry="' + t.id + '">Ask Claude again</button>' : "") + (by ? '<p class="ov10-by">' + by + "</p>" : "") + "</article>";
+    function paint() {
+      TH.innerHTML = OV10.turns.length ? OV10.turns.map(turnHTML).join("") : '<div class="ov10-empty"><span class="ov10-orb" aria-hidden="true">' + SPK + '</span><p class="ov10-lead">Ask in plain words. The answer comes back as this dashboard\'s own charts, with the filters to match.</p><p class="ov10-k">Try</p><div class="ov10-chips">' +
+        SUGG.map(function (s) { return '<button type="button" data-ov10-q="' + esc(s) + '">' + esc(s) + "</button>"; }).join("") + "</div></div>";
     }
-    function boardHTML() {
-      if (!OV10.turns.length) return "";
-      var list = OV10.turns.slice().reverse(), fold = list.length > 3 && !OV10.all; // newest first; older answers fold away so the dashboard stays close
-      return '<section class="ov10-board" id="ov10board" aria-labelledby="ov10bh"><div class="ov10-bh"><div><h2 id="ov10bh"><span class="ov10-bic">' + SPK + "</span>Your questions</h2>" +
-        "<p>Answers you asked for, pinned to this Overview. Each keeps the range and business it was asked with.</p></div>" +
-        '<div class="ov10-bx"><span class="ov10-mode ' + OV10.mode + '">' + modeText() + '</span><button type="button" class="ov10-clear" data-ov10-clear>Clear all</button></div></div>' +
-        '<div class="ov10-grid">' + list.slice(0, fold ? 3 : list.length).map(qaHTML).join("") + "</div>" +
-        (list.length > 3 ? '<button type="button" class="ov10-more" data-ov10-more aria-expanded="' + !fold + '">' + (fold ? "Show " + (list.length - 3) + " earlier question" + (list.length > 4 ? "s" : "") : "Show fewer") + "</button>" : "") + "</section>";
+    // Repaint one turn in place. While Claude works, cards it has drawn stay, and the predicted skeletons fill the rest.
+    function paintTurn(el, t, keepSk) {
+      var i = +el.getAttribute("data-i"), cs = $(".ov10-cs", el), have = $$(".ov10-c:not(.ov10-skc)", cs).length;
+      if (!t.run) { var nw = document.createElement("div"); nw.innerHTML = turnHTML(t, i); var ne = nw.firstChild, cur = $$(".ov10-c:not(.ov10-skc)", el); // drawn cards keep their DOM, so nothing redraws under the pointer
+        $$(".ov10-c", ne).forEach(function (c, k) { if (cur[k]) c.replaceWith(cur[k]); }); $$(".ov10-c.in", ne).forEach(function (c) { c.classList.remove("in"); }); if (el.parentNode) el.replaceWith(ne); return ne; }
+      for (var k = have; k < t.specs.length; k++) { var sk = $(".ov10-skc", cs), d = document.createElement("div"); d.innerHTML = cardHTML(t.specs[k], i + ":" + k); var c = d.firstChild; if (sk) cs.replaceChild(c, sk); else cs.appendChild(c); c.classList.add("in"); }
+      if (t.action && !$(".ov10-act", el)) { var d2 = document.createElement("div"); d2.innerHTML = turnHTML(t, i); var a2 = $(".ov10-act", d2); if (a2) cs.after(a2); }
+      return el;
     }
-    ov10BoardFn = boardHTML;
-    function root() { return $('.view[data-view="overview"] .ov8'); }
-    // Redraw the whole board in place (or add it under the filters), leaving the rest of the dashboard alone
-    function refreshBoard() {
-      var r = root(); if (!r) return; var old = $("#ov10board", r), h = boardHTML();
-      if (!h) { if (old) old.remove(); return; }
-      var d = document.createElement("div"); d.innerHTML = h; var nb = d.firstChild;
-      if (old) { $$(".ov10-qa", old).forEach(function (q) { var nq = $('.ov10-qa[data-id="' + q.getAttribute("data-id") + '"]', nb); if (nq && q.outerHTML === nq.outerHTML) nq.replaceWith(q); }); old.replaceWith(nb); }
-      else { var bar = $(".ov8-bar", r); if (bar) bar.after(nb); else r.prepend(nb); }
-    }
-    // Repaint one answer. While Claude works, drawn parts stay and predicted skeletons fill the rest.
-    function paintTurn(t, mid) {
-      var el = $('.ov10-qa[data-id="' + t.id + '"]'); if (!el) { refreshBoard(); return; }
-      if (mid) {
-        var cs = $(".ov10-cs", el), have = $$(".ov10-c:not(.ov10-skc)", cs).length, L = lay(t);
-        for (var k = have; k < t.specs.length; k++) { var sk = $(".ov10-skc", cs), d = document.createElement("div"); d.innerHTML = partHTML(t.specs[k], t.id + ":" + k, L.lead && !k); var c = d.firstChild; if (!c) continue; c.classList.add("in"); if (sk) cs.replaceChild(c, sk); else cs.appendChild(c); }
-        el.className = el.className.replace(/\bsp\d\b/, "sp" + L.span); cs.className = "ov10-cs n" + L.n;
-        var st = $(".ov10-st span", el); if (st) st.textContent = t.status || "";
-        if (t.action && !$(".ov10-act", el)) { var d2 = document.createElement("div"); d2.innerHTML = qaHTML(t); var a2 = $(".ov10-act", d2); if (a2) cs.after(a2); }
-        return;
-      }
-      var nw = document.createElement("div"); nw.innerHTML = qaHTML(t); var ne = nw.firstChild, cur = $$(".ov10-c:not(.ov10-skc)", el); // drawn parts keep their DOM, so nothing redraws under the pointer
-      $$(".ov10-c", ne).forEach(function (c, k) { if (cur[k]) { cur[k].classList.remove("in"); c.replaceWith(cur[k]); } }); el.replaceWith(ne);
-    }
-    function sumLive(t, s) { var p = $('.ov10-qa[data-id="' + t.id + '"] .ov10-sum'); if (p) p.textContent = s; }
-
-    // ---------- the dock: a question bar at the bottom of the Overview ----------
-    var DK = document.createElement("form"); DK.className = "ov10-dock"; DK.id = "ov10dock"; DK.hidden = true; DK.setAttribute("aria-label", "Ask the data"); DK.noValidate = true;
-    DK.innerHTML = '<div class="ov10-dchips" role="group" aria-label="Suggested questions"></div>' +
-      '<div class="ov10-dbar"><span class="ov10-dic">' + SPK + '</span><label class="ov10-vh" for="ov10q">Ask a question about this Overview</label><input id="ov10q" type="text" maxlength="300" autocomplete="off" placeholder="Ask anything about this Overview">' +
-      '<kbd class="ov10-dk" aria-hidden="true" title="Press / to ask">/</kbd><button type="submit" class="ov10-send" aria-label="Ask">' + ISEND + "</button></div>";
-    var FADE = document.createElement("div"); FADE.className = "ov10-fade"; FADE.hidden = true; FADE.setAttribute("aria-hidden", "true");
-    var LIVE = document.createElement("span"); LIVE.className = "ov10-vh"; LIVE.setAttribute("aria-live", "polite");
-    $("#app").appendChild(FADE); $("#app").appendChild(DK); $("#app").appendChild(LIVE);
-    var Q = $("#ov10q", DK), SEND = $(".ov10-send", DK);
-    function modeText() { return OV10.mode === "checking" ? "Connecting…" : OV10.mode === "claude" ? "Answers by Claude, from this dashboard's numbers" : "Offline answers · phrase matching"; }
-    function mode() { var m = $(".ov10-board .ov10-mode"); if (m) { m.textContent = modeText(); m.className = "ov10-mode " + OV10.mode; } DK.setAttribute("data-mode", OV10.mode); }
-    function live(t) { LIVE.textContent = ""; setTimeout(function () { LIVE.textContent = "Answer to " + t.q + ": " + (t.sum || "") + (t.specs.length ? " " + t.specs.length + " chart" + (t.specs.length > 1 ? "s" : "") + " pinned to Your questions." : ""); }, 60); }
-    function busy(on) { SEND.innerHTML = on ? ISTOP : ISEND; SEND.setAttribute("aria-label", on ? "Stop" : "Ask"); SEND.classList.toggle("stop", on); DK.classList.toggle("busy", on); chips(); }
-    var ASKED = false; // chips show on an empty board, or when the box is focused and empty, but not straight after asking
-    function chips() {
-      var on = !OV10.busy && (!OV10.turns.length || (document.activeElement === Q && !Q.value.trim() && !ASKED)), box = $(".ov10-dchips", DK);
-      if (on) { var had = OV10.turns.map(function (t) { return t.q.toLowerCase(); }), list = SUGG.filter(function (x) { return had.indexOf(x.toLowerCase()) < 0; }).slice(0, 3), h = list.map(function (x) { return '<button type="button" data-ov10-q="' + esc(x) + '">' + esc(x) + "</button>"; }).join(""); if (box.innerHTML !== h) box.innerHTML = h; on = !!list.length; }
-      DK.classList.toggle("chipson", on);
-    }
-    var onOv = function () { return S.step === "app" && (/^#\/?overview\b/.test(location.hash) || (!location.hash && (TEAMS[S.team] || {}).home === "overview")); };
-    function place() { // centred on the main column, wherever the sidebar ends
-      var on = onOv(); DK.hidden = FADE.hidden = !on; document.documentElement.classList.toggle("ov10-docked", on); if (!on) { document.documentElement.classList.remove("ov10-dockhi"); return; }
-      var m = $(".main"), r = m ? m.getBoundingClientRect() : { left: 0, width: window.innerWidth }, w = Math.min(680, r.width - 32);
-      DK.style.left = (r.left + r.width / 2) + "px"; DK.style.width = w + "px"; FADE.style.left = r.left + "px";
-      document.documentElement.classList.toggle("ov10-dockhi", r.left + r.width / 2 + w / 2 > window.innerWidth - 236); // the Review pill steps up only if the dock would reach it
-    }
-    function scrollToBoard() { var b = $("#ov10board"); if (!b) return; var r = b.getBoundingClientRect(); if (r.top < 0 || r.top > window.innerHeight * 0.6) window.scrollTo({ top: Math.max(0, r.top + window.scrollY - 24), behavior: REDUCED ? "auto" : "smooth" }); }
-
-    // ---------- asking ----------
-    var seq = 0;
+    function status(el, s) { var p = $(".ov10-st span", el); if (p) p.textContent = s; }
+    function sumLive(el, s) { var p = $(".ov10-sum", el); if (p) p.textContent = s; }
+    function scroll() { TH.scrollTop = TH.scrollHeight; }
     function ask(q) {
       q = String(q || "").replace(/\s+/g, " ").trim().slice(0, 300); if (!q || OV10.busy) return;
-      if (!onOv()) { location.hash = "#/overview"; setTimeout(function () { ask(q); }, 320); return; }
-      var pred = parse(q), t = { id: Date.now().toString(36) + (seq++), q: q, at: Date.now(), specs: [], action: null, sum: "", by: "", note: "", run: true, status: OV10.mode === "checking" ? "Connecting…" : "Thinking…", pred: (pred.specs.length ? pred.specs : [{ c: "ranking_bars" }]).map(function (s) { return s.c; }).slice(0, MAXC) };
-      OV10.turns.push(t); while (OV10.turns.length > MAXQ) OV10.turns.splice(OV10.turns.findIndex(function (x) { return !x.run; }), 1);
-      Q.value = ""; ASKED = true; refreshBoard(); scrollToBoard();
+      var t = { q: q, specs: [], action: null, sum: "", by: "", note: "", run: true }, pred = parse(q);
+      OV10.turns.push(t); while (OV10.turns.length > 12) OV10.turns.shift();
+      paint(); var el = TH.lastElementChild; status(el, OV10.mode === "checking" ? "Connecting…" : "Thinking…");
+      $(".ov10-cs", el).innerHTML = (pred.specs.length ? pred.specs : [{ c: "ranking_bars" }]).map(function (sp) { return skel(sp.c); }).join("");
+      Q.value = ""; grow(); scroll();
       ready.then(function () {
         mode();
-        if (OV10.mode === "claude") { viaClaude(t, { specs: pred.specs, action: pred.action }); return; }
+        if (OV10.mode === "claude") { viaClaude(t, el, { specs: pred.specs, action: pred.action }); return; }
         OV10.busy = { abort: function () {} }; busy(true);
         setTimeout(function () { // the offline answer is instant; a beat keeps the skeleton from flashing
           t.specs = pred.specs; t.action = pred.action; t.by = "offline"; t.sum = t.specs.length ? caption(t.specs) : t.action ? "" : HELP;
-          end(t);
+          end(el, t);
         }, REDUCED ? 0 : 420);
       });
     }
-    // Every answer ends here: the card stops running, is repainted whole (summary, notes, by-line), remembered and announced.
-    function end(t) { t.run = false; t.status = ""; t.pred = []; OV10.busy = null; busy(false); paintTurn(t); save(); live(t); }
-    function remove(id) { var i = OV10.turns.findIndex(function (x) { return x.id === id; }); if (i < 0) return; if (OV10.turns[i].run && OV10.busy) OV10.busy.abort(); OV10.turns.splice(i, 1); save(); refreshBoard(); }
+    // Every answer ends here: the turn stops running, is repainted whole (summary, notes, by-line), remembered and announced.
+    function end(el, t) { t.run = false; OV10.busy = null; busy(false); paintTurn(el, t); save(); live(t); scroll(); }
+    function grow() { Q.style.height = "auto"; Q.style.height = Math.min(120, Q.scrollHeight) + "px"; }
 
-    // ---------- remember: pinned answers stay with this browser ----------
-    function save() { try { localStorage.setItem("cip-ov10q", JSON.stringify(OV10.turns.filter(function (t) { return !t.run; }).map(function (t) { return { id: t.id, q: t.q, at: t.at, specs: t.specs, action: t.action, sum: t.sum, by: t.by, note: t.note }; }))); } catch (e) {} }
-    try { OV10.turns = (JSON.parse(localStorage.getItem("cip-ov10q") || "[]") || []).filter(function (t) { return t && t.id && t.q && Array.isArray(t.specs) && t.specs.every(function (sp) { return build(sp); }); }).slice(-MAXQ); } catch (e) { OV10.turns = []; }
-    ov10Open = function (q) { if (q) ask(q); else { if (!onOv()) location.hash = "#/overview"; setTimeout(function () { place(); Q.focus(); chips(); }, onOv() ? 0 : 320); } };
+    // ---------- open, close, remember ----------
+    function save() { try { sessionStorage.setItem("cip-ov10", JSON.stringify({ open: OV10.open, turns: OV10.turns.filter(function (t) { return !t.run; }).map(function (t) { return { q: t.q, specs: t.specs, action: t.action, sum: t.sum, by: t.by, note: t.note }; }) })); } catch (e) {} }
+    try { var sv = JSON.parse(sessionStorage.getItem("cip-ov10") || "null"); if (sv) { OV10.turns = (sv.turns || []).filter(function (t) { return t && t.q && Array.isArray(t.specs); }); OV10.open = !!sv.open; } } catch (e) {}
+    var BACK = null, onOv = function () { return /^#\/?overview\b/.test(location.hash) || (!location.hash && S.step === "app" && (TEAMS[S.team] || {}).home === "overview"); };
+    function push() { document.documentElement.classList.toggle("ov10-push", OV10.open && !P.hidden && window.innerWidth >= 1200); }
+    function show(on, q) {
+      OV10.open = on; P.hidden = !(on && onOv()); push(); save();
+      $$("[data-ov10-ask]").forEach(function (b) { b.setAttribute("aria-expanded", String(on)); });
+      if (on && !P.hidden) { BACK = BACK || document.activeElement; mode(); if (!TH.firstChild) paint(); scroll(); if (q) ask(q); else setTimeout(function () { Q.focus({ preventScroll: true }); }, 30); }
+      else if (!on) { if (OV10.busy) OV10.busy.abort(); var b = BACK, hb = $(".view:not([hidden]) [data-ov10-ask]") || $("[data-ov10-ask]"); BACK = null; (hb && hb.offsetParent ? hb : b && document.contains(b) && b.focus ? b : document.body).focus({ preventScroll: true }); } // focus goes back to the button that toggles the panel
+    }
+    ov10Open = function (q) { if (!onOv()) location.hash = "#/overview"; setTimeout(function () { show(true, q); }, onOv() ? 0 : 260); };
     var _v6Enter10 = v6Enter;
-    v6Enter = function (name, view) { _v6Enter10(name, view); place(); };
-    window.addEventListener("resize", place); window.addEventListener("hashchange", function () { setTimeout(place, 0); });
+    v6Enter = function (name, view) { _v6Enter10(name, view); P.hidden = !(OV10.open && name === "overview"); push(); if (!P.hidden && !TH.firstChild) { paint(); scroll(); } };
+    window.addEventListener("resize", push);
+    window.addEventListener("hashchange", function () { if (!onOv()) { P.hidden = true; push(); } });
 
     // ---------- events ----------
     document.addEventListener("click", function (e) {
-      var x = e.target.closest && e.target.closest("[data-ov10-clear],[data-ov10-q],[data-ov10-go],[data-ov10-apply],[data-ov10-retry],[data-ov10-del],[data-ov10-more]"); if (!x) return;
-      if (x.hasAttribute("data-ov10-more")) { OV10.all = !OV10.all; refreshBoard(); var mb = $("[data-ov10-more]"); if (mb) mb.focus({ preventScroll: true }); return; }
-      if (x.hasAttribute("data-ov10-clear")) { if (OV10.busy) OV10.busy.abort(); OV10.turns = []; save(); refreshBoard(); chips(); Q.focus({ preventScroll: true }); }
+      var b = e.target.closest && e.target.closest("[data-ov10-ask]"); if (b) { show(!OV10.open); return; }
+      if (!P.contains(e.target)) return;
+      var x = e.target.closest("[data-ov10-close],[data-ov10-clear],[data-ov10-q],[data-ov10-go],[data-ov10-apply],[data-ov10-retry]"); if (!x) return;
+      if (x.hasAttribute("data-ov10-close")) show(false);
+      else if (x.hasAttribute("data-ov10-clear")) { if (OV10.busy) OV10.busy.abort(); OV10.turns = []; save(); paint(); Q.focus(); }
       else if (x.hasAttribute("data-ov10-q")) ask(x.getAttribute("data-ov10-q"));
-      else if (x.hasAttribute("data-ov10-del")) { var nx = x.closest(".ov10-qa"), sib = nx && (nx.nextElementSibling || nx.previousElementSibling); remove(x.getAttribute("data-ov10-del")); var f = sib && $(".ov10-del", sib); (f || Q).focus({ preventScroll: true }); }
-      else if (x.hasAttribute("data-ov10-retry")) { var rt = OV10.turns.filter(function (t) { return t.id === x.getAttribute("data-ov10-retry"); })[0]; if (rt) { remove(rt.id); ask(rt.q); } }
-      else if (x.hasAttribute("data-ov10-apply")) { var at = OV10.turns.filter(function (t) { return t.id === x.getAttribute("data-ov10-apply"); })[0]; if (at && at.action) goTo({ tab: at.action.tab, range: at.action.range, biz: at.action.biz }, ".ov8-top", null); }
-      else { var kk = x.getAttribute("data-ov10-go").split(":"), gt = OV10.turns.filter(function (t) { return t.id === kk[0]; })[0], o = gt && build(gt.specs[+kk[1]]); if (o) goTo(o.go, o.sel, o.route); }
+      else if (x.hasAttribute("data-ov10-retry")) { var ri = +x.getAttribute("data-ov10-retry"), rq = OV10.turns[ri].q; OV10.turns.splice(ri, 1); ask(rq); }
+      else if (x.hasAttribute("data-ov10-apply")) { var ac = OV10.turns[+x.getAttribute("data-ov10-apply")].action; goTo({ tab: ac.tab, range: ac.range, biz: ac.biz }, ".ov8-top", null); x.textContent = "Applied"; setTimeout(function () { if (x.isConnected) x.textContent = "Apply"; }, 1800); }
+      else { var kk = x.getAttribute("data-ov10-go").split(":"), sp = OV10.turns[+kk[0]].specs[+kk[1]], o = build(sp); if (o) goTo(o.go, o.sel, o.route); }
     });
-    DK.addEventListener("submit", function (e) { e.preventDefault(); if (OV10.busy) { OV10.busy.abort(); return; } ask(Q.value); });
-    Q.addEventListener("focus", chips); Q.addEventListener("input", function () { ASKED = false; chips(); }); Q.addEventListener("blur", function () { ASKED = false; setTimeout(chips, 150); });
-    Q.addEventListener("keydown", function (e) { if (e.key === "Escape") { Q.value = ""; Q.blur(); } });
-    document.addEventListener("keydown", function (e) { // "/" asks, as in most search bars
-      if (e.key !== "/" || e.metaKey || e.ctrlKey || e.altKey || DK.hidden) return; var a = document.activeElement;
-      if (a && (/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName) || a.isContentEditable)) return; e.preventDefault(); Q.focus();
-    });
+    $("#ov10f", P).addEventListener("submit", function (e) { e.preventDefault(); if (OV10.busy) { OV10.busy.abort(); return; } ask(Q.value); });
+    Q.addEventListener("keydown", function (e) { if (e.key === "Enter" && !e.shiftKey && !e.isComposing) { e.preventDefault(); if (!OV10.busy) ask(Q.value); } });
+    Q.addEventListener("input", grow);
+    P.addEventListener("keydown", function (e) { if (e.key === "Escape" && !e.defaultPrevented && !(document.activeElement && document.activeElement.closest && document.activeElement.closest(".ov9-dd"))) { e.preventDefault(); show(false); } });
     // Show on dashboard: set the filters, draw the dashboard, bring the card into view and mark it; a single crossover route is traced and pinned.
     function goTo(g, sel, route) {
       OV8.tab = g.tab; OV8.range = g.range; OV8.biz = g.biz; ov8save(); ov8hide();
       if (!onOv()) location.hash = "#/overview"; else ov8render();
       setTimeout(function () {
-        var r = root(), el = r && r.querySelector(sel); if (!el) return;
+        var root = $('.view[data-view="overview"] .ov8'), el = root && root.querySelector(sel); if (!el) return;
         var card = el.closest(".ov8-card,.ov8-hero,.ov8-top") || el;
+        if (window.innerWidth < 1200) show(false);
         card.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: sel === ".ov8-top" ? "start" : "center" });
         card.classList.remove("ov10-flash"); void card.offsetWidth; card.classList.add("ov10-flash"); setTimeout(function () { card.classList.remove("ov10-flash"); }, 1900);
-        if (route) $$(".xr", card).forEach(function (x) { var b = $(".r b", x), s = $(".r small", x); if (b && s && b.textContent === route[0] && s.textContent === "→ " + ov9xdn(route[1]) && !x.classList.contains("pin")) x.click(); });
+        if (route) $$(".xr", card).forEach(function (r) { var b = $(".r b", r), s = $(".r small", r); if (b && s && b.textContent === route[0] && s.textContent === "→ " + ov9xdn(route[1]) && !r.classList.contains("pin")) r.click(); });
       }, onOv() ? 40 : 320);
     }
+    // Tooltips for the panel's charts, in the dashboard's style
+    function tip(e) {
+      var t = e.target.closest && e.target.closest("[data-tip]"); if (!t || !TH.contains(t)) { ov8hide(); return; }
+      var tp = $("#ov8tip"); if (!tp) { tp = document.createElement("div"); tp.id = "ov8tip"; tp.setAttribute("role", "tooltip"); document.body.appendChild(tp); }
+      tp.textContent = ""; t.getAttribute("data-tip").split("|").forEach(function (line, i) { var d = document.createElement(i ? "span" : "b"); d.textContent = line; tp.appendChild(d); });
+      tp.hidden = false; var r = t.getBoundingClientRect(), w = tp.offsetWidth, hh = tp.offsetHeight, ty = t.getAttribute("data-ty"), ay = ty !== null ? r.top + r.height * (+ty) / 100 : r.top, cx = r.width > 220 && e.clientX ? e.clientX : r.left + r.width / 2;
+      var x = Math.min(window.innerWidth - w - 8, Math.max(8, cx - w / 2)), y = ay - hh - (ty !== null ? 14 : 8), below = y < 8; if (below) y = ty !== null ? ay + 14 : r.bottom + 8;
+      var cb = t.closest(".ov8-card"); if (cb) { var cr = cb.getBoundingClientRect(); x = Math.max(cr.left + 8, Math.min(cr.right - w - 8, x)); }
+      tp.classList.toggle("below", below); tp.style.setProperty("--ax", Math.max(12, Math.min(w - 12, cx - x)) + "px"); tp.style.left = x + "px"; tp.style.top = y + "px";
+      $$(".ov8 .ov8-on").forEach(function (z) { if (z !== t) z.classList.remove("ov8-on"); }); t.classList.add("ov8-on");
+    }
+    TH.addEventListener("mousemove", tip); TH.addEventListener("focusin", tip); TH.addEventListener("mouseleave", ov8hide); TH.addEventListener("focusout", ov8hide); TH.addEventListener("scroll", ov8hide, { passive: true });
 
-    mode(); ready.then(function () { mode(); if (OV10.turns.length) refreshBoard(); });
-    setTimeout(function () { place(); chips(); if (onOv()) refreshBoard(); }, 0);
+    mode(); ready.then(mode);
+    if (OV10.open) setTimeout(function () { show(true); }, 0);
     window.CIP10 = { parse: parse, toSpec: toSpec, build: build, check: check, norm: norm, tools: TOOLS, unknownNums: unknownNums, prompt: prompt, ask: ask, state: OV10 }; // for the prototype's own tests
   })();
   /* v10genui end */
