@@ -6437,66 +6437,78 @@ html[data-vf9] #app .ov8 .ov9-pm button{min-width:0;padding:0 2px !important;bor
 html[data-vf9] #app .ov8 .ov8-card.fill .ov8-mo{max-height:none !important}
 </style>
 <style id="ov10">
-/* V10 · Ask the data: the header button, the right-hand panel, its turns, skeletons and cards. Only under html[data-vf10]. */
+/* V10 · Ask the data, look A (floating glass): the header button, a frosted panel that floats beside the dashboard, its turns, skeletons and cards. Only under html[data-vf10]. */
 html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-askb{display:inline-flex;align-items:center;gap:8px;height:46px;margin-left:auto;padding:0 18px 0 15px;border:1px solid transparent;border-radius:999px;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(90deg,#A99CE0,#E5A3BE) border-box;color:#15161C;font:500 14px/1 Figtree,Inter,sans-serif;letter-spacing:-.006em;cursor:pointer;transition:background .18s,box-shadow .18s}
 html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-askb svg{color:#8E6FCB;flex:none}
 html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-askb:hover{background:linear-gradient(#F7F5FD,#F7F5FD) padding-box,linear-gradient(90deg,#8E7FD0,#D9789E) border-box;box-shadow:0 4px 14px rgba(110,90,190,.14)}
-html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-askb[aria-expanded="true"]{background:linear-gradient(#F1EFFB,#F1EFFB) padding-box,linear-gradient(90deg,#8E7FD0,#D9789E) border-box}
+html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-askb[aria-expanded="true"]{background:linear-gradient(#F1EFFB,#F1EFFB) padding-box,linear-gradient(90deg,#8E7FD0,#D9789E) border-box;box-shadow:0 6px 18px rgba(143,128,232,.22)}
 html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-askb:focus-visible{outline:2px solid #646EC2;outline-offset:2px}
 html[data-vf10].ov10-push:not(#a):not(#b) #app .ov8 .ov10-askb{width:46px;padding:0;justify-content:center}
 html[data-vf10].ov10-push:not(#a):not(#b) #app .ov8 .ov10-askb span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 html[data-vf10] .ov10-vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
-/* the panel: beside the dashboard from 1200px, over it below that, full screen on phones */
-html[data-vf10] .ov10-ask{position:fixed;z-index:58;top:0;right:0;bottom:0;width:420px;max-width:100vw;display:flex;flex-direction:column;background:#FAFAFD;border-left:1px solid #E7E8F1;box-shadow:-16px 0 40px rgba(26,20,64,.07);font-family:Figtree,Inter,-apple-system,sans-serif;font-size:14px;line-height:1.45;letter-spacing:-.006em;color:#15161C;animation:ov10in .28s cubic-bezier(.2,.7,.2,1) both}
+/* the panel floats 14px off the edges: beside the dashboard from 1200px, over it below that, full screen on phones */
+html[data-vf10] .ov10-ask{position:fixed;z-index:58;top:14px;right:14px;bottom:14px;width:440px;max-width:calc(100vw - 28px);display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(255,255,255,.85);border-radius:26px;background:rgba(255,255,255,.74);-webkit-backdrop-filter:blur(26px) saturate(1.5);backdrop-filter:blur(26px) saturate(1.5);box-shadow:0 30px 70px rgba(44,32,120,.16),0 2px 8px rgba(44,32,120,.06),inset 0 1px 0 rgba(255,255,255,.9);font-family:Figtree,Inter,-apple-system,sans-serif;font-size:14px;line-height:1.45;letter-spacing:-.006em;color:#15161C;-webkit-font-smoothing:antialiased;animation:ov10in .34s cubic-bezier(.2,.7,.2,1) both}
+html[data-vf10] .ov10-ask::before{content:"";position:absolute;top:-120px;right:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(176,148,236,.28),rgba(176,148,236,0) 70%);pointer-events:none}
+html[data-vf10] .ov10-ask::after{content:"";position:absolute;bottom:-140px;left:-100px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(239,169,196,.16),rgba(239,169,196,0) 70%);pointer-events:none}
+html[data-vf10] .ov10-ask > *{position:relative;z-index:1}
 html[data-vf10] .ov10-ask[hidden]{display:none}
-@keyframes ov10in{from{transform:translateX(24px);opacity:0}to{transform:none;opacity:1}}
-html[data-vf10].ov10-push #app .main{margin-right:420px}
+@keyframes ov10in{from{transform:translateX(18px) scale(.985);opacity:0}to{transform:none;opacity:1}}
+html[data-vf10].ov10-push #app .main{margin-right:468px}
 @media (max-width:1679px){html[data-vf10].ov10-push:not(#a) #app .ov8 .ov8-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
-html[data-vf10]:has(#ov10ask:not([hidden])) .review{right:436px}
-@media (max-width:720px){html[data-vf10]:has(#ov10ask:not([hidden])) .review{display:none}html[data-vf10] .ov10-ask{width:100vw;border-left:0}}
-html[data-vf10] .ov10-hd{display:flex;align-items:center;gap:10px;padding:16px 12px 14px 18px;border-bottom:1px solid #EDEEF5;background:#fff}
-html[data-vf10] .ov10-ic{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#8E7FD0,#D9789E);color:#fff;box-shadow:0 4px 12px rgba(142,127,208,.3)}
+html[data-vf10]:has(#ov10ask:not([hidden])) .review{right:482px}
+@media (max-width:720px){html[data-vf10]:has(#ov10ask:not([hidden])) .review{display:none}html[data-vf10] .ov10-ask{top:0;right:0;bottom:0;width:100vw;max-width:100vw;border:0;border-radius:0}}
+html[data-vf10] .ov10-hd{display:flex;align-items:center;gap:12px;padding:18px 16px 12px 20px}
+html[data-vf10] .ov10-ic{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:13px;background:linear-gradient(140deg,#9C8CF0,#D9789E);color:#fff;box-shadow:0 8px 20px rgba(156,140,240,.45),inset 0 1px 0 rgba(255,255,255,.35)}
 html[data-vf10] .ov10-ht{flex:1;min-width:0}
-html[data-vf10] .ov10-ht h2{margin:0;font-size:16px;line-height:1.3;font-weight:600;letter-spacing:-.012em}
-html[data-vf10] .ov10-mode{display:flex;align-items:center;gap:6px;margin:2px 0 0;font-size:12px;color:#646A7E}
+html[data-vf10] .ov10-ht h2{margin:0;font-size:16.5px;line-height:1.3;font-weight:600;letter-spacing:-.015em}
+html[data-vf10] .ov10-mode{display:flex;align-items:center;gap:6px;margin:2px 0 0;font-size:12px;color:#5E6378}
 html[data-vf10] .ov10-mode::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:#B8BCCB}
 html[data-vf10] .ov10-mode.claude::before{background:#2BA275;box-shadow:0 0 0 3px rgba(43,162,117,.16)}
 html[data-vf10] .ov10-mode.checking::before{background:#C9C1E6;animation:ov10pulse 1s ease-in-out infinite alternate}
-html[data-vf10] .ov10-ib{flex:none;display:grid;place-items:center;width:36px;height:36px;padding:0;border:0;border-radius:10px;background:transparent;color:#4A4F63;cursor:pointer}
-html[data-vf10] .ov10-ib:hover{background:#F0F1F7;color:#15161C}
+html[data-vf10] .ov10-ibg{flex:none;display:flex;gap:2px;padding:3px;border-radius:12px;background:rgba(21,22,28,.045)}
+html[data-vf10] .ov10-ib{display:grid;place-items:center;width:32px;height:32px;padding:0;border:0;border-radius:9px;background:transparent;color:#4A4F63;cursor:pointer;transition:background .15s,color .15s}
+html[data-vf10] .ov10-ib:hover{background:#fff;color:#15161C;box-shadow:0 1px 3px rgba(21,22,28,.08)}
 html[data-vf10] .ov10-ask :is(button,textarea):focus-visible{outline:2px solid #646EC2;outline-offset:2px}
 
 /* the thread */
-html[data-vf10]:not(#a):not(#b) #app .ov8.ov10-th{flex:1;display:flex;flex-direction:column;gap:26px;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:20px 16px 28px;font-size:14px}
+html[data-vf10]:not(#a):not(#b) #app .ov8.ov10-th{flex:1;display:flex;flex-direction:column;gap:26px;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:14px 18px 24px;font-size:14px;background:transparent;scrollbar-width:thin;scrollbar-color:rgba(21,22,28,.14) transparent;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 18px,#000 calc(100% - 18px),transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 18px,#000 calc(100% - 18px),transparent 100%)}
 html[data-vf10] .ov10-empty{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin:auto 0;padding:4px 4px 12px}
-html[data-vf10] .ov10-orb{display:grid;place-items:center;width:46px;height:46px;border-radius:15px;background:linear-gradient(135deg,#EEEAFB,#FBE8F0);color:#8E6FCB}
-html[data-vf10] .ov10-orb svg{width:22px;height:22px}
-html[data-vf10] .ov10-lead{margin:0;font-size:15px;line-height:1.5;color:#2B2F3E}
+html[data-vf10] .ov10-orb{display:grid;place-items:center;width:52px;height:52px;border-radius:17px;background:linear-gradient(140deg,#9C8CF0,#D9789E);color:#fff;box-shadow:0 12px 28px rgba(156,140,240,.4),inset 0 1px 0 rgba(255,255,255,.35)}
+html[data-vf10] .ov10-orb svg{width:24px;height:24px}
+html[data-vf10] .ov10-lead{margin:4px 0 0;font-size:15.5px;line-height:1.55;color:#20222B}
 html[data-vf10] .ov10-k{margin:8px 0 0;font-size:12px;font-weight:600;color:#8A90A8}
 html[data-vf10] .ov10-chips{display:flex;flex-wrap:wrap;gap:8px}
-html[data-vf10] .ov10-chips button{padding:8px 12px;border:1px solid #E3E4EF;border-radius:12px;background:#fff;color:#2B2F3E;font:500 13px/1.35 Figtree,Inter,sans-serif;text-align:left;cursor:pointer;transition:background .15s,border-color .15s}
-html[data-vf10] .ov10-chips button:hover{border-color:#C9C1E6;background:#F6F4FD}
-html[data-vf10] .ov10-t{display:flex;flex-direction:column;gap:12px}
-html[data-vf10] .ov10-q{align-self:flex-end;max-width:86%;margin:0;padding:10px 14px;border-radius:16px 16px 4px 16px;background:#ECEAF9;color:#15161C;font-size:14px;line-height:1.45;overflow-wrap:anywhere}
-html[data-vf10] .ov10-a{display:flex;flex-direction:column;gap:12px;min-width:0}
-html[data-vf10] .ov10-st{display:none;align-items:center;gap:8px;margin:0;font-size:13px;color:#646A7E}
-html[data-vf10] .ov10-t.run .ov10-st{display:flex}
-html[data-vf10] .ov10-st i{width:22px;height:6px;background:radial-gradient(circle,#8E7FD0 2.4px,transparent 2.6px) 0 50%/8px 6px repeat-x;animation:ov10dots 1s steps(3) infinite}
+html[data-vf10] .ov10-chips button{padding:9px 14px;border:1px solid rgba(21,22,28,.07);border-radius:999px;background:rgba(255,255,255,.78);color:#2B2F3E;font:500 13px/1.3 Figtree,Inter,sans-serif;text-align:left;box-shadow:0 2px 8px rgba(44,32,120,.05);cursor:pointer;transition:background .15s,border-color .15s,box-shadow .15s}
+html[data-vf10] .ov10-chips button:hover{border-color:#C9C1E6;background:#fff;box-shadow:0 6px 16px rgba(143,128,232,.16)}
+html[data-vf10] .ov10-t{display:flex;flex-direction:column;gap:14px}
+html[data-vf10] .ov10-q{align-self:flex-end;max-width:84%;margin:0;padding:11px 16px;border-radius:18px 18px 6px 18px;background:linear-gradient(135deg,#8F80E8,#B27ACB);color:#fff;font-size:14.5px;line-height:1.45;overflow-wrap:anywhere;box-shadow:0 8px 20px rgba(143,128,232,.3)}
+html[data-vf10] .ov10-a{display:flex;flex-direction:column;gap:14px;min-width:0}
+/* what happened: the charts drawn, the figures checked, and while it runs, a live step */
+html[data-vf10] .ov10-tr{display:flex;flex-wrap:wrap;gap:6px}
+html[data-vf10] .ov10-tr:not(:has(.ov10-tc)):not(:has(.ov10-st:not(:empty))){display:none}
+html[data-vf10] .ov10-t:not(.run) .ov10-tr:not(:has(.ov10-tc)){display:none}
+html[data-vf10] .ov10-tc,html[data-vf10] .ov10-st{display:inline-flex;align-items:center;gap:6px;height:26px;max-width:100%;padding:0 10px;border:1px solid rgba(21,22,28,.06);border-radius:999px;background:rgba(255,255,255,.72);font-size:12px;color:#4A4F63;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html[data-vf10] .ov10-tc svg{flex:none;color:#2BA275}
+html[data-vf10] .ov10-tc.in{animation:ov10up .3s cubic-bezier(.2,.7,.2,1) both}
+html[data-vf10] .ov10-st{display:none;color:#5B4BC4;border-color:rgba(143,128,232,.25);background:rgba(241,239,251,.85)}
+html[data-vf10] .ov10-t.run .ov10-st{display:inline-flex}
+html[data-vf10] .ov10-st i{flex:none;width:20px;height:6px;background:radial-gradient(circle,#8E7FD0 2.3px,transparent 2.5px) 0 50%/7px 6px repeat-x;animation:ov10dots 1s steps(3) infinite}
 @keyframes ov10dots{from{clip-path:inset(0 66% 0 0)}to{clip-path:inset(0 -10% 0 0)}}
 @keyframes ov10pulse{to{opacity:.35}}
-html[data-vf10] .ov10-sum{margin:0;font-size:14.5px;line-height:1.55;color:#15161C}
+html[data-vf10] .ov10-sum{margin:0;font-size:15px;line-height:1.6;color:#15161C}
+html[data-vf10] .ov10-sum mark{background:none;color:#5B4BC4;font-weight:600}
 html[data-vf10] .ov10-sum:empty{display:none}
-html[data-vf10] .ov10-cs{display:flex;flex-direction:column;gap:12px}
+html[data-vf10] .ov10-cs{display:flex;flex-direction:column;gap:14px}
 html[data-vf10] .ov10-cs:empty{display:none}
 
-/* cards: the dashboard's own, sized for the panel */
-html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov8-card.ov10-c{gap:14px;padding:16px;border:1px solid #ECEDF4;border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(26,20,64,.04)}
+/* cards: the dashboard's own components on white, lifted off the glass */
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov8-card.ov10-c{gap:14px;padding:18px;border:0;border-radius:20px;background:#fff;box-shadow:0 1px 2px rgba(21,22,28,.04),0 10px 28px rgba(44,32,120,.08)}
 html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-ch{margin:0}
-html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-ch h3{font-size:15px;line-height:20px;font-weight:600 !important;letter-spacing:-.01em !important}
-html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sub{margin-top:2px;font-size:12px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-ch h3{font-size:15px;line-height:20px;font-weight:600 !important;letter-spacing:-.012em !important}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sub{margin-top:3px;font-size:12.5px}
 html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sum{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
-html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sm{padding:12px 13px;gap:4px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sm{padding:12px 13px;gap:4px;border-radius:14px}
 html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sm b{font-size:21px}
 html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sm .f{line-height:1.35}
 html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-tbl{max-height:320px;overflow:auto;margin:0 -4px}
@@ -6504,7 +6516,8 @@ html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-tbl :is(th,td){paddin
 html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-tbl tbody th{white-space:normal;min-width:120px}
 html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-tbl thead th{position:sticky;top:0;background:#fff}
 html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sm .l{overflow:visible;white-space:normal;line-height:1.35}
-html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-hb li{grid-template-columns:minmax(96px,40%) minmax(0,1fr) 58px;gap:10px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-hb{gap:13px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-hb li{grid-template-columns:minmax(92px,36%) minmax(0,1fr) 54px;gap:12px}
 html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c.ov10-stk .ov8-hb{gap:12px}
 html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c.ov10-stk .ov8-hb li{grid-template-columns:minmax(0,1fr) auto;row-gap:6px;padding:2px 0}
 html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c.ov10-stk .ov8-hl{grid-column:1;grid-row:1;overflow:visible;white-space:normal;line-height:1.35}
@@ -6512,53 +6525,56 @@ html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c.ov10-stk .ov8-hv{grid-colu
 html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c.ov10-stk .ov8-ht{grid-column:1 / -1;grid-row:2;height:8px}
 html[data-vf10] .ov10-c.in{animation:ov10up .34s cubic-bezier(.2,.7,.2,1) both}
 @keyframes ov10up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-html[data-vf10] .ov10-go{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin:-2px 0 -4px;padding:6px 0;border:0;background:none;color:#4F57B8;font:500 13px/1 Figtree,Inter,sans-serif;cursor:pointer}
-html[data-vf10] .ov10-go:hover{color:#2F3684;text-decoration:underline;text-underline-offset:3px}
+html[data-vf10] .ov10-cf{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:2px;padding-top:14px;border-top:1px solid #F0F0F6}
+html[data-vf10] .ov10-go{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 13px;border:0;border-radius:999px;background:#F2F0FC;color:#4B3FB0;font:500 13px/1 Figtree,Inter,sans-serif;cursor:pointer;transition:background .15s}
+html[data-vf10] .ov10-go:hover{background:#E8E3FB}
 html[data-vf10] .ov10-go svg{transition:transform .18s}
 html[data-vf10] .ov10-go:hover svg{transform:translateX(2px)}
+html[data-vf10] .ov10-by{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:#7D8297;white-space:nowrap}
+html[data-vf10] .ov10-by svg{flex:none}
+html[data-vf10] .ov10-byl{margin:-4px 0 0}
 
 /* skeletons, shaped like the card that is coming */
-html[data-vf10] .ov10-skc .ov10-sk i,html[data-vf10] .ov10-skc .ov10-sk span{display:block;border-radius:8px;background:linear-gradient(90deg,#EFF0F6 0,#F7F7FB 45%,#EFF0F6 90%) 0 0/220% 100%;animation:ov10sh 1.3s linear infinite}
+html[data-vf10] .ov10-skc .ov10-sk i,html[data-vf10] .ov10-skc .ov10-sk span{display:block;border-radius:8px;background:linear-gradient(90deg,#EFEFF7 0,#F8F8FC 45%,#EFEFF7 90%) 0 0/220% 100%;animation:ov10sh 1.3s linear infinite}
 @keyframes ov10sh{from{background-position:120% 0}to{background-position:-120% 0}}
 html[data-vf10] .ov10-sk{display:flex;flex-direction:column;gap:10px}
 html[data-vf10] .ov10-sk.h i:first-child{width:56%;height:14px}
 html[data-vf10] .ov10-sk.h i:last-child{width:34%;height:10px}
 html[data-vf10] .ov10-sk.k{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-html[data-vf10] .ov10-sk.k i{height:70px;border-radius:12px}
+html[data-vf10] .ov10-sk.k i{height:70px;border-radius:14px}
 html[data-vf10] .ov10-sk.k i:last-child{grid-column:1 / -1}
-html[data-vf10] .ov10-sk.l i{height:150px;border-radius:12px}
+html[data-vf10] .ov10-sk.l i{height:150px;border-radius:14px}
 html[data-vf10] .ov10-sk.t i{height:16px}
 html[data-vf10] .ov10-sk.b i{height:16px}
 html[data-vf10]:not(#a) .ov10-skc .ov10-sk.b span{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px;background:none;animation:none}
-html[data-vf10] .ov10-sk.b span i{height:56px;border-radius:12px}
+html[data-vf10] .ov10-sk.b span i{height:56px;border-radius:14px}
 
-/* proposals, notes, the by-line */
-html[data-vf10] .ov10-act{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px 12px 14px;border-radius:14px;background:linear-gradient(90deg,#F2F0FB,#FBEFF4)}
+/* proposals, notes, retry */
+html[data-vf10] .ov10-act{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px 12px 16px;border:1px solid transparent;border-radius:18px;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(100deg,#C9BFF0,#F0C4D5) border-box;box-shadow:0 8px 22px rgba(44,32,120,.07)}
 html[data-vf10] .ov10-act b{display:block;font-size:12px;font-weight:500;color:#646A7E}
 html[data-vf10] .ov10-act span{font-size:14px;font-weight:500}
-html[data-vf10] .ov10-act button,html[data-vf10] .ov10-retry{flex:none;height:34px;padding:0 16px;border:0;border-radius:999px;background:#15161C;color:#fff;font:500 13px/1 Figtree,Inter,sans-serif;cursor:pointer}
-html[data-vf10] .ov10-act button:hover{background:#2F3684}
-html[data-vf10] .ov10-retry{align-self:flex-start;border:1px solid #D9DBE8;background:#fff;color:#15161C}
-html[data-vf10] .ov10-retry:hover{background:#F4F4F9}
-html[data-vf10] .ov10-note{margin:0;padding-left:10px;border-left:2px solid #E5A3BE;font-size:12.5px;line-height:1.5;color:#585E73}
-html[data-vf10] .ov10-by{margin:-2px 0 0;font-size:11.5px;color:#8A90A8}
+html[data-vf10] .ov10-act button{flex:none;height:36px;padding:0 18px;border:0;border-radius:999px;background:linear-gradient(140deg,#8F80E8,#C97AAE);color:#fff;font:500 13px/1 Figtree,Inter,sans-serif;box-shadow:0 6px 16px rgba(143,128,232,.35);cursor:pointer}
+html[data-vf10] .ov10-act button:hover{filter:brightness(1.05)}
+html[data-vf10] .ov10-retry{align-self:flex-start;height:34px;padding:0 16px;border:1px solid rgba(21,22,28,.1);border-radius:999px;background:#fff;color:#15161C;font:500 13px/1 Figtree,Inter,sans-serif;cursor:pointer}
+html[data-vf10] .ov10-retry:hover{background:#F7F6FC}
+html[data-vf10] .ov10-note{margin:0;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.66);border:1px solid rgba(229,163,190,.45);font-size:12.5px;line-height:1.5;color:#585E73}
 
 /* the question box */
-html[data-vf10] .ov10-in{padding:12px 16px 14px;border-top:1px solid #EDEEF5;background:#fff}
-html[data-vf10] .ov10-box{display:flex;align-items:flex-end;gap:8px;padding:6px 6px 6px 14px;border:1px solid #DADCE8;border-radius:16px;background:#fff;transition:border-color .15s,box-shadow .15s}
-html[data-vf10] .ov10-box:focus-within{border-color:#8E97DA;box-shadow:0 0 0 3px rgba(100,110,194,.14)}
-html[data-vf10] .ov10-box textarea{flex:1;min-width:0;max-height:120px;margin:0;padding:8px 0;border:0;outline:0;resize:none;background:transparent;color:#15161C;font:14px/1.45 Figtree,Inter,sans-serif;letter-spacing:-.006em}
+html[data-vf10] .ov10-in{padding:10px 14px 12px}
+html[data-vf10] .ov10-box{display:flex;align-items:flex-end;gap:10px;padding:6px 6px 6px 16px;border:1px solid transparent;border-radius:20px;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(100deg,#C2B6F0,#EFB9CE) border-box;box-shadow:0 10px 30px rgba(44,32,120,.1);transition:box-shadow .18s}
+html[data-vf10] .ov10-box:focus-within{box-shadow:0 10px 30px rgba(44,32,120,.12),0 0 0 4px rgba(156,140,240,.18)}
+html[data-vf10] .ov10-box textarea{flex:1;min-width:0;max-height:120px;margin:0;padding:10px 0;border:0;outline:0;resize:none;background:transparent;color:#15161C;font:14.5px/1.45 Figtree,Inter,sans-serif;letter-spacing:-.006em}
 html[data-vf10]:not(#a):not(#b) #app .ov10-box textarea:focus-visible{outline:0 !important}
 html[data-vf10] .ov10-box textarea::placeholder{color:#8A90A8}
-html[data-vf10] .ov10-send{flex:none;display:grid;place-items:center;width:36px;height:36px;padding:0;border:0;border-radius:12px;background:#15161C;color:#fff;cursor:pointer;transition:background .15s}
-html[data-vf10] .ov10-send:hover{background:#2F3684}
-html[data-vf10] .ov10-send.stop{background:#2F3684}
-html[data-vf10] .ov10-fine{margin:8px 2px 0;font-size:11.5px;color:#8A90A8}
+html[data-vf10] .ov10-send{flex:none;display:grid;place-items:center;width:40px;height:40px;padding:0;border:0;border-radius:14px;background:linear-gradient(140deg,#8F80E8,#C97AAE);color:#fff;box-shadow:0 6px 16px rgba(143,128,232,.4);cursor:pointer;transition:filter .15s,box-shadow .15s}
+html[data-vf10] .ov10-send:hover{filter:brightness(1.06);box-shadow:0 8px 20px rgba(143,128,232,.5)}
+html[data-vf10] .ov10-send.stop{background:linear-gradient(140deg,#5B4BC4,#8F5FB0)}
+html[data-vf10] .ov10-fine{margin:9px 2px 0;text-align:center;font-size:11.5px;color:#8A90A8}
 
 /* the dashboard card an answer points at */
 html[data-vf10] .ov10-flash{animation:ov10flash 1.8s ease-out}
 @keyframes ov10flash{0%,30%{box-shadow:0 0 0 3px rgba(142,127,208,.55),0 10px 30px rgba(142,127,208,.18)}100%{box-shadow:0 0 0 3px rgba(142,127,208,0)}}
-@media (prefers-reduced-motion:reduce){html[data-vf10] :is(.ov10-ask,.ov10-c.in,.ov10-flash,.ov10-st i,.ov10-sk i,.ov10-sk span,.ov10-mode::before){animation:none !important}}
+@media (prefers-reduced-motion:reduce){html[data-vf10] :is(.ov10-ask,.ov10-c.in,.ov10-tc.in,.ov10-flash,.ov10-st i,.ov10-sk i,.ov10-sk span,.ov10-mode::before){animation:none !important}}
 </style>
 <style id="me8h">/* V8 · Focus: a calmer, clearer hover on the Demo User row */
 html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q6):not(#q7):not(#q8):not(#q9):not(#q10):not(#q11) .side .me .id{cursor:pointer;transition:background-color .18s ease,box-shadow .18s ease,transform .12s ease !important}
@@ -12479,7 +12495,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
         if (!used && !t.action) { if (bad.length || !txt || nums(txt).length) fall("Claude answered without the data, so this is the offline answer."); else t.sum = txt; }
         else if (!txt) t.sum = caption(t.specs);
         else if (bad.length) { t.sum = caption(t.specs); t.note = "Claude's summary quoted a figure that isn't in these charts (" + bad.slice(0, 2).join(", ") + "), so this summary is built from the data instead."; }
-        else t.sum = txt;
+        else { t.sum = txt; t.chk = nums(txt).length; }
         if (res.truncated) t.note = (t.note ? t.note + " " : "") + "Claude's answer was cut short.";
         done();
       }, function (e) {
@@ -12501,19 +12517,30 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
     var IGO = '<svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M5 10h10M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     var P = document.createElement("aside"); P.id = "ov10ask"; P.className = "ov10-ask"; P.hidden = true; P.setAttribute("aria-labelledby", "ov10h");
     P.innerHTML = '<header class="ov10-hd"><span class="ov10-ic">' + SPK + '</span><div class="ov10-ht"><h2 id="ov10h">Ask the data</h2><p id="ov10mode"></p></div>' +
-      '<button type="button" class="ov10-ib" data-ov10-clear title="New conversation" aria-label="Start a new conversation">' + INEW + '</button><button type="button" class="ov10-ib" data-ov10-close title="Close" aria-label="Close Ask the data">' + IX + "</button></header>" +
+      '<div class="ov10-ibg"><button type="button" class="ov10-ib" data-ov10-clear title="New conversation" aria-label="Start a new conversation">' + INEW + '</button><button type="button" class="ov10-ib" data-ov10-close title="Close" aria-label="Close Ask the data">' + IX + "</button></div></header>" +
       '<div class="ov8 ov10-th" id="ov10th"></div>' +
       '<form class="ov10-in" id="ov10f" novalidate><label class="ov10-vh" for="ov10q">Ask a question about this Overview</label><div class="ov10-box"><textarea id="ov10q" rows="1" maxlength="300" placeholder="Ask about prospects, learners or crossover" autocomplete="off"></textarea>' +
       '<button type="submit" class="ov10-send" aria-label="Send">' + ISEND + '</button></div><p class="ov10-fine">Built from this page\'s sample data. Charts are the dashboard\'s own.</p></form><span class="ov10-vh" aria-live="polite" id="ov10live"></span>';
     $("#app").appendChild(P);
     var TH = $("#ov10th", P), Q = $("#ov10q", P), SEND = $(".ov10-send", P);
-    function mode() { var m = $("#ov10mode", P); m.textContent = OV10.mode === "checking" ? "Connecting…" : OV10.mode === "claude" ? "Answers by Claude, from this dashboard's numbers" : "Offline answers · phrase matching"; m.className = "ov10-mode " + OV10.mode; }
+    function mode() { var m = $("#ov10mode", P); m.textContent = OV10.mode === "checking" ? "Connecting…" : OV10.mode === "claude" ? "Claude · from this dashboard's numbers" : "Offline answers · phrase matching"; m.className = "ov10-mode " + OV10.mode; }
     function live(t) { var l = $("#ov10live", P); l.textContent = ""; setTimeout(function () { l.textContent = "Answer: " + (t.sum || "") + (t.specs.length ? " " + t.specs.length + " chart" + (t.specs.length > 1 ? "s" : "") + " shown." : ""); }, 60); }
     function busy(on) { SEND.innerHTML = on ? ISTOP : ISEND; SEND.setAttribute("aria-label", on ? "Stop" : "Send"); SEND.classList.toggle("stop", on); P.classList.toggle("busy", on); }
-    function cardHTML(sp, k) {
+    var ISH = '<svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M10 2.5l6 2.2v4.6c0 3.8-2.6 6.6-6 8.2-3.4-1.6-6-4.4-6-8.2V4.7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M7.2 9.8l2 2 3.6-3.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var IOK = '<svg viewBox="0 0 20 20" width="13" height="13" aria-hidden="true"><path d="M5 10.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    function byHTML(t) { return t.run || !t.by ? "" : '<span class="ov10-by">' + ISH + (t.by === "claude" ? "Answered by Claude" : "Offline answer") + "</span>"; }
+    // Figures in the answer, highlighted. The text is split on numbers first, so nothing is escaped twice.
+    function hl(s) { return String(s || "").split(/(₹?\d[\d,]*(?:\.\d+)?%?)/).map(function (x, i) { return i % 2 ? "<mark>" + esc(x) + "</mark>" : esc(x); }).join(""); }
+    function cardHTML(sp, k, by) {
       var o = build(sp); if (!o) return "";
       return '<section class="ov8-card ov10-c' + (o.cls ? " " + o.cls : "") + '" aria-label="' + esc(o.title) + '"><div class="ov8-ch"><div><h3>' + esc(o.title) + '</h3><p class="ov8-sub">' + esc(o.sub) + "</p></div></div>" + '<div class="ov8-viz">' + o.body + "</div>" +
-        '<button type="button" class="ov10-go" data-ov10-go="' + k + '">Show on dashboard' + IGO + "</button></section>";
+        '<div class="ov10-cf"><button type="button" class="ov10-go" data-ov10-go="' + k + '">Show on dashboard' + IGO + "</button>" + (by || "") + "</div></section>";
+    }
+    // What happened, as small chips: the charts drawn, and how many figures in the answer were checked against them
+    function traceHTML(t) {
+      var c = t.specs.map(function (sp) { var o = build(sp); return o ? '<span class="ov10-tc">' + IOK + "Drew " + esc(o.title) + "</span>" : ""; }).join("");
+      if (!t.run && t.by === "claude" && t.chk) c += '<span class="ov10-tc">' + IOK + t.chk + " figure" + (t.chk > 1 ? "s" : "") + " checked</span>";
+      return '<div class="ov10-tr">' + c + '<span class="ov10-st" role="status"><i aria-hidden="true"></i><span></span></span></div>';
     }
     function skel(c) {
       var b = c === "kpi_tiles" ? '<div class="ov10-sk k"><i></i><i></i><i></i></div>' : c === "trend_chart" ? '<div class="ov10-sk l"><i></i></div>' : c === "data_table" ? '<div class="ov10-sk t"><i></i><i></i><i></i><i></i><i></i></div>' :
@@ -12522,12 +12549,12 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
     }
     function turnHTML(t, i) {
       var a = t.action ? '<div class="ov10-act"><div><b>Set the dashboard to</b><span>' + esc(actLabel(t.action)) + '</span></div><button type="button" data-ov10-apply="' + i + '">Apply</button></div>' : "";
-      var by = t.by === "claude" ? "Answered by Claude · figures checked against the data" : t.by === "offline" ? "Offline answer · phrase matching" : "";
+      var by = byHTML(t), n = t.specs.length;
       var hlp = !t.run && !t.specs.length && !t.action ? '<div class="ov10-chips">' + SUGG.slice(0, 4).map(function (s) { return '<button type="button" data-ov10-q="' + esc(s) + '">' + esc(s) + "</button>"; }).join("") + "</div>" : "";
-      return '<article class="ov10-t' + (t.run ? " run" : "") + '" data-i="' + i + '"><p class="ov10-q">' + esc(t.q) + '</p><div class="ov10-a"><p class="ov10-st" role="status"><i aria-hidden="true"></i><span></span></p>' +
-        '<p class="ov10-sum">' + esc(t.sum || "") + "</p>" + hlp + '<div class="ov10-cs">' + t.specs.map(function (sp, k) { return cardHTML(sp, i + ":" + k); }).join("") + "</div>" + a +
+      return '<article class="ov10-t' + (t.run ? " run" : "") + '" data-i="' + i + '"><p class="ov10-q">' + esc(t.q) + '</p><div class="ov10-a">' + traceHTML(t) +
+        '<p class="ov10-sum">' + hl(t.sum) + "</p>" + hlp + '<div class="ov10-cs">' + t.specs.map(function (sp, k) { return cardHTML(sp, i + ":" + k, k === n - 1 ? by : ""); }).join("") + "</div>" + a +
         (t.note ? '<p class="ov10-note">' + esc(t.note) + "</p>" : "") + (t.retry && OV10.mode === "claude" ? '<button type="button" class="ov10-retry" data-ov10-retry="' + i + '">Ask Claude again</button>' : "") +
-        (by && !t.run ? '<p class="ov10-by">' + by + "</p>" : "") + "</div></article>";
+        (by && !n ? '<p class="ov10-byl">' + by + "</p>" : "") + "</div></article>";
     }
     function paint() {
       TH.innerHTML = OV10.turns.length ? OV10.turns.map(turnHTML).join("") : '<div class="ov10-empty"><span class="ov10-orb" aria-hidden="true">' + SPK + '</span><p class="ov10-lead">Ask in plain words. The answer comes back as this dashboard\'s own charts, with the filters to match.</p><p class="ov10-k">Try</p><div class="ov10-chips">' +
@@ -12537,13 +12564,14 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
     function paintTurn(el, t, keepSk) {
       var i = +el.getAttribute("data-i"), cs = $(".ov10-cs", el), have = $$(".ov10-c:not(.ov10-skc)", cs).length;
       if (!t.run) { var nw = document.createElement("div"); nw.innerHTML = turnHTML(t, i); var ne = nw.firstChild, cur = $$(".ov10-c:not(.ov10-skc)", el); // drawn cards keep their DOM, so nothing redraws under the pointer
-        $$(".ov10-c", ne).forEach(function (c, k) { if (cur[k]) c.replaceWith(cur[k]); }); $$(".ov10-c.in", ne).forEach(function (c) { c.classList.remove("in"); }); if (el.parentNode) el.replaceWith(ne); return ne; }
-      for (var k = have; k < t.specs.length; k++) { var sk = $(".ov10-skc", cs), d = document.createElement("div"); d.innerHTML = cardHTML(t.specs[k], i + ":" + k); var c = d.firstChild; if (sk) cs.replaceChild(c, sk); else cs.appendChild(c); c.classList.add("in"); }
+        $$(".ov10-c", ne).forEach(function (c, k) { if (!cur[k]) return; var f = $(".ov10-cf", c), of = $(".ov10-cf", cur[k]); if (f && of) of.replaceWith(f); c.replaceWith(cur[k]); }); $$(".ov10-c.in", ne).forEach(function (c) { c.classList.remove("in"); }); if (el.parentNode) el.replaceWith(ne); return ne; }
+      for (var k = have; k < t.specs.length; k++) { var sk = $(".ov10-skc", cs), d = document.createElement("div"); d.innerHTML = cardHTML(t.specs[k], i + ":" + k); var c = d.firstChild; if (sk) cs.replaceChild(c, sk); else cs.appendChild(c); c.classList.add("in");
+        var o2 = build(t.specs[k]), st = $(".ov10-tr .ov10-st", el); if (o2 && st) { var tc = document.createElement("span"); tc.className = "ov10-tc in"; tc.innerHTML = IOK + "Drew " + esc(o2.title); st.before(tc); } }
       if (t.action && !$(".ov10-act", el)) { var d2 = document.createElement("div"); d2.innerHTML = turnHTML(t, i); var a2 = $(".ov10-act", d2); if (a2) cs.after(a2); }
       return el;
     }
     function status(el, s) { var p = $(".ov10-st span", el); if (p) p.textContent = s; }
-    function sumLive(el, s) { var p = $(".ov10-sum", el); if (p) p.textContent = s; }
+    function sumLive(el, s) { var p = $(".ov10-sum", el); if (p) p.innerHTML = hl(s); }
     function scroll() { TH.scrollTop = TH.scrollHeight; }
     function ask(q) {
       q = String(q || "").replace(/\s+/g, " ").trim().slice(0, 300); if (!q || OV10.busy) return;
@@ -12567,7 +12595,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
     function grow() { Q.style.height = "auto"; Q.style.height = Math.min(120, Q.scrollHeight) + "px"; }
 
     // ---------- open, close, remember ----------
-    function save() { try { sessionStorage.setItem("cip-ov10", JSON.stringify({ open: OV10.open, turns: OV10.turns.filter(function (t) { return !t.run; }).map(function (t) { return { q: t.q, specs: t.specs, action: t.action, sum: t.sum, by: t.by, note: t.note }; }) })); } catch (e) {} }
+    function save() { try { sessionStorage.setItem("cip-ov10", JSON.stringify({ open: OV10.open, turns: OV10.turns.filter(function (t) { return !t.run; }).map(function (t) { return { q: t.q, specs: t.specs, action: t.action, sum: t.sum, by: t.by, note: t.note, chk: t.chk || 0 }; }) })); } catch (e) {} }
     try { var sv = JSON.parse(sessionStorage.getItem("cip-ov10") || "null"); if (sv) { OV10.turns = (sv.turns || []).filter(function (t) { return t && t.q && Array.isArray(t.specs); }); OV10.open = !!sv.open; } } catch (e) {}
     var BACK = null, onOv = function () { return /^#\/?overview\b/.test(location.hash) || (!location.hash && S.step === "app" && (TEAMS[S.team] || {}).home === "overview"); };
     function push() { document.documentElement.classList.toggle("ov10-push", OV10.open && !P.hidden && window.innerWidth >= 1200); }
