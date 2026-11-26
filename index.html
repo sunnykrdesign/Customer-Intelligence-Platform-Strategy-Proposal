@@ -8,14 +8,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<script>/* V8 · Focus: V6 locked to one view (the settings below), Review panel with the version switch only */(function(){try{var s=location.search,m=/[?&]ver=(\d)/.exec(s),vm=/[?&]v=(\d)/.exec(s);
-if(m&&(m[1]==='8'||m[1]==='9')){localStorage.setItem('cip-v8',m[1]==='9'?'9':'1');localStorage.setItem('cip-version','8');}else if(m||vm){localStorage.removeItem('cip-v8');}
-var fv=localStorage.getItem('cip-v8');if((fv!=='1'&&fv!=='9')||localStorage.getItem('cip-version')!=='8')return;
-document.documentElement.setAttribute('data-vfocus','');if(fv==='9')document.documentElement.setAttribute('data-vf9',''); /* V9: a copy of V8 where the final data goes; V8 stays as it is */
+<script>/* V8 · Focus: V6 locked to one view (the settings below), Review panel with the version switch only */(function(){try{var s=location.search,m=/[?&]ver=(\d+)/.exec(s),vm=/[?&]v=(\d)/.exec(s);
+if(m&&(m[1]==='8'||m[1]==='9'||m[1]==='10')){localStorage.setItem('cip-v8',m[1]==='8'?'1':m[1]);localStorage.setItem('cip-version','8');}else if(m||vm){localStorage.removeItem('cip-v8');}
+var fv=localStorage.getItem('cip-v8');if((fv!=='1'&&fv!=='9'&&fv!=='10')||localStorage.getItem('cip-version')!=='8')return;
+document.documentElement.setAttribute('data-vfocus','');if(fv==='9'||fv==='10')document.documentElement.setAttribute('data-vf9','');if(fv==='10')document.documentElement.setAttribute('data-vf10',''); /* V10: V9 plus Ask the data on the Overview */ /* V9: a copy of V8 where the final data goes; V8 stays as it is */
 var u=new URLSearchParams(s),P={preview:'1',card:'top',tabs:'top',bar:'high',pin:'0',nav:'overview,people,lookup,identity',lay5:'fold',life:'strip',tr:'focus',glow:'0',sb:'ink',auth:'off',si:'circle',pl:'ccink'};
 for(var k in P)u.set(k,P[k]);u.delete('ver');u.delete('v');if(m&&!u.get('p'))u.set('p','dindayal');
-history.replaceState(null,'',location.pathname+'?'+u.toString()+(m?(location.hash||'#/lookup'):location.hash));}catch(e){}})();</script>
-<script>(function(){var v='7';try{var m=/[?&]v=([1-9])/.exec(location.search),vm=/[?&]ver=([1-7])/.exec(location.search);if(vm)m=[0,'3467985'.charAt(vm[1]-1)];v=m?m[1]:(localStorage.getItem('cip-version')||'7');if(m)localStorage.setItem('cip-version',v);}catch(e){}if(v==='1'||v==='2'){v='7';try{localStorage.setItem('cip-version','7');}catch(e){}}var d=document.documentElement;d.setAttribute('data-v',v>'3'?'3':v);if(v>'3')d.setAttribute('data-v4','');if(v>='5')d.setAttribute('data-v5','');if(v>='6'||v==='5')d.setAttribute('data-v6','');if(v==='7'||v==='9'||v==='8'||v==='5'){d.setAttribute('data-v7','');if(v==='9'||v==='8'||v==='5')d.setAttribute('data-v9','');if(v==='8'||v==='5')d.setAttribute('data-v8','');if(v==='5')d.setAttribute('data-v10','');var t='crisp';try{var tm=/[?&]t=(crisp|ocean)/.exec(location.search);t=tm?tm[1]:(localStorage.getItem('cip-v7t')||'crisp');if(t!=='crisp'&&t!=='ocean'){t='crisp';localStorage.setItem('cip-v7t',t);}if(tm)localStorage.setItem('cip-v7t',t);}catch(e){}if(v==='9'||v==='8'||v==='5')t='crisp';d.setAttribute('data-v7t',t);try{var im=/[?&]ic=(color|mono)/.exec(location.search),ic=im?im[1]:localStorage.getItem('cip-v7i');if(im)localStorage.setItem('cip-v7i',ic);if(t==='crisp'&&ic==='color')d.setAttribute('data-v7i','color');}catch(e){}try{var tim=/[?&]ti=(on|off)/.exec(location.search),ti=tim?tim[1]:localStorage.getItem('cip-v7ti');if(tim)localStorage.setItem('cip-v7ti',ti);if(t==='crisp'&&ti==='off')d.setAttribute('data-v7ti','off');}catch(e){}try{var spm=/[?&]sp=(compact|current)/.exec(location.search),sp=spm?spm[1]:(localStorage.getItem('cip-v7sp')||'compact');if(spm)localStorage.setItem('cip-v7sp',sp);if(t==='crisp'&&sp==='compact')d.setAttribute('data-v7sp','compact');var fim=/[?&]fi=(on|off)/.exec(location.search),fi=fim?fim[1]:(localStorage.getItem('cip-v7fi')||'on');if(fim)localStorage.setItem('cip-v7fi',fi);if(t==='crisp'&&fi==='on')d.setAttribute('data-v7fi','on');}catch(e){}try{var sbm=/[?&]sb=(current|darker|darkest)/.exec(location.search),sb=sbm?sbm[1]:localStorage.getItem('cip-v7sb');if(sbm)localStorage.setItem('cip-v7sb',sb);if(t==='crisp'&&(sb==='darker'||sb==='darkest'))d.setAttribute('data-v7sb',sb);}catch(e){}try{var pcm=/[?&]pc=(current|darker|darkest)/.exec(location.search),pc=pcm?pcm[1]:localStorage.getItem('cip-v7pc');if(pcm)localStorage.setItem('cip-v7pc',pc);if(t==='crisp'&&(pc==='darker'||pc==='darkest'))d.setAttribute('data-v7pc',pc);}catch(e){}try{var dtm=/[?&]dt=(on|off)/.exec(location.search),dt=dtm?dtm[1]:(localStorage.getItem('cip-v7dt')||'on');if(dtm)localStorage.setItem('cip-v7dt',dt);if(t==='crisp'&&dt==='on')d.setAttribute('data-v7dt','on');}catch(e){}try{var inm=/[?&]ins=(simple|brief|current)/.exec(location.search),ins=inm?(inm[1]==='brief'?'new':inm[1]):localStorage.getItem('cip-v7in');if(ins!=='new'&&ins!=='current')ins='simple';if(inm)localStorage.setItem('cip-v7in',ins);if(t==='crisp'&&ins!=='current')d.setAttribute('data-v7ins',ins);}catch(e){}try{var srm=/[?&]sr=(compact|current)/.exec(location.search),sr=srm?srm[1]:(localStorage.getItem('cip-v7sr')||'compact');if(srm)localStorage.setItem('cip-v7sr',sr);if(t==='crisp'&&sr==='compact')d.setAttribute('data-v7sr','compact');}catch(e){}try{var sim=/[?&]si=(line|circle)/.exec(location.search),si=sim?sim[1]:(localStorage.getItem('cip-v7si')||'line');if(sim)localStorage.setItem('cip-v7si',si);if(t==='crisp'&&si==='line')d.setAttribute('data-v7si','line');}catch(e){}try{var ovm=/[?&]ov=(new|current)/.exec(location.search),ov=ovm?ovm[1]:(localStorage.getItem('cip-v7ov')||'new');if(ovm)localStorage.setItem('cip-v7ov',ov);if(t==='crisp'&&ov==='new')d.setAttribute('data-v7ov','new');}catch(e){}}})();</script>
+history.replaceState(null,'',location.pathname+'?'+u.toString()+(m?(location.hash||(m[1]==='10'?'#/overview':'#/lookup')):location.hash));}catch(e){}})();</script>
+<script>(function(){var v='7';try{var m=/[?&]v=([1-9])/.exec(location.search),vm=/[?&]ver=([1-7])(?!\d)/.exec(location.search);if(vm)m=[0,'3467985'.charAt(vm[1]-1)];v=m?m[1]:(localStorage.getItem('cip-version')||'7');if(m)localStorage.setItem('cip-version',v);}catch(e){}if(v==='1'||v==='2'){v='7';try{localStorage.setItem('cip-version','7');}catch(e){}}var d=document.documentElement;d.setAttribute('data-v',v>'3'?'3':v);if(v>'3')d.setAttribute('data-v4','');if(v>='5')d.setAttribute('data-v5','');if(v>='6'||v==='5')d.setAttribute('data-v6','');if(v==='7'||v==='9'||v==='8'||v==='5'){d.setAttribute('data-v7','');if(v==='9'||v==='8'||v==='5')d.setAttribute('data-v9','');if(v==='8'||v==='5')d.setAttribute('data-v8','');if(v==='5')d.setAttribute('data-v10','');var t='crisp';try{var tm=/[?&]t=(crisp|ocean)/.exec(location.search);t=tm?tm[1]:(localStorage.getItem('cip-v7t')||'crisp');if(t!=='crisp'&&t!=='ocean'){t='crisp';localStorage.setItem('cip-v7t',t);}if(tm)localStorage.setItem('cip-v7t',t);}catch(e){}if(v==='9'||v==='8'||v==='5')t='crisp';d.setAttribute('data-v7t',t);try{var im=/[?&]ic=(color|mono)/.exec(location.search),ic=im?im[1]:localStorage.getItem('cip-v7i');if(im)localStorage.setItem('cip-v7i',ic);if(t==='crisp'&&ic==='color')d.setAttribute('data-v7i','color');}catch(e){}try{var tim=/[?&]ti=(on|off)/.exec(location.search),ti=tim?tim[1]:localStorage.getItem('cip-v7ti');if(tim)localStorage.setItem('cip-v7ti',ti);if(t==='crisp'&&ti==='off')d.setAttribute('data-v7ti','off');}catch(e){}try{var spm=/[?&]sp=(compact|current)/.exec(location.search),sp=spm?spm[1]:(localStorage.getItem('cip-v7sp')||'compact');if(spm)localStorage.setItem('cip-v7sp',sp);if(t==='crisp'&&sp==='compact')d.setAttribute('data-v7sp','compact');var fim=/[?&]fi=(on|off)/.exec(location.search),fi=fim?fim[1]:(localStorage.getItem('cip-v7fi')||'on');if(fim)localStorage.setItem('cip-v7fi',fi);if(t==='crisp'&&fi==='on')d.setAttribute('data-v7fi','on');}catch(e){}try{var sbm=/[?&]sb=(current|darker|darkest)/.exec(location.search),sb=sbm?sbm[1]:localStorage.getItem('cip-v7sb');if(sbm)localStorage.setItem('cip-v7sb',sb);if(t==='crisp'&&(sb==='darker'||sb==='darkest'))d.setAttribute('data-v7sb',sb);}catch(e){}try{var pcm=/[?&]pc=(current|darker|darkest)/.exec(location.search),pc=pcm?pcm[1]:localStorage.getItem('cip-v7pc');if(pcm)localStorage.setItem('cip-v7pc',pc);if(t==='crisp'&&(pc==='darker'||pc==='darkest'))d.setAttribute('data-v7pc',pc);}catch(e){}try{var dtm=/[?&]dt=(on|off)/.exec(location.search),dt=dtm?dtm[1]:(localStorage.getItem('cip-v7dt')||'on');if(dtm)localStorage.setItem('cip-v7dt',dt);if(t==='crisp'&&dt==='on')d.setAttribute('data-v7dt','on');}catch(e){}try{var inm=/[?&]ins=(simple|brief|current)/.exec(location.search),ins=inm?(inm[1]==='brief'?'new':inm[1]):localStorage.getItem('cip-v7in');if(ins!=='new'&&ins!=='current')ins='simple';if(inm)localStorage.setItem('cip-v7in',ins);if(t==='crisp'&&ins!=='current')d.setAttribute('data-v7ins',ins);}catch(e){}try{var srm=/[?&]sr=(compact|current)/.exec(location.search),sr=srm?srm[1]:(localStorage.getItem('cip-v7sr')||'compact');if(srm)localStorage.setItem('cip-v7sr',sr);if(t==='crisp'&&sr==='compact')d.setAttribute('data-v7sr','compact');}catch(e){}try{var sim=/[?&]si=(line|circle)/.exec(location.search),si=sim?sim[1]:(localStorage.getItem('cip-v7si')||'line');if(sim)localStorage.setItem('cip-v7si',si);if(t==='crisp'&&si==='line')d.setAttribute('data-v7si','line');}catch(e){}try{var ovm=/[?&]ov=(new|current)/.exec(location.search),ov=ovm?ovm[1]:(localStorage.getItem('cip-v7ov')||'new');if(ovm)localStorage.setItem('cip-v7ov',ov);if(t==='crisp'&&ov==='new')d.setAttribute('data-v7ov','new');}catch(e){}}})();</script>
 <style>
 :root{
   --bg:#F5F5F7; --card:#FFFFFF; --text:#1D1D1F; --muted:#6E6E73; --line:#E5E5EA; --border:#D2D2D7;
@@ -6436,6 +6436,130 @@ html[data-vf9] #app .ov8 .ov9-pm button{min-width:0;padding:0 2px !important;bor
 /* V9 · Final data: the programme-area interest list keeps all its rows inside the card */
 html[data-vf9] #app .ov8 .ov8-card.fill .ov8-mo{max-height:none !important}
 </style>
+<style id="ov10">
+/* V10 · Ask the data: the header button, the right-hand panel, its turns, skeletons and cards. Only under html[data-vf10]. */
+html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-askb{display:inline-flex;align-items:center;gap:8px;height:46px;margin-left:auto;padding:0 18px 0 15px;border:1px solid transparent;border-radius:999px;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(90deg,#A99CE0,#E5A3BE) border-box;color:#15161C;font:500 14px/1 Figtree,Inter,sans-serif;letter-spacing:-.006em;cursor:pointer;transition:background .18s,box-shadow .18s}
+html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-askb svg{color:#8E6FCB;flex:none}
+html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-askb:hover{background:linear-gradient(#F7F5FD,#F7F5FD) padding-box,linear-gradient(90deg,#8E7FD0,#D9789E) border-box;box-shadow:0 4px 14px rgba(110,90,190,.14)}
+html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-askb[aria-expanded="true"]{background:linear-gradient(#F1EFFB,#F1EFFB) padding-box,linear-gradient(90deg,#8E7FD0,#D9789E) border-box}
+html[data-vf10]:not(#a):not(#b) #app .ov8 .ov10-askb:focus-visible{outline:2px solid #646EC2;outline-offset:2px}
+html[data-vf10].ov10-push:not(#a):not(#b) #app .ov8 .ov10-askb{width:46px;padding:0;justify-content:center}
+html[data-vf10].ov10-push:not(#a):not(#b) #app .ov8 .ov10-askb span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+html[data-vf10] .ov10-vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* the panel: beside the dashboard from 1200px, over it below that, full screen on phones */
+html[data-vf10] .ov10-ask{position:fixed;z-index:58;top:0;right:0;bottom:0;width:420px;max-width:100vw;display:flex;flex-direction:column;background:#FAFAFD;border-left:1px solid #E7E8F1;box-shadow:-16px 0 40px rgba(26,20,64,.07);font-family:Figtree,Inter,-apple-system,sans-serif;font-size:14px;line-height:1.45;letter-spacing:-.006em;color:#15161C;animation:ov10in .28s cubic-bezier(.2,.7,.2,1) both}
+html[data-vf10] .ov10-ask[hidden]{display:none}
+@keyframes ov10in{from{transform:translateX(24px);opacity:0}to{transform:none;opacity:1}}
+html[data-vf10].ov10-push #app .main{margin-right:420px}
+@media (max-width:1679px){html[data-vf10].ov10-push:not(#a) #app .ov8 .ov8-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+html[data-vf10]:has(#ov10ask:not([hidden])) .review{right:436px}
+@media (max-width:720px){html[data-vf10]:has(#ov10ask:not([hidden])) .review{display:none}html[data-vf10] .ov10-ask{width:100vw;border-left:0}}
+html[data-vf10] .ov10-hd{display:flex;align-items:center;gap:10px;padding:16px 12px 14px 18px;border-bottom:1px solid #EDEEF5;background:#fff}
+html[data-vf10] .ov10-ic{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#8E7FD0,#D9789E);color:#fff;box-shadow:0 4px 12px rgba(142,127,208,.3)}
+html[data-vf10] .ov10-ht{flex:1;min-width:0}
+html[data-vf10] .ov10-ht h2{margin:0;font-size:16px;line-height:1.3;font-weight:600;letter-spacing:-.012em}
+html[data-vf10] .ov10-mode{display:flex;align-items:center;gap:6px;margin:2px 0 0;font-size:12px;color:#646A7E}
+html[data-vf10] .ov10-mode::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:#B8BCCB}
+html[data-vf10] .ov10-mode.claude::before{background:#2BA275;box-shadow:0 0 0 3px rgba(43,162,117,.16)}
+html[data-vf10] .ov10-mode.checking::before{background:#C9C1E6;animation:ov10pulse 1s ease-in-out infinite alternate}
+html[data-vf10] .ov10-ib{flex:none;display:grid;place-items:center;width:36px;height:36px;padding:0;border:0;border-radius:10px;background:transparent;color:#4A4F63;cursor:pointer}
+html[data-vf10] .ov10-ib:hover{background:#F0F1F7;color:#15161C}
+html[data-vf10] .ov10-ask :is(button,textarea):focus-visible{outline:2px solid #646EC2;outline-offset:2px}
+
+/* the thread */
+html[data-vf10]:not(#a):not(#b) #app .ov8.ov10-th{flex:1;display:flex;flex-direction:column;gap:26px;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:20px 16px 28px;font-size:14px}
+html[data-vf10] .ov10-empty{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin:auto 0;padding:4px 4px 12px}
+html[data-vf10] .ov10-orb{display:grid;place-items:center;width:46px;height:46px;border-radius:15px;background:linear-gradient(135deg,#EEEAFB,#FBE8F0);color:#8E6FCB}
+html[data-vf10] .ov10-orb svg{width:22px;height:22px}
+html[data-vf10] .ov10-lead{margin:0;font-size:15px;line-height:1.5;color:#2B2F3E}
+html[data-vf10] .ov10-k{margin:8px 0 0;font-size:12px;font-weight:600;color:#8A90A8}
+html[data-vf10] .ov10-chips{display:flex;flex-wrap:wrap;gap:8px}
+html[data-vf10] .ov10-chips button{padding:8px 12px;border:1px solid #E3E4EF;border-radius:12px;background:#fff;color:#2B2F3E;font:500 13px/1.35 Figtree,Inter,sans-serif;text-align:left;cursor:pointer;transition:background .15s,border-color .15s}
+html[data-vf10] .ov10-chips button:hover{border-color:#C9C1E6;background:#F6F4FD}
+html[data-vf10] .ov10-t{display:flex;flex-direction:column;gap:12px}
+html[data-vf10] .ov10-q{align-self:flex-end;max-width:86%;margin:0;padding:10px 14px;border-radius:16px 16px 4px 16px;background:#ECEAF9;color:#15161C;font-size:14px;line-height:1.45;overflow-wrap:anywhere}
+html[data-vf10] .ov10-a{display:flex;flex-direction:column;gap:12px;min-width:0}
+html[data-vf10] .ov10-st{display:none;align-items:center;gap:8px;margin:0;font-size:13px;color:#646A7E}
+html[data-vf10] .ov10-t.run .ov10-st{display:flex}
+html[data-vf10] .ov10-st i{width:22px;height:6px;background:radial-gradient(circle,#8E7FD0 2.4px,transparent 2.6px) 0 50%/8px 6px repeat-x;animation:ov10dots 1s steps(3) infinite}
+@keyframes ov10dots{from{clip-path:inset(0 66% 0 0)}to{clip-path:inset(0 -10% 0 0)}}
+@keyframes ov10pulse{to{opacity:.35}}
+html[data-vf10] .ov10-sum{margin:0;font-size:14.5px;line-height:1.55;color:#15161C}
+html[data-vf10] .ov10-sum:empty{display:none}
+html[data-vf10] .ov10-cs{display:flex;flex-direction:column;gap:12px}
+html[data-vf10] .ov10-cs:empty{display:none}
+
+/* cards: the dashboard's own, sized for the panel */
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov8-card.ov10-c{gap:14px;padding:16px;border:1px solid #ECEDF4;border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(26,20,64,.04)}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-ch{margin:0}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-ch h3{font-size:15px;line-height:20px;font-weight:600 !important;letter-spacing:-.01em !important}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sub{margin-top:2px;font-size:12px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sum{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sm{padding:12px 13px;gap:4px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sm b{font-size:21px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sm .f{line-height:1.35}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-tbl{max-height:320px;overflow:auto;margin:0 -4px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-tbl :is(th,td){padding:8px 6px;font-size:12.5px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-tbl tbody th{white-space:normal;min-width:120px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-tbl thead th{position:sticky;top:0;background:#fff}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-sm .l{overflow:visible;white-space:normal;line-height:1.35}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c .ov8-hb li{grid-template-columns:minmax(96px,40%) minmax(0,1fr) 58px;gap:10px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c.ov10-stk .ov8-hb{gap:12px}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c.ov10-stk .ov8-hb li{grid-template-columns:minmax(0,1fr) auto;row-gap:6px;padding:2px 0}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c.ov10-stk .ov8-hl{grid-column:1;grid-row:1;overflow:visible;white-space:normal;line-height:1.35}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c.ov10-stk .ov8-hv{grid-column:2;grid-row:1;align-self:start}
+html[data-vf10]:not(#a):not(#b) #app .ov10-th .ov10-c.ov10-stk .ov8-ht{grid-column:1 / -1;grid-row:2;height:8px}
+html[data-vf10] .ov10-c.in{animation:ov10up .34s cubic-bezier(.2,.7,.2,1) both}
+@keyframes ov10up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+html[data-vf10] .ov10-go{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin:-2px 0 -4px;padding:6px 0;border:0;background:none;color:#4F57B8;font:500 13px/1 Figtree,Inter,sans-serif;cursor:pointer}
+html[data-vf10] .ov10-go:hover{color:#2F3684;text-decoration:underline;text-underline-offset:3px}
+html[data-vf10] .ov10-go svg{transition:transform .18s}
+html[data-vf10] .ov10-go:hover svg{transform:translateX(2px)}
+
+/* skeletons, shaped like the card that is coming */
+html[data-vf10] .ov10-skc .ov10-sk i,html[data-vf10] .ov10-skc .ov10-sk span{display:block;border-radius:8px;background:linear-gradient(90deg,#EFF0F6 0,#F7F7FB 45%,#EFF0F6 90%) 0 0/220% 100%;animation:ov10sh 1.3s linear infinite}
+@keyframes ov10sh{from{background-position:120% 0}to{background-position:-120% 0}}
+html[data-vf10] .ov10-sk{display:flex;flex-direction:column;gap:10px}
+html[data-vf10] .ov10-sk.h i:first-child{width:56%;height:14px}
+html[data-vf10] .ov10-sk.h i:last-child{width:34%;height:10px}
+html[data-vf10] .ov10-sk.k{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+html[data-vf10] .ov10-sk.k i{height:70px;border-radius:12px}
+html[data-vf10] .ov10-sk.k i:last-child{grid-column:1 / -1}
+html[data-vf10] .ov10-sk.l i{height:150px;border-radius:12px}
+html[data-vf10] .ov10-sk.t i{height:16px}
+html[data-vf10] .ov10-sk.b i{height:16px}
+html[data-vf10]:not(#a) .ov10-skc .ov10-sk.b span{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px;background:none;animation:none}
+html[data-vf10] .ov10-sk.b span i{height:56px;border-radius:12px}
+
+/* proposals, notes, the by-line */
+html[data-vf10] .ov10-act{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px 12px 14px;border-radius:14px;background:linear-gradient(90deg,#F2F0FB,#FBEFF4)}
+html[data-vf10] .ov10-act b{display:block;font-size:12px;font-weight:500;color:#646A7E}
+html[data-vf10] .ov10-act span{font-size:14px;font-weight:500}
+html[data-vf10] .ov10-act button,html[data-vf10] .ov10-retry{flex:none;height:34px;padding:0 16px;border:0;border-radius:999px;background:#15161C;color:#fff;font:500 13px/1 Figtree,Inter,sans-serif;cursor:pointer}
+html[data-vf10] .ov10-act button:hover{background:#2F3684}
+html[data-vf10] .ov10-retry{align-self:flex-start;border:1px solid #D9DBE8;background:#fff;color:#15161C}
+html[data-vf10] .ov10-retry:hover{background:#F4F4F9}
+html[data-vf10] .ov10-note{margin:0;padding-left:10px;border-left:2px solid #E5A3BE;font-size:12.5px;line-height:1.5;color:#585E73}
+html[data-vf10] .ov10-by{margin:-2px 0 0;font-size:11.5px;color:#8A90A8}
+
+/* the question box */
+html[data-vf10] .ov10-in{padding:12px 16px 14px;border-top:1px solid #EDEEF5;background:#fff}
+html[data-vf10] .ov10-box{display:flex;align-items:flex-end;gap:8px;padding:6px 6px 6px 14px;border:1px solid #DADCE8;border-radius:16px;background:#fff;transition:border-color .15s,box-shadow .15s}
+html[data-vf10] .ov10-box:focus-within{border-color:#8E97DA;box-shadow:0 0 0 3px rgba(100,110,194,.14)}
+html[data-vf10] .ov10-box textarea{flex:1;min-width:0;max-height:120px;margin:0;padding:8px 0;border:0;outline:0;resize:none;background:transparent;color:#15161C;font:14px/1.45 Figtree,Inter,sans-serif;letter-spacing:-.006em}
+html[data-vf10]:not(#a):not(#b) #app .ov10-box textarea:focus-visible{outline:0 !important}
+html[data-vf10] .ov10-box textarea::placeholder{color:#8A90A8}
+html[data-vf10] .ov10-send{flex:none;display:grid;place-items:center;width:36px;height:36px;padding:0;border:0;border-radius:12px;background:#15161C;color:#fff;cursor:pointer;transition:background .15s}
+html[data-vf10] .ov10-send:hover{background:#2F3684}
+html[data-vf10] .ov10-send.stop{background:#2F3684}
+html[data-vf10] .ov10-fine{margin:8px 2px 0;font-size:11.5px;color:#8A90A8}
+
+/* the dashboard card an answer points at */
+html[data-vf10] .ov10-flash{animation:ov10flash 1.8s ease-out}
+@keyframes ov10flash{0%,30%{box-shadow:0 0 0 3px rgba(142,127,208,.55),0 10px 30px rgba(142,127,208,.18)}100%{box-shadow:0 0 0 3px rgba(142,127,208,0)}}
+@media (prefers-reduced-motion:reduce){html[data-vf10] :is(.ov10-ask,.ov10-c.in,.ov10-flash,.ov10-st i,.ov10-sk i,.ov10-sk span,.ov10-mode::before){animation:none !important}}
+</style>
 <style id="me8h">/* V8 · Focus: a calmer, clearer hover on the Demo User row */
 html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q6):not(#q7):not(#q8):not(#q9):not(#q10):not(#q11) .side .me .id{cursor:pointer;transition:background-color .18s ease,box-shadow .18s ease,transform .12s ease !important}
 html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q6):not(#q7):not(#q8):not(#q9):not(#q10):not(#q11) .side .me .id:hover{background:rgba(255,255,255,.08) !important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14) !important}
@@ -7096,7 +7220,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
   <button type="button" class="rv-x" id="rvClose" aria-label="Close review panel"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1l10 10M11 1L1 11"/></svg></button>
   <div class="rv-panel" id="rvPanel" role="dialog" aria-label="Review controls" tabindex="-1" hidden>
     <div class="rv-head"><b>Review</b><span>For design review, not part of the product</span></div>
-    <div class="rv-sec"><span class="rv-k">Design version</span><div class="rv-seg" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="3" aria-pressed="false" title="V1 · Classic">V1</button><button type="button" data-v="4" aria-pressed="false" title="V2 · Learner 360">V2</button><button type="button" data-v="6" aria-pressed="false" title="V3 · Master">V3</button><button type="button" data-v="7" aria-pressed="false" title="V4 · Crisp">V4</button><button type="button" data-v="9" aria-pressed="false" title="V5 · Learner 360 data">V5</button><button type="button" data-v="8" aria-pressed="false" title="V6 · Polished">V6</button><button type="button" data-v="5" aria-pressed="false" title="V7 · Atmosphere">V7</button><button type="button" data-v="8f" aria-pressed="false" title="V8 · Focus">V8</button><button type="button" data-v="9f" aria-pressed="false" title="V9 · Final data (latest)">V9</button></div><p class="rv-note" id="vNote"></p></div>
+    <div class="rv-sec"><span class="rv-k">Design version</span><div class="rv-seg" id="vswitch" role="group" aria-label="Design version"><button type="button" data-v="3" aria-pressed="false" title="V1 · Classic">V1</button><button type="button" data-v="4" aria-pressed="false" title="V2 · Learner 360">V2</button><button type="button" data-v="6" aria-pressed="false" title="V3 · Master">V3</button><button type="button" data-v="7" aria-pressed="false" title="V4 · Crisp">V4</button><button type="button" data-v="9" aria-pressed="false" title="V5 · Learner 360 data">V5</button><button type="button" data-v="8" aria-pressed="false" title="V6 · Polished">V6</button><button type="button" data-v="5" aria-pressed="false" title="V7 · Atmosphere">V7</button><button type="button" data-v="8f" aria-pressed="false" title="V8 · Focus">V8</button><button type="button" data-v="9f" aria-pressed="false" title="V9 · Final data">V9</button><button type="button" data-v="10f" aria-pressed="false" title="V10 · Ask the data (latest)">V10</button></div><p class="rv-note" id="vNote"></p></div>
     <div class="rv-sec"><span class="rv-k">Sign in</span><div class="rv-seg" id="rvAuth" role="group" aria-label="Sign in and team"><button type="button" data-auth="off">Skip</button><button type="button" data-auth="on">Show</button></div><p class="rv-note" id="rvAuthNote"></p></div>
     <div class="rv-sec rv-v6x"><span class="rv-k">Hero motion</span>
       <div class="rv-rows"><label class="rv-row"><span>Hero glow follows the cursor</span><input type="checkbox" class="switch rv-switch" id="rvGlow6" aria-label="Hero glow follows the cursor"></label></div>
@@ -7233,7 +7357,8 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
   }
   var FOCUS8 = document.documentElement.hasAttribute("data-vfocus");
   var FOCUS9 = FOCUS8 && document.documentElement.hasAttribute("data-vf9"); // V9 · Final data: V8's view, kept separate so V8 stays as it is
-  var FV = FOCUS9 ? "9f" : "8f";
+  var FOCUS10 = FOCUS9 && document.documentElement.hasAttribute("data-vf10"); // V10 · Ask the data: V9 plus a generative answer panel on the Overview
+  var FV = FOCUS10 ? "10f" : FOCUS9 ? "9f" : "8f";
   var SOLO8 = false;
   if (FOCUS8) { try { if (Q.get("review") === "0") sessionStorage.setItem("cip-v8solo", "1"); SOLO8 = sessionStorage.getItem("cip-v8solo") === "1"; } catch (e) { SOLO8 = Q.get("review") === "0"; } }
   if (FOCUS8) SHARED = { card: "top", tabs: "top", bar: "high", pin: "0", nav: "overview,people,lookup,identity", p: Q.get("p"), lay5: "fold", life: "strip", tr: "focus" };
@@ -9705,7 +9830,8 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
     "6": ["V3", "Master", "Everything so far with less on screen: three Look up layouts, Find, a rebuilt Overview with richer charts, and a motion layer."],
     "9": ["V5", "Learner 360 data", "V4 Crisp, unchanged, with the PM's Learner 360 sample people: five profiles with every value's source and date added, their activity in the model's sub-sections, and their insights."],
     "8": ["V6", "Polished", "V5 taken to a finished level: the same product, structure and look, with refined spacing, hierarchy and states, and purposeful motion."],
-    "9f": ["V9", "Final data", "The latest. A copy of V8, where the final data and its changes go, so V8 stays as it is."],
+    "10f": ["V10", "Ask the data", "The latest. V9 with an Ask the data panel on the Overview: ask a question in plain words and get the answer as the dashboard's own charts, with the filters to match."],
+    "9f": ["V9", "Final data", "A copy of V8, where the final data and its changes go, so V8 stays as it is."],
     "8f": ["V8", "Focus", "V6 fixed to one view for review: the folding Look up layout with the strip journey, tabs on top, the Ink sidebar and the Cover · Ink person card, opening on Din Dayal. No layout options to switch."],
     "5": ["V7", "Atmosphere", "V6's content in a new look: a soft gradient atmosphere, a sidebar that expands or collapses to a rail, coloured figure tiles, gradient charts and richer motion."],
     "7": ["V4", "Crisp", "V3 with a new visual layer: the Crisp and Ocean themes, upGrad Design System icons and new profile layouts."]
@@ -9732,7 +9858,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
   document.addEventListener("click", function (e) {
     var b = e.target.closest && e.target.closest("#vswitch [data-v]"); if (!b) return;
     var to = b.getAttribute("data-v");
-    if (to === "8f" || to === "9f") { e.stopImmediatePropagation(); if (FOCUS8 && to === FV) return; location.replace(location.pathname + "?ver=" + to.charAt(0) + "#/lookup"); return; }
+    if (to === "8f" || to === "9f" || to === "10f") { e.stopImmediatePropagation(); if (FOCUS8 && to === FV) return; location.replace(location.pathname + "?ver=" + to.replace("f", "") + (to === "10f" ? "#/overview" : "#/lookup")); return; }
     if (FOCUS8) { e.stopImmediatePropagation(); try { localStorage.setItem("cip-v8", "0"); localStorage.setItem("cip-version", to); sessionStorage.setItem("cip-shared", "null"); } catch (er) {} location.replace(location.pathname + "?v=" + to + location.hash); }
   }, true);
   $("#vswitch").addEventListener("click", function (e) { var b = e.target.closest("[data-v]"); if (!b) return; setVersion(b.getAttribute("data-v"), true); applyLookupLayout(); if (L.auto) { if (isV6()) { L = { status: "idle", label: "", matches: [], person: null, how: "", auto: true }; $("#lookup").value = ""; } else { runLookup(defaultKey(), true); L.auto = true; } } renderLookup(); requestAnimationFrame(slideAll); });
@@ -10106,7 +10232,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
     var base = location.href.split(/[?#]/)[0];
     return base + "?" + q.join("&") + "#/" + route;
   }
-  function rvShareSync() { var i = $("#rvShareUrl"); if (i) i.value = FOCUS8 ? (/github\.io$/.test(location.hostname) ? location.href.split(/[?#]/)[0] : "https://sunnykrdesign.github.io/Customer-Intelligence-Platform-Strategy-Proposal/") + "?ver=" + FV.charAt(0) + "&review=0" : viewLink(); } // V8 always shares the GitHub Pages address, even when copied from a preview
+  function rvShareSync() { var i = $("#rvShareUrl"); if (i) i.value = FOCUS8 ? (/github\.io$/.test(location.hostname) ? location.href.split(/[?#]/)[0] : "https://sunnykrdesign.github.io/Customer-Intelligence-Platform-Strategy-Proposal/") + "?ver=" + FV.replace("f", "") + "&review=0" : viewLink(); } // V8 always shares the GitHub Pages address, even when copied from a preview
   if (FOCUS8) { var shn = $("#rvShareUrl") && $("#rvShareUrl").closest(".rv-sec").querySelector(".rv-note"); if (shn) shn.textContent = "Opens " + vName("8").split(" · ")[0] + " only, on Din Dayal, without this Review panel, so people can't switch to other versions."; }
   $("#rvCopy").addEventListener("click", function () { rvShareSync(); copy($("#rvShareUrl").value, $("#rvShareUrl"), "Link to this view copied"); });
   $("#rvShareUrl").addEventListener("focus", function () { this.select(); });
@@ -10637,6 +10763,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
     if (routes.indexOf("overview") >= 0) [["flow", "Flow"], ["stack", "Stack"], ["focus", "Focus"]].forEach(function (s) { it.push({ g: "Trends", t: "Show trends as " + s[1], s: s[0] === V6.style ? "Current" : "Overview", ic: IC6.chart, run: function () { V6.style = s[0]; if (location.hash !== "#/overview") location.hash = "#/overview"; else renderStudio6(true, true); requestAnimationFrame(slideAll); } }); });
     it.push({ g: "Actions", t: "Copy link to this view", s: "Opens without the Review panel", ic: IC6.link, run: function () { copy(viewLink(), $("#rvShareUrl"), "Link to this view copied"); } });
     it.push({ g: "Actions", t: "Share this dashboard", s: "Preview link", ic: IC6.link, run: function () { var b = $('.side [data-action="share"]'); if (b) b.click(); } });
+    if (FOCUS10 && ov10Open) it.unshift({ g: "Ask the data", t: "Ask the data", s: "Answers as this dashboard's charts", ic: IC6.chart, run: function () { ov10Open(); } }); // V10
     if (!SHARED) ["3", "4", "6", "7", "9", "8", "5"].forEach(function (v) { it.push({ g: "Design version", t: "Switch to " + vName(v) + (v === "5" ? " (latest)" : ""), s: curV() === v ? "Current" : "", ic: IC6.ver, run: function () { var b = $('#vswitch [data-v="' + v + '"]'); if (b) b.click(); } }); });
     return it;
   }
@@ -10645,6 +10772,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
     PAL.items = palAll().filter(function (x) { return !q || (x.t + " " + x.s + " " + x.g).toLowerCase().indexOf(q) >= 0; });
     var raw = $("#v6palQ").value.trim(), tm = TEAMS[S.team] || TEAMS.central;
     if (raw.length >= 3 && tm.routes.indexOf("lookup") >= 0 && NAVHIDE.indexOf("lookup") < 0) PAL.items.unshift({ g: "Look up a caller", t: "Look up \u201c" + raw + "\u201d", s: "Phone or email", ic: IC6.find, run: function () { if (location.hash !== "#/lookup") location.hash = "#/lookup"; $("#lookup").value = raw; runLookup(raw); } });
+    if (FOCUS10 && ov10Open && /[a-z]{2,}\s+[a-z]{2,}/i.test(raw)) PAL.items.unshift({ g: "Ask the data", t: "Ask \u201c" + raw + "\u201d", s: "Answer as charts", ic: IC6.chart, run: function () { ov10Open(raw); } }); // V10: a question goes to Ask the data
     if (PAL.sel >= PAL.items.length) PAL.sel = 0;
     if (!PAL.items.length) { list.innerHTML = '<div class="v6pal-none">No matches for “' + esc(q) + "”</div>"; return; }
     var g = null;
@@ -11661,6 +11789,44 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
     return Object.keys(g).map(function (k) { return ov8list(g[k]) + (g[k].length > 1 ? " are" : " is") + " mostly " + k; }).join(". ") + ".";
   }
 
+  // ---------- the Overview's numbers ----------
+  // One source for the sample tables and headline figures: the dashboard draws from here, and so does V10's Ask the data,
+  // so an answer can never quote a figure the dashboard doesn't show.
+  var OVD = {
+    FUN: { WP: [142000, 51000, 9800, 8900], SA: [68000, 29000, 6100, 3200], KH: [54000, 17000, 3900, 3700], International: [21000, 8400, 1600, 1400], LC: [18000, 9100, 2400, 2200], Internshala: [81000, null, 7300, 7000] }, // enquired, counselled, applied or paid, enrolled (90 days)
+    REACH: { WP: 71, SA: 64, KH: 69, International: 58, LC: 74, Internshala: 66 }, MED: { WP: 29, SA: 61, KH: 18, International: 44, LC: 25, Internshala: 9 },
+    PST: { WP: [0, 3, 5, 22, 45, 25], SA: [6, 30, 34, 22, 7, 1], KH: [0, 4, 6, 30, 40, 20], International: [0, 8, 12, 30, 35, 15], LC: [2, 18, 20, 35, 20, 5], Internshala: [8, 52, 30, 8, 2, 0] }, // life stage shares, OV8_STAGES order
+    T1: [["Data science and AI", 24], ["MBA and management", 17], ["Masters abroad", 14]], T2: [["Software and cloud", 12], ["Internships", 9], ["Marketing", 7], ["Finance", 6], ["Doctorate", 6], ["Other", 3], ["Law", 2]], // programme-area share of prospects
+    DMOM: { "Data science and AI": 38, "MBA and management": -6, "Masters abroad": 4, "Software and cloud": 31, "Internships": 12, "Marketing": 3, "Finance": -2, "Doctorate": 9, "Other": 0, "Law": -11 }, // 12-month change in share, %
+    XP: [["WP learners", "KnowledgeHut", 3420], ["Internshala trainees", "WP", 2980], ["SA alumni", "WP", 1610], ["WP alumni", "International", 1240], ["Internshala trainees", "SA", 1180], ["KH learners", "WP", 960], ["LC learners", "WP", 720], ["SA alumni", "KnowledgeHut", 410]], // Crossover, prospects (90 days)
+    XL: [["WP learners", "KnowledgeHut", 2140], ["Internshala trainees", "WP", 1860], ["SA alumni", "WP", 920], ["WP alumni", "International", 610], ["Internshala trainees", "SA", 540], ["KH learners", "WP", 430]], // Crossover, learners (90 days)
+    ACT9: { WP: 62, SA: 71, KH: 58, International: 66, LC: 69, Internshala: 44 }, // currently active, % of overall prospects
+    CH: [["Paid search", 34, 30], ["Paid social", 24, 27], ["Organic", 18, 17], ["Referral", 8, 9], ["Affiliate", 9, 8], ["Webinar and events", 7, 9]], // channel share: a year ago, now
+    BUB: [["Paid search", 118, 5.7, 1.9], ["Paid social", 92, 3.0, 1.4], ["Organic", 66, 9.4, 2.2], ["Referral", 34, 15.3, 2.6], ["Affiliate", 31, 4.1, 1.5], ["Webinar", 43, 11.9, 2.4]], // channel: prospects (thousands, 90 days), conversion %, average value (lakh)
+    SH9: { WP: 0.38, SA: 0.14, KH: 0.17, International: 0.08, LC: 0.06, Internshala: 0.17 }, // business share of learners
+    NPM: [14.2, 14.8, 15.1, 15.9, 16.4, 15.8, 16.9, 17.3, 17.8, 18.4, 18.9, 19.6], // new paid learners per month, thousands, Dec to Nov
+    TL: { active: 212480, past: 1273820, free: 642000, self: 138500 },
+    CE: [6.1, 6.4, 6.9, 7.2, 7.6, 7.9, 8.1, 8.4, 8.6, 8.9, 9.1, 9.4], CALL: 312600, // certificates per month (thousands, Dec to Nov) and all time
+    TP: [["Executive PG in Data Science and AI", "WP", 412, [21, 22, 22, 23, 24, 23, 25, 26, 26, 27, 28, 29]], ["MBA (online)", "WP", 365, [24, 24, 23, 23, 22, 22, 22, 21, 21, 21, 20, 20]], ["Master's in Business Analytics abroad", "SA", 238, [12, 13, 15, 14, 12, 11, 13, 16, 17, 14, 13, 12]],
+              ["Full Stack Development", "WP", 221, [13, 13, 12, 13, 12, 12, 12, 12, 11, 12, 11, 11]], ["Generative AI certificate", "KH", 184, [4, 5, 6, 8, 9, 11, 13, 15, 17, 19, 21, 24]], ["Business Analytics training", "Internshala", 176, [11, 10, 12, 12, 11, 13, 14, 13, 12, 13, 12, 13]],
+              ["Product Management certificate", "KH", 142, [8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 11]], ["Cloud and DevOps bootcamp", "KH", 131, [6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11]],
+              ["Digital Marketing certificate", "LC", 118, [8, 8, 7, 8, 7, 7, 7, 7, 6, 7, 6, 6]], ["Master's in Computer Science abroad", "International", 96, [5, 5, 6, 6, 5, 5, 6, 7, 7, 6, 6, 6]]]
+  };
+  // The headline figures for a filter state {range, biz}, exactly as the dashboard computes them.
+  function ovdCalc(st) {
+    var scale = { "30D": 0.36, "90D": 1, "12M": 3.6 }[st.range] || 1, fb = OV8_BIZ.filter(function (b) { return st.biz === "All" || st.biz === b; }), FUN = OVD.FUN;
+    var pEnq = fb.reduce(function (a, b) { return a + FUN[b][0]; }, 0) * scale, pEnr = fb.reduce(function (a, b) { return a + FUN[b][3]; }, 0) * scale;
+    var active = pEnq + (st.biz === "All" ? 212 * scale : 0), conv = pEnr / pEnq * 100;
+    var sh9 = fb.reduce(function (a, b) { return a + OVD.SH9[b]; }, 0);
+    var NPM = OVD.NPM.map(function (v) { return +(v * sh9).toFixed(1); }); // thousands per month, Dec to Nov
+    var nN = { "30D": 1, "90D": 3, "12M": 12 }[st.range] || 3, npS = NPM.slice(12 - nN).reduce(function (a, v) { return a + v; }, 0) * 1000, npY = NPM.reduce(function (a, v) { return a + v; }, 0) * 1000;
+    var tl9 = function (k) { return Math.round(OVD.TL[k] * sh9 / 10) * 10; }, tAct = tl9("active"), tPast = tl9("past"), tAll = tAct + tPast;
+    var npPrev = NPM.slice(Math.max(0, 12 - 2 * nN), 12 - nN).reduce(function (a, v) { return a + v; }, 0) * 1000, npD = nN === 12 ? 18 : Math.round((npS / npPrev - 1) * 100);
+    var CE9 = OVD.CE.map(function (v) { return +(v * sh9).toFixed(1); }), cAll9 = Math.round(OVD.CALL * sh9 / 10) * 10, cY9 = Math.round(CE9.reduce(function (a, v) { return a + v; }, 0) * 1000);
+    return { scale: scale, fb: fb, pEnq: pEnq, pEnr: pEnr, active: active, conv: conv, reach: st.biz === "All" ? 68 : OVD.REACH[st.biz], med: st.biz === "All" ? 34 : OVD.MED[st.biz],
+      sh9: sh9, NPM: NPM, nN: nN, npS: npS, npY: npY, tl9: tl9, tAct: tAct, tPast: tPast, tAll: tAll, npPrev: npPrev, npD: npD, CE9: CE9, cAll9: cAll9, cY9: cY9, per100: Math.round(cAll9 / tAll * 100) };
+  }
+
   // ---------- the dashboard ----------
   function ov8html() {
     var st = OV8, scale = { "30D": 0.36, "90D": 1, "12M": 3.6 }[st.range] || 1, rangeL = { "30D": "last 30 days", "90D": "last 90 days", "12M": "last 12 months" }[st.range], rangeC = rangeL.charAt(0).toUpperCase() + rangeL.slice(1);
@@ -11678,16 +11844,16 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
 
     // Header: title, the design's "Updated" pill, the Prospects/Learners switch; then what the tab counts and the filters
     h += '<header class="ov8-top"><div class="ov8-tl"><h1>Overview</h1><p class="ov8-upd"><span class="ov8-live"><i aria-hidden="true"></i>Updated today, 09:00</span><span>' + esc(rangeC) + " · " + esc(st.biz === "All" ? "All businesses" : OV8_BN[st.biz]) + "</span></p></div>" +
-      '<div class="ov8-tabs" role="tablist" aria-label="Overview">' + [["prospects", "Prospects", "In the lead journey now"], ["learners", "Learners", "Paid with us"]].map(function (t) { return '<button type="button" role="tab" data-ov8-tab="' + t[0] + '" aria-selected="' + (st.tab === t[0]) + '"><b>' + t[1] + '</b><span class="ov8-vh">, ' + t[2] + "</span></button>"; }).join("") + "</div></header>";
+      (FOCUS10 ? ov10Btn() : "") + '<div class="ov8-tabs" role="tablist" aria-label="Overview">' + [["prospects", "Prospects", "In the lead journey now"], ["learners", "Learners", "Paid with us"]].map(function (t) { return '<button type="button" role="tab" data-ov8-tab="' + t[0] + '" aria-selected="' + (st.tab === t[0]) + '"><b>' + t[1] + '</b><span class="ov8-vh">, ' + t[2] + "</span></button>"; }).join("") + "</div></header>";
     h += '<div class="ov8-bar"><p class="ov8-kick">' + (isP ? "<b>Prospects</b> · people in the lead journey now" : "<b>Learners</b> · everyone who has paid with us") + "</p>" +
       '<div class="ov8-fil"><div class="ov8-seg" role="group" aria-label="Time range">' + [["30D", "30 days"], ["90D", "90 days"], ["12M", "12 months"]].map(function (r) { return '<button type="button" data-ov8-range="' + r[0] + '" aria-pressed="' + (st.range === r[0]) + '">' + r[1] + "</button>"; }).join("") + "</div>" +
       '<label class="ov8-sel"><span class="ov8-vh">Business</span><select data-ov8-biz aria-label="Business"><option value="All">All businesses</option>' + OV8_BIZ.map(function (b) { return '<option value="' + b + '"' + (st.biz === b ? " selected" : "") + ">" + esc(OV8_BN[b]) + "</option>"; }).join("") + "</select></label></div></div>";
 
     if (isP) {
-      var FUN = { WP: [142000, 51000, 9800, 8900], SA: [68000, 29000, 6100, 3200], KH: [54000, 17000, 3900, 3700], International: [21000, 8400, 1600, 1400], LC: [18000, 9100, 2400, 2200], Internshala: [81000, null, 7300, 7000] };
-      var REACH = { WP: 71, SA: 64, KH: 69, International: 58, LC: 74, Internshala: 66 }, MED = { WP: 29, SA: 61, KH: 18, International: 44, LC: 25, Internshala: 9 };
-      var pEnq = fb.reduce(function (a, b) { return a + FUN[b][0]; }, 0) * scale, pEnr = fb.reduce(function (a, b) { return a + FUN[b][3]; }, 0) * scale;
-      var active = pEnq + (st.biz === "All" ? 212 * scale : 0), conv = pEnr / pEnq * 100;
+      var FUN = OVD.FUN;
+      var REACH = OVD.REACH, MED = OVD.MED;
+      var C = ovdCalc(st), pEnq = C.pEnq, pEnr = C.pEnr;
+      var active = C.active, conv = C.conv;
       h += ov8hero("Prospects headline", ([
         ["Active prospects", ov8inr(active), "+4.2%", 1, FOCUS9 ? "Unique people active in the period, by last active date" : "Unique people with an open enquiry", [3.52, 3.55, 3.58, 3.6, 3.63, 3.66, 3.68, 3.7, 3.73, 3.76, 3.8, 3.84], "person", rangeC, "Up 4.2% on the previous period"]]).concat([
         ["Reachable", (st.biz === "All" ? 68 : REACH[st.biz]) + "%", "+1.1 pts", 1, "Consented, verified, adult", [64, 64.5, 65, 65.3, 65.8, 66.2, 66.5, 66.9, 67.2, 67.5, 67.8, 68], "call", rangeC, "Up 1.1 points on the previous period"],
@@ -11695,7 +11861,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
         ["Median days to enrol", String(st.biz === "All" ? 34 : MED[st.biz]), "−2 days", 1, FOCUS9 ? "From programme opportunity creation to enrolment" : "For those who enrolled", [41, 40, 40, 39, 38, 38, 37, 36, 36, 35, 35, 34], "data_trending", rangeC, "2 days faster than the previous period"]]));
 
       // Who they are
-      var PST = { WP: [0, 3, 5, 22, 45, 25], SA: [6, 30, 34, 22, 7, 1], KH: [0, 4, 6, 30, 40, 20], International: [0, 8, 12, 30, 35, 15], LC: [2, 18, 20, 35, 20, 5], Internshala: [8, 52, 30, 8, 2, 0] };
+      var PST = OVD.PST;
       var stIns = ov8stageIns(PST, fb);
       if (FOCUS9) { // V9: Final-year UG is counted in UG student; a stage with no data in the selected businesses is left out
         var ST9 = [0, 1, 3, 4, 5], P9 = {}; Object.keys(PST).forEach(function (b) { var r = PST[b]; P9[b] = [r[0], r[1] + r[2], r[3], r[4], r[5]]; }); PST = P9;
@@ -11718,9 +11884,9 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
           table: { head: ["Where", "Share"], rows: tiers.map(function (t) { return [t[0], t[1] + "%"]; }).concat(states.map(function (s) { return [s[0], s[1] + "%"]; })) }, note: "City is stated where we have it, otherwise detected from IP. Treat as indicative." }) + "</div>";
 
       // What they want
-      var T1 = [["Data science and AI", 24], ["MBA and management", 17], ["Masters abroad", 14]], T2 = [["Software and cloud", 12], ["Internships", 9], ["Marketing", 7], ["Finance", 6], ["Doctorate", 6], ["Other", 3], ["Law", 2]];
+      var T1 = OVD.T1, T2 = OVD.T2;
       var TRC = ["#3F4796", "#646EC2", "#9AA2DE", "#C9CEEF", "#E3E6F7"];
-      var DMOM = { "Data science and AI": 38, "MBA and management": -6, "Masters abroad": 4, "Software and cloud": 31, "Internships": 12, "Marketing": 3, "Finance": -2, "Doctorate": 9, "Other": 0, "Law": -11 };
+      var DMOM = OVD.DMOM;
       var momC = function (m) { return m >= 20 ? OV8_UP : m >= 5 ? OV8_UP_L : m > -5 ? "#E7E5EF" : m > -10 ? "#F2B8CC" : OV8_ROSE; };
       var momT = function (m) { return m > 0 ? "↑ " + m + "%" : m < 0 ? "↓ " + Math.abs(m) + "%" : "Flat"; };
       var tcell = function (t, big, rk) { var m = DMOM[t[0]] || 0, c = momC(m); return '<div class="ov8-tc' + (big ? " big" : "") + (t[1] >= 9 ? " chg" : "") + '" style="flex:' + t[1] + " 1 0;background:" + c + ";color:" + ov8ink(c) + '"' + ov8tip([t[1] + "% of prospects", t[0], momT(m) + " in 12 months"]) + "><span>" + esc(t[0]) + "</span><b>" + t[1] + "%</b>" + (t[1] >= 9 ? "<em>" + momT(m) + "</em>" : "") + "</div>"; };
@@ -11730,7 +11896,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
       if (FOCUS9) TS = T1.concat(T2).filter(function (t) { return t[0] !== "Other"; }).map(function (t) { var m = DMOM[t[0]] || 0, a = +(t[1] / (1 + m / 100)).toFixed(1), v = []; for (var k = 0; k < 12; k++) v.push(+(a + (t[1] - a) * k / 11).toFixed(1)); return [t[0], v, m]; }).sort(function (a, b) { return b[2] - a[2]; }); // V9: by programme area
       var DEST = [["UK", 27, 6], ["Canada", 18, 22], ["Germany", 16, 4], ["Ireland", 11, 3], ["Australia", 10, 9], ["USA", 9, 14], ["France", 5, 2]];
       // Crossover sits high on the page: people moving between businesses is the view reviewers asked to see first.
-      h += ov8head("Crossover", "People who moved from one upGrad business to another") + '<div class="ov8-grid">' + crossCard("pcross", "Crossover: our learners, now enquiring elsewhere in upGrad", [["WP learners", "KnowledgeHut", 3420], ["Internshala trainees", "WP", 2980], ["SA alumni", "WP", 1610], ["WP alumni", "International", 1240], ["Internshala trainees", "SA", 1180], ["KH learners", "WP", 960], ["LC learners", "WP", 720], ["SA alumni", "KnowledgeHut", 410]]) + "</div>";
+      h += ov8head("Crossover", "People who moved from one upGrad business to another") + '<div class="ov8-grid">' + crossCard("pcross", "Crossover: our learners, now enquiring elsewhere in upGrad", OVD.XP) + "</div>";
       h += ov8head("What they want", "Interest across every enquiry, form and call") + '<div class="ov8-grid">' +
         (FOCUS9 ? (function () {
           var all = T1.concat(T2), ch = function (t) { return DMOM[t[0]] || 0; }, mk = function (m) { return m >= 5 ? "up" : m <= -5 ? "dn" : "fl"; };
@@ -11759,7 +11925,7 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
       // How they convert
       var stepN = ["Enquired", "Counselled", "Applied or paid", "Enrolled"], hasC = fb.filter(function (b) { return FUN[b][1] !== null; });
       var fsteps = stepN.map(function (n, i) { var v = (i === 1 ? hasC : fb).reduce(function (a, b) { return a + (FUN[b][i] || 0); }, 0); return { label: n, v: v, display: ov8inr(v * scale) }; }).filter(function (s) { return s.v > 0; });
-      var ACT9 = { WP: 62, SA: 71, KH: 58, International: 66, LC: 69, Internshala: 44 }; // V9: currently active prospects as a % of overall prospects, drop-offs excluded
+      var ACT9 = OVD.ACT9; // V9: currently active prospects as a % of overall prospects, drop-offs excluded
       var rates = fb.map(function (b) { return [b, FOCUS9 ? ACT9[b] : FUN[b][3] / FUN[b][0] * 100]; }).sort(function (a, b) { return b[1] - a[1]; });
       var fdrops = fsteps.map(function (s, i) { return i ? 1 - s.v / fsteps[i - 1].v : -1; }), fw = fdrops.indexOf(Math.max.apply(null, fdrops));
       var SEG = { stage: [[["School", 22, 9, 80], ["UG student", 31, 14, 88], ["Final-year UG", 38, 19, 90], ["Early career", 41, 22, 92], ["Mid career", 39, 24, 94], ["Senior", 33, 21, 95]], "Mid-career enquirers convert best; school students rarely get past counselling."],
@@ -11782,8 +11948,8 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
           note: (FOCUS9 ? "Currently active: active prospects as a share of overall prospects in each business, drop-offs excluded. " : "") + (fb.indexOf("Internshala") >= 0 ? "Internshala is self-serve, so its enquirers skip counselling; the Counselled step counts the other businesses only." : "") }) + "</div>";
 
       // Where they come from
-      var CH = [["Paid search", 34, 30], ["Paid social", 24, 27], ["Organic", 18, 17], ["Referral", 8, 9], ["Affiliate", 9, 8], ["Webinar and events", 7, 9]];
-      var BUB = [["Paid search", 118, 5.7, 1.9], ["Paid social", 92, 3.0, 1.4], ["Organic", 66, 9.4, 2.2], ["Referral", 34, 15.3, 2.6], ["Affiliate", 31, 4.1, 1.5], ["Webinar", 43, 11.9, 2.4]];
+      var CH = OVD.CH;
+      var BUB = OVD.BUB;
       var bub = '<div class="ov8-bub"><div class="ov8-ly">' + [0, 5, 10, 15, 20].map(function (t) { return '<span style="top:' + (100 - t / 20 * 100).toFixed(2) + '%">' + t + "%</span>"; }).join("") + '</div><div class="ov8-bp"><span class="q q1">Few people, high quality</span><span class="q q2">Many people, low quality</span>' + [0, 5, 10, 15, 20].map(function (t) { return '<i class="g" style="top:' + (100 - t / 20 * 100).toFixed(2) + '%"></i>'; }).join("") +
         BUB.map(function (b) { var sz = FOCUS9 ? 30 : Math.round(b[3] * 16), good = b[2] >= 9; return '<span class="ov8-bb' + (b[1] / 130 > 0.72 ? " lf" : "") + '" style="left:' + (b[1] / 130 * 100).toFixed(1) + "%;bottom:" + (b[2] / 20 * 100).toFixed(1) + "%;width:" + sz + "px;height:" + sz + "px;background:" + (OV8_CHC[b[0]] || OV8_ACC) + '"' + ov8tip(FOCUS9 ? [b[2] + "% conversion", b[0], ov8inr(b[1] * 1000 * scale) + " prospects"] : ["₹" + b[3] + " lakh average value", b[0], ov8inr(b[1] * 1000 * scale) + " prospects · " + b[2] + "% conversion"]) + '><em>' + esc(b[0]) + "</em></span>"; }).join("") +
         '</div><p class="ov8-ax">More prospects →</p></div>';
@@ -11801,16 +11967,16 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
         ["Completion", "58%", "+2 pts", 1, "Closed cohorts", [54, 54.5, 55, 55.3, 55.8, 56, 56.4, 56.8, 57.1, 57.4, 57.7, 58], "ribbon", "Last 12 months", "Up 2 points in 12 months"],
         ["Refund or deferral", "7.2%", "−0.5 pts", 1, "Of enrolments in the period", [8.1, 8.0, 7.9, 7.9, 7.8, 7.7, 7.6, 7.5, 7.5, 7.4, 7.3, 7.2], "payment", rangeC, "Down 0.5 points, which is good"]]);
       if (FOCUS9) { // V9 (final-data sheet, Learner): New learners – paid (overall + per month for 12 months) and Total learners (overall, active, past, free course, self-paced)
-        var SH9 = { WP: 0.38, SA: 0.14, KH: 0.17, International: 0.08, LC: 0.06, Internshala: 0.17 }, sh9 = fb.reduce(function (a, b) { return a + SH9[b]; }, 0);
-        var NPM = [14.2, 14.8, 15.1, 15.9, 16.4, 15.8, 16.9, 17.3, 17.8, 18.4, 18.9, 19.6].map(function (v) { return +(v * sh9).toFixed(1); }); // thousands per month, Dec to Nov
-        var nN = { "30D": 1, "90D": 3, "12M": 12 }[st.range] || 3, npS = NPM.slice(12 - nN).reduce(function (a, v) { return a + v; }, 0) * 1000, npY = NPM.reduce(function (a, v) { return a + v; }, 0) * 1000;
+        var C9 = ovdCalc(st), sh9 = C9.sh9;
+        var NPM = C9.NPM; // thousands per month, Dec to Nov
+        var nN = C9.nN, npS = C9.npS, npY = C9.npY;
         var nMax = Math.ceil(Math.max.apply(null, NPM) / 5) * 5, nX = NPM.map(function (v, i) { return i / 11; });
         var npLine = ov8line({ label: "New paid learners per month, the past 12 months", yMax: nMax, yTicks: [0, nMax / 2, nMax], yFmt: function (t) { return t ? t + "K" : "0"; }, xTicks: [[0, OV8_MON[0]], [3 / 11, OV8_MON[3]], [6 / 11, OV8_MON[6]], [9 / 11, OV8_MON[9]], [1, OV8_MON[11]]],
           series: [{ c: OV8_ACC, x: nX, y: NPM, area: true }], hx: nX, hlines: function (i) { return [NPM[i] + "K new paid learners", OV8_MON[i]]; } });
-        var TL = { active: 212480, past: 1273820, free: 642000, self: 138500 }, tl9 = function (k) { return Math.round(TL[k] * sh9 / 10) * 10; }, tAct = tl9("active"), tPast = tl9("past"), tAll = tAct + tPast;
+        var tl9 = C9.tl9, tAct = C9.tAct, tPast = C9.tPast, tAll = C9.tAll;
         var aPct = Math.round(tAct / tAll * 100);
         // V9 Learners, laid out as the sketch: New learners | Total learners, then Crossover, then Top enrolled programmes | Certificates issued
-        var npPrev = NPM.slice(Math.max(0, 12 - 2 * nN), 12 - nN).reduce(function (a, v) { return a + v; }, 0) * 1000, npD = nN === 12 ? 18 : Math.round((npS / npPrev - 1) * 100);
+        var npPrev = C9.npPrev, npD = C9.npD;
         var chip9 = function (d, sfx) { return '<span class="ov9-chip ' + (d >= 0 ? "pos" : "neg") + '">' + (d >= 0 ? "↑ " : "↓ ") + Math.abs(d) + "%" + (sfx ? " " + esc(sfx) : "") + "</span>"; };
         // Row 1 in the headline-tile language: two large tiles, New learners (number + 12-month trend) and Total learners (number + its four parts)
         var spark9 = function (vals, tip) { var mn = Math.min.apply(null, vals), mx = Math.max.apply(null, vals), r = (mx - mn) || 1, Y = function (v) { return 54 - (v - mn) / r * 44; }, pts = vals.map(function (v, i) { return (i * 100 / 11).toFixed(2) + "," + Y(v).toFixed(2); }).join(" ");
@@ -11831,15 +11997,12 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
             '<span class="kn">Everyone with a paid enrolment · active plus past</span><div class="ov9-parts">' +
             part9("Active learners", tAct, aPct + "% of total · not completed yet", aPct) + part9("Past learners", tPast, (100 - aPct) + "% of total · completed or left", 100 - aPct) + part9("Free course", tl9("free"), "Counted on their own") + part9("Self-paced", tl9("self"), "Counted on their own") + "</div></div>" +
           "</div></section>";
-        h += '<div class="ov8-grid ov9-row">' + crossCard("lcross9", "Crossover: learners who enrolled in another business", [["WP learners", "KnowledgeHut", 2140], ["Internshala trainees", "WP", 1860], ["SA alumni", "WP", 920], ["WP alumni", "International", 610], ["Internshala trainees", "SA", 540], ["KH learners", "WP", 430]]).replace("Now enquiring in", "Now learning in") + "</div>";
-        var CE9 = [6.1, 6.4, 6.9, 7.2, 7.6, 7.9, 8.1, 8.4, 8.6, 8.9, 9.1, 9.4].map(function (v) { return +(v * sh9).toFixed(1); }), cAll9 = Math.round(312600 * sh9 / 10) * 10, cY9 = Math.round(CE9.reduce(function (a, v) { return a + v; }, 0) * 1000), cx9 = CE9.map(function (v, i) { return i / 11; }), cMax9 = Math.ceil(Math.max.apply(null, CE9) / 2) * 2;
+        h += '<div class="ov8-grid ov9-row">' + crossCard("lcross9", "Crossover: learners who enrolled in another business", OVD.XL).replace("Now enquiring in", "Now learning in") + "</div>";
+        var CE9 = C9.CE9, cAll9 = C9.cAll9, cY9 = C9.cY9, cx9 = CE9.map(function (v, i) { return i / 11; }), cMax9 = Math.ceil(Math.max.apply(null, CE9) / 2) * 2;
         var per100 = Math.round(cAll9 / tAll * 100), cTop = CE9[11] === Math.max.apply(null, CE9);
         h += '<div class="ov8-grid ov9-row">' +
           (function () { // Top enrolled programmes: Overall | Month (with a month stepper), soft rows with rank badges; sample programme names, monthly counts in hundreds, Dec to Nov
-            var TP = [["Executive PG in Data Science and AI", "WP", 412, [21, 22, 22, 23, 24, 23, 25, 26, 26, 27, 28, 29]], ["MBA (online)", "WP", 365, [24, 24, 23, 23, 22, 22, 22, 21, 21, 21, 20, 20]], ["Master's in Business Analytics abroad", "SA", 238, [12, 13, 15, 14, 12, 11, 13, 16, 17, 14, 13, 12]],
-              ["Full Stack Development", "WP", 221, [13, 13, 12, 13, 12, 12, 12, 12, 11, 12, 11, 11]], ["Generative AI certificate", "KH", 184, [4, 5, 6, 8, 9, 11, 13, 15, 17, 19, 21, 24]], ["Business Analytics training", "Internshala", 176, [11, 10, 12, 12, 11, 13, 14, 13, 12, 13, 12, 13]],
-              ["Product Management certificate", "KH", 142, [8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 11]], ["Cloud and DevOps bootcamp", "KH", 131, [6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11]],
-              ["Digital Marketing certificate", "LC", 118, [8, 8, 7, 8, 7, 7, 7, 7, 6, 7, 6, 6]], ["Master's in Computer Science abroad", "International", 96, [5, 5, 6, 6, 5, 5, 6, 7, 7, 6, 6, 6]]].filter(function (p) { return keep(p[1]); });
+            var TP = OVD.TP.filter(function (p) { return keep(p[1]); });
             if (!TP.length) return "";
             var ov = OV8.tpv !== "month", pm = OV8.pm >= 0 && OV8.pm < 12 ? OV8.pm : 11, ML = function (m) { return OV8_MON[m] + (m === 0 ? " 2025" : " 2026"); };
             var rows = TP.map(function (p) { return { p: p, cur: p[3][pm] * 100, prev: pm ? p[3][pm - 1] * 100 : 0, all: p[2] * 100 }; });
@@ -11980,6 +12143,493 @@ html[data-vfocus][data-v7sb]:not(#q1):not(#q2):not(#q3):not(#q4):not(#q5):not(#q
   function ov8hide() { var tip = $("#ov8tip"); if (tip) tip.hidden = true; $$(".ov8 .ov8-on").forEach(function (x) { x.classList.remove("ov8-on"); }); }
   var _v6Enter8 = v6Enter;
   v6Enter = function (name, view) { _v6Enter8(name, view); if (name === "overview") ov8render(); };
+  /* v10genui start */
+  // V10 · Ask the data. A question in plain words is answered with the Overview's own components (KPI tiles, the 12-month line,
+  // ranked bars, crossover routes, a table) and the filters to match. Claude, through the artifact's sample capability, picks the
+  // components by calling page tools; every tool input is normalised and checked against its schema before anything renders, and
+  // every figure comes from OVD/ovdCalc, never from the model. Where Claude isn't available (GitHub Pages, declined, an error) a
+  // deterministic phrase matcher answers instead. Nothing here runs outside V10.
+  var ov10Open = null;
+  function ov10Btn() { return '<button type="button" class="ov10-askb" data-ov10-ask aria-controls="ov10ask" aria-expanded="' + !!(typeof OV10 !== "undefined" && OV10.open) + '"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M10 2.5l1.6 4.3a2.5 2.5 0 0 0 1.5 1.5l4.4 1.7-4.4 1.6a2.5 2.5 0 0 0-1.5 1.5L10 17.5l-1.6-4.4a2.5 2.5 0 0 0-1.5-1.5L2.5 10l4.4-1.7a2.5 2.5 0 0 0 1.5-1.5z" fill="currentColor"/></svg><span>Ask the data</span></button>'; }
+  var OV10 = { open: false, turns: [], busy: null, mode: "checking", sample: null, tools: true, err: 0 };
+  if (FOCUS10) (function () {
+    var RANGES = ["30D", "90D", "12M"], BIZE = ["All"].concat(OV8_BIZ), RL = { "30D": "Last 30 days", "90D": "Last 90 days", "12M": "Last 12 months" };
+    var MON = OV8_MON, fmt = ov8inr, MAXC = 3;
+    var bizL = function (b) { return b === "All" ? "All businesses" : OV8_BN[b]; };
+    var desc = function (a, b) { return b.v - a.v; };
+    var scaleOf = function (r) { return { "30D": 0.36, "90D": 1, "12M": 3.6 }[r] || 1; };
+    var fbOf = function (b) { return OV8_BIZ.filter(function (x) { return b === "All" || b === x; }); };
+
+    // ---------- the catalog: what each component can show ----------
+    var MET = { // KPI tiles. p: the period the figure covers ("range" = follows the range filter)
+      active_prospects: { tab: "prospects", l: "Active prospects", p: "range", v: function (C) { return fmt(C.active); }, f: "Unique people active in the period" },
+      reachable: { tab: "prospects", l: "Reachable", p: "range", v: function (C) { return C.reach + "%"; }, f: "Consented, verified, adult" },
+      conversion_90d: { tab: "prospects", l: "90-day conversion", p: "range", v: function (C) { return C.conv.toFixed(1) + "%"; }, f: "Enquiry to enrolment" },
+      median_days_to_enrol: { tab: "prospects", l: "Median days to enrol", p: "range", v: function (C) { return String(C.med); }, f: "Opportunity created to enrolment" },
+      new_paid_learners: { tab: "learners", l: "New learners, paid", p: "range", v: function (C) { return fmt(C.npS); }, f: "First paid enrolment" },
+      total_learners: { tab: "learners", l: "Total learners", p: "All time", v: function (C) { return fmt(C.tAll); }, f: "Active plus past" },
+      active_learners: { tab: "learners", l: "Active learners", p: "All time", v: function (C) { return fmt(C.tAct); }, f: "Not completed yet" },
+      past_learners: { tab: "learners", l: "Past learners", p: "All time", v: function (C) { return fmt(C.tPast); }, f: "Completed or left" },
+      free_course_learners: { tab: "learners", l: "Free course", p: "All time", v: function (C) { return fmt(C.tl9("free")); }, f: "Counted on their own" },
+      self_paced_learners: { tab: "learners", l: "Self-paced", p: "All time", v: function (C) { return fmt(C.tl9("self")); }, f: "Counted on their own" },
+      certificates_all_time: { tab: "learners", l: "Certificates issued", p: "All time", v: function (C) { return fmt(C.cAll9); }, f: "Since launch" },
+      certificates_12m: { tab: "learners", l: "Certificates, past 12 months", p: "Past 12 months", v: function (C) { return fmt(C.cY9); }, f: "Up 35% on last year" },
+      certificates_per_100: { tab: "learners", l: "Certificates per 100 learners", p: "All time", v: function (C) { return String(C.per100); }, f: "A learner with two counts twice" }
+    };
+    var TRD = { // the 12-month line
+      new_paid_learners: { l: "New paid learners per month", t: "new paid learners", d: function (C) { return C.NPM; }, step: 5, sel: ".ov9-hero2" },
+      certificates_issued: { l: "Certificates issued per month", t: "certificates issued", d: function (C) { return C.CE9; }, step: 2, sel: "#ov8h-lcert9" }
+    };
+    var areas = function () { return OVD.T1.concat(OVD.T2); }, mom = function (a) { return OVD.DMOM[a] || 0; };
+    var momT = function (m) { return m > 0 ? "↑ " + m + "%" : m < 0 ? "↓ " + Math.abs(m) + "%" : "Flat"; };
+    var RNK = { // ranked bars. b: follows the business filter; r: follows the range filter
+      top_programmes: { tab: "learners", l: "Top enrolled programmes", s: "Paid enrolments, all time", b: 1, sel: "#ov8h-ltop", rows: function (q) { return OVD.TP.filter(function (p) { return q.biz === "All" || p[1] === q.biz; }).map(function (p) { return { label: p[0], sub: OV8_BN[p[1]], v: p[2] * 100, display: fmt(p[2] * 100) }; }).sort(desc); } },
+      programme_area_share: { tab: "prospects", l: "Demand by programme area", s: "Share of prospects", sel: "#ov8h-pdemand", rows: function () { return areas().map(function (t) { return { label: t[0], v: t[1], display: t[1] + "%" }; }).sort(desc); } },
+      programme_area_change: { tab: "prospects", l: "Rising and falling interests", s: "12-month change in share of prospects", sel: "#ov8h-pdemand", signed: 1, rows: function () { return areas().filter(function (t) { return t[0] !== "Other"; }).map(function (t) { var m = mom(t[0]); return { label: t[0], v: Math.abs(m), m: m, display: momT(m), c: m >= 5 ? OV8_UP : m <= -5 ? OV8_ROSE : OV8_FLAT }; }).sort(function (a, b) { return b.m - a.m; }); } },
+      channel_conversion: { tab: "prospects", l: "Conversion by channel", s: "Enquiry to enrolment", sel: "#ov8h-pqual", rows: function () { return OVD.BUB.map(function (b) { return { label: b[0], v: b[2], display: b[2] + "%", c: OV8_CHC[b[0]] }; }).sort(desc); } },
+      channel_prospects: { tab: "prospects", l: "Prospects by channel", r: 1, sel: "#ov8h-pqual", rows: function (q) { return OVD.BUB.map(function (b) { return { label: b[0], v: b[1] * 1000 * scaleOf(q.range), display: fmt(b[1] * 1000 * scaleOf(q.range)), c: OV8_CHC[b[0]] }; }).sort(desc); } },
+      channel_share: { tab: "prospects", l: "Channel mix now", s: "Share of new prospects, now and a year ago", sel: "#ov8h-pmix", rows: function () { return OVD.CH.map(function (c) { return { label: c[0], v: c[2], display: c[2] + "%", sub: "a year ago " + c[1] + "%", c: OV8_CHC[c[0]] }; }).sort(desc); } },
+      business_active_share: { tab: "prospects", l: "Currently active, by business", s: "Active prospects as a share of overall prospects", b: 1, max: 100, sel: "#ov8h-pfun", rows: function (q) { return fbOf(q.biz).map(function (b) { return { label: OV8_BN[b], v: OVD.ACT9[b], display: OVD.ACT9[b] + "%", c: OV8_BC[b] }; }).sort(desc); } },
+      business_enquiries: { tab: "prospects", l: "Enquiries, by business", b: 1, r: 1, sel: "#ov8h-pfun", rows: function (q) { return fbOf(q.biz).map(function (b) { var v = OVD.FUN[b][0] * scaleOf(q.range); return { label: OV8_BN[b], v: v, display: fmt(v), c: OV8_BC[b] }; }).sort(desc); } },
+      business_enrolments: { tab: "prospects", l: "Enrolments, by business", b: 1, r: 1, sel: "#ov8h-pfun", rows: function (q) { return fbOf(q.biz).map(function (b) { var v = OVD.FUN[b][3] * scaleOf(q.range); return { label: OV8_BN[b], v: v, display: fmt(v), c: OV8_BC[b] }; }).sort(desc); } },
+      business_conversion: { tab: "prospects", l: "90-day conversion, by business", s: "Enquiry to enrolment", b: 1, sel: ".ov8-hero", rows: function (q) { return fbOf(q.biz).map(function (b) { var c = ovdCalc({ range: q.range, biz: b }).conv; return { label: OV8_BN[b], v: c, display: c.toFixed(1) + "%", c: OV8_BC[b] }; }).sort(desc); } },
+      life_stage: { tab: "prospects", l: "Life stage, by business", s: "Share of prospects in each business", b: 1, sel: "#ov8h-pstage", rows: function (q) { return fbOf(q.biz).map(function (b) { var r = OVD.PST[b], v = [r[0], r[1] + r[2], r[3], r[4], r[5]], m = v.indexOf(Math.max.apply(null, v)); return { label: OV8_BN[b], v: v[m], display: v[m] + "%", sub: "Mostly " + STG[m].toLowerCase(), parts: v }; }); } }
+    };
+    var STG = ["School", "UG student", "Early career, 0 to 3 yrs", "Mid career, 3 to 8 yrs", "Senior, 8 yrs plus"], STGC = [OV8_ORD[0], OV8_ORD[1], OV8_ORD[3], OV8_ORD[4], OV8_ORD[5]];
+    var XFROM = ["WP learners", "WP alumni", "Internshala trainees", "SA alumni", "KH learners", "LC learners"];
+    var TBL = { // tables: the same columns the dashboard's Table views use
+      funnel: { tab: "prospects", l: "From enquiry to enrolment", b: 1, r: 1, sel: "#ov8h-pfun" },
+      business_summary: { tab: "prospects", l: "Businesses side by side", b: 1, r: 1, sel: "#ov8h-pfun" },
+      channels: { tab: "prospects", l: "Channels", r: 1, sel: "#ov8h-pqual" },
+      programme_areas: { tab: "prospects", l: "Demand by programme area", sel: "#ov8h-pdemand" },
+      crossover_prospects: { tab: "prospects", l: "Crossover: now enquiring elsewhere", r: 1, sel: "#ov8h-pcross" },
+      crossover_learners: { tab: "learners", l: "Crossover: enrolled in another business", r: 1, sel: "#ov8h-lcross9" },
+      new_paid_by_month: { tab: "learners", l: "New paid learners per month", b: 1, sel: ".ov9-hero2" },
+      certificates_by_month: { tab: "learners", l: "Certificates issued per month", b: 1, sel: "#ov8h-lcert9" },
+      top_programmes: { tab: "learners", l: "Top enrolled programmes", b: 1, sel: "#ov8h-ltop" },
+      life_stage: { tab: "prospects", l: "Life stage, by business", b: 1, sel: "#ov8h-pstage" }
+    };
+
+    // ---------- the tools Claude may call: one per component, plus a proposal to change the dashboard's filters ----------
+    var pR = { type: "string", enum: RANGES, description: "Time range. Omit to use the dashboard's current range." };
+    var pB = { type: "string", enum: BIZE, description: "Business. Omit to use the dashboard's current business." };
+    var TOOLS = {
+      show_kpis: { c: "kpi_tiles", d: "Show 1 to 4 headline figures as KPI tiles. Returns the exact values shown.",
+        s: { type: "object", properties: { metrics: { type: "array", items: { type: "string", enum: Object.keys(MET) }, minItems: 1, maxItems: 4 }, range: pR, business: pB }, required: ["metrics"], additionalProperties: false } },
+      show_trend: { c: "trend_chart", d: "Show a line chart of one figure per month for the past 12 months (Dec to Nov). Returns the monthly values shown.",
+        s: { type: "object", properties: { metric: { type: "string", enum: Object.keys(TRD) }, business: pB }, required: ["metric"], additionalProperties: false } },
+      show_ranking: { c: "ranking_bars", d: "Show a ranked bar chart of one dimension. Returns the rows shown, largest first.",
+        s: { type: "object", properties: { dimension: { type: "string", enum: Object.keys(RNK) }, range: pR, business: pB, limit: { type: "integer", minimum: 3, maximum: 10 } }, required: ["dimension"], additionalProperties: false } },
+      show_crossover: { c: "crossover_flow", d: "Show crossover routes: people who moved from one upGrad business to another. audience prospects = now enquiring in another business; learners = enrolled in another business. Optional from (a source group) and to (a business) narrow the routes. Returns the routes shown.",
+        s: { type: "object", properties: { audience: { type: "string", enum: ["prospects", "learners"] }, from: { type: "string", enum: XFROM }, to: { type: "string", enum: OV8_BIZ }, range: pR }, required: ["audience"], additionalProperties: false } },
+      show_table: { c: "data_table", d: "Show a dataset as a table, for comparisons across many rows. Returns the rows shown.",
+        s: { type: "object", properties: { dataset: { type: "string", enum: Object.keys(TBL) }, range: pR, business: pB }, required: ["dataset"], additionalProperties: false } },
+      propose_filters: { c: "action", d: "Offer the viewer a button that sets the dashboard's own tab, range and business. Nothing changes until they press it. Only when they ask to change or apply the view.",
+        s: { type: "object", properties: { tab: { type: "string", enum: ["prospects", "learners"] }, range: { type: "string", enum: RANGES }, business: { type: "string", enum: BIZE } }, additionalProperties: false } }
+    };
+
+    // ---------- normalise, then validate (a JSON Schema subset: type, enum, required, properties, additionalProperties, items, min/max) ----------
+    var ALIAS = {
+      business: { "all": "All", "all businesses": "All", "every business": "All", "wp": "WP", "working professionals": "WP", "working professional": "WP", "sa": "SA", "study abroad": "SA", "kh": "KH", "knowledgehut": "KH", "knowledge hut": "KH", "international": "International", "intl": "International", "lc": "LC", "learning centres": "LC", "learning centers": "LC", "learning centre": "LC", "internshala": "Internshala" },
+      range: { "30d": "30D", "30 days": "30D", "last 30 days": "30D", "month": "30D", "1m": "30D", "90d": "90D", "90 days": "90D", "last 90 days": "90D", "quarter": "90D", "3m": "90D", "12m": "12M", "12 months": "12M", "last 12 months": "12M", "year": "12M", "1y": "12M" }
+    };
+    ALIAS.to = ALIAS.business;
+    function norm(sch, v, key) {
+      if (v === null) return undefined;
+      if (sch.type === "object" && v && typeof v === "object" && !Array.isArray(v)) { var o = {}; Object.keys(v).forEach(function (k) { var ps = sch.properties && sch.properties[k], n = ps ? norm(ps, v[k], k) : v[k]; if (n !== undefined) o[k] = n; }); return o; }
+      if (sch.type === "array") { var a = Array.isArray(v) ? v : typeof v === "string" ? v.split(/\s*,\s*/) : v; if (!Array.isArray(a)) return a; a = a.map(function (x) { return norm(sch.items, x, key); }); return a.filter(function (x, i) { return a.indexOf(x) === i; }); }
+      if (sch.type === "integer" && typeof v === "string" && /^\s*-?\d+\s*$/.test(v)) return parseInt(v, 10);
+      if (sch.type === "string" && typeof v === "string" && sch.enum) {
+        var t = v.trim(), lo = t.toLowerCase(), al = ALIAS[key] && ALIAS[key][lo]; if (al) return al;
+        var hit = sch.enum.filter(function (e) { return e.toLowerCase() === lo || e.toLowerCase() === lo.replace(/[\s-]+/g, "_"); })[0]; return hit || t;
+      }
+      return v;
+    }
+    function check(sch, v, path, errs) {
+      var t = sch.type;
+      if (t === "object") {
+        if (!v || typeof v !== "object" || Array.isArray(v)) { errs.push(path + " must be an object"); return errs; }
+        (sch.required || []).forEach(function (k) { if (v[k] === undefined) errs.push(path + "." + k + " is required"); });
+        Object.keys(v).forEach(function (k) { var ps = sch.properties && sch.properties[k]; if (ps) check(ps, v[k], path + "." + k, errs); else if (sch.additionalProperties === false) errs.push(path + "." + k + " is not allowed (allowed: " + Object.keys(sch.properties || {}).join(", ") + ")"); });
+      } else if (t === "array") {
+        if (!Array.isArray(v)) { errs.push(path + " must be an array"); return errs; }
+        if (sch.minItems && v.length < sch.minItems) errs.push(path + " needs at least " + sch.minItems + " item" + (sch.minItems > 1 ? "s" : ""));
+        if (sch.maxItems && v.length > sch.maxItems) errs.push(path + " takes at most " + sch.maxItems + " items");
+        v.forEach(function (x, i) { check(sch.items, x, path + "[" + i + "]", errs); });
+      } else if (t === "string") {
+        if (typeof v !== "string") errs.push(path + " must be a string");
+        else if (sch.enum && sch.enum.indexOf(v) < 0) errs.push(path + ' "' + v + '" is not one of: ' + sch.enum.join(", "));
+      } else if (t === "integer") {
+        if (typeof v !== "number" || Math.floor(v) !== v) errs.push(path + " must be a whole number");
+        else if ((sch.minimum !== undefined && v < sch.minimum) || (sch.maximum !== undefined && v > sch.maximum)) errs.push(path + " must be between " + sch.minimum + " and " + sch.maximum);
+      }
+      return errs;
+    }
+    // A tool call becomes a spec the renderer understands, or an error naming every problem.
+    function toSpec(tool, input) {
+      var T = TOOLS[tool]; if (!T) return { errs: ["Unknown tool " + tool + ". Tools: " + Object.keys(TOOLS).join(", ")] };
+      var v = norm(T.s, input || {}, ""), errs = check(T.s, v, "input", []);
+      if (errs.length) return { errs: errs };
+      var sp = { c: T.c, range: v.range || OV8.range, biz: v.business || OV8.biz };
+      if (T.c === "kpi_tiles") sp.metrics = v.metrics;
+      if (T.c === "trend_chart") sp.metric = v.metric;
+      if (T.c === "ranking_bars") { sp.dim = v.dimension; if (v.limit) sp.limit = v.limit; }
+      if (T.c === "crossover_flow") { sp.aud = v.audience; if (v.from) sp.from = v.from; if (v.to) sp.to = v.to; sp.biz = "All"; }
+      if (T.c === "data_table") sp.ds = v.dataset;
+      if (T.c === "action") { sp = { c: "action", tab: v.tab || OV8.tab, range: v.range || OV8.range, biz: v.business || OV8.biz }; }
+      if (T.c === "kpi_tiles") { var tabs = sp.metrics.map(function (m) { return MET[m].tab; }); if (tabs.some(function (x) { return x !== tabs[0]; })) return { errs: ["input.metrics mixes prospect and learner figures; show them in two calls"] }; }
+      return { spec: sp };
+    }
+
+    // ---------- build: a spec becomes a card (title, filters line, body), the figures it shows, a caption and where it lives on the dashboard ----------
+    function cross(sp) {
+      var all = sp.aud === "learners" ? OVD.XL : OVD.XP, sc = scaleOf(sp.range), tot = all.reduce(function (a, r) { return a + r[2]; }, 0);
+      var rows = all.filter(function (r) { return (!sp.from || r[0] === sp.from) && (!sp.to || (OV9X_DC[r[1]] || r[1]) === sp.to); }).slice().sort(function (a, b) { return b[2] - a[2]; });
+      return { rows: rows, tot: tot, sc: sc, pc: function (v) { return Math.round(v / tot * 100) + "%"; } };
+    }
+    function build(sp) {
+      var q = { range: sp.range, biz: sp.biz }, C = ovdCalc(q), rl = RL[sp.range], bl = bizL(sp.biz), o = { sub: rl + " · " + bl, data: {} };
+      if (sp.c === "kpi_tiles") {
+        var ms = sp.metrics.map(function (m) { var d = MET[m]; return { m: m, l: d.l, v: d.v(C), f: d.f, p: d.p === "range" ? rl : d.p }; });
+        o.tab = MET[sp.metrics[0]].tab; o.title = ms.length === 1 ? ms[0].l : (o.tab === "learners" ? "Learners" : "Prospects") + " at a glance"; o.sel = o.tab === "learners" ? ".ov9-hero2" : ".ov8-hero";
+        if (sp.metrics[0].indexOf("certificates") === 0) o.sel = "#ov8h-lcert9";
+        o.body = ov8tiles(ms.map(function (x) { return [x.l, x.v, x.p + " · " + x.f]; }));
+        o.data = { business: bl, figures: ms.map(function (x) { return { figure: x.l, value: x.v, period: x.p }; }) };
+        o.cap = ms.slice(0, 2).map(function (x) { return x.l + ": " + x.v + (x.p === rl || x.l.toLowerCase().indexOf(x.p.toLowerCase()) >= 0 ? "" : " (" + x.p.toLowerCase() + ")"); }).join(". ") + ".";
+        if (ms.every(function (x) { return x.p !== rl; })) o.sub = bl;
+      } else if (sp.c === "trend_chart") {
+        var T = TRD[sp.metric], vals = T.d(C), mx = Math.ceil(Math.max.apply(null, vals) / T.step) * T.step, X = vals.map(function (v, i) { return i / 11; }), sum = vals.reduce(function (a, v) { return a + v; }, 0);
+        o.tab = "learners"; o.title = T.l; o.sub = "Past 12 months · " + bl; o.sel = T.sel;
+        o.body = ov8line({ label: T.l + ", the past 12 months", h: 170, yMax: mx, yTicks: [0, mx / 2, mx], yFmt: function (t) { return t ? t + "K" : "0"; }, xTicks: [[0, MON[0]], [3 / 11, MON[3]], [6 / 11, MON[6]], [9 / 11, MON[9]], [1, MON[11]]],
+          series: [{ c: OV8_ACC, x: X, y: vals, area: true }], hx: X, hlines: function (i) { return [fmt(vals[i] * 1000) + " " + T.t, MON[i] + (i ? " 2026" : " 2025")]; } });
+        var hi = vals.indexOf(Math.max.apply(null, vals)), lo = vals.indexOf(Math.min.apply(null, vals));
+        o.data = { business: bl, months: MON.map(function (m, i) { return m + ": " + fmt(vals[i] * 1000); }), past_12_months_total: fmt(sum * 1000), highest: MON[hi] + " " + fmt(vals[hi] * 1000), lowest: MON[lo] + " " + fmt(vals[lo] * 1000) };
+        if (fmt(vals[11] * 1000) === fmt(vals[hi] * 1000)) hi = 11; // a tie after rounding counts as the latest month
+        o.cap = fmt(vals[11] * 1000) + " " + T.t + " in Nov, " + (hi === 11 ? "the highest month of the year" : "against a high of " + fmt(vals[hi] * 1000) + " in " + MON[hi]) + ". " + fmt(sum * 1000) + " over the past 12 months.";
+      } else if (sp.c === "ranking_bars") {
+        var R = RNK[sp.dim], rows = R.rows(q), lim = sp.limit || (sp.dim === "programme_area_change" ? 9 : 8), shown = rows.slice(0, lim);
+        o.tab = R.tab; o.title = R.l; o.sel = R.sel; o.sub = (R.s ? R.s + " · " : "") + (R.r ? rl : sp.dim === "top_programmes" ? "" : "") + (R.b ? (R.r ? " · " : "") + bl : "");
+        o.sub = [R.s, R.r ? rl : "", R.b ? bl : ""].filter(Boolean).join(" · ");
+        if (sp.dim === "life_stage") {
+          o.body = ov8leg(STG.map(function (s, i) { return [s, STGC[i]]; })) + ov8segs(rows.map(function (r) { return { label: r.label, tail: r.sub.replace(/, \d.*$/, "") + " · " + r.display, segs: r.parts.map(function (v, i) { return { v: v, c: STGC[i], name: STG[i] }; }) }; }));
+          o.data = { rows: rows.map(function (r) { return { business: r.label, shares: STG.map(function (s, i) { return s + " " + r.parts[i] + "%"; }).join(", ") }; }) };
+          o.cap = rows.map(function (r) { return r.label + " is " + r.sub.toLowerCase().replace(/, \d.*$/, "") + " (" + r.display + ")"; }).slice(0, 2).join("; ") + ".";
+        } else {
+          var mxv = R.max || Math.max.apply(null, shown.map(function (r) { return r.v; }));
+          if (shown.some(function (r) { return (r.label + (r.sub ? " " + r.sub : "")).length > 24; })) o.cls = "ov10-stk"; // long names: label above the bar
+          o.body = ov8hbars(shown.map(function (r, i) { return { label: r.label, sub: r.sub, v: r.v, display: r.display, c: r.c || (i ? OV8_MUTE : OV8_ACC), tip: r.label + (r.sub ? " · " + r.sub : "") }; }), mxv);
+          o.data = { rows: shown.map(function (r) { return r.label + ": " + r.display + (r.sub ? " (" + r.sub + ")" : ""); }) };
+          if (rows.length > shown.length) o.data.not_shown = rows.length - shown.length + " more";
+          var a = shown[0], b = shown[1], z = shown[shown.length - 1];
+          o.cap = R.signed ? a.label + " is rising fastest (" + a.display + ")" + (z.m < 0 ? "; " + z.label + " is falling most (" + z.display + ")" : "") + "." : a.label + " leads with " + a.display + (b ? ", then " + b.label + " (" + b.display + ")" : "") + ".";
+        }
+      } else if (sp.c === "crossover_flow") {
+        var X0 = cross(sp), learn = sp.aud === "learners", did = learn ? " enrolled in " : " now enquiring in ";
+        if (!X0.rows.length) return null;
+        o.tab = learn ? "learners" : "prospects"; o.title = learn ? "Crossover: enrolled in another business" : "Crossover: now enquiring elsewhere"; o.sub = rl + " · people who moved, each counted once"; o.sel = learn ? "#ov8h-lcross9" : "#ov8h-pcross";
+        var top = X0.rows[0], moved = X0.rows.reduce(function (a2, r) { return a2 + r[2]; }, 0);
+        o.route = X0.rows.length === 1 ? top : null; o.cls = "ov10-stk";
+        var all = ["People who moved", fmt(X0.tot * X0.sc), "to another upGrad business, all routes"]; // one route: that route and all moves; several: their total and the biggest
+        o.body = ov8tiles(X0.rows.length === 1 && (sp.from || sp.to) ? [["On this route", fmt(moved * X0.sc), X0.pc(moved) + " of all moves"], all] : (sp.from || sp.to ? [["On these routes", fmt(moved * X0.sc), X0.pc(moved) + " of all moves"]] : [all]).concat([["Biggest route", fmt(top[2] * X0.sc), top[0] + " → " + ov9xdn(top[1])]])) +
+          '<p class="ov8-mini">Routes, largest first</p>' + ov8hbars(X0.rows.map(function (r, i) { return { label: r[0], sub: "→ " + ov9xdn(r[1]), v: r[2], display: fmt(r[2] * X0.sc), c: i ? "#C9C1E6" : "#8E7FD0", tip: X0.pc(r[2]) + " of all moves · " + r[0] + " → " + ov9xdn(r[1]) }; }), top[2]);
+        o.data = { all_moves: fmt(X0.tot * X0.sc), routes: X0.rows.map(function (r) { return r[0] + " → " + ov9xdn(r[1]) + ": " + fmt(r[2] * X0.sc) + " people, " + X0.pc(r[2]) + " of all moves"; }) };
+        o.cap = (sp.from || sp.to) && X0.rows.length > 1 ? fmt(moved * X0.sc) + " people on these routes, " + X0.pc(moved) + " of all moves. The biggest is " + top[0] + " to " + ov9xdn(top[1]) + " (" + fmt(top[2] * X0.sc) + ")." :
+          (X0.rows.length === 1 && (sp.from || sp.to) ? fmt(top[2] * X0.sc) + " " + top[0] + did + ov9xdn(top[1]) + ", " + X0.pc(top[2]) + " of all moves." : "The biggest move is " + top[0] + " to " + ov9xdn(top[1]) + ": " + fmt(top[2] * X0.sc) + " people, " + X0.pc(top[2]) + " of all moves.");
+      } else if (sp.c === "data_table") {
+        var D = TBL[sp.ds], t = table(sp.ds, q); o.tab = D.tab; o.title = D.l; o.sel = D.sel; o.sub = [D.r ? rl : sp.ds.indexOf("month") > 0 ? "Past 12 months" : "", D.b ? bl : ""].filter(Boolean).join(" · ") || "All businesses";
+        o.body = '<div class="ov8-tbl"><table><thead><tr>' + t.head.map(function (h, i) { return "<th" + (i ? ' class="n"' : "") + ' scope="col">' + esc(h) + "</th>"; }).join("") + "</tr></thead><tbody>" + t.rows.map(function (r) { return "<tr>" + r.map(function (c, i) { return i ? '<td class="n">' + esc(c) + "</td>" : '<th scope="row">' + esc(c) + "</th>"; }).join("") + "</tr>"; }).join("") + "</tbody></table></div>";
+        o.data = { columns: t.head, rows: t.rows.map(function (r) { return r.join(" | "); }) };
+        o.cap = t.rows.length + " row" + (t.rows.length === 1 ? "" : "s") + ": " + t.rows.slice(0, 2).map(function (r) { return r[0] + " " + r[1]; }).join(", ") + (t.rows.length > 2 ? " and more" : "") + ".";
+      } else return null;
+      o.go = { tab: o.tab, range: sp.range, biz: sp.c === "crossover_flow" ? OV8.biz : sp.biz };
+      return o;
+    }
+    function table(ds, q) {
+      var sc = scaleOf(q.range), fb = fbOf(q.biz), C = ovdCalc(q), ago = function (t) { return +(t[1] / (1 + mom(t[0]) / 100)).toFixed(1); };
+      if (ds === "funnel") return { head: ["Business", "Enquired", "Counselled", "Applied or paid", "Enrolled"], rows: fb.map(function (b) { return [OV8_BN[b]].concat(OVD.FUN[b].map(function (v) { return v === null ? "Self-serve" : fmt(v * sc); })); }) };
+      if (ds === "business_summary") return { head: ["Business", "Enquired", "Enrolled", "90-day conversion", "Currently active"], rows: fb.map(function (b) { return [OV8_BN[b], fmt(OVD.FUN[b][0] * sc), fmt(OVD.FUN[b][3] * sc), ovdCalc({ range: q.range, biz: b }).conv.toFixed(1) + "%", OVD.ACT9[b] + "%"]; }) };
+      if (ds === "channels") return { head: ["Channel", "Prospects", "Conversion", "Share a year ago", "Share now"], rows: OVD.BUB.map(function (b, i) { return [b[0], fmt(b[1] * 1000 * sc), b[2] + "%", OVD.CH[i][1] + "%", OVD.CH[i][2] + "%"]; }) };
+      if (ds === "programme_areas") return { head: ["Programme area", "Share of prospects", "A year ago", "12-month change"], rows: areas().slice().sort(function (a, b) { return mom(b[0]) - mom(a[0]); }).map(function (t) { return [t[0], t[1] + "%", ago(t) + "%", momT(mom(t[0]))]; }) };
+      if (ds === "crossover_prospects" || ds === "crossover_learners") { var rows = ds === "crossover_learners" ? OVD.XL : OVD.XP, tot = rows.reduce(function (a, r) { return a + r[2]; }, 0); return { head: ["Our learners", ds === "crossover_learners" ? "Now learning in" : "Now enquiring in", "People", "Share"], rows: rows.slice().sort(function (a, b) { return b[2] - a[2]; }).map(function (r) { return [r[0], ov9xdn(r[1]), fmt(r[2] * sc), Math.round(r[2] / tot * 100) + "%"]; }) }; }
+      if (ds === "new_paid_by_month") return { head: ["Month", "New paid learners"], rows: C.NPM.map(function (v, i) { return [MON[i] + (i ? " 2026" : " 2025"), fmt(v * 1000)]; }).concat([["Past 12 months", fmt(C.npY)]]) };
+      if (ds === "certificates_by_month") return { head: ["Month", "Certificates"], rows: C.CE9.map(function (v, i) { return [MON[i] + (i ? " 2026" : " 2025"), fmt(v * 1000)]; }).concat([["Past 12 months", fmt(C.cY9)], ["All time", fmt(C.cAll9)]]) };
+      if (ds === "top_programmes") return { head: ["Programme", "Business", "Overall"], rows: RNK.top_programmes.rows(q).map(function (r) { return [r.label, r.sub, r.display]; }) };
+      if (ds === "life_stage") return { head: ["Business"].concat(STG), rows: RNK.life_stage.rows(q).map(function (r) { return [r.label].concat(r.parts.map(function (v) { return v + "%"; })); }) };
+      return { head: [], rows: [] };
+    }
+
+    // ---------- the offline answer: a deterministic phrase matcher over the same catalog ----------
+    var BRE = [["Internshala", "internshala"], ["KH", "knowledge ?hut|kh"], ["SA", "study abroad|sa|abroad"], ["LC", "learning cent(?:re|er)s?|lc"], ["International", "international|intl"], ["WP", "working professionals?|wp"]];
+    function parse(text) {
+      var s = " " + String(text || "").toLowerCase().replace(/[’']/g, "").replace(/[^a-z0-9%&.\s-]/g, " ").replace(/\s+/g, " ") + " ", has = function (re) { return re.test(s); };
+      var biz = null; BRE.forEach(function (b) { if (!biz && new RegExp("\\b(?:" + b[1] + ")\\b").test(s)) biz = b[0]; });
+      if (!biz && has(/\ball businesses\b|\bevery business\b/)) biz = "All";
+      var range = has(/30 ?d(ays)?|last month|this month|past month|1 month/) ? "30D" : has(/90 ?d(ays)?|quarter|3 months/) ? "90D" : has(/12 ?m(onths)?|year|annual|12-month/) ? "12M" : null;
+      var area = has(/programme areas?|subject areas?/), learnW = /learner|enrol(l)?ed|certif|paid|alumni|programmes?|courses?/.test(s.replace(/programme areas?/g, " ")), prosW = has(/prospect|enquir|inquir|lead|conver|channel|demand|interest|funnel/);
+      var tab = learnW && !prosW ? "learners" : prosW && !learnW ? "prospects" : has(/\blearners?\b/) ? "learners" : has(/\bprospects?\b/) ? "prospects" : null;
+      var R = range || OV8.range, B = biz || OV8.biz, out = [], add = function (sp) { if (out.length < MAXC) out.push(sp); }, act = null;
+      var cmd = /^\s*(show|switch|set|filter|go|change|open|apply|view)\b/.test(s) && (biz || range || tab) && !has(/\b(which|what|how|why|who|top|best|most|biggest|trend|compare)\b/);
+      if (cmd) act = { c: "action", tab: tab || OV8.tab, range: R, biz: B };
+      if (has(/cross ?over|moved|move[sd]? |switched (to|business)|went (to|on)|where did .+ go\b|ended up|other business|another business|between business|route/)) {
+        var aud = has(/enrol(l)?ed|learning in|learners who/) && !has(/enquir/) ? "learners" : has(/enquir|prospect/) ? "prospects" : tab === "learners" ? "learners" : "prospects", sp = { c: "crossover_flow", aud: aud, range: R, biz: "All" };
+        // "to/into/in <business>" is where they went; any other business named is where they came from
+        var toB = null, at = 1e9; BRE.forEach(function (b) { var m = new RegExp("\\b(?:to|into|in) (?:" + b[1] + ")\\b").exec(s); if (m && m.index < at) { toB = b; at = m.index; } });
+        var s2 = toB ? s.replace(new RegExp("\\b(?:to|into|in) (?:" + toB[1] + ")\\b"), " ") : s, fromB = null;
+        BRE.forEach(function (b) { if (!fromB && new RegExp("\\b(?:" + b[1] + ")\\b").test(s2)) fromB = b[0]; });
+        var FROM = { Internshala: "Internshala trainees", KH: "KH learners", SA: "SA alumni", LC: "LC learners", WP: has(/alumni/) ? "WP alumni" : "WP learners" };
+        if (fromB && FROM[fromB]) sp.from = FROM[fromB]; if (toB) sp.to = toB[0];
+        if (cross(sp).rows.length === 0) delete sp.to; if (cross(sp).rows.length === 0) delete sp.from;
+        add(sp);
+      }
+      if (has(/certif/)) { add({ c: "kpi_tiles", metrics: ["certificates_all_time", "certificates_12m", "certificates_per_100"], range: R, biz: B }); add({ c: "trend_chart", metric: "certificates_issued", range: R, biz: B }); }
+      if (has(/new (paid )?learners|new enrol|first paid|paid learners|learners per month|monthly learners|new paid/)) { add({ c: "kpi_tiles", metrics: ["new_paid_learners"], range: R, biz: B }); add({ c: "trend_chart", metric: "new_paid_learners", range: R, biz: B }); }
+      if (has(/total learners|how many learners|active learners|past learners|self ?-?paced|free course|learners (do we|in total)/)) add({ c: "kpi_tiles", metrics: ["total_learners", "active_learners", "past_learners"], range: R, biz: B });
+      if (!area && has(/top (enrolled )?programmes?|popular|best ?sell|most enrolled|top courses|which programmes?|which courses|programmes? (do|are)/)) add({ c: "ranking_bars", dim: "top_programmes", range: R, biz: B });
+      if (has(/channel|source|paid search|social|organic|referral|affiliate|webinar|come from|marketing mix/)) {
+        if (has(/conver|quality|best|perform|worst/)) add({ c: "ranking_bars", dim: "channel_conversion", range: R, biz: "All" });
+        else if (has(/mix|share|year ago|changed|shift/)) add({ c: "ranking_bars", dim: "channel_share", range: R, biz: "All" });
+        else add({ c: "ranking_bars", dim: "channel_prospects", range: R, biz: "All" });
+      }
+      if (has(/demand|interest|programme area|subject|topic|rising|falling|growing|shrinking|\bai\b|\bmba\b|data science/)) add({ c: "ranking_bars", dim: has(/rising|falling|growing|shrinking|change|trend|momentum|fastest/) ? "programme_area_change" : "programme_area_share", range: R, biz: "All" });
+      if (has(/funnel|drop ?off|drop|counsel|step/)) add({ c: "data_table", ds: "funnel", range: R, biz: B });
+      else if (has(/conver|enrol(ment)? rate/) && !has(/channel/)) { add({ c: "kpi_tiles", metrics: ["conversion_90d", "median_days_to_enrol"], range: R, biz: B }); if (!biz) add({ c: "ranking_bars", dim: "business_conversion", range: R, biz: "All" }); }
+      if (has(/life stage|stage|school|students|early career|mid career|senior|who are|who they are/)) add({ c: "ranking_bars", dim: "life_stage", range: R, biz: B });
+      if (has(/currently active|active share|active rate/)) add({ c: "ranking_bars", dim: "business_active_share", range: R, biz: B });
+      else if (has(/active prospects|how many prospects|reach|consent|median|days to enrol|time to enrol/)) add({ c: "kpi_tiles", metrics: ["active_prospects", "reachable", "conversion_90d", "median_days_to_enrol"].filter(function (m) { return !/median|days/.test(s) || m !== "reachable"; }).slice(0, 4), range: R, biz: B });
+      if (has(/compare|by business|which business|each business|per business|across business|businesses side/) && !out.some(function (x) { return x.c === "crossover_flow" || /^business_/.test(x.dim || ""); })) add(tab === "learners" ? { c: "data_table", ds: "top_programmes", range: R, biz: "All" } : { c: "data_table", ds: "business_summary", range: R, biz: B });
+      if (!out.length && (biz || range || tab)) add({ c: "kpi_tiles", metrics: (tab || OV8.tab) === "learners" ? ["new_paid_learners", "total_learners", "certificates_all_time"] : ["active_prospects", "conversion_90d", "median_days_to_enrol"], range: R, biz: B });
+      out = out.filter(function (sp) { return build(sp); });
+      return { specs: out, action: act };
+    }
+    var SUGG = ["Which crossover route is biggest?", "How are certificates trending?", "Which channel converts best?", "Top programmes in KnowledgeHut", "Which programme areas are rising?", "New paid learners in Study Abroad, last 12 months"];
+    // ---------- the answer text: Claude's summary may only quote figures the tools returned ----------
+    function nums(s) { return (String(s).match(/\d[\d,]*(?:\.\d+)?/g) || []).map(function (x) { return x.replace(/,/g, "").replace(/\.0+$/, ""); }); }
+    function unknownNums(text, allowed) { return nums(text).filter(function (n) { return allowed.indexOf(n) < 0 && !(+n <= 12 && n.indexOf(".") < 0); }); }
+    function caption(specs) { // the first card says it; a KPI followed by its 12-month line gets one sentence from each
+      var os = specs.map(build).filter(Boolean), one = function (o) { return o.cap.split(/(?<=\.)\s/)[0]; }; if (!os.length) return "";
+      return os.length > 1 && specs[0].c === "kpi_tiles" && specs[1].c === "trend_chart" ? one(os[0]) + " " + one(os[1]) : os[0].cap; }
+    var actLabel = function (a) { return (a.tab === "learners" ? "Learners" : "Prospects") + " · " + RL[a.range] + " · " + bizL(a.biz); };
+    var HELP = "I couldn't match that to this Overview. Ask about prospects, learners, certificates, channels, programme areas or people moving between businesses.";
+    var ERR = { rate_limited: "Claude is busy for you right now. Try again in a minute.", session_expired: "Your Claude session has ended. Sign in again to ask Claude.", refused: "Claude couldn't answer that one.", empty_completion: "Claude didn't write an answer.", prompt_too_large: "This conversation got too long for Claude. Start a new one.", upstream_error: "The connection to Claude dropped." };
+    var GONE = { not_granted: 1, sampling_disabled: 1, not_declared: 1, capability_disabled: 1, capability_removed: 1 };
+
+    // ---------- Claude: present in the Claude viewer (the artifact's sample capability); absent on GitHub Pages ----------
+    var ready = new Promise(function (done) {
+      var off = function () { OV10.mode = "offline"; done(); };
+      if (!(window.claude && typeof window.claude.use === "function")) return off();
+      window.claude.use("sample").then(function (fn) {
+        if (!fn) return off();
+        OV10.sample = fn; OV10.mode = "claude";
+        if (typeof fn.limits !== "function") return done();
+        fn.limits().then(function (L) { OV10.tools = !!(L && L.tools && L.tools.maxCount >= Object.keys(TOOLS).length); done(); }, function () { OV10.tools = false; done(); });
+      }, off);
+    });
+    function prompt(q) {
+      var st = OV8, hist = OV10.turns.slice(0, -1).slice(-3).map(function (x) { return "- " + x.q + " → shown: " + (x.specs.map(function (sp) { var o = build(sp); return o ? o.title + " (" + o.sub + ")" : ""; }).filter(Boolean).join("; ") || "nothing") + (x.sum ? ". Answer: " + x.sum : ""); }).join("\n");
+      return ["You are the Ask the data panel in upGrad's Customer Intelligence prototype (sample data). Answer the viewer's question by calling the page's show_* tools: each one draws one of the dashboard's own charts in the panel and returns the exact figures it shows.",
+        "", "The dashboard is set to: " + (st.tab === "learners" ? "Learners" : "Prospects") + " tab, " + RL[st.range] + " (" + st.range + "), " + bizL(st.biz) + (st.biz === "All" ? "" : " (" + st.biz + ")") + ". Use these unless the question names another range or business.",
+        "", "What the data covers:",
+        "- Prospects (in the lead journey): active prospects, reachable %, 90-day conversion, median days to enrol; life stage by business; demand by programme area and its 12-month change; channel mix and channel conversion; the funnel (enquired, counselled, applied or paid, enrolled) by business; currently active % by business.",
+        "- Learners (paid with us): new paid learners (with 12 months of monthly values), total, active, past, free-course and self-paced learners, certificates issued, top enrolled programmes.",
+        "- Crossover: people who moved from one upGrad business to another. Prospects: now enquiring in another business. Learners: enrolled in another business.",
+        "Businesses: WP (Working Professionals), SA (Study Abroad), KH (KnowledgeHut), International, LC (Learning Centres), Internshala. Ranges: 30D, 90D, 12M.",
+        "", "Rules:",
+        "1. Call 1 to 3 show_* tools, the fewest that answer the question. One is usually enough.",
+        "2. Then write the answer: one or two plain sentences, at most 40 words. No preamble, headings or lists. Quote figures exactly as the tools returned them. Never calculate, estimate or round a new figure, and never mention a number the tools did not return.",
+        "3. If a tool returns an error, fix the input and call it once more.",
+        "4. Call propose_filters only when the viewer asks to change or apply the dashboard's view, for example \"switch to learners\" or \"filter to Study Abroad\".",
+        "5. If the question isn't about this data, call no tools and say in one sentence what you can answer."].concat(hist ? ["", "Earlier in this conversation:", hist] : []).concat(["", "Question: " + q]).join("\n");
+    }
+    function jsonPrompt(q) {
+      return prompt(q).replace(/\nRules:[\s\S]*?(?=\n\n(Earlier|Question))/, "\nReply with only JSON: {\"components\": [{\"tool\": <name>, \"input\": {...}}]}, 1 to 3 components, the fewest that answer the question. Tools:\n" +
+        Object.keys(TOOLS).map(function (k) { return "- " + k + ": " + TOOLS[k].d + " Input schema: " + JSON.stringify(TOOLS[k].s); }).join("\n") + "\nIf the question isn't about this data, reply {\"components\": []}.");
+    }
+    function viaClaude(t, el, pred) {
+      var ctl = new AbortController(), allowed = nums(t.q).concat(["2025", "2026"]), fails = {}, at = 0, last = "", used = false;
+      OV10.busy = ctl; busy(true);
+      var keepNums = function (o) { allowed.push.apply(allowed, nums(JSON.stringify(o))); };
+      var done = function () { end(el, t); };
+      var fall = function (note) { var a = t.specs.length || t.action; if (!a) { t.specs = pred.specs; t.action = pred.action; t.by = "offline"; } t.sum = t.specs.length ? caption(t.specs) : pred.action ? "" : HELP; t.note = note; };
+      if (!OV10.tools) { // the viewer can't run page tools: Claude picks components as JSON, the captions come from the data
+        status(el, "Thinking…");
+        OV10.sample.json(jsonPrompt(t.q), { modelTier: "quick", signal: ctl.signal }).then(function (v) {
+          (v && Array.isArray(v.components) ? v.components : []).forEach(function (c) { var r = c && toSpec(String(c.tool), c.input); if (!r || !r.spec) return; if (r.spec.c === "action") t.action = r.spec; else if (t.specs.length < MAXC && build(r.spec)) t.specs.push(r.spec); });
+          t.by = "claude"; if (!t.specs.length && !t.action) fall("Claude's choice didn't pass the check, so this is the offline answer."); else t.sum = caption(t.specs);
+          done();
+        }, function (e) { var c = e && e.code || "upstream_error"; if (GONE[c]) OV10.mode = "offline"; if (c !== "cancelled") fall((GONE[c] ? "Claude isn't available here, so" : (ERR[c] || ERR.upstream_error) + " Meanwhile,") + " this is the offline answer."); else t.note = "Stopped."; t.retry = c !== "cancelled" && !GONE[c]; mode(); done(); });
+        return;
+      }
+      var tools = Object.keys(TOOLS).map(function (name) {
+        return { name: name, description: TOOLS[name].d, inputSchema: TOOLS[name].s, execute: function (input, cx) {
+          if (cx && cx.signal && cx.signal.aborted) throw new Error("Stopped by the viewer.");
+          var r = toSpec(name, input);
+          if (r.errs) { fails[name] = (fails[name] || 0) + 1; throw new Error((fails[name] > 1 ? "Still invalid, nothing was shown. Don't call " + name + " again; answer with what is shown. " : "Invalid input, nothing was shown. Fix it and call " + name + " again. ") + r.errs.join("; ")); }
+          used = true; at = last.length;
+          if (r.spec.c === "action") { t.action = r.spec; paintTurn(el, t, true); return { shown: "A button that sets the dashboard to " + actLabel(r.spec) + ". Nothing changes until the viewer presses it." }; }
+          if (t.specs.length >= MAXC) throw new Error("Nothing was shown: at most " + MAXC + " charts per answer. Write the answer now.");
+          var o = build(r.spec); if (!o) throw new Error("Nothing was shown: no crossover route matches. Routes run from " + XFROM.join(", ") + ".");
+          t.specs.push(r.spec); paintTurn(el, t, true); scroll(); status(el, "Drawing " + o.title.toLowerCase() + "…"); keepNums(o.data);
+          return { shown: o.title, filters: o.sub, figures: o.data };
+        } };
+      });
+      status(el, "Thinking…");
+      OV10.sample(prompt(t.q), { modelTier: "quick", tools: tools, signal: ctl.signal, onText: function (u) { last = u.text; if (used) sumLive(el, tail(u.text, at)); } }).then(function (res) {
+        t.by = "claude";
+        var txt = used ? tail(res.text, at) : res.text.trim(), bad = unknownNums(txt, allowed);
+        if (!used && !t.action) { if (bad.length || !txt || nums(txt).length) fall("Claude answered without the data, so this is the offline answer."); else t.sum = txt; }
+        else if (!txt) t.sum = caption(t.specs);
+        else if (bad.length) { t.sum = caption(t.specs); t.note = "Claude's summary quoted a figure that isn't in these charts (" + bad.slice(0, 2).join(", ") + "), so this summary is built from the data instead."; }
+        else t.sum = txt;
+        if (res.truncated) t.note = (t.note ? t.note + " " : "") + "Claude's answer was cut short.";
+        done();
+      }, function (e) {
+        var c = e && e.code || "upstream_error", part = e && e.text && used ? tail(e.text, at) : "";
+        if (c === "cancelled") { t.by = "claude"; t.sum = part && !unknownNums(part, allowed).length ? part : caption(t.specs); t.note = "Stopped."; }
+        else if (GONE[c] || c === "tools_unavailable") { if (c === "tools_unavailable") OV10.tools = false; else OV10.mode = "offline"; fall("Claude isn't available in this view, so this is the offline answer."); mode(); }
+        else { t.retry = true; if (t.specs.length) { t.by = "claude"; t.sum = caption(t.specs); t.note = ERR[c] || ERR.upstream_error; } else fall((ERR[c] || ERR.upstream_error) + " Meanwhile, this is the offline answer."); }
+        done();
+      });
+    }
+    function tail(text, at) { var segs = String(text).slice(at).split(/\n\s*\n/).map(function (x) { return x.trim(); }).filter(Boolean); return (segs.pop() || "").replace(/^[-*#>\s]+/, "").slice(0, 400); }
+
+    // ---------- the panel ----------
+    var SPK = '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 2.5l1.6 4.3a2.5 2.5 0 0 0 1.5 1.5l4.4 1.7-4.4 1.6a2.5 2.5 0 0 0-1.5 1.5L10 17.5l-1.6-4.4a2.5 2.5 0 0 0-1.5-1.5L2.5 10l4.4-1.7a2.5 2.5 0 0 0 1.5-1.5z" fill="currentColor"/></svg>';
+    var IX = '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+    var INEW = '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4.5 10a5.5 5.5 0 1 0 1.7-4M4.5 3.5V7H8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var ISEND = '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 16V4M5 9l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var ISTOP = '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><rect x="5.5" y="5.5" width="9" height="9" rx="2" fill="currentColor"/></svg>';
+    var IGO = '<svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M5 10h10M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var P = document.createElement("aside"); P.id = "ov10ask"; P.className = "ov10-ask"; P.hidden = true; P.setAttribute("aria-labelledby", "ov10h");
+    P.innerHTML = '<header class="ov10-hd"><span class="ov10-ic">' + SPK + '</span><div class="ov10-ht"><h2 id="ov10h">Ask the data</h2><p id="ov10mode"></p></div>' +
+      '<button type="button" class="ov10-ib" data-ov10-clear title="New conversation" aria-label="Start a new conversation">' + INEW + '</button><button type="button" class="ov10-ib" data-ov10-close title="Close" aria-label="Close Ask the data">' + IX + "</button></header>" +
+      '<div class="ov8 ov10-th" id="ov10th"></div>' +
+      '<form class="ov10-in" id="ov10f" novalidate><label class="ov10-vh" for="ov10q">Ask a question about this Overview</label><div class="ov10-box"><textarea id="ov10q" rows="1" maxlength="300" placeholder="Ask about prospects, learners or crossover" autocomplete="off"></textarea>' +
+      '<button type="submit" class="ov10-send" aria-label="Send">' + ISEND + '</button></div><p class="ov10-fine">Built from this page\'s sample data. Charts are the dashboard\'s own.</p></form><span class="ov10-vh" aria-live="polite" id="ov10live"></span>';
+    $("#app").appendChild(P);
+    var TH = $("#ov10th", P), Q = $("#ov10q", P), SEND = $(".ov10-send", P);
+    function mode() { var m = $("#ov10mode", P); m.textContent = OV10.mode === "checking" ? "Connecting…" : OV10.mode === "claude" ? "Answers by Claude, from this dashboard's numbers" : "Offline answers · phrase matching"; m.className = "ov10-mode " + OV10.mode; }
+    function live(t) { var l = $("#ov10live", P); l.textContent = ""; setTimeout(function () { l.textContent = "Answer: " + (t.sum || "") + (t.specs.length ? " " + t.specs.length + " chart" + (t.specs.length > 1 ? "s" : "") + " shown." : ""); }, 60); }
+    function busy(on) { SEND.innerHTML = on ? ISTOP : ISEND; SEND.setAttribute("aria-label", on ? "Stop" : "Send"); SEND.classList.toggle("stop", on); P.classList.toggle("busy", on); }
+    function cardHTML(sp, k) {
+      var o = build(sp); if (!o) return "";
+      return '<section class="ov8-card ov10-c' + (o.cls ? " " + o.cls : "") + '" aria-label="' + esc(o.title) + '"><div class="ov8-ch"><div><h3>' + esc(o.title) + '</h3><p class="ov8-sub">' + esc(o.sub) + "</p></div></div>" + '<div class="ov8-viz">' + o.body + "</div>" +
+        '<button type="button" class="ov10-go" data-ov10-go="' + k + '">Show on dashboard' + IGO + "</button></section>";
+    }
+    function skel(c) {
+      var b = c === "kpi_tiles" ? '<div class="ov10-sk k"><i></i><i></i><i></i></div>' : c === "trend_chart" ? '<div class="ov10-sk l"><i></i></div>' : c === "data_table" ? '<div class="ov10-sk t"><i></i><i></i><i></i><i></i><i></i></div>' :
+        '<div class="ov10-sk b">' + (c === "crossover_flow" ? '<span><i></i><i></i></span>' : "") + [94, 76, 62, 48, 34].map(function (w) { return '<i style="width:' + w + '%"></i>'; }).join("") + "</div>";
+      return '<section class="ov8-card ov10-c ov10-skc" aria-hidden="true"><div class="ov10-sk h"><i></i><i></i></div>' + b + "</section>";
+    }
+    function turnHTML(t, i) {
+      var a = t.action ? '<div class="ov10-act"><div><b>Set the dashboard to</b><span>' + esc(actLabel(t.action)) + '</span></div><button type="button" data-ov10-apply="' + i + '">Apply</button></div>' : "";
+      var by = t.by === "claude" ? "Answered by Claude · figures checked against the data" : t.by === "offline" ? "Offline answer · phrase matching" : "";
+      var hlp = !t.run && !t.specs.length && !t.action ? '<div class="ov10-chips">' + SUGG.slice(0, 4).map(function (s) { return '<button type="button" data-ov10-q="' + esc(s) + '">' + esc(s) + "</button>"; }).join("") + "</div>" : "";
+      return '<article class="ov10-t' + (t.run ? " run" : "") + '" data-i="' + i + '"><p class="ov10-q">' + esc(t.q) + '</p><div class="ov10-a"><p class="ov10-st" role="status"><i aria-hidden="true"></i><span></span></p>' +
+        '<p class="ov10-sum">' + esc(t.sum || "") + "</p>" + hlp + '<div class="ov10-cs">' + t.specs.map(function (sp, k) { return cardHTML(sp, i + ":" + k); }).join("") + "</div>" + a +
+        (t.note ? '<p class="ov10-note">' + esc(t.note) + "</p>" : "") + (t.retry && OV10.mode === "claude" ? '<button type="button" class="ov10-retry" data-ov10-retry="' + i + '">Ask Claude again</button>' : "") +
+        (by && !t.run ? '<p class="ov10-by">' + by + "</p>" : "") + "</div></article>";
+    }
+    function paint() {
+      TH.innerHTML = OV10.turns.length ? OV10.turns.map(turnHTML).join("") : '<div class="ov10-empty"><span class="ov10-orb" aria-hidden="true">' + SPK + '</span><p class="ov10-lead">Ask in plain words. The answer comes back as this dashboard\'s own charts, with the filters to match.</p><p class="ov10-k">Try</p><div class="ov10-chips">' +
+        SUGG.map(function (s) { return '<button type="button" data-ov10-q="' + esc(s) + '">' + esc(s) + "</button>"; }).join("") + "</div></div>";
+    }
+    // Repaint one turn in place. While Claude works, cards it has drawn stay, and the predicted skeletons fill the rest.
+    function paintTurn(el, t, keepSk) {
+      var i = +el.getAttribute("data-i"), cs = $(".ov10-cs", el), have = $$(".ov10-c:not(.ov10-skc)", cs).length;
+      if (!t.run) { var nw = document.createElement("div"); nw.innerHTML = turnHTML(t, i); var ne = nw.firstChild, cur = $$(".ov10-c:not(.ov10-skc)", el); // drawn cards keep their DOM, so nothing redraws under the pointer
+        $$(".ov10-c", ne).forEach(function (c, k) { if (cur[k]) c.replaceWith(cur[k]); }); $$(".ov10-c.in", ne).forEach(function (c) { c.classList.remove("in"); }); if (el.parentNode) el.replaceWith(ne); return ne; }
+      for (var k = have; k < t.specs.length; k++) { var sk = $(".ov10-skc", cs), d = document.createElement("div"); d.innerHTML = cardHTML(t.specs[k], i + ":" + k); var c = d.firstChild; if (sk) cs.replaceChild(c, sk); else cs.appendChild(c); c.classList.add("in"); }
+      if (t.action && !$(".ov10-act", el)) { var d2 = document.createElement("div"); d2.innerHTML = turnHTML(t, i); var a2 = $(".ov10-act", d2); if (a2) cs.after(a2); }
+      return el;
+    }
+    function status(el, s) { var p = $(".ov10-st span", el); if (p) p.textContent = s; }
+    function sumLive(el, s) { var p = $(".ov10-sum", el); if (p) p.textContent = s; }
+    function scroll() { TH.scrollTop = TH.scrollHeight; }
+    function ask(q) {
+      q = String(q || "").replace(/\s+/g, " ").trim().slice(0, 300); if (!q || OV10.busy) return;
+      var t = { q: q, specs: [], action: null, sum: "", by: "", note: "", run: true }, pred = parse(q);
+      OV10.turns.push(t); while (OV10.turns.length > 12) OV10.turns.shift();
+      paint(); var el = TH.lastElementChild; status(el, OV10.mode === "checking" ? "Connecting…" : "Thinking…");
+      $(".ov10-cs", el).innerHTML = (pred.specs.length ? pred.specs : [{ c: "ranking_bars" }]).map(function (sp) { return skel(sp.c); }).join("");
+      Q.value = ""; grow(); scroll();
+      ready.then(function () {
+        mode();
+        if (OV10.mode === "claude") { viaClaude(t, el, { specs: pred.specs, action: pred.action }); return; }
+        OV10.busy = { abort: function () {} }; busy(true);
+        setTimeout(function () { // the offline answer is instant; a beat keeps the skeleton from flashing
+          t.specs = pred.specs; t.action = pred.action; t.by = "offline"; t.sum = t.specs.length ? caption(t.specs) : t.action ? "" : HELP;
+          end(el, t);
+        }, REDUCED ? 0 : 420);
+      });
+    }
+    // Every answer ends here: the turn stops running, is repainted whole (summary, notes, by-line), remembered and announced.
+    function end(el, t) { t.run = false; OV10.busy = null; busy(false); paintTurn(el, t); save(); live(t); scroll(); }
+    function grow() { Q.style.height = "auto"; Q.style.height = Math.min(120, Q.scrollHeight) + "px"; }
+
+    // ---------- open, close, remember ----------
+    function save() { try { sessionStorage.setItem("cip-ov10", JSON.stringify({ open: OV10.open, turns: OV10.turns.filter(function (t) { return !t.run; }).map(function (t) { return { q: t.q, specs: t.specs, action: t.action, sum: t.sum, by: t.by, note: t.note }; }) })); } catch (e) {} }
+    try { var sv = JSON.parse(sessionStorage.getItem("cip-ov10") || "null"); if (sv) { OV10.turns = (sv.turns || []).filter(function (t) { return t && t.q && Array.isArray(t.specs); }); OV10.open = !!sv.open; } } catch (e) {}
+    var BACK = null, onOv = function () { return /^#\/?overview\b/.test(location.hash) || (!location.hash && S.step === "app" && (TEAMS[S.team] || {}).home === "overview"); };
+    function push() { document.documentElement.classList.toggle("ov10-push", OV10.open && !P.hidden && window.innerWidth >= 1200); }
+    function show(on, q) {
+      OV10.open = on; P.hidden = !(on && onOv()); push(); save();
+      $$("[data-ov10-ask]").forEach(function (b) { b.setAttribute("aria-expanded", String(on)); });
+      if (on && !P.hidden) { BACK = BACK || document.activeElement; mode(); if (!TH.firstChild) paint(); scroll(); if (q) ask(q); else setTimeout(function () { Q.focus({ preventScroll: true }); }, 30); }
+      else if (!on) { if (OV10.busy) OV10.busy.abort(); var b = BACK, hb = $(".view:not([hidden]) [data-ov10-ask]") || $("[data-ov10-ask]"); BACK = null; (hb && hb.offsetParent ? hb : b && document.contains(b) && b.focus ? b : document.body).focus({ preventScroll: true }); } // focus goes back to the button that toggles the panel
+    }
+    ov10Open = function (q) { if (!onOv()) location.hash = "#/overview"; setTimeout(function () { show(true, q); }, onOv() ? 0 : 260); };
+    var _v6Enter10 = v6Enter;
+    v6Enter = function (name, view) { _v6Enter10(name, view); P.hidden = !(OV10.open && name === "overview"); push(); if (!P.hidden && !TH.firstChild) { paint(); scroll(); } };
+    window.addEventListener("resize", push);
+    window.addEventListener("hashchange", function () { if (!onOv()) { P.hidden = true; push(); } });
+
+    // ---------- events ----------
+    document.addEventListener("click", function (e) {
+      var b = e.target.closest && e.target.closest("[data-ov10-ask]"); if (b) { show(!OV10.open); return; }
+      if (!P.contains(e.target)) return;
+      var x = e.target.closest("[data-ov10-close],[data-ov10-clear],[data-ov10-q],[data-ov10-go],[data-ov10-apply],[data-ov10-retry]"); if (!x) return;
+      if (x.hasAttribute("data-ov10-close")) show(false);
+      else if (x.hasAttribute("data-ov10-clear")) { if (OV10.busy) OV10.busy.abort(); OV10.turns = []; save(); paint(); Q.focus(); }
+      else if (x.hasAttribute("data-ov10-q")) ask(x.getAttribute("data-ov10-q"));
+      else if (x.hasAttribute("data-ov10-retry")) { var ri = +x.getAttribute("data-ov10-retry"), rq = OV10.turns[ri].q; OV10.turns.splice(ri, 1); ask(rq); }
+      else if (x.hasAttribute("data-ov10-apply")) { var ac = OV10.turns[+x.getAttribute("data-ov10-apply")].action; goTo({ tab: ac.tab, range: ac.range, biz: ac.biz }, ".ov8-top", null); x.textContent = "Applied"; setTimeout(function () { if (x.isConnected) x.textContent = "Apply"; }, 1800); }
+      else { var kk = x.getAttribute("data-ov10-go").split(":"), sp = OV10.turns[+kk[0]].specs[+kk[1]], o = build(sp); if (o) goTo(o.go, o.sel, o.route); }
+    });
+    $("#ov10f", P).addEventListener("submit", function (e) { e.preventDefault(); if (OV10.busy) { OV10.busy.abort(); return; } ask(Q.value); });
+    Q.addEventListener("keydown", function (e) { if (e.key === "Enter" && !e.shiftKey && !e.isComposing) { e.preventDefault(); if (!OV10.busy) ask(Q.value); } });
+    Q.addEventListener("input", grow);
+    P.addEventListener("keydown", function (e) { if (e.key === "Escape" && !e.defaultPrevented && !(document.activeElement && document.activeElement.closest && document.activeElement.closest(".ov9-dd"))) { e.preventDefault(); show(false); } });
+    // Show on dashboard: set the filters, draw the dashboard, bring the card into view and mark it; a single crossover route is traced and pinned.
+    function goTo(g, sel, route) {
+      OV8.tab = g.tab; OV8.range = g.range; OV8.biz = g.biz; ov8save(); ov8hide();
+      if (!onOv()) location.hash = "#/overview"; else ov8render();
+      setTimeout(function () {
+        var root = $('.view[data-view="overview"] .ov8'), el = root && root.querySelector(sel); if (!el) return;
+        var card = el.closest(".ov8-card,.ov8-hero,.ov8-top") || el;
+        if (window.innerWidth < 1200) show(false);
+        card.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: sel === ".ov8-top" ? "start" : "center" });
+        card.classList.remove("ov10-flash"); void card.offsetWidth; card.classList.add("ov10-flash"); setTimeout(function () { card.classList.remove("ov10-flash"); }, 1900);
+        if (route) $$(".xr", card).forEach(function (r) { var b = $(".r b", r), s = $(".r small", r); if (b && s && b.textContent === route[0] && s.textContent === "→ " + ov9xdn(route[1]) && !r.classList.contains("pin")) r.click(); });
+      }, onOv() ? 40 : 320);
+    }
+    // Tooltips for the panel's charts, in the dashboard's style
+    function tip(e) {
+      var t = e.target.closest && e.target.closest("[data-tip]"); if (!t || !TH.contains(t)) { ov8hide(); return; }
+      var tp = $("#ov8tip"); if (!tp) { tp = document.createElement("div"); tp.id = "ov8tip"; tp.setAttribute("role", "tooltip"); document.body.appendChild(tp); }
+      tp.textContent = ""; t.getAttribute("data-tip").split("|").forEach(function (line, i) { var d = document.createElement(i ? "span" : "b"); d.textContent = line; tp.appendChild(d); });
+      tp.hidden = false; var r = t.getBoundingClientRect(), w = tp.offsetWidth, hh = tp.offsetHeight, ty = t.getAttribute("data-ty"), ay = ty !== null ? r.top + r.height * (+ty) / 100 : r.top, cx = r.width > 220 && e.clientX ? e.clientX : r.left + r.width / 2;
+      var x = Math.min(window.innerWidth - w - 8, Math.max(8, cx - w / 2)), y = ay - hh - (ty !== null ? 14 : 8), below = y < 8; if (below) y = ty !== null ? ay + 14 : r.bottom + 8;
+      var cb = t.closest(".ov8-card"); if (cb) { var cr = cb.getBoundingClientRect(); x = Math.max(cr.left + 8, Math.min(cr.right - w - 8, x)); }
+      tp.classList.toggle("below", below); tp.style.setProperty("--ax", Math.max(12, Math.min(w - 12, cx - x)) + "px"); tp.style.left = x + "px"; tp.style.top = y + "px";
+      $$(".ov8 .ov8-on").forEach(function (z) { if (z !== t) z.classList.remove("ov8-on"); }); t.classList.add("ov8-on");
+    }
+    TH.addEventListener("mousemove", tip); TH.addEventListener("focusin", tip); TH.addEventListener("mouseleave", ov8hide); TH.addEventListener("focusout", ov8hide); TH.addEventListener("scroll", ov8hide, { passive: true });
+
+    mode(); ready.then(mode);
+    if (OV10.open) setTimeout(function () { show(true); }, 0);
+    window.CIP10 = { parse: parse, toSpec: toSpec, build: build, check: check, norm: norm, tools: TOOLS, unknownNums: unknownNums, prompt: prompt, ask: ask, state: OV10 }; // for the prototype's own tests
+  })();
+  /* v10genui end */
 
   // Look up: loading skeleton, a source error, stale data, a way back.
   var V6BACK = null, V6HOLD = 0;
